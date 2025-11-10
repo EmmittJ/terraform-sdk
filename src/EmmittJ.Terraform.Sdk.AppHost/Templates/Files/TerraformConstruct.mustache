@@ -10,22 +10,8 @@ namespace {{Namespace}};
 {{#IsDeprecated}}
 [Obsolete("This block is deprecated.")]
 {{/IsDeprecated}}
-public class {{ClassName}} : TerraformBlock
+public class {{ClassName}} : ITerraformBlock
 {
-    public {{ClassName}}()
-    {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-{{#Properties}}
-{{#IsArgument}}
-        SetOutput("{{TerraformName}}");
-{{/IsArgument}}
-{{/Properties}}
-    }
-
 {{#Properties}}
     /// <summary>
     /// {{Description}}
@@ -36,29 +22,37 @@ public class {{ClassName}} : TerraformBlock
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
-{{#IsArgument}}
+{{#IsRequiredArgument}}
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
 {{#UseRequiredKeyword}}
-    public required {{{PropertyWrapper}}} {{Name}}
+    public required {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{{PropertyWrapper}}} {{Name}}
+    public {{{PropertyWrapper}}}? {{Name}} { get; set; }
 {{/UseNullable}}
-    {
-        get => GetRequiredOutput<{{{PropertyWrapper}}}>("{{TerraformName}}");
-        set => SetProperty("{{TerraformName}}", value);
-    }
-{{/IsArgument}}
-{{^IsArgument}}
+{{/IsRequiredArgument}}
+{{#IsOptionalArgument}}
+    // Optional argument - user may or may not set a value
 {{#UseRequiredKeyword}}
-    public required {{{PropertyWrapper}}} {{Name}}
+    public required {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{{PropertyWrapper}}}? {{Name}}
+    public {{{PropertyWrapper}}}? {{Name}} { get; set; }
 {{/UseNullable}}
-    {
-        set => SetProperty("{{TerraformName}}", value);
-    }
-{{/IsArgument}}
+{{/IsOptionalArgument}}
+{{#IsOptionalAndComputed}}
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+{{#UseRequiredKeyword}}
+    public required {{{PropertyWrapper}}} {{Name}} { get; set; } = new TerraformReferenceProperty<{{{CSharpType}}}>("", "{{TerraformName}}");
+{{/UseRequiredKeyword}}
+{{^UseRequiredKeyword}}
+    public {{{PropertyWrapper}}} {{Name}} { get; set; } = new TerraformReferenceProperty<{{{CSharpType}}}>("", "{{TerraformName}}");
+{{/UseRequiredKeyword}}
+{{/IsOptionalAndComputed}}
+{{#IsComputedAttribute}}
+    // Computed attribute - read-only reference
+    public {{{PropertyWrapper}}} {{Name}} => new TerraformReferenceProperty<{{{CSharpType}}}>("", "{{TerraformName}}");
+{{/IsComputedAttribute}}
 
 {{/Properties}}
 }
@@ -78,19 +72,6 @@ public class {{ClassName}} : {{BaseClassName}}
 {
     public {{ClassName}}(string name) : base("{{TerraformType}}", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-{{#OutputAttributes}}
-        SetOutput("{{TerraformName}}");
-{{/OutputAttributes}}
-{{#Properties}}
-{{#IsArgument}}
-        SetOutput("{{TerraformName}}");
-{{/IsArgument}}
-{{/Properties}}
     }
 
 {{#Properties}}
@@ -103,29 +84,37 @@ public class {{ClassName}} : {{BaseClassName}}
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
-{{#IsArgument}}
+{{#IsRequiredArgument}}
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
 {{#UseRequiredKeyword}}
-    public required {{{PropertyWrapper}}} {{Name}}
+    public required {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{{PropertyWrapper}}} {{Name}}
+    public {{{PropertyWrapper}}}? {{Name}} { get; set; }
 {{/UseNullable}}
-    {
-        get => GetRequiredOutput<{{{PropertyWrapper}}}>("{{TerraformName}}");
-        set => SetProperty("{{TerraformName}}", value);
-    }
-{{/IsArgument}}
-{{^IsArgument}}
+{{/IsRequiredArgument}}
+{{#IsOptionalArgument}}
+    // Optional argument - user may or may not set a value
 {{#UseRequiredKeyword}}
-    public required {{{PropertyWrapper}}} {{Name}}
+    public required {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{{PropertyWrapper}}}? {{Name}}
+    public {{{PropertyWrapper}}}? {{Name}} { get; set; }
 {{/UseNullable}}
-    {
-        set => SetProperty("{{TerraformName}}", value);
-    }
-{{/IsArgument}}
+{{/IsOptionalArgument}}
+{{#IsOptionalAndComputed}}
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+{{#UseRequiredKeyword}}
+    public required {{{PropertyWrapper}}} {{Name}} { get; set; } = new TerraformReferenceProperty<{{{CSharpType}}}>(ResourceAddress, "{{TerraformName}}");
+{{/UseRequiredKeyword}}
+{{^UseRequiredKeyword}}
+    public {{{PropertyWrapper}}} {{Name}} { get; set; } = new TerraformReferenceProperty<{{{CSharpType}}}>(ResourceAddress, "{{TerraformName}}");
+{{/UseRequiredKeyword}}
+{{/IsOptionalAndComputed}}
+{{#IsComputedAttribute}}
+    // Computed attribute - read-only reference
+    public {{{PropertyWrapper}}} {{Name}} => new TerraformReferenceProperty<{{{CSharpType}}}>(ResourceAddress, "{{TerraformName}}");
+{{/IsComputedAttribute}}
 
 {{/Properties}}
 {{#BlockTypes}}
@@ -140,21 +129,19 @@ public class {{ClassName}} : {{BaseClassName}}
     [Obsolete("This block is deprecated.")]
 {{/IsDeprecated}}
 {{#UseRequiredKeyword}}
-    public required {{{BlockPropertyType}}} {{Name}}
+    public required {{{BlockPropertyType}}} {{Name}} { get; set; } = new();
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{{BlockPropertyType}}}? {{Name}}
+    public {{{BlockPropertyType}}}? {{Name}} { get; set; } = new();
 {{/UseNullable}}
-    {
-        set => SetProperty("{{TerraformName}}", value);
-    }
 
 {{/BlockTypes}}
 {{#OutputAttributes}}
     /// <summary>
     /// {{Description}}
     /// </summary>
-    public TerraformExpression {{Name}} => this["{{TerraformName}}"];
+    // Output-only attribute - read-only reference
+    public {{{PropertyWrapper}}} {{Name}} => new TerraformReferenceProperty<{{{CSharpType}}}>(ResourceAddress, "{{TerraformName}}");
 
 {{/OutputAttributes}}
 }

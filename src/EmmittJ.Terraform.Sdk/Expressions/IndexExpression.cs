@@ -12,7 +12,7 @@ namespace EmmittJ.Terraform.Sdk;
 ///     TerraformExpression.Identifier("aws_instance.web.security_groups"),
 ///     TerraformExpression.Literal(0)
 /// );
-/// 
+///
 /// // String key: instance.tags["Name"]
 /// var keyExpr = new IndexExpression(
 ///     TerraformExpression.Identifier("instance.tags"),
@@ -53,7 +53,7 @@ internal class IndexExpression : TerraformExpression
     {
         var sourceHcl = _source.ToHcl(context);
         var indexHcl = _index.ToHcl(context);
-        
+
         return $"{sourceHcl}[{indexHcl}]";
     }
 

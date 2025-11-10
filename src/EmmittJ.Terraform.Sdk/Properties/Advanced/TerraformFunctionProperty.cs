@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// This property type provides a type-safe way to create function call expressions in Terraform.
 /// Supports Terraform's built-in functions like merge(), element(), cidrsubnet(), etc.
-/// 
+///
 /// Usage:
 /// <code>
 /// // Merge maps using merge() function
@@ -18,7 +18,7 @@ namespace EmmittJ.Terraform.Sdk;
 ///     new TerraformMap&lt;string&gt; { ["Name"] = "my-instance" }
 /// );
 /// // Generates: tags = merge(var.common_tags, { Name = "my-instance" })
-/// 
+///
 /// // Get element from list using element() function
 /// instance.SubnetId = new TerraformFunctionProperty&lt;string&gt;(
 ///     "element",
@@ -26,7 +26,7 @@ namespace EmmittJ.Terraform.Sdk;
 ///     0
 /// );
 /// // Generates: subnet_id = element(aws_subnet.main.ids, 0)
-/// 
+///
 /// // Calculate CIDR subnet
 /// subnet.CidrBlock = new TerraformFunctionProperty&lt;string&gt;(
 ///     "cidrsubnet",

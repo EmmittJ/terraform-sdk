@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <typeparam name="TValue">The expected type of the value when resolved.</typeparam>
 /// <remarks>
 /// This property type provides a type-safe way to create conditional expressions in Terraform.
-/// 
+///
 /// Usage:
 /// <code>
 /// // Conditional instance type based on environment
@@ -17,7 +17,7 @@ namespace EmmittJ.Terraform.Sdk;
 ///     TerraformExpression.Literal("t3.micro")
 /// );
 /// // Generates: instance_type = var.is_production ? "t3.large" : "t3.micro"
-/// 
+///
 /// // Using with property references
 /// instance.InstanceType = new TerraformConditionalProperty&lt;string&gt;(
 ///     someCondition,

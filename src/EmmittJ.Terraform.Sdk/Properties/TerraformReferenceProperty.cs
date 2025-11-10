@@ -82,7 +82,7 @@ public class TerraformReferenceProperty<TValue, TSource, TIndex> : TerraformProp
             // Indexed reference: source[index]
             var sourceExpr = _sourceProperty.Resolve(context);
             var indexExpr = _indexProperty.Resolve(context);
-            
+
             // Use IndexExpression for proper index access
             return TerraformExpression.Index(sourceExpr, indexExpr);
         }

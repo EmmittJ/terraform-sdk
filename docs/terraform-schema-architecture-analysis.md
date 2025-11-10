@@ -2751,3 +2751,146 @@ Blocks are **solved as a property type**:
 - ✅ `TerraformSet<TerraformBlock<T>>` for set of blocks
 - ✅ Nested blocks work via `TerraformBlock<T>` properties within nested classes
 - ✅ Completely consistent with existing property type pattern!
+
+---
+
+## Implementation Status
+
+### Phase 1: Type Hierarchy ✅ COMPLETED
+
+All core property types have been implemented in `src/EmmittJ.Terraform.Sdk/Properties/`:
+
+1. **✅ TerraformProperty<T>** (`Properties/TerraformProperty.cs`)
+   - Base class for all properties
+   - Implements `ITerraformResolvable<TerraformExpression>`
+   - Provides `Prepare()` and `Resolve()` methods
+   - Implicit conversion from `T` to `TerraformProperty<T>`
+
+2. **✅ TerraformLiteralProperty<T>** (`Properties/TerraformLiteralProperty.cs`)
+   - Stores literal values for user-settable arguments
+   - `Value` property with internal setter
+   - Implements `ITerraformLiteral<TValue>` and `ITerraformLiteral`
+   - Used for: Required Arguments, Optional Arguments
+
+3. **✅ TerraformExpressionProperty<T>** (`Properties/TerraformExpressionProperty.cs`)
+   - Wraps `TerraformExpression` with type safety
+   - Used for advanced scenarios (conditionals, functions)
+   - Implements `ITerraformExpression`
+
+4. **✅ TerraformReferenceProperty<T>** (`Properties/TerraformReferenceProperty.cs`)
+   - Pure reference to another property (no value storage)
+   - Used for: Computed Attributes, Optional+Computed defaults, Collection indexers
+   - Generates Terraform reference expressions (e.g., `aws_instance.web.id`)
+
+5. **✅ Collection Types** (`Properties/Collections/`)
+   - **TerraformList<T>**: Implements `IList<TerraformProperty<T>>`, indexer returns `TerraformReferenceProperty<T>`
+   - **TerraformMap<T>**: Implements `IDictionary<string, TerraformProperty<T>>`, key access returns `TerraformReferenceProperty<T>`
+   - **TerraformSet<T>**: Implements `ISet<TerraformProperty<T>>`, no indexer (unordered)
+   - All support LINQ, implicit conversions, and natural C# collection usage
+
+6. **✅ Block Types** (`Properties/`)
+   - **ITerraformBlock**: Marker interface for block types
+   - **TerraformBlock<T>**: Generic wrapper for nested configuration blocks
+   - Used in collections: `TerraformList<TerraformBlock<T>>` for list of blocks
+
+7. **✅ Advanced Property Helpers** (`Properties/Advanced/`)
+   - **TerraformConditionalProperty<T>**: Ternary expressions (`condition ? true : false`)
+   - **TerraformFunctionProperty<T>**: Function calls (`merge()`, `element()`, etc.)
+
+8. **✅ Expression Enhancements** (`Expressions/`)
+   - **IndexExpression**: Proper list/map indexing (`list[0]`, `map["key"]`)
+   - Updated `TerraformExpression.Index()` static factory method
+
+### Phase 2: Code Generation Templates ✅ COMPLETED
+
+Updated code generation infrastructure in `src/EmmittJ.Terraform.Sdk.AppHost/`:
+
+1. **✅ TemplateHelpers.cs** - Property Classification
+   - `PreparePropertyForTemplate()` now classifies properties into:
+     - `IsRequiredArgument`: Required=true, Optional=false, Computed=false
+     - `IsOptionalArgument`: Optional=true, Computed=false
+     - `IsOptionalAndComputed`: Optional=true, Computed=true
+     - `IsComputedAttribute`: Computed=true, Required=false, Optional=false
+   - All properties use `TerraformProperty<T>` wrapper type
+   - `PrepareBlockTypeForTemplate()` wraps blocks in `TerraformBlock<T>` or collection wrappers
+
+2. **✅ TerraformConstruct.mustache** - Template Updates
+   
+   **Property Initialization Pattern:**
+   ```csharp
+   // Required Arguments - no initializer (C# enforces user must set)
+   public required TerraformProperty<string> Ami { get; set; }
+   
+   // Optional Arguments - no initializer (may be null)
+   public TerraformProperty<string>? InstanceType { get; set; }
+   
+   // Optional+Computed - defaults to reference (not nullable)
+   public TerraformProperty<string> PrivateIp { get; set; } 
+       = new TerraformReferenceProperty<string>(ResourceAddress, "private_ip");
+   
+   // Computed Attributes - read-only reference
+   public TerraformProperty<string> Id 
+       => new TerraformReferenceProperty<string>(ResourceAddress, "id");
+   
+   // Blocks - wrapped in TerraformBlock<T>
+   public TerraformBlock<EbsBlockDevice> EbsBlockDevice { get; set; } = new();
+   public TerraformList<TerraformBlock<NetworkInterface>> NetworkInterface { get; set; } = new();
+   ```
+
+   **Key Design Decisions:**
+   - Required properties have no initializer → C# compiler enforces they must be set
+   - Optional properties have no initializer → May be null if not set
+   - Optional+Computed properties initialize to `TerraformReferenceProperty` → Not nullable, references computed value by default
+   - Computed attributes are read-only expression properties → Always return reference
+   - All property types store what the user assigns (literal, expression, or reference)
+   - Serialization logic inspects the stored property subtype to determine how to serialize
+
+### Phase 3: Serialization Logic 🚧 IN PROGRESS
+
+Next steps:
+1. Update `TerraformConstruct.Prepare()` to iterate over properties using reflection
+2. Call `Prepare()` on each property (polymorphic via `ITerraformResolvable`)
+3. Update `TerraformConstruct.Resolve()` to serialize properties:
+   - Check if property is `TerraformLiteralProperty` → extract value, serialize literal
+   - Check if property is `TerraformReferenceProperty` → call `Resolve()`, serialize reference
+   - Check if property is `TerraformExpressionProperty` → call `Resolve()`, serialize expression
+   - Check if property is collection → iterate and serialize elements
+   - Check if property is `TerraformBlock<T>` → serialize as block (no `=` operator)
+4. Remove `TerraformPropertyCollection` and `TerraformValueResolver` usage
+
+### Phase 4: Provider Regeneration 📋 TODO
+
+1. Run code generator to regenerate all provider resource/data source classes
+2. Fix any compilation errors
+3. Update base classes if needed
+
+### Phase 5: Testing 📋 TODO
+
+1. Update existing unit tests to use new property API
+2. Add property system unit tests
+3. Add integration tests for full serialization pipeline
+4. Test collection indexing behavior
+5. Update playground samples
+
+### Phase 6: Cleanup 📋 TODO
+
+1. Delete deprecated code (TerraformPropertyCollection, TerraformValueResolver)
+2. Update README.md with new usage patterns
+3. Add migration guide if needed
+
+---
+
+## Architecture Summary
+
+The implemented design achieves:
+
+✅ **Type Safety**: All properties are strongly typed with `TerraformProperty<T>`  
+✅ **Reference Semantics**: Properties return references for use in expressions  
+✅ **Compile-Time Enforcement**: Required properties use C# `required` keyword  
+✅ **Natural C# Syntax**: Implicit conversions, standard collection interfaces  
+✅ **Terraform Semantics**: Distinguishes Arguments, Attributes, Optional+Computed, Blocks  
+✅ **No Reflection During Usage**: Polymorphic resolution via `ITerraformResolvable`  
+✅ **Expression Support**: Conditionals, functions, and complex expressions  
+✅ **Collection Indexing**: Indexers return proper reference properties  
+
+This design matches the complexity of Terraform's schema system while providing a clean, type-safe C# API.
