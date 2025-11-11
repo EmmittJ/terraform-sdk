@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock : ITerraformBlock
+public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock
 {
     /// <summary>
     /// The assignment_type attribute.
     /// </summary>
     [TerraformPropertyName("assignment_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AssignmentType { get; set; }
+    public TerraformValue<string>? AssignmentType { get; set; }
 
     /// <summary>
     /// The content_hash attribute.
     /// </summary>
     [TerraformPropertyName("content_hash")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ContentHash { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "content_hash");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ContentHash { get; set; } = default!;
 
     /// <summary>
     /// The content_uri attribute.
     /// </summary>
     [TerraformPropertyName("content_uri")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ContentUri { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "content_uri");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ContentUri { get; set; } = default!;
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformPropertyName("version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
+    public TerraformValue<string>? Version { get; set; }
 
 }
 
@@ -42,35 +42,35 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock : ITerraformBlock
+public class AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -88,8 +88,8 @@ public class AzurermPolicyVirtualMachineConfigurationAssignment : TerraformResou
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -97,7 +97,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignment : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -105,7 +105,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignment : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The virtual_machine_id attribute.
@@ -113,7 +113,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignment : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     [TerraformPropertyName("virtual_machine_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VirtualMachineId { get; set; }
+    public required TerraformValue<string> VirtualMachineId { get; set; }
 
     /// <summary>
     /// Block for configuration.
@@ -123,13 +123,13 @@ public class AzurermPolicyVirtualMachineConfigurationAssignment : TerraformResou
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Configuration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformPropertyName("configuration")]
-    public TerraformList<TerraformBlock<AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock>>? Configuration { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock>>? Configuration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

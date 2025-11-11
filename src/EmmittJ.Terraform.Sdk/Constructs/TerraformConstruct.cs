@@ -57,76 +57,71 @@ public abstract class TerraformConstruct : ITerraformSerializable
 
             string terraformName = nameAttr.Name;
 
-            // Handle different property types
-            if (value is ITerraformBlock block)
+            // Handle TerraformValue<T> system
+            if (IsTerraformValue(prop.PropertyType))
             {
-                // Blocks don't use = operator, they're nested directly
-                SerializeBlock(sb, context, terraformName, block);
+                var expression = ResolveTerraformValue(value, context);
+                if (expression != null)
+                {
+                    var hcl = expression.ToHcl(context);
+                    sb.AppendLine($"{context.Indent}{terraformName} = {hcl}");
+                }
             }
-            else if (value is ITerraformCollection collection)
+            // Handle other serializable types (blocks, nested objects, etc.)
+            else if (value is ITerraformSerializable serializable)
             {
-                // Collections serialize their elements
-                SerializeCollection(sb, context, terraformName, collection);
-            }
-            else if (value is ITerraformProperty resolvable)
-            {
-                // Regular properties (literal, reference, expression)
-                SerializeProperty(sb, context, terraformName, resolvable);
+                var hcl = serializable.ToHcl(context);
+                sb.AppendLine($"{context.Indent}{terraformName} = {hcl}");
             }
         }
     }
 
     /// <summary>
-    /// Serializes a regular property (literal, reference, or expression).
+    /// Checks if a type is TerraformValue&lt;T&gt;.
     /// </summary>
-    private void SerializeProperty(System.Text.StringBuilder sb, ITerraformContext context, string name, ITerraformProperty property)
+    private static bool IsTerraformValue(Type type)
     {
-        var expression = property.Resolve(context);
-        var hcl = expression.ToHcl(context);
-        sb.AppendLine($"{context.Indent}{name} = {hcl}");
+        // Handle nullable TerraformValue<T>
+        var underlyingType = Nullable.GetUnderlyingType(type) ?? type;
+
+        return underlyingType.IsGenericType &&
+               underlyingType.GetGenericTypeDefinition() == typeof(TerraformValue<>);
     }
 
     /// <summary>
-    /// Serializes a block property.
+    /// Resolves a TerraformValue&lt;T&gt; to a TerraformExpression using reflection.
+    /// Returns null if the value has no content.
     /// </summary>
-    private void SerializeBlock(System.Text.StringBuilder sb, ITerraformContext context, string name, ITerraformBlock block)
+    [System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessage("Trimming", "IL2070",
+        Justification = "TerraformValue<T> is a known struct with consistent HasValue and Resolve methods")]
+    private static TerraformExpression? ResolveTerraformValue(object terraformValue, ITerraformContext context)
     {
-        // Blocks are nested structures without = operator
-        if (block is ITerraformProperty resolvable)
+        var valueType = terraformValue.GetType();
+
+        // Check if it has a value using the HasValue property
+        var hasValueProp = valueType.GetProperty("HasValue");
+        var hasValue = (bool)(hasValueProp?.GetValue(terraformValue) ?? false);
+
+        if (!hasValue)
         {
-            var expression = resolvable.Resolve(context);
-            var hcl = expression.ToHcl(context);
-
-            // Block syntax: name { ... }
-            sb.AppendLine($"{context.Indent}{name} {{");
-            using (context.PushIndent())
-            {
-                sb.Append(hcl);
-            }
-            sb.AppendLine($"{context.Indent}}}");
+            return null;
         }
+
+        // Resolve the value
+        var resolveContext = new TerraformResolveContext(context);
+        var resolveMethod = valueType.GetMethod("Resolve", BindingFlags.Public | BindingFlags.Instance);
+        var expression = (TerraformExpression)resolveMethod!.Invoke(terraformValue, new object[] { resolveContext })!;
+
+        return expression;
     }
 
-    /// <summary>
-    /// Serializes a collection property (list, map, set).
-    /// </summary>
-    private void SerializeCollection(System.Text.StringBuilder sb, ITerraformContext context, string name, ITerraformCollection collection)
-    {
-        // Collections resolve to their HCL representation
-        if (collection is ITerraformProperty resolvable)
-        {
-            var expression = resolvable.Resolve(context);
-            var hcl = expression.ToHcl(context);
-            sb.AppendLine($"{context.Indent}{name} = {hcl}");
-        }
-    }
 
     /// <inheritdoc/>
     public abstract TerraformExpression AsReference();
 
     /// <summary>
     /// Preparation phase - prepares all nested values and expressions.
-    /// Uses reflection to discover properties and calls Prepare() on each ITerraformResolvable.
+    /// Uses reflection to discover properties and calls Prepare() on each ITerraformPreparable.
     /// </summary>
     public virtual void Prepare(ITerraformContext context)
     {
@@ -142,6 +137,11 @@ public abstract class TerraformConstruct : ITerraformSerializable
             }
 
             var value = prop.GetValue(this);
+            if (value == null)
+            {
+                continue;
+            }
+
             if (value is ITerraformPreparable preparable)
             {
                 // Call Prepare() on the property (polymorphic)
@@ -179,5 +179,4 @@ public abstract class TerraformConstruct : ITerraformSerializable
         return sb.ToString();
     }
 }
-
 

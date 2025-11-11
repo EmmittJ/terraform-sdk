@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock : ITerraformBlock
+public class GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A user-specified display name for the scim tenant. Cannot exceed 32 characters.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location for the resource.
@@ -67,7 +67,7 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The ID of the provider.
@@ -75,7 +75,7 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     [TerraformPropertyName("provider_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ProviderId { get; set; }
+    public required TerraformValue<string> ProviderId { get; set; }
 
     /// <summary>
     /// The ID to use for the SCIM tenant, which becomes the final component of the resource name. This value must be 4-32 characters, and may contain the characters [a-z0-9-].
@@ -83,7 +83,7 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScimTenantId is required")]
     [TerraformPropertyName("scim_tenant_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ScimTenantId { get; set; }
+    public required TerraformValue<string> ScimTenantId { get; set; }
 
     /// <summary>
     /// The ID of the workforce pool.
@@ -91,14 +91,14 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     [TerraformPropertyName("workforce_pool_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkforcePoolId { get; set; }
+    public required TerraformValue<string> WorkforcePoolId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Represents the base URI as defined in [RFC 7644, Section
@@ -109,7 +109,7 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     /// </summary>
     [TerraformPropertyName("base_uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> BaseUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "base_uri");
+    public TerraformValue<string> BaseUri => new TerraformReference(this, "base_uri");
 
     /// <summary>
     /// Identifier. The resource name of the scim tenant.
@@ -117,7 +117,7 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The current state of the scim tenant.
@@ -128,6 +128,6 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
 }

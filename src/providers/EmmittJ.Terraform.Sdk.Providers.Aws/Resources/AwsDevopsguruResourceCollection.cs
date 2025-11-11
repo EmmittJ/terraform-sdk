@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cloudformation in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDevopsguruResourceCollectionCloudformationBlock : ITerraformBlock
+public class AwsDevopsguruResourceCollectionCloudformationBlock
 {
     /// <summary>
     /// The stack_names attribute.
@@ -14,7 +14,7 @@ public class AwsDevopsguruResourceCollectionCloudformationBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackNames is required")]
     [TerraformPropertyName("stack_names")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? StackNames { get; set; }
+    public TerraformList<string>? StackNames { get; set; }
 
 }
 
@@ -22,7 +22,7 @@ public class AwsDevopsguruResourceCollectionCloudformationBlock : ITerraformBloc
 /// Block type for tags in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDevopsguruResourceCollectionTagsBlock : ITerraformBlock
+public class AwsDevopsguruResourceCollectionTagsBlock
 {
     /// <summary>
     /// The app_boundary_key attribute.
@@ -30,7 +30,7 @@ public class AwsDevopsguruResourceCollectionTagsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBoundaryKey is required")]
     [TerraformPropertyName("app_boundary_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AppBoundaryKey { get; set; }
+    public required TerraformValue<string> AppBoundaryKey { get; set; }
 
     /// <summary>
     /// The tag_values attribute.
@@ -38,7 +38,7 @@ public class AwsDevopsguruResourceCollectionTagsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagValues is required")]
     [TerraformPropertyName("tag_values")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? TagValues { get; set; }
+    public TerraformList<string>? TagValues { get; set; }
 
 }
 
@@ -55,8 +55,8 @@ public class AwsDevopsguruResourceCollection : TerraformResource
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The type attribute.
@@ -64,27 +64,27 @@ public class AwsDevopsguruResourceCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for cloudformation.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("cloudformation")]
-    public TerraformList<TerraformBlock<AwsDevopsguruResourceCollectionCloudformationBlock>>? Cloudformation { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsDevopsguruResourceCollectionCloudformationBlock>>? Cloudformation { get; set; }
 
     /// <summary>
     /// Block for tags.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("tags")]
-    public TerraformList<TerraformBlock<AwsDevopsguruResourceCollectionTagsBlock>>? Tags { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsDevopsguruResourceCollectionTagsBlock>>? Tags { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

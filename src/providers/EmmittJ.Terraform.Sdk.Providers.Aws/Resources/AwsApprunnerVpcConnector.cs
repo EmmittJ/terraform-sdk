@@ -15,15 +15,15 @@ public class AwsApprunnerVpcConnector : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The security_groups attribute.
@@ -31,7 +31,7 @@ public class AwsApprunnerVpcConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroups is required")]
     [TerraformPropertyName("security_groups")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroups { get; set; }
+    public required TerraformSet<string> SecurityGroups { get; set; }
 
     /// <summary>
     /// The subnets attribute.
@@ -39,21 +39,21 @@ public class AwsApprunnerVpcConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     [TerraformPropertyName("subnets")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Subnets { get; set; }
+    public required TerraformSet<string> Subnets { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The vpc_connector_name attribute.
@@ -61,27 +61,27 @@ public class AwsApprunnerVpcConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConnectorName is required")]
     [TerraformPropertyName("vpc_connector_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VpcConnectorName { get; set; }
+    public required TerraformValue<string> VpcConnectorName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The vpc_connector_revision attribute.
     /// </summary>
     [TerraformPropertyName("vpc_connector_revision")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> VpcConnectorRevision => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "vpc_connector_revision");
+    public TerraformValue<double> VpcConnectorRevision => new TerraformReference(this, "vpc_connector_revision");
 
 }

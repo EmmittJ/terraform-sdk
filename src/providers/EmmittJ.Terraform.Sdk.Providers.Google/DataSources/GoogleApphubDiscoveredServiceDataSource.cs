@@ -15,8 +15,8 @@ public class GoogleApphubDiscoveredServiceDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -24,14 +24,14 @@ public class GoogleApphubDiscoveredServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The service_uri attribute.
@@ -39,27 +39,27 @@ public class GoogleApphubDiscoveredServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
     [TerraformPropertyName("service_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceUri { get; set; }
+    public required TerraformValue<string> ServiceUri { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The service_properties attribute.
     /// </summary>
     [TerraformPropertyName("service_properties")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ServiceProperties => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "service_properties");
+    public TerraformList<object> ServiceProperties => new TerraformReference(this, "service_properties");
 
     /// <summary>
     /// The service_reference attribute.
     /// </summary>
     [TerraformPropertyName("service_reference")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ServiceReference => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "service_reference");
+    public TerraformList<object> ServiceReference => new TerraformReference(this, "service_reference");
 
 }

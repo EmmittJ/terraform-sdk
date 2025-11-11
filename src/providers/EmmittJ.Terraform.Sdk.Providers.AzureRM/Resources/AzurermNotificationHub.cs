@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for apns_credential in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNotificationHubApnsCredentialBlock : ITerraformBlock
+public class AzurermNotificationHubApnsCredentialBlock
 {
     /// <summary>
     /// The application_mode attribute.
@@ -14,7 +14,7 @@ public class AzurermNotificationHubApnsCredentialBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationMode is required")]
     [TerraformPropertyName("application_mode")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ApplicationMode { get; set; }
+    public required TerraformValue<string> ApplicationMode { get; set; }
 
     /// <summary>
     /// The bundle_id attribute.
@@ -22,7 +22,7 @@ public class AzurermNotificationHubApnsCredentialBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
     [TerraformPropertyName("bundle_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BundleId { get; set; }
+    public required TerraformValue<string> BundleId { get; set; }
 
     /// <summary>
     /// The key_id attribute.
@@ -30,7 +30,7 @@ public class AzurermNotificationHubApnsCredentialBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     [TerraformPropertyName("key_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyId { get; set; }
+    public required TerraformValue<string> KeyId { get; set; }
 
     /// <summary>
     /// The team_id attribute.
@@ -38,7 +38,7 @@ public class AzurermNotificationHubApnsCredentialBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TeamId is required")]
     [TerraformPropertyName("team_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TeamId { get; set; }
+    public required TerraformValue<string> TeamId { get; set; }
 
     /// <summary>
     /// The token attribute.
@@ -46,7 +46,7 @@ public class AzurermNotificationHubApnsCredentialBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     [TerraformPropertyName("token")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Token { get; set; }
+    public required TerraformValue<string> Token { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public class AzurermNotificationHubApnsCredentialBlock : ITerraformBlock
 /// Block type for browser_credential in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNotificationHubBrowserCredentialBlock : ITerraformBlock
+public class AzurermNotificationHubBrowserCredentialBlock
 {
     /// <summary>
     /// The subject attribute.
@@ -62,7 +62,7 @@ public class AzurermNotificationHubBrowserCredentialBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     [TerraformPropertyName("subject")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Subject { get; set; }
+    public required TerraformValue<string> Subject { get; set; }
 
     /// <summary>
     /// The vapid_private_key attribute.
@@ -70,7 +70,7 @@ public class AzurermNotificationHubBrowserCredentialBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VapidPrivateKey is required")]
     [TerraformPropertyName("vapid_private_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VapidPrivateKey { get; set; }
+    public required TerraformValue<string> VapidPrivateKey { get; set; }
 
     /// <summary>
     /// The vapid_public_key attribute.
@@ -78,7 +78,7 @@ public class AzurermNotificationHubBrowserCredentialBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VapidPublicKey is required")]
     [TerraformPropertyName("vapid_public_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VapidPublicKey { get; set; }
+    public required TerraformValue<string> VapidPublicKey { get; set; }
 
 }
 
@@ -86,7 +86,7 @@ public class AzurermNotificationHubBrowserCredentialBlock : ITerraformBlock
 /// Block type for gcm_credential in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNotificationHubGcmCredentialBlock : ITerraformBlock
+public class AzurermNotificationHubGcmCredentialBlock
 {
     /// <summary>
     /// The api_key attribute.
@@ -94,7 +94,7 @@ public class AzurermNotificationHubGcmCredentialBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     [TerraformPropertyName("api_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ApiKey { get; set; }
+    public required TerraformValue<string> ApiKey { get; set; }
 
 }
 
@@ -102,35 +102,35 @@ public class AzurermNotificationHubGcmCredentialBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNotificationHubTimeoutsBlock : ITerraformBlock
+public class AzurermNotificationHubTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -148,8 +148,8 @@ public class AzurermNotificationHub : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -157,7 +157,7 @@ public class AzurermNotificationHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -165,7 +165,7 @@ public class AzurermNotificationHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
@@ -173,7 +173,7 @@ public class AzurermNotificationHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     [TerraformPropertyName("namespace_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NamespaceName { get; set; }
+    public required TerraformValue<string> NamespaceName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -181,14 +181,14 @@ public class AzurermNotificationHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for apns_credential.
@@ -196,7 +196,7 @@ public class AzurermNotificationHub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApnsCredential block(s) allowed")]
     [TerraformPropertyName("apns_credential")]
-    public TerraformList<TerraformBlock<AzurermNotificationHubApnsCredentialBlock>>? ApnsCredential { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermNotificationHubApnsCredentialBlock>>? ApnsCredential { get; set; }
 
     /// <summary>
     /// Block for browser_credential.
@@ -204,7 +204,7 @@ public class AzurermNotificationHub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BrowserCredential block(s) allowed")]
     [TerraformPropertyName("browser_credential")]
-    public TerraformList<TerraformBlock<AzurermNotificationHubBrowserCredentialBlock>>? BrowserCredential { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermNotificationHubBrowserCredentialBlock>>? BrowserCredential { get; set; }
 
     /// <summary>
     /// Block for gcm_credential.
@@ -212,13 +212,13 @@ public class AzurermNotificationHub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcmCredential block(s) allowed")]
     [TerraformPropertyName("gcm_credential")]
-    public TerraformList<TerraformBlock<AzurermNotificationHubGcmCredentialBlock>>? GcmCredential { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermNotificationHubGcmCredentialBlock>>? GcmCredential { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermNotificationHubTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermNotificationHubTimeoutsBlock>? Timeouts { get; set; }
 
 }

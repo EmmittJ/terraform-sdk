@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermManagedDiskSasTokenTimeoutsBlock : ITerraformBlock
+public class AzurermManagedDiskSasTokenTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class AzurermManagedDiskSasToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessLevel is required")]
     [TerraformPropertyName("access_level")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AccessLevel { get; set; }
+    public required TerraformValue<string> AccessLevel { get; set; }
 
     /// <summary>
     /// The duration_in_seconds attribute.
@@ -54,14 +54,14 @@ public class AzurermManagedDiskSasToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DurationInSeconds is required")]
     [TerraformPropertyName("duration_in_seconds")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> DurationInSeconds { get; set; }
+    public required TerraformValue<double> DurationInSeconds { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The managed_disk_id attribute.
@@ -69,20 +69,20 @@ public class AzurermManagedDiskSasToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedDiskId is required")]
     [TerraformPropertyName("managed_disk_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ManagedDiskId { get; set; }
+    public required TerraformValue<string> ManagedDiskId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermManagedDiskSasTokenTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermManagedDiskSasTokenTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The sas_url attribute.
     /// </summary>
     [TerraformPropertyName("sas_url")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SasUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sas_url");
+    public TerraformValue<string> SasUrl => new TerraformReference(this, "sas_url");
 
 }

@@ -41,21 +41,14 @@ public class {{ClassName}} : TerraformProvider
 {{/IsDeprecated}}
 {{#IsArgument}}
 {{#UseRequiredKeyword}}
-    public required {{{PropertyWrapper}}} {{Name}}
+    public required {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{{PropertyWrapper}}} {{Name}}
+    public {{{PropertyWrapper}}}? {{Name}} { get; set; }
 {{/UseNullable}}
-    {
-        get => GetRequiredOutput<{{{PropertyWrapper}}}>("{{TerraformName}}");
-        set => SetProperty("{{TerraformName}}", value);
-    }
 {{/IsArgument}}
 {{^IsArgument}}
-    public {{{PropertyWrapper}}}? {{Name}}
-    {
-        set => SetProperty("{{TerraformName}}", value);
-    }
+    public {{{PropertyWrapper}}}? {{Name}} { get; set; }
 {{/IsArgument}}
 {{/ConfigurationAttributes}}
 }

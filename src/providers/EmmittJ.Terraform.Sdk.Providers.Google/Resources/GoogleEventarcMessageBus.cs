@@ -6,15 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEventarcMessageBusLoggingConfigBlock : ITerraformBlock
+public class GoogleEventarcMessageBusLoggingConfigBlock
 {
     /// <summary>
     /// Optional. The minimum severity of logs that will be sent to Stackdriver/Platform
     /// Telemetry. Logs at severitiy ≥ this value will be sent, unless it is NONE. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;DEBUG&amp;quot;, &amp;quot;INFO&amp;quot;, &amp;quot;NOTICE&amp;quot;, &amp;quot;WARNING&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;CRITICAL&amp;quot;, &amp;quot;ALERT&amp;quot;, &amp;quot;EMERGENCY&amp;quot;]
     /// </summary>
     [TerraformPropertyName("log_severity")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LogSeverity { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "log_severity");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LogSeverity { get; set; } = default!;
 
 }
 
@@ -22,28 +22,28 @@ public class GoogleEventarcMessageBusLoggingConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleEventarcMessageBusTimeoutsBlock : ITerraformBlock
+public class GoogleEventarcMessageBusTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -65,7 +65,7 @@ public class GoogleEventarcMessageBus : TerraformResource
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
+    public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// Optional. Resource name of a KMS crypto key (managed by the user) used to
@@ -76,21 +76,21 @@ public class GoogleEventarcMessageBus : TerraformResource
     /// </summary>
     [TerraformPropertyName("crypto_key_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CryptoKeyName { get; set; }
+    public TerraformValue<string>? CryptoKeyName { get; set; }
 
     /// <summary>
     /// Optional. Resource display name.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Optional. Resource labels.
@@ -100,7 +100,7 @@ public class GoogleEventarcMessageBus : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -108,7 +108,7 @@ public class GoogleEventarcMessageBus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Required. The user-provided ID to be assigned to the MessageBus. It should match the
@@ -117,14 +117,14 @@ public class GoogleEventarcMessageBus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageBusId is required")]
     [TerraformPropertyName("message_bus_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MessageBusId { get; set; }
+    public required TerraformValue<string> MessageBusId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for logging_config.
@@ -132,35 +132,35 @@ public class GoogleEventarcMessageBus : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformPropertyName("logging_config")]
-    public TerraformList<TerraformBlock<GoogleEventarcMessageBusLoggingConfigBlock>>? LoggingConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEventarcMessageBusLoggingConfigBlock>>? LoggingConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleEventarcMessageBusTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleEventarcMessageBusTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The creation time.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_annotations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
+    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Output only. This checksum is computed by the server based on the value of other
@@ -169,7 +169,7 @@ public class GoogleEventarcMessageBus : TerraformResource
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// Identifier. Resource name of the form
@@ -177,7 +177,7 @@ public class GoogleEventarcMessageBus : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -185,7 +185,7 @@ public class GoogleEventarcMessageBus : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Output only. Server assigned unique identifier for the channel. The value is a UUID4
@@ -193,13 +193,13 @@ public class GoogleEventarcMessageBus : TerraformResource
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Output only. The last-modified time.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

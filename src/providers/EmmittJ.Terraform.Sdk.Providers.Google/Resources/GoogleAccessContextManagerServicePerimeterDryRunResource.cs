@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAccessContextManagerServicePerimeterDryRunResourceTimeoutsBlock : ITerraformBlock
+public class GoogleAccessContextManagerServicePerimeterDryRunResourceTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -37,8 +37,8 @@ public class GoogleAccessContextManagerServicePerimeterDryRunResource : Terrafor
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the Service Perimeter to add this resource to.
@@ -46,7 +46,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunResource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerimeterName is required")]
     [TerraformPropertyName("perimeter_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PerimeterName { get; set; }
+    public required TerraformValue<string> PerimeterName { get; set; }
 
     /// <summary>
     /// A GCP resource that is inside of the service perimeter.
@@ -56,27 +56,27 @@ public class GoogleAccessContextManagerServicePerimeterDryRunResource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     [TerraformPropertyName("resource")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Resource { get; set; }
+    public required TerraformValue<string> Resource { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunResourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunResourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
     [TerraformPropertyName("access_policy_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AccessPolicyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_policy_id");
+    public TerraformValue<string> AccessPolicyId => new TerraformReference(this, "access_policy_id");
 
     /// <summary>
     /// The perimeter etag is internally used to prevent overwriting the list of perimeter resources on PATCH calls. It is retrieved from the same GET perimeter API call that&#39;s used to get the current list of resources. The resource to add or remove is merged into that list and then this etag is sent with the PATCH call along with the updated resource list.
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
 }

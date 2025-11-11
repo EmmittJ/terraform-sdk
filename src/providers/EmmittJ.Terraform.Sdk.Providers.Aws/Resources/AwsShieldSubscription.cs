@@ -15,21 +15,21 @@ public class AwsShieldSubscription : TerraformResource
     /// Whether to automatically renew the subscription when it expires.
     /// </summary>
     [TerraformPropertyName("auto_renew")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AutoRenew { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "auto_renew");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AutoRenew { get; set; } = default!;
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
     [TerraformPropertyName("skip_destroy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SkipDestroy { get; set; }
+    public TerraformValue<bool>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

@@ -15,8 +15,8 @@ public class AwsApiGatewayRestApiDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -24,83 +24,83 @@ public class AwsApiGatewayRestApiDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Tags { get; set; } = default!;
 
     /// <summary>
     /// The api_key_source attribute.
     /// </summary>
     [TerraformPropertyName("api_key_source")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ApiKeySource => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "api_key_source");
+    public TerraformValue<string> ApiKeySource => new TerraformReference(this, "api_key_source");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The binary_media_types attribute.
     /// </summary>
     [TerraformPropertyName("binary_media_types")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> BinaryMediaTypes => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "binary_media_types");
+    public TerraformList<string> BinaryMediaTypes => new TerraformReference(this, "binary_media_types");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The endpoint_configuration attribute.
     /// </summary>
     [TerraformPropertyName("endpoint_configuration")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> EndpointConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "endpoint_configuration");
+    public TerraformList<object> EndpointConfiguration => new TerraformReference(this, "endpoint_configuration");
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
     [TerraformPropertyName("execution_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExecutionArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "execution_arn");
+    public TerraformValue<string> ExecutionArn => new TerraformReference(this, "execution_arn");
 
     /// <summary>
     /// The minimum_compression_size attribute.
     /// </summary>
     [TerraformPropertyName("minimum_compression_size")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MinimumCompressionSize => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "minimum_compression_size");
+    public TerraformValue<string> MinimumCompressionSize => new TerraformReference(this, "minimum_compression_size");
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [TerraformPropertyName("policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Policy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy");
+    public TerraformValue<string> Policy => new TerraformReference(this, "policy");
 
     /// <summary>
     /// The root_resource_id attribute.
     /// </summary>
     [TerraformPropertyName("root_resource_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RootResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "root_resource_id");
+    public TerraformValue<string> RootResourceId => new TerraformReference(this, "root_resource_id");
 
 }

@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for kms_key_details in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodegurureviewerRepositoryAssociationKmsKeyDetailsBlock : ITerraformBlock
+public class AwsCodegurureviewerRepositoryAssociationKmsKeyDetailsBlock
 {
     /// <summary>
     /// The encryption_option attribute.
     /// </summary>
     [TerraformPropertyName("encryption_option")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EncryptionOption { get; set; }
+    public TerraformValue<string>? EncryptionOption { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
+    public TerraformValue<string>? KmsKeyId { get; set; }
 
 }
 
@@ -28,7 +28,7 @@ public class AwsCodegurureviewerRepositoryAssociationKmsKeyDetailsBlock : ITerra
 /// Block type for repository in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodegurureviewerRepositoryAssociationRepositoryBlock : ITerraformBlock
+public class AwsCodegurureviewerRepositoryAssociationRepositoryBlock
 {
 }
 
@@ -36,28 +36,28 @@ public class AwsCodegurureviewerRepositoryAssociationRepositoryBlock : ITerrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsCodegurureviewerRepositoryAssociationTimeoutsBlock : ITerraformBlock
+public class AwsCodegurureviewerRepositoryAssociationTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -75,29 +75,29 @@ public class AwsCodegurureviewerRepositoryAssociation : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for kms_key_details.
@@ -105,7 +105,7 @@ public class AwsCodegurureviewerRepositoryAssociation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KmsKeyDetails block(s) allowed")]
     [TerraformPropertyName("kms_key_details")]
-    public TerraformList<TerraformBlock<AwsCodegurureviewerRepositoryAssociationKmsKeyDetailsBlock>>? KmsKeyDetails { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsCodegurureviewerRepositoryAssociationKmsKeyDetailsBlock>>? KmsKeyDetails { get; set; }
 
     /// <summary>
     /// Block for repository.
@@ -115,76 +115,76 @@ public class AwsCodegurureviewerRepositoryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Repository block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Repository block(s) allowed")]
     [TerraformPropertyName("repository")]
-    public TerraformList<TerraformBlock<AwsCodegurureviewerRepositoryAssociationRepositoryBlock>>? Repository { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsCodegurureviewerRepositoryAssociationRepositoryBlock>>? Repository { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsCodegurureviewerRepositoryAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsCodegurureviewerRepositoryAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     [TerraformPropertyName("association_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AssociationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "association_id");
+    public TerraformValue<string> AssociationId => new TerraformReference(this, "association_id");
 
     /// <summary>
     /// The connection_arn attribute.
     /// </summary>
     [TerraformPropertyName("connection_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ConnectionArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "connection_arn");
+    public TerraformValue<string> ConnectionArn => new TerraformReference(this, "connection_arn");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [TerraformPropertyName("owner")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Owner => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner");
+    public TerraformValue<string> Owner => new TerraformReference(this, "owner");
 
     /// <summary>
     /// The provider_type attribute.
     /// </summary>
     [TerraformPropertyName("provider_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ProviderType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "provider_type");
+    public TerraformValue<string> ProviderType => new TerraformReference(this, "provider_type");
 
     /// <summary>
     /// The s3_repository_details attribute.
     /// </summary>
     [TerraformPropertyName("s3_repository_details")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> S3RepositoryDetails => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "s3_repository_details");
+    public TerraformList<object> S3RepositoryDetails => new TerraformReference(this, "s3_repository_details");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The state_reason attribute.
     /// </summary>
     [TerraformPropertyName("state_reason")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StateReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state_reason");
+    public TerraformValue<string> StateReason => new TerraformReference(this, "state_reason");
 
 }

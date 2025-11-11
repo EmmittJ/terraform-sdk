@@ -6,21 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for replica in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSecretsmanagerSecretReplicaBlock : ITerraformBlock
+public class AwsSecretsmanagerSecretReplicaBlock
 {
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> KmsKeyId { get; set; } = default!;
 
-    /// <summary>
-    /// The last_accessed_date attribute.
-    /// </summary>
-    [TerraformPropertyName("last_accessed_date")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastAccessedDate => new TerraformReferenceProperty<TerraformProperty<string>>("", "last_accessed_date");
 
     /// <summary>
     /// The region attribute.
@@ -28,21 +22,9 @@ public class AwsSecretsmanagerSecretReplicaBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     [TerraformPropertyName("region")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Region { get; set; }
+    public required TerraformValue<string> Region { get; set; }
 
-    /// <summary>
-    /// The status attribute.
-    /// </summary>
-    [TerraformPropertyName("status")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>("", "status");
 
-    /// <summary>
-    /// The status_message attribute.
-    /// </summary>
-    [TerraformPropertyName("status_message")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StatusMessage => new TerraformReferenceProperty<TerraformProperty<string>>("", "status_message");
 
 }
 
@@ -60,90 +42,90 @@ public class AwsSecretsmanagerSecret : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The force_overwrite_replica_secret attribute.
     /// </summary>
     [TerraformPropertyName("force_overwrite_replica_secret")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ForceOverwriteReplicaSecret { get; set; }
+    public TerraformValue<bool>? ForceOverwriteReplicaSecret { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
+    public TerraformValue<string>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Name { get; set; } = default!;
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> NamePrefix { get; set; } = default!;
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [TerraformPropertyName("policy")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Policy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Policy { get; set; } = default!;
 
     /// <summary>
     /// The recovery_window_in_days attribute.
     /// </summary>
     [TerraformPropertyName("recovery_window_in_days")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? RecoveryWindowInDays { get; set; }
+    public TerraformValue<double>? RecoveryWindowInDays { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for replica.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("replica")]
-    public TerraformSet<TerraformBlock<AwsSecretsmanagerSecretReplicaBlock>>? Replica { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsSecretsmanagerSecretReplicaBlock>>? Replica { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

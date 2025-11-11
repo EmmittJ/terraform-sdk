@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for network_endpoints in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleComputeNetworkEndpointsNetworkEndpointsBlock : ITerraformBlock
+public class GoogleComputeNetworkEndpointsNetworkEndpointsBlock
 {
     /// <summary>
     /// The name for a specific VM instance that the IP address belongs to.
@@ -15,7 +15,7 @@ public class GoogleComputeNetworkEndpointsNetworkEndpointsBlock : ITerraformBloc
     /// </summary>
     [TerraformPropertyName("instance")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Instance { get; set; }
+    public TerraformValue<string>? Instance { get; set; }
 
     /// <summary>
     /// IPv4 address of network endpoint. The IP address must belong
@@ -25,7 +25,7 @@ public class GoogleComputeNetworkEndpointsNetworkEndpointsBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     [TerraformPropertyName("ip_address")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IpAddress { get; set; }
+    public required TerraformValue<string> IpAddress { get; set; }
 
     /// <summary>
     /// Port number of network endpoint.
@@ -34,7 +34,7 @@ public class GoogleComputeNetworkEndpointsNetworkEndpointsBlock : ITerraformBloc
     /// </summary>
     [TerraformPropertyName("port")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
+    public TerraformValue<double>? Port { get; set; }
 
 }
 
@@ -42,28 +42,28 @@ public class GoogleComputeNetworkEndpointsNetworkEndpointsBlock : ITerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeNetworkEndpointsTimeoutsBlock : ITerraformBlock
+public class GoogleComputeNetworkEndpointsTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -80,8 +80,8 @@ public class GoogleComputeNetworkEndpoints : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The network endpoint group these endpoints are part of.
@@ -89,34 +89,34 @@ public class GoogleComputeNetworkEndpoints : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkEndpointGroup is required")]
     [TerraformPropertyName("network_endpoint_group")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NetworkEndpointGroup { get; set; }
+    public required TerraformValue<string> NetworkEndpointGroup { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Zone where the containing network endpoint group is located.
     /// </summary>
     [TerraformPropertyName("zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Zone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Zone { get; set; } = default!;
 
     /// <summary>
     /// Block for network_endpoints.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("network_endpoints")]
-    public TerraformSet<TerraformBlock<GoogleComputeNetworkEndpointsNetworkEndpointsBlock>>? NetworkEndpoints { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleComputeNetworkEndpointsNetworkEndpointsBlock>>? NetworkEndpoints { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeNetworkEndpointsTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeNetworkEndpointsTimeoutsBlock>? Timeouts { get; set; }
 
 }

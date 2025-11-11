@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for default_action in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWafregionalWebAclDefaultActionBlock : ITerraformBlock
+public class AwsWafregionalWebAclDefaultActionBlock
 {
     /// <summary>
     /// The type attribute.
@@ -14,7 +14,7 @@ public class AwsWafregionalWebAclDefaultActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -22,7 +22,7 @@ public class AwsWafregionalWebAclDefaultActionBlock : ITerraformBlock
 /// Block type for logging_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWafregionalWebAclLoggingConfigurationBlock : ITerraformBlock
+public class AwsWafregionalWebAclLoggingConfigurationBlock
 {
     /// <summary>
     /// The log_destination attribute.
@@ -30,7 +30,7 @@ public class AwsWafregionalWebAclLoggingConfigurationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogDestination is required")]
     [TerraformPropertyName("log_destination")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LogDestination { get; set; }
+    public required TerraformValue<string> LogDestination { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public class AwsWafregionalWebAclLoggingConfigurationBlock : ITerraformBlock
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public class AwsWafregionalWebAclRuleBlock : ITerraformBlock
+public class AwsWafregionalWebAclRuleBlock
 {
     /// <summary>
     /// The priority attribute.
@@ -46,7 +46,7 @@ public class AwsWafregionalWebAclRuleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformPropertyName("priority")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
+    public required TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// The rule_id attribute.
@@ -54,14 +54,14 @@ public class AwsWafregionalWebAclRuleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
     [TerraformPropertyName("rule_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RuleId { get; set; }
+    public required TerraformValue<string> RuleId { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -79,8 +79,8 @@ public class AwsWafregionalWebAcl : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The metric_name attribute.
@@ -88,7 +88,7 @@ public class AwsWafregionalWebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     [TerraformPropertyName("metric_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MetricName { get; set; }
+    public required TerraformValue<string> MetricName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -96,28 +96,28 @@ public class AwsWafregionalWebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for default_action.
@@ -127,7 +127,7 @@ public class AwsWafregionalWebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAction block(s) allowed")]
     [TerraformPropertyName("default_action")]
-    public TerraformList<TerraformBlock<AwsWafregionalWebAclDefaultActionBlock>>? DefaultAction { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsWafregionalWebAclDefaultActionBlock>>? DefaultAction { get; set; }
 
     /// <summary>
     /// Block for logging_configuration.
@@ -135,20 +135,20 @@ public class AwsWafregionalWebAcl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     [TerraformPropertyName("logging_configuration")]
-    public TerraformList<TerraformBlock<AwsWafregionalWebAclLoggingConfigurationBlock>>? LoggingConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsWafregionalWebAclLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("rule")]
-    public TerraformSet<TerraformBlock<AwsWafregionalWebAclRuleBlock>>? Rule { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsWafregionalWebAclRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

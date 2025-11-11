@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeNetworkParamsBlock : ITerraformBlock
+public class GoogleComputeNetworkParamsBlock
 {
     /// <summary>
     /// Resource manager tags to be bound to the network. Tag keys and values have the
@@ -15,7 +15,7 @@ public class GoogleComputeNetworkParamsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("resource_manager_tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ResourceManagerTags { get; set; }
+    public TerraformMap<string>? ResourceManagerTags { get; set; }
 
 }
 
@@ -23,28 +23,28 @@ public class GoogleComputeNetworkParamsBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeNetworkTimeoutsBlock : ITerraformBlock
+public class GoogleComputeNetworkTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -68,29 +68,29 @@ public class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("auto_create_subnetworks")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AutoCreateSubnetworks { get; set; }
+    public TerraformValue<bool>? AutoCreateSubnetworks { get; set; }
 
     /// <summary>
     /// Enables/disables the comparison of MED across routes with different Neighbor ASNs.
     /// This value can only be set if the --bgp-best-path-selection-mode is STANDARD
     /// </summary>
     [TerraformPropertyName("bgp_always_compare_med")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> BgpAlwaysCompareMed { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "bgp_always_compare_med");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> BgpAlwaysCompareMed { get; set; } = default!;
 
     /// <summary>
     /// The BGP best selection algorithm to be employed. MODE can be LEGACY or STANDARD. Possible values: [&amp;quot;LEGACY&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
     [TerraformPropertyName("bgp_best_path_selection_mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> BgpBestPathSelectionMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bgp_best_path_selection_mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> BgpBestPathSelectionMode { get; set; } = default!;
 
     /// <summary>
     /// Choice of the behavior of inter-regional cost and MED in the BPS algorithm. Possible values: [&amp;quot;DEFAULT&amp;quot;, &amp;quot;ADD_COST_TO_MED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("bgp_inter_region_cost")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> BgpInterRegionCost { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bgp_inter_region_cost");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> BgpInterRegionCost { get; set; } = default!;
 
     /// <summary>
     /// If set to &#39;true&#39;, default routes (&#39;0.0.0.0/0&#39;) will be deleted
@@ -98,7 +98,7 @@ public class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("delete_default_routes_on_create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DeleteDefaultRoutesOnCreate { get; set; }
+    public TerraformValue<bool>? DeleteDefaultRoutesOnCreate { get; set; }
 
     /// <summary>
     /// An optional description of this resource. The resource must be
@@ -106,7 +106,7 @@ public class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Enable ULA internal ipv6 on this network. Enabling this feature will assign
@@ -114,14 +114,14 @@ public class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("enable_ula_internal_ipv6")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableUlaInternalIpv6 { get; set; }
+    public TerraformValue<bool>? EnableUlaInternalIpv6 { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// When enabling ula internal ipv6, caller optionally can specify the /48 range
@@ -131,8 +131,8 @@ public class GoogleComputeNetwork : TerraformResource
     /// If the field is not speficied, then a /48 range will be randomly allocated from fd20::/20 and returned via this field.
     /// </summary>
     [TerraformPropertyName("internal_ipv6_range")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> InternalIpv6Range { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "internal_ipv6_range");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> InternalIpv6Range { get; set; } = default!;
 
     /// <summary>
     /// Maximum Transmission Unit in bytes. The default value is 1460 bytes.
@@ -142,8 +142,8 @@ public class GoogleComputeNetwork : TerraformResource
     /// with varying MTUs.
     /// </summary>
     [TerraformPropertyName("mtu")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Mtu { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "mtu");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Mtu { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -157,14 +157,14 @@ public class GoogleComputeNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Set the order that Firewall Rules and Firewall Policies are evaluated. Default value: &amp;quot;AFTER_CLASSIC_FIREWALL&amp;quot; Possible values: [&amp;quot;BEFORE_CLASSIC_FIREWALL&amp;quot;, &amp;quot;AFTER_CLASSIC_FIREWALL&amp;quot;]
     /// </summary>
     [TerraformPropertyName("network_firewall_policy_enforcement_order")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NetworkFirewallPolicyEnforcementOrder { get; set; }
+    public TerraformValue<string>? NetworkFirewallPolicyEnforcementOrder { get; set; }
 
     /// <summary>
     /// A full or partial URL of the network profile to apply to this network.
@@ -175,14 +175,14 @@ public class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("network_profile")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NetworkProfile { get; set; }
+    public TerraformValue<string>? NetworkProfile { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The network-wide routing mode to use. If set to &#39;REGIONAL&#39;, this
@@ -192,8 +192,8 @@ public class GoogleComputeNetwork : TerraformResource
     /// subnetworks of this network, across regions. Possible values: [&amp;quot;REGIONAL&amp;quot;, &amp;quot;GLOBAL&amp;quot;]
     /// </summary>
     [TerraformPropertyName("routing_mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> RoutingMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "routing_mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> RoutingMode { get; set; } = default!;
 
     /// <summary>
     /// Block for params.
@@ -201,14 +201,14 @@ public class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformPropertyName("params")]
-    public TerraformList<TerraformBlock<GoogleComputeNetworkParamsBlock>>? Params { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeNetworkParamsBlock>>? Params { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeNetworkTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeNetworkTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The gateway address for default routing out of the network. This value
@@ -216,27 +216,27 @@ public class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("gateway_ipv4")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GatewayIpv4 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gateway_ipv4");
+    public TerraformValue<string> GatewayIpv4 => new TerraformReference(this, "gateway_ipv4");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformPropertyName("network_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NetworkId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_id");
+    public TerraformValue<string> NetworkId => new TerraformReference(this, "network_id");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformPropertyName("numeric_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NumericId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "numeric_id");
+    public TerraformValue<string> NumericId => new TerraformReference(this, "numeric_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
 }

@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ingress_vpc_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApprunnerVpcIngressConnectionIngressVpcConfigurationBlock : ITerraformBlock
+public class AwsApprunnerVpcIngressConnectionIngressVpcConfigurationBlock
 {
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
     [TerraformPropertyName("vpc_endpoint_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VpcEndpointId { get; set; }
+    public TerraformValue<string>? VpcEndpointId { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [TerraformPropertyName("vpc_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VpcId { get; set; }
+    public TerraformValue<string>? VpcId { get; set; }
 
 }
 
@@ -38,8 +38,8 @@ public class AwsApprunnerVpcIngressConnection : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -47,14 +47,14 @@ public class AwsApprunnerVpcIngressConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The service_arn attribute.
@@ -62,21 +62,21 @@ public class AwsApprunnerVpcIngressConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceArn is required")]
     [TerraformPropertyName("service_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceArn { get; set; }
+    public required TerraformValue<string> ServiceArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for ingress_vpc_configuration.
@@ -86,27 +86,27 @@ public class AwsApprunnerVpcIngressConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IngressVpcConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressVpcConfiguration block(s) allowed")]
     [TerraformPropertyName("ingress_vpc_configuration")]
-    public TerraformList<TerraformBlock<AwsApprunnerVpcIngressConnectionIngressVpcConfigurationBlock>>? IngressVpcConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsApprunnerVpcIngressConnectionIngressVpcConfigurationBlock>>? IngressVpcConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [TerraformPropertyName("domain_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DomainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_name");
+    public TerraformValue<string> DomainName => new TerraformReference(this, "domain_name");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
 }

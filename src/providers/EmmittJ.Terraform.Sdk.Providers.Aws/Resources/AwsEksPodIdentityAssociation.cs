@@ -17,14 +17,14 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     [TerraformPropertyName("cluster_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClusterName { get; set; }
+    public required TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The disable_session_tags attribute.
     /// </summary>
     [TerraformPropertyName("disable_session_tags")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> DisableSessionTags { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "disable_session_tags");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> DisableSessionTags { get; set; } = default!;
 
     /// <summary>
     /// The namespace attribute.
@@ -32,14 +32,14 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     [TerraformPropertyName("namespace")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Namespace { get; set; }
+    public required TerraformValue<string> Namespace { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The role_arn attribute.
@@ -47,7 +47,7 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformPropertyName("role_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
+    public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The service_account attribute.
@@ -55,55 +55,55 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     [TerraformPropertyName("service_account")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceAccount { get; set; }
+    public required TerraformValue<string> ServiceAccount { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The target_role_arn attribute.
     /// </summary>
     [TerraformPropertyName("target_role_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TargetRoleArn { get; set; }
+    public TerraformValue<string>? TargetRoleArn { get; set; }
 
     /// <summary>
     /// The association_arn attribute.
     /// </summary>
     [TerraformPropertyName("association_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AssociationArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "association_arn");
+    public TerraformValue<string> AssociationArn => new TerraformReference(this, "association_arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     [TerraformPropertyName("association_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AssociationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "association_id");
+    public TerraformValue<string> AssociationId => new TerraformReference(this, "association_id");
 
     /// <summary>
     /// The external_id attribute.
     /// </summary>
     [TerraformPropertyName("external_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExternalId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "external_id");
+    public TerraformValue<string> ExternalId => new TerraformReference(this, "external_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
 
 }

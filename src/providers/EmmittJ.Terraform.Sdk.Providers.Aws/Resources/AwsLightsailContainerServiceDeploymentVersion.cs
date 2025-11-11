@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for container in .
 /// Nesting mode: set
 /// </summary>
-public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : ITerraformBlock
+public class AwsLightsailContainerServiceDeploymentVersionContainerBlock
 {
     /// <summary>
     /// The command attribute.
     /// </summary>
     [TerraformPropertyName("command")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Command { get; set; }
+    public TerraformList<string>? Command { get; set; }
 
     /// <summary>
     /// The container_name attribute.
@@ -21,14 +21,14 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : ITerr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     [TerraformPropertyName("container_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContainerName { get; set; }
+    public required TerraformValue<string> ContainerName { get; set; }
 
     /// <summary>
     /// The environment attribute.
     /// </summary>
     [TerraformPropertyName("environment")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Environment { get; set; }
+    public TerraformMap<string>? Environment { get; set; }
 
     /// <summary>
     /// The image attribute.
@@ -36,14 +36,14 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : ITerr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     [TerraformPropertyName("image")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Image { get; set; }
+    public required TerraformValue<string> Image { get; set; }
 
     /// <summary>
     /// The ports attribute.
     /// </summary>
     [TerraformPropertyName("ports")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Ports { get; set; }
+    public TerraformMap<string>? Ports { get; set; }
 
 }
 
@@ -51,7 +51,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : ITerr
 /// Block type for public_endpoint in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock : ITerraformBlock
+public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock
 {
     /// <summary>
     /// The container_name attribute.
@@ -59,7 +59,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     [TerraformPropertyName("container_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContainerName { get; set; }
+    public required TerraformValue<string> ContainerName { get; set; }
 
     /// <summary>
     /// The container_port attribute.
@@ -67,7 +67,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerPort is required")]
     [TerraformPropertyName("container_port")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> ContainerPort { get; set; }
+    public required TerraformValue<double> ContainerPort { get; set; }
 
 }
 
@@ -75,14 +75,14 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock : ITerraformBlock
+public class AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -100,15 +100,15 @@ public class AwsLightsailContainerServiceDeploymentVersion : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The service_name attribute.
@@ -116,7 +116,7 @@ public class AwsLightsailContainerServiceDeploymentVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     [TerraformPropertyName("service_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceName { get; set; }
+    public required TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// Block for container.
@@ -126,7 +126,7 @@ public class AwsLightsailContainerServiceDeploymentVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Container block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(53, ErrorMessage = "Maximum 53 Container block(s) allowed")]
     [TerraformPropertyName("container")]
-    public TerraformSet<TerraformBlock<AwsLightsailContainerServiceDeploymentVersionContainerBlock>>? Container { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsLightsailContainerServiceDeploymentVersionContainerBlock>>? Container { get; set; }
 
     /// <summary>
     /// Block for public_endpoint.
@@ -134,34 +134,34 @@ public class AwsLightsailContainerServiceDeploymentVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicEndpoint block(s) allowed")]
     [TerraformPropertyName("public_endpoint")]
-    public TerraformList<TerraformBlock<AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock>>? PublicEndpoint { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock>>? PublicEndpoint { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformPropertyName("created_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
+    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformPropertyName("version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Version => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "version");
+    public TerraformValue<double> Version => new TerraformReference(this, "version");
 
 }

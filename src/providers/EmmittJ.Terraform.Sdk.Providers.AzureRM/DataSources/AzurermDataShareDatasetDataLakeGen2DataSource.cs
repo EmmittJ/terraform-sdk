@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataShareDatasetDataLakeGen2DataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermDataShareDatasetDataLakeGen2DataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermDataShareDatasetDataLakeGen2DataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermDataShareDatasetDataLakeGen2DataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The share_id attribute.
@@ -47,48 +47,48 @@ public class AzurermDataShareDatasetDataLakeGen2DataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareId is required")]
     [TerraformPropertyName("share_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ShareId { get; set; }
+    public required TerraformValue<string> ShareId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDataShareDatasetDataLakeGen2DataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDataShareDatasetDataLakeGen2DataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
+    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
 
     /// <summary>
     /// The file_path attribute.
     /// </summary>
     [TerraformPropertyName("file_path")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> FilePath => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "file_path");
+    public TerraformValue<string> FilePath => new TerraformReference(this, "file_path");
 
     /// <summary>
     /// The file_system_name attribute.
     /// </summary>
     [TerraformPropertyName("file_system_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> FileSystemName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "file_system_name");
+    public TerraformValue<string> FileSystemName => new TerraformReference(this, "file_system_name");
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
     [TerraformPropertyName("folder_path")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> FolderPath => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "folder_path");
+    public TerraformValue<string> FolderPath => new TerraformReference(this, "folder_path");
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [TerraformPropertyName("storage_account_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StorageAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_account_id");
+    public TerraformValue<string> StorageAccountId => new TerraformReference(this, "storage_account_id");
 
 }

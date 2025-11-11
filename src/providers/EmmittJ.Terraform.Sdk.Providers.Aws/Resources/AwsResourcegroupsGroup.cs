@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: set
 /// </summary>
-public class AwsResourcegroupsGroupConfigurationBlock : ITerraformBlock
+public class AwsResourcegroupsGroupConfigurationBlock
 {
     /// <summary>
     /// The type attribute.
@@ -14,7 +14,7 @@ public class AwsResourcegroupsGroupConfigurationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -22,7 +22,7 @@ public class AwsResourcegroupsGroupConfigurationBlock : ITerraformBlock
 /// Block type for resource_query in .
 /// Nesting mode: list
 /// </summary>
-public class AwsResourcegroupsGroupResourceQueryBlock : ITerraformBlock
+public class AwsResourcegroupsGroupResourceQueryBlock
 {
     /// <summary>
     /// The query attribute.
@@ -30,14 +30,14 @@ public class AwsResourcegroupsGroupResourceQueryBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     [TerraformPropertyName("query")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Query { get; set; }
+    public required TerraformValue<string> Query { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public class AwsResourcegroupsGroupResourceQueryBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsResourcegroupsGroupTimeoutsBlock : ITerraformBlock
+public class AwsResourcegroupsGroupTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,14 +78,14 @@ public class AwsResourcegroupsGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -93,35 +93,35 @@ public class AwsResourcegroupsGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for configuration.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("configuration")]
-    public TerraformSet<TerraformBlock<AwsResourcegroupsGroupConfigurationBlock>>? Configuration { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsResourcegroupsGroupConfigurationBlock>>? Configuration { get; set; }
 
     /// <summary>
     /// Block for resource_query.
@@ -129,20 +129,20 @@ public class AwsResourcegroupsGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceQuery block(s) allowed")]
     [TerraformPropertyName("resource_query")]
-    public TerraformList<TerraformBlock<AwsResourcegroupsGroupResourceQueryBlock>>? ResourceQuery { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsResourcegroupsGroupResourceQueryBlock>>? ResourceQuery { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsResourcegroupsGroupTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsResourcegroupsGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

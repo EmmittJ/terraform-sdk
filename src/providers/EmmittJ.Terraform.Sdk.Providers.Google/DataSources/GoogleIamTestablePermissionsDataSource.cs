@@ -16,7 +16,7 @@ public class GoogleIamTestablePermissionsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("custom_support_level")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomSupportLevel { get; set; }
+    public TerraformValue<string>? CustomSupportLevel { get; set; }
 
     /// <summary>
     /// The full_resource_name attribute.
@@ -24,27 +24,27 @@ public class GoogleIamTestablePermissionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullResourceName is required")]
     [TerraformPropertyName("full_resource_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FullResourceName { get; set; }
+    public required TerraformValue<string> FullResourceName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The stages attribute.
     /// </summary>
     [TerraformPropertyName("stages")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Stages { get; set; }
+    public TerraformList<string>? Stages { get; set; }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
     [TerraformPropertyName("permissions")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Permissions => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "permissions");
+    public TerraformList<object> Permissions => new TerraformReference(this, "permissions");
 
 }

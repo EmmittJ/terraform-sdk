@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsServicecatalogProductDataSourceTimeoutsBlock : ITerraformBlock
+public class AwsServicecatalogProductDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public class AwsServicecatalogProductDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("accept_language")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AcceptLanguage { get; set; }
+    public TerraformValue<string>? AcceptLanguage { get; set; }
 
     /// <summary>
     /// The id attribute.
@@ -39,111 +39,111 @@ public class AwsServicecatalogProductDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformPropertyName("id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
+    public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Tags { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsServicecatalogProductDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsServicecatalogProductDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     [TerraformPropertyName("created_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_time");
+    public TerraformValue<string> CreatedTime => new TerraformReference(this, "created_time");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The distributor attribute.
     /// </summary>
     [TerraformPropertyName("distributor")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Distributor => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "distributor");
+    public TerraformValue<string> Distributor => new TerraformReference(this, "distributor");
 
     /// <summary>
     /// The has_default_path attribute.
     /// </summary>
     [TerraformPropertyName("has_default_path")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> HasDefaultPath => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "has_default_path");
+    public TerraformValue<bool> HasDefaultPath => new TerraformReference(this, "has_default_path");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [TerraformPropertyName("owner")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Owner => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner");
+    public TerraformValue<string> Owner => new TerraformReference(this, "owner");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The support_description attribute.
     /// </summary>
     [TerraformPropertyName("support_description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SupportDescription => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "support_description");
+    public TerraformValue<string> SupportDescription => new TerraformReference(this, "support_description");
 
     /// <summary>
     /// The support_email attribute.
     /// </summary>
     [TerraformPropertyName("support_email")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SupportEmail => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "support_email");
+    public TerraformValue<string> SupportEmail => new TerraformReference(this, "support_email");
 
     /// <summary>
     /// The support_url attribute.
     /// </summary>
     [TerraformPropertyName("support_url")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SupportUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "support_url");
+    public TerraformValue<string> SupportUrl => new TerraformReference(this, "support_url");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
+    public TerraformValue<string> Type => new TerraformReference(this, "type");
 
 }

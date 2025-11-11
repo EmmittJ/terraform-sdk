@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for add_header_action in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSesReceiptRuleAddHeaderActionBlock : ITerraformBlock
+public class AwsSesReceiptRuleAddHeaderActionBlock
 {
     /// <summary>
     /// The header_name attribute.
@@ -14,7 +14,7 @@ public class AwsSesReceiptRuleAddHeaderActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     [TerraformPropertyName("header_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HeaderName { get; set; }
+    public required TerraformValue<string> HeaderName { get; set; }
 
     /// <summary>
     /// The header_value attribute.
@@ -22,7 +22,7 @@ public class AwsSesReceiptRuleAddHeaderActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     [TerraformPropertyName("header_value")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HeaderValue { get; set; }
+    public required TerraformValue<string> HeaderValue { get; set; }
 
     /// <summary>
     /// The position attribute.
@@ -30,7 +30,7 @@ public class AwsSesReceiptRuleAddHeaderActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     [TerraformPropertyName("position")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Position { get; set; }
+    public required TerraformValue<double> Position { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public class AwsSesReceiptRuleAddHeaderActionBlock : ITerraformBlock
 /// Block type for bounce_action in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSesReceiptRuleBounceActionBlock : ITerraformBlock
+public class AwsSesReceiptRuleBounceActionBlock
 {
     /// <summary>
     /// The message attribute.
@@ -46,7 +46,7 @@ public class AwsSesReceiptRuleBounceActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Message is required")]
     [TerraformPropertyName("message")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Message { get; set; }
+    public required TerraformValue<string> Message { get; set; }
 
     /// <summary>
     /// The position attribute.
@@ -54,7 +54,7 @@ public class AwsSesReceiptRuleBounceActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     [TerraformPropertyName("position")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Position { get; set; }
+    public required TerraformValue<double> Position { get; set; }
 
     /// <summary>
     /// The sender attribute.
@@ -62,7 +62,7 @@ public class AwsSesReceiptRuleBounceActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sender is required")]
     [TerraformPropertyName("sender")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Sender { get; set; }
+    public required TerraformValue<string> Sender { get; set; }
 
     /// <summary>
     /// The smtp_reply_code attribute.
@@ -70,21 +70,21 @@ public class AwsSesReceiptRuleBounceActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmtpReplyCode is required")]
     [TerraformPropertyName("smtp_reply_code")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SmtpReplyCode { get; set; }
+    public required TerraformValue<string> SmtpReplyCode { get; set; }
 
     /// <summary>
     /// The status_code attribute.
     /// </summary>
     [TerraformPropertyName("status_code")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StatusCode { get; set; }
+    public TerraformValue<string>? StatusCode { get; set; }
 
     /// <summary>
     /// The topic_arn attribute.
     /// </summary>
     [TerraformPropertyName("topic_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TopicArn { get; set; }
+    public TerraformValue<string>? TopicArn { get; set; }
 
 }
 
@@ -92,7 +92,7 @@ public class AwsSesReceiptRuleBounceActionBlock : ITerraformBlock
 /// Block type for lambda_action in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSesReceiptRuleLambdaActionBlock : ITerraformBlock
+public class AwsSesReceiptRuleLambdaActionBlock
 {
     /// <summary>
     /// The function_arn attribute.
@@ -100,14 +100,14 @@ public class AwsSesReceiptRuleLambdaActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
     [TerraformPropertyName("function_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FunctionArn { get; set; }
+    public required TerraformValue<string> FunctionArn { get; set; }
 
     /// <summary>
     /// The invocation_type attribute.
     /// </summary>
     [TerraformPropertyName("invocation_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? InvocationType { get; set; }
+    public TerraformValue<string>? InvocationType { get; set; }
 
     /// <summary>
     /// The position attribute.
@@ -115,14 +115,14 @@ public class AwsSesReceiptRuleLambdaActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     [TerraformPropertyName("position")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Position { get; set; }
+    public required TerraformValue<double> Position { get; set; }
 
     /// <summary>
     /// The topic_arn attribute.
     /// </summary>
     [TerraformPropertyName("topic_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TopicArn { get; set; }
+    public TerraformValue<string>? TopicArn { get; set; }
 
 }
 
@@ -130,7 +130,7 @@ public class AwsSesReceiptRuleLambdaActionBlock : ITerraformBlock
 /// Block type for s3_action in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSesReceiptRuleS3ActionBlock : ITerraformBlock
+public class AwsSesReceiptRuleS3ActionBlock
 {
     /// <summary>
     /// The bucket_name attribute.
@@ -138,28 +138,28 @@ public class AwsSesReceiptRuleS3ActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     [TerraformPropertyName("bucket_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BucketName { get; set; }
+    public required TerraformValue<string> BucketName { get; set; }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
     [TerraformPropertyName("iam_role_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IamRoleArn { get; set; }
+    public TerraformValue<string>? IamRoleArn { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyArn { get; set; }
+    public TerraformValue<string>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The object_key_prefix attribute.
     /// </summary>
     [TerraformPropertyName("object_key_prefix")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ObjectKeyPrefix { get; set; }
+    public TerraformValue<string>? ObjectKeyPrefix { get; set; }
 
     /// <summary>
     /// The position attribute.
@@ -167,14 +167,14 @@ public class AwsSesReceiptRuleS3ActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     [TerraformPropertyName("position")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Position { get; set; }
+    public required TerraformValue<double> Position { get; set; }
 
     /// <summary>
     /// The topic_arn attribute.
     /// </summary>
     [TerraformPropertyName("topic_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TopicArn { get; set; }
+    public TerraformValue<string>? TopicArn { get; set; }
 
 }
 
@@ -182,14 +182,14 @@ public class AwsSesReceiptRuleS3ActionBlock : ITerraformBlock
 /// Block type for sns_action in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSesReceiptRuleSnsActionBlock : ITerraformBlock
+public class AwsSesReceiptRuleSnsActionBlock
 {
     /// <summary>
     /// The encoding attribute.
     /// </summary>
     [TerraformPropertyName("encoding")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Encoding { get; set; }
+    public TerraformValue<string>? Encoding { get; set; }
 
     /// <summary>
     /// The position attribute.
@@ -197,7 +197,7 @@ public class AwsSesReceiptRuleSnsActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     [TerraformPropertyName("position")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Position { get; set; }
+    public required TerraformValue<double> Position { get; set; }
 
     /// <summary>
     /// The topic_arn attribute.
@@ -205,7 +205,7 @@ public class AwsSesReceiptRuleSnsActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     [TerraformPropertyName("topic_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TopicArn { get; set; }
+    public required TerraformValue<string> TopicArn { get; set; }
 
 }
 
@@ -213,7 +213,7 @@ public class AwsSesReceiptRuleSnsActionBlock : ITerraformBlock
 /// Block type for stop_action in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSesReceiptRuleStopActionBlock : ITerraformBlock
+public class AwsSesReceiptRuleStopActionBlock
 {
     /// <summary>
     /// The position attribute.
@@ -221,7 +221,7 @@ public class AwsSesReceiptRuleStopActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     [TerraformPropertyName("position")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Position { get; set; }
+    public required TerraformValue<double> Position { get; set; }
 
     /// <summary>
     /// The scope attribute.
@@ -229,14 +229,14 @@ public class AwsSesReceiptRuleStopActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformPropertyName("scope")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Scope { get; set; }
+    public required TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// The topic_arn attribute.
     /// </summary>
     [TerraformPropertyName("topic_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TopicArn { get; set; }
+    public TerraformValue<string>? TopicArn { get; set; }
 
 }
 
@@ -244,7 +244,7 @@ public class AwsSesReceiptRuleStopActionBlock : ITerraformBlock
 /// Block type for workmail_action in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSesReceiptRuleWorkmailActionBlock : ITerraformBlock
+public class AwsSesReceiptRuleWorkmailActionBlock
 {
     /// <summary>
     /// The organization_arn attribute.
@@ -252,7 +252,7 @@ public class AwsSesReceiptRuleWorkmailActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationArn is required")]
     [TerraformPropertyName("organization_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OrganizationArn { get; set; }
+    public required TerraformValue<string> OrganizationArn { get; set; }
 
     /// <summary>
     /// The position attribute.
@@ -260,14 +260,14 @@ public class AwsSesReceiptRuleWorkmailActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     [TerraformPropertyName("position")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Position { get; set; }
+    public required TerraformValue<double> Position { get; set; }
 
     /// <summary>
     /// The topic_arn attribute.
     /// </summary>
     [TerraformPropertyName("topic_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TopicArn { get; set; }
+    public TerraformValue<string>? TopicArn { get; set; }
 
 }
 
@@ -285,21 +285,21 @@ public class AwsSesReceiptRule : TerraformResource
     /// </summary>
     [TerraformPropertyName("after")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? After { get; set; }
+    public TerraformValue<string>? After { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -307,21 +307,21 @@ public class AwsSesReceiptRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recipients attribute.
     /// </summary>
     [TerraformPropertyName("recipients")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Recipients { get; set; }
+    public TerraformSet<string>? Recipients { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The rule_set_name attribute.
@@ -329,76 +329,76 @@ public class AwsSesReceiptRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleSetName is required")]
     [TerraformPropertyName("rule_set_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RuleSetName { get; set; }
+    public required TerraformValue<string> RuleSetName { get; set; }
 
     /// <summary>
     /// The scan_enabled attribute.
     /// </summary>
     [TerraformPropertyName("scan_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ScanEnabled { get; set; }
+    public TerraformValue<bool>? ScanEnabled { get; set; }
 
     /// <summary>
     /// The tls_policy attribute.
     /// </summary>
     [TerraformPropertyName("tls_policy")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> TlsPolicy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tls_policy");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> TlsPolicy { get; set; } = default!;
 
     /// <summary>
     /// Block for add_header_action.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("add_header_action")]
-    public TerraformSet<TerraformBlock<AwsSesReceiptRuleAddHeaderActionBlock>>? AddHeaderAction { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsSesReceiptRuleAddHeaderActionBlock>>? AddHeaderAction { get; set; }
 
     /// <summary>
     /// Block for bounce_action.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("bounce_action")]
-    public TerraformSet<TerraformBlock<AwsSesReceiptRuleBounceActionBlock>>? BounceAction { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsSesReceiptRuleBounceActionBlock>>? BounceAction { get; set; }
 
     /// <summary>
     /// Block for lambda_action.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("lambda_action")]
-    public TerraformSet<TerraformBlock<AwsSesReceiptRuleLambdaActionBlock>>? LambdaAction { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsSesReceiptRuleLambdaActionBlock>>? LambdaAction { get; set; }
 
     /// <summary>
     /// Block for s3_action.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("s3_action")]
-    public TerraformSet<TerraformBlock<AwsSesReceiptRuleS3ActionBlock>>? S3Action { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsSesReceiptRuleS3ActionBlock>>? S3Action { get; set; }
 
     /// <summary>
     /// Block for sns_action.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("sns_action")]
-    public TerraformSet<TerraformBlock<AwsSesReceiptRuleSnsActionBlock>>? SnsAction { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsSesReceiptRuleSnsActionBlock>>? SnsAction { get; set; }
 
     /// <summary>
     /// Block for stop_action.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("stop_action")]
-    public TerraformSet<TerraformBlock<AwsSesReceiptRuleStopActionBlock>>? StopAction { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsSesReceiptRuleStopActionBlock>>? StopAction { get; set; }
 
     /// <summary>
     /// Block for workmail_action.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("workmail_action")]
-    public TerraformSet<TerraformBlock<AwsSesReceiptRuleWorkmailActionBlock>>? WorkmailAction { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsSesReceiptRuleWorkmailActionBlock>>? WorkmailAction { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

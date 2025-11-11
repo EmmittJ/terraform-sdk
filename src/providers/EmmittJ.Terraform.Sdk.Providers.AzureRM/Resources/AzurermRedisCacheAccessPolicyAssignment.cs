@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermRedisCacheAccessPolicyAssignmentTimeoutsBlock : ITerraformBlock
+public class AzurermRedisCacheAccessPolicyAssignmentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPolicyName is required")]
     [TerraformPropertyName("access_policy_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AccessPolicyName { get; set; }
+    public required TerraformValue<string> AccessPolicyName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The object_id attribute.
@@ -69,7 +69,7 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     [TerraformPropertyName("object_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ObjectId { get; set; }
+    public required TerraformValue<string> ObjectId { get; set; }
 
     /// <summary>
     /// The object_id_alias attribute.
@@ -77,7 +77,7 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectIdAlias is required")]
     [TerraformPropertyName("object_id_alias")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ObjectIdAlias { get; set; }
+    public required TerraformValue<string> ObjectIdAlias { get; set; }
 
     /// <summary>
     /// The redis_cache_id attribute.
@@ -85,13 +85,13 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisCacheId is required")]
     [TerraformPropertyName("redis_cache_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RedisCacheId { get; set; }
+    public required TerraformValue<string> RedisCacheId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermRedisCacheAccessPolicyAssignmentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermRedisCacheAccessPolicyAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

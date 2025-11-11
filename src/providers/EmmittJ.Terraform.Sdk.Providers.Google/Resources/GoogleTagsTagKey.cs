@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleTagsTagKeyTimeoutsBlock : ITerraformBlock
+public class GoogleTagsTagKeyTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public class GoogleTagsTagKey : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Input only. The resource name of the new TagKey&#39;s parent. Must be of the form organizations/{org_id} or projects/{project_id_or_number}.
@@ -60,7 +60,7 @@ public class GoogleTagsTagKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformPropertyName("parent")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
+    public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Optional. A purpose cannot be changed once set.
@@ -69,7 +69,7 @@ public class GoogleTagsTagKey : TerraformResource
     /// </summary>
     [TerraformPropertyName("purpose")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Purpose { get; set; }
+    public TerraformValue<string>? Purpose { get; set; }
 
     /// <summary>
     /// Optional. Purpose data cannot be changed once set.
@@ -78,7 +78,7 @@ public class GoogleTagsTagKey : TerraformResource
     /// </summary>
     [TerraformPropertyName("purpose_data")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? PurposeData { get; set; }
+    public TerraformMap<string>? PurposeData { get; set; }
 
     /// <summary>
     /// Input only. The user friendly name for a TagKey. The short name should be unique for TagKeys within the same tag namespace.
@@ -88,14 +88,14 @@ public class GoogleTagsTagKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
     [TerraformPropertyName("short_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ShortName { get; set; }
+    public required TerraformValue<string> ShortName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleTagsTagKeyTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleTagsTagKeyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Creation time.
@@ -104,21 +104,21 @@ public class GoogleTagsTagKey : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The generated numeric id for the TagKey.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Output only. Namespaced name of the TagKey.
     /// </summary>
     [TerraformPropertyName("namespaced_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NamespacedName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "namespaced_name");
+    public TerraformValue<string> NamespacedName => new TerraformReference(this, "namespaced_name");
 
     /// <summary>
     /// Output only. Update time.
@@ -127,6 +127,6 @@ public class GoogleTagsTagKey : TerraformResource
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

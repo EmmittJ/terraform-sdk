@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for protection_policy in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlock : ITerraformBlock
+public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlock
 {
     /// <summary>
     /// The policy_type attribute.
@@ -14,7 +14,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
     [TerraformPropertyName("policy_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PolicyType { get; set; }
+    public required TerraformValue<string> PolicyType { get; set; }
 
 }
 
@@ -22,14 +22,14 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlock : ITerraformBloc
 /// Block type for settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBackupPolicyVmWorkloadSettingsBlock : ITerraformBlock
+public class AzurermBackupPolicyVmWorkloadSettingsBlock
 {
     /// <summary>
     /// The compression_enabled attribute.
     /// </summary>
     [TerraformPropertyName("compression_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? CompressionEnabled { get; set; }
+    public TerraformValue<bool>? CompressionEnabled { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
@@ -37,7 +37,7 @@ public class AzurermBackupPolicyVmWorkloadSettingsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     [TerraformPropertyName("time_zone")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TimeZone { get; set; }
+    public required TerraformValue<string> TimeZone { get; set; }
 
 }
 
@@ -45,35 +45,35 @@ public class AzurermBackupPolicyVmWorkloadSettingsBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBackupPolicyVmWorkloadTimeoutsBlock : ITerraformBlock
+public class AzurermBackupPolicyVmWorkloadTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -91,8 +91,8 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -100,7 +100,7 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recovery_vault_name attribute.
@@ -108,7 +108,7 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     [TerraformPropertyName("recovery_vault_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RecoveryVaultName { get; set; }
+    public required TerraformValue<string> RecoveryVaultName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -116,7 +116,7 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The workload_type attribute.
@@ -124,7 +124,7 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadType is required")]
     [TerraformPropertyName("workload_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkloadType { get; set; }
+    public required TerraformValue<string> WorkloadType { get; set; }
 
     /// <summary>
     /// Block for protection_policy.
@@ -133,7 +133,7 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProtectionPolicy block(s) required")]
     [TerraformPropertyName("protection_policy")]
-    public TerraformSet<TerraformBlock<AzurermBackupPolicyVmWorkloadProtectionPolicyBlock>>? ProtectionPolicy { get; set; } = new();
+    public TerraformSet<TerraformBlock<AzurermBackupPolicyVmWorkloadProtectionPolicyBlock>>? ProtectionPolicy { get; set; }
 
     /// <summary>
     /// Block for settings.
@@ -143,13 +143,13 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Settings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Settings block(s) allowed")]
     [TerraformPropertyName("settings")]
-    public TerraformList<TerraformBlock<AzurermBackupPolicyVmWorkloadSettingsBlock>>? Settings { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermBackupPolicyVmWorkloadSettingsBlock>>? Settings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermBackupPolicyVmWorkloadTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermBackupPolicyVmWorkloadTimeoutsBlock>? Timeouts { get; set; }
 
 }

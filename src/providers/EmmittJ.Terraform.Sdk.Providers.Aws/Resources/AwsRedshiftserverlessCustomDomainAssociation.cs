@@ -17,7 +17,7 @@ public class AwsRedshiftserverlessCustomDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDomainCertificateArn is required")]
     [TerraformPropertyName("custom_domain_certificate_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CustomDomainCertificateArn { get; set; }
+    public required TerraformValue<string> CustomDomainCertificateArn { get; set; }
 
     /// <summary>
     /// The custom_domain_name attribute.
@@ -25,14 +25,14 @@ public class AwsRedshiftserverlessCustomDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDomainName is required")]
     [TerraformPropertyName("custom_domain_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CustomDomainName { get; set; }
+    public required TerraformValue<string> CustomDomainName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The workgroup_name attribute.
@@ -40,20 +40,20 @@ public class AwsRedshiftserverlessCustomDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     [TerraformPropertyName("workgroup_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkgroupName { get; set; }
+    public required TerraformValue<string> WorkgroupName { get; set; }
 
     /// <summary>
     /// The custom_domain_certificate_expiry_time attribute.
     /// </summary>
     [TerraformPropertyName("custom_domain_certificate_expiry_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CustomDomainCertificateExpiryTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "custom_domain_certificate_expiry_time");
+    public TerraformValue<string> CustomDomainCertificateExpiryTime => new TerraformReference(this, "custom_domain_certificate_expiry_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

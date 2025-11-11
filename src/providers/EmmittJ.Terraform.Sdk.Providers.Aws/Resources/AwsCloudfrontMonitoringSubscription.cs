@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for monitoring_subscription in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock : ITerraformBlock
+public class AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock
 {
 }
 
@@ -26,14 +26,14 @@ public class AwsCloudfrontMonitoringSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DistributionId is required")]
     [TerraformPropertyName("distribution_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DistributionId { get; set; }
+    public required TerraformValue<string> DistributionId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Block for monitoring_subscription.
@@ -43,6 +43,6 @@ public class AwsCloudfrontMonitoringSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MonitoringSubscription block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringSubscription block(s) allowed")]
     [TerraformPropertyName("monitoring_subscription")]
-    public TerraformList<TerraformBlock<AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock>>? MonitoringSubscription { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock>>? MonitoringSubscription { get; set; }
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for egress in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDefaultNetworkAclEgressBlock : ITerraformBlock
+public class AwsDefaultNetworkAclEgressBlock
 {
     /// <summary>
     /// The action attribute.
@@ -14,14 +14,14 @@ public class AwsDefaultNetworkAclEgressBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformPropertyName("action")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
+    public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
     [TerraformPropertyName("cidr_block")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CidrBlock { get; set; }
+    public TerraformValue<string>? CidrBlock { get; set; }
 
     /// <summary>
     /// The from_port attribute.
@@ -29,28 +29,28 @@ public class AwsDefaultNetworkAclEgressBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     [TerraformPropertyName("from_port")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> FromPort { get; set; }
+    public required TerraformValue<double> FromPort { get; set; }
 
     /// <summary>
     /// The icmp_code attribute.
     /// </summary>
     [TerraformPropertyName("icmp_code")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? IcmpCode { get; set; }
+    public TerraformValue<double>? IcmpCode { get; set; }
 
     /// <summary>
     /// The icmp_type attribute.
     /// </summary>
     [TerraformPropertyName("icmp_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? IcmpType { get; set; }
+    public TerraformValue<double>? IcmpType { get; set; }
 
     /// <summary>
     /// The ipv6_cidr_block attribute.
     /// </summary>
     [TerraformPropertyName("ipv6_cidr_block")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Ipv6CidrBlock { get; set; }
+    public TerraformValue<string>? Ipv6CidrBlock { get; set; }
 
     /// <summary>
     /// The protocol attribute.
@@ -58,7 +58,7 @@ public class AwsDefaultNetworkAclEgressBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformPropertyName("protocol")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
+    public required TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The rule_no attribute.
@@ -66,7 +66,7 @@ public class AwsDefaultNetworkAclEgressBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNo is required")]
     [TerraformPropertyName("rule_no")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> RuleNo { get; set; }
+    public required TerraformValue<double> RuleNo { get; set; }
 
     /// <summary>
     /// The to_port attribute.
@@ -74,7 +74,7 @@ public class AwsDefaultNetworkAclEgressBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     [TerraformPropertyName("to_port")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> ToPort { get; set; }
+    public required TerraformValue<double> ToPort { get; set; }
 
 }
 
@@ -82,7 +82,7 @@ public class AwsDefaultNetworkAclEgressBlock : ITerraformBlock
 /// Block type for ingress in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDefaultNetworkAclIngressBlock : ITerraformBlock
+public class AwsDefaultNetworkAclIngressBlock
 {
     /// <summary>
     /// The action attribute.
@@ -90,14 +90,14 @@ public class AwsDefaultNetworkAclIngressBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformPropertyName("action")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
+    public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
     [TerraformPropertyName("cidr_block")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CidrBlock { get; set; }
+    public TerraformValue<string>? CidrBlock { get; set; }
 
     /// <summary>
     /// The from_port attribute.
@@ -105,28 +105,28 @@ public class AwsDefaultNetworkAclIngressBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     [TerraformPropertyName("from_port")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> FromPort { get; set; }
+    public required TerraformValue<double> FromPort { get; set; }
 
     /// <summary>
     /// The icmp_code attribute.
     /// </summary>
     [TerraformPropertyName("icmp_code")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? IcmpCode { get; set; }
+    public TerraformValue<double>? IcmpCode { get; set; }
 
     /// <summary>
     /// The icmp_type attribute.
     /// </summary>
     [TerraformPropertyName("icmp_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? IcmpType { get; set; }
+    public TerraformValue<double>? IcmpType { get; set; }
 
     /// <summary>
     /// The ipv6_cidr_block attribute.
     /// </summary>
     [TerraformPropertyName("ipv6_cidr_block")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Ipv6CidrBlock { get; set; }
+    public TerraformValue<string>? Ipv6CidrBlock { get; set; }
 
     /// <summary>
     /// The protocol attribute.
@@ -134,7 +134,7 @@ public class AwsDefaultNetworkAclIngressBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformPropertyName("protocol")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
+    public required TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The rule_no attribute.
@@ -142,7 +142,7 @@ public class AwsDefaultNetworkAclIngressBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNo is required")]
     [TerraformPropertyName("rule_no")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> RuleNo { get; set; }
+    public required TerraformValue<double> RuleNo { get; set; }
 
     /// <summary>
     /// The to_port attribute.
@@ -150,7 +150,7 @@ public class AwsDefaultNetworkAclIngressBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     [TerraformPropertyName("to_port")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> ToPort { get; set; }
+    public required TerraformValue<double> ToPort { get; set; }
 
 }
 
@@ -169,76 +169,76 @@ public class AwsDefaultNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultNetworkAclId is required")]
     [TerraformPropertyName("default_network_acl_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DefaultNetworkAclId { get; set; }
+    public required TerraformValue<string> DefaultNetworkAclId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [TerraformPropertyName("subnet_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
+    public TerraformSet<string>? SubnetIds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for egress.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("egress")]
-    public TerraformSet<TerraformBlock<AwsDefaultNetworkAclEgressBlock>>? Egress { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsDefaultNetworkAclEgressBlock>>? Egress { get; set; }
 
     /// <summary>
     /// Block for ingress.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("ingress")]
-    public TerraformSet<TerraformBlock<AwsDefaultNetworkAclIngressBlock>>? Ingress { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsDefaultNetworkAclIngressBlock>>? Ingress { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     [TerraformPropertyName("owner_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
+    public TerraformValue<string> OwnerId => new TerraformReference(this, "owner_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [TerraformPropertyName("vpc_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
+    public TerraformValue<string> VpcId => new TerraformReference(this, "vpc_id");
 
 }

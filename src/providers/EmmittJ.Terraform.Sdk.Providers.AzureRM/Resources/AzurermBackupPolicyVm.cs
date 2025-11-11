@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for backup in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBackupPolicyVmBackupBlock : ITerraformBlock
+public class AzurermBackupPolicyVmBackupBlock
 {
     /// <summary>
     /// The frequency attribute.
@@ -14,21 +14,21 @@ public class AzurermBackupPolicyVmBackupBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     [TerraformPropertyName("frequency")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Frequency { get; set; }
+    public required TerraformValue<string> Frequency { get; set; }
 
     /// <summary>
     /// The hour_duration attribute.
     /// </summary>
     [TerraformPropertyName("hour_duration")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? HourDuration { get; set; }
+    public TerraformValue<double>? HourDuration { get; set; }
 
     /// <summary>
     /// The hour_interval attribute.
     /// </summary>
     [TerraformPropertyName("hour_interval")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? HourInterval { get; set; }
+    public TerraformValue<double>? HourInterval { get; set; }
 
     /// <summary>
     /// The time attribute.
@@ -36,14 +36,14 @@ public class AzurermBackupPolicyVmBackupBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     [TerraformPropertyName("time")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Time { get; set; }
+    public required TerraformValue<string> Time { get; set; }
 
     /// <summary>
     /// The weekdays attribute.
     /// </summary>
     [TerraformPropertyName("weekdays")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Weekdays { get; set; }
+    public TerraformSet<string>? Weekdays { get; set; }
 
 }
 
@@ -51,7 +51,7 @@ public class AzurermBackupPolicyVmBackupBlock : ITerraformBlock
 /// Block type for instant_restore_resource_group in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBackupPolicyVmInstantRestoreResourceGroupBlock : ITerraformBlock
+public class AzurermBackupPolicyVmInstantRestoreResourceGroupBlock
 {
     /// <summary>
     /// The prefix attribute.
@@ -59,14 +59,14 @@ public class AzurermBackupPolicyVmInstantRestoreResourceGroupBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     [TerraformPropertyName("prefix")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Prefix { get; set; }
+    public required TerraformValue<string> Prefix { get; set; }
 
     /// <summary>
     /// The suffix attribute.
     /// </summary>
     [TerraformPropertyName("suffix")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Suffix { get; set; }
+    public TerraformValue<string>? Suffix { get; set; }
 
 }
 
@@ -74,7 +74,7 @@ public class AzurermBackupPolicyVmInstantRestoreResourceGroupBlock : ITerraformB
 /// Block type for retention_daily in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBackupPolicyVmRetentionDailyBlock : ITerraformBlock
+public class AzurermBackupPolicyVmRetentionDailyBlock
 {
     /// <summary>
     /// The count attribute.
@@ -82,7 +82,7 @@ public class AzurermBackupPolicyVmRetentionDailyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     [TerraformPropertyName("count")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Count { get; set; }
+    public required TerraformValue<double> Count { get; set; }
 
 }
 
@@ -90,7 +90,7 @@ public class AzurermBackupPolicyVmRetentionDailyBlock : ITerraformBlock
 /// Block type for retention_monthly in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBackupPolicyVmRetentionMonthlyBlock : ITerraformBlock
+public class AzurermBackupPolicyVmRetentionMonthlyBlock
 {
     /// <summary>
     /// The count attribute.
@@ -98,35 +98,35 @@ public class AzurermBackupPolicyVmRetentionMonthlyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     [TerraformPropertyName("count")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Count { get; set; }
+    public required TerraformValue<double> Count { get; set; }
 
     /// <summary>
     /// The days attribute.
     /// </summary>
     [TerraformPropertyName("days")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<double>>>? Days { get; set; }
+    public TerraformSet<double>? Days { get; set; }
 
     /// <summary>
     /// The include_last_days attribute.
     /// </summary>
     [TerraformPropertyName("include_last_days")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IncludeLastDays { get; set; }
+    public TerraformValue<bool>? IncludeLastDays { get; set; }
 
     /// <summary>
     /// The weekdays attribute.
     /// </summary>
     [TerraformPropertyName("weekdays")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Weekdays { get; set; }
+    public TerraformSet<string>? Weekdays { get; set; }
 
     /// <summary>
     /// The weeks attribute.
     /// </summary>
     [TerraformPropertyName("weeks")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Weeks { get; set; }
+    public TerraformSet<string>? Weeks { get; set; }
 
 }
 
@@ -134,7 +134,7 @@ public class AzurermBackupPolicyVmRetentionMonthlyBlock : ITerraformBlock
 /// Block type for retention_weekly in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBackupPolicyVmRetentionWeeklyBlock : ITerraformBlock
+public class AzurermBackupPolicyVmRetentionWeeklyBlock
 {
     /// <summary>
     /// The count attribute.
@@ -142,7 +142,7 @@ public class AzurermBackupPolicyVmRetentionWeeklyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     [TerraformPropertyName("count")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Count { get; set; }
+    public required TerraformValue<double> Count { get; set; }
 
     /// <summary>
     /// The weekdays attribute.
@@ -150,7 +150,7 @@ public class AzurermBackupPolicyVmRetentionWeeklyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weekdays is required")]
     [TerraformPropertyName("weekdays")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Weekdays { get; set; }
+    public required TerraformSet<string> Weekdays { get; set; }
 
 }
 
@@ -158,7 +158,7 @@ public class AzurermBackupPolicyVmRetentionWeeklyBlock : ITerraformBlock
 /// Block type for retention_yearly in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBackupPolicyVmRetentionYearlyBlock : ITerraformBlock
+public class AzurermBackupPolicyVmRetentionYearlyBlock
 {
     /// <summary>
     /// The count attribute.
@@ -166,21 +166,21 @@ public class AzurermBackupPolicyVmRetentionYearlyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     [TerraformPropertyName("count")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Count { get; set; }
+    public required TerraformValue<double> Count { get; set; }
 
     /// <summary>
     /// The days attribute.
     /// </summary>
     [TerraformPropertyName("days")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<double>>>? Days { get; set; }
+    public TerraformSet<double>? Days { get; set; }
 
     /// <summary>
     /// The include_last_days attribute.
     /// </summary>
     [TerraformPropertyName("include_last_days")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IncludeLastDays { get; set; }
+    public TerraformValue<bool>? IncludeLastDays { get; set; }
 
     /// <summary>
     /// The months attribute.
@@ -188,21 +188,21 @@ public class AzurermBackupPolicyVmRetentionYearlyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Months is required")]
     [TerraformPropertyName("months")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Months { get; set; }
+    public required TerraformSet<string> Months { get; set; }
 
     /// <summary>
     /// The weekdays attribute.
     /// </summary>
     [TerraformPropertyName("weekdays")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Weekdays { get; set; }
+    public TerraformSet<string>? Weekdays { get; set; }
 
     /// <summary>
     /// The weeks attribute.
     /// </summary>
     [TerraformPropertyName("weeks")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Weeks { get; set; }
+    public TerraformSet<string>? Weeks { get; set; }
 
 }
 
@@ -210,7 +210,7 @@ public class AzurermBackupPolicyVmRetentionYearlyBlock : ITerraformBlock
 /// Block type for tiering_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBackupPolicyVmTieringPolicyBlock : ITerraformBlock
+public class AzurermBackupPolicyVmTieringPolicyBlock
 {
 }
 
@@ -218,35 +218,35 @@ public class AzurermBackupPolicyVmTieringPolicyBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBackupPolicyVmTimeoutsBlock : ITerraformBlock
+public class AzurermBackupPolicyVmTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -264,15 +264,15 @@ public class AzurermBackupPolicyVm : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The instant_restore_retention_days attribute.
     /// </summary>
     [TerraformPropertyName("instant_restore_retention_days")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> InstantRestoreRetentionDays { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "instant_restore_retention_days");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> InstantRestoreRetentionDays { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -280,14 +280,14 @@ public class AzurermBackupPolicyVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
     [TerraformPropertyName("policy_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PolicyType { get; set; }
+    public TerraformValue<string>? PolicyType { get; set; }
 
     /// <summary>
     /// The recovery_vault_name attribute.
@@ -295,7 +295,7 @@ public class AzurermBackupPolicyVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     [TerraformPropertyName("recovery_vault_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RecoveryVaultName { get; set; }
+    public required TerraformValue<string> RecoveryVaultName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -303,14 +303,14 @@ public class AzurermBackupPolicyVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
     [TerraformPropertyName("timezone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Timezone { get; set; }
+    public TerraformValue<string>? Timezone { get; set; }
 
     /// <summary>
     /// Block for backup.
@@ -320,7 +320,7 @@ public class AzurermBackupPolicyVm : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Backup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
     [TerraformPropertyName("backup")]
-    public TerraformList<TerraformBlock<AzurermBackupPolicyVmBackupBlock>>? Backup { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermBackupPolicyVmBackupBlock>>? Backup { get; set; }
 
     /// <summary>
     /// Block for instant_restore_resource_group.
@@ -328,7 +328,7 @@ public class AzurermBackupPolicyVm : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstantRestoreResourceGroup block(s) allowed")]
     [TerraformPropertyName("instant_restore_resource_group")]
-    public TerraformList<TerraformBlock<AzurermBackupPolicyVmInstantRestoreResourceGroupBlock>>? InstantRestoreResourceGroup { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermBackupPolicyVmInstantRestoreResourceGroupBlock>>? InstantRestoreResourceGroup { get; set; }
 
     /// <summary>
     /// Block for retention_daily.
@@ -336,7 +336,7 @@ public class AzurermBackupPolicyVm : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionDaily block(s) allowed")]
     [TerraformPropertyName("retention_daily")]
-    public TerraformList<TerraformBlock<AzurermBackupPolicyVmRetentionDailyBlock>>? RetentionDaily { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermBackupPolicyVmRetentionDailyBlock>>? RetentionDaily { get; set; }
 
     /// <summary>
     /// Block for retention_monthly.
@@ -344,7 +344,7 @@ public class AzurermBackupPolicyVm : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionMonthly block(s) allowed")]
     [TerraformPropertyName("retention_monthly")]
-    public TerraformList<TerraformBlock<AzurermBackupPolicyVmRetentionMonthlyBlock>>? RetentionMonthly { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermBackupPolicyVmRetentionMonthlyBlock>>? RetentionMonthly { get; set; }
 
     /// <summary>
     /// Block for retention_weekly.
@@ -352,7 +352,7 @@ public class AzurermBackupPolicyVm : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionWeekly block(s) allowed")]
     [TerraformPropertyName("retention_weekly")]
-    public TerraformList<TerraformBlock<AzurermBackupPolicyVmRetentionWeeklyBlock>>? RetentionWeekly { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermBackupPolicyVmRetentionWeeklyBlock>>? RetentionWeekly { get; set; }
 
     /// <summary>
     /// Block for retention_yearly.
@@ -360,7 +360,7 @@ public class AzurermBackupPolicyVm : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionYearly block(s) allowed")]
     [TerraformPropertyName("retention_yearly")]
-    public TerraformList<TerraformBlock<AzurermBackupPolicyVmRetentionYearlyBlock>>? RetentionYearly { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermBackupPolicyVmRetentionYearlyBlock>>? RetentionYearly { get; set; }
 
     /// <summary>
     /// Block for tiering_policy.
@@ -368,13 +368,13 @@ public class AzurermBackupPolicyVm : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TieringPolicy block(s) allowed")]
     [TerraformPropertyName("tiering_policy")]
-    public TerraformList<TerraformBlock<AzurermBackupPolicyVmTieringPolicyBlock>>? TieringPolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermBackupPolicyVmTieringPolicyBlock>>? TieringPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermBackupPolicyVmTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermBackupPolicyVmTimeoutsBlock>? Timeouts { get; set; }
 
 }

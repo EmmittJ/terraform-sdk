@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIamOauthClientTimeoutsBlock : ITerraformBlock
+public class GoogleIamOauthClientTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class GoogleIamOauthClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedGrantTypes is required")]
     [TerraformPropertyName("allowed_grant_types")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? AllowedGrantTypes { get; set; }
+    public TerraformList<string>? AllowedGrantTypes { get; set; }
 
     /// <summary>
     /// Required. The list of redirect uris that is allowed to redirect back
@@ -55,7 +55,7 @@ public class GoogleIamOauthClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedRedirectUris is required")]
     [TerraformPropertyName("allowed_redirect_uris")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? AllowedRedirectUris { get; set; }
+    public TerraformList<string>? AllowedRedirectUris { get; set; }
 
     /// <summary>
     /// Required. The list of scopes that the OauthClient is allowed to request during
@@ -74,7 +74,7 @@ public class GoogleIamOauthClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedScopes is required")]
     [TerraformPropertyName("allowed_scopes")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? AllowedScopes { get; set; }
+    public TerraformList<string>? AllowedScopes { get; set; }
 
     /// <summary>
     /// Immutable. The type of OauthClient. Either public or private.
@@ -87,7 +87,7 @@ public class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformPropertyName("client_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ClientType { get; set; }
+    public TerraformValue<string>? ClientType { get; set; }
 
     /// <summary>
     /// A user-specified description of the OauthClient.
@@ -96,7 +96,7 @@ public class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Whether the OauthClient is disabled. You cannot use a disabled OAuth
@@ -104,7 +104,7 @@ public class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// A user-specified display name of the OauthClient.
@@ -113,14 +113,14 @@ public class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -128,7 +128,7 @@ public class GoogleIamOauthClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Required. The ID to use for the OauthClient, which becomes the final component of
@@ -140,28 +140,28 @@ public class GoogleIamOauthClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthClientId is required")]
     [TerraformPropertyName("oauth_client_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OauthClientId { get; set; }
+    public required TerraformValue<string> OauthClientId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleIamOauthClientTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleIamOauthClientTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The system-generated OauthClient id.
     /// </summary>
     [TerraformPropertyName("client_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ClientId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "client_id");
+    public TerraformValue<string> ClientId => new TerraformReference(this, "client_id");
 
     /// <summary>
     /// Time after which the OauthClient will be permanently purged and cannot
@@ -169,7 +169,7 @@ public class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformPropertyName("expire_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExpireTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expire_time");
+    public TerraformValue<string> ExpireTime => new TerraformReference(this, "expire_time");
 
     /// <summary>
     /// Immutable. Identifier. The resource name of the OauthClient.
@@ -178,7 +178,7 @@ public class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The state of the OauthClient.
@@ -189,6 +189,6 @@ public class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
 }

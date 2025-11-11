@@ -15,22 +15,22 @@ public class AwsKeyPair : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
     [TerraformPropertyName("key_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> KeyName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> KeyName { get; set; } = default!;
 
     /// <summary>
     /// The key_name_prefix attribute.
     /// </summary>
     [TerraformPropertyName("key_name_prefix")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> KeyNamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_name_prefix");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> KeyNamePrefix { get; set; } = default!;
 
     /// <summary>
     /// The public_key attribute.
@@ -38,55 +38,55 @@ public class AwsKeyPair : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     [TerraformPropertyName("public_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PublicKey { get; set; }
+    public required TerraformValue<string> PublicKey { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The fingerprint attribute.
     /// </summary>
     [TerraformPropertyName("fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Fingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fingerprint");
+    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
 
     /// <summary>
     /// The key_pair_id attribute.
     /// </summary>
     [TerraformPropertyName("key_pair_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KeyPairId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_pair_id");
+    public TerraformValue<string> KeyPairId => new TerraformReference(this, "key_pair_id");
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
     [TerraformPropertyName("key_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KeyType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_type");
+    public TerraformValue<string> KeyType => new TerraformReference(this, "key_type");
 
 }

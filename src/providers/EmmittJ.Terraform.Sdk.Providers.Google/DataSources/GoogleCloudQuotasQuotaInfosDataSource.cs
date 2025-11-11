@@ -15,8 +15,8 @@ public class GoogleCloudQuotasQuotaInfosDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The parent attribute.
@@ -24,7 +24,7 @@ public class GoogleCloudQuotasQuotaInfosDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformPropertyName("parent")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
+    public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// The service attribute.
@@ -32,13 +32,13 @@ public class GoogleCloudQuotasQuotaInfosDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformPropertyName("service")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Service { get; set; }
+    public required TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// The quota_infos attribute.
     /// </summary>
     [TerraformPropertyName("quota_infos")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> QuotaInfos => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "quota_infos");
+    public TerraformList<object> QuotaInfos => new TerraformReference(this, "quota_infos");
 
 }

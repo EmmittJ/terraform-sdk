@@ -15,8 +15,8 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The KeyRing that this key belongs to.
@@ -25,7 +25,7 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     [TerraformPropertyName("key_ring")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyRing { get; set; }
+    public required TerraformValue<string> KeyRing { get; set; }
 
     /// <summary>
     /// The resource name for the CryptoKey.
@@ -33,7 +33,7 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource name of the backend environment associated with all CryptoKeyVersions within this CryptoKey.
@@ -41,7 +41,7 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("crypto_key_backend")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CryptoKeyBackend => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "crypto_key_backend");
+    public TerraformValue<string> CryptoKeyBackend => new TerraformReference(this, "crypto_key_backend");
 
     /// <summary>
     /// The period of time that versions of this key spend in the DESTROY_SCHEDULED state before transitioning to DESTROYED.
@@ -49,21 +49,21 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("destroy_scheduled_duration")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DestroyScheduledDuration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "destroy_scheduled_duration");
+    public TerraformValue<string> DestroyScheduledDuration => new TerraformReference(this, "destroy_scheduled_duration");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Whether this key may contain imported versions only.
     /// </summary>
     [TerraformPropertyName("import_only")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> ImportOnly => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "import_only");
+    public TerraformValue<bool> ImportOnly => new TerraformReference(this, "import_only");
 
     /// <summary>
     /// Labels with user-defined metadata to apply to this resource.
@@ -74,7 +74,7 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// A copy of the primary CryptoKeyVersion that will be used by cryptoKeys.encrypt when this CryptoKey is given in EncryptRequest.name.
@@ -82,7 +82,7 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("primary")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Primary => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "primary");
+    public TerraformList<object> Primary => new TerraformReference(this, "primary");
 
     /// <summary>
     /// The immutable purpose of this CryptoKey. See the
@@ -92,7 +92,7 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("purpose")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Purpose => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "purpose");
+    public TerraformValue<string> Purpose => new TerraformReference(this, "purpose");
 
     /// <summary>
     /// Every time this period passes, generate a new CryptoKeyVersion and set it as the primary.
@@ -102,7 +102,7 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("rotation_period")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RotationPeriod => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "rotation_period");
+    public TerraformValue<string> RotationPeriod => new TerraformReference(this, "rotation_period");
 
     /// <summary>
     /// If set to true, the request will create a CryptoKey without any CryptoKeyVersions.
@@ -112,7 +112,7 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("skip_initial_version_creation")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> SkipInitialVersionCreation => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "skip_initial_version_creation");
+    public TerraformValue<bool> SkipInitialVersionCreation => new TerraformReference(this, "skip_initial_version_creation");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -120,13 +120,13 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// A template describing settings for new crypto key versions.
     /// </summary>
     [TerraformPropertyName("version_template")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> VersionTemplate => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "version_template");
+    public TerraformList<object> VersionTemplate => new TerraformReference(this, "version_template");
 
 }

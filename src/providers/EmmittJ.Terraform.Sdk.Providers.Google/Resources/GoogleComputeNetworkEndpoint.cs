@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeNetworkEndpointTimeoutsBlock : ITerraformBlock
+public class GoogleComputeNetworkEndpointTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -37,8 +37,8 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name for a specific VM instance that the IP address belongs to.
@@ -47,7 +47,7 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     /// </summary>
     [TerraformPropertyName("instance")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Instance { get; set; }
+    public TerraformValue<string>? Instance { get; set; }
 
     /// <summary>
     /// IPv4 address of network endpoint. The IP address must belong
@@ -57,7 +57,7 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     [TerraformPropertyName("ip_address")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IpAddress { get; set; }
+    public required TerraformValue<string> IpAddress { get; set; }
 
     /// <summary>
     /// The network endpoint group this endpoint is part of.
@@ -65,7 +65,7 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkEndpointGroup is required")]
     [TerraformPropertyName("network_endpoint_group")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NetworkEndpointGroup { get; set; }
+    public required TerraformValue<string> NetworkEndpointGroup { get; set; }
 
     /// <summary>
     /// Port number of network endpoint.
@@ -74,27 +74,27 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     /// </summary>
     [TerraformPropertyName("port")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
+    public TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Zone where the containing network endpoint group is located.
     /// </summary>
     [TerraformPropertyName("zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Zone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Zone { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeNetworkEndpointTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeNetworkEndpointTimeoutsBlock>? Timeouts { get; set; }
 
 }

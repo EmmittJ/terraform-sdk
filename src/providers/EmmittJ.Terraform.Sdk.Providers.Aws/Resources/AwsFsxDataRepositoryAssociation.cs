@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for s3 in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFsxDataRepositoryAssociationS3Block : ITerraformBlock
+public class AwsFsxDataRepositoryAssociationS3Block
 {
 }
 
@@ -14,28 +14,28 @@ public class AwsFsxDataRepositoryAssociationS3Block : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsFsxDataRepositoryAssociationTimeoutsBlock : ITerraformBlock
+public class AwsFsxDataRepositoryAssociationTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     /// </summary>
     [TerraformPropertyName("batch_import_meta_data_on_create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? BatchImportMetaDataOnCreate { get; set; }
+    public TerraformValue<bool>? BatchImportMetaDataOnCreate { get; set; }
 
     /// <summary>
     /// The data_repository_path attribute.
@@ -62,14 +62,14 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRepositoryPath is required")]
     [TerraformPropertyName("data_repository_path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DataRepositoryPath { get; set; }
+    public required TerraformValue<string> DataRepositoryPath { get; set; }
 
     /// <summary>
     /// The delete_data_in_filesystem attribute.
     /// </summary>
     [TerraformPropertyName("delete_data_in_filesystem")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DeleteDataInFilesystem { get; set; }
+    public TerraformValue<bool>? DeleteDataInFilesystem { get; set; }
 
     /// <summary>
     /// The file_system_id attribute.
@@ -77,7 +77,7 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     [TerraformPropertyName("file_system_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FileSystemId { get; set; }
+    public required TerraformValue<string> FileSystemId { get; set; }
 
     /// <summary>
     /// The file_system_path attribute.
@@ -85,42 +85,42 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemPath is required")]
     [TerraformPropertyName("file_system_path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FileSystemPath { get; set; }
+    public required TerraformValue<string> FileSystemPath { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The imported_file_chunk_size attribute.
     /// </summary>
     [TerraformPropertyName("imported_file_chunk_size")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> ImportedFileChunkSize { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "imported_file_chunk_size");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> ImportedFileChunkSize { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for s3.
@@ -128,27 +128,27 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3 block(s) allowed")]
     [TerraformPropertyName("s3")]
-    public TerraformList<TerraformBlock<AwsFsxDataRepositoryAssociationS3Block>>? S3 { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsFsxDataRepositoryAssociationS3Block>>? S3 { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsFsxDataRepositoryAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsFsxDataRepositoryAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     [TerraformPropertyName("association_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AssociationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "association_id");
+    public TerraformValue<string> AssociationId => new TerraformReference(this, "association_id");
 
 }

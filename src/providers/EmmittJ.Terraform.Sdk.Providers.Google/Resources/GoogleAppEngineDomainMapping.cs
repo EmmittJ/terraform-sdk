@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for ssl_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineDomainMappingSslSettingsBlock : ITerraformBlock
+public class GoogleAppEngineDomainMappingSslSettingsBlock
 {
     /// <summary>
     /// ID of the AuthorizedCertificate resource configuring SSL for the application. Clearing this field will
@@ -17,19 +17,9 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : ITerraformBlock
     /// Example: 12345.
     /// </summary>
     [TerraformPropertyName("certificate_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CertificateId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "certificate_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CertificateId { get; set; } = default!;
 
-    /// <summary>
-    /// ID of the managed &#39;AuthorizedCertificate&#39; resource currently being provisioned, if applicable. Until the new
-    /// managed certificate has been successfully provisioned, the previous SSL state will be preserved. Once the
-    /// provisioning process completes, the &#39;certificateId&#39; field will reflect the new managed certificate and this
-    /// field will be left empty. To remove SSL support while there is still a pending managed certificate, clear the
-    /// &#39;certificateId&#39; field with an update request.
-    /// </summary>
-    [TerraformPropertyName("pending_managed_certificate_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PendingManagedCertificateId => new TerraformReferenceProperty<TerraformProperty<string>>("", "pending_managed_certificate_id");
 
     /// <summary>
     /// SSL management type for this domain. If &#39;AUTOMATIC&#39;, a managed certificate is automatically provisioned.
@@ -38,7 +28,7 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslManagementType is required")]
     [TerraformPropertyName("ssl_management_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SslManagementType { get; set; }
+    public required TerraformValue<string> SslManagementType { get; set; }
 
 }
 
@@ -46,28 +36,28 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAppEngineDomainMappingTimeoutsBlock : ITerraformBlock
+public class GoogleAppEngineDomainMappingTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -87,14 +77,14 @@ public class GoogleAppEngineDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformPropertyName("domain_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
+    public required TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Whether the domain creation should override any existing mappings for this domain.
@@ -102,14 +92,14 @@ public class GoogleAppEngineDomainMapping : TerraformResource
     /// </summary>
     [TerraformPropertyName("override_strategy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? OverrideStrategy { get; set; }
+    public TerraformValue<string>? OverrideStrategy { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for ssl_settings.
@@ -117,21 +107,21 @@ public class GoogleAppEngineDomainMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslSettings block(s) allowed")]
     [TerraformPropertyName("ssl_settings")]
-    public TerraformList<TerraformBlock<GoogleAppEngineDomainMappingSslSettingsBlock>>? SslSettings { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineDomainMappingSslSettingsBlock>>? SslSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleAppEngineDomainMappingTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleAppEngineDomainMappingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Full path to the DomainMapping resource in the API. Example: apps/myapp/domainMapping/example.com.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The resource records required to configure this domain mapping. These records must be added to the domain&#39;s DNS
@@ -139,6 +129,6 @@ public class GoogleAppEngineDomainMapping : TerraformResource
     /// </summary>
     [TerraformPropertyName("resource_records")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ResourceRecords => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "resource_records");
+    public TerraformList<object> ResourceRecords => new TerraformReference(this, "resource_records");
 
 }

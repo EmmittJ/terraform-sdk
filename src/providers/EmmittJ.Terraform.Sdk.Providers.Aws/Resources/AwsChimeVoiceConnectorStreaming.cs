@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for media_insights_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock : ITerraformBlock
+public class AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock
 {
     /// <summary>
     /// The configuration_arn attribute.
     /// </summary>
     [TerraformPropertyName("configuration_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConfigurationArn { get; set; }
+    public TerraformValue<string>? ConfigurationArn { get; set; }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
 }
 
@@ -40,35 +40,35 @@ public class AwsChimeVoiceConnectorStreaming : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRetention is required")]
     [TerraformPropertyName("data_retention")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> DataRetention { get; set; }
+    public required TerraformValue<double> DataRetention { get; set; }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The streaming_notification_targets attribute.
     /// </summary>
     [TerraformPropertyName("streaming_notification_targets")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? StreamingNotificationTargets { get; set; }
+    public TerraformSet<string>? StreamingNotificationTargets { get; set; }
 
     /// <summary>
     /// The voice_connector_id attribute.
@@ -76,7 +76,7 @@ public class AwsChimeVoiceConnectorStreaming : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     [TerraformPropertyName("voice_connector_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VoiceConnectorId { get; set; }
+    public required TerraformValue<string> VoiceConnectorId { get; set; }
 
     /// <summary>
     /// Block for media_insights_configuration.
@@ -84,6 +84,6 @@ public class AwsChimeVoiceConnectorStreaming : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MediaInsightsConfiguration block(s) allowed")]
     [TerraformPropertyName("media_insights_configuration")]
-    public TerraformList<TerraformBlock<AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock>>? MediaInsightsConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock>>? MediaInsightsConfiguration { get; set; }
 
 }

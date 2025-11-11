@@ -15,8 +15,8 @@ public class AwsQuicksightIpRestriction : TerraformResource
     /// The aws_account_id attribute.
     /// </summary>
     [TerraformPropertyName("aws_account_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AwsAccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_account_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AwsAccountId { get; set; } = default!;
 
     /// <summary>
     /// The enabled attribute.
@@ -24,34 +24,34 @@ public class AwsQuicksightIpRestriction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformPropertyName("enabled")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
+    public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The ip_restriction_rule_map attribute.
     /// </summary>
     [TerraformPropertyName("ip_restriction_rule_map")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? IpRestrictionRuleMap { get; set; }
+    public TerraformMap<string>? IpRestrictionRuleMap { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The vpc_endpoint_id_restriction_rule_map attribute.
     /// </summary>
     [TerraformPropertyName("vpc_endpoint_id_restriction_rule_map")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? VpcEndpointIdRestrictionRuleMap { get; set; }
+    public TerraformMap<string>? VpcEndpointIdRestrictionRuleMap { get; set; }
 
     /// <summary>
     /// The vpc_id_restriction_rule_map attribute.
     /// </summary>
     [TerraformPropertyName("vpc_id_restriction_rule_map")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? VpcIdRestrictionRuleMap { get; set; }
+    public TerraformMap<string>? VpcIdRestrictionRuleMap { get; set; }
 
 }

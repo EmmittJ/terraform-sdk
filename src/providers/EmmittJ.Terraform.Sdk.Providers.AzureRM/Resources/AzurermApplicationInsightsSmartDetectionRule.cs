@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock : ITerraformBlock
+public class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public class AzurermApplicationInsightsSmartDetectionRule : TerraformResource
     /// </summary>
     [TerraformPropertyName("additional_email_recipients")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? AdditionalEmailRecipients { get; set; }
+    public TerraformSet<string>? AdditionalEmailRecipients { get; set; }
 
     /// <summary>
     /// The application_insights_id attribute.
@@ -60,21 +60,21 @@ public class AzurermApplicationInsightsSmartDetectionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     [TerraformPropertyName("application_insights_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ApplicationInsightsId { get; set; }
+    public required TerraformValue<string> ApplicationInsightsId { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -82,20 +82,20 @@ public class AzurermApplicationInsightsSmartDetectionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The send_emails_to_subscription_owners attribute.
     /// </summary>
     [TerraformPropertyName("send_emails_to_subscription_owners")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SendEmailsToSubscriptionOwners { get; set; }
+    public TerraformValue<bool>? SendEmailsToSubscriptionOwners { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

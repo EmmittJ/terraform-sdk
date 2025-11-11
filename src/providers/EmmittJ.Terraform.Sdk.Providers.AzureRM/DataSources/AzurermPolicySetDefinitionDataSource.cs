@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPolicySetDefinitionDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermPolicySetDefinitionDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,84 +30,84 @@ public class AzurermPolicySetDefinitionDataSource : TerraformDataSource
     /// The display_name attribute.
     /// </summary>
     [TerraformPropertyName("display_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DisplayName { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The management_group_name attribute.
     /// </summary>
     [TerraformPropertyName("management_group_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ManagementGroupName { get; set; }
+    public TerraformValue<string>? ManagementGroupName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Name { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermPolicySetDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermPolicySetDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformPropertyName("metadata")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Metadata => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "metadata");
+    public TerraformValue<string> Metadata => new TerraformReference(this, "metadata");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformPropertyName("parameters")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Parameters => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parameters");
+    public TerraformValue<string> Parameters => new TerraformReference(this, "parameters");
 
     /// <summary>
     /// The policy_definition_group attribute.
     /// </summary>
     [TerraformPropertyName("policy_definition_group")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PolicyDefinitionGroup => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "policy_definition_group");
+    public TerraformList<object> PolicyDefinitionGroup => new TerraformReference(this, "policy_definition_group");
 
     /// <summary>
     /// The policy_definition_reference attribute.
     /// </summary>
     [TerraformPropertyName("policy_definition_reference")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PolicyDefinitionReference => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "policy_definition_reference");
+    public TerraformList<object> PolicyDefinitionReference => new TerraformReference(this, "policy_definition_reference");
 
     /// <summary>
     /// The policy_definitions attribute.
     /// </summary>
     [TerraformPropertyName("policy_definitions")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PolicyDefinitions => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy_definitions");
+    public TerraformValue<string> PolicyDefinitions => new TerraformReference(this, "policy_definitions");
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
     [TerraformPropertyName("policy_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PolicyType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy_type");
+    public TerraformValue<string> PolicyType => new TerraformReference(this, "policy_type");
 
 }

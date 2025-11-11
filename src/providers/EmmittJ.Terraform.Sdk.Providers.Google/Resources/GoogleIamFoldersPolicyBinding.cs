@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIamFoldersPolicyBindingConditionBlock : ITerraformBlock
+public class GoogleIamFoldersPolicyBindingConditionBlock
 {
     /// <summary>
     /// Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Textual representation of an expression in Common Expression Language syntax.
     /// </summary>
     [TerraformPropertyName("expression")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Expression { get; set; }
+    public TerraformValue<string>? Expression { get; set; }
 
     /// <summary>
     /// Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression.
     /// </summary>
     [TerraformPropertyName("title")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Title { get; set; }
+    public TerraformValue<string>? Title { get; set; }
 
 }
 
@@ -42,7 +42,7 @@ public class GoogleIamFoldersPolicyBindingConditionBlock : ITerraformBlock
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIamFoldersPolicyBindingTargetBlock : ITerraformBlock
+public class GoogleIamFoldersPolicyBindingTargetBlock
 {
     /// <summary>
     /// Required. Immutable. Full Resource Name of the principal set used for principal access boundary policy bindings.
@@ -52,7 +52,7 @@ public class GoogleIamFoldersPolicyBindingTargetBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("principal_set")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PrincipalSet { get; set; }
+    public TerraformValue<string>? PrincipalSet { get; set; }
 
 }
 
@@ -60,28 +60,28 @@ public class GoogleIamFoldersPolicyBindingTargetBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIamFoldersPolicyBindingTimeoutsBlock : ITerraformBlock
+public class GoogleIamFoldersPolicyBindingTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -104,14 +104,14 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
+    public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// Optional. The description of the policy binding. Must be less than or equal to 63 characters.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The parent folder for the PolicyBinding.
@@ -119,14 +119,14 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     [TerraformPropertyName("folder")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Folder { get; set; }
+    public required TerraformValue<string> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location of the PolicyBinding.
@@ -134,7 +134,7 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Required. Immutable. The resource name of the policy to be bound. The binding parent and policy must belong to the same Organization (or Project).
@@ -142,7 +142,7 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     [TerraformPropertyName("policy")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Policy { get; set; }
+    public required TerraformValue<string> Policy { get; set; }
 
     /// <summary>
     /// The Policy Binding ID.
@@ -150,7 +150,7 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyBindingId is required")]
     [TerraformPropertyName("policy_binding_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PolicyBindingId { get; set; }
+    public required TerraformValue<string> PolicyBindingId { get; set; }
 
     /// <summary>
     /// Immutable. The kind of the policy to attach in this binding. This
@@ -159,7 +159,7 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     /// </summary>
     [TerraformPropertyName("policy_kind")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PolicyKind { get; set; }
+    public TerraformValue<string>? PolicyKind { get; set; }
 
     /// <summary>
     /// Block for condition.
@@ -167,7 +167,7 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformPropertyName("condition")]
-    public TerraformList<TerraformBlock<GoogleIamFoldersPolicyBindingConditionBlock>>? Condition { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleIamFoldersPolicyBindingConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// Block for target.
@@ -177,62 +177,62 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformPropertyName("target")]
-    public TerraformList<TerraformBlock<GoogleIamFoldersPolicyBindingTargetBlock>>? Target { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleIamFoldersPolicyBindingTargetBlock>>? Target { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleIamFoldersPolicyBindingTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleIamFoldersPolicyBindingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time when the policy binding was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_annotations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
+    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
 
     /// <summary>
     /// Optional. The etag for the policy binding. If this is provided on update, it must match the server&#39;s etag.
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// The name of the policy binding in the format &#39;{binding_parent/locations/{location}/policyBindings/{policy_binding_id}&#39;
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Output only. The globally unique ID of the policy to be bound.
     /// </summary>
     [TerraformPropertyName("policy_uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PolicyUid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy_uid");
+    public TerraformValue<string> PolicyUid => new TerraformReference(this, "policy_uid");
 
     /// <summary>
     /// Output only. The globally unique ID of the policy binding. Assigned when the policy binding is created.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Output only. The time when the policy binding was most recently updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

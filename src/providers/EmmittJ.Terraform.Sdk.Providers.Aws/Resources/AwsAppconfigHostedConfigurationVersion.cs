@@ -17,7 +17,7 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     [TerraformPropertyName("application_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
+    public required TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The configuration_profile_id attribute.
@@ -25,7 +25,7 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationProfileId is required")]
     [TerraformPropertyName("configuration_profile_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConfigurationProfileId { get; set; }
+    public required TerraformValue<string> ConfigurationProfileId { get; set; }
 
     /// <summary>
     /// The content attribute.
@@ -33,7 +33,7 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     [TerraformPropertyName("content")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Content { get; set; }
+    public required TerraformValue<string> Content { get; set; }
 
     /// <summary>
     /// The content_type attribute.
@@ -41,41 +41,41 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     [TerraformPropertyName("content_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContentType { get; set; }
+    public required TerraformValue<string> ContentType { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The version_number attribute.
     /// </summary>
     [TerraformPropertyName("version_number")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> VersionNumber => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "version_number");
+    public TerraformValue<double> VersionNumber => new TerraformReference(this, "version_number");
 
 }

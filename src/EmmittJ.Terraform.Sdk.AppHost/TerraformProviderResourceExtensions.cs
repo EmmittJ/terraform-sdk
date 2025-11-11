@@ -300,12 +300,12 @@ public static class TerraformProviderResourceExtensions
                     var csharpType = parser.MapTerraformTypeToCSharp(attr.Type);
                     var isCollection = csharpType.Contains("List<") || csharpType.Contains("Dictionary<") || csharpType.Contains("HashSet<");
 
-                    // Extract the inner type from TerraformProperty<T> or collection types
+                    // Extract the inner type from TerraformValue<T> or collection types
                     var isValueType = false;
-                    if (csharpType.StartsWith("TerraformProperty<"))
+                    if (csharpType.StartsWith("TerraformValue<"))
                     {
-                        // Extract T from TerraformProperty<T>
-                        var innerType = csharpType.Substring("TerraformProperty<".Length, csharpType.Length - "TerraformProperty<".Length - 1);
+                        // Extract T from TerraformValue<T>
+                        var innerType = csharpType.Substring("TerraformValue<".Length, csharpType.Length - "TerraformValue<".Length - 1);
                         isValueType = innerType == "bool" || innerType == "double" || innerType == "int" || innerType == "long" || innerType == "float";
                     }
 

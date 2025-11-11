@@ -15,8 +15,8 @@ public class GoogleComputeRegionSslCertificateDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -32,14 +32,14 @@ public class GoogleComputeRegionSslCertificateDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The Region in which the created regional ssl certificate should reside.
@@ -47,7 +47,7 @@ public class GoogleComputeRegionSslCertificateDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The certificate in PEM format.
@@ -56,55 +56,55 @@ public class GoogleComputeRegionSslCertificateDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("certificate")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Certificate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate");
+    public TerraformValue<string> Certificate => new TerraformReference(this, "certificate");
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     [TerraformPropertyName("certificate_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> CertificateId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "certificate_id");
+    public TerraformValue<double> CertificateId => new TerraformReference(this, "certificate_id");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// Expire time of the certificate in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("expire_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExpireTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expire_time");
+    public TerraformValue<string> ExpireTime => new TerraformReference(this, "expire_time");
 
     /// <summary>
     /// Creates a unique name beginning with the specified prefix. Conflicts with name.
     /// </summary>
     [TerraformPropertyName("name_prefix")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NamePrefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
+    public TerraformValue<string> NamePrefix => new TerraformReference(this, "name_prefix");
 
     /// <summary>
     /// The write-only private key in PEM format.
     /// </summary>
     [TerraformPropertyName("private_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrivateKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_key");
+    public TerraformValue<string> PrivateKey => new TerraformReference(this, "private_key");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
 }

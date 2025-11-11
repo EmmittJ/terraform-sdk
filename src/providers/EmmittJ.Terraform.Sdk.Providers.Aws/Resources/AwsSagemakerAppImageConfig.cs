@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for code_editor_app_image_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlock : ITerraformBlock
+public class AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlock : ITerrafor
 /// Block type for jupyter_lab_image_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerAppImageConfigJupyterLabImageConfigBlock : ITerraformBlock
+public class AwsSagemakerAppImageConfigJupyterLabImageConfigBlock
 {
 }
 
@@ -22,7 +22,7 @@ public class AwsSagemakerAppImageConfigJupyterLabImageConfigBlock : ITerraformBl
 /// Block type for kernel_gateway_image_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerAppImageConfigKernelGatewayImageConfigBlock : ITerraformBlock
+public class AwsSagemakerAppImageConfigKernelGatewayImageConfigBlock
 {
 }
 
@@ -42,35 +42,35 @@ public class AwsSagemakerAppImageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppImageConfigName is required")]
     [TerraformPropertyName("app_image_config_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AppImageConfigName { get; set; }
+    public required TerraformValue<string> AppImageConfigName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for code_editor_app_image_config.
@@ -78,7 +78,7 @@ public class AwsSagemakerAppImageConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CodeEditorAppImageConfig block(s) allowed")]
     [TerraformPropertyName("code_editor_app_image_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlock>>? CodeEditorAppImageConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlock>>? CodeEditorAppImageConfig { get; set; }
 
     /// <summary>
     /// Block for jupyter_lab_image_config.
@@ -86,7 +86,7 @@ public class AwsSagemakerAppImageConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JupyterLabImageConfig block(s) allowed")]
     [TerraformPropertyName("jupyter_lab_image_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerAppImageConfigJupyterLabImageConfigBlock>>? JupyterLabImageConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerAppImageConfigJupyterLabImageConfigBlock>>? JupyterLabImageConfig { get; set; }
 
     /// <summary>
     /// Block for kernel_gateway_image_config.
@@ -94,13 +94,13 @@ public class AwsSagemakerAppImageConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KernelGatewayImageConfig block(s) allowed")]
     [TerraformPropertyName("kernel_gateway_image_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerAppImageConfigKernelGatewayImageConfigBlock>>? KernelGatewayImageConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerAppImageConfigKernelGatewayImageConfigBlock>>? KernelGatewayImageConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

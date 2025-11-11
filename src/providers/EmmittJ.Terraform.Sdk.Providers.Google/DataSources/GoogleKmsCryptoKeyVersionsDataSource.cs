@@ -17,7 +17,7 @@ public class GoogleKmsCryptoKeyVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     [TerraformPropertyName("crypto_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CryptoKey { get; set; }
+    public required TerraformValue<string> CryptoKey { get; set; }
 
     /// <summary>
     /// 
@@ -32,27 +32,27 @@ public class GoogleKmsCryptoKeyVersionsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("filter")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Filter { get; set; }
+    public TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     [TerraformPropertyName("public_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PublicKey => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "public_key");
+    public TerraformList<object> PublicKey => new TerraformReference(this, "public_key");
 
     /// <summary>
     /// A list of all the retrieved cryptoKeyVersions from the provided crypto key
     /// </summary>
     [TerraformPropertyName("versions")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Versions => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "versions");
+    public TerraformList<object> Versions => new TerraformReference(this, "versions");
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for common_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock : ITerraformBlock
+public class GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock
 {
     /// <summary>
     /// The name of the company, business or entity that is associated with the engine. Setting this may help improve LLM related features.cd
     /// </summary>
     [TerraformPropertyName("company_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CompanyName { get; set; }
+    public TerraformValue<string>? CompanyName { get; set; }
 
 }
 
@@ -21,7 +21,7 @@ public class GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock : ITerra
 /// Block type for media_recommendation_engine_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineConfigBlock : ITerraformBlock
+public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineConfigBlock
 {
     /// <summary>
     /// The optimization objective. e.g., &#39;cvr&#39;.
@@ -34,7 +34,7 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
     /// </summary>
     [TerraformPropertyName("optimization_objective")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? OptimizationObjective { get; set; }
+    public TerraformValue<string>? OptimizationObjective { get; set; }
 
     /// <summary>
     /// The training state that the engine is in (e.g. &#39;TRAINING&#39; or &#39;PAUSED&#39;).
@@ -46,7 +46,7 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
     /// </summary>
     [TerraformPropertyName("training_state")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TrainingState { get; set; }
+    public TerraformValue<string>? TrainingState { get; set; }
 
     /// <summary>
     /// The type of engine. e.g., &#39;recommended-for-you&#39;.
@@ -57,7 +57,7 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -65,28 +65,28 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock : ITerraformBlock
+public class GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -106,7 +106,7 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreIds is required")]
     [TerraformPropertyName("data_store_ids")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? DataStoreIds { get; set; }
+    public TerraformList<string>? DataStoreIds { get; set; }
 
     /// <summary>
     /// Required. The display name of the engine. Should be human readable. UTF-8 encoded string with limit of 1024 characters.
@@ -114,7 +114,7 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Unique ID to use for Recommendation Engine.
@@ -122,21 +122,21 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     [TerraformPropertyName("engine_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EngineId { get; set; }
+    public required TerraformValue<string> EngineId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The industry vertical that the engine registers. The restriction of the Engine industry vertical is based on DataStore: If unspecified, default to GENERIC. Vertical on Engine has to match vertical of the DataStore liniked to the engine. Default value: &amp;quot;GENERIC&amp;quot; Possible values: [&amp;quot;GENERIC&amp;quot;, &amp;quot;MEDIA&amp;quot;]
     /// </summary>
     [TerraformPropertyName("industry_vertical")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IndustryVertical { get; set; }
+    public TerraformValue<string>? IndustryVertical { get; set; }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
@@ -145,14 +145,14 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for common_config.
@@ -160,7 +160,7 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CommonConfig block(s) allowed")]
     [TerraformPropertyName("common_config")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock>>? CommonConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock>>? CommonConfig { get; set; }
 
     /// <summary>
     /// Block for media_recommendation_engine_config.
@@ -168,21 +168,21 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MediaRecommendationEngineConfig block(s) allowed")]
     [TerraformPropertyName("media_recommendation_engine_config")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineConfigBlock>>? MediaRecommendationEngineConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineConfigBlock>>? MediaRecommendationEngineConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Timestamp the Engine was created at.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The unique full resource name of the recommendation engine. Values are of the format
@@ -191,13 +191,13 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Timestamp the Engine was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

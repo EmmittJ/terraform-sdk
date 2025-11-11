@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for group_key in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock : ITerraformBlock
+public class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock
 {
     /// <summary>
     /// The ID of the entity. For Google-managed entities, the id should be the email address of an existing group or user.
@@ -16,7 +16,7 @@ public class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformPropertyName("id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
+    public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The namespace in which the entity exists. If not specified, the EntityKey represents a Google-managed entity such as a Google user or a Google Group.
@@ -24,7 +24,7 @@ public class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock : ITerraformB
     /// </summary>
     [TerraformPropertyName("namespace")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Namespace { get; set; }
+    public TerraformValue<string>? Namespace { get; set; }
 
 }
 
@@ -42,8 +42,8 @@ public class GoogleCloudIdentityGroupLookupDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Block for group_key.
@@ -53,13 +53,13 @@ public class GoogleCloudIdentityGroupLookupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GroupKey block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GroupKey block(s) allowed")]
     [TerraformPropertyName("group_key")]
-    public TerraformList<TerraformBlock<GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock>>? GroupKey { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock>>? GroupKey { get; set; }
 
     /// <summary>
     /// The [resource name](https://cloud.google.com/apis/design/resource_names) of the looked-up Group.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

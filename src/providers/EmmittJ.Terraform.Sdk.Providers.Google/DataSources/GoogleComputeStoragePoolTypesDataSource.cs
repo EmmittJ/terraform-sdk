@@ -15,8 +15,8 @@ public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Name of the storage pool type.
@@ -24,7 +24,7 @@ public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePoolType is required")]
     [TerraformPropertyName("storage_pool_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StoragePoolType { get; set; }
+    public required TerraformValue<string> StoragePoolType { get; set; }
 
     /// <summary>
     /// The name of the zone.
@@ -32,111 +32,111 @@ public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     [TerraformPropertyName("zone")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Zone { get; set; }
+    public required TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// The deprecation status associated with this storage pool type.
     /// </summary>
     [TerraformPropertyName("deprecated")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Deprecated => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "deprecated");
+    public TerraformList<object> Deprecated => new TerraformReference(this, "deprecated");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Id => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "id");
+    public TerraformValue<double> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// Type of the resource. Always compute#storagePoolType for storage pool types.
     /// </summary>
     [TerraformPropertyName("kind")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Kind => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kind");
+    public TerraformValue<string> Kind => new TerraformReference(this, "kind");
 
     /// <summary>
     /// Maximum storage pool size in GB.
     /// </summary>
     [TerraformPropertyName("max_pool_provisioned_capacity_gb")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MaxPoolProvisionedCapacityGb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_pool_provisioned_capacity_gb");
+    public TerraformValue<double> MaxPoolProvisionedCapacityGb => new TerraformReference(this, "max_pool_provisioned_capacity_gb");
 
     /// <summary>
     /// Maximum provisioned IOPS.
     /// </summary>
     [TerraformPropertyName("max_pool_provisioned_iops")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MaxPoolProvisionedIops => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_pool_provisioned_iops");
+    public TerraformValue<double> MaxPoolProvisionedIops => new TerraformReference(this, "max_pool_provisioned_iops");
 
     /// <summary>
     /// Maximum provisioned throughput.
     /// </summary>
     [TerraformPropertyName("max_pool_provisioned_throughput")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MaxPoolProvisionedThroughput => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_pool_provisioned_throughput");
+    public TerraformValue<double> MaxPoolProvisionedThroughput => new TerraformReference(this, "max_pool_provisioned_throughput");
 
     /// <summary>
     /// Minimum storage pool size in GB.
     /// </summary>
     [TerraformPropertyName("min_pool_provisioned_capacity_gb")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MinPoolProvisionedCapacityGb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_pool_provisioned_capacity_gb");
+    public TerraformValue<double> MinPoolProvisionedCapacityGb => new TerraformReference(this, "min_pool_provisioned_capacity_gb");
 
     /// <summary>
     /// Minimum provisioned IOPS.
     /// </summary>
     [TerraformPropertyName("min_pool_provisioned_iops")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MinPoolProvisionedIops => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_pool_provisioned_iops");
+    public TerraformValue<double> MinPoolProvisionedIops => new TerraformReference(this, "min_pool_provisioned_iops");
 
     /// <summary>
     /// Minimum provisioned throughput.
     /// </summary>
     [TerraformPropertyName("min_pool_provisioned_throughput")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MinPoolProvisionedThroughput => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_pool_provisioned_throughput");
+    public TerraformValue<double> MinPoolProvisionedThroughput => new TerraformReference(this, "min_pool_provisioned_throughput");
 
     /// <summary>
     /// Name of the resource.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// Server-defined URL for this resource with the resource id.
     /// </summary>
     [TerraformPropertyName("self_link_with_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLinkWithId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link_with_id");
+    public TerraformValue<string> SelfLinkWithId => new TerraformReference(this, "self_link_with_id");
 
     /// <summary>
     /// The list of disk types supported in this storage pool type.
     /// </summary>
     [TerraformPropertyName("supported_disk_types")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> SupportedDiskTypes => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "supported_disk_types");
+    public TerraformList<string> SupportedDiskTypes => new TerraformReference(this, "supported_disk_types");
 
 }

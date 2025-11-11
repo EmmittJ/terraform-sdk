@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAccessanalyzerArchiveRuleFilterBlock : ITerraformBlock
+public class AwsAccessanalyzerArchiveRuleFilterBlock
 {
     /// <summary>
     /// The contains attribute.
     /// </summary>
     [TerraformPropertyName("contains")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> Contains { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "contains");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> Contains { get; set; } = default!;
 
     /// <summary>
     /// The criteria attribute.
@@ -21,28 +21,28 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     [TerraformPropertyName("criteria")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Criteria { get; set; }
+    public required TerraformValue<string> Criteria { get; set; }
 
     /// <summary>
     /// The eq attribute.
     /// </summary>
     [TerraformPropertyName("eq")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> Eq { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "eq");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> Eq { get; set; } = default!;
 
     /// <summary>
     /// The exists attribute.
     /// </summary>
     [TerraformPropertyName("exists")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Exists { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "exists");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Exists { get; set; } = default!;
 
     /// <summary>
     /// The neq attribute.
     /// </summary>
     [TerraformPropertyName("neq")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> Neq { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "neq");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> Neq { get; set; } = default!;
 
 }
 
@@ -62,21 +62,21 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalyzerName is required")]
     [TerraformPropertyName("analyzer_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AnalyzerName { get; set; }
+    public required TerraformValue<string> AnalyzerName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The rule_name attribute.
@@ -84,7 +84,7 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     [TerraformPropertyName("rule_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RuleName { get; set; }
+    public required TerraformValue<string> RuleName { get; set; }
 
     /// <summary>
     /// Block for filter.
@@ -93,6 +93,6 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [TerraformPropertyName("filter")]
-    public TerraformSet<TerraformBlock<AwsAccessanalyzerArchiveRuleFilterBlock>>? Filter { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsAccessanalyzerArchiveRuleFilterBlock>>? Filter { get; set; }
 
 }

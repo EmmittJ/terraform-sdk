@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirestoreDocumentTimeoutsBlock : ITerraformBlock
+public class GoogleFirestoreDocumentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public class GoogleFirestoreDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     [TerraformPropertyName("collection")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Collection { get; set; }
+    public required TerraformValue<string> Collection { get; set; }
 
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
     [TerraformPropertyName("database")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Database { get; set; }
+    public TerraformValue<string>? Database { get; set; }
 
     /// <summary>
     /// The client-assigned document ID to use for this document during creation.
@@ -61,7 +61,7 @@ public class GoogleFirestoreDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentId is required")]
     [TerraformPropertyName("document_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DocumentId { get; set; }
+    public required TerraformValue<string> DocumentId { get; set; }
 
     /// <summary>
     /// The document&#39;s [fields](https://cloud.google.com/firestore/docs/reference/rest/v1/projects.databases.documents) formated as a json string.
@@ -69,35 +69,35 @@ public class GoogleFirestoreDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     [TerraformPropertyName("fields")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Fields { get; set; }
+    public required TerraformValue<string> Fields { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleFirestoreDocumentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleFirestoreDocumentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 format.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// A server defined name for this document. Format:
@@ -105,20 +105,20 @@ public class GoogleFirestoreDocument : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// A relative path to the collection this document exists within
     /// </summary>
     [TerraformPropertyName("path")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Path => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "path");
+    public TerraformValue<string> Path => new TerraformReference(this, "path");
 
     /// <summary>
     /// Last update timestamp in RFC3339 format.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

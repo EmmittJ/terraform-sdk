@@ -15,8 +15,8 @@ public class AwsOrganizationsPolicyAttachment : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The policy_id attribute.
@@ -24,14 +24,14 @@ public class AwsOrganizationsPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     [TerraformPropertyName("policy_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PolicyId { get; set; }
+    public required TerraformValue<string> PolicyId { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
     [TerraformPropertyName("skip_destroy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SkipDestroy { get; set; }
+    public TerraformValue<bool>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The target_id attribute.
@@ -39,6 +39,6 @@ public class AwsOrganizationsPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     [TerraformPropertyName("target_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetId { get; set; }
+    public required TerraformValue<string> TargetId { get; set; }
 
 }

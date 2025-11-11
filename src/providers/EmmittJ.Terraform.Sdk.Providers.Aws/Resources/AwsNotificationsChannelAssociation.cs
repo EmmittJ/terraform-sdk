@@ -17,7 +17,7 @@ public class AwsNotificationsChannelAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     [TerraformPropertyName("arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
+    public required TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The notification_configuration_arn attribute.
@@ -25,6 +25,6 @@ public class AwsNotificationsChannelAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationConfigurationArn is required")]
     [TerraformPropertyName("notification_configuration_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NotificationConfigurationArn { get; set; }
+    public required TerraformValue<string> NotificationConfigurationArn { get; set; }
 
 }

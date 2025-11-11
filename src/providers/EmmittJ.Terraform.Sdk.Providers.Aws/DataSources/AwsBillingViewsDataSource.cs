@@ -16,13 +16,13 @@ public class AwsBillingViewsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("billing_view_types")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? BillingViewTypes { get; set; }
+    public TerraformList<string>? BillingViewTypes { get; set; }
 
     /// <summary>
     /// The billing_view attribute.
     /// </summary>
     [TerraformPropertyName("billing_view")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> BillingView => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "billing_view");
+    public TerraformList<object> BillingView => new TerraformReference(this, "billing_view");
 
 }

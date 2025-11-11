@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiIndexEncryptionSpecBlock : ITerraformBlock
+public class GoogleVertexAiIndexEncryptionSpecBlock
 {
     /// <summary>
     /// Required. The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource. Has the form: &#39;projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key&#39;. The key needs to be in the same region as where the compute resource is created.
@@ -14,7 +14,7 @@ public class GoogleVertexAiIndexEncryptionSpecBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     [TerraformPropertyName("kms_key_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KmsKeyName { get; set; }
+    public required TerraformValue<string> KmsKeyName { get; set; }
 
 }
 
@@ -22,7 +22,7 @@ public class GoogleVertexAiIndexEncryptionSpecBlock : ITerraformBlock
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiIndexMetadataBlock : ITerraformBlock
+public class GoogleVertexAiIndexMetadataBlock
 {
     /// <summary>
     /// Allows inserting, updating  or deleting the contents of the Matching Engine Index.
@@ -34,7 +34,7 @@ public class GoogleVertexAiIndexMetadataBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("contents_delta_uri")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContentsDeltaUri { get; set; }
+    public TerraformValue<string>? ContentsDeltaUri { get; set; }
 
     /// <summary>
     /// If this field is set together with contentsDeltaUri when calling IndexService.UpdateIndex,
@@ -42,7 +42,7 @@ public class GoogleVertexAiIndexMetadataBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("is_complete_overwrite")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IsCompleteOverwrite { get; set; }
+    public TerraformValue<bool>? IsCompleteOverwrite { get; set; }
 
 }
 
@@ -50,28 +50,28 @@ public class GoogleVertexAiIndexMetadataBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVertexAiIndexTimeoutsBlock : ITerraformBlock
+public class GoogleVertexAiIndexTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,7 +90,7 @@ public class GoogleVertexAiIndex : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display name of the Index. The name can be up to 128 characters long and can consist of any UTF-8 characters.
@@ -98,14 +98,14 @@ public class GoogleVertexAiIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The update method to use with this Index. The value must be the followings. If not set, BATCH_UPDATE will be used by default.
@@ -114,7 +114,7 @@ public class GoogleVertexAiIndex : TerraformResource
     /// </summary>
     [TerraformPropertyName("index_update_method")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IndexUpdateMethod { get; set; }
+    public TerraformValue<string>? IndexUpdateMethod { get; set; }
 
     /// <summary>
     /// The labels with user-defined metadata to organize your Indexes.
@@ -124,21 +124,21 @@ public class GoogleVertexAiIndex : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The region of the index. eg us-central1
     /// </summary>
     [TerraformPropertyName("region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// Block for encryption_spec.
@@ -146,7 +146,7 @@ public class GoogleVertexAiIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformPropertyName("encryption_spec")]
-    public TerraformList<TerraformBlock<GoogleVertexAiIndexEncryptionSpecBlock>>? EncryptionSpec { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleVertexAiIndexEncryptionSpecBlock>>? EncryptionSpec { get; set; }
 
     /// <summary>
     /// Block for metadata.
@@ -156,63 +156,63 @@ public class GoogleVertexAiIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Metadata block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     [TerraformPropertyName("metadata")]
-    public TerraformList<TerraformBlock<GoogleVertexAiIndexMetadataBlock>>? Metadata { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleVertexAiIndexMetadataBlock>>? Metadata { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleVertexAiIndexTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleVertexAiIndexTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The pointers to DeployedIndexes created from this Index. An Index can be only deleted if all its DeployedIndexes had been undeployed first.
     /// </summary>
     [TerraformPropertyName("deployed_indexes")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> DeployedIndexes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "deployed_indexes");
+    public TerraformList<object> DeployedIndexes => new TerraformReference(this, "deployed_indexes");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Used to perform consistent read-modify-write updates.
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// Stats of the index resource.
     /// </summary>
     [TerraformPropertyName("index_stats")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> IndexStats => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "index_stats");
+    public TerraformList<object> IndexStats => new TerraformReference(this, "index_stats");
 
     /// <summary>
     /// Points to a YAML file stored on Google Cloud Storage describing additional information about the Index, that is specific to it. Unset if the Index does not have any additional information.
     /// </summary>
     [TerraformPropertyName("metadata_schema_uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MetadataSchemaUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "metadata_schema_uri");
+    public TerraformValue<string> MetadataSchemaUri => new TerraformReference(this, "metadata_schema_uri");
 
     /// <summary>
     /// The resource name of the Index.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -220,13 +220,13 @@ public class GoogleVertexAiIndex : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The timestamp of when the Index was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

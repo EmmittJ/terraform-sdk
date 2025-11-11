@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for custom_dns_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : ITerraformBlock
+public class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock
 {
     /// <summary>
     /// The custom_dns_server_ip attribute.
@@ -14,7 +14,7 @@ public class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDnsServerIp is required")]
     [TerraformPropertyName("custom_dns_server_ip")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CustomDnsServerIp { get; set; }
+    public required TerraformValue<string> CustomDnsServerIp { get; set; }
 
     /// <summary>
     /// The custom_dns_server_name attribute.
@@ -22,7 +22,7 @@ public class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDnsServerName is required")]
     [TerraformPropertyName("custom_dns_server_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CustomDnsServerName { get; set; }
+    public required TerraformValue<string> CustomDnsServerName { get; set; }
 
 }
 
@@ -30,28 +30,28 @@ public class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : ITerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsFinspaceKxEnvironmentTimeoutsBlock : ITerraformBlock
+public class AwsFinspaceKxEnvironmentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -59,7 +59,7 @@ public class AwsFinspaceKxEnvironmentTimeoutsBlock : ITerraformBlock
 /// Block type for transit_gateway_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock : ITerraformBlock
+public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock
 {
     /// <summary>
     /// The routable_cidr_space attribute.
@@ -67,7 +67,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock : ITerrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutableCidrSpace is required")]
     [TerraformPropertyName("routable_cidr_space")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoutableCidrSpace { get; set; }
+    public required TerraformValue<string> RoutableCidrSpace { get; set; }
 
     /// <summary>
     /// The transit_gateway_id attribute.
@@ -75,7 +75,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock : ITerrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     [TerraformPropertyName("transit_gateway_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TransitGatewayId { get; set; }
+    public required TerraformValue<string> TransitGatewayId { get; set; }
 
 }
 
@@ -94,7 +94,7 @@ public class AwsFinspaceKxEnvironment : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
@@ -102,7 +102,7 @@ public class AwsFinspaceKxEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     [TerraformPropertyName("kms_key_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; }
+    public required TerraformValue<string> KmsKeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -110,42 +110,42 @@ public class AwsFinspaceKxEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for custom_dns_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("custom_dns_configuration")]
-    public TerraformList<TerraformBlock<AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock>>? CustomDnsConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock>>? CustomDnsConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsFinspaceKxEnvironmentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsFinspaceKxEnvironmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for transit_gateway_configuration.
@@ -153,55 +153,55 @@ public class AwsFinspaceKxEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TransitGatewayConfiguration block(s) allowed")]
     [TerraformPropertyName("transit_gateway_configuration")]
-    public TerraformList<TerraformBlock<AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock>>? TransitGatewayConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock>>? TransitGatewayConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
     [TerraformPropertyName("availability_zones")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> AvailabilityZones => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "availability_zones");
+    public TerraformList<string> AvailabilityZones => new TerraformReference(this, "availability_zones");
 
     /// <summary>
     /// The created_timestamp attribute.
     /// </summary>
     [TerraformPropertyName("created_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_timestamp");
+    public TerraformValue<string> CreatedTimestamp => new TerraformReference(this, "created_timestamp");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The infrastructure_account_id attribute.
     /// </summary>
     [TerraformPropertyName("infrastructure_account_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> InfrastructureAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "infrastructure_account_id");
+    public TerraformValue<string> InfrastructureAccountId => new TerraformReference(this, "infrastructure_account_id");
 
     /// <summary>
     /// The last_modified_timestamp attribute.
     /// </summary>
     [TerraformPropertyName("last_modified_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastModifiedTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_timestamp");
+    public TerraformValue<string> LastModifiedTimestamp => new TerraformReference(this, "last_modified_timestamp");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
 }

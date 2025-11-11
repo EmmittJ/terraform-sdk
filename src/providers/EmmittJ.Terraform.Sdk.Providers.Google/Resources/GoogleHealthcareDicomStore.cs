@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for notification_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleHealthcareDicomStoreNotificationConfigBlock : ITerraformBlock
+public class GoogleHealthcareDicomStoreNotificationConfigBlock
 {
     /// <summary>
     /// The Cloud Pub/Sub topic that notifications of changes are published on. Supplied by the client.
@@ -19,14 +19,14 @@ public class GoogleHealthcareDicomStoreNotificationConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     [TerraformPropertyName("pubsub_topic")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PubsubTopic { get; set; }
+    public required TerraformValue<string> PubsubTopic { get; set; }
 
     /// <summary>
     /// Indicates whether or not to send Pub/Sub notifications on bulk import. Only supported for DICOM imports.
     /// </summary>
     [TerraformPropertyName("send_for_bulk_import")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SendForBulkImport { get; set; }
+    public TerraformValue<bool>? SendForBulkImport { get; set; }
 
 }
 
@@ -34,28 +34,28 @@ public class GoogleHealthcareDicomStoreNotificationConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleHealthcareDicomStoreTimeoutsBlock : ITerraformBlock
+public class GoogleHealthcareDicomStoreTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -76,14 +76,14 @@ public class GoogleHealthcareDicomStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     [TerraformPropertyName("dataset")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Dataset { get; set; }
+    public required TerraformValue<string> Dataset { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// User-supplied key-value pairs used to organize DICOM stores.
@@ -105,7 +105,7 @@ public class GoogleHealthcareDicomStore : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The resource name for the DicomStore.
@@ -115,7 +115,7 @@ public class GoogleHealthcareDicomStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for notification_config.
@@ -123,28 +123,28 @@ public class GoogleHealthcareDicomStore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     [TerraformPropertyName("notification_config")]
-    public TerraformList<TerraformBlock<GoogleHealthcareDicomStoreNotificationConfigBlock>>? NotificationConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleHealthcareDicomStoreNotificationConfigBlock>>? NotificationConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleHealthcareDicomStoreTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleHealthcareDicomStoreTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The fully qualified name of this dataset
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -152,6 +152,6 @@ public class GoogleHealthcareDicomStore : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

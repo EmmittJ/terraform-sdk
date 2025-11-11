@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for key_vault_connection_string in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlock : ITerraformBlock
+public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlock
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -14,7 +14,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     [TerraformPropertyName("linked_service_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LinkedServiceName { get; set; }
+    public required TerraformValue<string> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The secret_name attribute.
@@ -22,7 +22,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     [TerraformPropertyName("secret_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SecretName { get; set; }
+    public required TerraformValue<string> SecretName { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlo
 /// Block type for key_vault_password in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock : ITerraformBlock
+public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -38,7 +38,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock : ITe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     [TerraformPropertyName("linked_service_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LinkedServiceName { get; set; }
+    public required TerraformValue<string> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The secret_name attribute.
@@ -46,7 +46,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock : ITe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     [TerraformPropertyName("secret_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SecretName { get; set; }
+    public required TerraformValue<string> SecretName { get; set; }
 
 }
 
@@ -54,35 +54,35 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock : ITe
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryLinkedServiceSqlServerTimeoutsBlock : ITerraformBlock
+public class AzurermDataFactoryLinkedServiceSqlServerTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -101,21 +101,21 @@ public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
     /// </summary>
     [TerraformPropertyName("additional_properties")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? AdditionalProperties { get; set; }
+    public TerraformMap<string>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Annotations { get; set; }
+    public TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
     [TerraformPropertyName("connection_string")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConnectionString { get; set; }
+    public TerraformValue<string>? ConnectionString { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -123,28 +123,28 @@ public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformPropertyName("data_factory_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DataFactoryId { get; set; }
+    public required TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The integration_runtime_name attribute.
     /// </summary>
     [TerraformPropertyName("integration_runtime_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IntegrationRuntimeName { get; set; }
+    public TerraformValue<string>? IntegrationRuntimeName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -152,21 +152,21 @@ public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformPropertyName("parameters")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
+    public TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     [TerraformPropertyName("user_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserName { get; set; }
+    public TerraformValue<string>? UserName { get; set; }
 
     /// <summary>
     /// Block for key_vault_connection_string.
@@ -174,7 +174,7 @@ public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultConnectionString block(s) allowed")]
     [TerraformPropertyName("key_vault_connection_string")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlock>>? KeyVaultConnectionString { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlock>>? KeyVaultConnectionString { get; set; }
 
     /// <summary>
     /// Block for key_vault_password.
@@ -182,13 +182,13 @@ public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
     [TerraformPropertyName("key_vault_password")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock>>? KeyVaultPassword { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock>>? KeyVaultPassword { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDataFactoryLinkedServiceSqlServerTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDataFactoryLinkedServiceSqlServerTimeoutsBlock>? Timeouts { get; set; }
 
 }

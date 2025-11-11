@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for interface in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeExternalVpnGatewayInterfaceBlock : ITerraformBlock
+public class GoogleComputeExternalVpnGatewayInterfaceBlock
 {
     /// <summary>
     /// The numeric ID for this interface. Allowed values are based on the redundancy type
@@ -17,7 +17,7 @@ public class GoogleComputeExternalVpnGatewayInterfaceBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Id { get; set; }
+    public TerraformValue<double>? Id { get; set; }
 
     /// <summary>
     /// IP address of the interface in the external VPN gateway.
@@ -27,7 +27,7 @@ public class GoogleComputeExternalVpnGatewayInterfaceBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("ip_address")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IpAddress { get; set; }
+    public TerraformValue<string>? IpAddress { get; set; }
 
     /// <summary>
     /// IPv6 address of the interface in the external VPN gateway. This IPv6
@@ -39,7 +39,7 @@ public class GoogleComputeExternalVpnGatewayInterfaceBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("ipv6_address")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Ipv6Address { get; set; }
+    public TerraformValue<string>? Ipv6Address { get; set; }
 
 }
 
@@ -47,28 +47,28 @@ public class GoogleComputeExternalVpnGatewayInterfaceBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeExternalVpnGatewayTimeoutsBlock : ITerraformBlock
+public class GoogleComputeExternalVpnGatewayTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -86,14 +86,14 @@ public class GoogleComputeExternalVpnGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Labels for the external VPN gateway resource.
@@ -103,7 +103,7 @@ public class GoogleComputeExternalVpnGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -117,42 +117,42 @@ public class GoogleComputeExternalVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Indicates the redundancy type of this external VPN gateway Possible values: [&amp;quot;FOUR_IPS_REDUNDANCY&amp;quot;, &amp;quot;SINGLE_IP_INTERNALLY_REDUNDANT&amp;quot;, &amp;quot;TWO_IPS_REDUNDANCY&amp;quot;]
     /// </summary>
     [TerraformPropertyName("redundancy_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RedundancyType { get; set; }
+    public TerraformValue<string>? RedundancyType { get; set; }
 
     /// <summary>
     /// Block for interface.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("interface")]
-    public TerraformList<TerraformBlock<GoogleComputeExternalVpnGatewayInterfaceBlock>>? Interface { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeExternalVpnGatewayInterfaceBlock>>? Interface { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeExternalVpnGatewayTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeExternalVpnGatewayTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
@@ -160,14 +160,14 @@ public class GoogleComputeExternalVpnGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("label_fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LabelFingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "label_fingerprint");
+    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -175,6 +175,6 @@ public class GoogleComputeExternalVpnGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

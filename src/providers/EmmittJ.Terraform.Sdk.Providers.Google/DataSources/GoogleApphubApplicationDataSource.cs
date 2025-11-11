@@ -17,14 +17,14 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     [TerraformPropertyName("application_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
+    public required TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Part of &#39;parent&#39;. See documentation of &#39;projectsId&#39;.
@@ -32,7 +32,7 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
@@ -40,35 +40,35 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformPropertyName("project")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Project { get; set; }
+    public required TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Consumer provided attributes.
     /// </summary>
     [TerraformPropertyName("attributes")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Attributes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "attributes");
+    public TerraformList<object> Attributes => new TerraformReference(this, "attributes");
 
     /// <summary>
     /// Output only. Create time.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Optional. User-defined description of an Application.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// Optional. User-defined name for the Application.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
+    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
 
     /// <summary>
     /// Identifier. The resource name of an Application. Format:
@@ -76,14 +76,14 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Scope of an application.
     /// </summary>
     [TerraformPropertyName("scope")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Scope => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "scope");
+    public TerraformList<object> Scope => new TerraformReference(this, "scope");
 
     /// <summary>
     /// Output only. Application state. 
@@ -95,20 +95,20 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// Output only. A universally unique identifier (in UUID4 format) for the &#39;Application&#39;.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Output only. Update time.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

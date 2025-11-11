@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for location in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkmanagerSiteLocationBlock : ITerraformBlock
+public class AwsNetworkmanagerSiteLocationBlock
 {
     /// <summary>
     /// The address attribute.
     /// </summary>
     [TerraformPropertyName("address")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Address { get; set; }
+    public TerraformValue<string>? Address { get; set; }
 
     /// <summary>
     /// The latitude attribute.
     /// </summary>
     [TerraformPropertyName("latitude")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Latitude { get; set; }
+    public TerraformValue<string>? Latitude { get; set; }
 
     /// <summary>
     /// The longitude attribute.
     /// </summary>
     [TerraformPropertyName("longitude")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Longitude { get; set; }
+    public TerraformValue<string>? Longitude { get; set; }
 
 }
 
@@ -35,28 +35,28 @@ public class AwsNetworkmanagerSiteLocationBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsNetworkmanagerSiteTimeoutsBlock : ITerraformBlock
+public class AwsNetworkmanagerSiteTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -75,7 +75,7 @@ public class AwsNetworkmanagerSite : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The global_network_id attribute.
@@ -83,28 +83,28 @@ public class AwsNetworkmanagerSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     [TerraformPropertyName("global_network_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GlobalNetworkId { get; set; }
+    public required TerraformValue<string> GlobalNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for location.
@@ -112,20 +112,20 @@ public class AwsNetworkmanagerSite : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Location block(s) allowed")]
     [TerraformPropertyName("location")]
-    public TerraformList<TerraformBlock<AwsNetworkmanagerSiteLocationBlock>>? Location { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsNetworkmanagerSiteLocationBlock>>? Location { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsNetworkmanagerSiteTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsNetworkmanagerSiteTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

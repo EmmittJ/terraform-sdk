@@ -15,22 +15,22 @@ public class AwsMemorydbUserDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Tags { get; set; } = default!;
 
     /// <summary>
     /// The user_name attribute.
@@ -38,34 +38,34 @@ public class AwsMemorydbUserDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     [TerraformPropertyName("user_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> UserName { get; set; }
+    public required TerraformValue<string> UserName { get; set; }
 
     /// <summary>
     /// The access_string attribute.
     /// </summary>
     [TerraformPropertyName("access_string")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AccessString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_string");
+    public TerraformValue<string> AccessString => new TerraformReference(this, "access_string");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
     [TerraformPropertyName("authentication_mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> AuthenticationMode => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "authentication_mode");
+    public TerraformList<object> AuthenticationMode => new TerraformReference(this, "authentication_mode");
 
     /// <summary>
     /// The minimum_engine_version attribute.
     /// </summary>
     [TerraformPropertyName("minimum_engine_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MinimumEngineVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "minimum_engine_version");
+    public TerraformValue<string> MinimumEngineVersion => new TerraformReference(this, "minimum_engine_version");
 
 }

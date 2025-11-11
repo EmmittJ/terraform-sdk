@@ -6,63 +6,63 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for addresses in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIdentitystoreUserAddressesBlock : ITerraformBlock
+public class AwsIdentitystoreUserAddressesBlock
 {
     /// <summary>
     /// The country attribute.
     /// </summary>
     [TerraformPropertyName("country")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Country { get; set; }
+    public TerraformValue<string>? Country { get; set; }
 
     /// <summary>
     /// The formatted attribute.
     /// </summary>
     [TerraformPropertyName("formatted")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Formatted { get; set; }
+    public TerraformValue<string>? Formatted { get; set; }
 
     /// <summary>
     /// The locality attribute.
     /// </summary>
     [TerraformPropertyName("locality")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Locality { get; set; }
+    public TerraformValue<string>? Locality { get; set; }
 
     /// <summary>
     /// The postal_code attribute.
     /// </summary>
     [TerraformPropertyName("postal_code")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PostalCode { get; set; }
+    public TerraformValue<string>? PostalCode { get; set; }
 
     /// <summary>
     /// The primary attribute.
     /// </summary>
     [TerraformPropertyName("primary")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Primary { get; set; }
+    public TerraformValue<bool>? Primary { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [TerraformPropertyName("region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The street_address attribute.
     /// </summary>
     [TerraformPropertyName("street_address")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StreetAddress { get; set; }
+    public TerraformValue<string>? StreetAddress { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -70,28 +70,28 @@ public class AwsIdentitystoreUserAddressesBlock : ITerraformBlock
 /// Block type for emails in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIdentitystoreUserEmailsBlock : ITerraformBlock
+public class AwsIdentitystoreUserEmailsBlock
 {
     /// <summary>
     /// The primary attribute.
     /// </summary>
     [TerraformPropertyName("primary")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Primary { get; set; }
+    public TerraformValue<bool>? Primary { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformPropertyName("value")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
+    public TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -99,7 +99,7 @@ public class AwsIdentitystoreUserEmailsBlock : ITerraformBlock
 /// Block type for name in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIdentitystoreUserNameBlock : ITerraformBlock
+public class AwsIdentitystoreUserNameBlock
 {
     /// <summary>
     /// The family_name attribute.
@@ -107,14 +107,14 @@ public class AwsIdentitystoreUserNameBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FamilyName is required")]
     [TerraformPropertyName("family_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FamilyName { get; set; }
+    public required TerraformValue<string> FamilyName { get; set; }
 
     /// <summary>
     /// The formatted attribute.
     /// </summary>
     [TerraformPropertyName("formatted")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Formatted { get; set; }
+    public TerraformValue<string>? Formatted { get; set; }
 
     /// <summary>
     /// The given_name attribute.
@@ -122,28 +122,28 @@ public class AwsIdentitystoreUserNameBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GivenName is required")]
     [TerraformPropertyName("given_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GivenName { get; set; }
+    public required TerraformValue<string> GivenName { get; set; }
 
     /// <summary>
     /// The honorific_prefix attribute.
     /// </summary>
     [TerraformPropertyName("honorific_prefix")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? HonorificPrefix { get; set; }
+    public TerraformValue<string>? HonorificPrefix { get; set; }
 
     /// <summary>
     /// The honorific_suffix attribute.
     /// </summary>
     [TerraformPropertyName("honorific_suffix")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? HonorificSuffix { get; set; }
+    public TerraformValue<string>? HonorificSuffix { get; set; }
 
     /// <summary>
     /// The middle_name attribute.
     /// </summary>
     [TerraformPropertyName("middle_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MiddleName { get; set; }
+    public TerraformValue<string>? MiddleName { get; set; }
 
 }
 
@@ -151,28 +151,28 @@ public class AwsIdentitystoreUserNameBlock : ITerraformBlock
 /// Block type for phone_numbers in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIdentitystoreUserPhoneNumbersBlock : ITerraformBlock
+public class AwsIdentitystoreUserPhoneNumbersBlock
 {
     /// <summary>
     /// The primary attribute.
     /// </summary>
     [TerraformPropertyName("primary")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Primary { get; set; }
+    public TerraformValue<bool>? Primary { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformPropertyName("value")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
+    public TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -192,14 +192,14 @@ public class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The identity_store_id attribute.
@@ -207,56 +207,56 @@ public class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     [TerraformPropertyName("identity_store_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IdentityStoreId { get; set; }
+    public required TerraformValue<string> IdentityStoreId { get; set; }
 
     /// <summary>
     /// The locale attribute.
     /// </summary>
     [TerraformPropertyName("locale")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Locale { get; set; }
+    public TerraformValue<string>? Locale { get; set; }
 
     /// <summary>
     /// The nickname attribute.
     /// </summary>
     [TerraformPropertyName("nickname")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Nickname { get; set; }
+    public TerraformValue<string>? Nickname { get; set; }
 
     /// <summary>
     /// The preferred_language attribute.
     /// </summary>
     [TerraformPropertyName("preferred_language")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PreferredLanguage { get; set; }
+    public TerraformValue<string>? PreferredLanguage { get; set; }
 
     /// <summary>
     /// The profile_url attribute.
     /// </summary>
     [TerraformPropertyName("profile_url")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ProfileUrl { get; set; }
+    public TerraformValue<string>? ProfileUrl { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
     [TerraformPropertyName("timezone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Timezone { get; set; }
+    public TerraformValue<string>? Timezone { get; set; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     [TerraformPropertyName("title")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Title { get; set; }
+    public TerraformValue<string>? Title { get; set; }
 
     /// <summary>
     /// The user_name attribute.
@@ -264,14 +264,14 @@ public class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     [TerraformPropertyName("user_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> UserName { get; set; }
+    public required TerraformValue<string> UserName { get; set; }
 
     /// <summary>
     /// The user_type attribute.
     /// </summary>
     [TerraformPropertyName("user_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserType { get; set; }
+    public TerraformValue<string>? UserType { get; set; }
 
     /// <summary>
     /// Block for addresses.
@@ -279,7 +279,7 @@ public class AwsIdentitystoreUser : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Addresses block(s) allowed")]
     [TerraformPropertyName("addresses")]
-    public TerraformList<TerraformBlock<AwsIdentitystoreUserAddressesBlock>>? Addresses { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsIdentitystoreUserAddressesBlock>>? Addresses { get; set; }
 
     /// <summary>
     /// Block for emails.
@@ -287,7 +287,7 @@ public class AwsIdentitystoreUser : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Emails block(s) allowed")]
     [TerraformPropertyName("emails")]
-    public TerraformList<TerraformBlock<AwsIdentitystoreUserEmailsBlock>>? Emails { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsIdentitystoreUserEmailsBlock>>? Emails { get; set; }
 
     /// <summary>
     /// Block for name.
@@ -297,7 +297,7 @@ public class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Name block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Name block(s) allowed")]
     [TerraformPropertyName("name")]
-    public TerraformList<TerraformBlock<AwsIdentitystoreUserNameBlock>>? Name { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsIdentitystoreUserNameBlock>>? Name { get; set; }
 
     /// <summary>
     /// Block for phone_numbers.
@@ -305,20 +305,20 @@ public class AwsIdentitystoreUser : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PhoneNumbers block(s) allowed")]
     [TerraformPropertyName("phone_numbers")]
-    public TerraformList<TerraformBlock<AwsIdentitystoreUserPhoneNumbersBlock>>? PhoneNumbers { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsIdentitystoreUserPhoneNumbersBlock>>? PhoneNumbers { get; set; }
 
     /// <summary>
     /// The external_ids attribute.
     /// </summary>
     [TerraformPropertyName("external_ids")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ExternalIds => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "external_ids");
+    public TerraformList<object> ExternalIds => new TerraformReference(this, "external_ids");
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
     [TerraformPropertyName("user_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UserId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_id");
+    public TerraformValue<string> UserId => new TerraformReference(this, "user_id");
 
 }

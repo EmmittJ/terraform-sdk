@@ -17,21 +17,21 @@ public class AwsApiGatewayMethodResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     [TerraformPropertyName("http_method")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HttpMethod { get; set; }
+    public required TerraformValue<string> HttpMethod { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The resource_id attribute.
@@ -39,21 +39,21 @@ public class AwsApiGatewayMethodResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     [TerraformPropertyName("resource_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceId { get; set; }
+    public required TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// The response_models attribute.
     /// </summary>
     [TerraformPropertyName("response_models")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ResponseModels { get; set; }
+    public TerraformMap<string>? ResponseModels { get; set; }
 
     /// <summary>
     /// The response_parameters attribute.
     /// </summary>
     [TerraformPropertyName("response_parameters")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<bool>>>? ResponseParameters { get; set; }
+    public TerraformMap<bool>? ResponseParameters { get; set; }
 
     /// <summary>
     /// The rest_api_id attribute.
@@ -61,7 +61,7 @@ public class AwsApiGatewayMethodResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     [TerraformPropertyName("rest_api_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RestApiId { get; set; }
+    public required TerraformValue<string> RestApiId { get; set; }
 
     /// <summary>
     /// The status_code attribute.
@@ -69,6 +69,6 @@ public class AwsApiGatewayMethodResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     [TerraformPropertyName("status_code")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StatusCode { get; set; }
+    public required TerraformValue<string> StatusCode { get; set; }
 
 }

@@ -16,27 +16,27 @@ public class GoogleComputeImagesDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("filter")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Filter { get; set; }
+    public TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The images attribute.
     /// </summary>
     [TerraformPropertyName("images")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Images => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "images");
+    public TerraformList<object> Images => new TerraformReference(this, "images");
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAppServicePlanDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermAppServicePlanDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,8 +31,8 @@ public class AzurermAppServicePlanDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -40,7 +40,7 @@ public class AzurermAppServicePlanDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -48,90 +48,90 @@ public class AzurermAppServicePlanDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermAppServicePlanDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermAppServicePlanDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The app_service_environment_id attribute.
     /// </summary>
     [TerraformPropertyName("app_service_environment_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AppServiceEnvironmentId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "app_service_environment_id");
+    public TerraformValue<string> AppServiceEnvironmentId => new TerraformReference(this, "app_service_environment_id");
 
     /// <summary>
     /// The is_xenon attribute.
     /// </summary>
     [TerraformPropertyName("is_xenon")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> IsXenon => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "is_xenon");
+    public TerraformValue<bool> IsXenon => new TerraformReference(this, "is_xenon");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     [TerraformPropertyName("kind")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Kind => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kind");
+    public TerraformValue<string> Kind => new TerraformReference(this, "kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The maximum_elastic_worker_count attribute.
     /// </summary>
     [TerraformPropertyName("maximum_elastic_worker_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MaximumElasticWorkerCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "maximum_elastic_worker_count");
+    public TerraformValue<double> MaximumElasticWorkerCount => new TerraformReference(this, "maximum_elastic_worker_count");
 
     /// <summary>
     /// The maximum_number_of_workers attribute.
     /// </summary>
     [TerraformPropertyName("maximum_number_of_workers")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MaximumNumberOfWorkers => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "maximum_number_of_workers");
+    public TerraformValue<double> MaximumNumberOfWorkers => new TerraformReference(this, "maximum_number_of_workers");
 
     /// <summary>
     /// The per_site_scaling attribute.
     /// </summary>
     [TerraformPropertyName("per_site_scaling")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> PerSiteScaling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "per_site_scaling");
+    public TerraformValue<bool> PerSiteScaling => new TerraformReference(this, "per_site_scaling");
 
     /// <summary>
     /// The reserved attribute.
     /// </summary>
     [TerraformPropertyName("reserved")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Reserved => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reserved");
+    public TerraformValue<bool> Reserved => new TerraformReference(this, "reserved");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [TerraformPropertyName("sku")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Sku => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "sku");
+    public TerraformList<object> Sku => new TerraformReference(this, "sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
     [TerraformPropertyName("zone_redundant")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> ZoneRedundant => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "zone_redundant");
+    public TerraformValue<bool> ZoneRedundant => new TerraformReference(this, "zone_redundant");
 
 }

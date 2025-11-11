@@ -15,8 +15,8 @@ public class GoogleVpcAccessConnectorDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the resource (Max 25 characters).
@@ -24,42 +24,42 @@ public class GoogleVpcAccessConnectorDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Region where the VPC Access connector resides. If it is not provided, the provider region is used.
     /// </summary>
     [TerraformPropertyName("region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// List of projects using the connector.
     /// </summary>
     [TerraformPropertyName("connected_projects")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> ConnectedProjects => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "connected_projects");
+    public TerraformList<string> ConnectedProjects => new TerraformReference(this, "connected_projects");
 
     /// <summary>
     /// The range of internal addresses that follows RFC 4632 notation. Example: &#39;10.132.0.0/28&#39;.
     /// </summary>
     [TerraformPropertyName("ip_cidr_range")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> IpCidrRange => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_cidr_range");
+    public TerraformValue<string> IpCidrRange => new TerraformReference(this, "ip_cidr_range");
 
     /// <summary>
     /// Machine type of VM Instance underlying connector. Default is e2-micro
     /// </summary>
     [TerraformPropertyName("machine_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MachineType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "machine_type");
+    public TerraformValue<string> MachineType => new TerraformReference(this, "machine_type");
 
     /// <summary>
     /// Maximum value of instances in autoscaling group underlying the connector. Value must be between 3 and 10, inclusive. Must be
@@ -67,7 +67,7 @@ public class GoogleVpcAccessConnectorDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("max_instances")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MaxInstances => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_instances");
+    public TerraformValue<double> MaxInstances => new TerraformReference(this, "max_instances");
 
     /// <summary>
     /// Maximum throughput of the connector in Mbps, must be greater than &#39;min_throughput&#39;. Default is 300. Refers to the expected throughput
@@ -76,7 +76,7 @@ public class GoogleVpcAccessConnectorDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("max_throughput")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MaxThroughput => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_throughput");
+    public TerraformValue<double> MaxThroughput => new TerraformReference(this, "max_throughput");
 
     /// <summary>
     /// Minimum value of instances in autoscaling group underlying the connector. Value must be between 2 and 9, inclusive. Must be
@@ -84,7 +84,7 @@ public class GoogleVpcAccessConnectorDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("min_instances")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MinInstances => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_instances");
+    public TerraformValue<double> MinInstances => new TerraformReference(this, "min_instances");
 
     /// <summary>
     /// Minimum throughput of the connector in Mbps. Default and min is 200. Refers to the expected throughput when using an e2-micro machine type.
@@ -93,34 +93,34 @@ public class GoogleVpcAccessConnectorDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("min_throughput")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MinThroughput => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_throughput");
+    public TerraformValue<double> MinThroughput => new TerraformReference(this, "min_throughput");
 
     /// <summary>
     /// Name or self_link of the VPC network. Required if &#39;ip_cidr_range&#39; is set.
     /// </summary>
     [TerraformPropertyName("network")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Network => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network");
+    public TerraformValue<string> Network => new TerraformReference(this, "network");
 
     /// <summary>
     /// The fully qualified name of this VPC connector
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// State of the VPC access connector.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The subnet in which to house the connector
     /// </summary>
     [TerraformPropertyName("subnet")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Subnet => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "subnet");
+    public TerraformList<object> Subnet => new TerraformReference(this, "subnet");
 
 }

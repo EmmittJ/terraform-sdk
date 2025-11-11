@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock : ITerraformBlock
+public class GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportCustomRoutes is required")]
     [TerraformPropertyName("export_custom_routes")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> ExportCustomRoutes { get; set; }
+    public required TerraformValue<bool> ExportCustomRoutes { get; set; }
 
     /// <summary>
     /// Whether subnet routes with public IP range are exported.
@@ -54,15 +54,15 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// are not controlled by this field.
     /// </summary>
     [TerraformPropertyName("export_subnet_routes_with_public_ip")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> ExportSubnetRoutesWithPublicIp { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "export_subnet_routes_with_public_ip");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> ExportSubnetRoutesWithPublicIp { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Whether to import the custom routes to the peer network.
@@ -70,7 +70,7 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportCustomRoutes is required")]
     [TerraformPropertyName("import_custom_routes")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> ImportCustomRoutes { get; set; }
+    public required TerraformValue<bool> ImportCustomRoutes { get; set; }
 
     /// <summary>
     /// Whether subnet routes with public IP range are imported.
@@ -78,8 +78,8 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// are not controlled by this field.
     /// </summary>
     [TerraformPropertyName("import_subnet_routes_with_public_ip")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> ImportSubnetRoutesWithPublicIp { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "import_subnet_routes_with_public_ip");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> ImportSubnetRoutesWithPublicIp { get; set; } = default!;
 
     /// <summary>
     /// The name of the primary network for the peering.
@@ -87,7 +87,7 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformPropertyName("network")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
+    public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// Name of the peering.
@@ -95,20 +95,20 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     [TerraformPropertyName("peering")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Peering { get; set; }
+    public required TerraformValue<string> Peering { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock>? Timeouts { get; set; }
 
 }

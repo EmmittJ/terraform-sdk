@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermHealthcareMedtechServiceDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermHealthcareMedtechServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -47,48 +47,48 @@ public class AzurermHealthcareMedtechServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformPropertyName("workspace_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
+    public required TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The device_mapping_json attribute.
     /// </summary>
     [TerraformPropertyName("device_mapping_json")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DeviceMappingJson => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "device_mapping_json");
+    public TerraformValue<string> DeviceMappingJson => new TerraformReference(this, "device_mapping_json");
 
     /// <summary>
     /// The eventhub_consumer_group_name attribute.
     /// </summary>
     [TerraformPropertyName("eventhub_consumer_group_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EventhubConsumerGroupName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "eventhub_consumer_group_name");
+    public TerraformValue<string> EventhubConsumerGroupName => new TerraformReference(this, "eventhub_consumer_group_name");
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
     [TerraformPropertyName("eventhub_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EventhubName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "eventhub_name");
+    public TerraformValue<string> EventhubName => new TerraformReference(this, "eventhub_name");
 
     /// <summary>
     /// The eventhub_namespace_name attribute.
     /// </summary>
     [TerraformPropertyName("eventhub_namespace_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EventhubNamespaceName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "eventhub_namespace_name");
+    public TerraformValue<string> EventhubNamespaceName => new TerraformReference(this, "eventhub_namespace_name");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformPropertyName("identity")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
+    public TerraformList<object> Identity => new TerraformReference(this, "identity");
 
 }

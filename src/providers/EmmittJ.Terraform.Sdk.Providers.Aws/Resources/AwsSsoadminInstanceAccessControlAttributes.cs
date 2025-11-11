@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attribute in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSsoadminInstanceAccessControlAttributesAttributeBlock : ITerraformBlock
+public class AwsSsoadminInstanceAccessControlAttributesAttributeBlock
 {
     /// <summary>
     /// The key attribute.
@@ -14,7 +14,7 @@ public class AwsSsoadminInstanceAccessControlAttributesAttributeBlock : ITerrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformPropertyName("key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
+    public required TerraformValue<string> Key { get; set; }
 
 }
 
@@ -32,8 +32,8 @@ public class AwsSsoadminInstanceAccessControlAttributes : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The instance_arn attribute.
@@ -41,14 +41,14 @@ public class AwsSsoadminInstanceAccessControlAttributes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     [TerraformPropertyName("instance_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceArn { get; set; }
+    public required TerraformValue<string> InstanceArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for attribute.
@@ -57,20 +57,20 @@ public class AwsSsoadminInstanceAccessControlAttributes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attribute is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Attribute block(s) required")]
     [TerraformPropertyName("attribute")]
-    public TerraformSet<TerraformBlock<AwsSsoadminInstanceAccessControlAttributesAttributeBlock>>? Attribute { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsSsoadminInstanceAccessControlAttributesAttributeBlock>>? Attribute { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
     [TerraformPropertyName("status_reason")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StatusReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status_reason");
+    public TerraformValue<string> StatusReason => new TerraformReference(this, "status_reason");
 
 }

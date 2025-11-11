@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMqBrokerConfigurationBlock : ITerraformBlock
+public class AwsMqBrokerConfigurationBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
     [TerraformPropertyName("revision")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Revision { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "revision");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Revision { get; set; } = default!;
 
 }
 
@@ -28,21 +28,21 @@ public class AwsMqBrokerConfigurationBlock : ITerraformBlock
 /// Block type for encryption_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMqBrokerEncryptionOptionsBlock : ITerraformBlock
+public class AwsMqBrokerEncryptionOptionsBlock
 {
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> KmsKeyId { get; set; } = default!;
 
     /// <summary>
     /// The use_aws_owned_key attribute.
     /// </summary>
     [TerraformPropertyName("use_aws_owned_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? UseAwsOwnedKey { get; set; }
+    public TerraformValue<bool>? UseAwsOwnedKey { get; set; }
 
 }
 
@@ -50,84 +50,84 @@ public class AwsMqBrokerEncryptionOptionsBlock : ITerraformBlock
 /// Block type for ldap_server_metadata in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMqBrokerLdapServerMetadataBlock : ITerraformBlock
+public class AwsMqBrokerLdapServerMetadataBlock
 {
     /// <summary>
     /// The hosts attribute.
     /// </summary>
     [TerraformPropertyName("hosts")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Hosts { get; set; }
+    public TerraformList<string>? Hosts { get; set; }
 
     /// <summary>
     /// The role_base attribute.
     /// </summary>
     [TerraformPropertyName("role_base")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RoleBase { get; set; }
+    public TerraformValue<string>? RoleBase { get; set; }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     [TerraformPropertyName("role_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RoleName { get; set; }
+    public TerraformValue<string>? RoleName { get; set; }
 
     /// <summary>
     /// The role_search_matching attribute.
     /// </summary>
     [TerraformPropertyName("role_search_matching")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RoleSearchMatching { get; set; }
+    public TerraformValue<string>? RoleSearchMatching { get; set; }
 
     /// <summary>
     /// The role_search_subtree attribute.
     /// </summary>
     [TerraformPropertyName("role_search_subtree")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RoleSearchSubtree { get; set; }
+    public TerraformValue<bool>? RoleSearchSubtree { get; set; }
 
     /// <summary>
     /// The service_account_password attribute.
     /// </summary>
     [TerraformPropertyName("service_account_password")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ServiceAccountPassword { get; set; }
+    public TerraformValue<string>? ServiceAccountPassword { get; set; }
 
     /// <summary>
     /// The service_account_username attribute.
     /// </summary>
     [TerraformPropertyName("service_account_username")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ServiceAccountUsername { get; set; }
+    public TerraformValue<string>? ServiceAccountUsername { get; set; }
 
     /// <summary>
     /// The user_base attribute.
     /// </summary>
     [TerraformPropertyName("user_base")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserBase { get; set; }
+    public TerraformValue<string>? UserBase { get; set; }
 
     /// <summary>
     /// The user_role_name attribute.
     /// </summary>
     [TerraformPropertyName("user_role_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserRoleName { get; set; }
+    public TerraformValue<string>? UserRoleName { get; set; }
 
     /// <summary>
     /// The user_search_matching attribute.
     /// </summary>
     [TerraformPropertyName("user_search_matching")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserSearchMatching { get; set; }
+    public TerraformValue<string>? UserSearchMatching { get; set; }
 
     /// <summary>
     /// The user_search_subtree attribute.
     /// </summary>
     [TerraformPropertyName("user_search_subtree")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? UserSearchSubtree { get; set; }
+    public TerraformValue<bool>? UserSearchSubtree { get; set; }
 
 }
 
@@ -135,21 +135,21 @@ public class AwsMqBrokerLdapServerMetadataBlock : ITerraformBlock
 /// Block type for logs in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMqBrokerLogsBlock : ITerraformBlock
+public class AwsMqBrokerLogsBlock
 {
     /// <summary>
     /// The audit attribute.
     /// </summary>
     [TerraformPropertyName("audit")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Audit { get; set; }
+    public TerraformValue<string>? Audit { get; set; }
 
     /// <summary>
     /// The general attribute.
     /// </summary>
     [TerraformPropertyName("general")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? General { get; set; }
+    public TerraformValue<bool>? General { get; set; }
 
 }
 
@@ -157,7 +157,7 @@ public class AwsMqBrokerLogsBlock : ITerraformBlock
 /// Block type for maintenance_window_start_time in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMqBrokerMaintenanceWindowStartTimeBlock : ITerraformBlock
+public class AwsMqBrokerMaintenanceWindowStartTimeBlock
 {
     /// <summary>
     /// The day_of_week attribute.
@@ -165,7 +165,7 @@ public class AwsMqBrokerMaintenanceWindowStartTimeBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     [TerraformPropertyName("day_of_week")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DayOfWeek { get; set; }
+    public required TerraformValue<string> DayOfWeek { get; set; }
 
     /// <summary>
     /// The time_of_day attribute.
@@ -173,7 +173,7 @@ public class AwsMqBrokerMaintenanceWindowStartTimeBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeOfDay is required")]
     [TerraformPropertyName("time_of_day")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TimeOfDay { get; set; }
+    public required TerraformValue<string> TimeOfDay { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
@@ -181,7 +181,7 @@ public class AwsMqBrokerMaintenanceWindowStartTimeBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     [TerraformPropertyName("time_zone")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TimeZone { get; set; }
+    public required TerraformValue<string> TimeZone { get; set; }
 
 }
 
@@ -189,28 +189,28 @@ public class AwsMqBrokerMaintenanceWindowStartTimeBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMqBrokerTimeoutsBlock : ITerraformBlock
+public class AwsMqBrokerTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -218,21 +218,21 @@ public class AwsMqBrokerTimeoutsBlock : ITerraformBlock
 /// Block type for user in .
 /// Nesting mode: set
 /// </summary>
-public class AwsMqBrokerUserBlock : ITerraformBlock
+public class AwsMqBrokerUserBlock
 {
     /// <summary>
     /// The console_access attribute.
     /// </summary>
     [TerraformPropertyName("console_access")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ConsoleAccess { get; set; }
+    public TerraformValue<bool>? ConsoleAccess { get; set; }
 
     /// <summary>
     /// The groups attribute.
     /// </summary>
     [TerraformPropertyName("groups")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Groups { get; set; }
+    public TerraformSet<string>? Groups { get; set; }
 
     /// <summary>
     /// The password attribute.
@@ -240,14 +240,14 @@ public class AwsMqBrokerUserBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     [TerraformPropertyName("password")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
+    public required TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// The replication_user attribute.
     /// </summary>
     [TerraformPropertyName("replication_user")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ReplicationUser { get; set; }
+    public TerraformValue<bool>? ReplicationUser { get; set; }
 
     /// <summary>
     /// The username attribute.
@@ -255,7 +255,7 @@ public class AwsMqBrokerUserBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformPropertyName("username")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
+    public required TerraformValue<string> Username { get; set; }
 
 }
 
@@ -274,21 +274,21 @@ public class AwsMqBroker : TerraformResource
     /// </summary>
     [TerraformPropertyName("apply_immediately")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ApplyImmediately { get; set; }
+    public TerraformValue<bool>? ApplyImmediately { get; set; }
 
     /// <summary>
     /// The authentication_strategy attribute.
     /// </summary>
     [TerraformPropertyName("authentication_strategy")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AuthenticationStrategy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "authentication_strategy");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AuthenticationStrategy { get; set; } = default!;
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
     [TerraformPropertyName("auto_minor_version_upgrade")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AutoMinorVersionUpgrade { get; set; }
+    public TerraformValue<bool>? AutoMinorVersionUpgrade { get; set; }
 
     /// <summary>
     /// The broker_name attribute.
@@ -296,28 +296,28 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BrokerName is required")]
     [TerraformPropertyName("broker_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BrokerName { get; set; }
+    public required TerraformValue<string> BrokerName { get; set; }
 
     /// <summary>
     /// The data_replication_mode attribute.
     /// </summary>
     [TerraformPropertyName("data_replication_mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DataReplicationMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "data_replication_mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DataReplicationMode { get; set; } = default!;
 
     /// <summary>
     /// The data_replication_primary_broker_arn attribute.
     /// </summary>
     [TerraformPropertyName("data_replication_primary_broker_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DataReplicationPrimaryBrokerArn { get; set; }
+    public TerraformValue<string>? DataReplicationPrimaryBrokerArn { get; set; }
 
     /// <summary>
     /// The deployment_mode attribute.
     /// </summary>
     [TerraformPropertyName("deployment_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeploymentMode { get; set; }
+    public TerraformValue<string>? DeploymentMode { get; set; }
 
     /// <summary>
     /// The engine_type attribute.
@@ -325,7 +325,7 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
     [TerraformPropertyName("engine_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EngineType { get; set; }
+    public required TerraformValue<string> EngineType { get; set; }
 
     /// <summary>
     /// The engine_version attribute.
@@ -333,7 +333,7 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineVersion is required")]
     [TerraformPropertyName("engine_version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EngineVersion { get; set; }
+    public required TerraformValue<string> EngineVersion { get; set; }
 
     /// <summary>
     /// The host_instance_type attribute.
@@ -341,63 +341,63 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostInstanceType is required")]
     [TerraformPropertyName("host_instance_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HostInstanceType { get; set; }
+    public required TerraformValue<string> HostInstanceType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
     [TerraformPropertyName("publicly_accessible")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? PubliclyAccessible { get; set; }
+    public TerraformValue<bool>? PubliclyAccessible { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     [TerraformPropertyName("security_groups")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroups { get; set; }
+    public TerraformSet<string>? SecurityGroups { get; set; }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
     [TerraformPropertyName("storage_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> StorageType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> StorageType { get; set; } = default!;
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [TerraformPropertyName("subnet_ids")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<HashSet<TerraformProperty<string>>> SubnetIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "subnet_ids");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformSet<string> SubnetIds { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for configuration.
@@ -405,7 +405,7 @@ public class AwsMqBroker : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformPropertyName("configuration")]
-    public TerraformList<TerraformBlock<AwsMqBrokerConfigurationBlock>>? Configuration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsMqBrokerConfigurationBlock>>? Configuration { get; set; }
 
     /// <summary>
     /// Block for encryption_options.
@@ -413,7 +413,7 @@ public class AwsMqBroker : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionOptions block(s) allowed")]
     [TerraformPropertyName("encryption_options")]
-    public TerraformList<TerraformBlock<AwsMqBrokerEncryptionOptionsBlock>>? EncryptionOptions { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsMqBrokerEncryptionOptionsBlock>>? EncryptionOptions { get; set; }
 
     /// <summary>
     /// Block for ldap_server_metadata.
@@ -421,7 +421,7 @@ public class AwsMqBroker : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LdapServerMetadata block(s) allowed")]
     [TerraformPropertyName("ldap_server_metadata")]
-    public TerraformList<TerraformBlock<AwsMqBrokerLdapServerMetadataBlock>>? LdapServerMetadata { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsMqBrokerLdapServerMetadataBlock>>? LdapServerMetadata { get; set; }
 
     /// <summary>
     /// Block for logs.
@@ -429,7 +429,7 @@ public class AwsMqBroker : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
     [TerraformPropertyName("logs")]
-    public TerraformList<TerraformBlock<AwsMqBrokerLogsBlock>>? Logs { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsMqBrokerLogsBlock>>? Logs { get; set; }
 
     /// <summary>
     /// Block for maintenance_window_start_time.
@@ -437,14 +437,14 @@ public class AwsMqBroker : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindowStartTime block(s) allowed")]
     [TerraformPropertyName("maintenance_window_start_time")]
-    public TerraformList<TerraformBlock<AwsMqBrokerMaintenanceWindowStartTimeBlock>>? MaintenanceWindowStartTime { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsMqBrokerMaintenanceWindowStartTimeBlock>>? MaintenanceWindowStartTime { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsMqBrokerTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsMqBrokerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for user.
@@ -453,27 +453,27 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     [TerraformPropertyName("user")]
-    public TerraformSet<TerraformBlock<AwsMqBrokerUserBlock>>? User { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsMqBrokerUserBlock>>? User { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
     [TerraformPropertyName("instances")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Instances => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "instances");
+    public TerraformList<object> Instances => new TerraformReference(this, "instances");
 
     /// <summary>
     /// The pending_data_replication_mode attribute.
     /// </summary>
     [TerraformPropertyName("pending_data_replication_mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PendingDataReplicationMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "pending_data_replication_mode");
+    public TerraformValue<string> PendingDataReplicationMode => new TerraformReference(this, "pending_data_replication_mode");
 
 }

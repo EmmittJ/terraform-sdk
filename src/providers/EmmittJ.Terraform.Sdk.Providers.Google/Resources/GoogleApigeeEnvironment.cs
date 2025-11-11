@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for client_ip_resolution_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeEnvironmentClientIpResolutionConfigBlock : ITerraformBlock
+public class GoogleApigeeEnvironmentClientIpResolutionConfigBlock
 {
 }
 
@@ -14,15 +14,8 @@ public class GoogleApigeeEnvironmentClientIpResolutionConfigBlock : ITerraformBl
 /// Block type for node_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeEnvironmentNodeConfigBlock : ITerraformBlock
+public class GoogleApigeeEnvironmentNodeConfigBlock
 {
-    /// <summary>
-    /// The current total number of gateway nodes that each environment currently has across
-    /// all instances.
-    /// </summary>
-    [TerraformPropertyName("current_aggregate_node_count")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CurrentAggregateNodeCount => new TerraformReferenceProperty<TerraformProperty<string>>("", "current_aggregate_node_count");
 
     /// <summary>
     /// The maximum total number of gateway nodes that the is reserved for all instances that
@@ -31,7 +24,7 @@ public class GoogleApigeeEnvironmentNodeConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("max_node_count")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MaxNodeCount { get; set; }
+    public TerraformValue<string>? MaxNodeCount { get; set; }
 
     /// <summary>
     /// The minimum total number of gateway nodes that the is reserved for all instances that
@@ -40,7 +33,7 @@ public class GoogleApigeeEnvironmentNodeConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("min_node_count")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MinNodeCount { get; set; }
+    public TerraformValue<string>? MinNodeCount { get; set; }
 
 }
 
@@ -48,7 +41,7 @@ public class GoogleApigeeEnvironmentNodeConfigBlock : ITerraformBlock
 /// Block type for properties in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeEnvironmentPropertiesBlock : ITerraformBlock
+public class GoogleApigeeEnvironmentPropertiesBlock
 {
 }
 
@@ -56,28 +49,28 @@ public class GoogleApigeeEnvironmentPropertiesBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeEnvironmentTimeoutsBlock : ITerraformBlock
+public class GoogleApigeeEnvironmentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -96,8 +89,8 @@ public class GoogleApigeeEnvironment : TerraformResource
     /// the Environment and cannot be changed. Possible values: [&amp;quot;API_PROXY_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;PROGRAMMABLE&amp;quot;, &amp;quot;CONFIGURABLE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("api_proxy_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ApiProxyType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "api_proxy_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ApiProxyType { get; set; } = default!;
 
     /// <summary>
     /// Optional. Deployment type supported by the environment. The deployment type can be
@@ -109,36 +102,36 @@ public class GoogleApigeeEnvironment : TerraformResource
     /// Creating, updating, or deleting target servers. Possible values: [&amp;quot;DEPLOYMENT_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;PROXY&amp;quot;, &amp;quot;ARCHIVE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("deployment_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DeploymentType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deployment_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DeploymentType { get; set; } = default!;
 
     /// <summary>
     /// Description of the environment.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Display name of the environment.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// Optional. URI of the forward proxy to be applied to the runtime instances in this environment. Must be in the format of {scheme}://{hostname}:{port}. Note that the scheme must be one of &amp;quot;http&amp;quot; or &amp;quot;https&amp;quot;, and the port must be supplied.
     /// </summary>
     [TerraformPropertyName("forward_proxy_uri")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ForwardProxyUri { get; set; }
+    public TerraformValue<string>? ForwardProxyUri { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The resource ID of the environment.
@@ -146,7 +139,7 @@ public class GoogleApigeeEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee environment,
@@ -155,7 +148,7 @@ public class GoogleApigeeEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformPropertyName("org_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
+    public required TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Types that can be selected for an Environment. Each of the types are
@@ -164,8 +157,8 @@ public class GoogleApigeeEnvironment : TerraformResource
     /// An Apigee org can support heterogeneous Environments. Possible values: [&amp;quot;ENVIRONMENT_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;BASE&amp;quot;, &amp;quot;INTERMEDIATE&amp;quot;, &amp;quot;COMPREHENSIVE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Type { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Type { get; set; } = default!;
 
     /// <summary>
     /// Block for client_ip_resolution_config.
@@ -173,7 +166,7 @@ public class GoogleApigeeEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientIpResolutionConfig block(s) allowed")]
     [TerraformPropertyName("client_ip_resolution_config")]
-    public TerraformList<TerraformBlock<GoogleApigeeEnvironmentClientIpResolutionConfigBlock>>? ClientIpResolutionConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleApigeeEnvironmentClientIpResolutionConfigBlock>>? ClientIpResolutionConfig { get; set; }
 
     /// <summary>
     /// Block for node_config.
@@ -181,7 +174,7 @@ public class GoogleApigeeEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformPropertyName("node_config")]
-    public TerraformList<TerraformBlock<GoogleApigeeEnvironmentNodeConfigBlock>>? NodeConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleApigeeEnvironmentNodeConfigBlock>>? NodeConfig { get; set; }
 
     /// <summary>
     /// Block for properties.
@@ -189,13 +182,13 @@ public class GoogleApigeeEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     [TerraformPropertyName("properties")]
-    public TerraformList<TerraformBlock<GoogleApigeeEnvironmentPropertiesBlock>>? Properties { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleApigeeEnvironmentPropertiesBlock>>? Properties { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleApigeeEnvironmentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleApigeeEnvironmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

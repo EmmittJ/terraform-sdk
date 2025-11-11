@@ -15,8 +15,8 @@ public class GoogleComputeResourcePolicyDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the resource, provided by the client when initially creating
@@ -30,69 +30,69 @@ public class GoogleComputeResourcePolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Region where resource policy resides.
     /// </summary>
     [TerraformPropertyName("region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// Replication consistency group for asynchronous disk replication.
     /// </summary>
     [TerraformPropertyName("disk_consistency_group_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> DiskConsistencyGroupPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "disk_consistency_group_policy");
+    public TerraformList<object> DiskConsistencyGroupPolicy => new TerraformReference(this, "disk_consistency_group_policy");
 
     /// <summary>
     /// Resource policy for instances used for placement configuration.
     /// </summary>
     [TerraformPropertyName("group_placement_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> GroupPlacementPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "group_placement_policy");
+    public TerraformList<object> GroupPlacementPolicy => new TerraformReference(this, "group_placement_policy");
 
     /// <summary>
     /// Resource policy for scheduling instance operations.
     /// </summary>
     [TerraformPropertyName("instance_schedule_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> InstanceSchedulePolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "instance_schedule_policy");
+    public TerraformList<object> InstanceSchedulePolicy => new TerraformReference(this, "instance_schedule_policy");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// Policy for creating snapshots of persistent disks.
     /// </summary>
     [TerraformPropertyName("snapshot_schedule_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> SnapshotSchedulePolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "snapshot_schedule_policy");
+    public TerraformList<object> SnapshotSchedulePolicy => new TerraformReference(this, "snapshot_schedule_policy");
 
     /// <summary>
     /// Represents the workload policy.
     /// </summary>
     [TerraformPropertyName("workload_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> WorkloadPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "workload_policy");
+    public TerraformList<object> WorkloadPolicy => new TerraformReference(this, "workload_policy");
 
 }

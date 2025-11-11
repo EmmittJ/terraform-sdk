@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApihubApiHubInstanceConfigBlock : ITerraformBlock
+public class GoogleApihubApiHubInstanceConfigBlock
 {
     /// <summary>
     /// Optional. The Customer Managed Encryption Key (CMEK) used for data encryption.
@@ -17,7 +17,7 @@ public class GoogleApihubApiHubInstanceConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("cmek_key_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CmekKeyName { get; set; }
+    public TerraformValue<string>? CmekKeyName { get; set; }
 
     /// <summary>
     /// Optional. If true, the search will be disabled for the instance. The default value
@@ -25,7 +25,7 @@ public class GoogleApihubApiHubInstanceConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("disable_search")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DisableSearch { get; set; }
+    public TerraformValue<bool>? DisableSearch { get; set; }
 
     /// <summary>
     /// Optional. Encryption type for the region. If the encryption type is CMEK, the
@@ -37,15 +37,15 @@ public class GoogleApihubApiHubInstanceConfigBlock : ITerraformBlock
     /// CMEK
     /// </summary>
     [TerraformPropertyName("encryption_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> EncryptionType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "encryption_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> EncryptionType { get; set; } = default!;
 
     /// <summary>
     /// Optional. The name of the Vertex AI location where the data store is stored.
     /// </summary>
     [TerraformPropertyName("vertex_location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VertexLocation { get; set; }
+    public TerraformValue<string>? VertexLocation { get; set; }
 
 }
 
@@ -53,28 +53,28 @@ public class GoogleApihubApiHubInstanceConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApihubApiHubInstanceTimeoutsBlock : ITerraformBlock
+public class GoogleApihubApiHubInstanceTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -98,21 +98,21 @@ public class GoogleApihubApiHubInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("api_hub_instance_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ApiHubInstanceId { get; set; }
+    public TerraformValue<string>? ApiHubInstanceId { get; set; }
 
     /// <summary>
     /// Optional. Description of the ApiHub instance.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Optional. Instance labels to represent user-provided metadata.
@@ -124,7 +124,7 @@ public class GoogleApihubApiHubInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -132,14 +132,14 @@ public class GoogleApihubApiHubInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for config.
@@ -149,28 +149,28 @@ public class GoogleApihubApiHubInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformPropertyName("config")]
-    public TerraformList<TerraformBlock<GoogleApihubApiHubInstanceConfigBlock>>? Config { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleApihubApiHubInstanceConfigBlock>>? Config { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleApihubApiHubInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleApihubApiHubInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Creation timestamp.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Identifier. Format:
@@ -178,7 +178,7 @@ public class GoogleApihubApiHubInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Output only. The current state of the ApiHub instance.
@@ -193,7 +193,7 @@ public class GoogleApihubApiHubInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// Output only. Extra information about ApiHub instance state. Currently the message
@@ -201,7 +201,7 @@ public class GoogleApihubApiHubInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("state_message")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StateMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state_message");
+    public TerraformValue<string> StateMessage => new TerraformReference(this, "state_message");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -209,13 +209,13 @@ public class GoogleApihubApiHubInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Output only. Last update timestamp.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

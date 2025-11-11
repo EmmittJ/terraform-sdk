@@ -21,9 +21,21 @@ public static class TemplateHelpers
 
     public static string GetPropertyWrapper(PropertyModel property)
     {
-        // The CSharpType already contains the full type (e.g., TerraformProperty<string>, List<TerraformProperty<int>>)
+        // The CSharpType already contains the full type (e.g., TerraformValue<string>, List<TerraformValue<int>>)
         // Just return it directly
         return property.CSharpType;
+    }
+
+    public static string GetInnerType(string csharpType)
+    {
+        // Extract the inner type from TerraformValue<T>
+        // e.g., "TerraformValue<string>" => "string"
+        // e.g., "List<TerraformValue<int>>" => "List<TerraformValue<int>>" (no change)
+        if (csharpType.StartsWith("TerraformValue<") && csharpType.EndsWith(">"))
+        {
+            return csharpType.Substring("TerraformValue<".Length, csharpType.Length - "TerraformValue<".Length - 1);
+        }
+        return csharpType;
     }
 
     public static string GetSetterValue(PropertyModel property)
@@ -49,9 +61,10 @@ public static class TemplateHelpers
         // Arguments (settable) include: Required, Optional, and Optional+Computed
         bool isArgument = isRequiredArgument || isOptionalArgument || isOptionalAndComputed;
 
-        // All properties use TerraformProperty<T> wrapper
-        // The distinction between literal/reference is handled by initialization
-        string propertyTypeWrapper = $"TerraformProperty<{property.CSharpType}>";
+        // The CSharpType already contains the properly wrapped type from MapTerraformTypeToCSharp
+        // (e.g., "TerraformValue<string>", "List<TerraformValue<int>>")
+        // Don't wrap it again - just use it directly
+        string propertyTypeWrapper = property.CSharpType;
 
         // Determine if we should use 'required' keyword:
         // - Property is marked Required in schema
@@ -63,6 +76,7 @@ public static class TemplateHelpers
             property.Name,
             property.TerraformName,
             property.CSharpType,
+            InnerType = GetInnerType(property.CSharpType), // Inner type for TerraformComputedProperty<T>
             Description = EscapeXmlDoc(property.Description), // Only escape for XML doc comments
             property.IsRequired,
             property.IsOptional,

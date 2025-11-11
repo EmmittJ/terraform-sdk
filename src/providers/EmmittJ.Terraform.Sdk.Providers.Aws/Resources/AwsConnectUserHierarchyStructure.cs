@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for hierarchy_structure in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConnectUserHierarchyStructureHierarchyStructureBlock : ITerraformBlock
+public class AwsConnectUserHierarchyStructureHierarchyStructureBlock
 {
 }
 
@@ -24,8 +24,8 @@ public class AwsConnectUserHierarchyStructure : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The instance_id attribute.
@@ -33,14 +33,14 @@ public class AwsConnectUserHierarchyStructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformPropertyName("instance_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
+    public required TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for hierarchy_structure.
@@ -50,6 +50,6 @@ public class AwsConnectUserHierarchyStructure : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HierarchyStructure block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HierarchyStructure block(s) allowed")]
     [TerraformPropertyName("hierarchy_structure")]
-    public TerraformList<TerraformBlock<AwsConnectUserHierarchyStructureHierarchyStructureBlock>>? HierarchyStructure { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsConnectUserHierarchyStructureHierarchyStructureBlock>>? HierarchyStructure { get; set; }
 
 }

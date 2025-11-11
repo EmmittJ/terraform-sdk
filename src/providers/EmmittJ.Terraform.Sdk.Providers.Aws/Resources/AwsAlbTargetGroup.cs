@@ -6,70 +6,70 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for health_check in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbTargetGroupHealthCheckBlock : ITerraformBlock
+public class AwsAlbTargetGroupHealthCheckBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The healthy_threshold attribute.
     /// </summary>
     [TerraformPropertyName("healthy_threshold")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? HealthyThreshold { get; set; }
+    public TerraformValue<double>? HealthyThreshold { get; set; }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
     [TerraformPropertyName("interval")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Interval { get; set; }
+    public TerraformValue<double>? Interval { get; set; }
 
     /// <summary>
     /// The matcher attribute.
     /// </summary>
     [TerraformPropertyName("matcher")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Matcher { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "matcher");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Matcher { get; set; } = default!;
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformPropertyName("path")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Path { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "path");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Path { get; set; } = default!;
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [TerraformPropertyName("port")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Port { get; set; }
+    public TerraformValue<string>? Port { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [TerraformPropertyName("protocol")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Protocol { get; set; }
+    public TerraformValue<string>? Protocol { get; set; }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
     [TerraformPropertyName("timeout")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Timeout { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "timeout");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Timeout { get; set; } = default!;
 
     /// <summary>
     /// The unhealthy_threshold attribute.
     /// </summary>
     [TerraformPropertyName("unhealthy_threshold")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? UnhealthyThreshold { get; set; }
+    public TerraformValue<double>? UnhealthyThreshold { get; set; }
 
 }
 
@@ -77,28 +77,28 @@ public class AwsAlbTargetGroupHealthCheckBlock : ITerraformBlock
 /// Block type for stickiness in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbTargetGroupStickinessBlock : ITerraformBlock
+public class AwsAlbTargetGroupStickinessBlock
 {
     /// <summary>
     /// The cookie_duration attribute.
     /// </summary>
     [TerraformPropertyName("cookie_duration")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? CookieDuration { get; set; }
+    public TerraformValue<double>? CookieDuration { get; set; }
 
     /// <summary>
     /// The cookie_name attribute.
     /// </summary>
     [TerraformPropertyName("cookie_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CookieName { get; set; }
+    public TerraformValue<string>? CookieName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -106,7 +106,7 @@ public class AwsAlbTargetGroupStickinessBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -114,7 +114,7 @@ public class AwsAlbTargetGroupStickinessBlock : ITerraformBlock
 /// Block type for target_failover in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbTargetGroupTargetFailoverBlock : ITerraformBlock
+public class AwsAlbTargetGroupTargetFailoverBlock
 {
     /// <summary>
     /// The on_deregistration attribute.
@@ -122,7 +122,7 @@ public class AwsAlbTargetGroupTargetFailoverBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnDeregistration is required")]
     [TerraformPropertyName("on_deregistration")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OnDeregistration { get; set; }
+    public required TerraformValue<string> OnDeregistration { get; set; }
 
     /// <summary>
     /// The on_unhealthy attribute.
@@ -130,7 +130,7 @@ public class AwsAlbTargetGroupTargetFailoverBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnUnhealthy is required")]
     [TerraformPropertyName("on_unhealthy")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OnUnhealthy { get; set; }
+    public required TerraformValue<string> OnUnhealthy { get; set; }
 
 }
 
@@ -138,7 +138,7 @@ public class AwsAlbTargetGroupTargetFailoverBlock : ITerraformBlock
 /// Block type for target_group_health in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbTargetGroupTargetGroupHealthBlock : ITerraformBlock
+public class AwsAlbTargetGroupTargetGroupHealthBlock
 {
 }
 
@@ -146,7 +146,7 @@ public class AwsAlbTargetGroupTargetGroupHealthBlock : ITerraformBlock
 /// Block type for target_health_state in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbTargetGroupTargetHealthStateBlock : ITerraformBlock
+public class AwsAlbTargetGroupTargetHealthStateBlock
 {
     /// <summary>
     /// The enable_unhealthy_connection_termination attribute.
@@ -154,14 +154,14 @@ public class AwsAlbTargetGroupTargetHealthStateBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableUnhealthyConnectionTermination is required")]
     [TerraformPropertyName("enable_unhealthy_connection_termination")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> EnableUnhealthyConnectionTermination { get; set; }
+    public required TerraformValue<bool> EnableUnhealthyConnectionTermination { get; set; }
 
     /// <summary>
     /// The unhealthy_draining_interval attribute.
     /// </summary>
     [TerraformPropertyName("unhealthy_draining_interval")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? UnhealthyDrainingInterval { get; set; }
+    public TerraformValue<double>? UnhealthyDrainingInterval { get; set; }
 
 }
 
@@ -179,148 +179,148 @@ public class AwsAlbTargetGroup : TerraformResource
     /// The connection_termination attribute.
     /// </summary>
     [TerraformPropertyName("connection_termination")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> ConnectionTermination { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "connection_termination");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> ConnectionTermination { get; set; } = default!;
 
     /// <summary>
     /// The deregistration_delay attribute.
     /// </summary>
     [TerraformPropertyName("deregistration_delay")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeregistrationDelay { get; set; }
+    public TerraformValue<string>? DeregistrationDelay { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
     [TerraformPropertyName("ip_address_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> IpAddressType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> IpAddressType { get; set; } = default!;
 
     /// <summary>
     /// The lambda_multi_value_headers_enabled attribute.
     /// </summary>
     [TerraformPropertyName("lambda_multi_value_headers_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? LambdaMultiValueHeadersEnabled { get; set; }
+    public TerraformValue<bool>? LambdaMultiValueHeadersEnabled { get; set; }
 
     /// <summary>
     /// The load_balancing_algorithm_type attribute.
     /// </summary>
     [TerraformPropertyName("load_balancing_algorithm_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LoadBalancingAlgorithmType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "load_balancing_algorithm_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LoadBalancingAlgorithmType { get; set; } = default!;
 
     /// <summary>
     /// The load_balancing_anomaly_mitigation attribute.
     /// </summary>
     [TerraformPropertyName("load_balancing_anomaly_mitigation")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LoadBalancingAnomalyMitigation { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "load_balancing_anomaly_mitigation");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LoadBalancingAnomalyMitigation { get; set; } = default!;
 
     /// <summary>
     /// The load_balancing_cross_zone_enabled attribute.
     /// </summary>
     [TerraformPropertyName("load_balancing_cross_zone_enabled")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LoadBalancingCrossZoneEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "load_balancing_cross_zone_enabled");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LoadBalancingCrossZoneEnabled { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Name { get; set; } = default!;
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> NamePrefix { get; set; } = default!;
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [TerraformPropertyName("port")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
+    public TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// The preserve_client_ip attribute.
     /// </summary>
     [TerraformPropertyName("preserve_client_ip")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PreserveClientIp { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preserve_client_ip");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PreserveClientIp { get; set; } = default!;
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [TerraformPropertyName("protocol")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Protocol { get; set; }
+    public TerraformValue<string>? Protocol { get; set; }
 
     /// <summary>
     /// The protocol_version attribute.
     /// </summary>
     [TerraformPropertyName("protocol_version")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ProtocolVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protocol_version");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ProtocolVersion { get; set; } = default!;
 
     /// <summary>
     /// The proxy_protocol_v2 attribute.
     /// </summary>
     [TerraformPropertyName("proxy_protocol_v2")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ProxyProtocolV2 { get; set; }
+    public TerraformValue<bool>? ProxyProtocolV2 { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The slow_start attribute.
     /// </summary>
     [TerraformPropertyName("slow_start")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? SlowStart { get; set; }
+    public TerraformValue<double>? SlowStart { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
     [TerraformPropertyName("target_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TargetType { get; set; }
+    public TerraformValue<string>? TargetType { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [TerraformPropertyName("vpc_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VpcId { get; set; }
+    public TerraformValue<string>? VpcId { get; set; }
 
     /// <summary>
     /// Block for health_check.
@@ -328,7 +328,7 @@ public class AwsAlbTargetGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheck block(s) allowed")]
     [TerraformPropertyName("health_check")]
-    public TerraformList<TerraformBlock<AwsAlbTargetGroupHealthCheckBlock>>? HealthCheck { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsAlbTargetGroupHealthCheckBlock>>? HealthCheck { get; set; }
 
     /// <summary>
     /// Block for stickiness.
@@ -336,14 +336,14 @@ public class AwsAlbTargetGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Stickiness block(s) allowed")]
     [TerraformPropertyName("stickiness")]
-    public TerraformList<TerraformBlock<AwsAlbTargetGroupStickinessBlock>>? Stickiness { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsAlbTargetGroupStickinessBlock>>? Stickiness { get; set; }
 
     /// <summary>
     /// Block for target_failover.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("target_failover")]
-    public TerraformList<TerraformBlock<AwsAlbTargetGroupTargetFailoverBlock>>? TargetFailover { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsAlbTargetGroupTargetFailoverBlock>>? TargetFailover { get; set; }
 
     /// <summary>
     /// Block for target_group_health.
@@ -351,34 +351,34 @@ public class AwsAlbTargetGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetGroupHealth block(s) allowed")]
     [TerraformPropertyName("target_group_health")]
-    public TerraformList<TerraformBlock<AwsAlbTargetGroupTargetGroupHealthBlock>>? TargetGroupHealth { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsAlbTargetGroupTargetGroupHealthBlock>>? TargetGroupHealth { get; set; }
 
     /// <summary>
     /// Block for target_health_state.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("target_health_state")]
-    public TerraformList<TerraformBlock<AwsAlbTargetGroupTargetHealthStateBlock>>? TargetHealthState { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsAlbTargetGroupTargetHealthStateBlock>>? TargetHealthState { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The arn_suffix attribute.
     /// </summary>
     [TerraformPropertyName("arn_suffix")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ArnSuffix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn_suffix");
+    public TerraformValue<string> ArnSuffix => new TerraformReference(this, "arn_suffix");
 
     /// <summary>
     /// The load_balancer_arns attribute.
     /// </summary>
     [TerraformPropertyName("load_balancer_arns")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> LoadBalancerArns => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "load_balancer_arns");
+    public TerraformSet<string> LoadBalancerArns => new TerraformReference(this, "load_balancer_arns");
 
 }

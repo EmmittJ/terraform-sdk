@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMobileNetworkServiceDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermMobileNetworkServiceDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermMobileNetworkServiceDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The mobile_network_id attribute.
@@ -39,7 +39,7 @@ public class AzurermMobileNetworkServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     [TerraformPropertyName("mobile_network_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MobileNetworkId { get; set; }
+    public required TerraformValue<string> MobileNetworkId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,48 +47,48 @@ public class AzurermMobileNetworkServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermMobileNetworkServiceDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermMobileNetworkServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The pcc_rule attribute.
     /// </summary>
     [TerraformPropertyName("pcc_rule")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PccRule => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "pcc_rule");
+    public TerraformList<object> PccRule => new TerraformReference(this, "pcc_rule");
 
     /// <summary>
     /// The service_precedence attribute.
     /// </summary>
     [TerraformPropertyName("service_precedence")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ServicePrecedence => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "service_precedence");
+    public TerraformValue<double> ServicePrecedence => new TerraformReference(this, "service_precedence");
 
     /// <summary>
     /// The service_qos_policy attribute.
     /// </summary>
     [TerraformPropertyName("service_qos_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ServiceQosPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "service_qos_policy");
+    public TerraformList<object> ServiceQosPolicy => new TerraformReference(this, "service_qos_policy");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
 }

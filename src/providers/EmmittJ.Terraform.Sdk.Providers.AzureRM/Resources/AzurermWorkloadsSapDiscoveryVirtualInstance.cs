@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock : ITerraformBlock
+public class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -14,7 +14,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock : ITerrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     [TerraformPropertyName("identity_ids")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
+    public required TerraformSet<string> IdentityIds { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock : ITerrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -30,35 +30,35 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock : ITerrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : ITerraformBlock
+public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,7 +78,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CentralServerVirtualMachineId is required")]
     [TerraformPropertyName("central_server_virtual_machine_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CentralServerVirtualMachineId { get; set; }
+    public required TerraformValue<string> CentralServerVirtualMachineId { get; set; }
 
     /// <summary>
     /// The environment attribute.
@@ -86,14 +86,14 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     [TerraformPropertyName("environment")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Environment { get; set; }
+    public required TerraformValue<string> Environment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -101,28 +101,28 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
     [TerraformPropertyName("managed_resource_group_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ManagedResourceGroupName { get; set; }
+    public TerraformValue<string>? ManagedResourceGroupName { get; set; }
 
     /// <summary>
     /// The managed_resources_network_access_type attribute.
     /// </summary>
     [TerraformPropertyName("managed_resources_network_access_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ManagedResourcesNetworkAccessType { get; set; }
+    public TerraformValue<string>? ManagedResourcesNetworkAccessType { get; set; }
 
     /// <summary>
     /// The managed_storage_account_name attribute.
     /// </summary>
     [TerraformPropertyName("managed_storage_account_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ManagedStorageAccountName { get; set; }
+    public TerraformValue<string>? ManagedStorageAccountName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -130,7 +130,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -138,7 +138,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sap_product attribute.
@@ -146,14 +146,14 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapProduct is required")]
     [TerraformPropertyName("sap_product")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SapProduct { get; set; }
+    public required TerraformValue<string> SapProduct { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -161,13 +161,13 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformPropertyName("identity")]
-    public TerraformList<TerraformBlock<AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock>>? Identity { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock>? Timeouts { get; set; }
 
 }

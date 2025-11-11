@@ -17,41 +17,41 @@ public class AwsCloudtrailOrganizationDelegatedAdminAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     [TerraformPropertyName("account_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AccountId { get; set; }
+    public required TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [TerraformPropertyName("email")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Email => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "email");
+    public TerraformValue<string> Email => new TerraformReference(this, "email");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The service_principal attribute.
     /// </summary>
     [TerraformPropertyName("service_principal")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServicePrincipal => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_principal");
+    public TerraformValue<string> ServicePrincipal => new TerraformReference(this, "service_principal");
 
 }

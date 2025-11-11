@@ -6,28 +6,16 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDashboardGrafanaDataSourceIdentityBlock : ITerraformBlock
+public class AzurermDashboardGrafanaDataSourceIdentityBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [TerraformPropertyName("identity_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
+    public TerraformSet<string>? IdentityIds { get; set; }
 
-    /// <summary>
-    /// The principal_id attribute.
-    /// </summary>
-    [TerraformPropertyName("principal_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
-    /// <summary>
-    /// The tenant_id attribute.
-    /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -35,7 +23,7 @@ public class AzurermDashboardGrafanaDataSourceIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -43,14 +31,14 @@ public class AzurermDashboardGrafanaDataSourceIdentityBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDashboardGrafanaDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermDashboardGrafanaDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -68,8 +56,8 @@ public class AzurermDashboardGrafanaDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -77,7 +65,7 @@ public class AzurermDashboardGrafanaDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -85,7 +73,7 @@ public class AzurermDashboardGrafanaDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -93,104 +81,104 @@ public class AzurermDashboardGrafanaDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformPropertyName("identity")]
-    public TerraformList<TerraformBlock<AzurermDashboardGrafanaDataSourceIdentityBlock>>? Identity { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDashboardGrafanaDataSourceIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDashboardGrafanaDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDashboardGrafanaDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The api_key_enabled attribute.
     /// </summary>
     [TerraformPropertyName("api_key_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> ApiKeyEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "api_key_enabled");
+    public TerraformValue<bool> ApiKeyEnabled => new TerraformReference(this, "api_key_enabled");
 
     /// <summary>
     /// The auto_generated_domain_name_label_scope attribute.
     /// </summary>
     [TerraformPropertyName("auto_generated_domain_name_label_scope")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AutoGeneratedDomainNameLabelScope => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "auto_generated_domain_name_label_scope");
+    public TerraformValue<string> AutoGeneratedDomainNameLabelScope => new TerraformReference(this, "auto_generated_domain_name_label_scope");
 
     /// <summary>
     /// The azure_monitor_workspace_integrations attribute.
     /// </summary>
     [TerraformPropertyName("azure_monitor_workspace_integrations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> AzureMonitorWorkspaceIntegrations => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "azure_monitor_workspace_integrations");
+    public TerraformList<object> AzureMonitorWorkspaceIntegrations => new TerraformReference(this, "azure_monitor_workspace_integrations");
 
     /// <summary>
     /// The deterministic_outbound_ip_enabled attribute.
     /// </summary>
     [TerraformPropertyName("deterministic_outbound_ip_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> DeterministicOutboundIpEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deterministic_outbound_ip_enabled");
+    public TerraformValue<bool> DeterministicOutboundIpEnabled => new TerraformReference(this, "deterministic_outbound_ip_enabled");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [TerraformPropertyName("endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
+    public TerraformValue<string> Endpoint => new TerraformReference(this, "endpoint");
 
     /// <summary>
     /// The grafana_major_version attribute.
     /// </summary>
     [TerraformPropertyName("grafana_major_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GrafanaMajorVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "grafana_major_version");
+    public TerraformValue<string> GrafanaMajorVersion => new TerraformReference(this, "grafana_major_version");
 
     /// <summary>
     /// The grafana_version attribute.
     /// </summary>
     [TerraformPropertyName("grafana_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GrafanaVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "grafana_version");
+    public TerraformValue<string> GrafanaVersion => new TerraformReference(this, "grafana_version");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The outbound_ips attribute.
     /// </summary>
     [TerraformPropertyName("outbound_ips")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> OutboundIps => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "outbound_ips");
+    public TerraformList<string> OutboundIps => new TerraformReference(this, "outbound_ips");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformPropertyName("public_network_access_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> PublicNetworkAccessEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "public_network_access_enabled");
+    public TerraformValue<bool> PublicNetworkAccessEnabled => new TerraformReference(this, "public_network_access_enabled");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [TerraformPropertyName("sku")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Sku => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku");
+    public TerraformValue<string> Sku => new TerraformReference(this, "sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The zone_redundancy_enabled attribute.
     /// </summary>
     [TerraformPropertyName("zone_redundancy_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> ZoneRedundancyEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "zone_redundancy_enabled");
+    public TerraformValue<bool> ZoneRedundancyEnabled => new TerraformReference(this, "zone_redundancy_enabled");
 
 }

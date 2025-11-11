@@ -15,8 +15,8 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Required. The ID to use for the instance, which will become the final component of
@@ -33,21 +33,21 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformPropertyName("instance_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
+    public required TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type &#39;memorystore.googleapis.com/CertificateAuthority&#39;.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Optional. Immutable. Authorization mode of the instance. Possible values:
@@ -56,21 +56,21 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("authorization_mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AuthorizationMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "authorization_mode");
+    public TerraformValue<string> AuthorizationMode => new TerraformReference(this, "authorization_mode");
 
     /// <summary>
     /// The automated backup config for a instance.
     /// </summary>
     [TerraformPropertyName("automated_backup_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> AutomatedBackupConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "automated_backup_config");
+    public TerraformList<object> AutomatedBackupConfig => new TerraformReference(this, "automated_backup_config");
 
     /// <summary>
     /// This field is used to determine the available maintenance versions for the self service update.
     /// </summary>
     [TerraformPropertyName("available_maintenance_versions")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> AvailableMaintenanceVersions => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "available_maintenance_versions");
+    public TerraformList<string> AvailableMaintenanceVersions => new TerraformReference(this, "available_maintenance_versions");
 
     /// <summary>
     /// The backup collection full resource name.
@@ -78,98 +78,98 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("backup_collection")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> BackupCollection => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backup_collection");
+    public TerraformValue<string> BackupCollection => new TerraformReference(this, "backup_collection");
 
     /// <summary>
     /// Output only. Creation timestamp of the instance.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Cross instance replication config
     /// </summary>
     [TerraformPropertyName("cross_instance_replication_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CrossInstanceReplicationConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cross_instance_replication_config");
+    public TerraformList<object> CrossInstanceReplicationConfig => new TerraformReference(this, "cross_instance_replication_config");
 
     /// <summary>
     /// Optional. If set to true deletion of the instance will fail.
     /// </summary>
     [TerraformPropertyName("deletion_protection_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> DeletionProtectionEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection_enabled");
+    public TerraformValue<bool> DeletionProtectionEnabled => new TerraformReference(this, "deletion_protection_enabled");
 
     /// <summary>
     /// Immutable. User inputs for the auto-created endpoints connections.
     /// </summary>
     [TerraformPropertyName("desired_auto_created_endpoints")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> DesiredAutoCreatedEndpoints => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "desired_auto_created_endpoints");
+    public TerraformList<object> DesiredAutoCreatedEndpoints => new TerraformReference(this, "desired_auto_created_endpoints");
 
     /// <summary>
     /// &#39;desired_psc_auto_connections&#39; is deprecated  Use &#39;desired_auto_created_endpoints&#39; instead &#39;terraform import&#39; will only work with desired_auto_created_endpoints&#39;.
     /// </summary>
     [TerraformPropertyName("desired_psc_auto_connections")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> DesiredPscAutoConnections => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "desired_psc_auto_connections");
+    public TerraformList<object> DesiredPscAutoConnections => new TerraformReference(this, "desired_psc_auto_connections");
 
     /// <summary>
     /// Deprecated. Output only. Endpoints clients can connect to the instance through.
     /// </summary>
     [TerraformPropertyName("discovery_endpoints")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> DiscoveryEndpoints => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "discovery_endpoints");
+    public TerraformList<object> DiscoveryEndpoints => new TerraformReference(this, "discovery_endpoints");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// This field represents the actual maintenance version of the cluster.
     /// </summary>
     [TerraformPropertyName("effective_maintenance_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EffectiveMaintenanceVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "effective_maintenance_version");
+    public TerraformValue<string> EffectiveMaintenanceVersion => new TerraformReference(this, "effective_maintenance_version");
 
     /// <summary>
     /// Endpoints for the instance.
     /// </summary>
     [TerraformPropertyName("endpoints")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Endpoints => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "endpoints");
+    public TerraformList<object> Endpoints => new TerraformReference(this, "endpoints");
 
     /// <summary>
     /// Optional. User-provided engine configurations for the instance.
     /// </summary>
     [TerraformPropertyName("engine_configs")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EngineConfigs => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "engine_configs");
+    public TerraformMap<string> EngineConfigs => new TerraformReference(this, "engine_configs");
 
     /// <summary>
     /// Optional. Engine version of the instance.
     /// </summary>
     [TerraformPropertyName("engine_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EngineVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
+    public TerraformValue<string> EngineVersion => new TerraformReference(this, "engine_version");
 
     /// <summary>
     /// GCS source for the instance.
     /// </summary>
     [TerraformPropertyName("gcs_source")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> GcsSource => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "gcs_source");
+    public TerraformList<object> GcsSource => new TerraformReference(this, "gcs_source");
 
     /// <summary>
     /// The KMS key used to encrypt the at-rest data of the cluster
     /// </summary>
     [TerraformPropertyName("kms_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key");
+    public TerraformValue<string> KmsKey => new TerraformReference(this, "kms_key");
 
     /// <summary>
     /// Optional. Labels to represent user-provided metadata. 
@@ -179,21 +179,21 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// Maintenance policy for a cluster
     /// </summary>
     [TerraformPropertyName("maintenance_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MaintenancePolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maintenance_policy");
+    public TerraformList<object> MaintenancePolicy => new TerraformReference(this, "maintenance_policy");
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
     [TerraformPropertyName("maintenance_schedule")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MaintenanceSchedule => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maintenance_schedule");
+    public TerraformList<object> MaintenanceSchedule => new TerraformReference(this, "maintenance_schedule");
 
     /// <summary>
     /// This field can be used to trigger self service update to indicate the desired maintenance version. The input to this field can be determined by the available_maintenance_versions field.
@@ -201,21 +201,21 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("maintenance_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MaintenanceVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "maintenance_version");
+    public TerraformValue<string> MaintenanceVersion => new TerraformReference(this, "maintenance_version");
 
     /// <summary>
     /// Managed backup source for the instance.
     /// </summary>
     [TerraformPropertyName("managed_backup_source")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ManagedBackupSource => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "managed_backup_source");
+    public TerraformList<object> ManagedBackupSource => new TerraformReference(this, "managed_backup_source");
 
     /// <summary>
     /// Instance&#39;s Certificate Authority. This field will only be populated if instance&#39;s transit_encryption_mode is SERVER_AUTHENTICATION
     /// </summary>
     [TerraformPropertyName("managed_server_ca")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ManagedServerCa => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "managed_server_ca");
+    public TerraformList<object> ManagedServerCa => new TerraformReference(this, "managed_server_ca");
 
     /// <summary>
     /// Optional. cluster or cluster-disabled. 
@@ -225,7 +225,7 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Mode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mode");
+    public TerraformValue<string> Mode => new TerraformReference(this, "mode");
 
     /// <summary>
     /// Identifier. Unique name of the instance.
@@ -233,14 +233,14 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Represents configuration for nodes of the instance.
     /// </summary>
     [TerraformPropertyName("node_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> NodeConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "node_config");
+    public TerraformList<object> NodeConfig => new TerraformReference(this, "node_config");
 
     /// <summary>
     /// Optional. Machine type for individual nodes of the instance. 
@@ -252,42 +252,42 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("node_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NodeType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_type");
+    public TerraformValue<string> NodeType => new TerraformReference(this, "node_type");
 
     /// <summary>
     /// Represents persistence configuration for a instance.
     /// </summary>
     [TerraformPropertyName("persistence_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PersistenceConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "persistence_config");
+    public TerraformList<object> PersistenceConfig => new TerraformReference(this, "persistence_config");
 
     /// <summary>
     /// Configuration of a service attachment of the cluster, for creating PSC connections.
     /// </summary>
     [TerraformPropertyName("psc_attachment_details")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PscAttachmentDetails => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "psc_attachment_details");
+    public TerraformList<object> PscAttachmentDetails => new TerraformReference(this, "psc_attachment_details");
 
     /// <summary>
     /// Output only. User inputs and resource details of the auto-created PSC connections.
     /// </summary>
     [TerraformPropertyName("psc_auto_connections")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PscAutoConnections => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "psc_auto_connections");
+    public TerraformList<object> PscAutoConnections => new TerraformReference(this, "psc_auto_connections");
 
     /// <summary>
     /// Optional. Number of replica nodes per shard. If omitted the default is 0 replicas.
     /// </summary>
     [TerraformPropertyName("replica_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ReplicaCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "replica_count");
+    public TerraformValue<double> ReplicaCount => new TerraformReference(this, "replica_count");
 
     /// <summary>
     /// Required. Number of shards for the instance.
     /// </summary>
     [TerraformPropertyName("shard_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ShardCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "shard_count");
+    public TerraformValue<double> ShardCount => new TerraformReference(this, "shard_count");
 
     /// <summary>
     /// Output only. Current state of the instance. 
@@ -299,14 +299,14 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// Additional information about the state of the instance.
     /// </summary>
     [TerraformPropertyName("state_info")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> StateInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "state_info");
+    public TerraformList<object> StateInfo => new TerraformReference(this, "state_info");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -314,7 +314,7 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Optional. Immutable. In-transit encryption mode of the instance. 
@@ -324,27 +324,27 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("transit_encryption_mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TransitEncryptionMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "transit_encryption_mode");
+    public TerraformValue<string> TransitEncryptionMode => new TerraformReference(this, "transit_encryption_mode");
 
     /// <summary>
     /// Output only. System assigned, unique identifier for the instance.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Output only. Latest update timestamp of the instance.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
     /// <summary>
     /// Zone distribution configuration for allocation of instance resources.
     /// </summary>
     [TerraformPropertyName("zone_distribution_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ZoneDistributionConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "zone_distribution_config");
+    public TerraformList<object> ZoneDistributionConfig => new TerraformReference(this, "zone_distribution_config");
 
 }

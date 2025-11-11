@@ -19,21 +19,21 @@ public class GoogleCertificateManagerDnsAuthorizationDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     [TerraformPropertyName("domain")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Domain { get; set; }
+    public required TerraformValue<string> Domain { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The Certificate Manager location. If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is created.
@@ -43,21 +43,21 @@ public class GoogleCertificateManagerDnsAuthorizationDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The structure describing the DNS Resource Record that needs to be added
@@ -66,14 +66,14 @@ public class GoogleCertificateManagerDnsAuthorizationDataSource : TerraformDataS
     /// </summary>
     [TerraformPropertyName("dns_resource_record")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> DnsResourceRecord => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "dns_resource_record");
+    public TerraformList<object> DnsResourceRecord => new TerraformReference(this, "dns_resource_record");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Set of label tags associated with the DNS Authorization resource.
@@ -83,7 +83,7 @@ public class GoogleCertificateManagerDnsAuthorizationDataSource : TerraformDataS
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -91,7 +91,7 @@ public class GoogleCertificateManagerDnsAuthorizationDataSource : TerraformDataS
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// type of DNS authorization. If unset during the resource creation, FIXED_RECORD will
@@ -105,6 +105,6 @@ public class GoogleCertificateManagerDnsAuthorizationDataSource : TerraformDataS
     /// </summary>
     [TerraformPropertyName("type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
+    public TerraformValue<string> Type => new TerraformReference(this, "type");
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for autoscale_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCosmosdbSqlContainerAutoscaleSettingsBlock : ITerraformBlock
+public class AzurermCosmosdbSqlContainerAutoscaleSettingsBlock
 {
     /// <summary>
     /// The max_throughput attribute.
     /// </summary>
     [TerraformPropertyName("max_throughput")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MaxThroughput { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "max_throughput");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MaxThroughput { get; set; } = default!;
 
 }
 
@@ -21,21 +21,21 @@ public class AzurermCosmosdbSqlContainerAutoscaleSettingsBlock : ITerraformBlock
 /// Block type for conflict_resolution_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock : ITerraformBlock
+public class AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock
 {
     /// <summary>
     /// The conflict_resolution_path attribute.
     /// </summary>
     [TerraformPropertyName("conflict_resolution_path")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConflictResolutionPath { get; set; }
+    public TerraformValue<string>? ConflictResolutionPath { get; set; }
 
     /// <summary>
     /// The conflict_resolution_procedure attribute.
     /// </summary>
     [TerraformPropertyName("conflict_resolution_procedure")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConflictResolutionProcedure { get; set; }
+    public TerraformValue<string>? ConflictResolutionProcedure { get; set; }
 
     /// <summary>
     /// The mode attribute.
@@ -43,7 +43,7 @@ public class AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock : ITerrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     [TerraformPropertyName("mode")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Mode { get; set; }
+    public required TerraformValue<string> Mode { get; set; }
 
 }
 
@@ -51,14 +51,14 @@ public class AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock : ITerrafo
 /// Block type for indexing_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCosmosdbSqlContainerIndexingPolicyBlock : ITerraformBlock
+public class AzurermCosmosdbSqlContainerIndexingPolicyBlock
 {
     /// <summary>
     /// The indexing_mode attribute.
     /// </summary>
     [TerraformPropertyName("indexing_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IndexingMode { get; set; }
+    public TerraformValue<string>? IndexingMode { get; set; }
 
 }
 
@@ -66,35 +66,35 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCosmosdbSqlContainerTimeoutsBlock : ITerraformBlock
+public class AzurermCosmosdbSqlContainerTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -102,7 +102,7 @@ public class AzurermCosmosdbSqlContainerTimeoutsBlock : ITerraformBlock
 /// Block type for unique_key in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermCosmosdbSqlContainerUniqueKeyBlock : ITerraformBlock
+public class AzurermCosmosdbSqlContainerUniqueKeyBlock
 {
     /// <summary>
     /// The paths attribute.
@@ -110,7 +110,7 @@ public class AzurermCosmosdbSqlContainerUniqueKeyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     [TerraformPropertyName("paths")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Paths { get; set; }
+    public required TerraformSet<string> Paths { get; set; }
 
 }
 
@@ -130,14 +130,14 @@ public class AzurermCosmosdbSqlContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     [TerraformPropertyName("account_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AccountName { get; set; }
+    public required TerraformValue<string> AccountName { get; set; }
 
     /// <summary>
     /// The analytical_storage_ttl attribute.
     /// </summary>
     [TerraformPropertyName("analytical_storage_ttl")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? AnalyticalStorageTtl { get; set; }
+    public TerraformValue<double>? AnalyticalStorageTtl { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -145,21 +145,21 @@ public class AzurermCosmosdbSqlContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformPropertyName("database_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
+    public required TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
     [TerraformPropertyName("default_ttl")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? DefaultTtl { get; set; }
+    public TerraformValue<double>? DefaultTtl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -167,14 +167,14 @@ public class AzurermCosmosdbSqlContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The partition_key_kind attribute.
     /// </summary>
     [TerraformPropertyName("partition_key_kind")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PartitionKeyKind { get; set; }
+    public TerraformValue<string>? PartitionKeyKind { get; set; }
 
     /// <summary>
     /// The partition_key_paths attribute.
@@ -182,14 +182,14 @@ public class AzurermCosmosdbSqlContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKeyPaths is required")]
     [TerraformPropertyName("partition_key_paths")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? PartitionKeyPaths { get; set; }
+    public TerraformList<string>? PartitionKeyPaths { get; set; }
 
     /// <summary>
     /// The partition_key_version attribute.
     /// </summary>
     [TerraformPropertyName("partition_key_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? PartitionKeyVersion { get; set; }
+    public TerraformValue<double>? PartitionKeyVersion { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -197,14 +197,14 @@ public class AzurermCosmosdbSqlContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
     [TerraformPropertyName("throughput")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Throughput { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "throughput");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Throughput { get; set; } = default!;
 
     /// <summary>
     /// Block for autoscale_settings.
@@ -212,7 +212,7 @@ public class AzurermCosmosdbSqlContainer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     [TerraformPropertyName("autoscale_settings")]
-    public TerraformList<TerraformBlock<AzurermCosmosdbSqlContainerAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermCosmosdbSqlContainerAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; }
 
     /// <summary>
     /// Block for conflict_resolution_policy.
@@ -220,7 +220,7 @@ public class AzurermCosmosdbSqlContainer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConflictResolutionPolicy block(s) allowed")]
     [TerraformPropertyName("conflict_resolution_policy")]
-    public TerraformList<TerraformBlock<AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock>>? ConflictResolutionPolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock>>? ConflictResolutionPolicy { get; set; }
 
     /// <summary>
     /// Block for indexing_policy.
@@ -228,20 +228,20 @@ public class AzurermCosmosdbSqlContainer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexingPolicy block(s) allowed")]
     [TerraformPropertyName("indexing_policy")]
-    public TerraformList<TerraformBlock<AzurermCosmosdbSqlContainerIndexingPolicyBlock>>? IndexingPolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermCosmosdbSqlContainerIndexingPolicyBlock>>? IndexingPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermCosmosdbSqlContainerTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermCosmosdbSqlContainerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for unique_key.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("unique_key")]
-    public TerraformSet<TerraformBlock<AzurermCosmosdbSqlContainerUniqueKeyBlock>>? UniqueKey { get; set; } = new();
+    public TerraformSet<TerraformBlock<AzurermCosmosdbSqlContainerUniqueKeyBlock>>? UniqueKey { get; set; }
 
 }

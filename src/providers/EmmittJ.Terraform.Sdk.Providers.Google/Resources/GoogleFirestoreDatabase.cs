@@ -6,19 +6,8 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cmek_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFirestoreDatabaseCmekConfigBlock : ITerraformBlock
+public class GoogleFirestoreDatabaseCmekConfigBlock
 {
-    /// <summary>
-    /// Currently in-use KMS key versions (https://cloud.google.com/kms/docs/resource-hierarchy#key_versions).
-    /// During key rotation (https://cloud.google.com/kms/docs/key-rotation), there can be
-    /// multiple in-use key versions.
-    /// 
-    /// The expected format is
-    /// &#39;projects/{project_id}/locations/{kms_location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{key_version}&#39;.
-    /// </summary>
-    [TerraformPropertyName("active_key_version")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> ActiveKeyVersion => new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "active_key_version");
 
     /// <summary>
     /// The resource ID of a Cloud KMS key. If set, the database created will
@@ -38,7 +27,7 @@ public class GoogleFirestoreDatabaseCmekConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     [TerraformPropertyName("kms_key_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KmsKeyName { get; set; }
+    public required TerraformValue<string> KmsKeyName { get; set; }
 
 }
 
@@ -46,28 +35,28 @@ public class GoogleFirestoreDatabaseCmekConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirestoreDatabaseTimeoutsBlock : ITerraformBlock
+public class GoogleFirestoreDatabaseTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -85,22 +74,22 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// The App Engine integration mode to use for this database. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("app_engine_integration_mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AppEngineIntegrationMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "app_engine_integration_mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AppEngineIntegrationMode { get; set; } = default!;
 
     /// <summary>
     /// The concurrency control mode to use for this database. Possible values: [&amp;quot;OPTIMISTIC&amp;quot;, &amp;quot;PESSIMISTIC&amp;quot;, &amp;quot;OPTIMISTIC_WITH_ENTITY_GROUPS&amp;quot;]
     /// </summary>
     [TerraformPropertyName("concurrency_mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ConcurrencyMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "concurrency_mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ConcurrencyMode { get; set; } = default!;
 
     /// <summary>
     /// The database edition. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("database_edition")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DatabaseEdition { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "database_edition");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DatabaseEdition { get; set; } = default!;
 
     /// <summary>
     /// State of delete protection for the database.
@@ -109,8 +98,8 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// **Note:** Additionally, to delete this database using &#39;terraform destroy&#39;, &#39;deletion_policy&#39; must be set to &#39;DELETE&#39;. Possible values: [&amp;quot;DELETE_PROTECTION_STATE_UNSPECIFIED&amp;quot;, &amp;quot;DELETE_PROTECTION_ENABLED&amp;quot;, &amp;quot;DELETE_PROTECTION_DISABLED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("delete_protection_state")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DeleteProtectionState { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delete_protection_state");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DeleteProtectionState { get; set; } = default!;
 
     /// <summary>
     /// Deletion behavior for this database.
@@ -121,14 +110,14 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// </summary>
     [TerraformPropertyName("deletion_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeletionPolicy { get; set; }
+    public TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location of the database. Available locations are listed at
@@ -137,7 +126,7 @@ public class GoogleFirestoreDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationId is required")]
     [TerraformPropertyName("location_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LocationId { get; set; }
+    public required TerraformValue<string> LocationId { get; set; }
 
     /// <summary>
     /// The ID to use for the database, which will become the final
@@ -150,7 +139,7 @@ public class GoogleFirestoreDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Whether to enable the PITR feature on this database.
@@ -161,14 +150,14 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// </summary>
     [TerraformPropertyName("point_in_time_recovery_enablement")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PointInTimeRecoveryEnablement { get; set; }
+    public TerraformValue<string>? PointInTimeRecoveryEnablement { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Input only. A map of resource manager tags. Resource manager tag keys
@@ -180,7 +169,7 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The type of the database.
@@ -190,7 +179,7 @@ public class GoogleFirestoreDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for cmek_config.
@@ -198,21 +187,21 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CmekConfig block(s) allowed")]
     [TerraformPropertyName("cmek_config")]
-    public TerraformList<TerraformBlock<GoogleFirestoreDatabaseCmekConfigBlock>>? CmekConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleFirestoreDatabaseCmekConfigBlock>>? CmekConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleFirestoreDatabaseTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleFirestoreDatabaseTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The timestamp at which this database was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Output only. The earliest timestamp at which older versions of the data can be read from the database. See versionRetentionPeriod above; this field is populated with now - versionRetentionPeriod.
@@ -221,7 +210,7 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// </summary>
     [TerraformPropertyName("earliest_version_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EarliestVersionTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "earliest_version_time");
+    public TerraformValue<string> EarliestVersionTime => new TerraformReference(this, "earliest_version_time");
 
     /// <summary>
     /// Output only. This checksum is computed by the server based on the value of other fields,
@@ -230,7 +219,7 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// Output only. The keyPrefix for this database.
@@ -240,21 +229,21 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// </summary>
     [TerraformPropertyName("key_prefix")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KeyPrefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_prefix");
+    public TerraformValue<string> KeyPrefix => new TerraformReference(this, "key_prefix");
 
     /// <summary>
     /// Output only. The system-generated UUID4 for this Database.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Output only. The timestamp at which this database was most recently updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
     /// <summary>
     /// Output only. The period during which past versions of data are retained in the database.
@@ -264,6 +253,6 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// </summary>
     [TerraformPropertyName("version_retention_period")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VersionRetentionPeriod => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version_retention_period");
+    public TerraformValue<string> VersionRetentionPeriod => new TerraformReference(this, "version_retention_period");
 
 }

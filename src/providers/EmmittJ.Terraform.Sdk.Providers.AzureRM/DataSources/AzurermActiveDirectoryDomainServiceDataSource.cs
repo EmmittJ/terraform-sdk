@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermActiveDirectoryDomainServiceDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermActiveDirectoryDomainServiceDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermActiveDirectoryDomainServiceDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermActiveDirectoryDomainServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,118 +47,118 @@ public class AzurermActiveDirectoryDomainServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermActiveDirectoryDomainServiceDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermActiveDirectoryDomainServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The deployment_id attribute.
     /// </summary>
     [TerraformPropertyName("deployment_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DeploymentId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deployment_id");
+    public TerraformValue<string> DeploymentId => new TerraformReference(this, "deployment_id");
 
     /// <summary>
     /// The domain_configuration_type attribute.
     /// </summary>
     [TerraformPropertyName("domain_configuration_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DomainConfigurationType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_configuration_type");
+    public TerraformValue<string> DomainConfigurationType => new TerraformReference(this, "domain_configuration_type");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [TerraformPropertyName("domain_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DomainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_name");
+    public TerraformValue<string> DomainName => new TerraformReference(this, "domain_name");
 
     /// <summary>
     /// The filtered_sync_enabled attribute.
     /// </summary>
     [TerraformPropertyName("filtered_sync_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> FilteredSyncEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "filtered_sync_enabled");
+    public TerraformValue<bool> FilteredSyncEnabled => new TerraformReference(this, "filtered_sync_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The notifications attribute.
     /// </summary>
     [TerraformPropertyName("notifications")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Notifications => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "notifications");
+    public TerraformList<object> Notifications => new TerraformReference(this, "notifications");
 
     /// <summary>
     /// The replica_sets attribute.
     /// </summary>
     [TerraformPropertyName("replica_sets")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ReplicaSets => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "replica_sets");
+    public TerraformList<object> ReplicaSets => new TerraformReference(this, "replica_sets");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     [TerraformPropertyName("resource_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_id");
+    public TerraformValue<string> ResourceId => new TerraformReference(this, "resource_id");
 
     /// <summary>
     /// The secure_ldap attribute.
     /// </summary>
     [TerraformPropertyName("secure_ldap")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> SecureLdap => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "secure_ldap");
+    public TerraformList<object> SecureLdap => new TerraformReference(this, "secure_ldap");
 
     /// <summary>
     /// The security attribute.
     /// </summary>
     [TerraformPropertyName("security")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Security => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "security");
+    public TerraformList<object> Security => new TerraformReference(this, "security");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [TerraformPropertyName("sku")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Sku => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku");
+    public TerraformValue<string> Sku => new TerraformReference(this, "sku");
 
     /// <summary>
     /// The sync_owner attribute.
     /// </summary>
     [TerraformPropertyName("sync_owner")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SyncOwner => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sync_owner");
+    public TerraformValue<string> SyncOwner => new TerraformReference(this, "sync_owner");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [TerraformPropertyName("tenant_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tenant_id");
+    public TerraformValue<string> TenantId => new TerraformReference(this, "tenant_id");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformPropertyName("version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Version => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "version");
+    public TerraformValue<double> Version => new TerraformReference(this, "version");
 
 }

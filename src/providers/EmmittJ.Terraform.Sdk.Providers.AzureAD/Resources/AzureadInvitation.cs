@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for message in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadInvitationMessageBlock : ITerraformBlock
+public class AzureadInvitationMessageBlock
 {
     /// <summary>
     /// Email addresses of additional recipients the invitation message should be sent to
     /// </summary>
     [TerraformPropertyName("additional_recipients")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? AdditionalRecipients { get; set; }
+    public TerraformList<string>? AdditionalRecipients { get; set; }
 
     /// <summary>
     /// Customized message body you want to send if you don&#39;t want to send the default message
     /// </summary>
     [TerraformPropertyName("body")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Body { get; set; }
+    public TerraformValue<string>? Body { get; set; }
 
     /// <summary>
     /// The language you want to send the default message in
     /// </summary>
     [TerraformPropertyName("language")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Language { get; set; }
+    public TerraformValue<string>? Language { get; set; }
 
 }
 
@@ -35,28 +35,28 @@ public class AzureadInvitationMessageBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadInvitationTimeoutsBlock : ITerraformBlock
+public class AzureadInvitationTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -74,8 +74,8 @@ public class AzureadInvitation : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The URL that the user should be redirected to once the invitation is redeemed
@@ -83,14 +83,14 @@ public class AzureadInvitation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUrl is required")]
     [TerraformPropertyName("redirect_url")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RedirectUrl { get; set; }
+    public required TerraformValue<string> RedirectUrl { get; set; }
 
     /// <summary>
     /// The display name of the user being invited
     /// </summary>
     [TerraformPropertyName("user_display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserDisplayName { get; set; }
+    public TerraformValue<string>? UserDisplayName { get; set; }
 
     /// <summary>
     /// The email address of the user being invited
@@ -98,14 +98,14 @@ public class AzureadInvitation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserEmailAddress is required")]
     [TerraformPropertyName("user_email_address")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> UserEmailAddress { get; set; }
+    public required TerraformValue<string> UserEmailAddress { get; set; }
 
     /// <summary>
     /// The user type of the user being invited
     /// </summary>
     [TerraformPropertyName("user_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserType { get; set; }
+    public TerraformValue<string>? UserType { get; set; }
 
     /// <summary>
     /// Block for message.
@@ -113,27 +113,27 @@ public class AzureadInvitation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Message block(s) allowed")]
     [TerraformPropertyName("message")]
-    public TerraformList<TerraformBlock<AzureadInvitationMessageBlock>>? Message { get; set; } = new();
+    public TerraformList<TerraformBlock<AzureadInvitationMessageBlock>>? Message { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzureadInvitationTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzureadInvitationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The URL the user can use to redeem their invitation
     /// </summary>
     [TerraformPropertyName("redeem_url")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RedeemUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "redeem_url");
+    public TerraformValue<string> RedeemUrl => new TerraformReference(this, "redeem_url");
 
     /// <summary>
     /// Object ID of the invited user
     /// </summary>
     [TerraformPropertyName("user_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UserId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_id");
+    public TerraformValue<string> UserId => new TerraformReference(this, "user_id");
 
 }

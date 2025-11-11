@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for blob_storage in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKubernetesFluxConfigurationBlobStorageBlock : ITerraformBlock
+public class AzurermKubernetesFluxConfigurationBlobStorageBlock
 {
     /// <summary>
     /// The account_key attribute.
     /// </summary>
     [TerraformPropertyName("account_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AccountKey { get; set; }
+    public TerraformValue<string>? AccountKey { get; set; }
 
     /// <summary>
     /// The container_id attribute.
@@ -21,35 +21,35 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     [TerraformPropertyName("container_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContainerId { get; set; }
+    public required TerraformValue<string> ContainerId { get; set; }
 
     /// <summary>
     /// The local_auth_reference attribute.
     /// </summary>
     [TerraformPropertyName("local_auth_reference")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? LocalAuthReference { get; set; }
+    public TerraformValue<string>? LocalAuthReference { get; set; }
 
     /// <summary>
     /// The sas_token attribute.
     /// </summary>
     [TerraformPropertyName("sas_token")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SasToken { get; set; }
+    public TerraformValue<string>? SasToken { get; set; }
 
     /// <summary>
     /// The sync_interval_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("sync_interval_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? SyncIntervalInSeconds { get; set; }
+    public TerraformValue<double>? SyncIntervalInSeconds { get; set; }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("timeout_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? TimeoutInSeconds { get; set; }
+    public TerraformValue<double>? TimeoutInSeconds { get; set; }
 
 }
 
@@ -57,14 +57,14 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlock : ITerraformBloc
 /// Block type for bucket in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKubernetesFluxConfigurationBucketBlock : ITerraformBlock
+public class AzurermKubernetesFluxConfigurationBucketBlock
 {
     /// <summary>
     /// The access_key attribute.
     /// </summary>
     [TerraformPropertyName("access_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AccessKey { get; set; }
+    public TerraformValue<string>? AccessKey { get; set; }
 
     /// <summary>
     /// The bucket_name attribute.
@@ -72,42 +72,42 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     [TerraformPropertyName("bucket_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BucketName { get; set; }
+    public required TerraformValue<string> BucketName { get; set; }
 
     /// <summary>
     /// The local_auth_reference attribute.
     /// </summary>
     [TerraformPropertyName("local_auth_reference")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? LocalAuthReference { get; set; }
+    public TerraformValue<string>? LocalAuthReference { get; set; }
 
     /// <summary>
     /// The secret_key_base64 attribute.
     /// </summary>
     [TerraformPropertyName("secret_key_base64")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SecretKeyBase64 { get; set; }
+    public TerraformValue<string>? SecretKeyBase64 { get; set; }
 
     /// <summary>
     /// The sync_interval_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("sync_interval_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? SyncIntervalInSeconds { get; set; }
+    public TerraformValue<double>? SyncIntervalInSeconds { get; set; }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("timeout_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? TimeoutInSeconds { get; set; }
+    public TerraformValue<double>? TimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
     [TerraformPropertyName("tls_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? TlsEnabled { get; set; }
+    public TerraformValue<bool>? TlsEnabled { get; set; }
 
     /// <summary>
     /// The url attribute.
@@ -115,7 +115,7 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     [TerraformPropertyName("url")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Url { get; set; }
+    public required TerraformValue<string> Url { get; set; }
 
 }
 
@@ -123,42 +123,42 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : ITerraformBlock
 /// Block type for git_repository in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : ITerraformBlock
+public class AzurermKubernetesFluxConfigurationGitRepositoryBlock
 {
     /// <summary>
     /// The https_ca_cert_base64 attribute.
     /// </summary>
     [TerraformPropertyName("https_ca_cert_base64")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? HttpsCaCertBase64 { get; set; }
+    public TerraformValue<string>? HttpsCaCertBase64 { get; set; }
 
     /// <summary>
     /// The https_key_base64 attribute.
     /// </summary>
     [TerraformPropertyName("https_key_base64")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? HttpsKeyBase64 { get; set; }
+    public TerraformValue<string>? HttpsKeyBase64 { get; set; }
 
     /// <summary>
     /// The https_user attribute.
     /// </summary>
     [TerraformPropertyName("https_user")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? HttpsUser { get; set; }
+    public TerraformValue<string>? HttpsUser { get; set; }
 
     /// <summary>
     /// The local_auth_reference attribute.
     /// </summary>
     [TerraformPropertyName("local_auth_reference")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? LocalAuthReference { get; set; }
+    public TerraformValue<string>? LocalAuthReference { get; set; }
 
     /// <summary>
     /// The provider attribute.
     /// </summary>
     [TerraformPropertyName("provider")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Provider { get; set; }
+    public TerraformValue<string>? Provider { get; set; }
 
     /// <summary>
     /// The reference_type attribute.
@@ -166,7 +166,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceType is required")]
     [TerraformPropertyName("reference_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ReferenceType { get; set; }
+    public required TerraformValue<string> ReferenceType { get; set; }
 
     /// <summary>
     /// The reference_value attribute.
@@ -174,35 +174,35 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceValue is required")]
     [TerraformPropertyName("reference_value")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ReferenceValue { get; set; }
+    public required TerraformValue<string> ReferenceValue { get; set; }
 
     /// <summary>
     /// The ssh_known_hosts_base64 attribute.
     /// </summary>
     [TerraformPropertyName("ssh_known_hosts_base64")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SshKnownHostsBase64 { get; set; }
+    public TerraformValue<string>? SshKnownHostsBase64 { get; set; }
 
     /// <summary>
     /// The ssh_private_key_base64 attribute.
     /// </summary>
     [TerraformPropertyName("ssh_private_key_base64")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SshPrivateKeyBase64 { get; set; }
+    public TerraformValue<string>? SshPrivateKeyBase64 { get; set; }
 
     /// <summary>
     /// The sync_interval_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("sync_interval_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? SyncIntervalInSeconds { get; set; }
+    public TerraformValue<double>? SyncIntervalInSeconds { get; set; }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("timeout_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? TimeoutInSeconds { get; set; }
+    public TerraformValue<double>? TimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The url attribute.
@@ -210,7 +210,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     [TerraformPropertyName("url")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Url { get; set; }
+    public required TerraformValue<string> Url { get; set; }
 
 }
 
@@ -218,21 +218,21 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : ITerraformBl
 /// Block type for kustomizations in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermKubernetesFluxConfigurationKustomizationsBlock : ITerraformBlock
+public class AzurermKubernetesFluxConfigurationKustomizationsBlock
 {
     /// <summary>
     /// The depends_on attribute.
     /// </summary>
     [TerraformPropertyName("depends_on")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? DependsOn { get; set; }
+    public TerraformList<string>? DependsOn { get; set; }
 
     /// <summary>
     /// The garbage_collection_enabled attribute.
     /// </summary>
     [TerraformPropertyName("garbage_collection_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? GarbageCollectionEnabled { get; set; }
+    public TerraformValue<bool>? GarbageCollectionEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -240,49 +240,49 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformPropertyName("path")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
+    public TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The recreating_enabled attribute.
     /// </summary>
     [TerraformPropertyName("recreating_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RecreatingEnabled { get; set; }
+    public TerraformValue<bool>? RecreatingEnabled { get; set; }
 
     /// <summary>
     /// The retry_interval_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("retry_interval_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? RetryIntervalInSeconds { get; set; }
+    public TerraformValue<double>? RetryIntervalInSeconds { get; set; }
 
     /// <summary>
     /// The sync_interval_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("sync_interval_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? SyncIntervalInSeconds { get; set; }
+    public TerraformValue<double>? SyncIntervalInSeconds { get; set; }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("timeout_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? TimeoutInSeconds { get; set; }
+    public TerraformValue<double>? TimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The wait attribute.
     /// </summary>
     [TerraformPropertyName("wait")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Wait { get; set; }
+    public TerraformValue<bool>? Wait { get; set; }
 
 }
 
@@ -290,35 +290,35 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlock : ITerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKubernetesFluxConfigurationTimeoutsBlock : ITerraformBlock
+public class AzurermKubernetesFluxConfigurationTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -338,21 +338,21 @@ public class AzurermKubernetesFluxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformPropertyName("cluster_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
+    public required TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The continuous_reconciliation_enabled attribute.
     /// </summary>
     [TerraformPropertyName("continuous_reconciliation_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ContinuousReconciliationEnabled { get; set; }
+    public TerraformValue<bool>? ContinuousReconciliationEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -360,7 +360,7 @@ public class AzurermKubernetesFluxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace attribute.
@@ -368,14 +368,14 @@ public class AzurermKubernetesFluxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     [TerraformPropertyName("namespace")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Namespace { get; set; }
+    public required TerraformValue<string> Namespace { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [TerraformPropertyName("scope")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Scope { get; set; }
+    public TerraformValue<string>? Scope { get; set; }
 
     /// <summary>
     /// Block for blob_storage.
@@ -383,7 +383,7 @@ public class AzurermKubernetesFluxConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlobStorage block(s) allowed")]
     [TerraformPropertyName("blob_storage")]
-    public TerraformList<TerraformBlock<AzurermKubernetesFluxConfigurationBlobStorageBlock>>? BlobStorage { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermKubernetesFluxConfigurationBlobStorageBlock>>? BlobStorage { get; set; }
 
     /// <summary>
     /// Block for bucket.
@@ -391,7 +391,7 @@ public class AzurermKubernetesFluxConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bucket block(s) allowed")]
     [TerraformPropertyName("bucket")]
-    public TerraformList<TerraformBlock<AzurermKubernetesFluxConfigurationBucketBlock>>? Bucket { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermKubernetesFluxConfigurationBucketBlock>>? Bucket { get; set; }
 
     /// <summary>
     /// Block for git_repository.
@@ -399,7 +399,7 @@ public class AzurermKubernetesFluxConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitRepository block(s) allowed")]
     [TerraformPropertyName("git_repository")]
-    public TerraformList<TerraformBlock<AzurermKubernetesFluxConfigurationGitRepositoryBlock>>? GitRepository { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermKubernetesFluxConfigurationGitRepositoryBlock>>? GitRepository { get; set; }
 
     /// <summary>
     /// Block for kustomizations.
@@ -408,13 +408,13 @@ public class AzurermKubernetesFluxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kustomizations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Kustomizations block(s) required")]
     [TerraformPropertyName("kustomizations")]
-    public TerraformSet<TerraformBlock<AzurermKubernetesFluxConfigurationKustomizationsBlock>>? Kustomizations { get; set; } = new();
+    public TerraformSet<TerraformBlock<AzurermKubernetesFluxConfigurationKustomizationsBlock>>? Kustomizations { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermKubernetesFluxConfigurationTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermKubernetesFluxConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

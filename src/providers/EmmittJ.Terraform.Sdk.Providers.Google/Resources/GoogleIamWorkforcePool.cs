@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for access_restrictions in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIamWorkforcePoolAccessRestrictionsBlock : ITerraformBlock
+public class GoogleIamWorkforcePoolAccessRestrictionsBlock
 {
     /// <summary>
     /// Disable programmatic sign-in by disabling token issue via the Security Token API endpoint.
@@ -14,7 +14,7 @@ public class GoogleIamWorkforcePoolAccessRestrictionsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("disable_programmatic_signin")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DisableProgrammaticSignin { get; set; }
+    public TerraformValue<bool>? DisableProgrammaticSignin { get; set; }
 
 }
 
@@ -22,28 +22,28 @@ public class GoogleIamWorkforcePoolAccessRestrictionsBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIamWorkforcePoolTimeoutsBlock : ITerraformBlock
+public class GoogleIamWorkforcePoolTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -62,7 +62,7 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Whether the pool is disabled. You cannot use a disabled pool to exchange tokens,
@@ -70,21 +70,21 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// A user-specified display name of the pool in Google Cloud Console. Cannot exceed 32 characters.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location for the resource.
@@ -92,7 +92,7 @@ public class GoogleIamWorkforcePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Immutable. The resource name of the parent. Format: &#39;organizations/{org-id}&#39;.
@@ -100,7 +100,7 @@ public class GoogleIamWorkforcePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformPropertyName("parent")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
+    public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Duration that the Google Cloud access tokens, console sign-in sessions,
@@ -111,7 +111,7 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("session_duration")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SessionDuration { get; set; }
+    public TerraformValue<string>? SessionDuration { get; set; }
 
     /// <summary>
     /// The name of the pool. The ID must be a globally unique string of 6 to 63 lowercase letters,
@@ -121,7 +121,7 @@ public class GoogleIamWorkforcePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     [TerraformPropertyName("workforce_pool_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkforcePoolId { get; set; }
+    public required TerraformValue<string> WorkforcePoolId { get; set; }
 
     /// <summary>
     /// Block for access_restrictions.
@@ -129,14 +129,14 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessRestrictions block(s) allowed")]
     [TerraformPropertyName("access_restrictions")]
-    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolAccessRestrictionsBlock>>? AccessRestrictions { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolAccessRestrictionsBlock>>? AccessRestrictions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleIamWorkforcePoolTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleIamWorkforcePoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The resource name of the pool.
@@ -144,7 +144,7 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Output only. The state of the pool.
@@ -160,6 +160,6 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
 }

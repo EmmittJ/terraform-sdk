@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for input_data_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsComprehendDocumentClassifierInputDataConfigBlock : ITerraformBlock
+public class AwsComprehendDocumentClassifierInputDataConfigBlock
 {
     /// <summary>
     /// The data_format attribute.
     /// </summary>
     [TerraformPropertyName("data_format")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DataFormat { get; set; }
+    public TerraformValue<string>? DataFormat { get; set; }
 
     /// <summary>
     /// The label_delimiter attribute.
     /// </summary>
     [TerraformPropertyName("label_delimiter")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LabelDelimiter { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "label_delimiter");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LabelDelimiter { get; set; } = default!;
 
     /// <summary>
     /// The s3_uri attribute.
     /// </summary>
     [TerraformPropertyName("s3_uri")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? S3Uri { get; set; }
+    public TerraformValue<string>? S3Uri { get; set; }
 
     /// <summary>
     /// The test_s3_uri attribute.
     /// </summary>
     [TerraformPropertyName("test_s3_uri")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TestS3Uri { get; set; }
+    public TerraformValue<string>? TestS3Uri { get; set; }
 
 }
 
@@ -42,21 +42,15 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlock : ITerraformBlo
 /// Block type for output_data_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsComprehendDocumentClassifierOutputDataConfigBlock : ITerraformBlock
+public class AwsComprehendDocumentClassifierOutputDataConfigBlock
 {
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
+    public TerraformValue<string>? KmsKeyId { get; set; }
 
-    /// <summary>
-    /// The output_s3_uri attribute.
-    /// </summary>
-    [TerraformPropertyName("output_s3_uri")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OutputS3Uri => new TerraformReferenceProperty<TerraformProperty<string>>("", "output_s3_uri");
 
     /// <summary>
     /// The s3_uri attribute.
@@ -64,7 +58,7 @@ public class AwsComprehendDocumentClassifierOutputDataConfigBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     [TerraformPropertyName("s3_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> S3Uri { get; set; }
+    public required TerraformValue<string> S3Uri { get; set; }
 
 }
 
@@ -72,28 +66,28 @@ public class AwsComprehendDocumentClassifierOutputDataConfigBlock : ITerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsComprehendDocumentClassifierTimeoutsBlock : ITerraformBlock
+public class AwsComprehendDocumentClassifierTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -101,7 +95,7 @@ public class AwsComprehendDocumentClassifierTimeoutsBlock : ITerraformBlock
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsComprehendDocumentClassifierVpcConfigBlock : ITerraformBlock
+public class AwsComprehendDocumentClassifierVpcConfigBlock
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -109,7 +103,7 @@ public class AwsComprehendDocumentClassifierVpcConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     [TerraformPropertyName("security_group_ids")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
+    public required TerraformSet<string> SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnets attribute.
@@ -117,7 +111,7 @@ public class AwsComprehendDocumentClassifierVpcConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     [TerraformPropertyName("subnets")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Subnets { get; set; }
+    public required TerraformSet<string> Subnets { get; set; }
 
 }
 
@@ -137,14 +131,14 @@ public class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessRoleArn is required")]
     [TerraformPropertyName("data_access_role_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DataAccessRoleArn { get; set; }
+    public required TerraformValue<string> DataAccessRoleArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The language_code attribute.
@@ -152,21 +146,21 @@ public class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     [TerraformPropertyName("language_code")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LanguageCode { get; set; }
+    public required TerraformValue<string> LanguageCode { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformPropertyName("mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
+    public TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The model_kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("model_kms_key_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ModelKmsKeyId { get; set; }
+    public TerraformValue<string>? ModelKmsKeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -174,49 +168,49 @@ public class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The version_name attribute.
     /// </summary>
     [TerraformPropertyName("version_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> VersionName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> VersionName { get; set; } = default!;
 
     /// <summary>
     /// The version_name_prefix attribute.
     /// </summary>
     [TerraformPropertyName("version_name_prefix")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> VersionNamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version_name_prefix");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> VersionNamePrefix { get; set; } = default!;
 
     /// <summary>
     /// The volume_kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("volume_kms_key_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VolumeKmsKeyId { get; set; }
+    public TerraformValue<string>? VolumeKmsKeyId { get; set; }
 
     /// <summary>
     /// Block for input_data_config.
@@ -226,7 +220,7 @@ public class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputDataConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputDataConfig block(s) allowed")]
     [TerraformPropertyName("input_data_config")]
-    public TerraformList<TerraformBlock<AwsComprehendDocumentClassifierInputDataConfigBlock>>? InputDataConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsComprehendDocumentClassifierInputDataConfigBlock>>? InputDataConfig { get; set; }
 
     /// <summary>
     /// Block for output_data_config.
@@ -234,14 +228,14 @@ public class AwsComprehendDocumentClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputDataConfig block(s) allowed")]
     [TerraformPropertyName("output_data_config")]
-    public TerraformList<TerraformBlock<AwsComprehendDocumentClassifierOutputDataConfigBlock>>? OutputDataConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsComprehendDocumentClassifierOutputDataConfigBlock>>? OutputDataConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsComprehendDocumentClassifierTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsComprehendDocumentClassifierTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpc_config.
@@ -249,13 +243,13 @@ public class AwsComprehendDocumentClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     [TerraformPropertyName("vpc_config")]
-    public TerraformList<TerraformBlock<AwsComprehendDocumentClassifierVpcConfigBlock>>? VpcConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsComprehendDocumentClassifierVpcConfigBlock>>? VpcConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

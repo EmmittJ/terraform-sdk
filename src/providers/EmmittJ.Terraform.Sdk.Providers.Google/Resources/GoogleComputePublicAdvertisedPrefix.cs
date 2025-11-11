@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputePublicAdvertisedPrefixTimeoutsBlock : ITerraformBlock
+public class GoogleComputePublicAdvertisedPrefixTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The IPv4 address to be used for reverse DNS verification.
@@ -46,14 +46,14 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsVerificationIp is required")]
     [TerraformPropertyName("dns_verification_ip")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DnsVerificationIp { get; set; }
+    public required TerraformValue<string> DnsVerificationIp { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The address range, in CIDR format, represented by this public advertised prefix.
@@ -61,7 +61,7 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     [TerraformPropertyName("ip_cidr_range")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IpCidrRange { get; set; }
+    public required TerraformValue<string> IpCidrRange { get; set; }
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long, and
@@ -74,7 +74,7 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Specifies how child public delegated prefix will be scoped. pdpScope
@@ -86,34 +86,34 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// </summary>
     [TerraformPropertyName("pdp_scope")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PdpScope { get; set; }
+    public TerraformValue<string>? PdpScope { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputePublicAdvertisedPrefixTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputePublicAdvertisedPrefixTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// Output Only. The shared secret to be used for reverse DNS verification.
     /// </summary>
     [TerraformPropertyName("shared_secret")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SharedSecret => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "shared_secret");
+    public TerraformValue<string> SharedSecret => new TerraformReference(this, "shared_secret");
 
 }

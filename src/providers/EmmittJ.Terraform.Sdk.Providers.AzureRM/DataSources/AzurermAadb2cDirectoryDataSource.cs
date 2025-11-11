@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAadb2cDirectoryDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermAadb2cDirectoryDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public class AzurermAadb2cDirectoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformPropertyName("domain_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
+    public required TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,55 +47,55 @@ public class AzurermAadb2cDirectoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermAadb2cDirectoryDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermAadb2cDirectoryDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The type of billing for the B2C tenant. Possible values include: `MAU` or `Auths`.
     /// </summary>
     [TerraformPropertyName("billing_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> BillingType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "billing_type");
+    public TerraformValue<string> BillingType => new TerraformReference(this, "billing_type");
 
     /// <summary>
     /// Location in which the B2C tenant is hosted and data resides.
     /// </summary>
     [TerraformPropertyName("data_residency_location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DataResidencyLocation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "data_residency_location");
+    public TerraformValue<string> DataResidencyLocation => new TerraformReference(this, "data_residency_location");
 
     /// <summary>
     /// The date from which the billing type took effect. May not be populated until after the first billing cycle.
     /// </summary>
     [TerraformPropertyName("effective_start_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EffectiveStartDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "effective_start_date");
+    public TerraformValue<string> EffectiveStartDate => new TerraformReference(this, "effective_start_date");
 
     /// <summary>
     /// Billing SKU for the B2C tenant.
     /// </summary>
     [TerraformPropertyName("sku_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SkuName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku_name");
+    public TerraformValue<string> SkuName => new TerraformReference(this, "sku_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The Tenant ID for the B2C tenant.
     /// </summary>
     [TerraformPropertyName("tenant_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tenant_id");
+    public TerraformValue<string> TenantId => new TerraformReference(this, "tenant_id");
 
 }

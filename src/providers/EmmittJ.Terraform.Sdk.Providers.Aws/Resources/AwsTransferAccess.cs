@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for home_directory_mappings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTransferAccessHomeDirectoryMappingsBlock : ITerraformBlock
+public class AwsTransferAccessHomeDirectoryMappingsBlock
 {
     /// <summary>
     /// The entry attribute.
@@ -14,7 +14,7 @@ public class AwsTransferAccessHomeDirectoryMappingsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entry is required")]
     [TerraformPropertyName("entry")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Entry { get; set; }
+    public required TerraformValue<string> Entry { get; set; }
 
     /// <summary>
     /// The target attribute.
@@ -22,7 +22,7 @@ public class AwsTransferAccessHomeDirectoryMappingsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     [TerraformPropertyName("target")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Target { get; set; }
+    public required TerraformValue<string> Target { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public class AwsTransferAccessHomeDirectoryMappingsBlock : ITerraformBlock
 /// Block type for posix_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTransferAccessPosixProfileBlock : ITerraformBlock
+public class AwsTransferAccessPosixProfileBlock
 {
     /// <summary>
     /// The gid attribute.
@@ -38,14 +38,14 @@ public class AwsTransferAccessPosixProfileBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     [TerraformPropertyName("gid")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Gid { get; set; }
+    public required TerraformValue<double> Gid { get; set; }
 
     /// <summary>
     /// The secondary_gids attribute.
     /// </summary>
     [TerraformPropertyName("secondary_gids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<double>>>? SecondaryGids { get; set; }
+    public TerraformSet<double>? SecondaryGids { get; set; }
 
     /// <summary>
     /// The uid attribute.
@@ -53,7 +53,7 @@ public class AwsTransferAccessPosixProfileBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     [TerraformPropertyName("uid")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Uid { get; set; }
+    public required TerraformValue<double> Uid { get; set; }
 
 }
 
@@ -73,49 +73,49 @@ public class AwsTransferAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
     [TerraformPropertyName("external_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ExternalId { get; set; }
+    public required TerraformValue<string> ExternalId { get; set; }
 
     /// <summary>
     /// The home_directory attribute.
     /// </summary>
     [TerraformPropertyName("home_directory")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? HomeDirectory { get; set; }
+    public TerraformValue<string>? HomeDirectory { get; set; }
 
     /// <summary>
     /// The home_directory_type attribute.
     /// </summary>
     [TerraformPropertyName("home_directory_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? HomeDirectoryType { get; set; }
+    public TerraformValue<string>? HomeDirectoryType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [TerraformPropertyName("policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Policy { get; set; }
+    public TerraformValue<string>? Policy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     [TerraformPropertyName("role")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Role { get; set; }
+    public TerraformValue<string>? Role { get; set; }
 
     /// <summary>
     /// The server_id attribute.
@@ -123,7 +123,7 @@ public class AwsTransferAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     [TerraformPropertyName("server_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServerId { get; set; }
+    public required TerraformValue<string> ServerId { get; set; }
 
     /// <summary>
     /// Block for home_directory_mappings.
@@ -131,7 +131,7 @@ public class AwsTransferAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 HomeDirectoryMappings block(s) allowed")]
     [TerraformPropertyName("home_directory_mappings")]
-    public TerraformList<TerraformBlock<AwsTransferAccessHomeDirectoryMappingsBlock>>? HomeDirectoryMappings { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsTransferAccessHomeDirectoryMappingsBlock>>? HomeDirectoryMappings { get; set; }
 
     /// <summary>
     /// Block for posix_profile.
@@ -139,6 +139,6 @@ public class AwsTransferAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PosixProfile block(s) allowed")]
     [TerraformPropertyName("posix_profile")]
-    public TerraformList<TerraformBlock<AwsTransferAccessPosixProfileBlock>>? PosixProfile { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsTransferAccessPosixProfileBlock>>? PosixProfile { get; set; }
 
 }

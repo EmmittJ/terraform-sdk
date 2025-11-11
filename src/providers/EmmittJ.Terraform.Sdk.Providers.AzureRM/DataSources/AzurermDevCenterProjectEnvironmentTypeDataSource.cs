@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDevCenterProjectEnvironmentTypeDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermDevCenterProjectEnvironmentTypeDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public class AzurermDevCenterProjectEnvironmentTypeDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
     [TerraformPropertyName("dev_center_project_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DevCenterProjectId { get; set; }
+    public required TerraformValue<string> DevCenterProjectId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -47,55 +47,55 @@ public class AzurermDevCenterProjectEnvironmentTypeDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDevCenterProjectEnvironmentTypeDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDevCenterProjectEnvironmentTypeDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The creator_role_assignment_roles attribute.
     /// </summary>
     [TerraformPropertyName("creator_role_assignment_roles")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> CreatorRoleAssignmentRoles => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "creator_role_assignment_roles");
+    public TerraformSet<string> CreatorRoleAssignmentRoles => new TerraformReference(this, "creator_role_assignment_roles");
 
     /// <summary>
     /// The deployment_target_id attribute.
     /// </summary>
     [TerraformPropertyName("deployment_target_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DeploymentTargetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deployment_target_id");
+    public TerraformValue<string> DeploymentTargetId => new TerraformReference(this, "deployment_target_id");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformPropertyName("identity")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
+    public TerraformList<object> Identity => new TerraformReference(this, "identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The user_role_assignment attribute.
     /// </summary>
     [TerraformPropertyName("user_role_assignment")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> UserRoleAssignment => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "user_role_assignment");
+    public TerraformSet<object> UserRoleAssignment => new TerraformReference(this, "user_role_assignment");
 
 }

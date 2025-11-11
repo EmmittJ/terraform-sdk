@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCognitiveAccountCustomerManagedKeyBlock : ITerraformBlock
+public class AzurermCognitiveAccountCustomerManagedKeyBlock
 {
     /// <summary>
     /// The identity_client_id attribute.
     /// </summary>
     [TerraformPropertyName("identity_client_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IdentityClientId { get; set; }
+    public TerraformValue<string>? IdentityClientId { get; set; }
 
     /// <summary>
     /// The key_vault_key_id attribute.
@@ -21,7 +21,7 @@ public class AzurermCognitiveAccountCustomerManagedKeyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     [TerraformPropertyName("key_vault_key_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyVaultKeyId { get; set; }
+    public required TerraformValue<string> KeyVaultKeyId { get; set; }
 
 }
 
@@ -29,28 +29,16 @@ public class AzurermCognitiveAccountCustomerManagedKeyBlock : ITerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCognitiveAccountIdentityBlock : ITerraformBlock
+public class AzurermCognitiveAccountIdentityBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [TerraformPropertyName("identity_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
+    public TerraformSet<string>? IdentityIds { get; set; }
 
-    /// <summary>
-    /// The principal_id attribute.
-    /// </summary>
-    [TerraformPropertyName("principal_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
-    /// <summary>
-    /// The tenant_id attribute.
-    /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -58,7 +46,7 @@ public class AzurermCognitiveAccountIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -66,14 +54,14 @@ public class AzurermCognitiveAccountIdentityBlock : ITerraformBlock
 /// Block type for network_acls in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCognitiveAccountNetworkAclsBlock : ITerraformBlock
+public class AzurermCognitiveAccountNetworkAclsBlock
 {
     /// <summary>
     /// The bypass attribute.
     /// </summary>
     [TerraformPropertyName("bypass")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Bypass { get; set; }
+    public TerraformValue<string>? Bypass { get; set; }
 
     /// <summary>
     /// The default_action attribute.
@@ -81,14 +69,14 @@ public class AzurermCognitiveAccountNetworkAclsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     [TerraformPropertyName("default_action")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DefaultAction { get; set; }
+    public required TerraformValue<string> DefaultAction { get; set; }
 
     /// <summary>
     /// The ip_rules attribute.
     /// </summary>
     [TerraformPropertyName("ip_rules")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? IpRules { get; set; }
+    public TerraformSet<string>? IpRules { get; set; }
 
 }
 
@@ -96,7 +84,7 @@ public class AzurermCognitiveAccountNetworkAclsBlock : ITerraformBlock
 /// Block type for network_injection in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCognitiveAccountNetworkInjectionBlock : ITerraformBlock
+public class AzurermCognitiveAccountNetworkInjectionBlock
 {
     /// <summary>
     /// The scenario attribute.
@@ -104,7 +92,7 @@ public class AzurermCognitiveAccountNetworkInjectionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scenario is required")]
     [TerraformPropertyName("scenario")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Scenario { get; set; }
+    public required TerraformValue<string> Scenario { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -112,7 +100,7 @@ public class AzurermCognitiveAccountNetworkInjectionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformPropertyName("subnet_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
+    public required TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -120,14 +108,14 @@ public class AzurermCognitiveAccountNetworkInjectionBlock : ITerraformBlock
 /// Block type for storage in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCognitiveAccountStorageBlock : ITerraformBlock
+public class AzurermCognitiveAccountStorageBlock
 {
     /// <summary>
     /// The identity_client_id attribute.
     /// </summary>
     [TerraformPropertyName("identity_client_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IdentityClientId { get; set; }
+    public TerraformValue<string>? IdentityClientId { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -135,7 +123,7 @@ public class AzurermCognitiveAccountStorageBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformPropertyName("storage_account_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StorageAccountId { get; set; }
+    public required TerraformValue<string> StorageAccountId { get; set; }
 
 }
 
@@ -143,35 +131,35 @@ public class AzurermCognitiveAccountStorageBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCognitiveAccountTimeoutsBlock : ITerraformBlock
+public class AzurermCognitiveAccountTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -190,42 +178,42 @@ public class AzurermCognitiveAccount : TerraformResource
     /// </summary>
     [TerraformPropertyName("custom_question_answering_search_service_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomQuestionAnsweringSearchServiceId { get; set; }
+    public TerraformValue<string>? CustomQuestionAnsweringSearchServiceId { get; set; }
 
     /// <summary>
     /// The custom_question_answering_search_service_key attribute.
     /// </summary>
     [TerraformPropertyName("custom_question_answering_search_service_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomQuestionAnsweringSearchServiceKey { get; set; }
+    public TerraformValue<string>? CustomQuestionAnsweringSearchServiceKey { get; set; }
 
     /// <summary>
     /// The custom_subdomain_name attribute.
     /// </summary>
     [TerraformPropertyName("custom_subdomain_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomSubdomainName { get; set; }
+    public TerraformValue<string>? CustomSubdomainName { get; set; }
 
     /// <summary>
     /// The dynamic_throttling_enabled attribute.
     /// </summary>
     [TerraformPropertyName("dynamic_throttling_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DynamicThrottlingEnabled { get; set; }
+    public TerraformValue<bool>? DynamicThrottlingEnabled { get; set; }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
     [TerraformPropertyName("fqdns")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Fqdns { get; set; }
+    public TerraformList<string>? Fqdns { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The kind attribute.
@@ -233,14 +221,14 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     [TerraformPropertyName("kind")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Kind { get; set; }
+    public required TerraformValue<string> Kind { get; set; }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
     [TerraformPropertyName("local_auth_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? LocalAuthEnabled { get; set; }
+    public TerraformValue<bool>? LocalAuthEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -248,35 +236,35 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The metrics_advisor_aad_client_id attribute.
     /// </summary>
     [TerraformPropertyName("metrics_advisor_aad_client_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MetricsAdvisorAadClientId { get; set; }
+    public TerraformValue<string>? MetricsAdvisorAadClientId { get; set; }
 
     /// <summary>
     /// The metrics_advisor_aad_tenant_id attribute.
     /// </summary>
     [TerraformPropertyName("metrics_advisor_aad_tenant_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MetricsAdvisorAadTenantId { get; set; }
+    public TerraformValue<string>? MetricsAdvisorAadTenantId { get; set; }
 
     /// <summary>
     /// The metrics_advisor_super_user_name attribute.
     /// </summary>
     [TerraformPropertyName("metrics_advisor_super_user_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MetricsAdvisorSuperUserName { get; set; }
+    public TerraformValue<string>? MetricsAdvisorSuperUserName { get; set; }
 
     /// <summary>
     /// The metrics_advisor_website_name attribute.
     /// </summary>
     [TerraformPropertyName("metrics_advisor_website_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MetricsAdvisorWebsiteName { get; set; }
+    public TerraformValue<string>? MetricsAdvisorWebsiteName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -284,35 +272,35 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The outbound_network_access_restricted attribute.
     /// </summary>
     [TerraformPropertyName("outbound_network_access_restricted")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? OutboundNetworkAccessRestricted { get; set; }
+    public TerraformValue<bool>? OutboundNetworkAccessRestricted { get; set; }
 
     /// <summary>
     /// The project_management_enabled attribute.
     /// </summary>
     [TerraformPropertyName("project_management_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ProjectManagementEnabled { get; set; }
+    public TerraformValue<bool>? ProjectManagementEnabled { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformPropertyName("public_network_access_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
+    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The qna_runtime_endpoint attribute.
     /// </summary>
     [TerraformPropertyName("qna_runtime_endpoint")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? QnaRuntimeEndpoint { get; set; }
+    public TerraformValue<string>? QnaRuntimeEndpoint { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -320,7 +308,7 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -328,14 +316,14 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformPropertyName("sku_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SkuName { get; set; }
+    public required TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for customer_managed_key.
@@ -343,7 +331,7 @@ public class AzurermCognitiveAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     [TerraformPropertyName("customer_managed_key")]
-    public TerraformList<TerraformBlock<AzurermCognitiveAccountCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermCognitiveAccountCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -351,7 +339,7 @@ public class AzurermCognitiveAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformPropertyName("identity")]
-    public TerraformList<TerraformBlock<AzurermCognitiveAccountIdentityBlock>>? Identity { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermCognitiveAccountIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for network_acls.
@@ -359,7 +347,7 @@ public class AzurermCognitiveAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
     [TerraformPropertyName("network_acls")]
-    public TerraformList<TerraformBlock<AzurermCognitiveAccountNetworkAclsBlock>>? NetworkAcls { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermCognitiveAccountNetworkAclsBlock>>? NetworkAcls { get; set; }
 
     /// <summary>
     /// Block for network_injection.
@@ -367,41 +355,41 @@ public class AzurermCognitiveAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkInjection block(s) allowed")]
     [TerraformPropertyName("network_injection")]
-    public TerraformList<TerraformBlock<AzurermCognitiveAccountNetworkInjectionBlock>>? NetworkInjection { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermCognitiveAccountNetworkInjectionBlock>>? NetworkInjection { get; set; }
 
     /// <summary>
     /// Block for storage.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("storage")]
-    public TerraformList<TerraformBlock<AzurermCognitiveAccountStorageBlock>>? Storage { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermCognitiveAccountStorageBlock>>? Storage { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermCognitiveAccountTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermCognitiveAccountTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [TerraformPropertyName("endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
+    public TerraformValue<string> Endpoint => new TerraformReference(this, "endpoint");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     [TerraformPropertyName("primary_access_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrimaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_access_key");
+    public TerraformValue<string> PrimaryAccessKey => new TerraformReference(this, "primary_access_key");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     [TerraformPropertyName("secondary_access_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SecondaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_access_key");
+    public TerraformValue<string> SecondaryAccessKey => new TerraformReference(this, "secondary_access_key");
 
 }

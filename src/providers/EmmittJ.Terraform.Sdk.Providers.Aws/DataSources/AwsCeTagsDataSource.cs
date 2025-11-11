@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCeTagsDataSourceFilterBlock : ITerraformBlock
+public class AwsCeTagsDataSourceFilterBlock
 {
 }
 
@@ -14,21 +14,21 @@ public class AwsCeTagsDataSourceFilterBlock : ITerraformBlock
 /// Block type for sort_by in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCeTagsDataSourceSortByBlock : ITerraformBlock
+public class AwsCeTagsDataSourceSortByBlock
 {
     /// <summary>
     /// The key attribute.
     /// </summary>
     [TerraformPropertyName("key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Key { get; set; }
+    public TerraformValue<string>? Key { get; set; }
 
     /// <summary>
     /// The sort_order attribute.
     /// </summary>
     [TerraformPropertyName("sort_order")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SortOrder { get; set; }
+    public TerraformValue<string>? SortOrder { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public class AwsCeTagsDataSourceSortByBlock : ITerraformBlock
 /// Block type for time_period in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCeTagsDataSourceTimePeriodBlock : ITerraformBlock
+public class AwsCeTagsDataSourceTimePeriodBlock
 {
     /// <summary>
     /// The end attribute.
@@ -44,7 +44,7 @@ public class AwsCeTagsDataSourceTimePeriodBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     [TerraformPropertyName("end")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> End { get; set; }
+    public required TerraformValue<string> End { get; set; }
 
     /// <summary>
     /// The start attribute.
@@ -52,7 +52,7 @@ public class AwsCeTagsDataSourceTimePeriodBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     [TerraformPropertyName("start")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Start { get; set; }
+    public required TerraformValue<string> Start { get; set; }
 
 }
 
@@ -70,22 +70,22 @@ public class AwsCeTagsDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The search_string attribute.
     /// </summary>
     [TerraformPropertyName("search_string")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SearchString { get; set; }
+    public TerraformValue<string>? SearchString { get; set; }
 
     /// <summary>
     /// The tag_key attribute.
     /// </summary>
     [TerraformPropertyName("tag_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TagKey { get; set; }
+    public TerraformValue<string>? TagKey { get; set; }
 
     /// <summary>
     /// Block for filter.
@@ -93,14 +93,14 @@ public class AwsCeTagsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformPropertyName("filter")]
-    public TerraformList<TerraformBlock<AwsCeTagsDataSourceFilterBlock>>? Filter { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsCeTagsDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for sort_by.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("sort_by")]
-    public TerraformList<TerraformBlock<AwsCeTagsDataSourceSortByBlock>>? SortBy { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsCeTagsDataSourceSortByBlock>>? SortBy { get; set; }
 
     /// <summary>
     /// Block for time_period.
@@ -110,13 +110,13 @@ public class AwsCeTagsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TimePeriod block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimePeriod block(s) allowed")]
     [TerraformPropertyName("time_period")]
-    public TerraformList<TerraformBlock<AwsCeTagsDataSourceTimePeriodBlock>>? TimePeriod { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsCeTagsDataSourceTimePeriodBlock>>? TimePeriod { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> Tags => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformSet<string> Tags => new TerraformReference(this, "tags");
 
 }

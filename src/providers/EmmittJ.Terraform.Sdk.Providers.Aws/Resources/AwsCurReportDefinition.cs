@@ -16,7 +16,7 @@ public class AwsCurReportDefinition : TerraformResource
     /// </summary>
     [TerraformPropertyName("additional_artifacts")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? AdditionalArtifacts { get; set; }
+    public TerraformSet<string>? AdditionalArtifacts { get; set; }
 
     /// <summary>
     /// The additional_schema_elements attribute.
@@ -24,7 +24,7 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdditionalSchemaElements is required")]
     [TerraformPropertyName("additional_schema_elements")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? AdditionalSchemaElements { get; set; }
+    public required TerraformSet<string> AdditionalSchemaElements { get; set; }
 
     /// <summary>
     /// The compression attribute.
@@ -32,7 +32,7 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compression is required")]
     [TerraformPropertyName("compression")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Compression { get; set; }
+    public required TerraformValue<string> Compression { get; set; }
 
     /// <summary>
     /// The format attribute.
@@ -40,21 +40,21 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     [TerraformPropertyName("format")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Format { get; set; }
+    public required TerraformValue<string> Format { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The refresh_closed_reports attribute.
     /// </summary>
     [TerraformPropertyName("refresh_closed_reports")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RefreshClosedReports { get; set; }
+    public TerraformValue<bool>? RefreshClosedReports { get; set; }
 
     /// <summary>
     /// The report_name attribute.
@@ -62,14 +62,14 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportName is required")]
     [TerraformPropertyName("report_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ReportName { get; set; }
+    public required TerraformValue<string> ReportName { get; set; }
 
     /// <summary>
     /// The report_versioning attribute.
     /// </summary>
     [TerraformPropertyName("report_versioning")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ReportVersioning { get; set; }
+    public TerraformValue<string>? ReportVersioning { get; set; }
 
     /// <summary>
     /// The s3_bucket attribute.
@@ -77,7 +77,7 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     [TerraformPropertyName("s3_bucket")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> S3Bucket { get; set; }
+    public required TerraformValue<string> S3Bucket { get; set; }
 
     /// <summary>
     /// The s3_prefix attribute.
@@ -85,7 +85,7 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Prefix is required")]
     [TerraformPropertyName("s3_prefix")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> S3Prefix { get; set; }
+    public required TerraformValue<string> S3Prefix { get; set; }
 
     /// <summary>
     /// The s3_region attribute.
@@ -93,21 +93,21 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Region is required")]
     [TerraformPropertyName("s3_region")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> S3Region { get; set; }
+    public required TerraformValue<string> S3Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The time_unit attribute.
@@ -115,13 +115,13 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeUnit is required")]
     [TerraformPropertyName("time_unit")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TimeUnit { get; set; }
+    public required TerraformValue<string> TimeUnit { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

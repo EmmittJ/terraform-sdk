@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMssqlDatabaseIdentityBlock : ITerraformBlock
+public class AzurermMssqlDatabaseIdentityBlock
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -14,7 +14,7 @@ public class AzurermMssqlDatabaseIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     [TerraformPropertyName("identity_ids")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
+    public required TerraformSet<string> IdentityIds { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public class AzurermMssqlDatabaseIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public class AzurermMssqlDatabaseIdentityBlock : ITerraformBlock
 /// Block type for import in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMssqlDatabaseImportBlock : ITerraformBlock
+public class AzurermMssqlDatabaseImportBlock
 {
     /// <summary>
     /// The administrator_login attribute.
@@ -38,7 +38,7 @@ public class AzurermMssqlDatabaseImportBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorLogin is required")]
     [TerraformPropertyName("administrator_login")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AdministratorLogin { get; set; }
+    public required TerraformValue<string> AdministratorLogin { get; set; }
 
     /// <summary>
     /// The administrator_login_password attribute.
@@ -46,7 +46,7 @@ public class AzurermMssqlDatabaseImportBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorLoginPassword is required")]
     [TerraformPropertyName("administrator_login_password")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AdministratorLoginPassword { get; set; }
+    public required TerraformValue<string> AdministratorLoginPassword { get; set; }
 
     /// <summary>
     /// The authentication_type attribute.
@@ -54,14 +54,14 @@ public class AzurermMssqlDatabaseImportBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     [TerraformPropertyName("authentication_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AuthenticationType { get; set; }
+    public required TerraformValue<string> AuthenticationType { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [TerraformPropertyName("storage_account_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StorageAccountId { get; set; }
+    public TerraformValue<string>? StorageAccountId { get; set; }
 
     /// <summary>
     /// The storage_key attribute.
@@ -69,7 +69,7 @@ public class AzurermMssqlDatabaseImportBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageKey is required")]
     [TerraformPropertyName("storage_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StorageKey { get; set; }
+    public required TerraformValue<string> StorageKey { get; set; }
 
     /// <summary>
     /// The storage_key_type attribute.
@@ -77,7 +77,7 @@ public class AzurermMssqlDatabaseImportBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageKeyType is required")]
     [TerraformPropertyName("storage_key_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StorageKeyType { get; set; }
+    public required TerraformValue<string> StorageKeyType { get; set; }
 
     /// <summary>
     /// The storage_uri attribute.
@@ -85,7 +85,7 @@ public class AzurermMssqlDatabaseImportBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageUri is required")]
     [TerraformPropertyName("storage_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StorageUri { get; set; }
+    public required TerraformValue<string> StorageUri { get; set; }
 
 }
 
@@ -93,42 +93,42 @@ public class AzurermMssqlDatabaseImportBlock : ITerraformBlock
 /// Block type for long_term_retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : ITerraformBlock
+public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock
 {
     /// <summary>
     /// The immutable_backups_enabled attribute.
     /// </summary>
     [TerraformPropertyName("immutable_backups_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ImmutableBackupsEnabled { get; set; }
+    public TerraformValue<bool>? ImmutableBackupsEnabled { get; set; }
 
     /// <summary>
     /// The monthly_retention attribute.
     /// </summary>
     [TerraformPropertyName("monthly_retention")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> MonthlyRetention { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "monthly_retention");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> MonthlyRetention { get; set; } = default!;
 
     /// <summary>
     /// The week_of_year attribute.
     /// </summary>
     [TerraformPropertyName("week_of_year")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> WeekOfYear { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "week_of_year");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> WeekOfYear { get; set; } = default!;
 
     /// <summary>
     /// The weekly_retention attribute.
     /// </summary>
     [TerraformPropertyName("weekly_retention")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> WeeklyRetention { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "weekly_retention");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> WeeklyRetention { get; set; } = default!;
 
     /// <summary>
     /// The yearly_retention attribute.
     /// </summary>
     [TerraformPropertyName("yearly_retention")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> YearlyRetention { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "yearly_retention");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> YearlyRetention { get; set; } = default!;
 
 }
 
@@ -136,14 +136,14 @@ public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : ITerraformBlock
 /// Block type for short_term_retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : ITerraformBlock
+public class AzurermMssqlDatabaseShortTermRetentionPolicyBlock
 {
     /// <summary>
     /// The backup_interval_in_hours attribute.
     /// </summary>
     [TerraformPropertyName("backup_interval_in_hours")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> BackupIntervalInHours { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "backup_interval_in_hours");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> BackupIntervalInHours { get; set; } = default!;
 
     /// <summary>
     /// The retention_days attribute.
@@ -151,7 +151,7 @@ public class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDays is required")]
     [TerraformPropertyName("retention_days")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> RetentionDays { get; set; }
+    public required TerraformValue<double> RetentionDays { get; set; }
 
 }
 
@@ -159,56 +159,56 @@ public class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : ITerraformBlock
 /// Block type for threat_detection_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : ITerraformBlock
+public class AzurermMssqlDatabaseThreatDetectionPolicyBlock
 {
     /// <summary>
     /// The disabled_alerts attribute.
     /// </summary>
     [TerraformPropertyName("disabled_alerts")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? DisabledAlerts { get; set; }
+    public TerraformSet<string>? DisabledAlerts { get; set; }
 
     /// <summary>
     /// The email_account_admins attribute.
     /// </summary>
     [TerraformPropertyName("email_account_admins")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EmailAccountAdmins { get; set; }
+    public TerraformValue<string>? EmailAccountAdmins { get; set; }
 
     /// <summary>
     /// The email_addresses attribute.
     /// </summary>
     [TerraformPropertyName("email_addresses")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? EmailAddresses { get; set; }
+    public TerraformSet<string>? EmailAddresses { get; set; }
 
     /// <summary>
     /// The retention_days attribute.
     /// </summary>
     [TerraformPropertyName("retention_days")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? RetentionDays { get; set; }
+    public TerraformValue<double>? RetentionDays { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformPropertyName("state")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? State { get; set; }
+    public TerraformValue<string>? State { get; set; }
 
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
     [TerraformPropertyName("storage_account_access_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StorageAccountAccessKey { get; set; }
+    public TerraformValue<string>? StorageAccountAccessKey { get; set; }
 
     /// <summary>
     /// The storage_endpoint attribute.
     /// </summary>
     [TerraformPropertyName("storage_endpoint")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StorageEndpoint { get; set; }
+    public TerraformValue<string>? StorageEndpoint { get; set; }
 
 }
 
@@ -216,35 +216,35 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMssqlDatabaseTimeoutsBlock : ITerraformBlock
+public class AzurermMssqlDatabaseTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -262,92 +262,92 @@ public class AzurermMssqlDatabase : TerraformResource
     /// The auto_pause_delay_in_minutes attribute.
     /// </summary>
     [TerraformPropertyName("auto_pause_delay_in_minutes")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> AutoPauseDelayInMinutes { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "auto_pause_delay_in_minutes");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> AutoPauseDelayInMinutes { get; set; } = default!;
 
     /// <summary>
     /// The collation attribute.
     /// </summary>
     [TerraformPropertyName("collation")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Collation { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "collation");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Collation { get; set; } = default!;
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
     [TerraformPropertyName("create_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CreateMode { get; set; }
+    public TerraformValue<string>? CreateMode { get; set; }
 
     /// <summary>
     /// The creation_source_database_id attribute.
     /// </summary>
     [TerraformPropertyName("creation_source_database_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CreationSourceDatabaseId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_source_database_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CreationSourceDatabaseId { get; set; } = default!;
 
     /// <summary>
     /// The elastic_pool_id attribute.
     /// </summary>
     [TerraformPropertyName("elastic_pool_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ElasticPoolId { get; set; }
+    public TerraformValue<string>? ElasticPoolId { get; set; }
 
     /// <summary>
     /// The enclave_type attribute.
     /// </summary>
     [TerraformPropertyName("enclave_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> EnclaveType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "enclave_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> EnclaveType { get; set; } = default!;
 
     /// <summary>
     /// The geo_backup_enabled attribute.
     /// </summary>
     [TerraformPropertyName("geo_backup_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? GeoBackupEnabled { get; set; }
+    public TerraformValue<bool>? GeoBackupEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ledger_enabled attribute.
     /// </summary>
     [TerraformPropertyName("ledger_enabled")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> LedgerEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "ledger_enabled");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> LedgerEnabled { get; set; } = default!;
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     [TerraformPropertyName("license_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LicenseType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "license_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LicenseType { get; set; } = default!;
 
     /// <summary>
     /// The maintenance_configuration_name attribute.
     /// </summary>
     [TerraformPropertyName("maintenance_configuration_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> MaintenanceConfigurationName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "maintenance_configuration_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> MaintenanceConfigurationName { get; set; } = default!;
 
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
     [TerraformPropertyName("max_size_gb")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MaxSizeGb { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_size_gb");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MaxSizeGb { get; set; } = default!;
 
     /// <summary>
     /// The min_capacity attribute.
     /// </summary>
     [TerraformPropertyName("min_capacity")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MinCapacity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_capacity");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MinCapacity { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -355,70 +355,70 @@ public class AzurermMssqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The read_replica_count attribute.
     /// </summary>
     [TerraformPropertyName("read_replica_count")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> ReadReplicaCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "read_replica_count");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> ReadReplicaCount { get; set; } = default!;
 
     /// <summary>
     /// The read_scale attribute.
     /// </summary>
     [TerraformPropertyName("read_scale")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> ReadScale { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "read_scale");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> ReadScale { get; set; } = default!;
 
     /// <summary>
     /// The recover_database_id attribute.
     /// </summary>
     [TerraformPropertyName("recover_database_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RecoverDatabaseId { get; set; }
+    public TerraformValue<string>? RecoverDatabaseId { get; set; }
 
     /// <summary>
     /// The recovery_point_id attribute.
     /// </summary>
     [TerraformPropertyName("recovery_point_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RecoveryPointId { get; set; }
+    public TerraformValue<string>? RecoveryPointId { get; set; }
 
     /// <summary>
     /// The restore_dropped_database_id attribute.
     /// </summary>
     [TerraformPropertyName("restore_dropped_database_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RestoreDroppedDatabaseId { get; set; }
+    public TerraformValue<string>? RestoreDroppedDatabaseId { get; set; }
 
     /// <summary>
     /// The restore_long_term_retention_backup_id attribute.
     /// </summary>
     [TerraformPropertyName("restore_long_term_retention_backup_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RestoreLongTermRetentionBackupId { get; set; }
+    public TerraformValue<string>? RestoreLongTermRetentionBackupId { get; set; }
 
     /// <summary>
     /// The restore_point_in_time attribute.
     /// </summary>
     [TerraformPropertyName("restore_point_in_time")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> RestorePointInTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "restore_point_in_time");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> RestorePointInTime { get; set; } = default!;
 
     /// <summary>
     /// The sample_name attribute.
     /// </summary>
     [TerraformPropertyName("sample_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> SampleName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sample_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> SampleName { get; set; } = default!;
 
     /// <summary>
     /// The secondary_type attribute.
     /// </summary>
     [TerraformPropertyName("secondary_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> SecondaryType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> SecondaryType { get; set; } = default!;
 
     /// <summary>
     /// The server_id attribute.
@@ -426,56 +426,56 @@ public class AzurermMssqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     [TerraformPropertyName("server_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServerId { get; set; }
+    public required TerraformValue<string> ServerId { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [TerraformPropertyName("sku_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> SkuName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> SkuName { get; set; } = default!;
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     [TerraformPropertyName("storage_account_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StorageAccountType { get; set; }
+    public TerraformValue<string>? StorageAccountType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The transparent_data_encryption_enabled attribute.
     /// </summary>
     [TerraformPropertyName("transparent_data_encryption_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? TransparentDataEncryptionEnabled { get; set; }
+    public TerraformValue<bool>? TransparentDataEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The transparent_data_encryption_key_automatic_rotation_enabled attribute.
     /// </summary>
     [TerraformPropertyName("transparent_data_encryption_key_automatic_rotation_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? TransparentDataEncryptionKeyAutomaticRotationEnabled { get; set; }
+    public TerraformValue<bool>? TransparentDataEncryptionKeyAutomaticRotationEnabled { get; set; }
 
     /// <summary>
     /// The transparent_data_encryption_key_vault_key_id attribute.
     /// </summary>
     [TerraformPropertyName("transparent_data_encryption_key_vault_key_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TransparentDataEncryptionKeyVaultKeyId { get; set; }
+    public TerraformValue<string>? TransparentDataEncryptionKeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
     [TerraformPropertyName("zone_redundant")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> ZoneRedundant { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "zone_redundant");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> ZoneRedundant { get; set; } = default!;
 
     /// <summary>
     /// Block for identity.
@@ -483,7 +483,7 @@ public class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformPropertyName("identity")]
-    public TerraformList<TerraformBlock<AzurermMssqlDatabaseIdentityBlock>>? Identity { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermMssqlDatabaseIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for import.
@@ -491,7 +491,7 @@ public class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Import block(s) allowed")]
     [TerraformPropertyName("import")]
-    public TerraformList<TerraformBlock<AzurermMssqlDatabaseImportBlock>>? Import { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermMssqlDatabaseImportBlock>>? Import { get; set; }
 
     /// <summary>
     /// Block for long_term_retention_policy.
@@ -499,7 +499,7 @@ public class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LongTermRetentionPolicy block(s) allowed")]
     [TerraformPropertyName("long_term_retention_policy")]
-    public TerraformList<TerraformBlock<AzurermMssqlDatabaseLongTermRetentionPolicyBlock>>? LongTermRetentionPolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermMssqlDatabaseLongTermRetentionPolicyBlock>>? LongTermRetentionPolicy { get; set; }
 
     /// <summary>
     /// Block for short_term_retention_policy.
@@ -507,7 +507,7 @@ public class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShortTermRetentionPolicy block(s) allowed")]
     [TerraformPropertyName("short_term_retention_policy")]
-    public TerraformList<TerraformBlock<AzurermMssqlDatabaseShortTermRetentionPolicyBlock>>? ShortTermRetentionPolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermMssqlDatabaseShortTermRetentionPolicyBlock>>? ShortTermRetentionPolicy { get; set; }
 
     /// <summary>
     /// Block for threat_detection_policy.
@@ -515,13 +515,13 @@ public class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatDetectionPolicy block(s) allowed")]
     [TerraformPropertyName("threat_detection_policy")]
-    public TerraformList<TerraformBlock<AzurermMssqlDatabaseThreatDetectionPolicyBlock>>? ThreatDetectionPolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermMssqlDatabaseThreatDetectionPolicyBlock>>? ThreatDetectionPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermMssqlDatabaseTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermMssqlDatabaseTimeoutsBlock>? Timeouts { get; set; }
 
 }

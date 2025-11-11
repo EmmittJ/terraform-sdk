@@ -6,70 +6,70 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for csv_classifier in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueClassifierCsvClassifierBlock : ITerraformBlock
+public class AwsGlueClassifierCsvClassifierBlock
 {
     /// <summary>
     /// The allow_single_column attribute.
     /// </summary>
     [TerraformPropertyName("allow_single_column")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AllowSingleColumn { get; set; }
+    public TerraformValue<bool>? AllowSingleColumn { get; set; }
 
     /// <summary>
     /// The contains_header attribute.
     /// </summary>
     [TerraformPropertyName("contains_header")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContainsHeader { get; set; }
+    public TerraformValue<string>? ContainsHeader { get; set; }
 
     /// <summary>
     /// The custom_datatype_configured attribute.
     /// </summary>
     [TerraformPropertyName("custom_datatype_configured")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? CustomDatatypeConfigured { get; set; }
+    public TerraformValue<bool>? CustomDatatypeConfigured { get; set; }
 
     /// <summary>
     /// The custom_datatypes attribute.
     /// </summary>
     [TerraformPropertyName("custom_datatypes")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? CustomDatatypes { get; set; }
+    public TerraformList<string>? CustomDatatypes { get; set; }
 
     /// <summary>
     /// The delimiter attribute.
     /// </summary>
     [TerraformPropertyName("delimiter")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delimiter { get; set; }
+    public TerraformValue<string>? Delimiter { get; set; }
 
     /// <summary>
     /// The disable_value_trimming attribute.
     /// </summary>
     [TerraformPropertyName("disable_value_trimming")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DisableValueTrimming { get; set; }
+    public TerraformValue<bool>? DisableValueTrimming { get; set; }
 
     /// <summary>
     /// The header attribute.
     /// </summary>
     [TerraformPropertyName("header")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Header { get; set; }
+    public TerraformList<string>? Header { get; set; }
 
     /// <summary>
     /// The quote_symbol attribute.
     /// </summary>
     [TerraformPropertyName("quote_symbol")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? QuoteSymbol { get; set; }
+    public TerraformValue<string>? QuoteSymbol { get; set; }
 
     /// <summary>
     /// The serde attribute.
     /// </summary>
     [TerraformPropertyName("serde")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Serde { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "serde");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Serde { get; set; } = default!;
 
 }
 
@@ -77,7 +77,7 @@ public class AwsGlueClassifierCsvClassifierBlock : ITerraformBlock
 /// Block type for grok_classifier in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueClassifierGrokClassifierBlock : ITerraformBlock
+public class AwsGlueClassifierGrokClassifierBlock
 {
     /// <summary>
     /// The classification attribute.
@@ -85,14 +85,14 @@ public class AwsGlueClassifierGrokClassifierBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     [TerraformPropertyName("classification")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Classification { get; set; }
+    public required TerraformValue<string> Classification { get; set; }
 
     /// <summary>
     /// The custom_patterns attribute.
     /// </summary>
     [TerraformPropertyName("custom_patterns")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomPatterns { get; set; }
+    public TerraformValue<string>? CustomPatterns { get; set; }
 
     /// <summary>
     /// The grok_pattern attribute.
@@ -100,7 +100,7 @@ public class AwsGlueClassifierGrokClassifierBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrokPattern is required")]
     [TerraformPropertyName("grok_pattern")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GrokPattern { get; set; }
+    public required TerraformValue<string> GrokPattern { get; set; }
 
 }
 
@@ -108,7 +108,7 @@ public class AwsGlueClassifierGrokClassifierBlock : ITerraformBlock
 /// Block type for json_classifier in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueClassifierJsonClassifierBlock : ITerraformBlock
+public class AwsGlueClassifierJsonClassifierBlock
 {
     /// <summary>
     /// The json_path attribute.
@@ -116,7 +116,7 @@ public class AwsGlueClassifierJsonClassifierBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JsonPath is required")]
     [TerraformPropertyName("json_path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> JsonPath { get; set; }
+    public required TerraformValue<string> JsonPath { get; set; }
 
 }
 
@@ -124,7 +124,7 @@ public class AwsGlueClassifierJsonClassifierBlock : ITerraformBlock
 /// Block type for xml_classifier in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueClassifierXmlClassifierBlock : ITerraformBlock
+public class AwsGlueClassifierXmlClassifierBlock
 {
     /// <summary>
     /// The classification attribute.
@@ -132,7 +132,7 @@ public class AwsGlueClassifierXmlClassifierBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     [TerraformPropertyName("classification")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Classification { get; set; }
+    public required TerraformValue<string> Classification { get; set; }
 
     /// <summary>
     /// The row_tag attribute.
@@ -140,7 +140,7 @@ public class AwsGlueClassifierXmlClassifierBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowTag is required")]
     [TerraformPropertyName("row_tag")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RowTag { get; set; }
+    public required TerraformValue<string> RowTag { get; set; }
 
 }
 
@@ -158,8 +158,8 @@ public class AwsGlueClassifier : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -167,14 +167,14 @@ public class AwsGlueClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for csv_classifier.
@@ -182,7 +182,7 @@ public class AwsGlueClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CsvClassifier block(s) allowed")]
     [TerraformPropertyName("csv_classifier")]
-    public TerraformList<TerraformBlock<AwsGlueClassifierCsvClassifierBlock>>? CsvClassifier { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueClassifierCsvClassifierBlock>>? CsvClassifier { get; set; }
 
     /// <summary>
     /// Block for grok_classifier.
@@ -190,7 +190,7 @@ public class AwsGlueClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrokClassifier block(s) allowed")]
     [TerraformPropertyName("grok_classifier")]
-    public TerraformList<TerraformBlock<AwsGlueClassifierGrokClassifierBlock>>? GrokClassifier { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueClassifierGrokClassifierBlock>>? GrokClassifier { get; set; }
 
     /// <summary>
     /// Block for json_classifier.
@@ -198,7 +198,7 @@ public class AwsGlueClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JsonClassifier block(s) allowed")]
     [TerraformPropertyName("json_classifier")]
-    public TerraformList<TerraformBlock<AwsGlueClassifierJsonClassifierBlock>>? JsonClassifier { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueClassifierJsonClassifierBlock>>? JsonClassifier { get; set; }
 
     /// <summary>
     /// Block for xml_classifier.
@@ -206,6 +206,6 @@ public class AwsGlueClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 XmlClassifier block(s) allowed")]
     [TerraformPropertyName("xml_classifier")]
-    public TerraformList<TerraformBlock<AwsGlueClassifierXmlClassifierBlock>>? XmlClassifier { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueClassifierXmlClassifierBlock>>? XmlClassifier { get; set; }
 
 }

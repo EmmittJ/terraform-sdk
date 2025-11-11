@@ -15,8 +15,8 @@ public class AwsIamInstanceProfilesDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The role_name attribute.
@@ -24,27 +24,27 @@ public class AwsIamInstanceProfilesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     [TerraformPropertyName("role_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleName { get; set; }
+    public required TerraformValue<string> RoleName { get; set; }
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
     [TerraformPropertyName("arns")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> Arns => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "arns");
+    public TerraformSet<string> Arns => new TerraformReference(this, "arns");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
     [TerraformPropertyName("names")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> Names => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "names");
+    public TerraformSet<string> Names => new TerraformReference(this, "names");
 
     /// <summary>
     /// The paths attribute.
     /// </summary>
     [TerraformPropertyName("paths")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> Paths => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "paths");
+    public TerraformSet<string> Paths => new TerraformReference(this, "paths");
 
 }

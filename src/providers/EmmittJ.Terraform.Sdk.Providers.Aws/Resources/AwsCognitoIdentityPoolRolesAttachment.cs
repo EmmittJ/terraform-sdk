@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for role_mapping in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : ITerraformBlock
+public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock
 {
     /// <summary>
     /// The ambiguous_role_resolution attribute.
     /// </summary>
     [TerraformPropertyName("ambiguous_role_resolution")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AmbiguousRoleResolution { get; set; }
+    public TerraformValue<string>? AmbiguousRoleResolution { get; set; }
 
     /// <summary>
     /// The identity_provider attribute.
@@ -21,7 +21,7 @@ public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProvider is required")]
     [TerraformPropertyName("identity_provider")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IdentityProvider { get; set; }
+    public required TerraformValue<string> IdentityProvider { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -29,7 +29,7 @@ public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -46,8 +46,8 @@ public class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The identity_pool_id attribute.
@@ -55,14 +55,14 @@ public class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     [TerraformPropertyName("identity_pool_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IdentityPoolId { get; set; }
+    public required TerraformValue<string> IdentityPoolId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The roles attribute.
@@ -70,13 +70,13 @@ public class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     [TerraformPropertyName("roles")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Roles { get; set; }
+    public required TerraformMap<string> Roles { get; set; }
 
     /// <summary>
     /// Block for role_mapping.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("role_mapping")]
-    public TerraformSet<TerraformBlock<AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock>>? RoleMapping { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock>>? RoleMapping { get; set; }
 
 }

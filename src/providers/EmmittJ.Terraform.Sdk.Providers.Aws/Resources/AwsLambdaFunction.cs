@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dead_letter_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaFunctionDeadLetterConfigBlock : ITerraformBlock
+public class AwsLambdaFunctionDeadLetterConfigBlock
 {
     /// <summary>
     /// The target_arn attribute.
@@ -14,7 +14,7 @@ public class AwsLambdaFunctionDeadLetterConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     [TerraformPropertyName("target_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetArn { get; set; }
+    public required TerraformValue<string> TargetArn { get; set; }
 
 }
 
@@ -22,14 +22,14 @@ public class AwsLambdaFunctionDeadLetterConfigBlock : ITerraformBlock
 /// Block type for environment in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaFunctionEnvironmentBlock : ITerraformBlock
+public class AwsLambdaFunctionEnvironmentBlock
 {
     /// <summary>
     /// The variables attribute.
     /// </summary>
     [TerraformPropertyName("variables")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Variables { get; set; }
+    public TerraformMap<string>? Variables { get; set; }
 
 }
 
@@ -37,14 +37,14 @@ public class AwsLambdaFunctionEnvironmentBlock : ITerraformBlock
 /// Block type for ephemeral_storage in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaFunctionEphemeralStorageBlock : ITerraformBlock
+public class AwsLambdaFunctionEphemeralStorageBlock
 {
     /// <summary>
     /// The size attribute.
     /// </summary>
     [TerraformPropertyName("size")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Size { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "size");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Size { get; set; } = default!;
 
 }
 
@@ -52,7 +52,7 @@ public class AwsLambdaFunctionEphemeralStorageBlock : ITerraformBlock
 /// Block type for file_system_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaFunctionFileSystemConfigBlock : ITerraformBlock
+public class AwsLambdaFunctionFileSystemConfigBlock
 {
     /// <summary>
     /// The arn attribute.
@@ -60,7 +60,7 @@ public class AwsLambdaFunctionFileSystemConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     [TerraformPropertyName("arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
+    public required TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The local_mount_path attribute.
@@ -68,7 +68,7 @@ public class AwsLambdaFunctionFileSystemConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalMountPath is required")]
     [TerraformPropertyName("local_mount_path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LocalMountPath { get; set; }
+    public required TerraformValue<string> LocalMountPath { get; set; }
 
 }
 
@@ -76,28 +76,28 @@ public class AwsLambdaFunctionFileSystemConfigBlock : ITerraformBlock
 /// Block type for image_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaFunctionImageConfigBlock : ITerraformBlock
+public class AwsLambdaFunctionImageConfigBlock
 {
     /// <summary>
     /// The command attribute.
     /// </summary>
     [TerraformPropertyName("command")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Command { get; set; }
+    public TerraformList<string>? Command { get; set; }
 
     /// <summary>
     /// The entry_point attribute.
     /// </summary>
     [TerraformPropertyName("entry_point")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? EntryPoint { get; set; }
+    public TerraformList<string>? EntryPoint { get; set; }
 
     /// <summary>
     /// The working_directory attribute.
     /// </summary>
     [TerraformPropertyName("working_directory")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? WorkingDirectory { get; set; }
+    public TerraformValue<string>? WorkingDirectory { get; set; }
 
 }
 
@@ -105,14 +105,14 @@ public class AwsLambdaFunctionImageConfigBlock : ITerraformBlock
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaFunctionLoggingConfigBlock : ITerraformBlock
+public class AwsLambdaFunctionLoggingConfigBlock
 {
     /// <summary>
     /// The application_log_level attribute.
     /// </summary>
     [TerraformPropertyName("application_log_level")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ApplicationLogLevel { get; set; }
+    public TerraformValue<string>? ApplicationLogLevel { get; set; }
 
     /// <summary>
     /// The log_format attribute.
@@ -120,21 +120,21 @@ public class AwsLambdaFunctionLoggingConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFormat is required")]
     [TerraformPropertyName("log_format")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LogFormat { get; set; }
+    public required TerraformValue<string> LogFormat { get; set; }
 
     /// <summary>
     /// The log_group attribute.
     /// </summary>
     [TerraformPropertyName("log_group")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LogGroup { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "log_group");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LogGroup { get; set; } = default!;
 
     /// <summary>
     /// The system_log_level attribute.
     /// </summary>
     [TerraformPropertyName("system_log_level")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SystemLogLevel { get; set; }
+    public TerraformValue<string>? SystemLogLevel { get; set; }
 
 }
 
@@ -142,7 +142,7 @@ public class AwsLambdaFunctionLoggingConfigBlock : ITerraformBlock
 /// Block type for snap_start in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaFunctionSnapStartBlock : ITerraformBlock
+public class AwsLambdaFunctionSnapStartBlock
 {
     /// <summary>
     /// The apply_on attribute.
@@ -150,14 +150,8 @@ public class AwsLambdaFunctionSnapStartBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplyOn is required")]
     [TerraformPropertyName("apply_on")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ApplyOn { get; set; }
+    public required TerraformValue<string> ApplyOn { get; set; }
 
-    /// <summary>
-    /// The optimization_status attribute.
-    /// </summary>
-    [TerraformPropertyName("optimization_status")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OptimizationStatus => new TerraformReferenceProperty<TerraformProperty<string>>("", "optimization_status");
 
 }
 
@@ -165,28 +159,28 @@ public class AwsLambdaFunctionSnapStartBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLambdaFunctionTimeoutsBlock : ITerraformBlock
+public class AwsLambdaFunctionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -194,7 +188,7 @@ public class AwsLambdaFunctionTimeoutsBlock : ITerraformBlock
 /// Block type for tracing_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaFunctionTracingConfigBlock : ITerraformBlock
+public class AwsLambdaFunctionTracingConfigBlock
 {
     /// <summary>
     /// The mode attribute.
@@ -202,7 +196,7 @@ public class AwsLambdaFunctionTracingConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     [TerraformPropertyName("mode")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Mode { get; set; }
+    public required TerraformValue<string> Mode { get; set; }
 
 }
 
@@ -210,14 +204,14 @@ public class AwsLambdaFunctionTracingConfigBlock : ITerraformBlock
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaFunctionVpcConfigBlock : ITerraformBlock
+public class AwsLambdaFunctionVpcConfigBlock
 {
     /// <summary>
     /// The ipv6_allowed_for_dual_stack attribute.
     /// </summary>
     [TerraformPropertyName("ipv6_allowed_for_dual_stack")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Ipv6AllowedForDualStack { get; set; }
+    public TerraformValue<bool>? Ipv6AllowedForDualStack { get; set; }
 
     /// <summary>
     /// The security_group_ids attribute.
@@ -225,7 +219,7 @@ public class AwsLambdaFunctionVpcConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     [TerraformPropertyName("security_group_ids")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
+    public required TerraformSet<string> SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
@@ -233,14 +227,8 @@ public class AwsLambdaFunctionVpcConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     [TerraformPropertyName("subnet_ids")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
+    public required TerraformSet<string> SubnetIds { get; set; }
 
-    /// <summary>
-    /// The vpc_id attribute.
-    /// </summary>
-    [TerraformPropertyName("vpc_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>("", "vpc_id");
 
 }
 
@@ -258,29 +246,29 @@ public class AwsLambdaFunction : TerraformResource
     /// The architectures attribute.
     /// </summary>
     [TerraformPropertyName("architectures")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> Architectures { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "architectures");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> Architectures { get; set; } = default!;
 
     /// <summary>
     /// The code_signing_config_arn attribute.
     /// </summary>
     [TerraformPropertyName("code_signing_config_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CodeSigningConfigArn { get; set; }
+    public TerraformValue<string>? CodeSigningConfigArn { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
     [TerraformPropertyName("filename")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Filename { get; set; }
+    public TerraformValue<string>? Filename { get; set; }
 
     /// <summary>
     /// The function_name attribute.
@@ -288,91 +276,91 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     [TerraformPropertyName("function_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FunctionName { get; set; }
+    public required TerraformValue<string> FunctionName { get; set; }
 
     /// <summary>
     /// The handler attribute.
     /// </summary>
     [TerraformPropertyName("handler")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Handler { get; set; }
+    public TerraformValue<string>? Handler { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The image_uri attribute.
     /// </summary>
     [TerraformPropertyName("image_uri")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ImageUri { get; set; }
+    public TerraformValue<string>? ImageUri { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyArn { get; set; }
+    public TerraformValue<string>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The layers attribute.
     /// </summary>
     [TerraformPropertyName("layers")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Layers { get; set; }
+    public TerraformList<string>? Layers { get; set; }
 
     /// <summary>
     /// The memory_size attribute.
     /// </summary>
     [TerraformPropertyName("memory_size")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MemorySize { get; set; }
+    public TerraformValue<double>? MemorySize { get; set; }
 
     /// <summary>
     /// The package_type attribute.
     /// </summary>
     [TerraformPropertyName("package_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PackageType { get; set; }
+    public TerraformValue<string>? PackageType { get; set; }
 
     /// <summary>
     /// The publish attribute.
     /// </summary>
     [TerraformPropertyName("publish")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Publish { get; set; }
+    public TerraformValue<bool>? Publish { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The replace_security_groups_on_destroy attribute.
     /// </summary>
     [TerraformPropertyName("replace_security_groups_on_destroy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ReplaceSecurityGroupsOnDestroy { get; set; }
+    public TerraformValue<bool>? ReplaceSecurityGroupsOnDestroy { get; set; }
 
     /// <summary>
     /// The replacement_security_group_ids attribute.
     /// </summary>
     [TerraformPropertyName("replacement_security_group_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? ReplacementSecurityGroupIds { get; set; }
+    public TerraformSet<string>? ReplacementSecurityGroupIds { get; set; }
 
     /// <summary>
     /// The reserved_concurrent_executions attribute.
     /// </summary>
     [TerraformPropertyName("reserved_concurrent_executions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? ReservedConcurrentExecutions { get; set; }
+    public TerraformValue<double>? ReservedConcurrentExecutions { get; set; }
 
     /// <summary>
     /// The role attribute.
@@ -380,77 +368,77 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [TerraformPropertyName("role")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Role { get; set; }
+    public required TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
     [TerraformPropertyName("runtime")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Runtime { get; set; }
+    public TerraformValue<string>? Runtime { get; set; }
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
     [TerraformPropertyName("s3_bucket")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? S3Bucket { get; set; }
+    public TerraformValue<string>? S3Bucket { get; set; }
 
     /// <summary>
     /// The s3_key attribute.
     /// </summary>
     [TerraformPropertyName("s3_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? S3Key { get; set; }
+    public TerraformValue<string>? S3Key { get; set; }
 
     /// <summary>
     /// The s3_object_version attribute.
     /// </summary>
     [TerraformPropertyName("s3_object_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? S3ObjectVersion { get; set; }
+    public TerraformValue<string>? S3ObjectVersion { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
     [TerraformPropertyName("skip_destroy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SkipDestroy { get; set; }
+    public TerraformValue<bool>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The source_code_hash attribute.
     /// </summary>
     [TerraformPropertyName("source_code_hash")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> SourceCodeHash { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_code_hash");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> SourceCodeHash { get; set; } = default!;
 
     /// <summary>
     /// The source_kms_key_arn attribute.
     /// </summary>
     [TerraformPropertyName("source_kms_key_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SourceKmsKeyArn { get; set; }
+    public TerraformValue<string>? SourceKmsKeyArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
     [TerraformPropertyName("timeout")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Timeout { get; set; }
+    public TerraformValue<double>? Timeout { get; set; }
 
     /// <summary>
     /// Block for dead_letter_config.
@@ -458,7 +446,7 @@ public class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterConfig block(s) allowed")]
     [TerraformPropertyName("dead_letter_config")]
-    public TerraformList<TerraformBlock<AwsLambdaFunctionDeadLetterConfigBlock>>? DeadLetterConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLambdaFunctionDeadLetterConfigBlock>>? DeadLetterConfig { get; set; }
 
     /// <summary>
     /// Block for environment.
@@ -466,7 +454,7 @@ public class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Environment block(s) allowed")]
     [TerraformPropertyName("environment")]
-    public TerraformList<TerraformBlock<AwsLambdaFunctionEnvironmentBlock>>? Environment { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLambdaFunctionEnvironmentBlock>>? Environment { get; set; }
 
     /// <summary>
     /// Block for ephemeral_storage.
@@ -474,7 +462,7 @@ public class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EphemeralStorage block(s) allowed")]
     [TerraformPropertyName("ephemeral_storage")]
-    public TerraformList<TerraformBlock<AwsLambdaFunctionEphemeralStorageBlock>>? EphemeralStorage { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLambdaFunctionEphemeralStorageBlock>>? EphemeralStorage { get; set; }
 
     /// <summary>
     /// Block for file_system_config.
@@ -482,7 +470,7 @@ public class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileSystemConfig block(s) allowed")]
     [TerraformPropertyName("file_system_config")]
-    public TerraformList<TerraformBlock<AwsLambdaFunctionFileSystemConfigBlock>>? FileSystemConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLambdaFunctionFileSystemConfigBlock>>? FileSystemConfig { get; set; }
 
     /// <summary>
     /// Block for image_config.
@@ -490,7 +478,7 @@ public class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageConfig block(s) allowed")]
     [TerraformPropertyName("image_config")]
-    public TerraformList<TerraformBlock<AwsLambdaFunctionImageConfigBlock>>? ImageConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLambdaFunctionImageConfigBlock>>? ImageConfig { get; set; }
 
     /// <summary>
     /// Block for logging_config.
@@ -498,7 +486,7 @@ public class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformPropertyName("logging_config")]
-    public TerraformList<TerraformBlock<AwsLambdaFunctionLoggingConfigBlock>>? LoggingConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLambdaFunctionLoggingConfigBlock>>? LoggingConfig { get; set; }
 
     /// <summary>
     /// Block for snap_start.
@@ -506,14 +494,14 @@ public class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapStart block(s) allowed")]
     [TerraformPropertyName("snap_start")]
-    public TerraformList<TerraformBlock<AwsLambdaFunctionSnapStartBlock>>? SnapStart { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLambdaFunctionSnapStartBlock>>? SnapStart { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsLambdaFunctionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsLambdaFunctionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for tracing_config.
@@ -521,7 +509,7 @@ public class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TracingConfig block(s) allowed")]
     [TerraformPropertyName("tracing_config")]
-    public TerraformList<TerraformBlock<AwsLambdaFunctionTracingConfigBlock>>? TracingConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLambdaFunctionTracingConfigBlock>>? TracingConfig { get; set; }
 
     /// <summary>
     /// Block for vpc_config.
@@ -529,76 +517,76 @@ public class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     [TerraformPropertyName("vpc_config")]
-    public TerraformList<TerraformBlock<AwsLambdaFunctionVpcConfigBlock>>? VpcConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLambdaFunctionVpcConfigBlock>>? VpcConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The code_sha256 attribute.
     /// </summary>
     [TerraformPropertyName("code_sha256")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CodeSha256 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "code_sha256");
+    public TerraformValue<string> CodeSha256 => new TerraformReference(this, "code_sha256");
 
     /// <summary>
     /// The invoke_arn attribute.
     /// </summary>
     [TerraformPropertyName("invoke_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> InvokeArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "invoke_arn");
+    public TerraformValue<string> InvokeArn => new TerraformReference(this, "invoke_arn");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     [TerraformPropertyName("last_modified")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastModified => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified");
+    public TerraformValue<string> LastModified => new TerraformReference(this, "last_modified");
 
     /// <summary>
     /// The qualified_arn attribute.
     /// </summary>
     [TerraformPropertyName("qualified_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> QualifiedArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "qualified_arn");
+    public TerraformValue<string> QualifiedArn => new TerraformReference(this, "qualified_arn");
 
     /// <summary>
     /// The qualified_invoke_arn attribute.
     /// </summary>
     [TerraformPropertyName("qualified_invoke_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> QualifiedInvokeArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "qualified_invoke_arn");
+    public TerraformValue<string> QualifiedInvokeArn => new TerraformReference(this, "qualified_invoke_arn");
 
     /// <summary>
     /// The signing_job_arn attribute.
     /// </summary>
     [TerraformPropertyName("signing_job_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SigningJobArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signing_job_arn");
+    public TerraformValue<string> SigningJobArn => new TerraformReference(this, "signing_job_arn");
 
     /// <summary>
     /// The signing_profile_version_arn attribute.
     /// </summary>
     [TerraformPropertyName("signing_profile_version_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SigningProfileVersionArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signing_profile_version_arn");
+    public TerraformValue<string> SigningProfileVersionArn => new TerraformReference(this, "signing_profile_version_arn");
 
     /// <summary>
     /// The source_code_size attribute.
     /// </summary>
     [TerraformPropertyName("source_code_size")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> SourceCodeSize => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "source_code_size");
+    public TerraformValue<double> SourceCodeSize => new TerraformReference(this, "source_code_size");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformPropertyName("version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
+    public TerraformValue<string> Version => new TerraformReference(this, "version");
 
 }

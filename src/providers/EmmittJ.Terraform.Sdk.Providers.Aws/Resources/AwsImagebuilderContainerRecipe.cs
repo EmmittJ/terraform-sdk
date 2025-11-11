@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for component in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderContainerRecipeComponentBlock : ITerraformBlock
+public class AwsImagebuilderContainerRecipeComponentBlock
 {
     /// <summary>
     /// The component_arn attribute.
@@ -14,7 +14,7 @@ public class AwsImagebuilderContainerRecipeComponentBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentArn is required")]
     [TerraformPropertyName("component_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ComponentArn { get; set; }
+    public required TerraformValue<string> ComponentArn { get; set; }
 
 }
 
@@ -22,14 +22,14 @@ public class AwsImagebuilderContainerRecipeComponentBlock : ITerraformBlock
 /// Block type for instance_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderContainerRecipeInstanceConfigurationBlock : ITerraformBlock
+public class AwsImagebuilderContainerRecipeInstanceConfigurationBlock
 {
     /// <summary>
     /// The image attribute.
     /// </summary>
     [TerraformPropertyName("image")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Image { get; set; }
+    public TerraformValue<string>? Image { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlock : ITerrafo
 /// Block type for target_repository in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderContainerRecipeTargetRepositoryBlock : ITerraformBlock
+public class AwsImagebuilderContainerRecipeTargetRepositoryBlock
 {
     /// <summary>
     /// The repository_name attribute.
@@ -45,7 +45,7 @@ public class AwsImagebuilderContainerRecipeTargetRepositoryBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     [TerraformPropertyName("repository_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RepositoryName { get; set; }
+    public required TerraformValue<string> RepositoryName { get; set; }
 
     /// <summary>
     /// The service attribute.
@@ -53,7 +53,7 @@ public class AwsImagebuilderContainerRecipeTargetRepositoryBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformPropertyName("service")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Service { get; set; }
+    public required TerraformValue<string> Service { get; set; }
 
 }
 
@@ -73,42 +73,42 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerType is required")]
     [TerraformPropertyName("container_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContainerType { get; set; }
+    public required TerraformValue<string> ContainerType { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The dockerfile_template_data attribute.
     /// </summary>
     [TerraformPropertyName("dockerfile_template_data")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DockerfileTemplateData { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dockerfile_template_data");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DockerfileTemplateData { get; set; } = default!;
 
     /// <summary>
     /// The dockerfile_template_uri attribute.
     /// </summary>
     [TerraformPropertyName("dockerfile_template_uri")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DockerfileTemplateUri { get; set; }
+    public TerraformValue<string>? DockerfileTemplateUri { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
+    public TerraformValue<string>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -116,7 +116,7 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parent_image attribute.
@@ -124,35 +124,35 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentImage is required")]
     [TerraformPropertyName("parent_image")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ParentImage { get; set; }
+    public required TerraformValue<string> ParentImage { get; set; }
 
     /// <summary>
     /// The platform_override attribute.
     /// </summary>
     [TerraformPropertyName("platform_override")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PlatformOverride { get; set; }
+    public TerraformValue<string>? PlatformOverride { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The version attribute.
@@ -160,14 +160,14 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformPropertyName("version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
+    public required TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// The working_directory attribute.
     /// </summary>
     [TerraformPropertyName("working_directory")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? WorkingDirectory { get; set; }
+    public TerraformValue<string>? WorkingDirectory { get; set; }
 
     /// <summary>
     /// Block for component.
@@ -176,7 +176,7 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Component is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Component block(s) required")]
     [TerraformPropertyName("component")]
-    public TerraformList<TerraformBlock<AwsImagebuilderContainerRecipeComponentBlock>>? Component { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsImagebuilderContainerRecipeComponentBlock>>? Component { get; set; }
 
     /// <summary>
     /// Block for instance_configuration.
@@ -184,7 +184,7 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceConfiguration block(s) allowed")]
     [TerraformPropertyName("instance_configuration")]
-    public TerraformList<TerraformBlock<AwsImagebuilderContainerRecipeInstanceConfigurationBlock>>? InstanceConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsImagebuilderContainerRecipeInstanceConfigurationBlock>>? InstanceConfiguration { get; set; }
 
     /// <summary>
     /// Block for target_repository.
@@ -194,41 +194,41 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetRepository block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetRepository block(s) allowed")]
     [TerraformPropertyName("target_repository")]
-    public TerraformList<TerraformBlock<AwsImagebuilderContainerRecipeTargetRepositoryBlock>>? TargetRepository { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsImagebuilderContainerRecipeTargetRepositoryBlock>>? TargetRepository { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     [TerraformPropertyName("date_created")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DateCreated => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "date_created");
+    public TerraformValue<string> DateCreated => new TerraformReference(this, "date_created");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     [TerraformPropertyName("encrypted")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Encrypted => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "encrypted");
+    public TerraformValue<bool> Encrypted => new TerraformReference(this, "encrypted");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [TerraformPropertyName("owner")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Owner => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner");
+    public TerraformValue<string> Owner => new TerraformReference(this, "owner");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     [TerraformPropertyName("platform")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Platform => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "platform");
+    public TerraformValue<string> Platform => new TerraformReference(this, "platform");
 
 }

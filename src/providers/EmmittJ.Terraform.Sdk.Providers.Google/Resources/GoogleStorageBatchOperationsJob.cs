@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bucket_list in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageBatchOperationsJobBucketListBlock : ITerraformBlock
+public class GoogleStorageBatchOperationsJobBucketListBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class GoogleStorageBatchOperationsJobBucketListBlock : ITerraformBlock
 /// Block type for delete_object in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageBatchOperationsJobDeleteObjectBlock : ITerraformBlock
+public class GoogleStorageBatchOperationsJobDeleteObjectBlock
 {
     /// <summary>
     /// enable flag to permanently delete object and all object versions if versioning is enabled on bucket.
@@ -22,7 +22,7 @@ public class GoogleStorageBatchOperationsJobDeleteObjectBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermanentObjectDeletionEnabled is required")]
     [TerraformPropertyName("permanent_object_deletion_enabled")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> PermanentObjectDeletionEnabled { get; set; }
+    public required TerraformValue<bool> PermanentObjectDeletionEnabled { get; set; }
 
 }
 
@@ -30,56 +30,56 @@ public class GoogleStorageBatchOperationsJobDeleteObjectBlock : ITerraformBlock
 /// Block type for put_metadata in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageBatchOperationsJobPutMetadataBlock : ITerraformBlock
+public class GoogleStorageBatchOperationsJobPutMetadataBlock
 {
     /// <summary>
     /// Cache-Control directive to specify caching behavior of object data. If omitted and object is accessible to all anonymous users, the default will be public, max-age=3600
     /// </summary>
     [TerraformPropertyName("cache_control")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CacheControl { get; set; }
+    public TerraformValue<string>? CacheControl { get; set; }
 
     /// <summary>
     /// Content-Disposition of the object data.
     /// </summary>
     [TerraformPropertyName("content_disposition")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContentDisposition { get; set; }
+    public TerraformValue<string>? ContentDisposition { get; set; }
 
     /// <summary>
     /// Content Encoding of the object data.
     /// </summary>
     [TerraformPropertyName("content_encoding")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContentEncoding { get; set; }
+    public TerraformValue<string>? ContentEncoding { get; set; }
 
     /// <summary>
     /// Content-Language of the object data.
     /// </summary>
     [TerraformPropertyName("content_language")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContentLanguage { get; set; }
+    public TerraformValue<string>? ContentLanguage { get; set; }
 
     /// <summary>
     /// Content-Type of the object data.
     /// </summary>
     [TerraformPropertyName("content_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContentType { get; set; }
+    public TerraformValue<string>? ContentType { get; set; }
 
     /// <summary>
     /// User-provided metadata, in key/value pairs.
     /// </summary>
     [TerraformPropertyName("custom_metadata")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? CustomMetadata { get; set; }
+    public TerraformMap<string>? CustomMetadata { get; set; }
 
     /// <summary>
     /// Updates the objects fixed custom time metadata.
     /// </summary>
     [TerraformPropertyName("custom_time")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomTime { get; set; }
+    public TerraformValue<string>? CustomTime { get; set; }
 
 }
 
@@ -87,21 +87,21 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : ITerraformBlock
 /// Block type for put_object_hold in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageBatchOperationsJobPutObjectHoldBlock : ITerraformBlock
+public class GoogleStorageBatchOperationsJobPutObjectHoldBlock
 {
     /// <summary>
     /// set/unset to update event based hold for objects.
     /// </summary>
     [TerraformPropertyName("event_based_hold")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EventBasedHold { get; set; }
+    public TerraformValue<string>? EventBasedHold { get; set; }
 
     /// <summary>
     /// set/unset to update temporary based hold for objects.
     /// </summary>
     [TerraformPropertyName("temporary_hold")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TemporaryHold { get; set; }
+    public TerraformValue<string>? TemporaryHold { get; set; }
 
 }
 
@@ -109,7 +109,7 @@ public class GoogleStorageBatchOperationsJobPutObjectHoldBlock : ITerraformBlock
 /// Block type for rewrite_object in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageBatchOperationsJobRewriteObjectBlock : ITerraformBlock
+public class GoogleStorageBatchOperationsJobRewriteObjectBlock
 {
     /// <summary>
     /// valid kms key
@@ -117,7 +117,7 @@ public class GoogleStorageBatchOperationsJobRewriteObjectBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     [TerraformPropertyName("kms_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KmsKey { get; set; }
+    public required TerraformValue<string> KmsKey { get; set; }
 
 }
 
@@ -125,28 +125,28 @@ public class GoogleStorageBatchOperationsJobRewriteObjectBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleStorageBatchOperationsJobTimeoutsBlock : ITerraformBlock
+public class GoogleStorageBatchOperationsJobTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -165,28 +165,28 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [TerraformPropertyName("delete_protection")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DeleteProtection { get; set; }
+    public TerraformValue<bool>? DeleteProtection { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ID of the job.
     /// </summary>
     [TerraformPropertyName("job_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? JobId { get; set; }
+    public TerraformValue<string>? JobId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for bucket_list.
@@ -194,7 +194,7 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BucketList block(s) allowed")]
     [TerraformPropertyName("bucket_list")]
-    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobBucketListBlock>>? BucketList { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobBucketListBlock>>? BucketList { get; set; }
 
     /// <summary>
     /// Block for delete_object.
@@ -202,7 +202,7 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeleteObject block(s) allowed")]
     [TerraformPropertyName("delete_object")]
-    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobDeleteObjectBlock>>? DeleteObject { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobDeleteObjectBlock>>? DeleteObject { get; set; }
 
     /// <summary>
     /// Block for put_metadata.
@@ -210,7 +210,7 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PutMetadata block(s) allowed")]
     [TerraformPropertyName("put_metadata")]
-    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobPutMetadataBlock>>? PutMetadata { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobPutMetadataBlock>>? PutMetadata { get; set; }
 
     /// <summary>
     /// Block for put_object_hold.
@@ -218,7 +218,7 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PutObjectHold block(s) allowed")]
     [TerraformPropertyName("put_object_hold")]
-    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobPutObjectHoldBlock>>? PutObjectHold { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobPutObjectHoldBlock>>? PutObjectHold { get; set; }
 
     /// <summary>
     /// Block for rewrite_object.
@@ -226,48 +226,48 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RewriteObject block(s) allowed")]
     [TerraformPropertyName("rewrite_object")]
-    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobRewriteObjectBlock>>? RewriteObject { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobRewriteObjectBlock>>? RewriteObject { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleStorageBatchOperationsJobTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleStorageBatchOperationsJobTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time that the job was completed.
     /// </summary>
     [TerraformPropertyName("complete_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CompleteTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "complete_time");
+    public TerraformValue<string> CompleteTime => new TerraformReference(this, "complete_time");
 
     /// <summary>
     /// The timestamp at which this storage batch operation was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The time that the job was scheduled.
     /// </summary>
     [TerraformPropertyName("schedule_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ScheduleTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "schedule_time");
+    public TerraformValue<string> ScheduleTime => new TerraformReference(this, "schedule_time");
 
     /// <summary>
     /// State of the job.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The timestamp at which this storage batch operation was most recently updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

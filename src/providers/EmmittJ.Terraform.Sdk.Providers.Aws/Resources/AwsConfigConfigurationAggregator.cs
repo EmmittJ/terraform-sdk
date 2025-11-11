@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for account_aggregation_source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConfigConfigurationAggregatorAccountAggregationSourceBlock : ITerraformBlock
+public class AwsConfigConfigurationAggregatorAccountAggregationSourceBlock
 {
     /// <summary>
     /// The account_ids attribute.
@@ -14,21 +14,21 @@ public class AwsConfigConfigurationAggregatorAccountAggregationSourceBlock : ITe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountIds is required")]
     [TerraformPropertyName("account_ids")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? AccountIds { get; set; }
+    public TerraformList<string>? AccountIds { get; set; }
 
     /// <summary>
     /// The all_regions attribute.
     /// </summary>
     [TerraformPropertyName("all_regions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AllRegions { get; set; }
+    public TerraformValue<bool>? AllRegions { get; set; }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
     [TerraformPropertyName("regions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Regions { get; set; }
+    public TerraformList<string>? Regions { get; set; }
 
 }
 
@@ -36,21 +36,21 @@ public class AwsConfigConfigurationAggregatorAccountAggregationSourceBlock : ITe
 /// Block type for organization_aggregation_source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock : ITerraformBlock
+public class AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock
 {
     /// <summary>
     /// The all_regions attribute.
     /// </summary>
     [TerraformPropertyName("all_regions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AllRegions { get; set; }
+    public TerraformValue<bool>? AllRegions { get; set; }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
     [TerraformPropertyName("regions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Regions { get; set; }
+    public TerraformList<string>? Regions { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -58,7 +58,7 @@ public class AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformPropertyName("role_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
+    public required TerraformValue<string> RoleArn { get; set; }
 
 }
 
@@ -76,8 +76,8 @@ public class AwsConfigConfigurationAggregator : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -85,28 +85,28 @@ public class AwsConfigConfigurationAggregator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for account_aggregation_source.
@@ -114,7 +114,7 @@ public class AwsConfigConfigurationAggregator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccountAggregationSource block(s) allowed")]
     [TerraformPropertyName("account_aggregation_source")]
-    public TerraformList<TerraformBlock<AwsConfigConfigurationAggregatorAccountAggregationSourceBlock>>? AccountAggregationSource { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsConfigConfigurationAggregatorAccountAggregationSourceBlock>>? AccountAggregationSource { get; set; }
 
     /// <summary>
     /// Block for organization_aggregation_source.
@@ -122,13 +122,13 @@ public class AwsConfigConfigurationAggregator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrganizationAggregationSource block(s) allowed")]
     [TerraformPropertyName("organization_aggregation_source")]
-    public TerraformList<TerraformBlock<AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock>>? OrganizationAggregationSource { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock>>? OrganizationAggregationSource { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

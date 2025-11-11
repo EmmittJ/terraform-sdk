@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for signature_validity_period in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSignerSigningProfileSignatureValidityPeriodBlock : ITerraformBlock
+public class AwsSignerSigningProfileSignatureValidityPeriodBlock
 {
     /// <summary>
     /// The type attribute.
@@ -14,7 +14,7 @@ public class AwsSignerSigningProfileSignatureValidityPeriodBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -22,7 +22,7 @@ public class AwsSignerSigningProfileSignatureValidityPeriodBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformPropertyName("value")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Value { get; set; }
+    public required TerraformValue<double> Value { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public class AwsSignerSigningProfileSignatureValidityPeriodBlock : ITerraformBlo
 /// Block type for signing_material in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSignerSigningProfileSigningMaterialBlock : ITerraformBlock
+public class AwsSignerSigningProfileSigningMaterialBlock
 {
     /// <summary>
     /// The certificate_arn attribute.
@@ -38,7 +38,7 @@ public class AwsSignerSigningProfileSigningMaterialBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
     [TerraformPropertyName("certificate_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CertificateArn { get; set; }
+    public required TerraformValue<string> CertificateArn { get; set; }
 
 }
 
@@ -56,22 +56,22 @@ public class AwsSignerSigningProfile : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Name { get; set; } = default!;
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> NamePrefix { get; set; } = default!;
 
     /// <summary>
     /// The platform_id attribute.
@@ -79,35 +79,35 @@ public class AwsSignerSigningProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformId is required")]
     [TerraformPropertyName("platform_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PlatformId { get; set; }
+    public required TerraformValue<string> PlatformId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The signing_parameters attribute.
     /// </summary>
     [TerraformPropertyName("signing_parameters")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? SigningParameters { get; set; }
+    public TerraformMap<string>? SigningParameters { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for signature_validity_period.
@@ -115,7 +115,7 @@ public class AwsSignerSigningProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignatureValidityPeriod block(s) allowed")]
     [TerraformPropertyName("signature_validity_period")]
-    public TerraformList<TerraformBlock<AwsSignerSigningProfileSignatureValidityPeriodBlock>>? SignatureValidityPeriod { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSignerSigningProfileSignatureValidityPeriodBlock>>? SignatureValidityPeriod { get; set; }
 
     /// <summary>
     /// Block for signing_material.
@@ -123,48 +123,48 @@ public class AwsSignerSigningProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SigningMaterial block(s) allowed")]
     [TerraformPropertyName("signing_material")]
-    public TerraformList<TerraformBlock<AwsSignerSigningProfileSigningMaterialBlock>>? SigningMaterial { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSignerSigningProfileSigningMaterialBlock>>? SigningMaterial { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The platform_display_name attribute.
     /// </summary>
     [TerraformPropertyName("platform_display_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PlatformDisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "platform_display_name");
+    public TerraformValue<string> PlatformDisplayName => new TerraformReference(this, "platform_display_name");
 
     /// <summary>
     /// The revocation_record attribute.
     /// </summary>
     [TerraformPropertyName("revocation_record")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> RevocationRecord => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "revocation_record");
+    public TerraformList<object> RevocationRecord => new TerraformReference(this, "revocation_record");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformPropertyName("version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
+    public TerraformValue<string> Version => new TerraformReference(this, "version");
 
     /// <summary>
     /// The version_arn attribute.
     /// </summary>
     [TerraformPropertyName("version_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VersionArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version_arn");
+    public TerraformValue<string> VersionArn => new TerraformReference(this, "version_arn");
 
 }

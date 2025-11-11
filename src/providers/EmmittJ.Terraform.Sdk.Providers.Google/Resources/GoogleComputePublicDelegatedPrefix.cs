@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputePublicDelegatedPrefixTimeoutsBlock : ITerraformBlock
+public class GoogleComputePublicDelegatedPrefixTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -37,22 +37,22 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// The allocatable prefix length supported by this public delegated prefix. This field is optional and cannot be set for prefixes in DELEGATION mode. It cannot be set for IPv4 prefixes either, and it always defaults to 32.
     /// </summary>
     [TerraformPropertyName("allocatable_prefix_length")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> AllocatablePrefixLength { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "allocatable_prefix_length");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> AllocatablePrefixLength { get; set; } = default!;
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The IP address range, in CIDR format, represented by this public delegated prefix.
@@ -60,14 +60,14 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     [TerraformPropertyName("ip_cidr_range")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IpCidrRange { get; set; }
+    public required TerraformValue<string> IpCidrRange { get; set; }
 
     /// <summary>
     /// If true, the prefix will be live migrated.
     /// </summary>
     [TerraformPropertyName("is_live_migration")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IsLiveMigration { get; set; }
+    public TerraformValue<bool>? IsLiveMigration { get; set; }
 
     /// <summary>
     /// Specifies the mode of this IPv6 PDP. MODE must be one of: DELEGATION,
@@ -75,7 +75,7 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// </summary>
     [TerraformPropertyName("mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
+    public TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long, and
@@ -88,7 +88,7 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The URL of parent prefix. Either PublicAdvertisedPrefix or PublicDelegatedPrefix.
@@ -96,14 +96,14 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentPrefix is required")]
     [TerraformPropertyName("parent_prefix")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ParentPrefix { get; set; }
+    public required TerraformValue<string> ParentPrefix { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// A region where the prefix will reside.
@@ -111,14 +111,14 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     [TerraformPropertyName("region")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Region { get; set; }
+    public required TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputePublicDelegatedPrefixTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputePublicDelegatedPrefixTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// List of sub public delegated fixes for BYO IP functionality.
@@ -127,13 +127,13 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// </summary>
     [TerraformPropertyName("public_delegated_sub_prefixs")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PublicDelegatedSubPrefixs => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "public_delegated_sub_prefixs");
+    public TerraformList<object> PublicDelegatedSubPrefixs => new TerraformReference(this, "public_delegated_sub_prefixs");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
 }

@@ -15,8 +15,8 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location of this cloud function.
@@ -24,7 +24,7 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// A user-defined name of the function. Function names must
@@ -33,14 +33,14 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Describes the Build step of the function that builds a container
@@ -48,28 +48,28 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("build_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> BuildConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "build_config");
+    public TerraformList<object> BuildConfig => new TerraformReference(this, "build_config");
 
     /// <summary>
     /// User-provided description of a function.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The environment the function is hosted on.
     /// </summary>
     [TerraformPropertyName("environment")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Environment => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "environment");
+    public TerraformValue<string> Environment => new TerraformReference(this, "environment");
 
     /// <summary>
     /// An Eventarc trigger managed by Google Cloud Functions that fires events in
@@ -77,7 +77,7 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("event_trigger")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> EventTrigger => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "event_trigger");
+    public TerraformList<object> EventTrigger => new TerraformReference(this, "event_trigger");
 
     /// <summary>
     /// Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources.
@@ -85,7 +85,7 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("kms_key_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsKeyName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_name");
+    public TerraformValue<string> KmsKeyName => new TerraformReference(this, "kms_key_name");
 
     /// <summary>
     /// A set of key/value label pairs associated with this Cloud Function.
@@ -96,21 +96,21 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// Describes the Service being deployed.
     /// </summary>
     [TerraformPropertyName("service_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ServiceConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "service_config");
+    public TerraformList<object> ServiceConfig => new TerraformReference(this, "service_config");
 
     /// <summary>
     /// Describes the current state of the function.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -118,20 +118,20 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The last update timestamp of a Cloud Function.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
     /// <summary>
     /// Output only. The deployed url for the function.
     /// </summary>
     [TerraformPropertyName("url")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "url");
+    public TerraformValue<string> Url => new TerraformReference(this, "url");
 
 }

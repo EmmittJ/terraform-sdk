@@ -16,28 +16,28 @@ public class GoogleContainerRegistry : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location of the registry. One of ASIA, EU, US or not specified. See the official documentation for more information on registry locations.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
     [TerraformPropertyName("bucket_self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> BucketSelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bucket_self_link");
+    public TerraformValue<string> BucketSelfLink => new TerraformReference(this, "bucket_self_link");
 
 }

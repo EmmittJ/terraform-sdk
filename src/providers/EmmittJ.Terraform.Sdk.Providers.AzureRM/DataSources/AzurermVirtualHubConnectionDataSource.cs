@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualHubConnectionDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermVirtualHubConnectionDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,7 +47,7 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The virtual_hub_name attribute.
@@ -55,41 +55,41 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubName is required")]
     [TerraformPropertyName("virtual_hub_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VirtualHubName { get; set; }
+    public required TerraformValue<string> VirtualHubName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermVirtualHubConnectionDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermVirtualHubConnectionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The internet_security_enabled attribute.
     /// </summary>
     [TerraformPropertyName("internet_security_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> InternetSecurityEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "internet_security_enabled");
+    public TerraformValue<bool> InternetSecurityEnabled => new TerraformReference(this, "internet_security_enabled");
 
     /// <summary>
     /// The remote_virtual_network_id attribute.
     /// </summary>
     [TerraformPropertyName("remote_virtual_network_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RemoteVirtualNetworkId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "remote_virtual_network_id");
+    public TerraformValue<string> RemoteVirtualNetworkId => new TerraformReference(this, "remote_virtual_network_id");
 
     /// <summary>
     /// The routing attribute.
     /// </summary>
     [TerraformPropertyName("routing")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Routing => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "routing");
+    public TerraformList<object> Routing => new TerraformReference(this, "routing");
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
     [TerraformPropertyName("virtual_hub_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VirtualHubId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "virtual_hub_id");
+    public TerraformValue<string> VirtualHubId => new TerraformReference(this, "virtual_hub_id");
 
 }

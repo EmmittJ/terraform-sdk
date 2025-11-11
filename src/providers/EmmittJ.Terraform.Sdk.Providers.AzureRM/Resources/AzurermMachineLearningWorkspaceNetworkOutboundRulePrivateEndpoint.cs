@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTimeoutsBlock : ITerraformBlock
+public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -44,8 +44,8 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The service_resource_id attribute.
@@ -61,14 +61,14 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceResourceId is required")]
     [TerraformPropertyName("service_resource_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceResourceId { get; set; }
+    public required TerraformValue<string> ServiceResourceId { get; set; }
 
     /// <summary>
     /// The spark_enabled attribute.
     /// </summary>
     [TerraformPropertyName("spark_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SparkEnabled { get; set; }
+    public TerraformValue<bool>? SparkEnabled { get; set; }
 
     /// <summary>
     /// The sub_resource_target attribute.
@@ -76,7 +76,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubResourceTarget is required")]
     [TerraformPropertyName("sub_resource_target")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SubResourceTarget { get; set; }
+    public required TerraformValue<string> SubResourceTarget { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -84,13 +84,13 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformPropertyName("workspace_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
+    public required TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTimeoutsBlock>? Timeouts { get; set; }
 
 }

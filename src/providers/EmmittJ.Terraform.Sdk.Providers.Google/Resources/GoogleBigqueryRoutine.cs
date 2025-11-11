@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for arguments in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryRoutineArgumentsBlock : ITerraformBlock
+public class GoogleBigqueryRoutineArgumentsBlock
 {
     /// <summary>
     /// Defaults to FIXED_TYPE. Default value: &amp;quot;FIXED_TYPE&amp;quot; Possible values: [&amp;quot;FIXED_TYPE&amp;quot;, &amp;quot;ANY_TYPE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("argument_kind")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ArgumentKind { get; set; }
+    public TerraformValue<string>? ArgumentKind { get; set; }
 
     /// <summary>
     /// A JSON schema for the data type. Required unless argumentKind = ANY_TYPE.
@@ -26,21 +26,21 @@ public class GoogleBigqueryRoutineArgumentsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("data_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DataType { get; set; }
+    public TerraformValue<string>? DataType { get; set; }
 
     /// <summary>
     /// Specifies whether the argument is input or output. Can be set for procedures only. Possible values: [&amp;quot;IN&amp;quot;, &amp;quot;OUT&amp;quot;, &amp;quot;INOUT&amp;quot;]
     /// </summary>
     [TerraformPropertyName("mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
+    public TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The name of this argument. Can be absent for function return argument.
     /// </summary>
     [TerraformPropertyName("name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
+    public TerraformValue<string>? Name { get; set; }
 
 }
 
@@ -48,7 +48,7 @@ public class GoogleBigqueryRoutineArgumentsBlock : ITerraformBlock
 /// Block type for remote_function_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : ITerraformBlock
+public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock
 {
     /// <summary>
     /// Fully qualified name of the user-provided connection object which holds
@@ -57,7 +57,7 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("connection")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Connection { get; set; }
+    public TerraformValue<string>? Connection { get; set; }
 
     /// <summary>
     /// Endpoint of the user-provided remote service, e.g.
@@ -65,7 +65,7 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("endpoint")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Endpoint { get; set; }
+    public TerraformValue<string>? Endpoint { get; set; }
 
     /// <summary>
     /// Max number of rows in each batch sent to the remote service. If absent or if 0,
@@ -73,7 +73,7 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("max_batching_rows")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MaxBatchingRows { get; set; }
+    public TerraformValue<string>? MaxBatchingRows { get; set; }
 
     /// <summary>
     /// User-defined context as a set of key/value pairs, which will be sent as function
@@ -84,8 +84,8 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : ITerraformBlock
     /// &#39;{ &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }&#39;.
     /// </summary>
     [TerraformPropertyName("user_defined_context")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> UserDefinedContext { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "user_defined_context");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> UserDefinedContext { get; set; } = default!;
 
 }
 
@@ -93,14 +93,14 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : ITerraformBlock
 /// Block type for spark_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryRoutineSparkOptionsBlock : ITerraformBlock
+public class GoogleBigqueryRoutineSparkOptionsBlock
 {
     /// <summary>
     /// Archive files to be extracted into the working directory of each executor. For more information about Apache Spark, see Apache Spark.
     /// </summary>
     [TerraformPropertyName("archive_uris")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> ArchiveUris { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "archive_uris");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> ArchiveUris { get; set; } = default!;
 
     /// <summary>
     /// Fully qualified name of the user-provided Spark connection object.
@@ -108,28 +108,28 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("connection")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Connection { get; set; }
+    public TerraformValue<string>? Connection { get; set; }
 
     /// <summary>
     /// Custom container image for the runtime environment.
     /// </summary>
     [TerraformPropertyName("container_image")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContainerImage { get; set; }
+    public TerraformValue<string>? ContainerImage { get; set; }
 
     /// <summary>
     /// Files to be placed in the working directory of each executor. For more information about Apache Spark, see Apache Spark.
     /// </summary>
     [TerraformPropertyName("file_uris")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> FileUris { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "file_uris");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> FileUris { get; set; } = default!;
 
     /// <summary>
     /// JARs to include on the driver and executor CLASSPATH. For more information about Apache Spark, see Apache Spark.
     /// </summary>
     [TerraformPropertyName("jar_uris")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> JarUris { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "jar_uris");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> JarUris { get; set; } = default!;
 
     /// <summary>
     /// The fully qualified name of a class in jarUris, for example, com.example.wordcount.
@@ -137,7 +137,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("main_class")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MainClass { get; set; }
+    public TerraformValue<string>? MainClass { get; set; }
 
     /// <summary>
     /// The main file/jar URI of the Spark application.
@@ -146,7 +146,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("main_file_uri")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MainFileUri { get; set; }
+    public TerraformValue<string>? MainFileUri { get; set; }
 
     /// <summary>
     /// Configuration properties as a set of key/value pairs, which will be passed on to the Spark application.
@@ -154,22 +154,22 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : ITerraformBlock
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
     [TerraformPropertyName("properties")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Properties { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "properties");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Properties { get; set; } = default!;
 
     /// <summary>
     /// Python files to be placed on the PYTHONPATH for PySpark application. Supported file types: .py, .egg, and .zip. For more information about Apache Spark, see Apache Spark.
     /// </summary>
     [TerraformPropertyName("py_file_uris")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> PyFileUris { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "py_file_uris");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> PyFileUris { get; set; } = default!;
 
     /// <summary>
     /// Runtime version. If not specified, the default runtime version is used.
     /// </summary>
     [TerraformPropertyName("runtime_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RuntimeVersion { get; set; }
+    public TerraformValue<string>? RuntimeVersion { get; set; }
 
 }
 
@@ -177,28 +177,28 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryRoutineTimeoutsBlock : ITerraformBlock
+public class GoogleBigqueryRoutineTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -217,7 +217,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [TerraformPropertyName("data_governance_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DataGovernanceType { get; set; }
+    public TerraformValue<string>? DataGovernanceType { get; set; }
 
     /// <summary>
     /// The ID of the dataset containing this routine
@@ -225,7 +225,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     [TerraformPropertyName("dataset_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatasetId { get; set; }
+    public required TerraformValue<string> DatasetId { get; set; }
 
     /// <summary>
     /// The body of the routine. For functions, this is the expression in the AS clause.
@@ -234,28 +234,28 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefinitionBody is required")]
     [TerraformPropertyName("definition_body")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DefinitionBody { get; set; }
+    public required TerraformValue<string> DefinitionBody { get; set; }
 
     /// <summary>
     /// The description of the routine if defined.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The determinism level of the JavaScript UDF if defined. Possible values: [&amp;quot;DETERMINISM_LEVEL_UNSPECIFIED&amp;quot;, &amp;quot;DETERMINISTIC&amp;quot;, &amp;quot;NOT_DETERMINISTIC&amp;quot;]
     /// </summary>
     [TerraformPropertyName("determinism_level")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeterminismLevel { get; set; }
+    public TerraformValue<string>? DeterminismLevel { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Optional. If language = &amp;quot;JAVASCRIPT&amp;quot;, this field stores the path of the
@@ -263,21 +263,21 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [TerraformPropertyName("imported_libraries")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ImportedLibraries { get; set; }
+    public TerraformList<string>? ImportedLibraries { get; set; }
 
     /// <summary>
     /// The language of the routine. Possible values: [&amp;quot;SQL&amp;quot;, &amp;quot;JAVASCRIPT&amp;quot;, &amp;quot;PYTHON&amp;quot;, &amp;quot;JAVA&amp;quot;, &amp;quot;SCALA&amp;quot;]
     /// </summary>
     [TerraformPropertyName("language")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Language { get; set; }
+    public TerraformValue<string>? Language { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Optional. Can be set only if routineType = &amp;quot;TABLE_VALUED_FUNCTION&amp;quot;.
@@ -288,7 +288,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [TerraformPropertyName("return_table_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ReturnTableType { get; set; }
+    public TerraformValue<string>? ReturnTableType { get; set; }
 
     /// <summary>
     /// A JSON schema for the return type. Optional if language = &amp;quot;SQL&amp;quot;; required otherwise.
@@ -303,7 +303,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [TerraformPropertyName("return_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ReturnType { get; set; }
+    public TerraformValue<string>? ReturnType { get; set; }
 
     /// <summary>
     /// The ID of the the routine. The ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_). The maximum length is 256 characters.
@@ -311,7 +311,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineId is required")]
     [TerraformPropertyName("routine_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoutineId { get; set; }
+    public required TerraformValue<string> RoutineId { get; set; }
 
     /// <summary>
     /// The type of routine. Possible values: [&amp;quot;SCALAR_FUNCTION&amp;quot;, &amp;quot;PROCEDURE&amp;quot;, &amp;quot;TABLE_VALUED_FUNCTION&amp;quot;]
@@ -319,21 +319,21 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineType is required")]
     [TerraformPropertyName("routine_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoutineType { get; set; }
+    public required TerraformValue<string> RoutineType { get; set; }
 
     /// <summary>
     /// Optional. The security mode of the routine, if defined. If not defined, the security mode is automatically determined from the routine&#39;s configuration. Possible values: [&amp;quot;DEFINER&amp;quot;, &amp;quot;INVOKER&amp;quot;]
     /// </summary>
     [TerraformPropertyName("security_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SecurityMode { get; set; }
+    public TerraformValue<string>? SecurityMode { get; set; }
 
     /// <summary>
     /// Block for arguments.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("arguments")]
-    public TerraformList<TerraformBlock<GoogleBigqueryRoutineArgumentsBlock>>? Arguments { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryRoutineArgumentsBlock>>? Arguments { get; set; }
 
     /// <summary>
     /// Block for remote_function_options.
@@ -341,7 +341,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteFunctionOptions block(s) allowed")]
     [TerraformPropertyName("remote_function_options")]
-    public TerraformList<TerraformBlock<GoogleBigqueryRoutineRemoteFunctionOptionsBlock>>? RemoteFunctionOptions { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryRoutineRemoteFunctionOptionsBlock>>? RemoteFunctionOptions { get; set; }
 
     /// <summary>
     /// Block for spark_options.
@@ -349,14 +349,14 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkOptions block(s) allowed")]
     [TerraformPropertyName("spark_options")]
-    public TerraformList<TerraformBlock<GoogleBigqueryRoutineSparkOptionsBlock>>? SparkOptions { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryRoutineSparkOptionsBlock>>? SparkOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleBigqueryRoutineTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleBigqueryRoutineTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when this routine was created, in milliseconds since the
@@ -364,7 +364,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [TerraformPropertyName("creation_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> CreationTime => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "creation_time");
+    public TerraformValue<double> CreationTime => new TerraformReference(this, "creation_time");
 
     /// <summary>
     /// The time when this routine was modified, in milliseconds since the
@@ -372,6 +372,6 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [TerraformPropertyName("last_modified_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> LastModifiedTime => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "last_modified_time");
+    public TerraformValue<double> LastModifiedTime => new TerraformReference(this, "last_modified_time");
 
 }

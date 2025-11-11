@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for basic_algorithm in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock : ITerraformBlock
+public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock
 {
     /// <summary>
     /// Duration between scaling events. A scaling period starts after the
@@ -16,7 +16,7 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock : ITerraformBloc
     /// </summary>
     [TerraformPropertyName("cooldown_period")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CooldownPeriod { get; set; }
+    public TerraformValue<string>? CooldownPeriod { get; set; }
 
 }
 
@@ -24,7 +24,7 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock : ITerraformBloc
 /// Block type for secondary_worker_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock : ITerraformBlock
+public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock
 {
     /// <summary>
     /// Maximum number of instances for this group. Note that by default, clusters will not use
@@ -33,14 +33,14 @@ public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock : ITerraf
     /// </summary>
     [TerraformPropertyName("max_instances")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxInstances { get; set; }
+    public TerraformValue<double>? MaxInstances { get; set; }
 
     /// <summary>
     /// Minimum number of instances for this group. Bounds: [0, maxInstances]. Defaults to 0.
     /// </summary>
     [TerraformPropertyName("min_instances")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MinInstances { get; set; }
+    public TerraformValue<double>? MinInstances { get; set; }
 
     /// <summary>
     /// Weight for the instance group, which is used to determine the fraction of total workers
@@ -60,7 +60,7 @@ public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock : ITerraf
     /// </summary>
     [TerraformPropertyName("weight")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Weight { get; set; }
+    public TerraformValue<double>? Weight { get; set; }
 
 }
 
@@ -68,28 +68,28 @@ public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock : ITerraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataprocAutoscalingPolicyTimeoutsBlock : ITerraformBlock
+public class GoogleDataprocAutoscalingPolicyTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -97,7 +97,7 @@ public class GoogleDataprocAutoscalingPolicyTimeoutsBlock : ITerraformBlock
 /// Block type for worker_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock : ITerraformBlock
+public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock
 {
     /// <summary>
     /// Maximum number of instances for this group.
@@ -105,14 +105,14 @@ public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxInstances is required")]
     [TerraformPropertyName("max_instances")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> MaxInstances { get; set; }
+    public required TerraformValue<double> MaxInstances { get; set; }
 
     /// <summary>
     /// Minimum number of instances for this group. Bounds: [2, maxInstances]. Defaults to 2.
     /// </summary>
     [TerraformPropertyName("min_instances")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MinInstances { get; set; }
+    public TerraformValue<double>? MinInstances { get; set; }
 
     /// <summary>
     /// Weight for the instance group, which is used to determine the fraction of total workers
@@ -132,7 +132,7 @@ public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("weight")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Weight { get; set; }
+    public TerraformValue<double>? Weight { get; set; }
 
 }
 
@@ -150,8 +150,8 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The  location where the autoscaling policy should reside.
@@ -159,7 +159,7 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The policy id. The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
@@ -169,14 +169,14 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     [TerraformPropertyName("policy_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PolicyId { get; set; }
+    public required TerraformValue<string> PolicyId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for basic_algorithm.
@@ -184,7 +184,7 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicAlgorithm block(s) allowed")]
     [TerraformPropertyName("basic_algorithm")]
-    public TerraformList<TerraformBlock<GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock>>? BasicAlgorithm { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock>>? BasicAlgorithm { get; set; }
 
     /// <summary>
     /// Block for secondary_worker_config.
@@ -192,14 +192,14 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecondaryWorkerConfig block(s) allowed")]
     [TerraformPropertyName("secondary_worker_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock>>? SecondaryWorkerConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock>>? SecondaryWorkerConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDataprocAutoscalingPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDataprocAutoscalingPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for worker_config.
@@ -207,13 +207,13 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerConfig block(s) allowed")]
     [TerraformPropertyName("worker_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocAutoscalingPolicyWorkerConfigBlock>>? WorkerConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDataprocAutoscalingPolicyWorkerConfigBlock>>? WorkerConfig { get; set; }
 
     /// <summary>
     /// The &amp;quot;resource name&amp;quot; of the autoscaling policy.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

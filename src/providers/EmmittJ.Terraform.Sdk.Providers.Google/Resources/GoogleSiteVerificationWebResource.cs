@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for site in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSiteVerificationWebResourceSiteBlock : ITerraformBlock
+public class GoogleSiteVerificationWebResourceSiteBlock
 {
     /// <summary>
     /// The site identifier. If the type is set to SITE, the identifier is a URL. If the type is
@@ -15,7 +15,7 @@ public class GoogleSiteVerificationWebResourceSiteBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     [TerraformPropertyName("identifier")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Identifier { get; set; }
+    public required TerraformValue<string> Identifier { get; set; }
 
     /// <summary>
     /// The type of resource to be verified. Possible values: [&amp;quot;INET_DOMAIN&amp;quot;, &amp;quot;SITE&amp;quot;]
@@ -23,7 +23,7 @@ public class GoogleSiteVerificationWebResourceSiteBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -31,21 +31,21 @@ public class GoogleSiteVerificationWebResourceSiteBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSiteVerificationWebResourceTimeoutsBlock : ITerraformBlock
+public class GoogleSiteVerificationWebResourceTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -63,8 +63,8 @@ public class GoogleSiteVerificationWebResource : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The verification method for the Site Verification system to use to verify
@@ -73,7 +73,7 @@ public class GoogleSiteVerificationWebResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerificationMethod is required")]
     [TerraformPropertyName("verification_method")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VerificationMethod { get; set; }
+    public required TerraformValue<string> VerificationMethod { get; set; }
 
     /// <summary>
     /// Block for site.
@@ -83,14 +83,14 @@ public class GoogleSiteVerificationWebResource : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Site block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Site block(s) allowed")]
     [TerraformPropertyName("site")]
-    public TerraformList<TerraformBlock<GoogleSiteVerificationWebResourceSiteBlock>>? Site { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleSiteVerificationWebResourceSiteBlock>>? Site { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleSiteVerificationWebResourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleSiteVerificationWebResourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The email addresses of all direct, verified owners of this exact property. Indirect owners —
@@ -98,13 +98,13 @@ public class GoogleSiteVerificationWebResource : TerraformResource
     /// </summary>
     [TerraformPropertyName("owners")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Owners => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "owners");
+    public TerraformList<string> Owners => new TerraformReference(this, "owners");
 
     /// <summary>
     /// The string used to identify this web resource.
     /// </summary>
     [TerraformPropertyName("web_resource_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> WebResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "web_resource_id");
+    public TerraformValue<string> WebResourceId => new TerraformReference(this, "web_resource_id");
 
 }

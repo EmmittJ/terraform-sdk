@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for additional_capabilities in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock : ITerraformBlock
+public class AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock
 {
     /// <summary>
     /// The hibernation_enabled attribute.
     /// </summary>
     [TerraformPropertyName("hibernation_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? HibernationEnabled { get; set; }
+    public TerraformValue<bool>? HibernationEnabled { get; set; }
 
     /// <summary>
     /// The ultra_ssd_enabled attribute.
     /// </summary>
     [TerraformPropertyName("ultra_ssd_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? UltraSsdEnabled { get; set; }
+    public TerraformValue<bool>? UltraSsdEnabled { get; set; }
 
 }
 
@@ -28,7 +28,7 @@ public class AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock : ITerrafor
 /// Block type for additional_unattend_content in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWindowsVirtualMachineAdditionalUnattendContentBlock : ITerraformBlock
+public class AzurermWindowsVirtualMachineAdditionalUnattendContentBlock
 {
     /// <summary>
     /// The content attribute.
@@ -36,7 +36,7 @@ public class AzurermWindowsVirtualMachineAdditionalUnattendContentBlock : ITerra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     [TerraformPropertyName("content")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Content { get; set; }
+    public required TerraformValue<string> Content { get; set; }
 
     /// <summary>
     /// The setting attribute.
@@ -44,7 +44,7 @@ public class AzurermWindowsVirtualMachineAdditionalUnattendContentBlock : ITerra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Setting is required")]
     [TerraformPropertyName("setting")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Setting { get; set; }
+    public required TerraformValue<string> Setting { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public class AzurermWindowsVirtualMachineAdditionalUnattendContentBlock : ITerra
 /// Block type for boot_diagnostics in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWindowsVirtualMachineBootDiagnosticsBlock : ITerraformBlock
+public class AzurermWindowsVirtualMachineBootDiagnosticsBlock
 {
     /// <summary>
     /// The storage_account_uri attribute.
     /// </summary>
     [TerraformPropertyName("storage_account_uri")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StorageAccountUri { get; set; }
+    public TerraformValue<string>? StorageAccountUri { get; set; }
 
 }
 
@@ -67,42 +67,42 @@ public class AzurermWindowsVirtualMachineBootDiagnosticsBlock : ITerraformBlock
 /// Block type for gallery_application in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWindowsVirtualMachineGalleryApplicationBlock : ITerraformBlock
+public class AzurermWindowsVirtualMachineGalleryApplicationBlock
 {
     /// <summary>
     /// The automatic_upgrade_enabled attribute.
     /// </summary>
     [TerraformPropertyName("automatic_upgrade_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AutomaticUpgradeEnabled { get; set; }
+    public TerraformValue<bool>? AutomaticUpgradeEnabled { get; set; }
 
     /// <summary>
     /// The configuration_blob_uri attribute.
     /// </summary>
     [TerraformPropertyName("configuration_blob_uri")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConfigurationBlobUri { get; set; }
+    public TerraformValue<string>? ConfigurationBlobUri { get; set; }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
     [TerraformPropertyName("order")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Order { get; set; }
+    public TerraformValue<double>? Order { get; set; }
 
     /// <summary>
     /// The tag attribute.
     /// </summary>
     [TerraformPropertyName("tag")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Tag { get; set; }
+    public TerraformValue<string>? Tag { get; set; }
 
     /// <summary>
     /// The treat_failure_as_deployment_failure_enabled attribute.
     /// </summary>
     [TerraformPropertyName("treat_failure_as_deployment_failure_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? TreatFailureAsDeploymentFailureEnabled { get; set; }
+    public TerraformValue<bool>? TreatFailureAsDeploymentFailureEnabled { get; set; }
 
     /// <summary>
     /// The version_id attribute.
@@ -110,7 +110,7 @@ public class AzurermWindowsVirtualMachineGalleryApplicationBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionId is required")]
     [TerraformPropertyName("version_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VersionId { get; set; }
+    public required TerraformValue<string> VersionId { get; set; }
 
 }
 
@@ -118,28 +118,16 @@ public class AzurermWindowsVirtualMachineGalleryApplicationBlock : ITerraformBlo
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWindowsVirtualMachineIdentityBlock : ITerraformBlock
+public class AzurermWindowsVirtualMachineIdentityBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [TerraformPropertyName("identity_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
+    public TerraformSet<string>? IdentityIds { get; set; }
 
-    /// <summary>
-    /// The principal_id attribute.
-    /// </summary>
-    [TerraformPropertyName("principal_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
-    /// <summary>
-    /// The tenant_id attribute.
-    /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -147,7 +135,7 @@ public class AzurermWindowsVirtualMachineIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -155,7 +143,7 @@ public class AzurermWindowsVirtualMachineIdentityBlock : ITerraformBlock
 /// Block type for os_disk in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWindowsVirtualMachineOsDiskBlock : ITerraformBlock
+public class AzurermWindowsVirtualMachineOsDiskBlock
 {
     /// <summary>
     /// The caching attribute.
@@ -163,63 +151,57 @@ public class AzurermWindowsVirtualMachineOsDiskBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
     [TerraformPropertyName("caching")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Caching { get; set; }
+    public required TerraformValue<string> Caching { get; set; }
 
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
     [TerraformPropertyName("disk_encryption_set_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DiskEncryptionSetId { get; set; }
+    public TerraformValue<string>? DiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
     [TerraformPropertyName("disk_size_gb")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> DiskSizeGb { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "disk_size_gb");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> DiskSizeGb { get; set; } = default!;
 
-    /// <summary>
-    /// The id attribute.
-    /// </summary>
-    [TerraformPropertyName("id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Name { get; set; } = default!;
 
     /// <summary>
     /// The secure_vm_disk_encryption_set_id attribute.
     /// </summary>
     [TerraformPropertyName("secure_vm_disk_encryption_set_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SecureVmDiskEncryptionSetId { get; set; }
+    public TerraformValue<string>? SecureVmDiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The security_encryption_type attribute.
     /// </summary>
     [TerraformPropertyName("security_encryption_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SecurityEncryptionType { get; set; }
+    public TerraformValue<string>? SecurityEncryptionType { get; set; }
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     [TerraformPropertyName("storage_account_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> StorageAccountType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "storage_account_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> StorageAccountType { get; set; } = default!;
 
     /// <summary>
     /// The write_accelerator_enabled attribute.
     /// </summary>
     [TerraformPropertyName("write_accelerator_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? WriteAcceleratorEnabled { get; set; }
+    public TerraformValue<bool>? WriteAcceleratorEnabled { get; set; }
 
 }
 
@@ -227,14 +209,14 @@ public class AzurermWindowsVirtualMachineOsDiskBlock : ITerraformBlock
 /// Block type for os_image_notification in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWindowsVirtualMachineOsImageNotificationBlock : ITerraformBlock
+public class AzurermWindowsVirtualMachineOsImageNotificationBlock
 {
     /// <summary>
     /// The timeout attribute.
     /// </summary>
     [TerraformPropertyName("timeout")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Timeout { get; set; }
+    public TerraformValue<string>? Timeout { get; set; }
 
 }
 
@@ -242,7 +224,7 @@ public class AzurermWindowsVirtualMachineOsImageNotificationBlock : ITerraformBl
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWindowsVirtualMachinePlanBlock : ITerraformBlock
+public class AzurermWindowsVirtualMachinePlanBlock
 {
     /// <summary>
     /// The name attribute.
@@ -250,7 +232,7 @@ public class AzurermWindowsVirtualMachinePlanBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The product attribute.
@@ -258,7 +240,7 @@ public class AzurermWindowsVirtualMachinePlanBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     [TerraformPropertyName("product")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Product { get; set; }
+    public required TerraformValue<string> Product { get; set; }
 
     /// <summary>
     /// The publisher attribute.
@@ -266,7 +248,7 @@ public class AzurermWindowsVirtualMachinePlanBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     [TerraformPropertyName("publisher")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
+    public required TerraformValue<string> Publisher { get; set; }
 
 }
 
@@ -274,7 +256,7 @@ public class AzurermWindowsVirtualMachinePlanBlock : ITerraformBlock
 /// Block type for secret in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWindowsVirtualMachineSecretBlock : ITerraformBlock
+public class AzurermWindowsVirtualMachineSecretBlock
 {
     /// <summary>
     /// The key_vault_id attribute.
@@ -282,7 +264,7 @@ public class AzurermWindowsVirtualMachineSecretBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformPropertyName("key_vault_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyVaultId { get; set; }
+    public required TerraformValue<string> KeyVaultId { get; set; }
 
 }
 
@@ -290,7 +272,7 @@ public class AzurermWindowsVirtualMachineSecretBlock : ITerraformBlock
 /// Block type for source_image_reference in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWindowsVirtualMachineSourceImageReferenceBlock : ITerraformBlock
+public class AzurermWindowsVirtualMachineSourceImageReferenceBlock
 {
     /// <summary>
     /// The offer attribute.
@@ -298,7 +280,7 @@ public class AzurermWindowsVirtualMachineSourceImageReferenceBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     [TerraformPropertyName("offer")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Offer { get; set; }
+    public required TerraformValue<string> Offer { get; set; }
 
     /// <summary>
     /// The publisher attribute.
@@ -306,7 +288,7 @@ public class AzurermWindowsVirtualMachineSourceImageReferenceBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     [TerraformPropertyName("publisher")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
+    public required TerraformValue<string> Publisher { get; set; }
 
     /// <summary>
     /// The sku attribute.
@@ -314,7 +296,7 @@ public class AzurermWindowsVirtualMachineSourceImageReferenceBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [TerraformPropertyName("sku")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Sku { get; set; }
+    public required TerraformValue<string> Sku { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -322,7 +304,7 @@ public class AzurermWindowsVirtualMachineSourceImageReferenceBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformPropertyName("version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
+    public required TerraformValue<string> Version { get; set; }
 
 }
 
@@ -330,7 +312,7 @@ public class AzurermWindowsVirtualMachineSourceImageReferenceBlock : ITerraformB
 /// Block type for termination_notification in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWindowsVirtualMachineTerminationNotificationBlock : ITerraformBlock
+public class AzurermWindowsVirtualMachineTerminationNotificationBlock
 {
     /// <summary>
     /// The enabled attribute.
@@ -338,14 +320,14 @@ public class AzurermWindowsVirtualMachineTerminationNotificationBlock : ITerrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformPropertyName("enabled")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
+    public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
     [TerraformPropertyName("timeout")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Timeout { get; set; }
+    public TerraformValue<string>? Timeout { get; set; }
 
 }
 
@@ -353,35 +335,35 @@ public class AzurermWindowsVirtualMachineTerminationNotificationBlock : ITerrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermWindowsVirtualMachineTimeoutsBlock : ITerraformBlock
+public class AzurermWindowsVirtualMachineTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -389,14 +371,14 @@ public class AzurermWindowsVirtualMachineTimeoutsBlock : ITerraformBlock
 /// Block type for winrm_listener in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermWindowsVirtualMachineWinrmListenerBlock : ITerraformBlock
+public class AzurermWindowsVirtualMachineWinrmListenerBlock
 {
     /// <summary>
     /// The certificate_url attribute.
     /// </summary>
     [TerraformPropertyName("certificate_url")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CertificateUrl { get; set; }
+    public TerraformValue<string>? CertificateUrl { get; set; }
 
     /// <summary>
     /// The protocol attribute.
@@ -404,7 +386,7 @@ public class AzurermWindowsVirtualMachineWinrmListenerBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformPropertyName("protocol")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
+    public required TerraformValue<string> Protocol { get; set; }
 
 }
 
@@ -423,141 +405,141 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [TerraformPropertyName("admin_password")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AdminPassword { get; set; }
+    public TerraformValue<string>? AdminPassword { get; set; }
 
     /// <summary>
     /// The admin_username attribute.
     /// </summary>
     [TerraformPropertyName("admin_username")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AdminUsername { get; set; }
+    public TerraformValue<string>? AdminUsername { get; set; }
 
     /// <summary>
     /// The allow_extension_operations attribute.
     /// </summary>
     [TerraformPropertyName("allow_extension_operations")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> AllowExtensionOperations { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "allow_extension_operations");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> AllowExtensionOperations { get; set; } = default!;
 
     /// <summary>
     /// The automatic_updates_enabled attribute.
     /// </summary>
     [TerraformPropertyName("automatic_updates_enabled")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> AutomaticUpdatesEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "automatic_updates_enabled");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> AutomaticUpdatesEnabled { get; set; } = default!;
 
     /// <summary>
     /// The availability_set_id attribute.
     /// </summary>
     [TerraformPropertyName("availability_set_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AvailabilitySetId { get; set; }
+    public TerraformValue<string>? AvailabilitySetId { get; set; }
 
     /// <summary>
     /// The bypass_platform_safety_checks_on_user_schedule_enabled attribute.
     /// </summary>
     [TerraformPropertyName("bypass_platform_safety_checks_on_user_schedule_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? BypassPlatformSafetyChecksOnUserScheduleEnabled { get; set; }
+    public TerraformValue<bool>? BypassPlatformSafetyChecksOnUserScheduleEnabled { get; set; }
 
     /// <summary>
     /// The capacity_reservation_group_id attribute.
     /// </summary>
     [TerraformPropertyName("capacity_reservation_group_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CapacityReservationGroupId { get; set; }
+    public TerraformValue<string>? CapacityReservationGroupId { get; set; }
 
     /// <summary>
     /// The computer_name attribute.
     /// </summary>
     [TerraformPropertyName("computer_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ComputerName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "computer_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ComputerName { get; set; } = default!;
 
     /// <summary>
     /// The custom_data attribute.
     /// </summary>
     [TerraformPropertyName("custom_data")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomData { get; set; }
+    public TerraformValue<string>? CustomData { get; set; }
 
     /// <summary>
     /// The dedicated_host_group_id attribute.
     /// </summary>
     [TerraformPropertyName("dedicated_host_group_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DedicatedHostGroupId { get; set; }
+    public TerraformValue<string>? DedicatedHostGroupId { get; set; }
 
     /// <summary>
     /// The dedicated_host_id attribute.
     /// </summary>
     [TerraformPropertyName("dedicated_host_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DedicatedHostId { get; set; }
+    public TerraformValue<string>? DedicatedHostId { get; set; }
 
     /// <summary>
     /// The disk_controller_type attribute.
     /// </summary>
     [TerraformPropertyName("disk_controller_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DiskControllerType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "disk_controller_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DiskControllerType { get; set; } = default!;
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
     [TerraformPropertyName("edge_zone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EdgeZone { get; set; }
+    public TerraformValue<string>? EdgeZone { get; set; }
 
     /// <summary>
     /// The enable_automatic_updates attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     [TerraformPropertyName("enable_automatic_updates")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> EnableAutomaticUpdates { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_automatic_updates");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> EnableAutomaticUpdates { get; set; } = default!;
 
     /// <summary>
     /// The encryption_at_host_enabled attribute.
     /// </summary>
     [TerraformPropertyName("encryption_at_host_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EncryptionAtHostEnabled { get; set; }
+    public TerraformValue<bool>? EncryptionAtHostEnabled { get; set; }
 
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
     [TerraformPropertyName("eviction_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EvictionPolicy { get; set; }
+    public TerraformValue<string>? EvictionPolicy { get; set; }
 
     /// <summary>
     /// The extensions_time_budget attribute.
     /// </summary>
     [TerraformPropertyName("extensions_time_budget")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ExtensionsTimeBudget { get; set; }
+    public TerraformValue<string>? ExtensionsTimeBudget { get; set; }
 
     /// <summary>
     /// The hotpatching_enabled attribute.
     /// </summary>
     [TerraformPropertyName("hotpatching_enabled")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> HotpatchingEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "hotpatching_enabled");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> HotpatchingEnabled { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     [TerraformPropertyName("license_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? LicenseType { get; set; }
+    public TerraformValue<string>? LicenseType { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -565,14 +547,14 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The max_bid_price attribute.
     /// </summary>
     [TerraformPropertyName("max_bid_price")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxBidPrice { get; set; }
+    public TerraformValue<double>? MaxBidPrice { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -580,7 +562,7 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_interface_ids attribute.
@@ -588,63 +570,63 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceIds is required")]
     [TerraformPropertyName("network_interface_ids")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? NetworkInterfaceIds { get; set; }
+    public TerraformList<string>? NetworkInterfaceIds { get; set; }
 
     /// <summary>
     /// The os_managed_disk_id attribute.
     /// </summary>
     [TerraformPropertyName("os_managed_disk_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> OsManagedDiskId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "os_managed_disk_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> OsManagedDiskId { get; set; } = default!;
 
     /// <summary>
     /// The patch_assessment_mode attribute.
     /// </summary>
     [TerraformPropertyName("patch_assessment_mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PatchAssessmentMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "patch_assessment_mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PatchAssessmentMode { get; set; } = default!;
 
     /// <summary>
     /// The patch_mode attribute.
     /// </summary>
     [TerraformPropertyName("patch_mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PatchMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "patch_mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PatchMode { get; set; } = default!;
 
     /// <summary>
     /// The platform_fault_domain attribute.
     /// </summary>
     [TerraformPropertyName("platform_fault_domain")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? PlatformFaultDomain { get; set; }
+    public TerraformValue<double>? PlatformFaultDomain { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [TerraformPropertyName("priority")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Priority { get; set; }
+    public TerraformValue<string>? Priority { get; set; }
 
     /// <summary>
     /// The provision_vm_agent attribute.
     /// </summary>
     [TerraformPropertyName("provision_vm_agent")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> ProvisionVmAgent { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "provision_vm_agent");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> ProvisionVmAgent { get; set; } = default!;
 
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
     [TerraformPropertyName("proximity_placement_group_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ProximityPlacementGroupId { get; set; }
+    public TerraformValue<string>? ProximityPlacementGroupId { get; set; }
 
     /// <summary>
     /// The reboot_setting attribute.
     /// </summary>
     [TerraformPropertyName("reboot_setting")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RebootSetting { get; set; }
+    public TerraformValue<string>? RebootSetting { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -652,14 +634,14 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The secure_boot_enabled attribute.
     /// </summary>
     [TerraformPropertyName("secure_boot_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SecureBootEnabled { get; set; }
+    public TerraformValue<bool>? SecureBootEnabled { get; set; }
 
     /// <summary>
     /// The size attribute.
@@ -667,64 +649,64 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     [TerraformPropertyName("size")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Size { get; set; }
+    public required TerraformValue<string> Size { get; set; }
 
     /// <summary>
     /// The source_image_id attribute.
     /// </summary>
     [TerraformPropertyName("source_image_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SourceImageId { get; set; }
+    public TerraformValue<string>? SourceImageId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
     [TerraformPropertyName("timezone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Timezone { get; set; }
+    public TerraformValue<string>? Timezone { get; set; }
 
     /// <summary>
     /// The user_data attribute.
     /// </summary>
     [TerraformPropertyName("user_data")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserData { get; set; }
+    public TerraformValue<string>? UserData { get; set; }
 
     /// <summary>
     /// The virtual_machine_scale_set_id attribute.
     /// </summary>
     [TerraformPropertyName("virtual_machine_scale_set_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VirtualMachineScaleSetId { get; set; }
+    public TerraformValue<string>? VirtualMachineScaleSetId { get; set; }
 
     /// <summary>
     /// The vm_agent_platform_updates_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     [TerraformPropertyName("vm_agent_platform_updates_enabled")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> VmAgentPlatformUpdatesEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "vm_agent_platform_updates_enabled");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> VmAgentPlatformUpdatesEnabled { get; set; } = default!;
 
     /// <summary>
     /// The vtpm_enabled attribute.
     /// </summary>
     [TerraformPropertyName("vtpm_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? VtpmEnabled { get; set; }
+    public TerraformValue<bool>? VtpmEnabled { get; set; }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
     [TerraformPropertyName("zone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Zone { get; set; }
+    public TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
     /// Block for additional_capabilities.
@@ -732,14 +714,14 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]
     [TerraformPropertyName("additional_capabilities")]
-    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock>>? AdditionalCapabilities { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock>>? AdditionalCapabilities { get; set; }
 
     /// <summary>
     /// Block for additional_unattend_content.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("additional_unattend_content")]
-    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineAdditionalUnattendContentBlock>>? AdditionalUnattendContent { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineAdditionalUnattendContentBlock>>? AdditionalUnattendContent { get; set; }
 
     /// <summary>
     /// Block for boot_diagnostics.
@@ -747,7 +729,7 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
     [TerraformPropertyName("boot_diagnostics")]
-    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineBootDiagnosticsBlock>>? BootDiagnostics { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineBootDiagnosticsBlock>>? BootDiagnostics { get; set; }
 
     /// <summary>
     /// Block for gallery_application.
@@ -755,7 +737,7 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 GalleryApplication block(s) allowed")]
     [TerraformPropertyName("gallery_application")]
-    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineGalleryApplicationBlock>>? GalleryApplication { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineGalleryApplicationBlock>>? GalleryApplication { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -763,7 +745,7 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformPropertyName("identity")]
-    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineIdentityBlock>>? Identity { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for os_disk.
@@ -773,7 +755,7 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OsDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
     [TerraformPropertyName("os_disk")]
-    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineOsDiskBlock>>? OsDisk { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineOsDiskBlock>>? OsDisk { get; set; }
 
     /// <summary>
     /// Block for os_image_notification.
@@ -781,7 +763,7 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsImageNotification block(s) allowed")]
     [TerraformPropertyName("os_image_notification")]
-    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineOsImageNotificationBlock>>? OsImageNotification { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineOsImageNotificationBlock>>? OsImageNotification { get; set; }
 
     /// <summary>
     /// Block for plan.
@@ -789,14 +771,14 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformPropertyName("plan")]
-    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachinePlanBlock>>? Plan { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachinePlanBlock>>? Plan { get; set; }
 
     /// <summary>
     /// Block for secret.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("secret")]
-    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineSecretBlock>>? Secret { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineSecretBlock>>? Secret { get; set; }
 
     /// <summary>
     /// Block for source_image_reference.
@@ -804,7 +786,7 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageReference block(s) allowed")]
     [TerraformPropertyName("source_image_reference")]
-    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineSourceImageReferenceBlock>>? SourceImageReference { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineSourceImageReferenceBlock>>? SourceImageReference { get; set; }
 
     /// <summary>
     /// Block for termination_notification.
@@ -812,55 +794,55 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TerminationNotification block(s) allowed")]
     [TerraformPropertyName("termination_notification")]
-    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineTerminationNotificationBlock>>? TerminationNotification { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermWindowsVirtualMachineTerminationNotificationBlock>>? TerminationNotification { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermWindowsVirtualMachineTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermWindowsVirtualMachineTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for winrm_listener.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("winrm_listener")]
-    public TerraformSet<TerraformBlock<AzurermWindowsVirtualMachineWinrmListenerBlock>>? WinrmListener { get; set; } = new();
+    public TerraformSet<TerraformBlock<AzurermWindowsVirtualMachineWinrmListenerBlock>>? WinrmListener { get; set; }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     [TerraformPropertyName("private_ip_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrivateIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_ip_address");
+    public TerraformValue<string> PrivateIpAddress => new TerraformReference(this, "private_ip_address");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     [TerraformPropertyName("private_ip_addresses")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> PrivateIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "private_ip_addresses");
+    public TerraformList<string> PrivateIpAddresses => new TerraformReference(this, "private_ip_addresses");
 
     /// <summary>
     /// The public_ip_address attribute.
     /// </summary>
     [TerraformPropertyName("public_ip_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PublicIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_ip_address");
+    public TerraformValue<string> PublicIpAddress => new TerraformReference(this, "public_ip_address");
 
     /// <summary>
     /// The public_ip_addresses attribute.
     /// </summary>
     [TerraformPropertyName("public_ip_addresses")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> PublicIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "public_ip_addresses");
+    public TerraformList<string> PublicIpAddresses => new TerraformReference(this, "public_ip_addresses");
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
     [TerraformPropertyName("virtual_machine_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VirtualMachineId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "virtual_machine_id");
+    public TerraformValue<string> VirtualMachineId => new TerraformReference(this, "virtual_machine_id");
 
 }

@@ -15,8 +15,8 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ID of the instance or a fully qualified identifier for the instance.
@@ -24,21 +24,21 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The name of the Redis region of the instance.
     /// </summary>
     [TerraformPropertyName("region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// Only applicable to STANDARD_HA tier which protects the instance
@@ -48,7 +48,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("alternative_location_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AlternativeLocationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "alternative_location_id");
+    public TerraformValue<string> AlternativeLocationId => new TerraformReference(this, "alternative_location_id");
 
     /// <summary>
     /// Optional. Indicates whether OSS Redis AUTH is enabled for the
@@ -57,14 +57,14 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("auth_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> AuthEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "auth_enabled");
+    public TerraformValue<bool> AuthEnabled => new TerraformReference(this, "auth_enabled");
 
     /// <summary>
     /// AUTH String set on the instance. This field will only be populated if auth_enabled is true.
     /// </summary>
     [TerraformPropertyName("auth_string")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AuthString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "auth_string");
+    public TerraformValue<string> AuthString => new TerraformReference(this, "auth_string");
 
     /// <summary>
     /// The full name of the Google Compute Engine network to which the
@@ -73,14 +73,14 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("authorized_network")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AuthorizedNetwork => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "authorized_network");
+    public TerraformValue<string> AuthorizedNetwork => new TerraformReference(this, "authorized_network");
 
     /// <summary>
     /// The connection mode of the Redis instance. Default value: &amp;quot;DIRECT_PEERING&amp;quot; Possible values: [&amp;quot;DIRECT_PEERING&amp;quot;, &amp;quot;PRIVATE_SERVICE_ACCESS&amp;quot;]
     /// </summary>
     [TerraformPropertyName("connect_mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ConnectMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "connect_mode");
+    public TerraformValue<string> ConnectMode => new TerraformReference(this, "connect_mode");
 
     /// <summary>
     /// The time the instance was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -88,7 +88,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The current zone where the Redis endpoint is placed.
@@ -99,7 +99,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("current_location_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CurrentLocationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "current_location_id");
+    public TerraformValue<string> CurrentLocationId => new TerraformReference(this, "current_location_id");
 
     /// <summary>
     /// Optional. The KMS key reference that you want to use to encrypt the data at rest for this Redis
@@ -107,7 +107,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("customer_managed_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CustomerManagedKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "customer_managed_key");
+    public TerraformValue<string> CustomerManagedKey => new TerraformReference(this, "customer_managed_key");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the instance.
@@ -119,21 +119,21 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("deletion_protection")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> DeletionProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection");
+    public TerraformValue<bool> DeletionProtection => new TerraformReference(this, "deletion_protection");
 
     /// <summary>
     /// An arbitrary and optional user-provided name for the instance.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
+    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The CIDR range of internal addresses that are reserved for this
@@ -144,7 +144,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("effective_reserved_ip_range")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EffectiveReservedIpRange => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "effective_reserved_ip_range");
+    public TerraformValue<string> EffectiveReservedIpRange => new TerraformReference(this, "effective_reserved_ip_range");
 
     /// <summary>
     /// Hostname or IP address of the exposed Redis endpoint used by clients
@@ -152,7 +152,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("host")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Host => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "host");
+    public TerraformValue<string> Host => new TerraformReference(this, "host");
 
     /// <summary>
     /// Resource labels to represent user provided metadata.
@@ -162,7 +162,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// The zone where the instance will be provisioned. If not provided,
@@ -173,49 +173,49 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("location_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LocationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location_id");
+    public TerraformValue<string> LocationId => new TerraformReference(this, "location_id");
 
     /// <summary>
     /// Maintenance policy for an instance.
     /// </summary>
     [TerraformPropertyName("maintenance_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MaintenancePolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maintenance_policy");
+    public TerraformList<object> MaintenancePolicy => new TerraformReference(this, "maintenance_policy");
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
     [TerraformPropertyName("maintenance_schedule")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MaintenanceSchedule => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maintenance_schedule");
+    public TerraformList<object> MaintenanceSchedule => new TerraformReference(this, "maintenance_schedule");
 
     /// <summary>
     /// The self service update maintenance version.
     /// </summary>
     [TerraformPropertyName("maintenance_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MaintenanceVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "maintenance_version");
+    public TerraformValue<string> MaintenanceVersion => new TerraformReference(this, "maintenance_version");
 
     /// <summary>
     /// Redis memory size in GiB.
     /// </summary>
     [TerraformPropertyName("memory_size_gb")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MemorySizeGb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "memory_size_gb");
+    public TerraformValue<double> MemorySizeGb => new TerraformReference(this, "memory_size_gb");
 
     /// <summary>
     /// Output only. Info per node.
     /// </summary>
     [TerraformPropertyName("nodes")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Nodes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "nodes");
+    public TerraformList<object> Nodes => new TerraformReference(this, "nodes");
 
     /// <summary>
     /// Persistence configuration for an instance.
     /// </summary>
     [TerraformPropertyName("persistence_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PersistenceConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "persistence_config");
+    public TerraformList<object> PersistenceConfig => new TerraformReference(this, "persistence_config");
 
     /// <summary>
     /// Output only. Cloud IAM identity used by import / export operations
@@ -225,14 +225,14 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("persistence_iam_identity")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PersistenceIamIdentity => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "persistence_iam_identity");
+    public TerraformValue<string> PersistenceIamIdentity => new TerraformReference(this, "persistence_iam_identity");
 
     /// <summary>
     /// The port number of the exposed Redis endpoint.
     /// </summary>
     [TerraformPropertyName("port")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Port => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "port");
+    public TerraformValue<double> Port => new TerraformReference(this, "port");
 
     /// <summary>
     /// Output only. Hostname or IP address of the exposed readonly Redis endpoint. Standard tier only.
@@ -241,7 +241,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("read_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ReadEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "read_endpoint");
+    public TerraformValue<string> ReadEndpoint => new TerraformReference(this, "read_endpoint");
 
     /// <summary>
     /// Output only. The port number of the exposed readonly redis endpoint. Standard tier only.
@@ -249,7 +249,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("read_endpoint_port")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ReadEndpointPort => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "read_endpoint_port");
+    public TerraformValue<double> ReadEndpointPort => new TerraformReference(this, "read_endpoint_port");
 
     /// <summary>
     /// Optional. Read replica mode. Can only be specified when trying to create the instance.
@@ -261,7 +261,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("read_replicas_mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ReadReplicasMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "read_replicas_mode");
+    public TerraformValue<string> ReadReplicasMode => new TerraformReference(this, "read_replicas_mode");
 
     /// <summary>
     /// Redis configuration parameters, according to http://redis.io/topics/config.
@@ -270,7 +270,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("redis_configs")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> RedisConfigs => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "redis_configs");
+    public TerraformMap<string> RedisConfigs => new TerraformReference(this, "redis_configs");
 
     /// <summary>
     /// The version of Redis software. If not provided, latest supported
@@ -279,7 +279,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("redis_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RedisVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "redis_version");
+    public TerraformValue<string> RedisVersion => new TerraformReference(this, "redis_version");
 
     /// <summary>
     /// Optional. The number of replica nodes. The valid range for the Standard Tier with
@@ -289,7 +289,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("replica_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ReplicaCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "replica_count");
+    public TerraformValue<double> ReplicaCount => new TerraformReference(this, "replica_count");
 
     /// <summary>
     /// The CIDR range of internal addresses that are reserved for this
@@ -300,7 +300,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("reserved_ip_range")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ReservedIpRange => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "reserved_ip_range");
+    public TerraformValue<string> ReservedIpRange => new TerraformReference(this, "reserved_ip_range");
 
     /// <summary>
     /// Optional. Additional IP range for node placement. Required when enabling read replicas on
@@ -310,14 +310,14 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("secondary_ip_range")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SecondaryIpRange => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_ip_range");
+    public TerraformValue<string> SecondaryIpRange => new TerraformReference(this, "secondary_ip_range");
 
     /// <summary>
     /// List of server CA certificates for the instance.
     /// </summary>
     [TerraformPropertyName("server_ca_certs")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ServerCaCerts => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "server_ca_certs");
+    public TerraformList<object> ServerCaCerts => new TerraformReference(this, "server_ca_certs");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -325,7 +325,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The service tier of the instance. Must be one of these values:
@@ -335,7 +335,7 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("tier")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Tier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tier");
+    public TerraformValue<string> Tier => new TerraformReference(this, "tier");
 
     /// <summary>
     /// The TLS mode of the Redis instance, If not provided, TLS is disabled for the instance.
@@ -344,6 +344,6 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("transit_encryption_mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TransitEncryptionMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "transit_encryption_mode");
+    public TerraformValue<string> TransitEncryptionMode => new TerraformReference(this, "transit_encryption_mode");
 
 }

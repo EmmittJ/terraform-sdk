@@ -16,41 +16,41 @@ public class AwsS3AccountPublicAccessBlockDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("account_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AccountId { get; set; }
+    public TerraformValue<string>? AccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The block_public_acls attribute.
     /// </summary>
     [TerraformPropertyName("block_public_acls")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> BlockPublicAcls => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "block_public_acls");
+    public TerraformValue<bool> BlockPublicAcls => new TerraformReference(this, "block_public_acls");
 
     /// <summary>
     /// The block_public_policy attribute.
     /// </summary>
     [TerraformPropertyName("block_public_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> BlockPublicPolicy => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "block_public_policy");
+    public TerraformValue<bool> BlockPublicPolicy => new TerraformReference(this, "block_public_policy");
 
     /// <summary>
     /// The ignore_public_acls attribute.
     /// </summary>
     [TerraformPropertyName("ignore_public_acls")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> IgnorePublicAcls => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "ignore_public_acls");
+    public TerraformValue<bool> IgnorePublicAcls => new TerraformReference(this, "ignore_public_acls");
 
     /// <summary>
     /// The restrict_public_buckets attribute.
     /// </summary>
     [TerraformPropertyName("restrict_public_buckets")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> RestrictPublicBuckets => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "restrict_public_buckets");
+    public TerraformValue<bool> RestrictPublicBuckets => new TerraformReference(this, "restrict_public_buckets");
 
 }

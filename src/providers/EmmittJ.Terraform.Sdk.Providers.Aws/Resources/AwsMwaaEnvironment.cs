@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for logging_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMwaaEnvironmentLoggingConfigurationBlock : ITerraformBlock
+public class AwsMwaaEnvironmentLoggingConfigurationBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsMwaaEnvironmentLoggingConfigurationBlock : ITerraformBlock
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMwaaEnvironmentNetworkConfigurationBlock : ITerraformBlock
+public class AwsMwaaEnvironmentNetworkConfigurationBlock
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -22,7 +22,7 @@ public class AwsMwaaEnvironmentNetworkConfigurationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     [TerraformPropertyName("security_group_ids")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
+    public required TerraformSet<string> SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
@@ -30,7 +30,7 @@ public class AwsMwaaEnvironmentNetworkConfigurationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     [TerraformPropertyName("subnet_ids")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
+    public required TerraformSet<string> SubnetIds { get; set; }
 
 }
 
@@ -38,28 +38,28 @@ public class AwsMwaaEnvironmentNetworkConfigurationBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMwaaEnvironmentTimeoutsBlock : ITerraformBlock
+public class AwsMwaaEnvironmentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,14 +78,14 @@ public class AwsMwaaEnvironment : TerraformResource
     /// </summary>
     [TerraformPropertyName("airflow_configuration_options")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? AirflowConfigurationOptions { get; set; }
+    public TerraformMap<string>? AirflowConfigurationOptions { get; set; }
 
     /// <summary>
     /// The airflow_version attribute.
     /// </summary>
     [TerraformPropertyName("airflow_version")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AirflowVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "airflow_version");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AirflowVersion { get; set; } = default!;
 
     /// <summary>
     /// The dag_s3_path attribute.
@@ -93,21 +93,21 @@ public class AwsMwaaEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DagS3Path is required")]
     [TerraformPropertyName("dag_s3_path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DagS3Path { get; set; }
+    public required TerraformValue<string> DagS3Path { get; set; }
 
     /// <summary>
     /// The endpoint_management attribute.
     /// </summary>
     [TerraformPropertyName("endpoint_management")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> EndpointManagement { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_management");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> EndpointManagement { get; set; } = default!;
 
     /// <summary>
     /// The environment_class attribute.
     /// </summary>
     [TerraformPropertyName("environment_class")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> EnvironmentClass { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "environment_class");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> EnvironmentClass { get; set; } = default!;
 
     /// <summary>
     /// The execution_role_arn attribute.
@@ -115,49 +115,49 @@ public class AwsMwaaEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     [TerraformPropertyName("execution_role_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ExecutionRoleArn { get; set; }
+    public required TerraformValue<string> ExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
     [TerraformPropertyName("kms_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKey { get; set; }
+    public TerraformValue<string>? KmsKey { get; set; }
 
     /// <summary>
     /// The max_webservers attribute.
     /// </summary>
     [TerraformPropertyName("max_webservers")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MaxWebservers { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_webservers");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MaxWebservers { get; set; } = default!;
 
     /// <summary>
     /// The max_workers attribute.
     /// </summary>
     [TerraformPropertyName("max_workers")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MaxWorkers { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_workers");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MaxWorkers { get; set; } = default!;
 
     /// <summary>
     /// The min_webservers attribute.
     /// </summary>
     [TerraformPropertyName("min_webservers")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MinWebservers { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_webservers");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MinWebservers { get; set; } = default!;
 
     /// <summary>
     /// The min_workers attribute.
     /// </summary>
     [TerraformPropertyName("min_workers")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MinWorkers { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_workers");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MinWorkers { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -165,49 +165,49 @@ public class AwsMwaaEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The plugins_s3_object_version attribute.
     /// </summary>
     [TerraformPropertyName("plugins_s3_object_version")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PluginsS3ObjectVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "plugins_s3_object_version");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PluginsS3ObjectVersion { get; set; } = default!;
 
     /// <summary>
     /// The plugins_s3_path attribute.
     /// </summary>
     [TerraformPropertyName("plugins_s3_path")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PluginsS3Path { get; set; }
+    public TerraformValue<string>? PluginsS3Path { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The requirements_s3_object_version attribute.
     /// </summary>
     [TerraformPropertyName("requirements_s3_object_version")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> RequirementsS3ObjectVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "requirements_s3_object_version");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> RequirementsS3ObjectVersion { get; set; } = default!;
 
     /// <summary>
     /// The requirements_s3_path attribute.
     /// </summary>
     [TerraformPropertyName("requirements_s3_path")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RequirementsS3Path { get; set; }
+    public TerraformValue<string>? RequirementsS3Path { get; set; }
 
     /// <summary>
     /// The schedulers attribute.
     /// </summary>
     [TerraformPropertyName("schedulers")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Schedulers { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "schedulers");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Schedulers { get; set; } = default!;
 
     /// <summary>
     /// The source_bucket_arn attribute.
@@ -215,56 +215,56 @@ public class AwsMwaaEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceBucketArn is required")]
     [TerraformPropertyName("source_bucket_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SourceBucketArn { get; set; }
+    public required TerraformValue<string> SourceBucketArn { get; set; }
 
     /// <summary>
     /// The startup_script_s3_object_version attribute.
     /// </summary>
     [TerraformPropertyName("startup_script_s3_object_version")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> StartupScriptS3ObjectVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "startup_script_s3_object_version");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> StartupScriptS3ObjectVersion { get; set; } = default!;
 
     /// <summary>
     /// The startup_script_s3_path attribute.
     /// </summary>
     [TerraformPropertyName("startup_script_s3_path")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StartupScriptS3Path { get; set; }
+    public TerraformValue<string>? StartupScriptS3Path { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The webserver_access_mode attribute.
     /// </summary>
     [TerraformPropertyName("webserver_access_mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> WebserverAccessMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "webserver_access_mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> WebserverAccessMode { get; set; } = default!;
 
     /// <summary>
     /// The weekly_maintenance_window_start attribute.
     /// </summary>
     [TerraformPropertyName("weekly_maintenance_window_start")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> WeeklyMaintenanceWindowStart { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "weekly_maintenance_window_start");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> WeeklyMaintenanceWindowStart { get; set; } = default!;
 
     /// <summary>
     /// The worker_replacement_strategy attribute.
     /// </summary>
     [TerraformPropertyName("worker_replacement_strategy")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> WorkerReplacementStrategy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "worker_replacement_strategy");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> WorkerReplacementStrategy { get; set; } = default!;
 
     /// <summary>
     /// Block for logging_configuration.
@@ -272,7 +272,7 @@ public class AwsMwaaEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     [TerraformPropertyName("logging_configuration")]
-    public TerraformList<TerraformBlock<AwsMwaaEnvironmentLoggingConfigurationBlock>>? LoggingConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsMwaaEnvironmentLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
 
     /// <summary>
     /// Block for network_configuration.
@@ -282,69 +282,69 @@ public class AwsMwaaEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     [TerraformPropertyName("network_configuration")]
-    public TerraformList<TerraformBlock<AwsMwaaEnvironmentNetworkConfigurationBlock>>? NetworkConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsMwaaEnvironmentNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsMwaaEnvironmentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsMwaaEnvironmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformPropertyName("created_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
+    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
 
     /// <summary>
     /// The database_vpc_endpoint_service attribute.
     /// </summary>
     [TerraformPropertyName("database_vpc_endpoint_service")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DatabaseVpcEndpointService => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "database_vpc_endpoint_service");
+    public TerraformValue<string> DatabaseVpcEndpointService => new TerraformReference(this, "database_vpc_endpoint_service");
 
     /// <summary>
     /// The last_updated attribute.
     /// </summary>
     [TerraformPropertyName("last_updated")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> LastUpdated => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "last_updated");
+    public TerraformList<object> LastUpdated => new TerraformReference(this, "last_updated");
 
     /// <summary>
     /// The service_role_arn attribute.
     /// </summary>
     [TerraformPropertyName("service_role_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServiceRoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_role_arn");
+    public TerraformValue<string> ServiceRoleArn => new TerraformReference(this, "service_role_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The webserver_url attribute.
     /// </summary>
     [TerraformPropertyName("webserver_url")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> WebserverUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "webserver_url");
+    public TerraformValue<string> WebserverUrl => new TerraformReference(this, "webserver_url");
 
     /// <summary>
     /// The webserver_vpc_endpoint_service attribute.
     /// </summary>
     [TerraformPropertyName("webserver_vpc_endpoint_service")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> WebserverVpcEndpointService => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "webserver_vpc_endpoint_service");
+    public TerraformValue<string> WebserverVpcEndpointService => new TerraformReference(this, "webserver_vpc_endpoint_service");
 
 }

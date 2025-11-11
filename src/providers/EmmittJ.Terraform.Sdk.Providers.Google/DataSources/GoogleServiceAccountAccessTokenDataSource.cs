@@ -16,21 +16,21 @@ public class GoogleServiceAccountAccessTokenDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("delegates")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Delegates { get; set; }
+    public TerraformSet<string>? Delegates { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The lifetime attribute.
     /// </summary>
     [TerraformPropertyName("lifetime")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Lifetime { get; set; }
+    public TerraformValue<string>? Lifetime { get; set; }
 
     /// <summary>
     /// The scopes attribute.
@@ -38,7 +38,7 @@ public class GoogleServiceAccountAccessTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     [TerraformPropertyName("scopes")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Scopes { get; set; }
+    public required TerraformSet<string> Scopes { get; set; }
 
     /// <summary>
     /// The target_service_account attribute.
@@ -46,13 +46,13 @@ public class GoogleServiceAccountAccessTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     [TerraformPropertyName("target_service_account")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetServiceAccount { get; set; }
+    public required TerraformValue<string> TargetServiceAccount { get; set; }
 
     /// <summary>
     /// The access_token attribute.
     /// </summary>
     [TerraformPropertyName("access_token")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AccessToken => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_token");
+    public TerraformValue<string> AccessToken => new TerraformReference(this, "access_token");
 
 }

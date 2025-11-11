@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for public_access_block_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3AccessPointPublicAccessBlockConfigurationBlock : ITerraformBlock
+public class AwsS3AccessPointPublicAccessBlockConfigurationBlock
 {
     /// <summary>
     /// The block_public_acls attribute.
     /// </summary>
     [TerraformPropertyName("block_public_acls")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? BlockPublicAcls { get; set; }
+    public TerraformValue<bool>? BlockPublicAcls { get; set; }
 
     /// <summary>
     /// The block_public_policy attribute.
     /// </summary>
     [TerraformPropertyName("block_public_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? BlockPublicPolicy { get; set; }
+    public TerraformValue<bool>? BlockPublicPolicy { get; set; }
 
     /// <summary>
     /// The ignore_public_acls attribute.
     /// </summary>
     [TerraformPropertyName("ignore_public_acls")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IgnorePublicAcls { get; set; }
+    public TerraformValue<bool>? IgnorePublicAcls { get; set; }
 
     /// <summary>
     /// The restrict_public_buckets attribute.
     /// </summary>
     [TerraformPropertyName("restrict_public_buckets")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RestrictPublicBuckets { get; set; }
+    public TerraformValue<bool>? RestrictPublicBuckets { get; set; }
 
 }
 
@@ -42,7 +42,7 @@ public class AwsS3AccessPointPublicAccessBlockConfigurationBlock : ITerraformBlo
 /// Block type for vpc_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3AccessPointVpcConfigurationBlock : ITerraformBlock
+public class AwsS3AccessPointVpcConfigurationBlock
 {
     /// <summary>
     /// The vpc_id attribute.
@@ -50,7 +50,7 @@ public class AwsS3AccessPointVpcConfigurationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     [TerraformPropertyName("vpc_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VpcId { get; set; }
+    public required TerraformValue<string> VpcId { get; set; }
 
 }
 
@@ -68,8 +68,8 @@ public class AwsS3AccessPoint : TerraformResource
     /// The account_id attribute.
     /// </summary>
     [TerraformPropertyName("account_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AccountId { get; set; } = default!;
 
     /// <summary>
     /// The bucket attribute.
@@ -77,21 +77,21 @@ public class AwsS3AccessPoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformPropertyName("bucket")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
+    public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The bucket_account_id attribute.
     /// </summary>
     [TerraformPropertyName("bucket_account_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> BucketAccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bucket_account_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> BucketAccountId { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -99,35 +99,35 @@ public class AwsS3AccessPoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [TerraformPropertyName("policy")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Policy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Policy { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for public_access_block_configuration.
@@ -135,7 +135,7 @@ public class AwsS3AccessPoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicAccessBlockConfiguration block(s) allowed")]
     [TerraformPropertyName("public_access_block_configuration")]
-    public TerraformList<TerraformBlock<AwsS3AccessPointPublicAccessBlockConfigurationBlock>>? PublicAccessBlockConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsS3AccessPointPublicAccessBlockConfigurationBlock>>? PublicAccessBlockConfiguration { get; set; }
 
     /// <summary>
     /// Block for vpc_configuration.
@@ -143,48 +143,48 @@ public class AwsS3AccessPoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
     [TerraformPropertyName("vpc_configuration")]
-    public TerraformList<TerraformBlock<AwsS3AccessPointVpcConfigurationBlock>>? VpcConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsS3AccessPointVpcConfigurationBlock>>? VpcConfiguration { get; set; }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
     [TerraformPropertyName("alias")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Alias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "alias");
+    public TerraformValue<string> Alias => new TerraformReference(this, "alias");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [TerraformPropertyName("domain_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DomainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_name");
+    public TerraformValue<string> DomainName => new TerraformReference(this, "domain_name");
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
     [TerraformPropertyName("endpoints")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Endpoints => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "endpoints");
+    public TerraformMap<string> Endpoints => new TerraformReference(this, "endpoints");
 
     /// <summary>
     /// The has_public_access_policy attribute.
     /// </summary>
     [TerraformPropertyName("has_public_access_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> HasPublicAccessPolicy => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "has_public_access_policy");
+    public TerraformValue<bool> HasPublicAccessPolicy => new TerraformReference(this, "has_public_access_policy");
 
     /// <summary>
     /// The network_origin attribute.
     /// </summary>
     [TerraformPropertyName("network_origin")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NetworkOrigin => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_origin");
+    public TerraformValue<string> NetworkOrigin => new TerraformReference(this, "network_origin");
 
 }

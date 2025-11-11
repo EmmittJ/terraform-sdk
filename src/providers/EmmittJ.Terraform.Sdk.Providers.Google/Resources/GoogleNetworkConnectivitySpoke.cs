@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for linked_interconnect_attachments in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : ITerraformBlock
+public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock
 {
     /// <summary>
     /// IP ranges allowed to be included during import from hub (does not control transit connectivity).
@@ -14,7 +14,7 @@ public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : 
     /// </summary>
     [TerraformPropertyName("include_import_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? IncludeImportRanges { get; set; }
+    public TerraformList<string>? IncludeImportRanges { get; set; }
 
     /// <summary>
     /// A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.
@@ -22,7 +22,7 @@ public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     [TerraformPropertyName("site_to_site_data_transfer")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> SiteToSiteDataTransfer { get; set; }
+    public required TerraformValue<bool> SiteToSiteDataTransfer { get; set; }
 
     /// <summary>
     /// The URIs of linked interconnect attachment resources
@@ -30,7 +30,7 @@ public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     [TerraformPropertyName("uris")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? Uris { get; set; }
+    public TerraformList<string>? Uris { get; set; }
 
 }
 
@@ -38,21 +38,21 @@ public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : 
 /// Block type for linked_producer_vpc_network in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : ITerraformBlock
+public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock
 {
     /// <summary>
     /// IP ranges encompassing the subnets to be excluded from peering.
     /// </summary>
     [TerraformPropertyName("exclude_export_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ExcludeExportRanges { get; set; }
+    public TerraformList<string>? ExcludeExportRanges { get; set; }
 
     /// <summary>
     /// IP ranges allowed to be included from peering.
     /// </summary>
     [TerraformPropertyName("include_export_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? IncludeExportRanges { get; set; }
+    public TerraformList<string>? IncludeExportRanges { get; set; }
 
     /// <summary>
     /// The URI of the Service Consumer VPC that the Producer VPC is peered with.
@@ -60,7 +60,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : ITerr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformPropertyName("network")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
+    public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The name of the VPC peering between the Service Consumer VPC and the Producer VPC (defined in the Tenant project) which is added to the NCC hub. This peering must be in ACTIVE state.
@@ -68,14 +68,8 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : ITerr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     [TerraformPropertyName("peering")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Peering { get; set; }
+    public required TerraformValue<string> Peering { get; set; }
 
-    /// <summary>
-    /// The URI of the Producer VPC.
-    /// </summary>
-    [TerraformPropertyName("producer_network")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ProducerNetwork => new TerraformReferenceProperty<TerraformProperty<string>>("", "producer_network");
 
 }
 
@@ -83,7 +77,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : ITerr
 /// Block type for linked_router_appliance_instances in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock : ITerraformBlock
+public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock
 {
     /// <summary>
     /// IP ranges allowed to be included during import from hub (does not control transit connectivity).
@@ -91,7 +85,7 @@ public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock :
     /// </summary>
     [TerraformPropertyName("include_import_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? IncludeImportRanges { get; set; }
+    public TerraformList<string>? IncludeImportRanges { get; set; }
 
     /// <summary>
     /// A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.
@@ -99,7 +93,7 @@ public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     [TerraformPropertyName("site_to_site_data_transfer")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> SiteToSiteDataTransfer { get; set; }
+    public required TerraformValue<bool> SiteToSiteDataTransfer { get; set; }
 
 }
 
@@ -107,21 +101,21 @@ public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock :
 /// Block type for linked_vpc_network in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : ITerraformBlock
+public class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock
 {
     /// <summary>
     /// IP ranges encompassing the subnets to be excluded from peering.
     /// </summary>
     [TerraformPropertyName("exclude_export_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ExcludeExportRanges { get; set; }
+    public TerraformList<string>? ExcludeExportRanges { get; set; }
 
     /// <summary>
     /// IP ranges allowed to be included from peering.
     /// </summary>
     [TerraformPropertyName("include_export_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? IncludeExportRanges { get; set; }
+    public TerraformList<string>? IncludeExportRanges { get; set; }
 
     /// <summary>
     /// The URI of the VPC network resource.
@@ -129,7 +123,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     [TerraformPropertyName("uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Uri { get; set; }
+    public required TerraformValue<string> Uri { get; set; }
 
 }
 
@@ -137,7 +131,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : ITerraformBlo
 /// Block type for linked_vpn_tunnels in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : ITerraformBlock
+public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock
 {
     /// <summary>
     /// IP ranges allowed to be included during import from hub (does not control transit connectivity).
@@ -145,7 +139,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : ITerraformBlo
     /// </summary>
     [TerraformPropertyName("include_import_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? IncludeImportRanges { get; set; }
+    public TerraformList<string>? IncludeImportRanges { get; set; }
 
     /// <summary>
     /// A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.
@@ -153,7 +147,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     [TerraformPropertyName("site_to_site_data_transfer")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> SiteToSiteDataTransfer { get; set; }
+    public required TerraformValue<bool> SiteToSiteDataTransfer { get; set; }
 
     /// <summary>
     /// The URIs of linked VPN tunnel resources.
@@ -161,7 +155,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     [TerraformPropertyName("uris")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? Uris { get; set; }
+    public TerraformList<string>? Uris { get; set; }
 
 }
 
@@ -169,28 +163,28 @@ public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : ITerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkConnectivitySpokeTimeoutsBlock : ITerraformBlock
+public class GoogleNetworkConnectivitySpokeTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -209,14 +203,14 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name of the group that this spoke is associated with.
     /// </summary>
     [TerraformPropertyName("group")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Group { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "group");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Group { get; set; } = default!;
 
     /// <summary>
     /// Immutable. The URI of the hub that this spoke is attached to.
@@ -224,14 +218,14 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hub is required")]
     [TerraformPropertyName("hub")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Hub { get; set; }
+    public required TerraformValue<string> Hub { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Optional labels in key:value format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
@@ -241,7 +235,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location for the resource
@@ -249,7 +243,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Immutable. The name of the spoke. Spoke names must be unique.
@@ -257,14 +251,14 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for linked_interconnect_attachments.
@@ -272,7 +266,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedInterconnectAttachments block(s) allowed")]
     [TerraformPropertyName("linked_interconnect_attachments")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock>>? LinkedInterconnectAttachments { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock>>? LinkedInterconnectAttachments { get; set; }
 
     /// <summary>
     /// Block for linked_producer_vpc_network.
@@ -280,7 +274,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedProducerVpcNetwork block(s) allowed")]
     [TerraformPropertyName("linked_producer_vpc_network")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock>>? LinkedProducerVpcNetwork { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock>>? LinkedProducerVpcNetwork { get; set; }
 
     /// <summary>
     /// Block for linked_router_appliance_instances.
@@ -288,7 +282,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedRouterApplianceInstances block(s) allowed")]
     [TerraformPropertyName("linked_router_appliance_instances")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock>>? LinkedRouterApplianceInstances { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock>>? LinkedRouterApplianceInstances { get; set; }
 
     /// <summary>
     /// Block for linked_vpc_network.
@@ -296,7 +290,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedVpcNetwork block(s) allowed")]
     [TerraformPropertyName("linked_vpc_network")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock>>? LinkedVpcNetwork { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock>>? LinkedVpcNetwork { get; set; }
 
     /// <summary>
     /// Block for linked_vpn_tunnels.
@@ -304,42 +298,42 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedVpnTunnels block(s) allowed")]
     [TerraformPropertyName("linked_vpn_tunnels")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock>>? LinkedVpnTunnels { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock>>? LinkedVpnTunnels { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleNetworkConnectivitySpokeTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleNetworkConnectivitySpokeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time the spoke was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The reasons for the current state in the lifecycle
     /// </summary>
     [TerraformPropertyName("reasons")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Reasons => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "reasons");
+    public TerraformList<object> Reasons => new TerraformReference(this, "reasons");
 
     /// <summary>
     /// Output only. The current lifecycle state of this spoke.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -347,20 +341,20 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Output only. The Google-generated UUID for the spoke. This value is unique across all spoke resources. If a spoke is deleted and another with the same name is created, the new spoke is assigned a different unique_id.
     /// </summary>
     [TerraformPropertyName("unique_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UniqueId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "unique_id");
+    public TerraformValue<string> UniqueId => new TerraformReference(this, "unique_id");
 
     /// <summary>
     /// Output only. The time the spoke was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

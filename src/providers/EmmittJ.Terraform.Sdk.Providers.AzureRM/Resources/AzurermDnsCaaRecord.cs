@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for record in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermDnsCaaRecordRecordBlock : ITerraformBlock
+public class AzurermDnsCaaRecordRecordBlock
 {
     /// <summary>
     /// The flags attribute.
@@ -14,7 +14,7 @@ public class AzurermDnsCaaRecordRecordBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Flags is required")]
     [TerraformPropertyName("flags")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Flags { get; set; }
+    public required TerraformValue<double> Flags { get; set; }
 
     /// <summary>
     /// The tag attribute.
@@ -22,7 +22,7 @@ public class AzurermDnsCaaRecordRecordBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tag is required")]
     [TerraformPropertyName("tag")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Tag { get; set; }
+    public required TerraformValue<string> Tag { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -30,7 +30,7 @@ public class AzurermDnsCaaRecordRecordBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformPropertyName("value")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
+    public required TerraformValue<string> Value { get; set; }
 
 }
 
@@ -38,35 +38,35 @@ public class AzurermDnsCaaRecordRecordBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDnsCaaRecordTimeoutsBlock : ITerraformBlock
+public class AzurermDnsCaaRecordTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,8 +84,8 @@ public class AzurermDnsCaaRecord : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -93,7 +93,7 @@ public class AzurermDnsCaaRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -101,14 +101,14 @@ public class AzurermDnsCaaRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The ttl attribute.
@@ -116,7 +116,7 @@ public class AzurermDnsCaaRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     [TerraformPropertyName("ttl")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Ttl { get; set; }
+    public required TerraformValue<double> Ttl { get; set; }
 
     /// <summary>
     /// The zone_name attribute.
@@ -124,7 +124,7 @@ public class AzurermDnsCaaRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
     [TerraformPropertyName("zone_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ZoneName { get; set; }
+    public required TerraformValue<string> ZoneName { get; set; }
 
     /// <summary>
     /// Block for record.
@@ -133,20 +133,20 @@ public class AzurermDnsCaaRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Record is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Record block(s) required")]
     [TerraformPropertyName("record")]
-    public TerraformSet<TerraformBlock<AzurermDnsCaaRecordRecordBlock>>? Record { get; set; } = new();
+    public TerraformSet<TerraformBlock<AzurermDnsCaaRecordRecordBlock>>? Record { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDnsCaaRecordTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDnsCaaRecordTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     [TerraformPropertyName("fqdn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Fqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fqdn");
+    public TerraformValue<string> Fqdn => new TerraformReference(this, "fqdn");
 
 }

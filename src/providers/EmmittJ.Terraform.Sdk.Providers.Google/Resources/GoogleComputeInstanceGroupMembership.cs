@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeInstanceGroupMembershipTimeoutsBlock : ITerraformBlock
+public class GoogleComputeInstanceGroupMembershipTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -37,8 +37,8 @@ public class GoogleComputeInstanceGroupMembership : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// An instance being added to the InstanceGroup
@@ -46,7 +46,7 @@ public class GoogleComputeInstanceGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformPropertyName("instance")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
+    public required TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// Represents an Instance Group resource name that the instance belongs to.
@@ -54,27 +54,27 @@ public class GoogleComputeInstanceGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceGroup is required")]
     [TerraformPropertyName("instance_group")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceGroup { get; set; }
+    public required TerraformValue<string> InstanceGroup { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// A reference to the zone where the instance group resides.
     /// </summary>
     [TerraformPropertyName("zone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Zone { get; set; }
+    public TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeInstanceGroupMembershipTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeInstanceGroupMembershipTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filters in .
 /// Nesting mode: list
 /// </summary>
-public class AwsPricingProductDataSourceFiltersBlock : ITerraformBlock
+public class AwsPricingProductDataSourceFiltersBlock
 {
     /// <summary>
     /// The field attribute.
@@ -14,7 +14,7 @@ public class AwsPricingProductDataSourceFiltersBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     [TerraformPropertyName("field")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Field { get; set; }
+    public required TerraformValue<string> Field { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -22,7 +22,7 @@ public class AwsPricingProductDataSourceFiltersBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformPropertyName("value")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
+    public required TerraformValue<string> Value { get; set; }
 
 }
 
@@ -40,8 +40,8 @@ public class AwsPricingProductDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The service_code attribute.
@@ -49,7 +49,7 @@ public class AwsPricingProductDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
     [TerraformPropertyName("service_code")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceCode { get; set; }
+    public required TerraformValue<string> ServiceCode { get; set; }
 
     /// <summary>
     /// Block for filters.
@@ -58,13 +58,13 @@ public class AwsPricingProductDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filters is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filters block(s) required")]
     [TerraformPropertyName("filters")]
-    public TerraformList<TerraformBlock<AwsPricingProductDataSourceFiltersBlock>>? Filters { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsPricingProductDataSourceFiltersBlock>>? Filters { get; set; }
 
     /// <summary>
     /// The result attribute.
     /// </summary>
     [TerraformPropertyName("result")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Result => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "result");
+    public TerraformValue<string> Result => new TerraformReference(this, "result");
 
 }

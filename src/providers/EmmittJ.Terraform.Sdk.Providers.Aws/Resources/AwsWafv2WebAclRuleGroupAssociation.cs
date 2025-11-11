@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for managed_rule_group in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock : ITerraformBlock
+public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock
 {
     /// <summary>
     /// Name of the managed rule group.
@@ -14,7 +14,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock : ITerrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Name of the managed rule group vendor.
@@ -22,14 +22,14 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock : ITerrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VendorName is required")]
     [TerraformPropertyName("vendor_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VendorName { get; set; }
+    public required TerraformValue<string> VendorName { get; set; }
 
     /// <summary>
     /// Version of the managed rule group. Omit this to use the default version.
     /// </summary>
     [TerraformPropertyName("version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
+    public TerraformValue<string>? Version { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock : ITerrafor
 /// Block type for rule_group_reference in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock : ITerraformBlock
+public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock
 {
     /// <summary>
     /// ARN of the Rule Group to associate with the Web ACL.
@@ -45,7 +45,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     [TerraformPropertyName("arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
+    public required TerraformValue<string> Arn { get; set; }
 
 }
 
@@ -53,28 +53,28 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock : ITerraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsWafv2WebAclRuleGroupAssociationTimeoutsBlock : ITerraformBlock
+public class AwsWafv2WebAclRuleGroupAssociationTimeoutsBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -91,8 +91,8 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     /// Override action for the rule group. Valid values are &#39;none&#39; and &#39;count&#39;. Defaults to &#39;none&#39;.
     /// </summary>
     [TerraformPropertyName("override_action")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> OverrideAction { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "override_action");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> OverrideAction { get; set; } = default!;
 
     /// <summary>
     /// Priority of the rule within the Web ACL.
@@ -100,14 +100,14 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformPropertyName("priority")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
+    public required TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Name of the rule to create in the Web ACL that references the rule group.
@@ -115,7 +115,7 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     [TerraformPropertyName("rule_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RuleName { get; set; }
+    public required TerraformValue<string> RuleName { get; set; }
 
     /// <summary>
     /// ARN of the Web ACL to associate the Rule Group with.
@@ -123,27 +123,27 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebAclArn is required")]
     [TerraformPropertyName("web_acl_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WebAclArn { get; set; }
+    public required TerraformValue<string> WebAclArn { get; set; }
 
     /// <summary>
     /// Block for managed_rule_group.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("managed_rule_group")]
-    public TerraformList<TerraformBlock<AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock>>? ManagedRuleGroup { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock>>? ManagedRuleGroup { get; set; }
 
     /// <summary>
     /// Block for rule_group_reference.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("rule_group_reference")]
-    public TerraformList<TerraformBlock<AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock>>? RuleGroupReference { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock>>? RuleGroupReference { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsWafv2WebAclRuleGroupAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsWafv2WebAclRuleGroupAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCommunicationServiceDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermCommunicationServiceDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermCommunicationServiceDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermCommunicationServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,69 +47,69 @@ public class AzurermCommunicationServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermCommunicationServiceDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermCommunicationServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The data_location attribute.
     /// </summary>
     [TerraformPropertyName("data_location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DataLocation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "data_location");
+    public TerraformValue<string> DataLocation => new TerraformReference(this, "data_location");
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
     [TerraformPropertyName("hostname")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Hostname => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hostname");
+    public TerraformValue<string> Hostname => new TerraformReference(this, "hostname");
 
     /// <summary>
     /// The immutable_resource_id attribute.
     /// </summary>
     [TerraformPropertyName("immutable_resource_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ImmutableResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "immutable_resource_id");
+    public TerraformValue<string> ImmutableResourceId => new TerraformReference(this, "immutable_resource_id");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     [TerraformPropertyName("primary_connection_string")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrimaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_connection_string");
+    public TerraformValue<string> PrimaryConnectionString => new TerraformReference(this, "primary_connection_string");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     [TerraformPropertyName("primary_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrimaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_key");
+    public TerraformValue<string> PrimaryKey => new TerraformReference(this, "primary_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     [TerraformPropertyName("secondary_connection_string")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SecondaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_connection_string");
+    public TerraformValue<string> SecondaryConnectionString => new TerraformReference(this, "secondary_connection_string");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     [TerraformPropertyName("secondary_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SecondaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_key");
+    public TerraformValue<string> SecondaryKey => new TerraformReference(this, "secondary_key");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for labels in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleMonitoringMetricDescriptorLabelsBlock : ITerraformBlock
+public class GoogleMonitoringMetricDescriptorLabelsBlock
 {
     /// <summary>
     /// A human-readable description for the label.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The key for this label. The key must not exceed 100 characters. The first character of the key must be an upper- or lower-case letter, the remaining characters must be letters, digits or underscores, and the key must match the regular expression [a-zA-Z][a-zA-Z0-9_]*
@@ -21,14 +21,14 @@ public class GoogleMonitoringMetricDescriptorLabelsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformPropertyName("key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
+    public required TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The type of data that can be assigned to the label. Default value: &amp;quot;STRING&amp;quot; Possible values: [&amp;quot;STRING&amp;quot;, &amp;quot;BOOL&amp;quot;, &amp;quot;INT64&amp;quot;]
     /// </summary>
     [TerraformPropertyName("value_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ValueType { get; set; }
+    public TerraformValue<string>? ValueType { get; set; }
 
 }
 
@@ -36,21 +36,21 @@ public class GoogleMonitoringMetricDescriptorLabelsBlock : ITerraformBlock
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMonitoringMetricDescriptorMetadataBlock : ITerraformBlock
+public class GoogleMonitoringMetricDescriptorMetadataBlock
 {
     /// <summary>
     /// The delay of data points caused by ingestion. Data points older than this age are guaranteed to be ingested and available to be read, excluding data loss due to errors. In &#39;[duration format](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf?&amp;amp;_ga=2.264881487.1507873253.1593446723-935052455.1591817775#google.protobuf.Duration)&#39;.
     /// </summary>
     [TerraformPropertyName("ingest_delay")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IngestDelay { get; set; }
+    public TerraformValue<string>? IngestDelay { get; set; }
 
     /// <summary>
     /// The sampling period of metric data points. For metrics which are written periodically, consecutive data points are stored at this time interval, excluding data loss due to errors. Metrics with a higher granularity have a smaller sampling period. In &#39;[duration format](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf?&amp;amp;_ga=2.264881487.1507873253.1593446723-935052455.1591817775#google.protobuf.Duration)&#39;.
     /// </summary>
     [TerraformPropertyName("sample_period")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SamplePeriod { get; set; }
+    public TerraformValue<string>? SamplePeriod { get; set; }
 
 }
 
@@ -58,28 +58,28 @@ public class GoogleMonitoringMetricDescriptorMetadataBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleMonitoringMetricDescriptorTimeoutsBlock : ITerraformBlock
+public class GoogleMonitoringMetricDescriptorTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -98,28 +98,28 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A concise name for the metric, which can be displayed in user interfaces. Use sentence case without an ending period, for example &amp;quot;Request count&amp;quot;.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The launch stage of the metric definition. Possible values: [&amp;quot;LAUNCH_STAGE_UNSPECIFIED&amp;quot;, &amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("launch_stage")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? LaunchStage { get; set; }
+    public TerraformValue<string>? LaunchStage { get; set; }
 
     /// <summary>
     /// Whether the metric records instantaneous values, changes to a value, etc. Some combinations of metricKind and valueType might not be supported. Possible values: [&amp;quot;METRIC_KIND_UNSPECIFIED&amp;quot;, &amp;quot;GAUGE&amp;quot;, &amp;quot;DELTA&amp;quot;, &amp;quot;CUMULATIVE&amp;quot;]
@@ -127,14 +127,14 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricKind is required")]
     [TerraformPropertyName("metric_kind")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MetricKind { get; set; }
+    public required TerraformValue<string> MetricKind { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The metric type, including its DNS name prefix. The type is not URL-encoded. All service defined metrics must be prefixed with the service name, in the format of {service name}/{relative metric name}, such as cloudsql.googleapis.com/database/cpu/utilization. The relative metric name must have only upper and lower-case letters, digits, &#39;/&#39; and underscores &#39;_&#39; are allowed. Additionally, the maximum number of characters allowed for the relative_metric_name is 100. All user-defined metric types have the DNS name custom.googleapis.com, external.googleapis.com, or logging.googleapis.com/user/.
@@ -142,7 +142,7 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The units in which the metric value is reported. It is only applicable if the
@@ -168,7 +168,7 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     /// </summary>
     [TerraformPropertyName("unit")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Unit { get; set; }
+    public TerraformValue<string>? Unit { get; set; }
 
     /// <summary>
     /// Whether the measurement is an integer, a floating-point number, etc. Some combinations of metricKind and valueType might not be supported. Possible values: [&amp;quot;BOOL&amp;quot;, &amp;quot;INT64&amp;quot;, &amp;quot;DOUBLE&amp;quot;, &amp;quot;STRING&amp;quot;, &amp;quot;DISTRIBUTION&amp;quot;]
@@ -176,14 +176,14 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     [TerraformPropertyName("value_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ValueType { get; set; }
+    public required TerraformValue<string> ValueType { get; set; }
 
     /// <summary>
     /// Block for labels.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("labels")]
-    public TerraformSet<TerraformBlock<GoogleMonitoringMetricDescriptorLabelsBlock>>? Labels { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleMonitoringMetricDescriptorLabelsBlock>>? Labels { get; set; }
 
     /// <summary>
     /// Block for metadata.
@@ -191,27 +191,27 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     [TerraformPropertyName("metadata")]
-    public TerraformList<TerraformBlock<GoogleMonitoringMetricDescriptorMetadataBlock>>? Metadata { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleMonitoringMetricDescriptorMetadataBlock>>? Metadata { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleMonitoringMetricDescriptorTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleMonitoringMetricDescriptorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with this metric type can only be associated with one of the monitored resource types listed here. This field allows time series to be associated with the intersection of this metric type and the monitored resource types in this list.
     /// </summary>
     [TerraformPropertyName("monitored_resource_types")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> MonitoredResourceTypes => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "monitored_resource_types");
+    public TerraformSet<string> MonitoredResourceTypes => new TerraformReference(this, "monitored_resource_types");
 
     /// <summary>
     /// The resource name of the metric descriptor.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

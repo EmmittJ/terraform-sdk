@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSecurityCenterStorageDefenderTimeoutsBlock : ITerraformBlock
+public class AzurermSecurityCenterStorageDefenderTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -51,43 +51,43 @@ public class AzurermSecurityCenterStorageDefender : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The malware_scanning_on_upload_cap_gb_per_month attribute.
     /// </summary>
     [TerraformPropertyName("malware_scanning_on_upload_cap_gb_per_month")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MalwareScanningOnUploadCapGbPerMonth { get; set; }
+    public TerraformValue<double>? MalwareScanningOnUploadCapGbPerMonth { get; set; }
 
     /// <summary>
     /// The malware_scanning_on_upload_enabled attribute.
     /// </summary>
     [TerraformPropertyName("malware_scanning_on_upload_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? MalwareScanningOnUploadEnabled { get; set; }
+    public TerraformValue<bool>? MalwareScanningOnUploadEnabled { get; set; }
 
     /// <summary>
     /// The override_subscription_settings_enabled attribute.
     /// </summary>
     [TerraformPropertyName("override_subscription_settings_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? OverrideSubscriptionSettingsEnabled { get; set; }
+    public TerraformValue<bool>? OverrideSubscriptionSettingsEnabled { get; set; }
 
     /// <summary>
     /// The scan_results_event_grid_topic_id attribute.
     /// </summary>
     [TerraformPropertyName("scan_results_event_grid_topic_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ScanResultsEventGridTopicId { get; set; }
+    public TerraformValue<string>? ScanResultsEventGridTopicId { get; set; }
 
     /// <summary>
     /// The sensitive_data_discovery_enabled attribute.
     /// </summary>
     [TerraformPropertyName("sensitive_data_discovery_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SensitiveDataDiscoveryEnabled { get; set; }
+    public TerraformValue<bool>? SensitiveDataDiscoveryEnabled { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -95,13 +95,13 @@ public class AzurermSecurityCenterStorageDefender : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformPropertyName("storage_account_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StorageAccountId { get; set; }
+    public required TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermSecurityCenterStorageDefenderTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermSecurityCenterStorageDefenderTimeoutsBlock>? Timeouts { get; set; }
 
 }

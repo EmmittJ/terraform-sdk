@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for egress_from in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressFromBlock : ITerraformBlock
+public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressFromBlock
 {
     /// <summary>
     /// Identities can be an individual user, service account, Google group,
@@ -17,7 +17,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressF
     /// </summary>
     [TerraformPropertyName("identities")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Identities { get; set; }
+    public TerraformList<string>? Identities { get; set; }
 
     /// <summary>
     /// Specifies the type of identities that are allowed access to outside the
@@ -26,14 +26,14 @@ public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressF
     /// </summary>
     [TerraformPropertyName("identity_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IdentityType { get; set; }
+    public TerraformValue<string>? IdentityType { get; set; }
 
     /// <summary>
     /// Whether to enforce traffic restrictions based on &#39;sources&#39; field. If the &#39;sources&#39; field is non-empty, then this field must be set to &#39;SOURCE_RESTRICTION_ENABLED&#39;. Possible values: [&amp;quot;SOURCE_RESTRICTION_ENABLED&amp;quot;, &amp;quot;SOURCE_RESTRICTION_DISABLED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("source_restriction")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SourceRestriction { get; set; }
+    public TerraformValue<string>? SourceRestriction { get; set; }
 
 }
 
@@ -41,7 +41,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressF
 /// Block type for egress_to in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressToBlock : ITerraformBlock
+public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressToBlock
 {
     /// <summary>
     /// A list of external resources that are allowed to be accessed. A request
@@ -50,7 +50,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressT
     /// </summary>
     [TerraformPropertyName("external_resources")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ExternalResources { get; set; }
+    public TerraformList<string>? ExternalResources { get; set; }
 
     /// <summary>
     /// A list of resources, currently only projects in the form
@@ -61,7 +61,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressT
     /// </summary>
     [TerraformPropertyName("resources")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Resources { get; set; }
+    public TerraformList<string>? Resources { get; set; }
 
     /// <summary>
     /// A list of IAM roles that represent the set of operations that the sources
@@ -70,7 +70,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressT
     /// </summary>
     [TerraformPropertyName("roles")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Roles { get; set; }
+    public TerraformList<string>? Roles { get; set; }
 
 }
 
@@ -78,21 +78,21 @@ public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressT
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyTimeoutsBlock : ITerraformBlock
+public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -110,8 +110,8 @@ public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicy : Terr
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the Service Perimeter to add this resource to.
@@ -119,14 +119,14 @@ public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicy : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Perimeter is required")]
     [TerraformPropertyName("perimeter")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Perimeter { get; set; }
+    public required TerraformValue<string> Perimeter { get; set; }
 
     /// <summary>
     /// Human readable title. Must be unique within the perimeter. Does not affect behavior.
     /// </summary>
     [TerraformPropertyName("title")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Title { get; set; }
+    public TerraformValue<string>? Title { get; set; }
 
     /// <summary>
     /// Block for egress_from.
@@ -134,7 +134,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicy : Terr
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EgressFrom block(s) allowed")]
     [TerraformPropertyName("egress_from")]
-    public TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressFromBlock>>? EgressFrom { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressFromBlock>>? EgressFrom { get; set; }
 
     /// <summary>
     /// Block for egress_to.
@@ -142,27 +142,27 @@ public class GoogleAccessContextManagerServicePerimeterDryRunEgressPolicy : Terr
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EgressTo block(s) allowed")]
     [TerraformPropertyName("egress_to")]
-    public TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressToBlock>>? EgressTo { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyEgressToBlock>>? EgressTo { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunEgressPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
     [TerraformPropertyName("access_policy_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AccessPolicyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_policy_id");
+    public TerraformValue<string> AccessPolicyId => new TerraformReference(this, "access_policy_id");
 
     /// <summary>
     /// The perimeter etag is internally used to prevent overwriting the list of policies on PATCH calls. It is retrieved from the same GET perimeter API call that&#39;s used to get the current list of policies. The policy defined in this resource is added or removed from that list, and then this etag is sent with the PATCH call along with the updated policies.
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
 }

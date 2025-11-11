@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAadb2cDirectoryTimeoutsBlock : ITerraformBlock
+public class AzurermAadb2cDirectoryTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -51,8 +51,8 @@ public class AzurermAadb2cDirectory : TerraformResource
     /// Country code of the B2C tenant. See https://aka.ms/B2CDataResidency for valid country codes.
     /// </summary>
     [TerraformPropertyName("country_code")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CountryCode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "country_code");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CountryCode { get; set; } = default!;
 
     /// <summary>
     /// Location in which the B2C tenant is hosted and data resides. See https://aka.ms/B2CDataResidency for more information.
@@ -60,14 +60,14 @@ public class AzurermAadb2cDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataResidencyLocation is required")]
     [TerraformPropertyName("data_residency_location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DataResidencyLocation { get; set; }
+    public required TerraformValue<string> DataResidencyLocation { get; set; }
 
     /// <summary>
     /// The initial display name of the B2C tenant.
     /// </summary>
     [TerraformPropertyName("display_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DisplayName { get; set; } = default!;
 
     /// <summary>
     /// Domain name of the B2C tenant, including onmicrosoft.com suffix.
@@ -75,14 +75,14 @@ public class AzurermAadb2cDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformPropertyName("domain_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
+    public required TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -90,7 +90,7 @@ public class AzurermAadb2cDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Billing SKU for the B2C tenant. See https://aka.ms/b2cBilling for more information.
@@ -98,41 +98,41 @@ public class AzurermAadb2cDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformPropertyName("sku_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SkuName { get; set; }
+    public required TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermAadb2cDirectoryTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermAadb2cDirectoryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The type of billing for the B2C tenant. Possible values include: `MAU` or `Auths`.
     /// </summary>
     [TerraformPropertyName("billing_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> BillingType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "billing_type");
+    public TerraformValue<string> BillingType => new TerraformReference(this, "billing_type");
 
     /// <summary>
     /// The date from which the billing type took effect. May not be populated until after the first billing cycle.
     /// </summary>
     [TerraformPropertyName("effective_start_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EffectiveStartDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "effective_start_date");
+    public TerraformValue<string> EffectiveStartDate => new TerraformReference(this, "effective_start_date");
 
     /// <summary>
     /// The Tenant ID for the B2C tenant.
     /// </summary>
     [TerraformPropertyName("tenant_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tenant_id");
+    public TerraformValue<string> TenantId => new TerraformReference(this, "tenant_id");
 
 }

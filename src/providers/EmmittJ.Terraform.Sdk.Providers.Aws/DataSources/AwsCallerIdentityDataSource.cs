@@ -15,28 +15,28 @@ public class AwsCallerIdentityDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [TerraformPropertyName("account_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_id");
+    public TerraformValue<string> AccountId => new TerraformReference(this, "account_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
     [TerraformPropertyName("user_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UserId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_id");
+    public TerraformValue<string> UserId => new TerraformReference(this, "user_id");
 
 }

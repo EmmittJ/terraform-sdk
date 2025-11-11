@@ -15,8 +15,8 @@ public class GoogleVmwareengineExternalAccessRuleDataSource : TerraformDataSourc
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ID of the external access rule.
@@ -24,7 +24,7 @@ public class GoogleVmwareengineExternalAccessRuleDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource name of the network policy.
@@ -34,14 +34,14 @@ public class GoogleVmwareengineExternalAccessRuleDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformPropertyName("parent")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
+    public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// The action that the external access rule performs. Possible values: [&amp;quot;ALLOW&amp;quot;, &amp;quot;DENY&amp;quot;]
     /// </summary>
     [TerraformPropertyName("action")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Action => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "action");
+    public TerraformValue<string> Action => new TerraformReference(this, "action");
 
     /// <summary>
     /// Creation time of this resource.
@@ -50,14 +50,14 @@ public class GoogleVmwareengineExternalAccessRuleDataSource : TerraformDataSourc
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// User-provided description for the external access rule.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// If destination ranges are specified, the external access rule applies only to
@@ -65,28 +65,28 @@ public class GoogleVmwareengineExternalAccessRuleDataSource : TerraformDataSourc
     /// </summary>
     [TerraformPropertyName("destination_ip_ranges")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> DestinationIpRanges => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "destination_ip_ranges");
+    public TerraformList<object> DestinationIpRanges => new TerraformReference(this, "destination_ip_ranges");
 
     /// <summary>
     /// A list of destination ports to which the external access rule applies.
     /// </summary>
     [TerraformPropertyName("destination_ports")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> DestinationPorts => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "destination_ports");
+    public TerraformList<string> DestinationPorts => new TerraformReference(this, "destination_ports");
 
     /// <summary>
     /// The IP protocol to which the external access rule applies.
     /// </summary>
     [TerraformPropertyName("ip_protocol")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> IpProtocol => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_protocol");
+    public TerraformValue<string> IpProtocol => new TerraformReference(this, "ip_protocol");
 
     /// <summary>
     /// External access rule priority, which determines the external access rule to use when multiple rules apply.
     /// </summary>
     [TerraformPropertyName("priority")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Priority => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "priority");
+    public TerraformValue<double> Priority => new TerraformReference(this, "priority");
 
     /// <summary>
     /// If source ranges are specified, the external access rule applies only to
@@ -94,28 +94,28 @@ public class GoogleVmwareengineExternalAccessRuleDataSource : TerraformDataSourc
     /// </summary>
     [TerraformPropertyName("source_ip_ranges")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> SourceIpRanges => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "source_ip_ranges");
+    public TerraformList<object> SourceIpRanges => new TerraformReference(this, "source_ip_ranges");
 
     /// <summary>
     /// A list of source ports to which the external access rule applies.
     /// </summary>
     [TerraformPropertyName("source_ports")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> SourcePorts => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "source_ports");
+    public TerraformList<string> SourcePorts => new TerraformReference(this, "source_ports");
 
     /// <summary>
     /// State of the Cluster.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Last updated time of this resource.
@@ -124,6 +124,6 @@ public class GoogleVmwareengineExternalAccessRuleDataSource : TerraformDataSourc
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

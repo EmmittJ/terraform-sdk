@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNotificationHubAuthorizationRuleTimeoutsBlock : ITerraformBlock
+public class AzurermNotificationHubAuthorizationRuleTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -51,22 +51,22 @@ public class AzurermNotificationHubAuthorizationRule : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The listen attribute.
     /// </summary>
     [TerraformPropertyName("listen")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Listen { get; set; }
+    public TerraformValue<bool>? Listen { get; set; }
 
     /// <summary>
     /// The manage attribute.
     /// </summary>
     [TerraformPropertyName("manage")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Manage { get; set; }
+    public TerraformValue<bool>? Manage { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -74,7 +74,7 @@ public class AzurermNotificationHubAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
@@ -82,7 +82,7 @@ public class AzurermNotificationHubAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     [TerraformPropertyName("namespace_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NamespaceName { get; set; }
+    public required TerraformValue<string> NamespaceName { get; set; }
 
     /// <summary>
     /// The notification_hub_name attribute.
@@ -90,7 +90,7 @@ public class AzurermNotificationHubAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationHubName is required")]
     [TerraformPropertyName("notification_hub_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NotificationHubName { get; set; }
+    public required TerraformValue<string> NotificationHubName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -98,48 +98,48 @@ public class AzurermNotificationHubAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The send attribute.
     /// </summary>
     [TerraformPropertyName("send")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Send { get; set; }
+    public TerraformValue<bool>? Send { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermNotificationHubAuthorizationRuleTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermNotificationHubAuthorizationRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     [TerraformPropertyName("primary_access_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrimaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_access_key");
+    public TerraformValue<string> PrimaryAccessKey => new TerraformReference(this, "primary_access_key");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     [TerraformPropertyName("primary_connection_string")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrimaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_connection_string");
+    public TerraformValue<string> PrimaryConnectionString => new TerraformReference(this, "primary_connection_string");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     [TerraformPropertyName("secondary_access_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SecondaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_access_key");
+    public TerraformValue<string> SecondaryAccessKey => new TerraformReference(this, "secondary_access_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     [TerraformPropertyName("secondary_connection_string")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SecondaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_connection_string");
+    public TerraformValue<string> SecondaryConnectionString => new TerraformReference(this, "secondary_connection_string");
 
 }

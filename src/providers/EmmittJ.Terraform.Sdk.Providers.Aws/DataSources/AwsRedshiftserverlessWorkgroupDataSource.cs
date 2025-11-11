@@ -15,15 +15,15 @@ public class AwsRedshiftserverlessWorkgroupDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The workgroup_name attribute.
@@ -31,69 +31,69 @@ public class AwsRedshiftserverlessWorkgroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     [TerraformPropertyName("workgroup_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkgroupName { get; set; }
+    public required TerraformValue<string> WorkgroupName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [TerraformPropertyName("endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Endpoint => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "endpoint");
+    public TerraformList<object> Endpoint => new TerraformReference(this, "endpoint");
 
     /// <summary>
     /// The enhanced_vpc_routing attribute.
     /// </summary>
     [TerraformPropertyName("enhanced_vpc_routing")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> EnhancedVpcRouting => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enhanced_vpc_routing");
+    public TerraformValue<bool> EnhancedVpcRouting => new TerraformReference(this, "enhanced_vpc_routing");
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [TerraformPropertyName("namespace_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NamespaceName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "namespace_name");
+    public TerraformValue<string> NamespaceName => new TerraformReference(this, "namespace_name");
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
     [TerraformPropertyName("publicly_accessible")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> PubliclyAccessible => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "publicly_accessible");
+    public TerraformValue<bool> PubliclyAccessible => new TerraformReference(this, "publicly_accessible");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     [TerraformPropertyName("security_group_ids")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> SecurityGroupIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "security_group_ids");
+    public TerraformSet<string> SecurityGroupIds => new TerraformReference(this, "security_group_ids");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [TerraformPropertyName("subnet_ids")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> SubnetIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "subnet_ids");
+    public TerraformSet<string> SubnetIds => new TerraformReference(this, "subnet_ids");
 
     /// <summary>
     /// The track_name attribute.
     /// </summary>
     [TerraformPropertyName("track_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TrackName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "track_name");
+    public TerraformValue<string> TrackName => new TerraformReference(this, "track_name");
 
     /// <summary>
     /// The workgroup_id attribute.
     /// </summary>
     [TerraformPropertyName("workgroup_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> WorkgroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workgroup_id");
+    public TerraformValue<string> WorkgroupId => new TerraformReference(this, "workgroup_id");
 
 }

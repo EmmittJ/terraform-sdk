@@ -75,7 +75,7 @@ public class MapPropertyIntegrationTests
         stack.Add(environment);
 
         // Mix literals and expressions using TerraformProperty wrapper
-        var tags = new Dictionary<string, TerraformProperty<string>>
+        var tags = new Dictionary<string, TerraformValue<string>>
         {
             ["Name"] = "MyApp",  // Implicit conversion from string
             ["Environment"] = environment.AsReference(),  // TerraformExpression

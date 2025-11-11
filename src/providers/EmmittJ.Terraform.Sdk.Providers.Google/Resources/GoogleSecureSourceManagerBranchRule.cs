@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSecureSourceManagerBranchRuleTimeoutsBlock : ITerraformBlock
+public class GoogleSecureSourceManagerBranchRuleTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     /// </summary>
     [TerraformPropertyName("allow_stale_reviews")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AllowStaleReviews { get; set; }
+    public TerraformValue<bool>? AllowStaleReviews { get; set; }
 
     /// <summary>
     /// The ID for the BranchRule.
@@ -53,21 +53,21 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchRuleId is required")]
     [TerraformPropertyName("branch_rule_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BranchRuleId { get; set; }
+    public required TerraformValue<string> BranchRuleId { get; set; }
 
     /// <summary>
     /// Determines if the branch rule is disabled or not.
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The BranchRule matches branches based on the specified regular expression. Use .* to match all branches.
@@ -75,7 +75,7 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludePattern is required")]
     [TerraformPropertyName("include_pattern")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IncludePattern { get; set; }
+    public required TerraformValue<string> IncludePattern { get; set; }
 
     /// <summary>
     /// The location for the Repository.
@@ -83,28 +83,28 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The minimum number of approvals required for the branch rule to be matched.
     /// </summary>
     [TerraformPropertyName("minimum_approvals_count")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MinimumApprovalsCount { get; set; }
+    public TerraformValue<double>? MinimumApprovalsCount { get; set; }
 
     /// <summary>
     /// The minimum number of reviews required for the branch rule to be matched.
     /// </summary>
     [TerraformPropertyName("minimum_reviews_count")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MinimumReviewsCount { get; set; }
+    public TerraformValue<double>? MinimumReviewsCount { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The ID for the Repository.
@@ -112,62 +112,62 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     [TerraformPropertyName("repository_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RepositoryId { get; set; }
+    public required TerraformValue<string> RepositoryId { get; set; }
 
     /// <summary>
     /// Determines if require comments resolved before merging to the branch.
     /// </summary>
     [TerraformPropertyName("require_comments_resolved")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RequireCommentsResolved { get; set; }
+    public TerraformValue<bool>? RequireCommentsResolved { get; set; }
 
     /// <summary>
     /// Determines if require linear history before merging to the branch.
     /// </summary>
     [TerraformPropertyName("require_linear_history")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RequireLinearHistory { get; set; }
+    public TerraformValue<bool>? RequireLinearHistory { get; set; }
 
     /// <summary>
     /// Determines if the branch rule requires a pull request or not.
     /// </summary>
     [TerraformPropertyName("require_pull_request")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RequirePullRequest { get; set; }
+    public TerraformValue<bool>? RequirePullRequest { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleSecureSourceManagerBranchRuleTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleSecureSourceManagerBranchRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the BranchRule was created in UTC.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The resource name for the BranchRule.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Unique identifier of the BranchRule.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Time the BranchRule was updated in UTC.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

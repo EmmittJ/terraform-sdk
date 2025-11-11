@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleOsLoginSshPublicKeyTimeoutsBlock : ITerraformBlock
+public class GoogleOsLoginSshPublicKeyTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public class GoogleOsLoginSshPublicKey : TerraformResource
     /// </summary>
     [TerraformPropertyName("expiration_time_usec")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ExpirationTimeUsec { get; set; }
+    public TerraformValue<string>? ExpirationTimeUsec { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Public key text in SSH format, defined by RFC4253 section 6.6.
@@ -60,14 +60,14 @@ public class GoogleOsLoginSshPublicKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformPropertyName("key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
+    public required TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The project ID of the Google Cloud Platform project.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The user email.
@@ -75,20 +75,20 @@ public class GoogleOsLoginSshPublicKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [TerraformPropertyName("user")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> User { get; set; }
+    public required TerraformValue<string> User { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleOsLoginSshPublicKeyTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleOsLoginSshPublicKeyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The SHA-256 fingerprint of the SSH public key.
     /// </summary>
     [TerraformPropertyName("fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Fingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fingerprint");
+    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
 
 }

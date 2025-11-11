@@ -15,15 +15,15 @@ public class AwsControltowerControlsDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The target_identifier attribute.
@@ -31,13 +31,13 @@ public class AwsControltowerControlsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetIdentifier is required")]
     [TerraformPropertyName("target_identifier")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetIdentifier { get; set; }
+    public required TerraformValue<string> TargetIdentifier { get; set; }
 
     /// <summary>
     /// The enabled_controls attribute.
     /// </summary>
     [TerraformPropertyName("enabled_controls")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> EnabledControls => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "enabled_controls");
+    public TerraformList<string> EnabledControls => new TerraformReference(this, "enabled_controls");
 
 }

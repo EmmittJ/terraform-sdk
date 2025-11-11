@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKubernetesClusterNodePoolDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermKubernetesClusterNodePoolDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermKubernetesClusterNodePoolDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The kubernetes_cluster_name attribute.
@@ -39,7 +39,7 @@ public class AzurermKubernetesClusterNodePoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterName is required")]
     [TerraformPropertyName("kubernetes_cluster_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KubernetesClusterName { get; set; }
+    public required TerraformValue<string> KubernetesClusterName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,7 +47,7 @@ public class AzurermKubernetesClusterNodePoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -55,181 +55,181 @@ public class AzurermKubernetesClusterNodePoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermKubernetesClusterNodePoolDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermKubernetesClusterNodePoolDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The auto_scaling_enabled attribute.
     /// </summary>
     [TerraformPropertyName("auto_scaling_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> AutoScalingEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "auto_scaling_enabled");
+    public TerraformValue<bool> AutoScalingEnabled => new TerraformReference(this, "auto_scaling_enabled");
 
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
     [TerraformPropertyName("eviction_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EvictionPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "eviction_policy");
+    public TerraformValue<string> EvictionPolicy => new TerraformReference(this, "eviction_policy");
 
     /// <summary>
     /// The gpu_driver attribute.
     /// </summary>
     [TerraformPropertyName("gpu_driver")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GpuDriver => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gpu_driver");
+    public TerraformValue<string> GpuDriver => new TerraformReference(this, "gpu_driver");
 
     /// <summary>
     /// The max_count attribute.
     /// </summary>
     [TerraformPropertyName("max_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MaxCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_count");
+    public TerraformValue<double> MaxCount => new TerraformReference(this, "max_count");
 
     /// <summary>
     /// The max_pods attribute.
     /// </summary>
     [TerraformPropertyName("max_pods")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MaxPods => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_pods");
+    public TerraformValue<double> MaxPods => new TerraformReference(this, "max_pods");
 
     /// <summary>
     /// The min_count attribute.
     /// </summary>
     [TerraformPropertyName("min_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MinCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_count");
+    public TerraformValue<double> MinCount => new TerraformReference(this, "min_count");
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformPropertyName("mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Mode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mode");
+    public TerraformValue<string> Mode => new TerraformReference(this, "mode");
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
     [TerraformPropertyName("node_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> NodeCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "node_count");
+    public TerraformValue<double> NodeCount => new TerraformReference(this, "node_count");
 
     /// <summary>
     /// The node_labels attribute.
     /// </summary>
     [TerraformPropertyName("node_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> NodeLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "node_labels");
+    public TerraformMap<string> NodeLabels => new TerraformReference(this, "node_labels");
 
     /// <summary>
     /// The node_public_ip_enabled attribute.
     /// </summary>
     [TerraformPropertyName("node_public_ip_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> NodePublicIpEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "node_public_ip_enabled");
+    public TerraformValue<bool> NodePublicIpEnabled => new TerraformReference(this, "node_public_ip_enabled");
 
     /// <summary>
     /// The node_public_ip_prefix_id attribute.
     /// </summary>
     [TerraformPropertyName("node_public_ip_prefix_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NodePublicIpPrefixId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_public_ip_prefix_id");
+    public TerraformValue<string> NodePublicIpPrefixId => new TerraformReference(this, "node_public_ip_prefix_id");
 
     /// <summary>
     /// The node_taints attribute.
     /// </summary>
     [TerraformPropertyName("node_taints")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> NodeTaints => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "node_taints");
+    public TerraformList<string> NodeTaints => new TerraformReference(this, "node_taints");
 
     /// <summary>
     /// The orchestrator_version attribute.
     /// </summary>
     [TerraformPropertyName("orchestrator_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OrchestratorVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "orchestrator_version");
+    public TerraformValue<string> OrchestratorVersion => new TerraformReference(this, "orchestrator_version");
 
     /// <summary>
     /// The os_disk_size_gb attribute.
     /// </summary>
     [TerraformPropertyName("os_disk_size_gb")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> OsDiskSizeGb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "os_disk_size_gb");
+    public TerraformValue<double> OsDiskSizeGb => new TerraformReference(this, "os_disk_size_gb");
 
     /// <summary>
     /// The os_disk_type attribute.
     /// </summary>
     [TerraformPropertyName("os_disk_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OsDiskType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "os_disk_type");
+    public TerraformValue<string> OsDiskType => new TerraformReference(this, "os_disk_type");
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
     [TerraformPropertyName("os_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OsType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "os_type");
+    public TerraformValue<string> OsType => new TerraformReference(this, "os_type");
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [TerraformPropertyName("priority")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Priority => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "priority");
+    public TerraformValue<string> Priority => new TerraformReference(this, "priority");
 
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
     [TerraformPropertyName("proximity_placement_group_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ProximityPlacementGroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "proximity_placement_group_id");
+    public TerraformValue<string> ProximityPlacementGroupId => new TerraformReference(this, "proximity_placement_group_id");
 
     /// <summary>
     /// The spot_max_price attribute.
     /// </summary>
     [TerraformPropertyName("spot_max_price")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> SpotMaxPrice => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "spot_max_price");
+    public TerraformValue<double> SpotMaxPrice => new TerraformReference(this, "spot_max_price");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The upgrade_settings attribute.
     /// </summary>
     [TerraformPropertyName("upgrade_settings")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> UpgradeSettings => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "upgrade_settings");
+    public TerraformList<object> UpgradeSettings => new TerraformReference(this, "upgrade_settings");
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
     [TerraformPropertyName("vm_size")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VmSize => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vm_size");
+    public TerraformValue<string> VmSize => new TerraformReference(this, "vm_size");
 
     /// <summary>
     /// The vnet_subnet_id attribute.
     /// </summary>
     [TerraformPropertyName("vnet_subnet_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VnetSubnetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vnet_subnet_id");
+    public TerraformValue<string> VnetSubnetId => new TerraformReference(this, "vnet_subnet_id");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [TerraformPropertyName("zones")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Zones => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "zones");
+    public TerraformList<string> Zones => new TerraformReference(this, "zones");
 
 }

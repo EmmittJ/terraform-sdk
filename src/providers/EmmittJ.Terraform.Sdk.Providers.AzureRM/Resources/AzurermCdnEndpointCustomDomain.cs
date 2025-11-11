@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for cdn_managed_https in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : ITerraformBlock
+public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock
 {
     /// <summary>
     /// The certificate_type attribute.
@@ -14,7 +14,7 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateType is required")]
     [TerraformPropertyName("certificate_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CertificateType { get; set; }
+    public required TerraformValue<string> CertificateType { get; set; }
 
     /// <summary>
     /// The protocol_type attribute.
@@ -22,14 +22,14 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolType is required")]
     [TerraformPropertyName("protocol_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ProtocolType { get; set; }
+    public required TerraformValue<string> ProtocolType { get; set; }
 
     /// <summary>
     /// The tls_version attribute.
     /// </summary>
     [TerraformPropertyName("tls_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TlsVersion { get; set; }
+    public TerraformValue<string>? TlsVersion { get; set; }
 
 }
 
@@ -37,35 +37,35 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : ITerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCdnEndpointCustomDomainTimeoutsBlock : ITerraformBlock
+public class AzurermCdnEndpointCustomDomainTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -73,7 +73,7 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : ITerraformBlock
 /// Block type for user_managed_https in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : ITerraformBlock
+public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock
 {
     /// <summary>
     /// The key_vault_secret_id attribute.
@@ -81,14 +81,14 @@ public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultSecretId is required")]
     [TerraformPropertyName("key_vault_secret_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyVaultSecretId { get; set; }
+    public required TerraformValue<string> KeyVaultSecretId { get; set; }
 
     /// <summary>
     /// The tls_version attribute.
     /// </summary>
     [TerraformPropertyName("tls_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TlsVersion { get; set; }
+    public TerraformValue<string>? TlsVersion { get; set; }
 
 }
 
@@ -108,7 +108,7 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnEndpointId is required")]
     [TerraformPropertyName("cdn_endpoint_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CdnEndpointId { get; set; }
+    public required TerraformValue<string> CdnEndpointId { get; set; }
 
     /// <summary>
     /// The host_name attribute.
@@ -116,14 +116,14 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     [TerraformPropertyName("host_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HostName { get; set; }
+    public required TerraformValue<string> HostName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -131,7 +131,7 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for cdn_managed_https.
@@ -139,14 +139,14 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CdnManagedHttps block(s) allowed")]
     [TerraformPropertyName("cdn_managed_https")]
-    public TerraformList<TerraformBlock<AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock>>? CdnManagedHttps { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock>>? CdnManagedHttps { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermCdnEndpointCustomDomainTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermCdnEndpointCustomDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for user_managed_https.
@@ -154,6 +154,6 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserManagedHttps block(s) allowed")]
     [TerraformPropertyName("user_managed_https")]
-    public TerraformList<TerraformBlock<AzurermCdnEndpointCustomDomainUserManagedHttpsBlock>>? UserManagedHttps { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermCdnEndpointCustomDomainUserManagedHttpsBlock>>? UserManagedHttps { get; set; }
 
 }

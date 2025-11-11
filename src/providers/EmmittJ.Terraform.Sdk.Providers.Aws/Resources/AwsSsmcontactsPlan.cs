@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for stage in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsmcontactsPlanStageBlock : ITerraformBlock
+public class AwsSsmcontactsPlanStageBlock
 {
     /// <summary>
     /// The duration_in_minutes attribute.
@@ -14,7 +14,7 @@ public class AwsSsmcontactsPlanStageBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DurationInMinutes is required")]
     [TerraformPropertyName("duration_in_minutes")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> DurationInMinutes { get; set; }
+    public required TerraformValue<double> DurationInMinutes { get; set; }
 
 }
 
@@ -34,21 +34,21 @@ public class AwsSsmcontactsPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactId is required")]
     [TerraformPropertyName("contact_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContactId { get; set; }
+    public required TerraformValue<string> ContactId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for stage.
@@ -57,6 +57,6 @@ public class AwsSsmcontactsPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Stage block(s) required")]
     [TerraformPropertyName("stage")]
-    public TerraformList<TerraformBlock<AwsSsmcontactsPlanStageBlock>>? Stage { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSsmcontactsPlanStageBlock>>? Stage { get; set; }
 
 }

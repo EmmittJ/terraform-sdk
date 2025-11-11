@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeFirewallPolicyTimeoutsBlock : ITerraformBlock
+public class GoogleComputeFirewallPolicyTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public class GoogleComputeFirewallPolicy : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The parent of the firewall policy.
@@ -60,7 +60,7 @@ public class GoogleComputeFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformPropertyName("parent")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
+    public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// User-provided name of the Organization firewall policy. The name should be unique in the organization in which the firewall policy is created.
@@ -70,62 +70,62 @@ public class GoogleComputeFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
     [TerraformPropertyName("short_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ShortName { get; set; }
+    public required TerraformValue<string> ShortName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeFirewallPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// Fingerprint of the resource. This field is used internally during updates of this resource.
     /// </summary>
     [TerraformPropertyName("fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Fingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fingerprint");
+    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformPropertyName("firewall_policy_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> FirewallPolicyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "firewall_policy_id");
+    public TerraformValue<string> FirewallPolicyId => new TerraformReference(this, "firewall_policy_id");
 
     /// <summary>
     /// Name of the resource. It is a numeric ID allocated by GCP which uniquely identifies the Firewall Policy.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Total count of all firewall policy rule tuples. A firewall policy can not exceed a set number of tuples.
     /// </summary>
     [TerraformPropertyName("rule_tuple_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> RuleTupleCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "rule_tuple_count");
+    public TerraformValue<double> RuleTupleCount => new TerraformReference(this, "rule_tuple_count");
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// Server-defined URL for this resource with the resource id.
     /// </summary>
     [TerraformPropertyName("self_link_with_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLinkWithId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link_with_id");
+    public TerraformValue<string> SelfLinkWithId => new TerraformReference(this, "self_link_with_id");
 
 }

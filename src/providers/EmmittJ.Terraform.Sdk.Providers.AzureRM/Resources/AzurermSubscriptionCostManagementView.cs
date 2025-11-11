@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for dataset in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSubscriptionCostManagementViewDatasetBlock : ITerraformBlock
+public class AzurermSubscriptionCostManagementViewDatasetBlock
 {
     /// <summary>
     /// The granularity attribute.
@@ -14,7 +14,7 @@ public class AzurermSubscriptionCostManagementViewDatasetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Granularity is required")]
     [TerraformPropertyName("granularity")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Granularity { get; set; }
+    public required TerraformValue<string> Granularity { get; set; }
 
 }
 
@@ -22,7 +22,7 @@ public class AzurermSubscriptionCostManagementViewDatasetBlock : ITerraformBlock
 /// Block type for kpi in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSubscriptionCostManagementViewKpiBlock : ITerraformBlock
+public class AzurermSubscriptionCostManagementViewKpiBlock
 {
     /// <summary>
     /// The type attribute.
@@ -30,7 +30,7 @@ public class AzurermSubscriptionCostManagementViewKpiBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public class AzurermSubscriptionCostManagementViewKpiBlock : ITerraformBlock
 /// Block type for pivot in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSubscriptionCostManagementViewPivotBlock : ITerraformBlock
+public class AzurermSubscriptionCostManagementViewPivotBlock
 {
     /// <summary>
     /// The name attribute.
@@ -46,7 +46,7 @@ public class AzurermSubscriptionCostManagementViewPivotBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -54,7 +54,7 @@ public class AzurermSubscriptionCostManagementViewPivotBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -62,35 +62,35 @@ public class AzurermSubscriptionCostManagementViewPivotBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSubscriptionCostManagementViewTimeoutsBlock : ITerraformBlock
+public class AzurermSubscriptionCostManagementViewTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -110,7 +110,7 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Accumulated is required")]
     [TerraformPropertyName("accumulated")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Accumulated { get; set; }
+    public required TerraformValue<bool> Accumulated { get; set; }
 
     /// <summary>
     /// The chart_type attribute.
@@ -118,7 +118,7 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChartType is required")]
     [TerraformPropertyName("chart_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ChartType { get; set; }
+    public required TerraformValue<string> ChartType { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -126,14 +126,14 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -141,7 +141,7 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The report_type attribute.
@@ -149,7 +149,7 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportType is required")]
     [TerraformPropertyName("report_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ReportType { get; set; }
+    public required TerraformValue<string> ReportType { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
@@ -157,7 +157,7 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     [TerraformPropertyName("subscription_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SubscriptionId { get; set; }
+    public required TerraformValue<string> SubscriptionId { get; set; }
 
     /// <summary>
     /// The timeframe attribute.
@@ -165,7 +165,7 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeframe is required")]
     [TerraformPropertyName("timeframe")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Timeframe { get; set; }
+    public required TerraformValue<string> Timeframe { get; set; }
 
     /// <summary>
     /// Block for dataset.
@@ -175,27 +175,27 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Dataset block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
     [TerraformPropertyName("dataset")]
-    public TerraformList<TerraformBlock<AzurermSubscriptionCostManagementViewDatasetBlock>>? Dataset { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermSubscriptionCostManagementViewDatasetBlock>>? Dataset { get; set; }
 
     /// <summary>
     /// Block for kpi.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("kpi")]
-    public TerraformList<TerraformBlock<AzurermSubscriptionCostManagementViewKpiBlock>>? Kpi { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermSubscriptionCostManagementViewKpiBlock>>? Kpi { get; set; }
 
     /// <summary>
     /// Block for pivot.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("pivot")]
-    public TerraformList<TerraformBlock<AzurermSubscriptionCostManagementViewPivotBlock>>? Pivot { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermSubscriptionCostManagementViewPivotBlock>>? Pivot { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermSubscriptionCostManagementViewTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermSubscriptionCostManagementViewTimeoutsBlock>? Timeouts { get; set; }
 
 }

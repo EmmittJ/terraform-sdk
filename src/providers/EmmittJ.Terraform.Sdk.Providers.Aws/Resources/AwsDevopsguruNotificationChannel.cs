@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filters in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDevopsguruNotificationChannelFiltersBlock : ITerraformBlock
+public class AwsDevopsguruNotificationChannelFiltersBlock
 {
     /// <summary>
     /// The message_types attribute.
     /// </summary>
     [TerraformPropertyName("message_types")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? MessageTypes { get; set; }
+    public TerraformSet<string>? MessageTypes { get; set; }
 
     /// <summary>
     /// The severities attribute.
     /// </summary>
     [TerraformPropertyName("severities")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Severities { get; set; }
+    public TerraformSet<string>? Severities { get; set; }
 
 }
 
@@ -28,7 +28,7 @@ public class AwsDevopsguruNotificationChannelFiltersBlock : ITerraformBlock
 /// Block type for sns in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDevopsguruNotificationChannelSnsBlock : ITerraformBlock
+public class AwsDevopsguruNotificationChannelSnsBlock
 {
     /// <summary>
     /// The topic_arn attribute.
@@ -36,7 +36,7 @@ public class AwsDevopsguruNotificationChannelSnsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     [TerraformPropertyName("topic_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TopicArn { get; set; }
+    public required TerraformValue<string> TopicArn { get; set; }
 
 }
 
@@ -53,28 +53,28 @@ public class AwsDevopsguruNotificationChannel : TerraformResource
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for filters.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("filters")]
-    public TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelFiltersBlock>>? Filters { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelFiltersBlock>>? Filters { get; set; }
 
     /// <summary>
     /// Block for sns.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("sns")]
-    public TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelSnsBlock>>? Sns { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelSnsBlock>>? Sns { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

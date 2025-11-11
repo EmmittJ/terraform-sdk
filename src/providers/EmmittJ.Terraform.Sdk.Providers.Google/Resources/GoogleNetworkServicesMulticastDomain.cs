@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for connection_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesMulticastDomainConnectionConfigBlock : ITerraformBlock
+public class GoogleNetworkServicesMulticastDomainConnectionConfigBlock
 {
     /// <summary>
     /// The VPC connection type.
@@ -17,7 +17,7 @@ public class GoogleNetworkServicesMulticastDomainConnectionConfigBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionType is required")]
     [TerraformPropertyName("connection_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConnectionType { get; set; }
+    public required TerraformValue<string> ConnectionType { get; set; }
 
     /// <summary>
     /// The resource name of the
@@ -27,7 +27,7 @@ public class GoogleNetworkServicesMulticastDomainConnectionConfigBlock : ITerraf
     /// </summary>
     [TerraformPropertyName("ncc_hub")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NccHub { get; set; }
+    public TerraformValue<string>? NccHub { get; set; }
 
 }
 
@@ -35,28 +35,28 @@ public class GoogleNetworkServicesMulticastDomainConnectionConfigBlock : ITerraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkServicesMulticastDomainTimeoutsBlock : ITerraformBlock
+public class GoogleNetworkServicesMulticastDomainTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,21 +78,21 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminNetwork is required")]
     [TerraformPropertyName("admin_network")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AdminNetwork { get; set; }
+    public required TerraformValue<string> AdminNetwork { get; set; }
 
     /// <summary>
     /// An optional text description of the multicast domain.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Labels as key-value pairs.
@@ -102,7 +102,7 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -110,7 +110,7 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The multicast domain group this domain should be associated with.
@@ -119,7 +119,7 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// </summary>
     [TerraformPropertyName("multicast_domain_group")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MulticastDomainGroup { get; set; }
+    public TerraformValue<string>? MulticastDomainGroup { get; set; }
 
     /// <summary>
     /// A unique name for the multicast domain.
@@ -130,14 +130,14 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MulticastDomainId is required")]
     [TerraformPropertyName("multicast_domain_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MulticastDomainId { get; set; }
+    public required TerraformValue<string> MulticastDomainId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for connection_config.
@@ -147,28 +147,28 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectionConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionConfig block(s) allowed")]
     [TerraformPropertyName("connection_config")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesMulticastDomainConnectionConfigBlock>>? ConnectionConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkServicesMulticastDomainConnectionConfigBlock>>? ConnectionConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleNetworkServicesMulticastDomainTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleNetworkServicesMulticastDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// [Output only] The timestamp when the multicast domain was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Identifier. The resource name of the multicast domain.
@@ -177,7 +177,7 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -185,7 +185,7 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// [Output only] The Google-generated UUID for the resource. This value is
@@ -195,7 +195,7 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// </summary>
     [TerraformPropertyName("unique_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UniqueId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "unique_id");
+    public TerraformValue<string> UniqueId => new TerraformReference(this, "unique_id");
 
     /// <summary>
     /// [Output only] The timestamp when the multicast domain was most recently
@@ -203,6 +203,6 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

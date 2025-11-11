@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for auto_scale_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNginxDeploymentAutoScaleProfileBlock : ITerraformBlock
+public class AzurermNginxDeploymentAutoScaleProfileBlock
 {
     /// <summary>
     /// The max_capacity attribute.
@@ -14,7 +14,7 @@ public class AzurermNginxDeploymentAutoScaleProfileBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     [TerraformPropertyName("max_capacity")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> MaxCapacity { get; set; }
+    public required TerraformValue<double> MaxCapacity { get; set; }
 
     /// <summary>
     /// The min_capacity attribute.
@@ -22,7 +22,7 @@ public class AzurermNginxDeploymentAutoScaleProfileBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     [TerraformPropertyName("min_capacity")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> MinCapacity { get; set; }
+    public required TerraformValue<double> MinCapacity { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public class AzurermNginxDeploymentAutoScaleProfileBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public class AzurermNginxDeploymentAutoScaleProfileBlock : ITerraformBlock
 /// Block type for frontend_private in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNginxDeploymentFrontendPrivateBlock : ITerraformBlock
+public class AzurermNginxDeploymentFrontendPrivateBlock
 {
     /// <summary>
     /// The allocation_method attribute.
@@ -46,7 +46,7 @@ public class AzurermNginxDeploymentFrontendPrivateBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationMethod is required")]
     [TerraformPropertyName("allocation_method")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AllocationMethod { get; set; }
+    public required TerraformValue<string> AllocationMethod { get; set; }
 
     /// <summary>
     /// The ip_address attribute.
@@ -54,7 +54,7 @@ public class AzurermNginxDeploymentFrontendPrivateBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     [TerraformPropertyName("ip_address")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IpAddress { get; set; }
+    public required TerraformValue<string> IpAddress { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -62,7 +62,7 @@ public class AzurermNginxDeploymentFrontendPrivateBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformPropertyName("subnet_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
+    public required TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -70,14 +70,14 @@ public class AzurermNginxDeploymentFrontendPrivateBlock : ITerraformBlock
 /// Block type for frontend_public in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNginxDeploymentFrontendPublicBlock : ITerraformBlock
+public class AzurermNginxDeploymentFrontendPublicBlock
 {
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     [TerraformPropertyName("ip_address")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? IpAddress { get; set; }
+    public TerraformList<string>? IpAddress { get; set; }
 
 }
 
@@ -85,28 +85,16 @@ public class AzurermNginxDeploymentFrontendPublicBlock : ITerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNginxDeploymentIdentityBlock : ITerraformBlock
+public class AzurermNginxDeploymentIdentityBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [TerraformPropertyName("identity_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
+    public TerraformSet<string>? IdentityIds { get; set; }
 
-    /// <summary>
-    /// The principal_id attribute.
-    /// </summary>
-    [TerraformPropertyName("principal_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
-    /// <summary>
-    /// The tenant_id attribute.
-    /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -114,7 +102,7 @@ public class AzurermNginxDeploymentIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -123,21 +111,21 @@ public class AzurermNginxDeploymentIdentityBlock : ITerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AzurermNginxDeploymentLoggingStorageAccountBlock : ITerraformBlock
+public class AzurermNginxDeploymentLoggingStorageAccountBlock
 {
     /// <summary>
     /// The container_name attribute.
     /// </summary>
     [TerraformPropertyName("container_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContainerName { get; set; }
+    public TerraformValue<string>? ContainerName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
+    public TerraformValue<string>? Name { get; set; }
 
 }
 
@@ -145,7 +133,7 @@ public class AzurermNginxDeploymentLoggingStorageAccountBlock : ITerraformBlock
 /// Block type for network_interface in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNginxDeploymentNetworkInterfaceBlock : ITerraformBlock
+public class AzurermNginxDeploymentNetworkInterfaceBlock
 {
     /// <summary>
     /// The subnet_id attribute.
@@ -153,7 +141,7 @@ public class AzurermNginxDeploymentNetworkInterfaceBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformPropertyName("subnet_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
+    public required TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -161,35 +149,35 @@ public class AzurermNginxDeploymentNetworkInterfaceBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNginxDeploymentTimeoutsBlock : ITerraformBlock
+public class AzurermNginxDeploymentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -197,7 +185,7 @@ public class AzurermNginxDeploymentTimeoutsBlock : ITerraformBlock
 /// Block type for web_application_firewall in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNginxDeploymentWebApplicationFirewallBlock : ITerraformBlock
+public class AzurermNginxDeploymentWebApplicationFirewallBlock
 {
     /// <summary>
     /// The activation_state_enabled attribute.
@@ -205,14 +193,8 @@ public class AzurermNginxDeploymentWebApplicationFirewallBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActivationStateEnabled is required")]
     [TerraformPropertyName("activation_state_enabled")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> ActivationStateEnabled { get; set; }
+    public required TerraformValue<bool> ActivationStateEnabled { get; set; }
 
-    /// <summary>
-    /// The status attribute.
-    /// </summary>
-    [TerraformPropertyName("status")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Status => new TerraformReferenceProperty<List<TerraformProperty<object>>>("", "status");
 
 }
 
@@ -231,35 +213,35 @@ public class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [TerraformPropertyName("automatic_upgrade_channel")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AutomaticUpgradeChannel { get; set; }
+    public TerraformValue<string>? AutomaticUpgradeChannel { get; set; }
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
     [TerraformPropertyName("capacity")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Capacity { get; set; }
+    public TerraformValue<double>? Capacity { get; set; }
 
     /// <summary>
     /// The diagnose_support_enabled attribute.
     /// </summary>
     [TerraformPropertyName("diagnose_support_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DiagnoseSupportEnabled { get; set; }
+    public TerraformValue<bool>? DiagnoseSupportEnabled { get; set; }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [TerraformPropertyName("email")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Email { get; set; }
+    public TerraformValue<string>? Email { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -267,15 +249,15 @@ public class AzurermNginxDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The managed_resource_group attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     [TerraformPropertyName("managed_resource_group")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ManagedResourceGroup { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "managed_resource_group");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ManagedResourceGroup { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -283,7 +265,7 @@ public class AzurermNginxDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -291,7 +273,7 @@ public class AzurermNginxDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
@@ -299,28 +281,28 @@ public class AzurermNginxDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [TerraformPropertyName("sku")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Sku { get; set; }
+    public required TerraformValue<string> Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for auto_scale_profile.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("auto_scale_profile")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentAutoScaleProfileBlock>>? AutoScaleProfile { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermNginxDeploymentAutoScaleProfileBlock>>? AutoScaleProfile { get; set; }
 
     /// <summary>
     /// Block for frontend_private.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("frontend_private")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentFrontendPrivateBlock>>? FrontendPrivate { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermNginxDeploymentFrontendPrivateBlock>>? FrontendPrivate { get; set; }
 
     /// <summary>
     /// Block for frontend_public.
@@ -328,7 +310,7 @@ public class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendPublic block(s) allowed")]
     [TerraformPropertyName("frontend_public")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentFrontendPublicBlock>>? FrontendPublic { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermNginxDeploymentFrontendPublicBlock>>? FrontendPublic { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -336,7 +318,7 @@ public class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformPropertyName("identity")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentIdentityBlock>>? Identity { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermNginxDeploymentIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for logging_storage_account.
@@ -344,21 +326,21 @@ public class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformPropertyName("logging_storage_account")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentLoggingStorageAccountBlock>>? LoggingStorageAccount { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermNginxDeploymentLoggingStorageAccountBlock>>? LoggingStorageAccount { get; set; }
 
     /// <summary>
     /// Block for network_interface.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("network_interface")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentNetworkInterfaceBlock>>? NetworkInterface { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermNginxDeploymentNetworkInterfaceBlock>>? NetworkInterface { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermNginxDeploymentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermNginxDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for web_application_firewall.
@@ -366,27 +348,27 @@ public class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebApplicationFirewall block(s) allowed")]
     [TerraformPropertyName("web_application_firewall")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentWebApplicationFirewallBlock>>? WebApplicationFirewall { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermNginxDeploymentWebApplicationFirewallBlock>>? WebApplicationFirewall { get; set; }
 
     /// <summary>
     /// The dataplane_api_endpoint attribute.
     /// </summary>
     [TerraformPropertyName("dataplane_api_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DataplaneApiEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dataplane_api_endpoint");
+    public TerraformValue<string> DataplaneApiEndpoint => new TerraformReference(this, "dataplane_api_endpoint");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     [TerraformPropertyName("ip_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> IpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address");
+    public TerraformValue<string> IpAddress => new TerraformReference(this, "ip_address");
 
     /// <summary>
     /// The nginx_version attribute.
     /// </summary>
     [TerraformPropertyName("nginx_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NginxVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "nginx_version");
+    public TerraformValue<string> NginxVersion => new TerraformReference(this, "nginx_version");
 
 }

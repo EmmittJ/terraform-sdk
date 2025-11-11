@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for allow in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleComputeFirewallAllowBlock : ITerraformBlock
+public class GoogleComputeFirewallAllowBlock
 {
     /// <summary>
     /// An optional list of ports to which this rule applies. This field
@@ -19,7 +19,7 @@ public class GoogleComputeFirewallAllowBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("ports")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Ports { get; set; }
+    public TerraformList<string>? Ports { get; set; }
 
     /// <summary>
     /// The IP protocol to which this rule applies. The protocol type is
@@ -30,7 +30,7 @@ public class GoogleComputeFirewallAllowBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformPropertyName("protocol")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
+    public required TerraformValue<string> Protocol { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public class GoogleComputeFirewallAllowBlock : ITerraformBlock
 /// Block type for deny in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleComputeFirewallDenyBlock : ITerraformBlock
+public class GoogleComputeFirewallDenyBlock
 {
     /// <summary>
     /// An optional list of ports to which this rule applies. This field
@@ -51,7 +51,7 @@ public class GoogleComputeFirewallDenyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("ports")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Ports { get; set; }
+    public TerraformList<string>? Ports { get; set; }
 
     /// <summary>
     /// The IP protocol to which this rule applies. The protocol type is
@@ -62,7 +62,7 @@ public class GoogleComputeFirewallDenyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformPropertyName("protocol")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
+    public required TerraformValue<string> Protocol { get; set; }
 
 }
 
@@ -70,7 +70,7 @@ public class GoogleComputeFirewallDenyBlock : ITerraformBlock
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeFirewallLogConfigBlock : ITerraformBlock
+public class GoogleComputeFirewallLogConfigBlock
 {
     /// <summary>
     /// This field denotes whether to include or exclude metadata for firewall logs. Possible values: [&amp;quot;EXCLUDE_ALL_METADATA&amp;quot;, &amp;quot;INCLUDE_ALL_METADATA&amp;quot;]
@@ -78,7 +78,7 @@ public class GoogleComputeFirewallLogConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metadata is required")]
     [TerraformPropertyName("metadata")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Metadata { get; set; }
+    public required TerraformValue<string> Metadata { get; set; }
 
 }
 
@@ -86,7 +86,7 @@ public class GoogleComputeFirewallLogConfigBlock : ITerraformBlock
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeFirewallParamsBlock : ITerraformBlock
+public class GoogleComputeFirewallParamsBlock
 {
     /// <summary>
     /// Resource manager tags to be bound to the firewall. Tag keys and values have the
@@ -98,7 +98,7 @@ public class GoogleComputeFirewallParamsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("resource_manager_tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ResourceManagerTags { get; set; }
+    public TerraformMap<string>? ResourceManagerTags { get; set; }
 
 }
 
@@ -106,28 +106,28 @@ public class GoogleComputeFirewallParamsBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeFirewallTimeoutsBlock : ITerraformBlock
+public class GoogleComputeFirewallTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -147,7 +147,7 @@ public class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// If destination ranges are specified, the firewall will apply only to
@@ -155,8 +155,8 @@ public class GoogleComputeFirewall : TerraformResource
     /// must be expressed in CIDR format. IPv4 or IPv6 ranges are supported.
     /// </summary>
     [TerraformPropertyName("destination_ranges")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<HashSet<TerraformProperty<string>>> DestinationRanges { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "destination_ranges");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformSet<string> DestinationRanges { get; set; } = default!;
 
     /// <summary>
     /// Direction of traffic to which this firewall applies; default is
@@ -164,8 +164,8 @@ public class GoogleComputeFirewall : TerraformResource
     /// &#39;source_tags&#39; or &#39;source_service_accounts&#39; is required. Possible values: [&amp;quot;INGRESS&amp;quot;, &amp;quot;EGRESS&amp;quot;]
     /// </summary>
     [TerraformPropertyName("direction")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Direction { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "direction");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Direction { get; set; } = default!;
 
     /// <summary>
     /// Denotes whether the firewall rule is disabled, i.e not applied to the
@@ -175,22 +175,22 @@ public class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// This field denotes whether to enable logging for a particular firewall rule. If logging is enabled, logs will be exported to Stackdriver.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     [TerraformPropertyName("enable_logging")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> EnableLogging { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_logging");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> EnableLogging { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -204,7 +204,7 @@ public class GoogleComputeFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name or self_link of the network to attach this firewall to.
@@ -212,7 +212,7 @@ public class GoogleComputeFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformPropertyName("network")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
+    public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// Priority for this rule. This is an integer between 0 and 65535, both
@@ -224,14 +224,14 @@ public class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformPropertyName("priority")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Priority { get; set; }
+    public TerraformValue<double>? Priority { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// If source ranges are specified, the firewall will apply only to
@@ -246,7 +246,7 @@ public class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformPropertyName("source_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SourceRanges { get; set; }
+    public TerraformSet<string>? SourceRanges { get; set; }
 
     /// <summary>
     /// If source service accounts are specified, the firewall will apply only
@@ -264,7 +264,7 @@ public class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformPropertyName("source_service_accounts")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SourceServiceAccounts { get; set; }
+    public TerraformSet<string>? SourceServiceAccounts { get; set; }
 
     /// <summary>
     /// If source tags are specified, the firewall will apply only to traffic
@@ -280,7 +280,7 @@ public class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformPropertyName("source_tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SourceTags { get; set; }
+    public TerraformSet<string>? SourceTags { get; set; }
 
     /// <summary>
     /// A list of service accounts indicating sets of instances located in the
@@ -292,7 +292,7 @@ public class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformPropertyName("target_service_accounts")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? TargetServiceAccounts { get; set; }
+    public TerraformSet<string>? TargetServiceAccounts { get; set; }
 
     /// <summary>
     /// A list of instance tags indicating sets of instances located in the
@@ -302,21 +302,21 @@ public class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformPropertyName("target_tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? TargetTags { get; set; }
+    public TerraformSet<string>? TargetTags { get; set; }
 
     /// <summary>
     /// Block for allow.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("allow")]
-    public TerraformSet<TerraformBlock<GoogleComputeFirewallAllowBlock>>? Allow { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleComputeFirewallAllowBlock>>? Allow { get; set; }
 
     /// <summary>
     /// Block for deny.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("deny")]
-    public TerraformSet<TerraformBlock<GoogleComputeFirewallDenyBlock>>? Deny { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleComputeFirewallDenyBlock>>? Deny { get; set; }
 
     /// <summary>
     /// Block for log_config.
@@ -324,7 +324,7 @@ public class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformPropertyName("log_config")]
-    public TerraformList<TerraformBlock<GoogleComputeFirewallLogConfigBlock>>? LogConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeFirewallLogConfigBlock>>? LogConfig { get; set; }
 
     /// <summary>
     /// Block for params.
@@ -332,27 +332,27 @@ public class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformPropertyName("params")]
-    public TerraformList<TerraformBlock<GoogleComputeFirewallParamsBlock>>? Params { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeFirewallParamsBlock>>? Params { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeFirewallTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeFirewallTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
 }

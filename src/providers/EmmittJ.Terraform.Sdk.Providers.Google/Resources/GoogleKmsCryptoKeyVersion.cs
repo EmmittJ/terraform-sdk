@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for external_protection_level_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock : ITerraformBlock
+public class GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock
 {
     /// <summary>
     /// The path to the external key material on the EKM when using EkmConnection e.g., &amp;quot;v0/my/key&amp;quot;. Set this field instead of externalKeyUri when using an EkmConnection.
     /// </summary>
     [TerraformPropertyName("ekm_connection_key_path")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EkmConnectionKeyPath { get; set; }
+    public TerraformValue<string>? EkmConnectionKeyPath { get; set; }
 
     /// <summary>
     /// The URI for an external resource that this CryptoKeyVersion represents.
     /// </summary>
     [TerraformPropertyName("external_key_uri")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ExternalKeyUri { get; set; }
+    public TerraformValue<string>? ExternalKeyUri { get; set; }
 
 }
 
@@ -28,28 +28,28 @@ public class GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock : ITer
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleKmsCryptoKeyVersionTimeoutsBlock : ITerraformBlock
+public class GoogleKmsCryptoKeyVersionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -70,22 +70,22 @@ public class GoogleKmsCryptoKeyVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     [TerraformPropertyName("crypto_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CryptoKey { get; set; }
+    public required TerraformValue<string> CryptoKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The current state of the CryptoKeyVersion. Note: you can only specify this field to manually &#39;ENABLE&#39; or &#39;DISABLE&#39; the CryptoKeyVersion,
     /// otherwise the value of this field is always retrieved automatically. Possible values: [&amp;quot;PENDING_GENERATION&amp;quot;, &amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;, &amp;quot;DESTROYED&amp;quot;, &amp;quot;DESTROY_SCHEDULED&amp;quot;, &amp;quot;PENDING_IMPORT&amp;quot;, &amp;quot;IMPORT_FAILED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("state")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> State { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> State { get; set; } = default!;
 
     /// <summary>
     /// Block for external_protection_level_options.
@@ -93,21 +93,21 @@ public class GoogleKmsCryptoKeyVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalProtectionLevelOptions block(s) allowed")]
     [TerraformPropertyName("external_protection_level_options")]
-    public TerraformList<TerraformBlock<GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock>>? ExternalProtectionLevelOptions { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock>>? ExternalProtectionLevelOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleKmsCryptoKeyVersionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleKmsCryptoKeyVersionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports.
     /// </summary>
     [TerraformPropertyName("algorithm")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Algorithm => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "algorithm");
+    public TerraformValue<string> Algorithm => new TerraformReference(this, "algorithm");
 
     /// <summary>
     /// Statement that was generated and signed by the HSM at key creation time. Use this statement to verify attributes of the key as stored on the HSM, independently of Google.
@@ -115,27 +115,27 @@ public class GoogleKmsCryptoKeyVersion : TerraformResource
     /// </summary>
     [TerraformPropertyName("attestation")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Attestation => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "attestation");
+    public TerraformList<object> Attestation => new TerraformReference(this, "attestation");
 
     /// <summary>
     /// The time this CryptoKeyVersion key material was generated
     /// </summary>
     [TerraformPropertyName("generate_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GenerateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "generate_time");
+    public TerraformValue<string> GenerateTime => new TerraformReference(this, "generate_time");
 
     /// <summary>
     /// The resource name for this CryptoKeyVersion.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion.
     /// </summary>
     [TerraformPropertyName("protection_level")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ProtectionLevel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protection_level");
+    public TerraformValue<string> ProtectionLevel => new TerraformReference(this, "protection_level");
 
 }

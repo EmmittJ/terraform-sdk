@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : ITerraformBlock
+public class AzurermStreamAnalyticsOutputTableTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,21 +53,21 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchSize is required")]
     [TerraformPropertyName("batch_size")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> BatchSize { get; set; }
+    public required TerraformValue<double> BatchSize { get; set; }
 
     /// <summary>
     /// The columns_to_remove attribute.
     /// </summary>
     [TerraformPropertyName("columns_to_remove")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ColumnsToRemove { get; set; }
+    public TerraformList<string>? ColumnsToRemove { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -75,7 +75,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The partition_key attribute.
@@ -83,7 +83,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
     [TerraformPropertyName("partition_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PartitionKey { get; set; }
+    public required TerraformValue<string> PartitionKey { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -91,7 +91,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The row_key attribute.
@@ -99,7 +99,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
     [TerraformPropertyName("row_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RowKey { get; set; }
+    public required TerraformValue<string> RowKey { get; set; }
 
     /// <summary>
     /// The storage_account_key attribute.
@@ -107,7 +107,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     [TerraformPropertyName("storage_account_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StorageAccountKey { get; set; }
+    public required TerraformValue<string> StorageAccountKey { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
@@ -115,7 +115,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     [TerraformPropertyName("storage_account_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StorageAccountName { get; set; }
+    public required TerraformValue<string> StorageAccountName { get; set; }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
@@ -123,7 +123,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     [TerraformPropertyName("stream_analytics_job_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StreamAnalyticsJobName { get; set; }
+    public required TerraformValue<string> StreamAnalyticsJobName { get; set; }
 
     /// <summary>
     /// The table attribute.
@@ -131,13 +131,13 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     [TerraformPropertyName("table")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Table { get; set; }
+    public required TerraformValue<string> Table { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermStreamAnalyticsOutputTableTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermStreamAnalyticsOutputTableTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -17,7 +17,7 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     [TerraformPropertyName("application_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
+    public required TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The configuration_profile_id attribute.
@@ -25,7 +25,7 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationProfileId is required")]
     [TerraformPropertyName("configuration_profile_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConfigurationProfileId { get; set; }
+    public required TerraformValue<string> ConfigurationProfileId { get; set; }
 
     /// <summary>
     /// The configuration_version attribute.
@@ -33,7 +33,7 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationVersion is required")]
     [TerraformPropertyName("configuration_version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConfigurationVersion { get; set; }
+    public required TerraformValue<string> ConfigurationVersion { get; set; }
 
     /// <summary>
     /// The deployment_strategy_id attribute.
@@ -41,14 +41,14 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentStrategyId is required")]
     [TerraformPropertyName("deployment_strategy_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DeploymentStrategyId { get; set; }
+    public required TerraformValue<string> DeploymentStrategyId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The environment_id attribute.
@@ -56,69 +56,69 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     [TerraformPropertyName("environment_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EnvironmentId { get; set; }
+    public required TerraformValue<string> EnvironmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_identifier")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyIdentifier { get; set; }
+    public TerraformValue<string>? KmsKeyIdentifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The deployment_number attribute.
     /// </summary>
     [TerraformPropertyName("deployment_number")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> DeploymentNumber => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "deployment_number");
+    public TerraformValue<double> DeploymentNumber => new TerraformReference(this, "deployment_number");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsKeyArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_arn");
+    public TerraformValue<string> KmsKeyArn => new TerraformReference(this, "kms_key_arn");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
 }

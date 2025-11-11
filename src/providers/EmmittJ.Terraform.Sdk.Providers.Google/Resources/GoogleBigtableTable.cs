@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automated_backup_policy in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleBigtableTableAutomatedBackupPolicyBlock : ITerraformBlock
+public class GoogleBigtableTableAutomatedBackupPolicyBlock
 {
     /// <summary>
     /// How frequently automated backups should occur.
     /// </summary>
     [TerraformPropertyName("frequency")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Frequency { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "frequency");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Frequency { get; set; } = default!;
 
     /// <summary>
     /// How long the automated backups should be retained.
     /// </summary>
     [TerraformPropertyName("retention_period")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> RetentionPeriod { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "retention_period");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> RetentionPeriod { get; set; } = default!;
 
 }
 
@@ -28,7 +28,7 @@ public class GoogleBigtableTableAutomatedBackupPolicyBlock : ITerraformBlock
 /// Block type for column_family in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleBigtableTableColumnFamilyBlock : ITerraformBlock
+public class GoogleBigtableTableColumnFamilyBlock
 {
     /// <summary>
     /// The name of the column family.
@@ -36,14 +36,14 @@ public class GoogleBigtableTableColumnFamilyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     [TerraformPropertyName("family")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Family { get; set; }
+    public required TerraformValue<string> Family { get; set; }
 
     /// <summary>
     /// The type of the column family.
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -51,21 +51,21 @@ public class GoogleBigtableTableColumnFamilyBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigtableTableTimeoutsBlock : ITerraformBlock
+public class GoogleBigtableTableTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -83,22 +83,22 @@ public class GoogleBigtableTable : TerraformResource
     /// Duration to retain change stream data for the table. Set to 0 to disable. Must be between 1 and 7 days.
     /// </summary>
     [TerraformPropertyName("change_stream_retention")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ChangeStreamRetention { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "change_stream_retention");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ChangeStreamRetention { get; set; } = default!;
 
     /// <summary>
     /// A field to make the table protected against data loss i.e. when set to PROTECTED, deleting the table, the column families in the table, and the instance containing the table would be prohibited. If not provided, currently deletion protection will be set to UNPROTECTED as it is the API default value.
     /// </summary>
     [TerraformPropertyName("deletion_protection")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DeletionProtection { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deletion_protection");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DeletionProtection { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the Bigtable instance.
@@ -106,7 +106,7 @@ public class GoogleBigtableTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     [TerraformPropertyName("instance_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceName { get; set; }
+    public required TerraformValue<string> InstanceName { get; set; }
 
     /// <summary>
     /// The name of the table. Must be 1-50 characters and must only contain hyphens, underscores, periods, letters and numbers.
@@ -114,14 +114,14 @@ public class GoogleBigtableTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Defines the row key schema of a table. To create or update a table with a row key schema, specify this argument.
@@ -133,14 +133,14 @@ public class GoogleBigtableTable : TerraformResource
     /// </summary>
     [TerraformPropertyName("row_key_schema")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RowKeySchema { get; set; }
+    public TerraformValue<string>? RowKeySchema { get; set; }
 
     /// <summary>
     /// A list of predefined keys to split the table on. !&amp;gt; Warning: Modifying the split_keys of an existing table will cause Terraform to delete/recreate the entire google_bigtable_table resource.
     /// </summary>
     [TerraformPropertyName("split_keys")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? SplitKeys { get; set; }
+    public TerraformList<string>? SplitKeys { get; set; }
 
     /// <summary>
     /// Block for automated_backup_policy.
@@ -148,20 +148,20 @@ public class GoogleBigtableTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedBackupPolicy block(s) allowed")]
     [TerraformPropertyName("automated_backup_policy")]
-    public TerraformSet<TerraformBlock<GoogleBigtableTableAutomatedBackupPolicyBlock>>? AutomatedBackupPolicy { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleBigtableTableAutomatedBackupPolicyBlock>>? AutomatedBackupPolicy { get; set; }
 
     /// <summary>
     /// Block for column_family.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("column_family")]
-    public TerraformSet<TerraformBlock<GoogleBigtableTableColumnFamilyBlock>>? ColumnFamily { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleBigtableTableColumnFamilyBlock>>? ColumnFamily { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleBigtableTableTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleBigtableTableTimeoutsBlock>? Timeouts { get; set; }
 
 }

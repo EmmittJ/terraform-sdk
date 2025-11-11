@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for dns in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFirewallPolicyDnsBlock : ITerraformBlock
+public class AzurermFirewallPolicyDnsBlock
 {
     /// <summary>
     /// The proxy_enabled attribute.
     /// </summary>
     [TerraformPropertyName("proxy_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ProxyEnabled { get; set; }
+    public TerraformValue<bool>? ProxyEnabled { get; set; }
 
     /// <summary>
     /// The servers attribute.
     /// </summary>
     [TerraformPropertyName("servers")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Servers { get; set; }
+    public TerraformList<string>? Servers { get; set; }
 
 }
 
@@ -28,49 +28,49 @@ public class AzurermFirewallPolicyDnsBlock : ITerraformBlock
 /// Block type for explicit_proxy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFirewallPolicyExplicitProxyBlock : ITerraformBlock
+public class AzurermFirewallPolicyExplicitProxyBlock
 {
     /// <summary>
     /// The enable_pac_file attribute.
     /// </summary>
     [TerraformPropertyName("enable_pac_file")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnablePacFile { get; set; }
+    public TerraformValue<bool>? EnablePacFile { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The http_port attribute.
     /// </summary>
     [TerraformPropertyName("http_port")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? HttpPort { get; set; }
+    public TerraformValue<double>? HttpPort { get; set; }
 
     /// <summary>
     /// The https_port attribute.
     /// </summary>
     [TerraformPropertyName("https_port")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? HttpsPort { get; set; }
+    public TerraformValue<double>? HttpsPort { get; set; }
 
     /// <summary>
     /// The pac_file attribute.
     /// </summary>
     [TerraformPropertyName("pac_file")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PacFile { get; set; }
+    public TerraformValue<string>? PacFile { get; set; }
 
     /// <summary>
     /// The pac_file_port attribute.
     /// </summary>
     [TerraformPropertyName("pac_file_port")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? PacFilePort { get; set; }
+    public TerraformValue<double>? PacFilePort { get; set; }
 
 }
 
@@ -78,28 +78,16 @@ public class AzurermFirewallPolicyExplicitProxyBlock : ITerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFirewallPolicyIdentityBlock : ITerraformBlock
+public class AzurermFirewallPolicyIdentityBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [TerraformPropertyName("identity_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
+    public TerraformSet<string>? IdentityIds { get; set; }
 
-    /// <summary>
-    /// The principal_id attribute.
-    /// </summary>
-    [TerraformPropertyName("principal_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
-    /// <summary>
-    /// The tenant_id attribute.
-    /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -107,7 +95,7 @@ public class AzurermFirewallPolicyIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -115,7 +103,7 @@ public class AzurermFirewallPolicyIdentityBlock : ITerraformBlock
 /// Block type for insights in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFirewallPolicyInsightsBlock : ITerraformBlock
+public class AzurermFirewallPolicyInsightsBlock
 {
     /// <summary>
     /// The default_log_analytics_workspace_id attribute.
@@ -123,7 +111,7 @@ public class AzurermFirewallPolicyInsightsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLogAnalyticsWorkspaceId is required")]
     [TerraformPropertyName("default_log_analytics_workspace_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DefaultLogAnalyticsWorkspaceId { get; set; }
+    public required TerraformValue<string> DefaultLogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The enabled attribute.
@@ -131,14 +119,14 @@ public class AzurermFirewallPolicyInsightsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformPropertyName("enabled")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
+    public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
     [TerraformPropertyName("retention_in_days")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? RetentionInDays { get; set; }
+    public TerraformValue<double>? RetentionInDays { get; set; }
 
 }
 
@@ -146,21 +134,21 @@ public class AzurermFirewallPolicyInsightsBlock : ITerraformBlock
 /// Block type for intrusion_detection in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFirewallPolicyIntrusionDetectionBlock : ITerraformBlock
+public class AzurermFirewallPolicyIntrusionDetectionBlock
 {
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformPropertyName("mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
+    public TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The private_ranges attribute.
     /// </summary>
     [TerraformPropertyName("private_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? PrivateRanges { get; set; }
+    public TerraformList<string>? PrivateRanges { get; set; }
 
 }
 
@@ -168,21 +156,21 @@ public class AzurermFirewallPolicyIntrusionDetectionBlock : ITerraformBlock
 /// Block type for threat_intelligence_allowlist in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFirewallPolicyThreatIntelligenceAllowlistBlock : ITerraformBlock
+public class AzurermFirewallPolicyThreatIntelligenceAllowlistBlock
 {
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
     [TerraformPropertyName("fqdns")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Fqdns { get; set; }
+    public TerraformSet<string>? Fqdns { get; set; }
 
     /// <summary>
     /// The ip_addresses attribute.
     /// </summary>
     [TerraformPropertyName("ip_addresses")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? IpAddresses { get; set; }
+    public TerraformSet<string>? IpAddresses { get; set; }
 
 }
 
@@ -190,35 +178,35 @@ public class AzurermFirewallPolicyThreatIntelligenceAllowlistBlock : ITerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermFirewallPolicyTimeoutsBlock : ITerraformBlock
+public class AzurermFirewallPolicyTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -226,7 +214,7 @@ public class AzurermFirewallPolicyTimeoutsBlock : ITerraformBlock
 /// Block type for tls_certificate in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFirewallPolicyTlsCertificateBlock : ITerraformBlock
+public class AzurermFirewallPolicyTlsCertificateBlock
 {
     /// <summary>
     /// The key_vault_secret_id attribute.
@@ -234,7 +222,7 @@ public class AzurermFirewallPolicyTlsCertificateBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultSecretId is required")]
     [TerraformPropertyName("key_vault_secret_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyVaultSecretId { get; set; }
+    public required TerraformValue<string> KeyVaultSecretId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -242,7 +230,7 @@ public class AzurermFirewallPolicyTlsCertificateBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -261,21 +249,21 @@ public class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [TerraformPropertyName("auto_learn_private_ranges_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AutoLearnPrivateRangesEnabled { get; set; }
+    public TerraformValue<bool>? AutoLearnPrivateRangesEnabled { get; set; }
 
     /// <summary>
     /// The base_policy_id attribute.
     /// </summary>
     [TerraformPropertyName("base_policy_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? BasePolicyId { get; set; }
+    public TerraformValue<string>? BasePolicyId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -283,7 +271,7 @@ public class AzurermFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -291,14 +279,14 @@ public class AzurermFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_ip_ranges attribute.
     /// </summary>
     [TerraformPropertyName("private_ip_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? PrivateIpRanges { get; set; }
+    public TerraformList<string>? PrivateIpRanges { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -306,35 +294,35 @@ public class AzurermFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [TerraformPropertyName("sku")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Sku { get; set; }
+    public TerraformValue<string>? Sku { get; set; }
 
     /// <summary>
     /// The sql_redirect_allowed attribute.
     /// </summary>
     [TerraformPropertyName("sql_redirect_allowed")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SqlRedirectAllowed { get; set; }
+    public TerraformValue<bool>? SqlRedirectAllowed { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The threat_intelligence_mode attribute.
     /// </summary>
     [TerraformPropertyName("threat_intelligence_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ThreatIntelligenceMode { get; set; }
+    public TerraformValue<string>? ThreatIntelligenceMode { get; set; }
 
     /// <summary>
     /// Block for dns.
@@ -342,7 +330,7 @@ public class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dns block(s) allowed")]
     [TerraformPropertyName("dns")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyDnsBlock>>? Dns { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermFirewallPolicyDnsBlock>>? Dns { get; set; }
 
     /// <summary>
     /// Block for explicit_proxy.
@@ -350,7 +338,7 @@ public class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExplicitProxy block(s) allowed")]
     [TerraformPropertyName("explicit_proxy")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyExplicitProxyBlock>>? ExplicitProxy { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermFirewallPolicyExplicitProxyBlock>>? ExplicitProxy { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -358,7 +346,7 @@ public class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformPropertyName("identity")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyIdentityBlock>>? Identity { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermFirewallPolicyIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for insights.
@@ -366,7 +354,7 @@ public class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Insights block(s) allowed")]
     [TerraformPropertyName("insights")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyInsightsBlock>>? Insights { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermFirewallPolicyInsightsBlock>>? Insights { get; set; }
 
     /// <summary>
     /// Block for intrusion_detection.
@@ -374,7 +362,7 @@ public class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IntrusionDetection block(s) allowed")]
     [TerraformPropertyName("intrusion_detection")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyIntrusionDetectionBlock>>? IntrusionDetection { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermFirewallPolicyIntrusionDetectionBlock>>? IntrusionDetection { get; set; }
 
     /// <summary>
     /// Block for threat_intelligence_allowlist.
@@ -382,14 +370,14 @@ public class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatIntelligenceAllowlist block(s) allowed")]
     [TerraformPropertyName("threat_intelligence_allowlist")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyThreatIntelligenceAllowlistBlock>>? ThreatIntelligenceAllowlist { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermFirewallPolicyThreatIntelligenceAllowlistBlock>>? ThreatIntelligenceAllowlist { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermFirewallPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for tls_certificate.
@@ -397,27 +385,27 @@ public class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsCertificate block(s) allowed")]
     [TerraformPropertyName("tls_certificate")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyTlsCertificateBlock>>? TlsCertificate { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermFirewallPolicyTlsCertificateBlock>>? TlsCertificate { get; set; }
 
     /// <summary>
     /// The child_policies attribute.
     /// </summary>
     [TerraformPropertyName("child_policies")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> ChildPolicies => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "child_policies");
+    public TerraformList<string> ChildPolicies => new TerraformReference(this, "child_policies");
 
     /// <summary>
     /// The firewalls attribute.
     /// </summary>
     [TerraformPropertyName("firewalls")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Firewalls => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "firewalls");
+    public TerraformList<string> Firewalls => new TerraformReference(this, "firewalls");
 
     /// <summary>
     /// The rule_collection_groups attribute.
     /// </summary>
     [TerraformPropertyName("rule_collection_groups")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> RuleCollectionGroups => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "rule_collection_groups");
+    public TerraformList<string> RuleCollectionGroups => new TerraformReference(this, "rule_collection_groups");
 
 }

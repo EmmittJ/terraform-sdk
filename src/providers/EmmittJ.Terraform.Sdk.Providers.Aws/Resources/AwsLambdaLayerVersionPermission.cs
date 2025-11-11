@@ -17,14 +17,14 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformPropertyName("action")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
+    public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The layer_name attribute.
@@ -32,14 +32,14 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
     [TerraformPropertyName("layer_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LayerName { get; set; }
+    public required TerraformValue<string> LayerName { get; set; }
 
     /// <summary>
     /// The organization_id attribute.
     /// </summary>
     [TerraformPropertyName("organization_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? OrganizationId { get; set; }
+    public TerraformValue<string>? OrganizationId { get; set; }
 
     /// <summary>
     /// The principal attribute.
@@ -47,21 +47,21 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     [TerraformPropertyName("principal")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
+    public required TerraformValue<string> Principal { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
     [TerraformPropertyName("skip_destroy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SkipDestroy { get; set; }
+    public TerraformValue<bool>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The statement_id attribute.
@@ -69,7 +69,7 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatementId is required")]
     [TerraformPropertyName("statement_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StatementId { get; set; }
+    public required TerraformValue<string> StatementId { get; set; }
 
     /// <summary>
     /// The version_number attribute.
@@ -77,20 +77,20 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionNumber is required")]
     [TerraformPropertyName("version_number")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> VersionNumber { get; set; }
+    public required TerraformValue<double> VersionNumber { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [TerraformPropertyName("policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Policy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy");
+    public TerraformValue<string> Policy => new TerraformReference(this, "policy");
 
     /// <summary>
     /// The revision_id attribute.
     /// </summary>
     [TerraformPropertyName("revision_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RevisionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "revision_id");
+    public TerraformValue<string> RevisionId => new TerraformReference(this, "revision_id");
 
 }

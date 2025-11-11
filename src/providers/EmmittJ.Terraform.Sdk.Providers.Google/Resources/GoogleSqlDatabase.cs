@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSqlDatabaseTimeoutsBlock : ITerraformBlock
+public class GoogleSqlDatabaseTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -48,8 +48,8 @@ public class GoogleSqlDatabase : TerraformResource
     /// a value of &#39;UTF8&#39; at creation time.
     /// </summary>
     [TerraformPropertyName("charset")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Charset { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "charset");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Charset { get; set; } = default!;
 
     /// <summary>
     /// The collation value. See MySQL&#39;s
@@ -59,8 +59,8 @@ public class GoogleSqlDatabase : TerraformResource
     /// a value of &#39;en_US.UTF8&#39; at creation time.
     /// </summary>
     [TerraformPropertyName("collation")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Collation { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "collation");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Collation { get; set; } = default!;
 
     /// <summary>
     /// The deletion policy for the database. Setting ABANDON allows the resource
@@ -70,14 +70,14 @@ public class GoogleSqlDatabase : TerraformResource
     /// </summary>
     [TerraformPropertyName("deletion_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeletionPolicy { get; set; }
+    public TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the Cloud SQL instance. This does not include the project
@@ -86,7 +86,7 @@ public class GoogleSqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformPropertyName("instance")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
+    public required TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The name of the database in the Cloud SQL instance.
@@ -95,27 +95,27 @@ public class GoogleSqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleSqlDatabaseTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleSqlDatabaseTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
 }

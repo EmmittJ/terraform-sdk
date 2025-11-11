@@ -21,19 +21,19 @@ public class TerraformOutput(string name) : TerraformConstruct
     /// Can be a literal value or an expression.
     /// </summary>
     [TerraformPropertyName("value")]
-    public TerraformProperty<TerraformExpression>? Value { get; set; }
+    public TerraformValue<object>? Value { get; set; }
 
     /// <summary>
     /// Gets or sets the description.
     /// </summary>
     [TerraformPropertyName("description")]
-    public TerraformProperty<string>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Gets or sets whether the output is sensitive.
     /// </summary>
     [TerraformPropertyName("sensitive")]
-    public TerraformProperty<bool>? Sensitive { get; set; }
+    public TerraformValue<bool>? Sensitive { get; set; }
 
     /// <summary>
     /// Gets the list of resources this depends on.

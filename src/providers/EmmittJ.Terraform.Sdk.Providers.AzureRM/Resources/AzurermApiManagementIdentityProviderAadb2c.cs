@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock : ITerraformBlock
+public class AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedTenant is required")]
     [TerraformPropertyName("allowed_tenant")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AllowedTenant { get; set; }
+    public required TerraformValue<string> AllowedTenant { get; set; }
 
     /// <summary>
     /// The api_management_name attribute.
@@ -61,7 +61,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     [TerraformPropertyName("api_management_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ApiManagementName { get; set; }
+    public required TerraformValue<string> ApiManagementName { get; set; }
 
     /// <summary>
     /// The authority attribute.
@@ -69,7 +69,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
     [TerraformPropertyName("authority")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Authority { get; set; }
+    public required TerraformValue<string> Authority { get; set; }
 
     /// <summary>
     /// The client_id attribute.
@@ -77,14 +77,14 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     [TerraformPropertyName("client_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClientId { get; set; }
+    public required TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The client_library attribute.
     /// </summary>
     [TerraformPropertyName("client_library")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ClientLibrary { get; set; }
+    public TerraformValue<string>? ClientLibrary { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
@@ -92,28 +92,28 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     [TerraformPropertyName("client_secret")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClientSecret { get; set; }
+    public required TerraformValue<string> ClientSecret { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The password_reset_policy attribute.
     /// </summary>
     [TerraformPropertyName("password_reset_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PasswordResetPolicy { get; set; }
+    public TerraformValue<string>? PasswordResetPolicy { get; set; }
 
     /// <summary>
     /// The profile_editing_policy attribute.
     /// </summary>
     [TerraformPropertyName("profile_editing_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ProfileEditingPolicy { get; set; }
+    public TerraformValue<string>? ProfileEditingPolicy { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -121,7 +121,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The signin_policy attribute.
@@ -129,7 +129,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninPolicy is required")]
     [TerraformPropertyName("signin_policy")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SigninPolicy { get; set; }
+    public required TerraformValue<string> SigninPolicy { get; set; }
 
     /// <summary>
     /// The signin_tenant attribute.
@@ -137,7 +137,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninTenant is required")]
     [TerraformPropertyName("signin_tenant")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SigninTenant { get; set; }
+    public required TerraformValue<string> SigninTenant { get; set; }
 
     /// <summary>
     /// The signup_policy attribute.
@@ -145,13 +145,13 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignupPolicy is required")]
     [TerraformPropertyName("signup_policy")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SignupPolicy { get; set; }
+    public required TerraformValue<string> SignupPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock>? Timeouts { get; set; }
 
 }

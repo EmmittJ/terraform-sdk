@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for byte_match_tuples in .
 /// Nesting mode: set
 /// </summary>
-public class AwsWafByteMatchSetByteMatchTuplesBlock : ITerraformBlock
+public class AwsWafByteMatchSetByteMatchTuplesBlock
 {
     /// <summary>
     /// The positional_constraint attribute.
@@ -14,14 +14,14 @@ public class AwsWafByteMatchSetByteMatchTuplesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PositionalConstraint is required")]
     [TerraformPropertyName("positional_constraint")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PositionalConstraint { get; set; }
+    public required TerraformValue<string> PositionalConstraint { get; set; }
 
     /// <summary>
     /// The target_string attribute.
     /// </summary>
     [TerraformPropertyName("target_string")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TargetString { get; set; }
+    public TerraformValue<string>? TargetString { get; set; }
 
     /// <summary>
     /// The text_transformation attribute.
@@ -29,7 +29,7 @@ public class AwsWafByteMatchSetByteMatchTuplesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     [TerraformPropertyName("text_transformation")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TextTransformation { get; set; }
+    public required TerraformValue<string> TextTransformation { get; set; }
 
 }
 
@@ -46,8 +46,8 @@ public class AwsWafByteMatchSet : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -55,20 +55,20 @@ public class AwsWafByteMatchSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for byte_match_tuples.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("byte_match_tuples")]
-    public TerraformSet<TerraformBlock<AwsWafByteMatchSetByteMatchTuplesBlock>>? ByteMatchTuples { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsWafByteMatchSetByteMatchTuplesBlock>>? ByteMatchTuples { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

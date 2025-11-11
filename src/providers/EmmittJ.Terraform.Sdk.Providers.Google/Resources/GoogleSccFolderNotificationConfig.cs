@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for streaming_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSccFolderNotificationConfigStreamingConfigBlock : ITerraformBlock
+public class GoogleSccFolderNotificationConfigStreamingConfigBlock
 {
     /// <summary>
     /// Expression that defines the filter to apply across create/update
@@ -38,7 +38,7 @@ public class GoogleSccFolderNotificationConfigStreamingConfigBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformPropertyName("filter")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Filter { get; set; }
+    public required TerraformValue<string> Filter { get; set; }
 
 }
 
@@ -46,28 +46,28 @@ public class GoogleSccFolderNotificationConfigStreamingConfigBlock : ITerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSccFolderNotificationConfigTimeoutsBlock : ITerraformBlock
+public class GoogleSccFolderNotificationConfigTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -87,14 +87,14 @@ public class GoogleSccFolderNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     [TerraformPropertyName("config_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConfigId { get; set; }
+    public required TerraformValue<string> ConfigId { get; set; }
 
     /// <summary>
     /// The description of the notification config (max of 1024 characters).
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Numerical ID of the parent folder.
@@ -102,14 +102,14 @@ public class GoogleSccFolderNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     [TerraformPropertyName("folder")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Folder { get; set; }
+    public required TerraformValue<string> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The Pub/Sub topic to send notifications to. Its format is
@@ -118,7 +118,7 @@ public class GoogleSccFolderNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     [TerraformPropertyName("pubsub_topic")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PubsubTopic { get; set; }
+    public required TerraformValue<string> PubsubTopic { get; set; }
 
     /// <summary>
     /// Block for streaming_config.
@@ -128,14 +128,14 @@ public class GoogleSccFolderNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StreamingConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StreamingConfig block(s) allowed")]
     [TerraformPropertyName("streaming_config")]
-    public TerraformList<TerraformBlock<GoogleSccFolderNotificationConfigStreamingConfigBlock>>? StreamingConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleSccFolderNotificationConfigStreamingConfigBlock>>? StreamingConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleSccFolderNotificationConfigTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleSccFolderNotificationConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The resource name of this notification config, in the format
@@ -143,7 +143,7 @@ public class GoogleSccFolderNotificationConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The service account that needs &amp;quot;pubsub.topics.publish&amp;quot; permission to
@@ -151,6 +151,6 @@ public class GoogleSccFolderNotificationConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("service_account")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServiceAccount => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_account");
+    public TerraformValue<string> ServiceAccount => new TerraformReference(this, "service_account");
 
 }

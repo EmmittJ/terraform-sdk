@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorScheduledQueryRulesAlertActionBlock : ITerraformBlock
+public class AzurermMonitorScheduledQueryRulesAlertActionBlock
 {
     /// <summary>
     /// The action_group attribute.
@@ -14,21 +14,21 @@ public class AzurermMonitorScheduledQueryRulesAlertActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroup is required")]
     [TerraformPropertyName("action_group")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? ActionGroup { get; set; }
+    public required TerraformSet<string> ActionGroup { get; set; }
 
     /// <summary>
     /// The custom_webhook_payload attribute.
     /// </summary>
     [TerraformPropertyName("custom_webhook_payload")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomWebhookPayload { get; set; }
+    public TerraformValue<string>? CustomWebhookPayload { get; set; }
 
     /// <summary>
     /// The email_subject attribute.
     /// </summary>
     [TerraformPropertyName("email_subject")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EmailSubject { get; set; }
+    public TerraformValue<string>? EmailSubject { get; set; }
 
 }
 
@@ -36,35 +36,35 @@ public class AzurermMonitorScheduledQueryRulesAlertActionBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorScheduledQueryRulesAlertTimeoutsBlock : ITerraformBlock
+public class AzurermMonitorScheduledQueryRulesAlertTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -72,7 +72,7 @@ public class AzurermMonitorScheduledQueryRulesAlertTimeoutsBlock : ITerraformBlo
 /// Block type for trigger in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorScheduledQueryRulesAlertTriggerBlock : ITerraformBlock
+public class AzurermMonitorScheduledQueryRulesAlertTriggerBlock
 {
     /// <summary>
     /// The operator attribute.
@@ -80,7 +80,7 @@ public class AzurermMonitorScheduledQueryRulesAlertTriggerBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
     [TerraformPropertyName("operator")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Operator { get; set; }
+    public required TerraformValue<string> Operator { get; set; }
 
     /// <summary>
     /// The threshold attribute.
@@ -88,7 +88,7 @@ public class AzurermMonitorScheduledQueryRulesAlertTriggerBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     [TerraformPropertyName("threshold")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Threshold { get; set; }
+    public required TerraformValue<double> Threshold { get; set; }
 
 }
 
@@ -107,14 +107,14 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     /// </summary>
     [TerraformPropertyName("authorized_resource_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? AuthorizedResourceIds { get; set; }
+    public TerraformSet<string>? AuthorizedResourceIds { get; set; }
 
     /// <summary>
     /// The auto_mitigation_enabled attribute.
     /// </summary>
     [TerraformPropertyName("auto_mitigation_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AutoMitigationEnabled { get; set; }
+    public TerraformValue<bool>? AutoMitigationEnabled { get; set; }
 
     /// <summary>
     /// The data_source_id attribute.
@@ -122,21 +122,21 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     [TerraformPropertyName("data_source_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DataSourceId { get; set; }
+    public required TerraformValue<string> DataSourceId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The frequency attribute.
@@ -144,14 +144,14 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     [TerraformPropertyName("frequency")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Frequency { get; set; }
+    public required TerraformValue<double> Frequency { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -159,7 +159,7 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -167,7 +167,7 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The query attribute.
@@ -175,14 +175,14 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     [TerraformPropertyName("query")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Query { get; set; }
+    public required TerraformValue<string> Query { get; set; }
 
     /// <summary>
     /// The query_type attribute.
     /// </summary>
     [TerraformPropertyName("query_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? QueryType { get; set; }
+    public TerraformValue<string>? QueryType { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -190,28 +190,28 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
     [TerraformPropertyName("severity")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Severity { get; set; }
+    public TerraformValue<double>? Severity { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The throttling attribute.
     /// </summary>
     [TerraformPropertyName("throttling")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Throttling { get; set; }
+    public TerraformValue<double>? Throttling { get; set; }
 
     /// <summary>
     /// The time_window attribute.
@@ -219,7 +219,7 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeWindow is required")]
     [TerraformPropertyName("time_window")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> TimeWindow { get; set; }
+    public required TerraformValue<double> TimeWindow { get; set; }
 
     /// <summary>
     /// Block for action.
@@ -229,14 +229,14 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
     [TerraformPropertyName("action")]
-    public TerraformList<TerraformBlock<AzurermMonitorScheduledQueryRulesAlertActionBlock>>? Action { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermMonitorScheduledQueryRulesAlertActionBlock>>? Action { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermMonitorScheduledQueryRulesAlertTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermMonitorScheduledQueryRulesAlertTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for trigger.
@@ -246,6 +246,6 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Trigger block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Trigger block(s) allowed")]
     [TerraformPropertyName("trigger")]
-    public TerraformList<TerraformBlock<AzurermMonitorScheduledQueryRulesAlertTriggerBlock>>? Trigger { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermMonitorScheduledQueryRulesAlertTriggerBlock>>? Trigger { get; set; }
 
 }

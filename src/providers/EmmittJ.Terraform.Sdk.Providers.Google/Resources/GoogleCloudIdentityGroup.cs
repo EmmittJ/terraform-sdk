@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for group_key in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudIdentityGroupGroupKeyBlock : ITerraformBlock
+public class GoogleCloudIdentityGroupGroupKeyBlock
 {
     /// <summary>
     /// The ID of the entity.
@@ -22,7 +22,7 @@ public class GoogleCloudIdentityGroupGroupKeyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformPropertyName("id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
+    public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The namespace in which the entity exists.
@@ -36,7 +36,7 @@ public class GoogleCloudIdentityGroupGroupKeyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("namespace")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Namespace { get; set; }
+    public TerraformValue<string>? Namespace { get; set; }
 
 }
 
@@ -44,28 +44,28 @@ public class GoogleCloudIdentityGroupGroupKeyBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCloudIdentityGroupTimeoutsBlock : ITerraformBlock
+public class GoogleCloudIdentityGroupTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -85,21 +85,21 @@ public class GoogleCloudIdentityGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display name of the Group.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The initial configuration options for creating a Group.
@@ -110,7 +110,7 @@ public class GoogleCloudIdentityGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("initial_group_config")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? InitialGroupConfig { get; set; }
+    public TerraformValue<string>? InitialGroupConfig { get; set; }
 
     /// <summary>
     /// One or more label entries that apply to the Group. Currently supported labels contain a key with an empty value.
@@ -126,7 +126,7 @@ public class GoogleCloudIdentityGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Labels is required")]
     [TerraformPropertyName("labels")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public required TerraformMap<string> Labels { get; set; }
 
     /// <summary>
     /// The resource name of the entity under which this Group resides in the
@@ -138,7 +138,7 @@ public class GoogleCloudIdentityGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformPropertyName("parent")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
+    public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Block for group_key.
@@ -148,28 +148,28 @@ public class GoogleCloudIdentityGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GroupKey block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GroupKey block(s) allowed")]
     [TerraformPropertyName("group_key")]
-    public TerraformList<TerraformBlock<GoogleCloudIdentityGroupGroupKeyBlock>>? GroupKey { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleCloudIdentityGroupGroupKeyBlock>>? GroupKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleCloudIdentityGroupTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleCloudIdentityGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Additional group keys associated with the Group
     /// </summary>
     [TerraformPropertyName("additional_group_keys")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> AdditionalGroupKeys => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "additional_group_keys");
+    public TerraformList<object> AdditionalGroupKeys => new TerraformReference(this, "additional_group_keys");
 
     /// <summary>
     /// The time when the Group was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Resource name of the Group in the format: groups/{group_id}, where group_id
@@ -177,13 +177,13 @@ public class GoogleCloudIdentityGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The time when the Group was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -33,14 +33,14 @@ public class AzurermRedisEnterpriseDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformPropertyName("cluster_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
+    public required TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -48,41 +48,41 @@ public class AzurermRedisEnterpriseDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The linked_database_group_nickname attribute.
     /// </summary>
     [TerraformPropertyName("linked_database_group_nickname")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LinkedDatabaseGroupNickname => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "linked_database_group_nickname");
+    public TerraformValue<string> LinkedDatabaseGroupNickname => new TerraformReference(this, "linked_database_group_nickname");
 
     /// <summary>
     /// The linked_database_id attribute.
     /// </summary>
     [TerraformPropertyName("linked_database_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> LinkedDatabaseId => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "linked_database_id");
+    public TerraformList<string> LinkedDatabaseId => new TerraformReference(this, "linked_database_id");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     [TerraformPropertyName("primary_access_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrimaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_access_key");
+    public TerraformValue<string> PrimaryAccessKey => new TerraformReference(this, "primary_access_key");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     [TerraformPropertyName("secondary_access_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SecondaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_access_key");
+    public TerraformValue<string> SecondaryAccessKey => new TerraformReference(this, "secondary_access_key");
 
 }

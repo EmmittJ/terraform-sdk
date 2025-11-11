@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_cells_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLakeformationPermissionsDataSourceDataCellsFilterBlock : ITerraformBlock
+public class AwsLakeformationPermissionsDataSourceDataCellsFilterBlock
 {
     /// <summary>
     /// The database_name attribute.
@@ -14,7 +14,7 @@ public class AwsLakeformationPermissionsDataSourceDataCellsFilterBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformPropertyName("database_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
+    public required TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -22,7 +22,7 @@ public class AwsLakeformationPermissionsDataSourceDataCellsFilterBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The table_catalog_id attribute.
@@ -30,7 +30,7 @@ public class AwsLakeformationPermissionsDataSourceDataCellsFilterBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableCatalogId is required")]
     [TerraformPropertyName("table_catalog_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TableCatalogId { get; set; }
+    public required TerraformValue<string> TableCatalogId { get; set; }
 
     /// <summary>
     /// The table_name attribute.
@@ -38,7 +38,7 @@ public class AwsLakeformationPermissionsDataSourceDataCellsFilterBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     [TerraformPropertyName("table_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TableName { get; set; }
+    public required TerraformValue<string> TableName { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class AwsLakeformationPermissionsDataSourceDataCellsFilterBlock : ITerraf
 /// Block type for data_location in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLakeformationPermissionsDataSourceDataLocationBlock : ITerraformBlock
+public class AwsLakeformationPermissionsDataSourceDataLocationBlock
 {
     /// <summary>
     /// The arn attribute.
@@ -54,14 +54,14 @@ public class AwsLakeformationPermissionsDataSourceDataLocationBlock : ITerraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     [TerraformPropertyName("arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
+    public required TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
     [TerraformPropertyName("catalog_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "catalog_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CatalogId { get; set; } = default!;
 
 }
 
@@ -69,14 +69,14 @@ public class AwsLakeformationPermissionsDataSourceDataLocationBlock : ITerraform
 /// Block type for database in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLakeformationPermissionsDataSourceDatabaseBlock : ITerraformBlock
+public class AwsLakeformationPermissionsDataSourceDatabaseBlock
 {
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
     [TerraformPropertyName("catalog_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "catalog_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CatalogId { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -84,7 +84,7 @@ public class AwsLakeformationPermissionsDataSourceDatabaseBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -92,14 +92,14 @@ public class AwsLakeformationPermissionsDataSourceDatabaseBlock : ITerraformBloc
 /// Block type for lf_tag in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLakeformationPermissionsDataSourceLfTagBlock : ITerraformBlock
+public class AwsLakeformationPermissionsDataSourceLfTagBlock
 {
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
     [TerraformPropertyName("catalog_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "catalog_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CatalogId { get; set; } = default!;
 
     /// <summary>
     /// The key attribute.
@@ -107,7 +107,7 @@ public class AwsLakeformationPermissionsDataSourceLfTagBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformPropertyName("key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
+    public required TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -115,7 +115,7 @@ public class AwsLakeformationPermissionsDataSourceLfTagBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformPropertyName("values")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
+    public required TerraformSet<string> Values { get; set; }
 
 }
 
@@ -123,14 +123,14 @@ public class AwsLakeformationPermissionsDataSourceLfTagBlock : ITerraformBlock
 /// Block type for lf_tag_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLakeformationPermissionsDataSourceLfTagPolicyBlock : ITerraformBlock
+public class AwsLakeformationPermissionsDataSourceLfTagPolicyBlock
 {
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
     [TerraformPropertyName("catalog_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "catalog_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CatalogId { get; set; } = default!;
 
     /// <summary>
     /// The resource_type attribute.
@@ -138,7 +138,7 @@ public class AwsLakeformationPermissionsDataSourceLfTagPolicyBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     [TerraformPropertyName("resource_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceType { get; set; }
+    public required TerraformValue<string> ResourceType { get; set; }
 
 }
 
@@ -146,14 +146,14 @@ public class AwsLakeformationPermissionsDataSourceLfTagPolicyBlock : ITerraformB
 /// Block type for table in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLakeformationPermissionsDataSourceTableBlock : ITerraformBlock
+public class AwsLakeformationPermissionsDataSourceTableBlock
 {
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
     [TerraformPropertyName("catalog_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "catalog_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CatalogId { get; set; } = default!;
 
     /// <summary>
     /// The database_name attribute.
@@ -161,21 +161,21 @@ public class AwsLakeformationPermissionsDataSourceTableBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformPropertyName("database_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
+    public required TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Name { get; set; } = default!;
 
     /// <summary>
     /// The wildcard attribute.
     /// </summary>
     [TerraformPropertyName("wildcard")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Wildcard { get; set; }
+    public TerraformValue<bool>? Wildcard { get; set; }
 
 }
 
@@ -183,21 +183,21 @@ public class AwsLakeformationPermissionsDataSourceTableBlock : ITerraformBlock
 /// Block type for table_with_columns in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLakeformationPermissionsDataSourceTableWithColumnsBlock : ITerraformBlock
+public class AwsLakeformationPermissionsDataSourceTableWithColumnsBlock
 {
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
     [TerraformPropertyName("catalog_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "catalog_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CatalogId { get; set; } = default!;
 
     /// <summary>
     /// The column_names attribute.
     /// </summary>
     [TerraformPropertyName("column_names")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? ColumnNames { get; set; }
+    public TerraformSet<string>? ColumnNames { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -205,14 +205,14 @@ public class AwsLakeformationPermissionsDataSourceTableWithColumnsBlock : ITerra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformPropertyName("database_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
+    public required TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The excluded_column_names attribute.
     /// </summary>
     [TerraformPropertyName("excluded_column_names")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? ExcludedColumnNames { get; set; }
+    public TerraformSet<string>? ExcludedColumnNames { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -220,14 +220,14 @@ public class AwsLakeformationPermissionsDataSourceTableWithColumnsBlock : ITerra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The wildcard attribute.
     /// </summary>
     [TerraformPropertyName("wildcard")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Wildcard { get; set; }
+    public TerraformValue<bool>? Wildcard { get; set; }
 
 }
 
@@ -246,21 +246,21 @@ public class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("catalog_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CatalogId { get; set; }
+    public TerraformValue<string>? CatalogId { get; set; }
 
     /// <summary>
     /// The catalog_resource attribute.
     /// </summary>
     [TerraformPropertyName("catalog_resource")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? CatalogResource { get; set; }
+    public TerraformValue<bool>? CatalogResource { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The principal attribute.
@@ -268,14 +268,14 @@ public class AwsLakeformationPermissionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     [TerraformPropertyName("principal")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
+    public required TerraformValue<string> Principal { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for data_cells_filter.
@@ -283,7 +283,7 @@ public class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCellsFilter block(s) allowed")]
     [TerraformPropertyName("data_cells_filter")]
-    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceDataCellsFilterBlock>>? DataCellsFilter { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceDataCellsFilterBlock>>? DataCellsFilter { get; set; }
 
     /// <summary>
     /// Block for data_location.
@@ -291,7 +291,7 @@ public class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataLocation block(s) allowed")]
     [TerraformPropertyName("data_location")]
-    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceDataLocationBlock>>? DataLocation { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceDataLocationBlock>>? DataLocation { get; set; }
 
     /// <summary>
     /// Block for database.
@@ -299,7 +299,7 @@ public class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Database block(s) allowed")]
     [TerraformPropertyName("database")]
-    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceDatabaseBlock>>? Database { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceDatabaseBlock>>? Database { get; set; }
 
     /// <summary>
     /// Block for lf_tag.
@@ -307,7 +307,7 @@ public class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LfTag block(s) allowed")]
     [TerraformPropertyName("lf_tag")]
-    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceLfTagBlock>>? LfTag { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceLfTagBlock>>? LfTag { get; set; }
 
     /// <summary>
     /// Block for lf_tag_policy.
@@ -315,7 +315,7 @@ public class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LfTagPolicy block(s) allowed")]
     [TerraformPropertyName("lf_tag_policy")]
-    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceLfTagPolicyBlock>>? LfTagPolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceLfTagPolicyBlock>>? LfTagPolicy { get; set; }
 
     /// <summary>
     /// Block for table.
@@ -323,7 +323,7 @@ public class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Table block(s) allowed")]
     [TerraformPropertyName("table")]
-    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceTableBlock>>? Table { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceTableBlock>>? Table { get; set; }
 
     /// <summary>
     /// Block for table_with_columns.
@@ -331,20 +331,20 @@ public class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TableWithColumns block(s) allowed")]
     [TerraformPropertyName("table_with_columns")]
-    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceTableWithColumnsBlock>>? TableWithColumns { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceTableWithColumnsBlock>>? TableWithColumns { get; set; }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
     [TerraformPropertyName("permissions")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Permissions => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "permissions");
+    public TerraformList<string> Permissions => new TerraformReference(this, "permissions");
 
     /// <summary>
     /// The permissions_with_grant_option attribute.
     /// </summary>
     [TerraformPropertyName("permissions_with_grant_option")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> PermissionsWithGrantOption => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "permissions_with_grant_option");
+    public TerraformList<string> PermissionsWithGrantOption => new TerraformReference(this, "permissions_with_grant_option");
 
 }

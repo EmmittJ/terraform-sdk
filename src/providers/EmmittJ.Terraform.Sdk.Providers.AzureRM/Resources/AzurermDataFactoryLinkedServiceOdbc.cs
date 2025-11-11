@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for basic_authentication in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock : ITerraformBlock
+public class AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock
 {
     /// <summary>
     /// The password attribute.
@@ -14,7 +14,7 @@ public class AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock : ITerr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     [TerraformPropertyName("password")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
+    public required TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// The username attribute.
@@ -22,7 +22,7 @@ public class AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock : ITerr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformPropertyName("username")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
+    public required TerraformValue<string> Username { get; set; }
 
 }
 
@@ -30,35 +30,35 @@ public class AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock : ITerr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryLinkedServiceOdbcTimeoutsBlock : ITerraformBlock
+public class AzurermDataFactoryLinkedServiceOdbcTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -77,14 +77,14 @@ public class AzurermDataFactoryLinkedServiceOdbc : TerraformResource
     /// </summary>
     [TerraformPropertyName("additional_properties")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? AdditionalProperties { get; set; }
+    public TerraformMap<string>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Annotations { get; set; }
+    public TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The connection_string attribute.
@@ -92,7 +92,7 @@ public class AzurermDataFactoryLinkedServiceOdbc : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     [TerraformPropertyName("connection_string")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConnectionString { get; set; }
+    public required TerraformValue<string> ConnectionString { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -100,28 +100,28 @@ public class AzurermDataFactoryLinkedServiceOdbc : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformPropertyName("data_factory_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DataFactoryId { get; set; }
+    public required TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The integration_runtime_name attribute.
     /// </summary>
     [TerraformPropertyName("integration_runtime_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IntegrationRuntimeName { get; set; }
+    public TerraformValue<string>? IntegrationRuntimeName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -129,14 +129,14 @@ public class AzurermDataFactoryLinkedServiceOdbc : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformPropertyName("parameters")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
+    public TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// Block for basic_authentication.
@@ -144,13 +144,13 @@ public class AzurermDataFactoryLinkedServiceOdbc : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicAuthentication block(s) allowed")]
     [TerraformPropertyName("basic_authentication")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock>>? BasicAuthentication { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock>>? BasicAuthentication { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDataFactoryLinkedServiceOdbcTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDataFactoryLinkedServiceOdbcTimeoutsBlock>? Timeouts { get; set; }
 
 }

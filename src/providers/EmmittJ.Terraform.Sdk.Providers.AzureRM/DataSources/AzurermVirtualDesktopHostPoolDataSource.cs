@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualDesktopHostPoolDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermVirtualDesktopHostPoolDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermVirtualDesktopHostPoolDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermVirtualDesktopHostPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,104 +47,104 @@ public class AzurermVirtualDesktopHostPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermVirtualDesktopHostPoolDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermVirtualDesktopHostPoolDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The custom_rdp_properties attribute.
     /// </summary>
     [TerraformPropertyName("custom_rdp_properties")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CustomRdpProperties => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "custom_rdp_properties");
+    public TerraformValue<string> CustomRdpProperties => new TerraformReference(this, "custom_rdp_properties");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
     [TerraformPropertyName("friendly_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> FriendlyName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "friendly_name");
+    public TerraformValue<string> FriendlyName => new TerraformReference(this, "friendly_name");
 
     /// <summary>
     /// The load_balancer_type attribute.
     /// </summary>
     [TerraformPropertyName("load_balancer_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LoadBalancerType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "load_balancer_type");
+    public TerraformValue<string> LoadBalancerType => new TerraformReference(this, "load_balancer_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The maximum_sessions_allowed attribute.
     /// </summary>
     [TerraformPropertyName("maximum_sessions_allowed")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MaximumSessionsAllowed => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "maximum_sessions_allowed");
+    public TerraformValue<double> MaximumSessionsAllowed => new TerraformReference(this, "maximum_sessions_allowed");
 
     /// <summary>
     /// The personal_desktop_assignment_type attribute.
     /// </summary>
     [TerraformPropertyName("personal_desktop_assignment_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PersonalDesktopAssignmentType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "personal_desktop_assignment_type");
+    public TerraformValue<string> PersonalDesktopAssignmentType => new TerraformReference(this, "personal_desktop_assignment_type");
 
     /// <summary>
     /// The preferred_app_group_type attribute.
     /// </summary>
     [TerraformPropertyName("preferred_app_group_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PreferredAppGroupType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_app_group_type");
+    public TerraformValue<string> PreferredAppGroupType => new TerraformReference(this, "preferred_app_group_type");
 
     /// <summary>
     /// The scheduled_agent_updates attribute.
     /// </summary>
     [TerraformPropertyName("scheduled_agent_updates")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ScheduledAgentUpdates => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "scheduled_agent_updates");
+    public TerraformList<object> ScheduledAgentUpdates => new TerraformReference(this, "scheduled_agent_updates");
 
     /// <summary>
     /// The start_vm_on_connect attribute.
     /// </summary>
     [TerraformPropertyName("start_vm_on_connect")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> StartVmOnConnect => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "start_vm_on_connect");
+    public TerraformValue<bool> StartVmOnConnect => new TerraformReference(this, "start_vm_on_connect");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
+    public TerraformValue<string> Type => new TerraformReference(this, "type");
 
     /// <summary>
     /// The validate_environment attribute.
     /// </summary>
     [TerraformPropertyName("validate_environment")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> ValidateEnvironment => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "validate_environment");
+    public TerraformValue<bool> ValidateEnvironment => new TerraformReference(this, "validate_environment");
 
 }

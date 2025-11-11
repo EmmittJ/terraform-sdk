@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKubernetesFleetMemberTimeoutsBlock : ITerraformBlock
+public class AzurermKubernetesFleetMemberTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public class AzurermKubernetesFleetMember : TerraformResource
     /// </summary>
     [TerraformPropertyName("group")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Group { get; set; }
+    public TerraformValue<string>? Group { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The kubernetes_cluster_id attribute.
@@ -67,7 +67,7 @@ public class AzurermKubernetesFleetMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     [TerraformPropertyName("kubernetes_cluster_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KubernetesClusterId { get; set; }
+    public required TerraformValue<string> KubernetesClusterId { get; set; }
 
     /// <summary>
     /// The kubernetes_fleet_id attribute.
@@ -75,7 +75,7 @@ public class AzurermKubernetesFleetMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesFleetId is required")]
     [TerraformPropertyName("kubernetes_fleet_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KubernetesFleetId { get; set; }
+    public required TerraformValue<string> KubernetesFleetId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -83,13 +83,13 @@ public class AzurermKubernetesFleetMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermKubernetesFleetMemberTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermKubernetesFleetMemberTimeoutsBlock>? Timeouts { get; set; }
 
 }

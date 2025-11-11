@@ -15,8 +15,8 @@ public class GoogleComputeBackendBucketDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -30,49 +30,49 @@ public class GoogleComputeBackendBucketDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Cloud Storage bucket name.
     /// </summary>
     [TerraformPropertyName("bucket_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> BucketName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bucket_name");
+    public TerraformValue<string> BucketName => new TerraformReference(this, "bucket_name");
 
     /// <summary>
     /// Cloud CDN configuration for this Backend Bucket.
     /// </summary>
     [TerraformPropertyName("cdn_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CdnPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cdn_policy");
+    public TerraformList<object> CdnPolicy => new TerraformReference(this, "cdn_policy");
 
     /// <summary>
     /// Compress text responses using Brotli or gzip compression, based on the client&#39;s Accept-Encoding header. Possible values: [&amp;quot;AUTOMATIC&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("compression_mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CompressionMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "compression_mode");
+    public TerraformValue<string> CompressionMode => new TerraformReference(this, "compression_mode");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// Headers that the HTTP/S load balancer should add to proxied responses.
     /// </summary>
     [TerraformPropertyName("custom_response_headers")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> CustomResponseHeaders => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "custom_response_headers");
+    public TerraformList<string> CustomResponseHeaders => new TerraformReference(this, "custom_response_headers");
 
     /// <summary>
     /// An optional textual description of the resource; provided by the
@@ -80,14 +80,14 @@ public class GoogleComputeBackendBucketDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The security policy associated with this backend bucket.
     /// </summary>
     [TerraformPropertyName("edge_security_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EdgeSecurityPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "edge_security_policy");
+    public TerraformValue<string> EdgeSecurityPolicy => new TerraformReference(this, "edge_security_policy");
 
     /// <summary>
     /// If true, enable Cloud CDN for this BackendBucket.
@@ -95,7 +95,7 @@ public class GoogleComputeBackendBucketDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("enable_cdn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> EnableCdn => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_cdn");
+    public TerraformValue<bool> EnableCdn => new TerraformReference(this, "enable_cdn");
 
     /// <summary>
     /// The value can only be INTERNAL_MANAGED for cross-region internal layer 7 load balancer.
@@ -104,20 +104,20 @@ public class GoogleComputeBackendBucketDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("load_balancing_scheme")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LoadBalancingScheme => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "load_balancing_scheme");
+    public TerraformValue<string> LoadBalancingScheme => new TerraformReference(this, "load_balancing_scheme");
 
     /// <summary>
     /// Additional params passed with the request, but not persisted as part of resource payload
     /// </summary>
     [TerraformPropertyName("params")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Params => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "params");
+    public TerraformList<object> Params => new TerraformReference(this, "params");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
 }

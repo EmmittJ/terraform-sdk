@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for environment_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDynatraceMonitorEnvironmentPropertiesBlock : ITerraformBlock
+public class AzurermDynatraceMonitorEnvironmentPropertiesBlock
 {
 }
 
@@ -14,21 +14,9 @@ public class AzurermDynatraceMonitorEnvironmentPropertiesBlock : ITerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDynatraceMonitorIdentityBlock : ITerraformBlock
+public class AzurermDynatraceMonitorIdentityBlock
 {
-    /// <summary>
-    /// The principal_id attribute.
-    /// </summary>
-    [TerraformPropertyName("principal_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
-    /// <summary>
-    /// The tenant_id attribute.
-    /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -36,7 +24,7 @@ public class AzurermDynatraceMonitorIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -44,21 +32,15 @@ public class AzurermDynatraceMonitorIdentityBlock : ITerraformBlock
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDynatraceMonitorPlanBlock : ITerraformBlock
+public class AzurermDynatraceMonitorPlanBlock
 {
     /// <summary>
     /// The billing_cycle attribute.
     /// </summary>
     [TerraformPropertyName("billing_cycle")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? BillingCycle { get; set; }
+    public TerraformValue<string>? BillingCycle { get; set; }
 
-    /// <summary>
-    /// The effective_date attribute.
-    /// </summary>
-    [TerraformPropertyName("effective_date")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EffectiveDate => new TerraformReferenceProperty<TerraformProperty<string>>("", "effective_date");
 
     /// <summary>
     /// The plan attribute.
@@ -66,14 +48,14 @@ public class AzurermDynatraceMonitorPlanBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     [TerraformPropertyName("plan")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Plan { get; set; }
+    public required TerraformValue<string> Plan { get; set; }
 
     /// <summary>
     /// The usage_type attribute.
     /// </summary>
     [TerraformPropertyName("usage_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UsageType { get; set; }
+    public TerraformValue<string>? UsageType { get; set; }
 
 }
 
@@ -81,35 +63,35 @@ public class AzurermDynatraceMonitorPlanBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDynatraceMonitorTimeoutsBlock : ITerraformBlock
+public class AzurermDynatraceMonitorTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -117,7 +99,7 @@ public class AzurermDynatraceMonitorTimeoutsBlock : ITerraformBlock
 /// Block type for user in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDynatraceMonitorUserBlock : ITerraformBlock
+public class AzurermDynatraceMonitorUserBlock
 {
     /// <summary>
     /// The country attribute.
@@ -125,7 +107,7 @@ public class AzurermDynatraceMonitorUserBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Country is required")]
     [TerraformPropertyName("country")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Country { get; set; }
+    public required TerraformValue<string> Country { get; set; }
 
     /// <summary>
     /// The email attribute.
@@ -133,7 +115,7 @@ public class AzurermDynatraceMonitorUserBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     [TerraformPropertyName("email")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Email { get; set; }
+    public required TerraformValue<string> Email { get; set; }
 
     /// <summary>
     /// The first_name attribute.
@@ -141,7 +123,7 @@ public class AzurermDynatraceMonitorUserBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
     [TerraformPropertyName("first_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FirstName { get; set; }
+    public required TerraformValue<string> FirstName { get; set; }
 
     /// <summary>
     /// The last_name attribute.
@@ -149,7 +131,7 @@ public class AzurermDynatraceMonitorUserBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
     [TerraformPropertyName("last_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LastName { get; set; }
+    public required TerraformValue<string> LastName { get; set; }
 
     /// <summary>
     /// The phone_number attribute.
@@ -157,7 +139,7 @@ public class AzurermDynatraceMonitorUserBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     [TerraformPropertyName("phone_number")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PhoneNumber { get; set; }
+    public required TerraformValue<string> PhoneNumber { get; set; }
 
 }
 
@@ -175,8 +157,8 @@ public class AzurermDynatraceMonitor : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -184,7 +166,7 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The marketplace_subscription attribute.
@@ -192,14 +174,14 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MarketplaceSubscription is required")]
     [TerraformPropertyName("marketplace_subscription")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MarketplaceSubscription { get; set; }
+    public required TerraformValue<string> MarketplaceSubscription { get; set; }
 
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
     [TerraformPropertyName("monitoring_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? MonitoringEnabled { get; set; }
+    public TerraformValue<bool>? MonitoringEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -207,7 +189,7 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -215,21 +197,21 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for environment_properties.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("environment_properties")]
-    public TerraformList<TerraformBlock<AzurermDynatraceMonitorEnvironmentPropertiesBlock>>? EnvironmentProperties { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDynatraceMonitorEnvironmentPropertiesBlock>>? EnvironmentProperties { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -239,7 +221,7 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformPropertyName("identity")]
-    public TerraformList<TerraformBlock<AzurermDynatraceMonitorIdentityBlock>>? Identity { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDynatraceMonitorIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for plan.
@@ -249,14 +231,14 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plan block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformPropertyName("plan")]
-    public TerraformList<TerraformBlock<AzurermDynatraceMonitorPlanBlock>>? Plan { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDynatraceMonitorPlanBlock>>? Plan { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDynatraceMonitorTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDynatraceMonitorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for user.
@@ -266,6 +248,6 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 User block(s) allowed")]
     [TerraformPropertyName("user")]
-    public TerraformList<TerraformBlock<AzurermDynatraceMonitorUserBlock>>? User { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDynatraceMonitorUserBlock>>? User { get; set; }
 
 }

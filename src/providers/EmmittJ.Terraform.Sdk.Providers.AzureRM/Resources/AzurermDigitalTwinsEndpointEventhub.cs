@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDigitalTwinsEndpointEventhubTimeoutsBlock : ITerraformBlock
+public class AzurermDigitalTwinsEndpointEventhubTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     /// </summary>
     [TerraformPropertyName("dead_letter_storage_secret")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeadLetterStorageSecret { get; set; }
+    public TerraformValue<string>? DeadLetterStorageSecret { get; set; }
 
     /// <summary>
     /// The digital_twins_id attribute.
@@ -60,7 +60,7 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     [TerraformPropertyName("digital_twins_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DigitalTwinsId { get; set; }
+    public required TerraformValue<string> DigitalTwinsId { get; set; }
 
     /// <summary>
     /// The eventhub_primary_connection_string attribute.
@@ -68,7 +68,7 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubPrimaryConnectionString is required")]
     [TerraformPropertyName("eventhub_primary_connection_string")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EventhubPrimaryConnectionString { get; set; }
+    public required TerraformValue<string> EventhubPrimaryConnectionString { get; set; }
 
     /// <summary>
     /// The eventhub_secondary_connection_string attribute.
@@ -76,14 +76,14 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubSecondaryConnectionString is required")]
     [TerraformPropertyName("eventhub_secondary_connection_string")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EventhubSecondaryConnectionString { get; set; }
+    public required TerraformValue<string> EventhubSecondaryConnectionString { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -91,13 +91,13 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDigitalTwinsEndpointEventhubTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDigitalTwinsEndpointEventhubTimeoutsBlock>? Timeouts { get; set; }
 
 }

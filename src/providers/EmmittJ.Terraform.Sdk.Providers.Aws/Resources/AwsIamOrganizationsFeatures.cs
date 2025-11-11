@@ -17,13 +17,13 @@ public class AwsIamOrganizationsFeatures : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledFeatures is required")]
     [TerraformPropertyName("enabled_features")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? EnabledFeatures { get; set; }
+    public required TerraformSet<string> EnabledFeatures { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bigtable in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiFeatureOnlineStoreBigtableBlock : ITerraformBlock
+public class GoogleVertexAiFeatureOnlineStoreBigtableBlock
 {
 }
 
@@ -14,21 +14,9 @@ public class GoogleVertexAiFeatureOnlineStoreBigtableBlock : ITerraformBlock
 /// Block type for dedicated_serving_endpoint in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock : ITerraformBlock
+public class GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock
 {
-    /// <summary>
-    /// Domain name to use for this FeatureOnlineStore
-    /// </summary>
-    [TerraformPropertyName("public_endpoint_domain_name")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PublicEndpointDomainName => new TerraformReferenceProperty<TerraformProperty<string>>("", "public_endpoint_domain_name");
 
-    /// <summary>
-    /// Name of the service attachment resource. Applicable only if private service connect is enabled and after FeatureViewSync is created.
-    /// </summary>
-    [TerraformPropertyName("service_attachment")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServiceAttachment => new TerraformReferenceProperty<TerraformProperty<string>>("", "service_attachment");
 
 }
 
@@ -36,7 +24,7 @@ public class GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock : ITe
 /// Block type for optimized in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiFeatureOnlineStoreOptimizedBlock : ITerraformBlock
+public class GoogleVertexAiFeatureOnlineStoreOptimizedBlock
 {
 }
 
@@ -44,28 +32,28 @@ public class GoogleVertexAiFeatureOnlineStoreOptimizedBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVertexAiFeatureOnlineStoreTimeoutsBlock : ITerraformBlock
+public class GoogleVertexAiFeatureOnlineStoreTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,14 +72,14 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     /// </summary>
     [TerraformPropertyName("force_destroy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ForceDestroy { get; set; }
+    public TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The labels with user-defined metadata to organize your feature online stores.
@@ -101,7 +89,7 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The resource name of the Feature Online Store. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
@@ -109,21 +97,21 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The region of feature online store. eg us-central1
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for bigtable.
@@ -131,7 +119,7 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bigtable block(s) allowed")]
     [TerraformPropertyName("bigtable")]
-    public TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreBigtableBlock>>? Bigtable { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreBigtableBlock>>? Bigtable { get; set; }
 
     /// <summary>
     /// Block for dedicated_serving_endpoint.
@@ -139,7 +127,7 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DedicatedServingEndpoint block(s) allowed")]
     [TerraformPropertyName("dedicated_serving_endpoint")]
-    public TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock>>? DedicatedServingEndpoint { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock>>? DedicatedServingEndpoint { get; set; }
 
     /// <summary>
     /// Block for optimized.
@@ -147,42 +135,42 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Optimized block(s) allowed")]
     [TerraformPropertyName("optimized")]
-    public TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreOptimizedBlock>>? Optimized { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreOptimizedBlock>>? Optimized { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleVertexAiFeatureOnlineStoreTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleVertexAiFeatureOnlineStoreTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp of when the feature online store was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Used to perform consistent read-modify-write updates.
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// The state of the Feature Online Store. See the possible states in [this link](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.featureOnlineStores#state).
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -190,13 +178,13 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The timestamp of when the feature online store was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

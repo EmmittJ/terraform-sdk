@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for networks in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBackupDrManagementServerNetworksBlock : ITerraformBlock
+public class GoogleBackupDrManagementServerNetworksBlock
 {
     /// <summary>
     /// Network with format &#39;projects/{{project_id}}/global/networks/{{network_id}}&#39;
@@ -14,14 +14,14 @@ public class GoogleBackupDrManagementServerNetworksBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformPropertyName("network")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
+    public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// Type of Network peeringMode Default value: &amp;quot;PRIVATE_SERVICE_ACCESS&amp;quot; Possible values: [&amp;quot;PRIVATE_SERVICE_ACCESS&amp;quot;]
     /// </summary>
     [TerraformPropertyName("peering_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PeeringMode { get; set; }
+    public TerraformValue<string>? PeeringMode { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public class GoogleBackupDrManagementServerNetworksBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBackupDrManagementServerTimeoutsBlock : ITerraformBlock
+public class GoogleBackupDrManagementServerTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -60,8 +60,8 @@ public class GoogleBackupDrManagementServer : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location for the management server (management console)
@@ -69,7 +69,7 @@ public class GoogleBackupDrManagementServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of management server (management console)
@@ -77,48 +77,48 @@ public class GoogleBackupDrManagementServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The type of management server (management console). Default value: &amp;quot;BACKUP_RESTORE&amp;quot; Possible values: [&amp;quot;BACKUP_RESTORE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for networks.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("networks")]
-    public TerraformList<TerraformBlock<GoogleBackupDrManagementServerNetworksBlock>>? Networks { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBackupDrManagementServerNetworksBlock>>? Networks { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleBackupDrManagementServerTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleBackupDrManagementServerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The management console URI
     /// </summary>
     [TerraformPropertyName("management_uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ManagementUri => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "management_uri");
+    public TerraformList<object> ManagementUri => new TerraformReference(this, "management_uri");
 
     /// <summary>
     /// The oauth2ClientId of management console.
     /// </summary>
     [TerraformPropertyName("oauth2_client_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Oauth2ClientId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "oauth2_client_id");
+    public TerraformValue<string> Oauth2ClientId => new TerraformReference(this, "oauth2_client_id");
 
 }

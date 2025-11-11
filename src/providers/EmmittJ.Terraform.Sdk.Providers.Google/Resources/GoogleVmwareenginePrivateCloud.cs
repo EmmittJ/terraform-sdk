@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for management_cluster in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVmwareenginePrivateCloudManagementClusterBlock : ITerraformBlock
+public class GoogleVmwareenginePrivateCloudManagementClusterBlock
 {
     /// <summary>
     /// The user-provided identifier of the new Cluster. The identifier must meet the following requirements:
@@ -19,7 +19,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformPropertyName("cluster_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
+    public required TerraformValue<string> ClusterId { get; set; }
 
 }
 
@@ -27,14 +27,8 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlock : ITerraformBl
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : ITerraformBlock
+public class GoogleVmwareenginePrivateCloudNetworkConfigBlock
 {
-    /// <summary>
-    /// DNS Server IP of the Private Cloud.
-    /// </summary>
-    [TerraformPropertyName("dns_server_ip")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DnsServerIp => new TerraformReferenceProperty<TerraformProperty<string>>("", "dns_server_ip");
 
     /// <summary>
     /// Management CIDR used by VMware management appliances.
@@ -42,19 +36,8 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementCidr is required")]
     [TerraformPropertyName("management_cidr")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ManagementCidr { get; set; }
+    public required TerraformValue<string> ManagementCidr { get; set; }
 
-    /// <summary>
-    /// The IP address layout version of the management IP address range.
-    /// Possible versions include:
-    /// * managementIpAddressLayoutVersion=1: Indicates the legacy IP address layout used by some existing private clouds. This is no longer supported for new private clouds
-    /// as it does not support all features.
-    /// * managementIpAddressLayoutVersion=2: Indicates the latest IP address layout
-    /// used by all newly created private clouds. This version supports all current features.
-    /// </summary>
-    [TerraformPropertyName("management_ip_address_layout_version")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ManagementIpAddressLayoutVersion => new TerraformReferenceProperty<TerraformProperty<double>>("", "management_ip_address_layout_version");
 
     /// <summary>
     /// The relative resource name of the VMware Engine network attached to the private cloud.
@@ -63,15 +46,8 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("vmware_engine_network")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VmwareEngineNetwork { get; set; }
+    public TerraformValue<string>? VmwareEngineNetwork { get; set; }
 
-    /// <summary>
-    /// The canonical name of the VMware Engine network in
-    /// the form: projects/{project_number}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId}
-    /// </summary>
-    [TerraformPropertyName("vmware_engine_network_canonical")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VmwareEngineNetworkCanonical => new TerraformReferenceProperty<TerraformProperty<string>>("", "vmware_engine_network_canonical");
 
 }
 
@@ -79,28 +55,28 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVmwareenginePrivateCloudTimeoutsBlock : ITerraformBlock
+public class GoogleVmwareenginePrivateCloudTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -119,21 +95,21 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     /// </summary>
     [TerraformPropertyName("deletion_delay_hours")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? DeletionDelayHours { get; set; }
+    public TerraformValue<double>? DeletionDelayHours { get; set; }
 
     /// <summary>
     /// User-provided description for this private cloud.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location where the PrivateCloud should reside.
@@ -141,7 +117,7 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The ID of the PrivateCloud.
@@ -149,28 +125,28 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// While set true, deletion_delay_hours value will be sent in the request even for zero value of the field. This field is only useful for setting 0 value to the deletion_delay_hours field. It can be used both alone and together with deletion_delay_hours.
     /// </summary>
     [TerraformPropertyName("send_deletion_delay_hours_if_zero")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SendDeletionDelayHoursIfZero { get; set; }
+    public TerraformValue<bool>? SendDeletionDelayHoursIfZero { get; set; }
 
     /// <summary>
     /// Initial type of the private cloud. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;TIME_LIMITED&amp;quot;, &amp;quot;STRETCHED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for management_cluster.
@@ -180,7 +156,7 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagementCluster block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementCluster block(s) allowed")]
     [TerraformPropertyName("management_cluster")]
-    public TerraformList<TerraformBlock<GoogleVmwareenginePrivateCloudManagementClusterBlock>>? ManagementCluster { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleVmwareenginePrivateCloudManagementClusterBlock>>? ManagementCluster { get; set; }
 
     /// <summary>
     /// Block for network_config.
@@ -190,14 +166,14 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformPropertyName("network_config")]
-    public TerraformList<TerraformBlock<GoogleVmwareenginePrivateCloudNetworkConfigBlock>>? NetworkConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleVmwareenginePrivateCloudNetworkConfigBlock>>? NetworkConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleVmwareenginePrivateCloudTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleVmwareenginePrivateCloudTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation time of this resource.
@@ -206,7 +182,7 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Time when the resource was scheduled for deletion.
@@ -215,7 +191,7 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     /// </summary>
     [TerraformPropertyName("delete_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DeleteTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delete_time");
+    public TerraformValue<string> DeleteTime => new TerraformReference(this, "delete_time");
 
     /// <summary>
     /// Time when the resource will be irreversibly deleted.
@@ -224,35 +200,35 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     /// </summary>
     [TerraformPropertyName("expire_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExpireTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expire_time");
+    public TerraformValue<string> ExpireTime => new TerraformReference(this, "expire_time");
 
     /// <summary>
     /// Details about a HCX Cloud Manager appliance.
     /// </summary>
     [TerraformPropertyName("hcx")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Hcx => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "hcx");
+    public TerraformList<object> Hcx => new TerraformReference(this, "hcx");
 
     /// <summary>
     /// Details about a NSX Manager appliance.
     /// </summary>
     [TerraformPropertyName("nsx")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Nsx => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "nsx");
+    public TerraformList<object> Nsx => new TerraformReference(this, "nsx");
 
     /// <summary>
     /// State of the resource. New values may be added to this enum when appropriate.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Last update time of this resource.
@@ -261,13 +237,13 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
     /// <summary>
     /// Details about a vCenter Server management appliance.
     /// </summary>
     [TerraformPropertyName("vcenter")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Vcenter => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "vcenter");
+    public TerraformList<object> Vcenter => new TerraformReference(this, "vcenter");
 
 }

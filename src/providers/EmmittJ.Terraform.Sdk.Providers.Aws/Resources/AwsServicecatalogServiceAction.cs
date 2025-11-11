@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for definition in .
 /// Nesting mode: list
 /// </summary>
-public class AwsServicecatalogServiceActionDefinitionBlock : ITerraformBlock
+public class AwsServicecatalogServiceActionDefinitionBlock
 {
     /// <summary>
     /// The assume_role attribute.
     /// </summary>
     [TerraformPropertyName("assume_role")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AssumeRole { get; set; }
+    public TerraformValue<string>? AssumeRole { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -21,21 +21,21 @@ public class AwsServicecatalogServiceActionDefinitionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformPropertyName("parameters")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Parameters { get; set; }
+    public TerraformValue<string>? Parameters { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -43,7 +43,7 @@ public class AwsServicecatalogServiceActionDefinitionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformPropertyName("version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
+    public required TerraformValue<string> Version { get; set; }
 
 }
 
@@ -51,35 +51,35 @@ public class AwsServicecatalogServiceActionDefinitionBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsServicecatalogServiceActionTimeoutsBlock : ITerraformBlock
+public class AwsServicecatalogServiceActionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -98,21 +98,21 @@ public class AwsServicecatalogServiceAction : TerraformResource
     /// </summary>
     [TerraformPropertyName("accept_language")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AcceptLanguage { get; set; }
+    public TerraformValue<string>? AcceptLanguage { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Description { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Description { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -120,14 +120,14 @@ public class AwsServicecatalogServiceAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for definition.
@@ -137,13 +137,13 @@ public class AwsServicecatalogServiceAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Definition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Definition block(s) allowed")]
     [TerraformPropertyName("definition")]
-    public TerraformList<TerraformBlock<AwsServicecatalogServiceActionDefinitionBlock>>? Definition { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsServicecatalogServiceActionDefinitionBlock>>? Definition { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsServicecatalogServiceActionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsServicecatalogServiceActionTimeoutsBlock>? Timeouts { get; set; }
 
 }

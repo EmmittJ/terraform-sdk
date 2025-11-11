@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for entities in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowEntityTypeEntitiesBlock : ITerraformBlock
+public class GoogleDialogflowEntityTypeEntitiesBlock
 {
     /// <summary>
     /// A collection of value synonyms. For example, if the entity type is vegetable, and value is scallions, a synonym
@@ -17,7 +17,7 @@ public class GoogleDialogflowEntityTypeEntitiesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Synonyms is required")]
     [TerraformPropertyName("synonyms")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? Synonyms { get; set; }
+    public TerraformList<string>? Synonyms { get; set; }
 
     /// <summary>
     /// The primary value associated with this entity entry. For example, if the entity type is vegetable, the value
@@ -30,7 +30,7 @@ public class GoogleDialogflowEntityTypeEntitiesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformPropertyName("value")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
+    public required TerraformValue<string> Value { get; set; }
 
 }
 
@@ -38,28 +38,28 @@ public class GoogleDialogflowEntityTypeEntitiesBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowEntityTypeTimeoutsBlock : ITerraformBlock
+public class GoogleDialogflowEntityTypeTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,21 +78,21 @@ public class GoogleDialogflowEntityType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Enables fuzzy entity extraction during classification.
     /// </summary>
     [TerraformPropertyName("enable_fuzzy_extraction")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableFuzzyExtraction { get; set; }
+    public TerraformValue<bool>? EnableFuzzyExtraction { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Indicates the kind of entity type.
@@ -104,28 +104,28 @@ public class GoogleDialogflowEntityType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     [TerraformPropertyName("kind")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Kind { get; set; }
+    public required TerraformValue<string> Kind { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for entities.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("entities")]
-    public TerraformList<TerraformBlock<GoogleDialogflowEntityTypeEntitiesBlock>>? Entities { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDialogflowEntityTypeEntitiesBlock>>? Entities { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDialogflowEntityTypeTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDialogflowEntityTypeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier of the entity type.
@@ -133,6 +133,6 @@ public class GoogleDialogflowEntityType : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

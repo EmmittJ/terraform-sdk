@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rollout_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock : ITerraformBlock
+public class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock
 {
     /// <summary>
     /// Specifies a branch that triggers a new build to be started with this
@@ -14,21 +14,15 @@ public class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("codebase_branch")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CodebaseBranch { get; set; }
+    public TerraformValue<string>? CodebaseBranch { get; set; }
 
     /// <summary>
     /// A flag that, if true, prevents rollouts from being created via this RolloutPolicy.
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
-    /// <summary>
-    /// If disabled is set, the time at which the rollouts were disabled.
-    /// </summary>
-    [TerraformPropertyName("disabled_time")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DisabledTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "disabled_time");
 
 }
 
@@ -36,7 +30,7 @@ public class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock : ITerraformBlock
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFirebaseAppHostingTrafficTargetBlock : ITerraformBlock
+public class GoogleFirebaseAppHostingTrafficTargetBlock
 {
 }
 
@@ -44,28 +38,28 @@ public class GoogleFirebaseAppHostingTrafficTargetBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirebaseAppHostingTrafficTimeoutsBlock : ITerraformBlock
+public class GoogleFirebaseAppHostingTrafficTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -85,14 +79,14 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
     [TerraformPropertyName("backend")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Backend { get; set; }
+    public required TerraformValue<string> Backend { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location the Backend that this Traffic config applies to
@@ -100,14 +94,14 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for rollout_policy.
@@ -115,7 +109,7 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RolloutPolicy block(s) allowed")]
     [TerraformPropertyName("rollout_policy")]
-    public TerraformList<TerraformBlock<GoogleFirebaseAppHostingTrafficRolloutPolicyBlock>>? RolloutPolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleFirebaseAppHostingTrafficRolloutPolicyBlock>>? RolloutPolicy { get; set; }
 
     /// <summary>
     /// Block for target.
@@ -123,21 +117,21 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformPropertyName("target")]
-    public TerraformList<TerraformBlock<GoogleFirebaseAppHostingTrafficTargetBlock>>? Target { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleFirebaseAppHostingTrafficTargetBlock>>? Target { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleFirebaseAppHostingTrafficTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleFirebaseAppHostingTrafficTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time at which the backend was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Current state of traffic allocation for the backend.
@@ -145,14 +139,14 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     /// </summary>
     [TerraformPropertyName("current")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Current => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "current");
+    public TerraformList<object> Current => new TerraformReference(this, "current");
 
     /// <summary>
     /// Time at which the backend was deleted.
     /// </summary>
     [TerraformPropertyName("delete_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DeleteTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delete_time");
+    public TerraformValue<string> DeleteTime => new TerraformReference(this, "delete_time");
 
     /// <summary>
     /// Server-computed checksum based on other values; may be sent
@@ -160,7 +154,7 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// Identifier. The resource name of the backend traffic config
@@ -171,20 +165,20 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// System-assigned, unique identifier.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Time at which the backend was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

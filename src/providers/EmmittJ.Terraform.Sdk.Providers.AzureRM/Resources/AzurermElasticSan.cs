@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermElasticSanSkuBlock : ITerraformBlock
+public class AzurermElasticSanSkuBlock
 {
     /// <summary>
     /// The name attribute.
@@ -14,14 +14,14 @@ public class AzurermElasticSanSkuBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
     [TerraformPropertyName("tier")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Tier { get; set; }
+    public TerraformValue<string>? Tier { get; set; }
 
 }
 
@@ -29,35 +29,35 @@ public class AzurermElasticSanSkuBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermElasticSanTimeoutsBlock : ITerraformBlock
+public class AzurermElasticSanTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -77,21 +77,21 @@ public class AzurermElasticSan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseSizeInTib is required")]
     [TerraformPropertyName("base_size_in_tib")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> BaseSizeInTib { get; set; }
+    public required TerraformValue<double> BaseSizeInTib { get; set; }
 
     /// <summary>
     /// The extended_size_in_tib attribute.
     /// </summary>
     [TerraformPropertyName("extended_size_in_tib")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? ExtendedSizeInTib { get; set; }
+    public TerraformValue<double>? ExtendedSizeInTib { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -99,7 +99,7 @@ public class AzurermElasticSan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -107,7 +107,7 @@ public class AzurermElasticSan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -115,21 +115,21 @@ public class AzurermElasticSan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [TerraformPropertyName("zones")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Zones { get; set; }
+    public TerraformSet<string>? Zones { get; set; }
 
     /// <summary>
     /// Block for sku.
@@ -139,48 +139,48 @@ public class AzurermElasticSan : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformPropertyName("sku")]
-    public TerraformList<TerraformBlock<AzurermElasticSanSkuBlock>>? Sku { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermElasticSanSkuBlock>>? Sku { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermElasticSanTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermElasticSanTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The total_iops attribute.
     /// </summary>
     [TerraformPropertyName("total_iops")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> TotalIops => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_iops");
+    public TerraformValue<double> TotalIops => new TerraformReference(this, "total_iops");
 
     /// <summary>
     /// The total_mbps attribute.
     /// </summary>
     [TerraformPropertyName("total_mbps")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> TotalMbps => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_mbps");
+    public TerraformValue<double> TotalMbps => new TerraformReference(this, "total_mbps");
 
     /// <summary>
     /// The total_size_in_tib attribute.
     /// </summary>
     [TerraformPropertyName("total_size_in_tib")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> TotalSizeInTib => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_size_in_tib");
+    public TerraformValue<double> TotalSizeInTib => new TerraformReference(this, "total_size_in_tib");
 
     /// <summary>
     /// The total_volume_size_in_gib attribute.
     /// </summary>
     [TerraformPropertyName("total_volume_size_in_gib")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> TotalVolumeSizeInGib => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_volume_size_in_gib");
+    public TerraformValue<double> TotalVolumeSizeInGib => new TerraformReference(this, "total_volume_size_in_gib");
 
     /// <summary>
     /// The volume_group_count attribute.
     /// </summary>
     [TerraformPropertyName("volume_group_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> VolumeGroupCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "volume_group_count");
+    public TerraformValue<double> VolumeGroupCount => new TerraformReference(this, "volume_group_count");
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSharedImageDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermSharedImageDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public class AzurermSharedImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
     [TerraformPropertyName("gallery_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GalleryName { get; set; }
+    public required TerraformValue<string> GalleryName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -47,7 +47,7 @@ public class AzurermSharedImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -55,139 +55,139 @@ public class AzurermSharedImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermSharedImageDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermSharedImageDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The accelerated_network_support_enabled attribute.
     /// </summary>
     [TerraformPropertyName("accelerated_network_support_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> AcceleratedNetworkSupportEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "accelerated_network_support_enabled");
+    public TerraformValue<bool> AcceleratedNetworkSupportEnabled => new TerraformReference(this, "accelerated_network_support_enabled");
 
     /// <summary>
     /// The architecture attribute.
     /// </summary>
     [TerraformPropertyName("architecture")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Architecture => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "architecture");
+    public TerraformValue<string> Architecture => new TerraformReference(this, "architecture");
 
     /// <summary>
     /// The confidential_vm_enabled attribute.
     /// </summary>
     [TerraformPropertyName("confidential_vm_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> ConfidentialVmEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "confidential_vm_enabled");
+    public TerraformValue<bool> ConfidentialVmEnabled => new TerraformReference(this, "confidential_vm_enabled");
 
     /// <summary>
     /// The confidential_vm_supported attribute.
     /// </summary>
     [TerraformPropertyName("confidential_vm_supported")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> ConfidentialVmSupported => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "confidential_vm_supported");
+    public TerraformValue<bool> ConfidentialVmSupported => new TerraformReference(this, "confidential_vm_supported");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The eula attribute.
     /// </summary>
     [TerraformPropertyName("eula")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Eula => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "eula");
+    public TerraformValue<string> Eula => new TerraformReference(this, "eula");
 
     /// <summary>
     /// The hibernation_enabled attribute.
     /// </summary>
     [TerraformPropertyName("hibernation_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> HibernationEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "hibernation_enabled");
+    public TerraformValue<bool> HibernationEnabled => new TerraformReference(this, "hibernation_enabled");
 
     /// <summary>
     /// The hyper_v_generation attribute.
     /// </summary>
     [TerraformPropertyName("hyper_v_generation")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> HyperVGeneration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hyper_v_generation");
+    public TerraformValue<string> HyperVGeneration => new TerraformReference(this, "hyper_v_generation");
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
     [TerraformPropertyName("identifier")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Identifier => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identifier");
+    public TerraformList<object> Identifier => new TerraformReference(this, "identifier");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
     [TerraformPropertyName("os_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OsType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "os_type");
+    public TerraformValue<string> OsType => new TerraformReference(this, "os_type");
 
     /// <summary>
     /// The privacy_statement_uri attribute.
     /// </summary>
     [TerraformPropertyName("privacy_statement_uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrivacyStatementUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "privacy_statement_uri");
+    public TerraformValue<string> PrivacyStatementUri => new TerraformReference(this, "privacy_statement_uri");
 
     /// <summary>
     /// The purchase_plan attribute.
     /// </summary>
     [TerraformPropertyName("purchase_plan")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PurchasePlan => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "purchase_plan");
+    public TerraformList<object> PurchasePlan => new TerraformReference(this, "purchase_plan");
 
     /// <summary>
     /// The release_note_uri attribute.
     /// </summary>
     [TerraformPropertyName("release_note_uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ReleaseNoteUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "release_note_uri");
+    public TerraformValue<string> ReleaseNoteUri => new TerraformReference(this, "release_note_uri");
 
     /// <summary>
     /// The specialized attribute.
     /// </summary>
     [TerraformPropertyName("specialized")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Specialized => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "specialized");
+    public TerraformValue<bool> Specialized => new TerraformReference(this, "specialized");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The trusted_launch_enabled attribute.
     /// </summary>
     [TerraformPropertyName("trusted_launch_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> TrustedLaunchEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "trusted_launch_enabled");
+    public TerraformValue<bool> TrustedLaunchEnabled => new TerraformReference(this, "trusted_launch_enabled");
 
     /// <summary>
     /// The trusted_launch_supported attribute.
     /// </summary>
     [TerraformPropertyName("trusted_launch_supported")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> TrustedLaunchSupported => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "trusted_launch_supported");
+    public TerraformValue<bool> TrustedLaunchSupported => new TerraformReference(this, "trusted_launch_supported");
 
 }

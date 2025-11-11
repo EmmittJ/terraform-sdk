@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for credentials in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementBackendCredentialsBlock : ITerraformBlock
+public class AzurermApiManagementBackendCredentialsBlock
 {
     /// <summary>
     /// The certificate attribute.
     /// </summary>
     [TerraformPropertyName("certificate")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Certificate { get; set; }
+    public TerraformList<string>? Certificate { get; set; }
 
     /// <summary>
     /// The header attribute.
     /// </summary>
     [TerraformPropertyName("header")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Header { get; set; }
+    public TerraformMap<string>? Header { get; set; }
 
     /// <summary>
     /// The query attribute.
     /// </summary>
     [TerraformPropertyName("query")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Query { get; set; }
+    public TerraformMap<string>? Query { get; set; }
 
 }
 
@@ -35,14 +35,14 @@ public class AzurermApiManagementBackendCredentialsBlock : ITerraformBlock
 /// Block type for proxy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementBackendProxyBlock : ITerraformBlock
+public class AzurermApiManagementBackendProxyBlock
 {
     /// <summary>
     /// The password attribute.
     /// </summary>
     [TerraformPropertyName("password")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Password { get; set; }
+    public TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// The url attribute.
@@ -50,7 +50,7 @@ public class AzurermApiManagementBackendProxyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     [TerraformPropertyName("url")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Url { get; set; }
+    public required TerraformValue<string> Url { get; set; }
 
     /// <summary>
     /// The username attribute.
@@ -58,7 +58,7 @@ public class AzurermApiManagementBackendProxyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformPropertyName("username")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
+    public required TerraformValue<string> Username { get; set; }
 
 }
 
@@ -66,21 +66,21 @@ public class AzurermApiManagementBackendProxyBlock : ITerraformBlock
 /// Block type for service_fabric_cluster in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementBackendServiceFabricClusterBlock : ITerraformBlock
+public class AzurermApiManagementBackendServiceFabricClusterBlock
 {
     /// <summary>
     /// The client_certificate_id attribute.
     /// </summary>
     [TerraformPropertyName("client_certificate_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ClientCertificateId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "client_certificate_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ClientCertificateId { get; set; } = default!;
 
     /// <summary>
     /// The client_certificate_thumbprint attribute.
     /// </summary>
     [TerraformPropertyName("client_certificate_thumbprint")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ClientCertificateThumbprint { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "client_certificate_thumbprint");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ClientCertificateThumbprint { get; set; } = default!;
 
     /// <summary>
     /// The management_endpoints attribute.
@@ -88,7 +88,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementEndpoints is required")]
     [TerraformPropertyName("management_endpoints")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? ManagementEndpoints { get; set; }
+    public required TerraformSet<string> ManagementEndpoints { get; set; }
 
     /// <summary>
     /// The max_partition_resolution_retries attribute.
@@ -96,14 +96,14 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPartitionResolutionRetries is required")]
     [TerraformPropertyName("max_partition_resolution_retries")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> MaxPartitionResolutionRetries { get; set; }
+    public required TerraformValue<double> MaxPartitionResolutionRetries { get; set; }
 
     /// <summary>
     /// The server_certificate_thumbprints attribute.
     /// </summary>
     [TerraformPropertyName("server_certificate_thumbprints")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? ServerCertificateThumbprints { get; set; }
+    public TerraformSet<string>? ServerCertificateThumbprints { get; set; }
 
 }
 
@@ -111,35 +111,35 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : ITerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementBackendTimeoutsBlock : ITerraformBlock
+public class AzurermApiManagementBackendTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -147,21 +147,21 @@ public class AzurermApiManagementBackendTimeoutsBlock : ITerraformBlock
 /// Block type for tls in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementBackendTlsBlock : ITerraformBlock
+public class AzurermApiManagementBackendTlsBlock
 {
     /// <summary>
     /// The validate_certificate_chain attribute.
     /// </summary>
     [TerraformPropertyName("validate_certificate_chain")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ValidateCertificateChain { get; set; }
+    public TerraformValue<bool>? ValidateCertificateChain { get; set; }
 
     /// <summary>
     /// The validate_certificate_name attribute.
     /// </summary>
     [TerraformPropertyName("validate_certificate_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ValidateCertificateName { get; set; }
+    public TerraformValue<bool>? ValidateCertificateName { get; set; }
 
 }
 
@@ -181,21 +181,21 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     [TerraformPropertyName("api_management_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ApiManagementName { get; set; }
+    public required TerraformValue<string> ApiManagementName { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -203,7 +203,7 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The protocol attribute.
@@ -211,7 +211,7 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformPropertyName("protocol")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
+    public required TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -219,21 +219,21 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     [TerraformPropertyName("resource_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ResourceId { get; set; }
+    public TerraformValue<string>? ResourceId { get; set; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     [TerraformPropertyName("title")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Title { get; set; }
+    public TerraformValue<string>? Title { get; set; }
 
     /// <summary>
     /// The url attribute.
@@ -241,7 +241,7 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     [TerraformPropertyName("url")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Url { get; set; }
+    public required TerraformValue<string> Url { get; set; }
 
     /// <summary>
     /// Block for credentials.
@@ -249,7 +249,7 @@ public class AzurermApiManagementBackend : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Credentials block(s) allowed")]
     [TerraformPropertyName("credentials")]
-    public TerraformList<TerraformBlock<AzurermApiManagementBackendCredentialsBlock>>? Credentials { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermApiManagementBackendCredentialsBlock>>? Credentials { get; set; }
 
     /// <summary>
     /// Block for proxy.
@@ -257,7 +257,7 @@ public class AzurermApiManagementBackend : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
     [TerraformPropertyName("proxy")]
-    public TerraformList<TerraformBlock<AzurermApiManagementBackendProxyBlock>>? Proxy { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermApiManagementBackendProxyBlock>>? Proxy { get; set; }
 
     /// <summary>
     /// Block for service_fabric_cluster.
@@ -265,14 +265,14 @@ public class AzurermApiManagementBackend : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceFabricCluster block(s) allowed")]
     [TerraformPropertyName("service_fabric_cluster")]
-    public TerraformList<TerraformBlock<AzurermApiManagementBackendServiceFabricClusterBlock>>? ServiceFabricCluster { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermApiManagementBackendServiceFabricClusterBlock>>? ServiceFabricCluster { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermApiManagementBackendTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermApiManagementBackendTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for tls.
@@ -280,6 +280,6 @@ public class AzurermApiManagementBackend : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tls block(s) allowed")]
     [TerraformPropertyName("tls")]
-    public TerraformList<TerraformBlock<AzurermApiManagementBackendTlsBlock>>? Tls { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermApiManagementBackendTlsBlock>>? Tls { get; set; }
 
 }

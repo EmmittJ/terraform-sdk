@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPrivateEndpointIpConfigurationBlock : ITerraformBlock
+public class AzurermPrivateEndpointIpConfigurationBlock
 {
     /// <summary>
     /// The member_name attribute.
     /// </summary>
     [TerraformPropertyName("member_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> MemberName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "member_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> MemberName { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -21,7 +21,7 @@ public class AzurermPrivateEndpointIpConfigurationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_ip_address attribute.
@@ -29,14 +29,14 @@ public class AzurermPrivateEndpointIpConfigurationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddress is required")]
     [TerraformPropertyName("private_ip_address")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PrivateIpAddress { get; set; }
+    public required TerraformValue<string> PrivateIpAddress { get; set; }
 
     /// <summary>
     /// The subresource_name attribute.
     /// </summary>
     [TerraformPropertyName("subresource_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SubresourceName { get; set; }
+    public TerraformValue<string>? SubresourceName { get; set; }
 
 }
 
@@ -44,14 +44,8 @@ public class AzurermPrivateEndpointIpConfigurationBlock : ITerraformBlock
 /// Block type for private_dns_zone_group in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : ITerraformBlock
+public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock
 {
-    /// <summary>
-    /// The id attribute.
-    /// </summary>
-    [TerraformPropertyName("id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The name attribute.
@@ -59,7 +53,7 @@ public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_dns_zone_ids attribute.
@@ -67,7 +61,7 @@ public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsZoneIds is required")]
     [TerraformPropertyName("private_dns_zone_ids")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? PrivateDnsZoneIds { get; set; }
+    public TerraformList<string>? PrivateDnsZoneIds { get; set; }
 
 }
 
@@ -75,7 +69,7 @@ public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : ITerraformBlock
 /// Block type for private_service_connection in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPrivateEndpointPrivateServiceConnectionBlock : ITerraformBlock
+public class AzurermPrivateEndpointPrivateServiceConnectionBlock
 {
     /// <summary>
     /// The is_manual_connection attribute.
@@ -83,7 +77,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsManualConnection is required")]
     [TerraformPropertyName("is_manual_connection")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> IsManualConnection { get; set; }
+    public required TerraformValue<bool> IsManualConnection { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -91,42 +85,36 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_connection_resource_alias attribute.
     /// </summary>
     [TerraformPropertyName("private_connection_resource_alias")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PrivateConnectionResourceAlias { get; set; }
+    public TerraformValue<string>? PrivateConnectionResourceAlias { get; set; }
 
     /// <summary>
     /// The private_connection_resource_id attribute.
     /// </summary>
     [TerraformPropertyName("private_connection_resource_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PrivateConnectionResourceId { get; set; }
+    public TerraformValue<string>? PrivateConnectionResourceId { get; set; }
 
-    /// <summary>
-    /// The private_ip_address attribute.
-    /// </summary>
-    [TerraformPropertyName("private_ip_address")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrivateIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>("", "private_ip_address");
 
     /// <summary>
     /// The request_message attribute.
     /// </summary>
     [TerraformPropertyName("request_message")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RequestMessage { get; set; }
+    public TerraformValue<string>? RequestMessage { get; set; }
 
     /// <summary>
     /// The subresource_names attribute.
     /// </summary>
     [TerraformPropertyName("subresource_names")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? SubresourceNames { get; set; }
+    public TerraformList<string>? SubresourceNames { get; set; }
 
 }
 
@@ -134,35 +122,35 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : ITerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPrivateEndpointTimeoutsBlock : ITerraformBlock
+public class AzurermPrivateEndpointTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -181,14 +169,14 @@ public class AzurermPrivateEndpoint : TerraformResource
     /// </summary>
     [TerraformPropertyName("custom_network_interface_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomNetworkInterfaceName { get; set; }
+    public TerraformValue<string>? CustomNetworkInterfaceName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -196,7 +184,7 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -204,7 +192,7 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -212,7 +200,7 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -220,21 +208,21 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformPropertyName("subnet_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
+    public required TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for ip_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("ip_configuration")]
-    public TerraformList<TerraformBlock<AzurermPrivateEndpointIpConfigurationBlock>>? IpConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermPrivateEndpointIpConfigurationBlock>>? IpConfiguration { get; set; }
 
     /// <summary>
     /// Block for private_dns_zone_group.
@@ -242,7 +230,7 @@ public class AzurermPrivateEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateDnsZoneGroup block(s) allowed")]
     [TerraformPropertyName("private_dns_zone_group")]
-    public TerraformList<TerraformBlock<AzurermPrivateEndpointPrivateDnsZoneGroupBlock>>? PrivateDnsZoneGroup { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermPrivateEndpointPrivateDnsZoneGroupBlock>>? PrivateDnsZoneGroup { get; set; }
 
     /// <summary>
     /// Block for private_service_connection.
@@ -252,34 +240,34 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PrivateServiceConnection block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateServiceConnection block(s) allowed")]
     [TerraformPropertyName("private_service_connection")]
-    public TerraformList<TerraformBlock<AzurermPrivateEndpointPrivateServiceConnectionBlock>>? PrivateServiceConnection { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermPrivateEndpointPrivateServiceConnectionBlock>>? PrivateServiceConnection { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermPrivateEndpointTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermPrivateEndpointTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The custom_dns_configs attribute.
     /// </summary>
     [TerraformPropertyName("custom_dns_configs")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CustomDnsConfigs => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "custom_dns_configs");
+    public TerraformList<object> CustomDnsConfigs => new TerraformReference(this, "custom_dns_configs");
 
     /// <summary>
     /// The network_interface attribute.
     /// </summary>
     [TerraformPropertyName("network_interface")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> NetworkInterface => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "network_interface");
+    public TerraformList<object> NetworkInterface => new TerraformReference(this, "network_interface");
 
     /// <summary>
     /// The private_dns_zone_configs attribute.
     /// </summary>
     [TerraformPropertyName("private_dns_zone_configs")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PrivateDnsZoneConfigs => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "private_dns_zone_configs");
+    public TerraformList<object> PrivateDnsZoneConfigs => new TerraformReference(this, "private_dns_zone_configs");
 
 }

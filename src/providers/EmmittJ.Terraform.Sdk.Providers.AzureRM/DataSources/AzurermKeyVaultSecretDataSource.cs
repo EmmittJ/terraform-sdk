@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKeyVaultSecretDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermKeyVaultSecretDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermKeyVaultSecretDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The key_vault_id attribute.
@@ -39,7 +39,7 @@ public class AzurermKeyVaultSecretDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformPropertyName("key_vault_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyVaultId { get; set; }
+    public required TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,76 +47,76 @@ public class AzurermKeyVaultSecretDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformPropertyName("version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
+    public TerraformValue<string>? Version { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermKeyVaultSecretDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermKeyVaultSecretDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
     [TerraformPropertyName("content_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ContentType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content_type");
+    public TerraformValue<string> ContentType => new TerraformReference(this, "content_type");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     [TerraformPropertyName("expiration_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExpirationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_date");
+    public TerraformValue<string> ExpirationDate => new TerraformReference(this, "expiration_date");
 
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
     [TerraformPropertyName("not_before_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NotBeforeDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "not_before_date");
+    public TerraformValue<string> NotBeforeDate => new TerraformReference(this, "not_before_date");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     [TerraformPropertyName("resource_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_id");
+    public TerraformValue<string> ResourceId => new TerraformReference(this, "resource_id");
 
     /// <summary>
     /// The resource_versionless_id attribute.
     /// </summary>
     [TerraformPropertyName("resource_versionless_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ResourceVersionlessId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_versionless_id");
+    public TerraformValue<string> ResourceVersionlessId => new TerraformReference(this, "resource_versionless_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformPropertyName("value")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Value => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "value");
+    public TerraformValue<string> Value => new TerraformReference(this, "value");
 
     /// <summary>
     /// The versionless_id attribute.
     /// </summary>
     [TerraformPropertyName("versionless_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VersionlessId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "versionless_id");
+    public TerraformValue<string> VersionlessId => new TerraformReference(this, "versionless_id");
 
 }

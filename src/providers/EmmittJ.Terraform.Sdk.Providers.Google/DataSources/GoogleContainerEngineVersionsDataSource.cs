@@ -15,84 +15,84 @@ public class GoogleContainerEngineVersionsDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The version_prefix attribute.
     /// </summary>
     [TerraformPropertyName("version_prefix")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VersionPrefix { get; set; }
+    public TerraformValue<string>? VersionPrefix { get; set; }
 
     /// <summary>
     /// The default_cluster_version attribute.
     /// </summary>
     [TerraformPropertyName("default_cluster_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DefaultClusterVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_cluster_version");
+    public TerraformValue<string> DefaultClusterVersion => new TerraformReference(this, "default_cluster_version");
 
     /// <summary>
     /// The latest_master_version attribute.
     /// </summary>
     [TerraformPropertyName("latest_master_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LatestMasterVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "latest_master_version");
+    public TerraformValue<string> LatestMasterVersion => new TerraformReference(this, "latest_master_version");
 
     /// <summary>
     /// The latest_node_version attribute.
     /// </summary>
     [TerraformPropertyName("latest_node_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LatestNodeVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "latest_node_version");
+    public TerraformValue<string> LatestNodeVersion => new TerraformReference(this, "latest_node_version");
 
     /// <summary>
     /// The release_channel_default_version attribute.
     /// </summary>
     [TerraformPropertyName("release_channel_default_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> ReleaseChannelDefaultVersion => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "release_channel_default_version");
+    public TerraformMap<string> ReleaseChannelDefaultVersion => new TerraformReference(this, "release_channel_default_version");
 
     /// <summary>
     /// The release_channel_latest_version attribute.
     /// </summary>
     [TerraformPropertyName("release_channel_latest_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> ReleaseChannelLatestVersion => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "release_channel_latest_version");
+    public TerraformMap<string> ReleaseChannelLatestVersion => new TerraformReference(this, "release_channel_latest_version");
 
     /// <summary>
     /// The release_channel_upgrade_target_version attribute.
     /// </summary>
     [TerraformPropertyName("release_channel_upgrade_target_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> ReleaseChannelUpgradeTargetVersion => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "release_channel_upgrade_target_version");
+    public TerraformMap<string> ReleaseChannelUpgradeTargetVersion => new TerraformReference(this, "release_channel_upgrade_target_version");
 
     /// <summary>
     /// The valid_master_versions attribute.
     /// </summary>
     [TerraformPropertyName("valid_master_versions")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> ValidMasterVersions => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "valid_master_versions");
+    public TerraformList<string> ValidMasterVersions => new TerraformReference(this, "valid_master_versions");
 
     /// <summary>
     /// The valid_node_versions attribute.
     /// </summary>
     [TerraformPropertyName("valid_node_versions")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> ValidNodeVersions => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "valid_node_versions");
+    public TerraformList<string> ValidNodeVersions => new TerraformReference(this, "valid_node_versions");
 
 }

@@ -15,8 +15,8 @@ public class GoogleSqlDatabaseDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the Cloud SQL instance. This does not include the project
@@ -25,7 +25,7 @@ public class GoogleSqlDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformPropertyName("instance")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
+    public required TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The name of the database in the Cloud SQL instance.
@@ -34,14 +34,14 @@ public class GoogleSqlDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The charset value. See MySQL&#39;s
@@ -52,7 +52,7 @@ public class GoogleSqlDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("charset")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Charset => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "charset");
+    public TerraformValue<string> Charset => new TerraformReference(this, "charset");
 
     /// <summary>
     /// The collation value. See MySQL&#39;s
@@ -63,7 +63,7 @@ public class GoogleSqlDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("collation")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Collation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "collation");
+    public TerraformValue<string> Collation => new TerraformReference(this, "collation");
 
     /// <summary>
     /// The deletion policy for the database. Setting ABANDON allows the resource
@@ -73,13 +73,13 @@ public class GoogleSqlDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("deletion_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DeletionPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deletion_policy");
+    public TerraformValue<string> DeletionPolicy => new TerraformReference(this, "deletion_policy");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
 }

@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeNetworkEndpointGroupTimeoutsBlock : ITerraformBlock
+public class GoogleComputeNetworkEndpointGroupTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("default_port")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? DefaultPort { get; set; }
+    public TerraformValue<double>? DefaultPort { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
@@ -47,14 +47,14 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is
@@ -68,7 +68,7 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network to which all network endpoints in the NEG belong.
@@ -77,7 +77,7 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformPropertyName("network")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
+    public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// Type of network endpoints in this network endpoint group.
@@ -92,55 +92,55 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("network_endpoint_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NetworkEndpointType { get; set; }
+    public TerraformValue<string>? NetworkEndpointType { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Optional subnetwork to which all network endpoints in the NEG belong.
     /// </summary>
     [TerraformPropertyName("subnetwork")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Subnetwork { get; set; }
+    public TerraformValue<string>? Subnetwork { get; set; }
 
     /// <summary>
     /// Zone where the network endpoint group is located.
     /// </summary>
     [TerraformPropertyName("zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Zone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Zone { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeNetworkEndpointGroupTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeNetworkEndpointGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The uniquely generated identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformPropertyName("generated_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> GeneratedId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "generated_id");
+    public TerraformValue<double> GeneratedId => new TerraformReference(this, "generated_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// Number of network endpoints in the network endpoint group.
     /// </summary>
     [TerraformPropertyName("size")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Size => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "size");
+    public TerraformValue<double> Size => new TerraformReference(this, "size");
 
 }

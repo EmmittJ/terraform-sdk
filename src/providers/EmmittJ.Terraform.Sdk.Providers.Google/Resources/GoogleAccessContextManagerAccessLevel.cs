@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for basic in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAccessContextManagerAccessLevelBasicBlock : ITerraformBlock
+public class GoogleAccessContextManagerAccessLevelBasicBlock
 {
     /// <summary>
     /// How the conditions list should be combined to determine if a request
@@ -17,7 +17,7 @@ public class GoogleAccessContextManagerAccessLevelBasicBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("combining_function")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CombiningFunction { get; set; }
+    public TerraformValue<string>? CombiningFunction { get; set; }
 
 }
 
@@ -25,7 +25,7 @@ public class GoogleAccessContextManagerAccessLevelBasicBlock : ITerraformBlock
 /// Block type for custom in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAccessContextManagerAccessLevelCustomBlock : ITerraformBlock
+public class GoogleAccessContextManagerAccessLevelCustomBlock
 {
 }
 
@@ -33,28 +33,28 @@ public class GoogleAccessContextManagerAccessLevelCustomBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAccessContextManagerAccessLevelTimeoutsBlock : ITerraformBlock
+public class GoogleAccessContextManagerAccessLevelTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -73,14 +73,14 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Resource name for the Access Level. The short_name component must begin
@@ -90,7 +90,7 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The AccessPolicy this AccessLevel lives in.
@@ -99,7 +99,7 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformPropertyName("parent")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
+    public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Human readable title. Must be unique within the Policy.
@@ -107,7 +107,7 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     [TerraformPropertyName("title")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Title { get; set; }
+    public required TerraformValue<string> Title { get; set; }
 
     /// <summary>
     /// Block for basic.
@@ -115,7 +115,7 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Basic block(s) allowed")]
     [TerraformPropertyName("basic")]
-    public TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelBasicBlock>>? Basic { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelBasicBlock>>? Basic { get; set; }
 
     /// <summary>
     /// Block for custom.
@@ -123,13 +123,13 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Custom block(s) allowed")]
     [TerraformPropertyName("custom")]
-    public TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelCustomBlock>>? Custom { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelCustomBlock>>? Custom { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleAccessContextManagerAccessLevelTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleAccessContextManagerAccessLevelTimeoutsBlock>? Timeouts { get; set; }
 
 }

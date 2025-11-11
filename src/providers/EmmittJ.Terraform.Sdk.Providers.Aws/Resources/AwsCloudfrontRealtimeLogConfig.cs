@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoint in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontRealtimeLogConfigEndpointBlock : ITerraformBlock
+public class AwsCloudfrontRealtimeLogConfigEndpointBlock
 {
     /// <summary>
     /// The stream_type attribute.
@@ -14,7 +14,7 @@ public class AwsCloudfrontRealtimeLogConfigEndpointBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamType is required")]
     [TerraformPropertyName("stream_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StreamType { get; set; }
+    public required TerraformValue<string> StreamType { get; set; }
 
 }
 
@@ -34,14 +34,14 @@ public class AwsCloudfrontRealtimeLogConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     [TerraformPropertyName("fields")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Fields { get; set; }
+    public required TerraformSet<string> Fields { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -49,7 +49,7 @@ public class AwsCloudfrontRealtimeLogConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The sampling_rate attribute.
@@ -57,7 +57,7 @@ public class AwsCloudfrontRealtimeLogConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRate is required")]
     [TerraformPropertyName("sampling_rate")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> SamplingRate { get; set; }
+    public required TerraformValue<double> SamplingRate { get; set; }
 
     /// <summary>
     /// Block for endpoint.
@@ -67,13 +67,13 @@ public class AwsCloudfrontRealtimeLogConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Endpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Endpoint block(s) allowed")]
     [TerraformPropertyName("endpoint")]
-    public TerraformList<TerraformBlock<AwsCloudfrontRealtimeLogConfigEndpointBlock>>? Endpoint { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsCloudfrontRealtimeLogConfigEndpointBlock>>? Endpoint { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

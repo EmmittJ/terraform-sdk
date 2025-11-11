@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkSecuritySecurityProfileGroupTimeoutsBlock : ITerraformBlock
+public class GoogleNetworkSecuritySecurityProfileGroupTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,28 +45,28 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("custom_intercept_profile")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomInterceptProfile { get; set; }
+    public TerraformValue<string>? CustomInterceptProfile { get; set; }
 
     /// <summary>
     /// Reference to a SecurityProfile with the custom mirroring configuration for the SecurityProfileGroup.
     /// </summary>
     [TerraformPropertyName("custom_mirroring_profile")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomMirroringProfile { get; set; }
+    public TerraformValue<string>? CustomMirroringProfile { get; set; }
 
     /// <summary>
     /// An optional description of the profile. The Max length is 512 characters.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// A map of key/value label pairs to assign to the resource.
@@ -77,7 +77,7 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the security profile group.
@@ -85,7 +85,7 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The name of the security profile group resource.
@@ -93,7 +93,7 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name of the parent this security profile group belongs to.
@@ -101,35 +101,35 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("parent")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Parent { get; set; }
+    public TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// Reference to a SecurityProfile with the threat prevention configuration for the SecurityProfileGroup.
     /// </summary>
     [TerraformPropertyName("threat_prevention_profile")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ThreatPreventionProfile { get; set; }
+    public TerraformValue<string>? ThreatPreventionProfile { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleNetworkSecuritySecurityProfileGroupTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleNetworkSecuritySecurityProfileGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the security profile group was created in UTC.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other fields,
@@ -138,7 +138,7 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -146,13 +146,13 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Time the security profile group was updated in UTC.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

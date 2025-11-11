@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualMachineDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermVirtualMachineDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermVirtualMachineDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermVirtualMachineDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,62 +47,62 @@ public class AzurermVirtualMachineDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermVirtualMachineDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermVirtualMachineDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformPropertyName("identity")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
+    public TerraformList<object> Identity => new TerraformReference(this, "identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The power_state attribute.
     /// </summary>
     [TerraformPropertyName("power_state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PowerState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "power_state");
+    public TerraformValue<string> PowerState => new TerraformReference(this, "power_state");
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     [TerraformPropertyName("private_ip_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrivateIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_ip_address");
+    public TerraformValue<string> PrivateIpAddress => new TerraformReference(this, "private_ip_address");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     [TerraformPropertyName("private_ip_addresses")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> PrivateIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "private_ip_addresses");
+    public TerraformList<string> PrivateIpAddresses => new TerraformReference(this, "private_ip_addresses");
 
     /// <summary>
     /// The public_ip_address attribute.
     /// </summary>
     [TerraformPropertyName("public_ip_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PublicIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_ip_address");
+    public TerraformValue<string> PublicIpAddress => new TerraformReference(this, "public_ip_address");
 
     /// <summary>
     /// The public_ip_addresses attribute.
     /// </summary>
     [TerraformPropertyName("public_ip_addresses")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> PublicIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "public_ip_addresses");
+    public TerraformList<string> PublicIpAddresses => new TerraformReference(this, "public_ip_addresses");
 
 }

@@ -15,8 +15,8 @@ public class GoogleParameterManagerParameterVersionDataSource : TerraformDataSou
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The parameter attribute.
@@ -24,7 +24,7 @@ public class GoogleParameterManagerParameterVersionDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
     [TerraformPropertyName("parameter")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Parameter { get; set; }
+    public required TerraformValue<string> Parameter { get; set; }
 
     /// <summary>
     /// The parameter_version_id attribute.
@@ -32,55 +32,55 @@ public class GoogleParameterManagerParameterVersionDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterVersionId is required")]
     [TerraformPropertyName("parameter_version_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ParameterVersionId { get; set; }
+    public required TerraformValue<string> ParameterVersionId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Disabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "disabled");
+    public TerraformValue<bool> Disabled => new TerraformReference(this, "disabled");
 
     /// <summary>
     /// The kms_key_version attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsKeyVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_version");
+    public TerraformValue<string> KmsKeyVersion => new TerraformReference(this, "kms_key_version");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The parameter_data attribute.
     /// </summary>
     [TerraformPropertyName("parameter_data")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ParameterData => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parameter_data");
+    public TerraformValue<string> ParameterData => new TerraformReference(this, "parameter_data");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

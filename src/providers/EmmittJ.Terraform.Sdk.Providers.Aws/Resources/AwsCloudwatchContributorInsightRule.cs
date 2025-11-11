@@ -15,8 +15,8 @@ public class AwsCloudwatchContributorInsightRule : TerraformResource
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The rule_definition attribute.
@@ -24,7 +24,7 @@ public class AwsCloudwatchContributorInsightRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleDefinition is required")]
     [TerraformPropertyName("rule_definition")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RuleDefinition { get; set; }
+    public required TerraformValue<string> RuleDefinition { get; set; }
 
     /// <summary>
     /// The rule_name attribute.
@@ -32,34 +32,34 @@ public class AwsCloudwatchContributorInsightRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     [TerraformPropertyName("rule_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RuleName { get; set; }
+    public required TerraformValue<string> RuleName { get; set; }
 
     /// <summary>
     /// The rule_state attribute.
     /// </summary>
     [TerraformPropertyName("rule_state")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RuleState { get; set; }
+    public TerraformValue<string>? RuleState { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     [TerraformPropertyName("resource_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ResourceArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_arn");
+    public TerraformValue<string> ResourceArn => new TerraformReference(this, "resource_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
 
 }

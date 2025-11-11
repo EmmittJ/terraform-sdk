@@ -16,27 +16,27 @@ public class AwsIotEndpointDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("endpoint_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EndpointType { get; set; }
+    public TerraformValue<string>? EndpointType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The endpoint_address attribute.
     /// </summary>
     [TerraformPropertyName("endpoint_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EndpointAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_address");
+    public TerraformValue<string> EndpointAddress => new TerraformReference(this, "endpoint_address");
 
 }

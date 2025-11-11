@@ -15,8 +15,8 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location of the regional secret. eg us-central1
@@ -24,14 +24,14 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// This must be unique within the project.
@@ -39,7 +39,7 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     [TerraformPropertyName("secret_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SecretId { get; set; }
+    public required TerraformValue<string> SecretId { get; set; }
 
     /// <summary>
     /// Custom metadata about the regional secret.
@@ -63,21 +63,21 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Annotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "annotations");
+    public TerraformMap<string> Annotations => new TerraformReference(this, "annotations");
 
     /// <summary>
     /// The time at which the regional secret was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The customer-managed encryption configuration of the regional secret.
     /// </summary>
     [TerraformPropertyName("customer_managed_encryption")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CustomerManagedEncryption => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "customer_managed_encryption");
+    public TerraformList<object> CustomerManagedEncryption => new TerraformReference(this, "customer_managed_encryption");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the regional secret. Defaults to false.
@@ -86,21 +86,21 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("deletion_protection")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> DeletionProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection");
+    public TerraformValue<bool> DeletionProtection => new TerraformReference(this, "deletion_protection");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_annotations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
+    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Timestamp in UTC when the regional secret is scheduled to expire. This is always provided on
@@ -110,7 +110,7 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("expire_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExpireTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expire_time");
+    public TerraformValue<string> ExpireTime => new TerraformReference(this, "expire_time");
 
     /// <summary>
     /// The labels assigned to this regional secret.
@@ -132,7 +132,7 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// The resource name of the regional secret. Format:
@@ -140,7 +140,7 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The rotation time and period for a regional secret. At &#39;next_rotation_time&#39;, Secret Manager
@@ -149,7 +149,7 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("rotation")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Rotation => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "rotation");
+    public TerraformList<object> Rotation => new TerraformReference(this, "rotation");
 
     /// <summary>
     /// A map of resource manager tags.
@@ -158,7 +158,7 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -166,7 +166,7 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// A list of up to 10 Pub/Sub topics to which messages are published when control plane
@@ -174,7 +174,7 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("topics")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Topics => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "topics");
+    public TerraformList<object> Topics => new TerraformReference(this, "topics");
 
     /// <summary>
     /// The TTL for the regional secret. A duration in seconds with up to nine fractional digits,
@@ -182,7 +182,7 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("ttl")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Ttl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ttl");
+    public TerraformValue<string> Ttl => new TerraformReference(this, "ttl");
 
     /// <summary>
     /// Mapping from version alias to version name.
@@ -197,7 +197,7 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("version_aliases")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> VersionAliases => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "version_aliases");
+    public TerraformMap<string> VersionAliases => new TerraformReference(this, "version_aliases");
 
     /// <summary>
     /// Secret Version TTL after destruction request.
@@ -208,6 +208,6 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("version_destroy_ttl")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VersionDestroyTtl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version_destroy_ttl");
+    public TerraformValue<string> VersionDestroyTtl => new TerraformReference(this, "version_destroy_ttl");
 
 }

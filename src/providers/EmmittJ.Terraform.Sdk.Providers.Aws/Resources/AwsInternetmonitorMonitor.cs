@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for health_events_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsInternetmonitorMonitorHealthEventsConfigBlock : ITerraformBlock
+public class AwsInternetmonitorMonitorHealthEventsConfigBlock
 {
     /// <summary>
     /// The availability_score_threshold attribute.
     /// </summary>
     [TerraformPropertyName("availability_score_threshold")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? AvailabilityScoreThreshold { get; set; }
+    public TerraformValue<double>? AvailabilityScoreThreshold { get; set; }
 
     /// <summary>
     /// The performance_score_threshold attribute.
     /// </summary>
     [TerraformPropertyName("performance_score_threshold")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? PerformanceScoreThreshold { get; set; }
+    public TerraformValue<double>? PerformanceScoreThreshold { get; set; }
 
 }
 
@@ -28,7 +28,7 @@ public class AwsInternetmonitorMonitorHealthEventsConfigBlock : ITerraformBlock
 /// Block type for internet_measurements_log_delivery in .
 /// Nesting mode: list
 /// </summary>
-public class AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock : ITerraformBlock
+public class AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock
 {
 }
 
@@ -46,15 +46,15 @@ public class AwsInternetmonitorMonitor : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The max_city_networks_to_monitor attribute.
     /// </summary>
     [TerraformPropertyName("max_city_networks_to_monitor")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxCityNetworksToMonitor { get; set; }
+    public TerraformValue<double>? MaxCityNetworksToMonitor { get; set; }
 
     /// <summary>
     /// The monitor_name attribute.
@@ -62,49 +62,49 @@ public class AwsInternetmonitorMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorName is required")]
     [TerraformPropertyName("monitor_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MonitorName { get; set; }
+    public required TerraformValue<string> MonitorName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     [TerraformPropertyName("resources")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Resources { get; set; }
+    public TerraformSet<string>? Resources { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
+    public TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The traffic_percentage_to_monitor attribute.
     /// </summary>
     [TerraformPropertyName("traffic_percentage_to_monitor")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? TrafficPercentageToMonitor { get; set; }
+    public TerraformValue<double>? TrafficPercentageToMonitor { get; set; }
 
     /// <summary>
     /// Block for health_events_config.
@@ -112,7 +112,7 @@ public class AwsInternetmonitorMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthEventsConfig block(s) allowed")]
     [TerraformPropertyName("health_events_config")]
-    public TerraformList<TerraformBlock<AwsInternetmonitorMonitorHealthEventsConfigBlock>>? HealthEventsConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsInternetmonitorMonitorHealthEventsConfigBlock>>? HealthEventsConfig { get; set; }
 
     /// <summary>
     /// Block for internet_measurements_log_delivery.
@@ -120,13 +120,13 @@ public class AwsInternetmonitorMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InternetMeasurementsLogDelivery block(s) allowed")]
     [TerraformPropertyName("internet_measurements_log_delivery")]
-    public TerraformList<TerraformBlock<AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock>>? InternetMeasurementsLogDelivery { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock>>? InternetMeasurementsLogDelivery { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

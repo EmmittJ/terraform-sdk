@@ -6,21 +6,9 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameter_value in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock : ITerraformBlock
+public class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock
 {
-    /// <summary>
-    /// The id attribute.
-    /// </summary>
-    [TerraformPropertyName("id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
-    /// <summary>
-    /// The string_value attribute.
-    /// </summary>
-    [TerraformPropertyName("string_value")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StringValue => new TerraformReferenceProperty<TerraformProperty<string>>("", "string_value");
 
 }
 
@@ -37,8 +25,8 @@ public class AwsDatapipelinePipelineDefinitionDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The pipeline_id attribute.
@@ -46,34 +34,34 @@ public class AwsDatapipelinePipelineDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
     [TerraformPropertyName("pipeline_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PipelineId { get; set; }
+    public required TerraformValue<string> PipelineId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for parameter_value.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("parameter_value")]
-    public TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock>>? ParameterValue { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock>>? ParameterValue { get; set; }
 
     /// <summary>
     /// The parameter_object attribute.
     /// </summary>
     [TerraformPropertyName("parameter_object")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> ParameterObject => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "parameter_object");
+    public TerraformSet<object> ParameterObject => new TerraformReference(this, "parameter_object");
 
     /// <summary>
     /// The pipeline_object attribute.
     /// </summary>
     [TerraformPropertyName("pipeline_object")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> PipelineObject => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "pipeline_object");
+    public TerraformSet<object> PipelineObject => new TerraformReference(this, "pipeline_object");
 
 }

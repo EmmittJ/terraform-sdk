@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backfill_all in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatastreamStreamBackfillAllBlock : ITerraformBlock
+public class GoogleDatastreamStreamBackfillAllBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class GoogleDatastreamStreamBackfillAllBlock : ITerraformBlock
 /// Block type for backfill_none in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatastreamStreamBackfillNoneBlock : ITerraformBlock
+public class GoogleDatastreamStreamBackfillNoneBlock
 {
 }
 
@@ -22,7 +22,7 @@ public class GoogleDatastreamStreamBackfillNoneBlock : ITerraformBlock
 /// Block type for destination_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatastreamStreamDestinationConfigBlock : ITerraformBlock
+public class GoogleDatastreamStreamDestinationConfigBlock
 {
     /// <summary>
     /// Destination connection profile resource. Format: projects/{project}/locations/{location}/connectionProfiles/{name}
@@ -30,7 +30,7 @@ public class GoogleDatastreamStreamDestinationConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationConnectionProfile is required")]
     [TerraformPropertyName("destination_connection_profile")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DestinationConnectionProfile { get; set; }
+    public required TerraformValue<string> DestinationConnectionProfile { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public class GoogleDatastreamStreamDestinationConfigBlock : ITerraformBlock
 /// Block type for source_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatastreamStreamSourceConfigBlock : ITerraformBlock
+public class GoogleDatastreamStreamSourceConfigBlock
 {
     /// <summary>
     /// Source connection profile resource. Format: projects/{project}/locations/{location}/connectionProfiles/{name}
@@ -46,7 +46,7 @@ public class GoogleDatastreamStreamSourceConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceConnectionProfile is required")]
     [TerraformPropertyName("source_connection_profile")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SourceConnectionProfile { get; set; }
+    public required TerraformValue<string> SourceConnectionProfile { get; set; }
 
 }
 
@@ -54,28 +54,28 @@ public class GoogleDatastreamStreamSourceConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDatastreamStreamTimeoutsBlock : ITerraformBlock
+public class GoogleDatastreamStreamTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -94,7 +94,7 @@ public class GoogleDatastreamStream : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_without_validation")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? CreateWithoutValidation { get; set; }
+    public TerraformValue<bool>? CreateWithoutValidation { get; set; }
 
     /// <summary>
     /// A reference to a KMS encryption key. If provided, it will be used to encrypt the data. If left blank, data
@@ -102,7 +102,7 @@ public class GoogleDatastreamStream : TerraformResource
     /// </summary>
     [TerraformPropertyName("customer_managed_encryption_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomerManagedEncryptionKey { get; set; }
+    public TerraformValue<string>? CustomerManagedEncryptionKey { get; set; }
 
     /// <summary>
     /// Desired state of the Stream. Set this field to &#39;RUNNING&#39; to start the stream,
@@ -112,7 +112,7 @@ public class GoogleDatastreamStream : TerraformResource
     /// </summary>
     [TerraformPropertyName("desired_state")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DesiredState { get; set; }
+    public TerraformValue<string>? DesiredState { get; set; }
 
     /// <summary>
     /// Display name.
@@ -120,14 +120,14 @@ public class GoogleDatastreamStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Labels.
@@ -137,7 +137,7 @@ public class GoogleDatastreamStream : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The name of the location this stream is located in.
@@ -145,14 +145,14 @@ public class GoogleDatastreamStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The stream identifier.
@@ -160,7 +160,7 @@ public class GoogleDatastreamStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamId is required")]
     [TerraformPropertyName("stream_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StreamId { get; set; }
+    public required TerraformValue<string> StreamId { get; set; }
 
     /// <summary>
     /// Block for backfill_all.
@@ -168,7 +168,7 @@ public class GoogleDatastreamStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackfillAll block(s) allowed")]
     [TerraformPropertyName("backfill_all")]
-    public TerraformList<TerraformBlock<GoogleDatastreamStreamBackfillAllBlock>>? BackfillAll { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDatastreamStreamBackfillAllBlock>>? BackfillAll { get; set; }
 
     /// <summary>
     /// Block for backfill_none.
@@ -176,7 +176,7 @@ public class GoogleDatastreamStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackfillNone block(s) allowed")]
     [TerraformPropertyName("backfill_none")]
-    public TerraformList<TerraformBlock<GoogleDatastreamStreamBackfillNoneBlock>>? BackfillNone { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDatastreamStreamBackfillNoneBlock>>? BackfillNone { get; set; }
 
     /// <summary>
     /// Block for destination_config.
@@ -186,7 +186,7 @@ public class GoogleDatastreamStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationConfig block(s) allowed")]
     [TerraformPropertyName("destination_config")]
-    public TerraformList<TerraformBlock<GoogleDatastreamStreamDestinationConfigBlock>>? DestinationConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDatastreamStreamDestinationConfigBlock>>? DestinationConfig { get; set; }
 
     /// <summary>
     /// Block for source_config.
@@ -196,35 +196,35 @@ public class GoogleDatastreamStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SourceConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceConfig block(s) allowed")]
     [TerraformPropertyName("source_config")]
-    public TerraformList<TerraformBlock<GoogleDatastreamStreamSourceConfigBlock>>? SourceConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDatastreamStreamSourceConfigBlock>>? SourceConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDatastreamStreamTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDatastreamStreamTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The stream&#39;s name.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The state of the stream.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -232,6 +232,6 @@ public class GoogleDatastreamStream : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

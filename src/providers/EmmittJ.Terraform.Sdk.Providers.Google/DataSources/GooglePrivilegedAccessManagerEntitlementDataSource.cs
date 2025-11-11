@@ -18,35 +18,35 @@ public class GooglePrivilegedAccessManagerEntitlementDataSource : TerraformDataS
     /// </summary>
     [TerraformPropertyName("entitlement_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EntitlementId { get; set; }
+    public TerraformValue<string>? EntitlementId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The region of the Entitlement resource.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Format: projects/{project-id|project-number} or organizations/{organization-number} or folders/{folder-number}
     /// </summary>
     [TerraformPropertyName("parent")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Parent { get; set; }
+    public TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// AdditionalNotificationTargets includes email addresses to be notified.
     /// </summary>
     [TerraformPropertyName("additional_notification_targets")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> AdditionalNotificationTargets => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "additional_notification_targets");
+    public TerraformList<object> AdditionalNotificationTargets => new TerraformReference(this, "additional_notification_targets");
 
     /// <summary>
     /// The approvals needed before access will be granted to a requester.
@@ -54,7 +54,7 @@ public class GooglePrivilegedAccessManagerEntitlementDataSource : TerraformDataS
     /// </summary>
     [TerraformPropertyName("approval_workflow")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ApprovalWorkflow => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "approval_workflow");
+    public TerraformList<object> ApprovalWorkflow => new TerraformReference(this, "approval_workflow");
 
     /// <summary>
     /// Output only. Create time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
@@ -62,21 +62,21 @@ public class GooglePrivilegedAccessManagerEntitlementDataSource : TerraformDataS
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Who can create Grants using Entitlement. This list should contain at most one entry
     /// </summary>
     [TerraformPropertyName("eligible_users")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> EligibleUsers => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "eligible_users");
+    public TerraformList<object> EligibleUsers => new TerraformReference(this, "eligible_users");
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// The maximum amount of time for which access would be granted for a request.
@@ -85,7 +85,7 @@ public class GooglePrivilegedAccessManagerEntitlementDataSource : TerraformDataS
     /// </summary>
     [TerraformPropertyName("max_request_duration")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MaxRequestDuration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "max_request_duration");
+    public TerraformValue<string> MaxRequestDuration => new TerraformReference(this, "max_request_duration");
 
     /// <summary>
     /// Output Only. The entitlement&#39;s name follows a hierarchical structure, comprising the organization, folder, or project, alongside the region and a unique entitlement ID.
@@ -93,28 +93,28 @@ public class GooglePrivilegedAccessManagerEntitlementDataSource : TerraformDataS
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Privileged access that this service can be used to gate.
     /// </summary>
     [TerraformPropertyName("privileged_access")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PrivilegedAccess => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "privileged_access");
+    public TerraformList<object> PrivilegedAccess => new TerraformReference(this, "privileged_access");
 
     /// <summary>
     /// Defines the ways in which a requester should provide the justification while requesting for access.
     /// </summary>
     [TerraformPropertyName("requester_justification_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> RequesterJustificationConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "requester_justification_config");
+    public TerraformList<object> RequesterJustificationConfig => new TerraformReference(this, "requester_justification_config");
 
     /// <summary>
     /// Output only. The current state of the Entitlement.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// Output only. Update time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
@@ -122,6 +122,6 @@ public class GooglePrivilegedAccessManagerEntitlementDataSource : TerraformDataS
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

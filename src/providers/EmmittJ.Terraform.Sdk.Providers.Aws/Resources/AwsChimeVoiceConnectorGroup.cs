@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for connector in .
 /// Nesting mode: set
 /// </summary>
-public class AwsChimeVoiceConnectorGroupConnectorBlock : ITerraformBlock
+public class AwsChimeVoiceConnectorGroupConnectorBlock
 {
     /// <summary>
     /// The priority attribute.
@@ -14,7 +14,7 @@ public class AwsChimeVoiceConnectorGroupConnectorBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformPropertyName("priority")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
+    public required TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// The voice_connector_id attribute.
@@ -22,7 +22,7 @@ public class AwsChimeVoiceConnectorGroupConnectorBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     [TerraformPropertyName("voice_connector_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VoiceConnectorId { get; set; }
+    public required TerraformValue<string> VoiceConnectorId { get; set; }
 
 }
 
@@ -40,8 +40,8 @@ public class AwsChimeVoiceConnectorGroup : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -49,14 +49,14 @@ public class AwsChimeVoiceConnectorGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for connector.
@@ -64,6 +64,6 @@ public class AwsChimeVoiceConnectorGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 Connector block(s) allowed")]
     [TerraformPropertyName("connector")]
-    public TerraformSet<TerraformBlock<AwsChimeVoiceConnectorGroupConnectorBlock>>? Connector { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsChimeVoiceConnectorGroupConnectorBlock>>? Connector { get; set; }
 
 }

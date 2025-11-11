@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for generic_web_service in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxWebhookGenericWebServiceBlock : ITerraformBlock
+public class GoogleDialogflowCxWebhookGenericWebServiceBlock
 {
     /// <summary>
     /// Specifies a list of allowed custom CA certificates (in DER format) for
@@ -23,7 +23,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("allowed_ca_certs")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? AllowedCaCerts { get; set; }
+    public TerraformList<string>? AllowedCaCerts { get; set; }
 
     /// <summary>
     /// HTTP method for the flexible webhook calls. Standard webhook always uses
@@ -31,7 +31,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("http_method")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? HttpMethod { get; set; }
+    public TerraformValue<string>? HttpMethod { get; set; }
 
     /// <summary>
     /// Maps the values extracted from specific fields of the flexible webhook
@@ -41,21 +41,21 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("parameter_mapping")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ParameterMapping { get; set; }
+    public TerraformMap<string>? ParameterMapping { get; set; }
 
     /// <summary>
     /// Defines a custom JSON object as request body to send to flexible webhook.
     /// </summary>
     [TerraformPropertyName("request_body")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RequestBody { get; set; }
+    public TerraformValue<string>? RequestBody { get; set; }
 
     /// <summary>
     /// The HTTP request headers to send together with webhook requests.
     /// </summary>
     [TerraformPropertyName("request_headers")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? RequestHeaders { get; set; }
+    public TerraformMap<string>? RequestHeaders { get; set; }
 
     /// <summary>
     /// The SecretManager secret version resource storing the username:password
@@ -64,7 +64,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("secret_version_for_username_password")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SecretVersionForUsernamePassword { get; set; }
+    public TerraformValue<string>? SecretVersionForUsernamePassword { get; set; }
 
     /// <summary>
     /// Indicate the auth token type generated from the [Diglogflow service
@@ -73,7 +73,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("service_agent_auth")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ServiceAgentAuth { get; set; }
+    public TerraformValue<string>? ServiceAgentAuth { get; set; }
 
     /// <summary>
     /// The webhook URI for receiving POST requests. It must use https protocol.
@@ -81,14 +81,14 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     [TerraformPropertyName("uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Uri { get; set; }
+    public required TerraformValue<string> Uri { get; set; }
 
     /// <summary>
     /// Type of the webhook. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;FLEXIBLE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("webhook_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? WebhookType { get; set; }
+    public TerraformValue<string>? WebhookType { get; set; }
 
 }
 
@@ -96,7 +96,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : ITerraformBlock
 /// Block type for service_directory in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxWebhookServiceDirectoryBlock : ITerraformBlock
+public class GoogleDialogflowCxWebhookServiceDirectoryBlock
 {
     /// <summary>
     /// The name of Service Directory service.
@@ -104,7 +104,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformPropertyName("service")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Service { get; set; }
+    public required TerraformValue<string> Service { get; set; }
 
 }
 
@@ -112,28 +112,28 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowCxWebhookTimeoutsBlock : ITerraformBlock
+public class GoogleDialogflowCxWebhookTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -152,7 +152,7 @@ public class GoogleDialogflowCxWebhook : TerraformResource
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The human-readable name of the webhook, unique within the agent.
@@ -160,28 +160,28 @@ public class GoogleDialogflowCxWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Deprecated. Indicates if automatic spell correction is enabled in detect intent requests.
     /// </summary>
     [TerraformPropertyName("enable_spell_correction")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableSpellCorrection { get; set; }
+    public TerraformValue<bool>? EnableSpellCorrection { get; set; }
 
     /// <summary>
     /// Deprecated. Determines whether this agent should log conversation queries.
     /// </summary>
     [TerraformPropertyName("enable_stackdriver_logging")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableStackdriverLogging { get; set; }
+    public TerraformValue<bool>? EnableStackdriverLogging { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The agent to create a webhook for.
@@ -189,21 +189,21 @@ public class GoogleDialogflowCxWebhook : TerraformResource
     /// </summary>
     [TerraformPropertyName("parent")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Parent { get; set; }
+    public TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// Deprecated. Name of the SecuritySettings reference for the agent. Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/securitySettings/&amp;lt;Security Settings ID&amp;gt;.
     /// </summary>
     [TerraformPropertyName("security_settings")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SecuritySettings { get; set; }
+    public TerraformValue<string>? SecuritySettings { get; set; }
 
     /// <summary>
     /// Webhook execution timeout.
     /// </summary>
     [TerraformPropertyName("timeout")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Timeout { get; set; }
+    public TerraformValue<string>? Timeout { get; set; }
 
     /// <summary>
     /// Block for generic_web_service.
@@ -211,7 +211,7 @@ public class GoogleDialogflowCxWebhook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenericWebService block(s) allowed")]
     [TerraformPropertyName("generic_web_service")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxWebhookGenericWebServiceBlock>>? GenericWebService { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDialogflowCxWebhookGenericWebServiceBlock>>? GenericWebService { get; set; }
 
     /// <summary>
     /// Block for service_directory.
@@ -219,14 +219,14 @@ public class GoogleDialogflowCxWebhook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceDirectory block(s) allowed")]
     [TerraformPropertyName("service_directory")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxWebhookServiceDirectoryBlock>>? ServiceDirectory { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDialogflowCxWebhookServiceDirectoryBlock>>? ServiceDirectory { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxWebhookTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDialogflowCxWebhookTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier of the webhook.
@@ -234,13 +234,13 @@ public class GoogleDialogflowCxWebhook : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Deprecated. Name of the start flow in this agent. A start flow will be automatically created when the agent is created, and can only be deleted by deleting the agent. Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;.
     /// </summary>
     [TerraformPropertyName("start_flow")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StartFlow => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_flow");
+    public TerraformValue<string> StartFlow => new TerraformReference(this, "start_flow");
 
 }

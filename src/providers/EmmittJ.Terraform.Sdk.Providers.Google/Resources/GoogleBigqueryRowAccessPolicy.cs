@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryRowAccessPolicyTimeoutsBlock : ITerraformBlock
+public class GoogleBigqueryRowAccessPolicyTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     [TerraformPropertyName("dataset_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatasetId { get; set; }
+    public required TerraformValue<string> DatasetId { get; set; }
 
     /// <summary>
     /// A SQL boolean expression that represents the rows defined by this row
@@ -63,7 +63,7 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterPredicate is required")]
     [TerraformPropertyName("filter_predicate")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FilterPredicate { get; set; }
+    public required TerraformValue<string> FilterPredicate { get; set; }
 
     /// <summary>
     /// Input only. The optional list of iam_member users or groups that specifies the initial
@@ -91,14 +91,14 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// </summary>
     [TerraformPropertyName("grantees")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Grantees { get; set; }
+    public TerraformList<string>? Grantees { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ID of the row access policy. The ID must contain only
@@ -108,14 +108,14 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     [TerraformPropertyName("policy_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PolicyId { get; set; }
+    public required TerraformValue<string> PolicyId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The ID of the table containing this row access policy.
@@ -123,14 +123,14 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     [TerraformPropertyName("table_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TableId { get; set; }
+    public required TerraformValue<string> TableId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleBigqueryRowAccessPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleBigqueryRowAccessPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when this row access policy was created, in milliseconds since
@@ -138,7 +138,7 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// </summary>
     [TerraformPropertyName("creation_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
+    public TerraformValue<string> CreationTime => new TerraformReference(this, "creation_time");
 
     /// <summary>
     /// The time when this row access policy was last modified, in milliseconds
@@ -146,6 +146,6 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// </summary>
     [TerraformPropertyName("last_modified_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastModifiedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_time");
+    public TerraformValue<string> LastModifiedTime => new TerraformReference(this, "last_modified_time");
 
 }

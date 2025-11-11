@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeoutsBlock : ITerraformBlock
+public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -51,8 +51,8 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -60,7 +60,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The port_ranges attribute.
@@ -68,7 +68,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortRanges is required")]
     [TerraformPropertyName("port_ranges")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PortRanges { get; set; }
+    public required TerraformValue<string> PortRanges { get; set; }
 
     /// <summary>
     /// The protocol attribute.
@@ -76,7 +76,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformPropertyName("protocol")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
+    public required TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The service_tag attribute.
@@ -84,7 +84,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceTag is required")]
     [TerraformPropertyName("service_tag")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceTag { get; set; }
+    public required TerraformValue<string> ServiceTag { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -92,13 +92,13 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformPropertyName("workspace_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
+    public required TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeoutsBlock>? Timeouts { get; set; }
 
 }

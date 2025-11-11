@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock : ITerraformBlock
+public class AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainServiceId is required")]
     [TerraformPropertyName("domain_service_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DomainServiceId { get; set; }
+    public required TerraformValue<string> DomainServiceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -68,7 +68,7 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
@@ -76,7 +76,7 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     [TerraformPropertyName("password")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
+    public required TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// The trusted_domain_dns_ips attribute.
@@ -84,7 +84,7 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedDomainDnsIps is required")]
     [TerraformPropertyName("trusted_domain_dns_ips")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? TrustedDomainDnsIps { get; set; }
+    public TerraformList<string>? TrustedDomainDnsIps { get; set; }
 
     /// <summary>
     /// The trusted_domain_fqdn attribute.
@@ -92,13 +92,13 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedDomainFqdn is required")]
     [TerraformPropertyName("trusted_domain_fqdn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TrustedDomainFqdn { get; set; }
+    public required TerraformValue<string> TrustedDomainFqdn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock>? Timeouts { get; set; }
 
 }

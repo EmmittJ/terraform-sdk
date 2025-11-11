@@ -16,7 +16,7 @@ public class AwsSagemakerImageVersion : TerraformResource
     /// </summary>
     [TerraformPropertyName("aliases")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Aliases { get; set; }
+    public TerraformSet<string>? Aliases { get; set; }
 
     /// <summary>
     /// The base_image attribute.
@@ -24,21 +24,21 @@ public class AwsSagemakerImageVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseImage is required")]
     [TerraformPropertyName("base_image")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BaseImage { get; set; }
+    public required TerraformValue<string> BaseImage { get; set; }
 
     /// <summary>
     /// The horovod attribute.
     /// </summary>
     [TerraformPropertyName("horovod")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Horovod { get; set; }
+    public TerraformValue<bool>? Horovod { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The image_name attribute.
@@ -46,83 +46,83 @@ public class AwsSagemakerImageVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     [TerraformPropertyName("image_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ImageName { get; set; }
+    public required TerraformValue<string> ImageName { get; set; }
 
     /// <summary>
     /// The job_type attribute.
     /// </summary>
     [TerraformPropertyName("job_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? JobType { get; set; }
+    public TerraformValue<string>? JobType { get; set; }
 
     /// <summary>
     /// The ml_framework attribute.
     /// </summary>
     [TerraformPropertyName("ml_framework")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MlFramework { get; set; }
+    public TerraformValue<string>? MlFramework { get; set; }
 
     /// <summary>
     /// The processor attribute.
     /// </summary>
     [TerraformPropertyName("processor")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Processor { get; set; }
+    public TerraformValue<string>? Processor { get; set; }
 
     /// <summary>
     /// The programming_lang attribute.
     /// </summary>
     [TerraformPropertyName("programming_lang")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ProgrammingLang { get; set; }
+    public TerraformValue<string>? ProgrammingLang { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The release_notes attribute.
     /// </summary>
     [TerraformPropertyName("release_notes")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ReleaseNotes { get; set; }
+    public TerraformValue<string>? ReleaseNotes { get; set; }
 
     /// <summary>
     /// The vendor_guidance attribute.
     /// </summary>
     [TerraformPropertyName("vendor_guidance")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VendorGuidance { get; set; }
+    public TerraformValue<string>? VendorGuidance { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The container_image attribute.
     /// </summary>
     [TerraformPropertyName("container_image")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ContainerImage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "container_image");
+    public TerraformValue<string> ContainerImage => new TerraformReference(this, "container_image");
 
     /// <summary>
     /// The image_arn attribute.
     /// </summary>
     [TerraformPropertyName("image_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ImageArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_arn");
+    public TerraformValue<string> ImageArn => new TerraformReference(this, "image_arn");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformPropertyName("version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Version => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "version");
+    public TerraformValue<double> Version => new TerraformReference(this, "version");
 
 }

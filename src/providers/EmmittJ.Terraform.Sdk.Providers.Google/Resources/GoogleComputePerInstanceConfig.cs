@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for preserved_state in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputePerInstanceConfigPreservedStateBlock : ITerraformBlock
+public class GoogleComputePerInstanceConfigPreservedStateBlock
 {
     /// <summary>
     /// Preserved metadata defined for this instance. This is a list of key-&amp;gt;value pairs.
     /// </summary>
     [TerraformPropertyName("metadata")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Metadata { get; set; }
+    public TerraformMap<string>? Metadata { get; set; }
 
 }
 
@@ -21,28 +21,28 @@ public class GoogleComputePerInstanceConfigPreservedStateBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputePerInstanceConfigTimeoutsBlock : ITerraformBlock
+public class GoogleComputePerInstanceConfigTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -60,8 +60,8 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The instance group manager this instance config is part of.
@@ -69,7 +69,7 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceGroupManager is required")]
     [TerraformPropertyName("instance_group_manager")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceGroupManager { get; set; }
+    public required TerraformValue<string> InstanceGroupManager { get; set; }
 
     /// <summary>
     /// The minimal action to perform on the instance during an update.
@@ -81,7 +81,7 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("minimal_action")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MinimalAction { get; set; }
+    public TerraformValue<string>? MinimalAction { get; set; }
 
     /// <summary>
     /// The most disruptive action to perform on the instance during an update.
@@ -93,7 +93,7 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("most_disruptive_allowed_action")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MostDisruptiveAllowedAction { get; set; }
+    public TerraformValue<string>? MostDisruptiveAllowedAction { get; set; }
 
     /// <summary>
     /// The name for this per-instance config and its corresponding instance.
@@ -101,14 +101,14 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// When true, deleting this config will immediately remove the underlying instance.
@@ -116,7 +116,7 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("remove_instance_on_destroy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RemoveInstanceOnDestroy { get; set; }
+    public TerraformValue<bool>? RemoveInstanceOnDestroy { get; set; }
 
     /// <summary>
     /// When true, deleting this config will immediately remove any specified state from the underlying instance.
@@ -125,14 +125,14 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("remove_instance_state_on_destroy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RemoveInstanceStateOnDestroy { get; set; }
+    public TerraformValue<bool>? RemoveInstanceStateOnDestroy { get; set; }
 
     /// <summary>
     /// Zone where the containing instance group manager is located
     /// </summary>
     [TerraformPropertyName("zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Zone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Zone { get; set; } = default!;
 
     /// <summary>
     /// Block for preserved_state.
@@ -140,13 +140,13 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreservedState block(s) allowed")]
     [TerraformPropertyName("preserved_state")]
-    public TerraformList<TerraformBlock<GoogleComputePerInstanceConfigPreservedStateBlock>>? PreservedState { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputePerInstanceConfigPreservedStateBlock>>? PreservedState { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputePerInstanceConfigTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputePerInstanceConfigTimeoutsBlock>? Timeouts { get; set; }
 
 }

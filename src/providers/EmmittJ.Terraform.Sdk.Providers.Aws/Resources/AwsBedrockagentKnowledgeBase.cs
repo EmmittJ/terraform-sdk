@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for knowledge_base_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock : ITerraformBlock
+public class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock
 {
     /// <summary>
     /// The type attribute.
@@ -14,7 +14,7 @@ public class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock : ITerr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -22,7 +22,7 @@ public class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock : ITerr
 /// Block type for storage_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlock : ITerraformBlock
+public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlock
 {
     /// <summary>
     /// The type attribute.
@@ -30,7 +30,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -38,28 +38,28 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlock : ITerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsBedrockagentKnowledgeBaseTimeoutsBlock : ITerraformBlock
+public class AwsBedrockagentKnowledgeBaseTimeoutsBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -77,7 +77,7 @@ public class AwsBedrockagentKnowledgeBase : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -85,14 +85,14 @@ public class AwsBedrockagentKnowledgeBase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The role_arn attribute.
@@ -100,76 +100,76 @@ public class AwsBedrockagentKnowledgeBase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformPropertyName("role_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
+    public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for knowledge_base_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("knowledge_base_configuration")]
-    public TerraformList<TerraformBlock<AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock>>? KnowledgeBaseConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock>>? KnowledgeBaseConfiguration { get; set; }
 
     /// <summary>
     /// Block for storage_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("storage_configuration")]
-    public TerraformList<TerraformBlock<AwsBedrockagentKnowledgeBaseStorageConfigurationBlock>>? StorageConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsBedrockagentKnowledgeBaseStorageConfigurationBlock>>? StorageConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsBedrockagentKnowledgeBaseTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsBedrockagentKnowledgeBaseTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformPropertyName("created_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
+    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
 
     /// <summary>
     /// The failure_reasons attribute.
     /// </summary>
     [TerraformPropertyName("failure_reasons")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> FailureReasons => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "failure_reasons");
+    public TerraformList<string> FailureReasons => new TerraformReference(this, "failure_reasons");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     [TerraformPropertyName("updated_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "updated_at");
+    public TerraformValue<string> UpdatedAt => new TerraformReference(this, "updated_at");
 
 }

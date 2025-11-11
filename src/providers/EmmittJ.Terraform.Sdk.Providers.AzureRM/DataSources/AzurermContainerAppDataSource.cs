@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerAppDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermContainerAppDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermContainerAppDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermContainerAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,125 +47,125 @@ public class AzurermContainerAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermContainerAppDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermContainerAppDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The container_app_environment_id attribute.
     /// </summary>
     [TerraformPropertyName("container_app_environment_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ContainerAppEnvironmentId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "container_app_environment_id");
+    public TerraformValue<string> ContainerAppEnvironmentId => new TerraformReference(this, "container_app_environment_id");
 
     /// <summary>
     /// The ID of the Custom Domain Verification for this Container App.
     /// </summary>
     [TerraformPropertyName("custom_domain_verification_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CustomDomainVerificationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "custom_domain_verification_id");
+    public TerraformValue<string> CustomDomainVerificationId => new TerraformReference(this, "custom_domain_verification_id");
 
     /// <summary>
     /// The dapr attribute.
     /// </summary>
     [TerraformPropertyName("dapr")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Dapr => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "dapr");
+    public TerraformList<object> Dapr => new TerraformReference(this, "dapr");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformPropertyName("identity")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
+    public TerraformList<object> Identity => new TerraformReference(this, "identity");
 
     /// <summary>
     /// The ingress attribute.
     /// </summary>
     [TerraformPropertyName("ingress")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Ingress => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ingress");
+    public TerraformList<object> Ingress => new TerraformReference(this, "ingress");
 
     /// <summary>
     /// The fully qualified domain name of the latest Container App.
     /// </summary>
     [TerraformPropertyName("latest_revision_fqdn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LatestRevisionFqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "latest_revision_fqdn");
+    public TerraformValue<string> LatestRevisionFqdn => new TerraformReference(this, "latest_revision_fqdn");
 
     /// <summary>
     /// The name of the latest Container Revision.
     /// </summary>
     [TerraformPropertyName("latest_revision_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LatestRevisionName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "latest_revision_name");
+    public TerraformValue<string> LatestRevisionName => new TerraformReference(this, "latest_revision_name");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The max_inactive_revisions attribute.
     /// </summary>
     [TerraformPropertyName("max_inactive_revisions")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> MaxInactiveRevisions => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_inactive_revisions");
+    public TerraformValue<double> MaxInactiveRevisions => new TerraformReference(this, "max_inactive_revisions");
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
     [TerraformPropertyName("outbound_ip_addresses")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> OutboundIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "outbound_ip_addresses");
+    public TerraformList<string> OutboundIpAddresses => new TerraformReference(this, "outbound_ip_addresses");
 
     /// <summary>
     /// The registry attribute.
     /// </summary>
     [TerraformPropertyName("registry")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Registry => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "registry");
+    public TerraformList<object> Registry => new TerraformReference(this, "registry");
 
     /// <summary>
     /// The revision_mode attribute.
     /// </summary>
     [TerraformPropertyName("revision_mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RevisionMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "revision_mode");
+    public TerraformValue<string> RevisionMode => new TerraformReference(this, "revision_mode");
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
     [TerraformPropertyName("secret")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> Secret => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "secret");
+    public TerraformSet<object> Secret => new TerraformReference(this, "secret");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The template attribute.
     /// </summary>
     [TerraformPropertyName("template")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Template => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "template");
+    public TerraformList<object> Template => new TerraformReference(this, "template");
 
     /// <summary>
     /// The workload_profile_name attribute.
     /// </summary>
     [TerraformPropertyName("workload_profile_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> WorkloadProfileName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workload_profile_name");
+    public TerraformValue<string> WorkloadProfileName => new TerraformReference(this, "workload_profile_name");
 
 }

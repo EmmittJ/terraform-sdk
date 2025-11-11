@@ -17,55 +17,55 @@ public class AwsSsmcontactsContactChannelDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     [TerraformPropertyName("arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
+    public required TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The activation_status attribute.
     /// </summary>
     [TerraformPropertyName("activation_status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ActivationStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "activation_status");
+    public TerraformValue<string> ActivationStatus => new TerraformReference(this, "activation_status");
 
     /// <summary>
     /// The contact_id attribute.
     /// </summary>
     [TerraformPropertyName("contact_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ContactId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "contact_id");
+    public TerraformValue<string> ContactId => new TerraformReference(this, "contact_id");
 
     /// <summary>
     /// The delivery_address attribute.
     /// </summary>
     [TerraformPropertyName("delivery_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> DeliveryAddress => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "delivery_address");
+    public TerraformList<object> DeliveryAddress => new TerraformReference(this, "delivery_address");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
+    public TerraformValue<string> Type => new TerraformReference(this, "type");
 
 }

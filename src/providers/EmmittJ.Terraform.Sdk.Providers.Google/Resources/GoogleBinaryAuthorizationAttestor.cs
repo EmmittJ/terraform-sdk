@@ -6,22 +6,8 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attestation_authority_note in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock : ITerraformBlock
+public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock
 {
-    /// <summary>
-    /// This field will contain the service account email address that
-    /// this Attestor will use as the principal when querying Container
-    /// Analysis. Attestor administrators must grant this service account
-    /// the IAM role needed to read attestations from the noteReference in
-    /// Container Analysis (containeranalysis.notes.occurrences.viewer).
-    /// This email address is fixed for the lifetime of the Attestor, but
-    /// callers should not make any other assumptions about the service
-    /// account email; future versions may use an email based on a
-    /// different naming pattern.
-    /// </summary>
-    [TerraformPropertyName("delegation_service_account_email")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DelegationServiceAccountEmail => new TerraformReferenceProperty<TerraformProperty<string>>("", "delegation_service_account_email");
 
     /// <summary>
     /// The resource name of a ATTESTATION_AUTHORITY Note, created by the
@@ -35,7 +21,7 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock : IT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoteReference is required")]
     [TerraformPropertyName("note_reference")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NoteReference { get; set; }
+    public required TerraformValue<string> NoteReference { get; set; }
 
 }
 
@@ -43,28 +29,28 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock : IT
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBinaryAuthorizationAttestorTimeoutsBlock : ITerraformBlock
+public class GoogleBinaryAuthorizationAttestorTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,14 +70,14 @@ public class GoogleBinaryAuthorizationAttestor : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The resource name.
@@ -99,14 +85,14 @@ public class GoogleBinaryAuthorizationAttestor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for attestation_authority_note.
@@ -116,13 +102,13 @@ public class GoogleBinaryAuthorizationAttestor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AttestationAuthorityNote block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AttestationAuthorityNote block(s) allowed")]
     [TerraformPropertyName("attestation_authority_note")]
-    public TerraformList<TerraformBlock<GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock>>? AttestationAuthorityNote { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock>>? AttestationAuthorityNote { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleBinaryAuthorizationAttestorTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleBinaryAuthorizationAttestorTimeoutsBlock>? Timeouts { get; set; }
 
 }

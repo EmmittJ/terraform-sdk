@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dashboard_attributes in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSesv2AccountVdmAttributesDashboardAttributesBlock : ITerraformBlock
+public class AwsSesv2AccountVdmAttributesDashboardAttributesBlock
 {
     /// <summary>
     /// The engagement_metrics attribute.
     /// </summary>
     [TerraformPropertyName("engagement_metrics")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EngagementMetrics { get; set; }
+    public TerraformValue<string>? EngagementMetrics { get; set; }
 
 }
 
@@ -21,14 +21,14 @@ public class AwsSesv2AccountVdmAttributesDashboardAttributesBlock : ITerraformBl
 /// Block type for guardian_attributes in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSesv2AccountVdmAttributesGuardianAttributesBlock : ITerraformBlock
+public class AwsSesv2AccountVdmAttributesGuardianAttributesBlock
 {
     /// <summary>
     /// The optimized_shared_delivery attribute.
     /// </summary>
     [TerraformPropertyName("optimized_shared_delivery")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? OptimizedSharedDelivery { get; set; }
+    public TerraformValue<string>? OptimizedSharedDelivery { get; set; }
 
 }
 
@@ -46,15 +46,15 @@ public class AwsSesv2AccountVdmAttributes : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The vdm_enabled attribute.
@@ -62,7 +62,7 @@ public class AwsSesv2AccountVdmAttributes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VdmEnabled is required")]
     [TerraformPropertyName("vdm_enabled")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VdmEnabled { get; set; }
+    public required TerraformValue<string> VdmEnabled { get; set; }
 
     /// <summary>
     /// Block for dashboard_attributes.
@@ -70,7 +70,7 @@ public class AwsSesv2AccountVdmAttributes : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DashboardAttributes block(s) allowed")]
     [TerraformPropertyName("dashboard_attributes")]
-    public TerraformList<TerraformBlock<AwsSesv2AccountVdmAttributesDashboardAttributesBlock>>? DashboardAttributes { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSesv2AccountVdmAttributesDashboardAttributesBlock>>? DashboardAttributes { get; set; }
 
     /// <summary>
     /// Block for guardian_attributes.
@@ -78,6 +78,6 @@ public class AwsSesv2AccountVdmAttributes : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GuardianAttributes block(s) allowed")]
     [TerraformPropertyName("guardian_attributes")]
-    public TerraformList<TerraformBlock<AwsSesv2AccountVdmAttributesGuardianAttributesBlock>>? GuardianAttributes { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSesv2AccountVdmAttributesGuardianAttributesBlock>>? GuardianAttributes { get; set; }
 
 }

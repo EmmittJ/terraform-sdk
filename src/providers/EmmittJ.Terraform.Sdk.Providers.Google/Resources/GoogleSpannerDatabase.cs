@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSpannerDatabaseEncryptionConfigBlock : ITerraformBlock
+public class GoogleSpannerDatabaseEncryptionConfigBlock
 {
     /// <summary>
     /// Fully qualified name of the KMS key to use to encrypt this database. This key must exist
@@ -14,7 +14,7 @@ public class GoogleSpannerDatabaseEncryptionConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("kms_key_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyName { get; set; }
+    public TerraformValue<string>? KmsKeyName { get; set; }
 
     /// <summary>
     /// Fully qualified name of the KMS keys to use to encrypt this database. The keys must exist
@@ -22,7 +22,7 @@ public class GoogleSpannerDatabaseEncryptionConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("kms_key_names")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? KmsKeyNames { get; set; }
+    public TerraformList<string>? KmsKeyNames { get; set; }
 
 }
 
@@ -30,28 +30,28 @@ public class GoogleSpannerDatabaseEncryptionConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSpannerDatabaseTimeoutsBlock : ITerraformBlock
+public class GoogleSpannerDatabaseTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -70,8 +70,8 @@ public class GoogleSpannerDatabase : TerraformResource
     /// If it is not provided, &amp;quot;GOOGLE_STANDARD_SQL&amp;quot; will be used. Possible values: [&amp;quot;GOOGLE_STANDARD_SQL&amp;quot;, &amp;quot;POSTGRESQL&amp;quot;]
     /// </summary>
     [TerraformPropertyName("database_dialect")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DatabaseDialect { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "database_dialect");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DatabaseDialect { get; set; } = default!;
 
     /// <summary>
     /// An optional list of DDL statements to run inside the database. Statements can create
@@ -87,7 +87,7 @@ public class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     [TerraformPropertyName("ddl")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Ddl { get; set; }
+    public TerraformList<string>? Ddl { get; set; }
 
     /// <summary>
     /// The default time zone for the database. The default time zone must be a valid name
@@ -95,7 +95,7 @@ public class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     [TerraformPropertyName("default_time_zone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DefaultTimeZone { get; set; }
+    public TerraformValue<string>? DefaultTimeZone { get; set; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the database. Defaults to true.
@@ -107,7 +107,7 @@ public class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     [TerraformPropertyName("deletion_protection")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DeletionProtection { get; set; }
+    public TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// Whether drop protection is enabled for this database. Defaults to false.
@@ -120,14 +120,14 @@ public class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     [TerraformPropertyName("enable_drop_protection")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableDropProtection { get; set; }
+    public TerraformValue<bool>? EnableDropProtection { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The instance to create the database on.
@@ -135,7 +135,7 @@ public class GoogleSpannerDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformPropertyName("instance")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
+    public required TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// A unique identifier for the database, which cannot be changed after the
@@ -144,14 +144,14 @@ public class GoogleSpannerDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The retention period for the database. The retention period must be between 1 hour
@@ -161,8 +161,8 @@ public class GoogleSpannerDatabase : TerraformResource
     /// update the database&#39;s version_retention_period.
     /// </summary>
     [TerraformPropertyName("version_retention_period")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> VersionRetentionPeriod { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version_retention_period");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> VersionRetentionPeriod { get; set; } = default!;
 
     /// <summary>
     /// Block for encryption_config.
@@ -170,20 +170,20 @@ public class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     [TerraformPropertyName("encryption_config")]
-    public TerraformList<TerraformBlock<GoogleSpannerDatabaseEncryptionConfigBlock>>? EncryptionConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleSpannerDatabaseEncryptionConfigBlock>>? EncryptionConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleSpannerDatabaseTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleSpannerDatabaseTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// An explanation of the status of the database.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
 }

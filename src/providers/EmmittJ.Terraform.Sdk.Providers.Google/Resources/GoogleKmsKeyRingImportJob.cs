@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleKmsKeyRingImportJobTimeoutsBlock : ITerraformBlock
+public class GoogleKmsKeyRingImportJobTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -37,8 +37,8 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// It must be unique within a KeyRing and match the regular expression [a-zA-Z0-9_-]{1,63}
@@ -46,7 +46,7 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportJobId is required")]
     [TerraformPropertyName("import_job_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ImportJobId { get; set; }
+    public required TerraformValue<string> ImportJobId { get; set; }
 
     /// <summary>
     /// The wrapping method to be used for incoming key material. Possible values: [&amp;quot;RSA_OAEP_3072_SHA1_AES_256&amp;quot;, &amp;quot;RSA_OAEP_4096_SHA1_AES_256&amp;quot;, &amp;quot;RSA_OAEP_3072_SHA256_AES_256&amp;quot;, &amp;quot;RSA_OAEP_4096_SHA256_AES_256&amp;quot;, &amp;quot;RSA_OAEP_3072_SHA256&amp;quot;, &amp;quot;RSA_OAEP_4096_SHA256&amp;quot;]
@@ -54,7 +54,7 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportMethod is required")]
     [TerraformPropertyName("import_method")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ImportMethod { get; set; }
+    public required TerraformValue<string> ImportMethod { get; set; }
 
     /// <summary>
     /// The KeyRing that this import job belongs to.
@@ -63,7 +63,7 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     [TerraformPropertyName("key_ring")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyRing { get; set; }
+    public required TerraformValue<string> KeyRing { get; set; }
 
     /// <summary>
     /// The protection level of the ImportJob. This must match the protectionLevel of the
@@ -72,14 +72,14 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionLevel is required")]
     [TerraformPropertyName("protection_level")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ProtectionLevel { get; set; }
+    public required TerraformValue<string> ProtectionLevel { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleKmsKeyRingImportJobTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleKmsKeyRingImportJobTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Statement that was generated and signed by the key creator (for example, an HSM) at key creation time.
@@ -88,7 +88,7 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     /// </summary>
     [TerraformPropertyName("attestation")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Attestation => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "attestation");
+    public TerraformList<object> Attestation => new TerraformReference(this, "attestation");
 
     /// <summary>
     /// The time at which this resource is scheduled for expiration and can no longer be used.
@@ -96,27 +96,27 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     /// </summary>
     [TerraformPropertyName("expire_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExpireTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expire_time");
+    public TerraformValue<string> ExpireTime => new TerraformReference(this, "expire_time");
 
     /// <summary>
     /// The resource name for this ImportJob in the format projects/*/locations/*/keyRings/*/importJobs/*.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The public key with which to wrap key material prior to import. Only returned if state is &#39;ACTIVE&#39;.
     /// </summary>
     [TerraformPropertyName("public_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PublicKey => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "public_key");
+    public TerraformList<object> PublicKey => new TerraformReference(this, "public_key");
 
     /// <summary>
     /// The current state of the ImportJob, indicating if it can be used.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
 }

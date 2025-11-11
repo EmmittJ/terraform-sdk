@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attestation in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAnalysisOccurrenceAttestationBlock : ITerraformBlock
+public class GoogleContainerAnalysisOccurrenceAttestationBlock
 {
     /// <summary>
     /// The serialized payload that is verified by one or
@@ -15,7 +15,7 @@ public class GoogleContainerAnalysisOccurrenceAttestationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SerializedPayload is required")]
     [TerraformPropertyName("serialized_payload")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SerializedPayload { get; set; }
+    public required TerraformValue<string> SerializedPayload { get; set; }
 
 }
 
@@ -23,28 +23,28 @@ public class GoogleContainerAnalysisOccurrenceAttestationBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleContainerAnalysisOccurrenceTimeoutsBlock : ITerraformBlock
+public class GoogleContainerAnalysisOccurrenceTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -62,8 +62,8 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The analysis note associated with this occurrence, in the form of
@@ -73,21 +73,21 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoteName is required")]
     [TerraformPropertyName("note_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NoteName { get; set; }
+    public required TerraformValue<string> NoteName { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// A description of actions that can be taken to remedy the note.
     /// </summary>
     [TerraformPropertyName("remediation")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Remediation { get; set; }
+    public TerraformValue<string>? Remediation { get; set; }
 
     /// <summary>
     /// Required. Immutable. A URI that represents the resource for which
@@ -97,7 +97,7 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceUri is required")]
     [TerraformPropertyName("resource_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceUri { get; set; }
+    public required TerraformValue<string> ResourceUri { get; set; }
 
     /// <summary>
     /// Block for attestation.
@@ -107,21 +107,21 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Attestation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attestation block(s) allowed")]
     [TerraformPropertyName("attestation")]
-    public TerraformList<TerraformBlock<GoogleContainerAnalysisOccurrenceAttestationBlock>>? Attestation { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleContainerAnalysisOccurrenceAttestationBlock>>? Attestation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleContainerAnalysisOccurrenceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleContainerAnalysisOccurrenceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the repository was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The note kind which explicitly denotes which of the occurrence
@@ -130,20 +130,20 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     /// </summary>
     [TerraformPropertyName("kind")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Kind => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kind");
+    public TerraformValue<string> Kind => new TerraformReference(this, "kind");
 
     /// <summary>
     /// The name of the occurrence.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The time when the repository was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

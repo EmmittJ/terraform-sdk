@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock : ITerraformBlock
+public class AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     [TerraformPropertyName("dataset")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Dataset { get; set; }
+    public required TerraformValue<string> Dataset { get; set; }
 
     /// <summary>
     /// The group_id attribute.
@@ -61,7 +61,7 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     [TerraformPropertyName("group_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GroupId { get; set; }
+    public required TerraformValue<string> GroupId { get; set; }
 
     /// <summary>
     /// The group_name attribute.
@@ -69,14 +69,14 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     [TerraformPropertyName("group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GroupName { get; set; }
+    public required TerraformValue<string> GroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -84,7 +84,7 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The stream_analytics_job_id attribute.
@@ -92,7 +92,7 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     [TerraformPropertyName("stream_analytics_job_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StreamAnalyticsJobId { get; set; }
+    public required TerraformValue<string> StreamAnalyticsJobId { get; set; }
 
     /// <summary>
     /// The table attribute.
@@ -100,27 +100,27 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     [TerraformPropertyName("table")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Table { get; set; }
+    public required TerraformValue<string> Table { get; set; }
 
     /// <summary>
     /// The token_user_display_name attribute.
     /// </summary>
     [TerraformPropertyName("token_user_display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TokenUserDisplayName { get; set; }
+    public TerraformValue<string>? TokenUserDisplayName { get; set; }
 
     /// <summary>
     /// The token_user_principal_name attribute.
     /// </summary>
     [TerraformPropertyName("token_user_principal_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TokenUserPrincipalName { get; set; }
+    public TerraformValue<string>? TokenUserPrincipalName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock>? Timeouts { get; set; }
 
 }

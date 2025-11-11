@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_header in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermTrafficManagerExternalEndpointCustomHeaderBlock : ITerraformBlock
+public class AzurermTrafficManagerExternalEndpointCustomHeaderBlock
 {
     /// <summary>
     /// The name attribute.
@@ -14,7 +14,7 @@ public class AzurermTrafficManagerExternalEndpointCustomHeaderBlock : ITerraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -22,7 +22,7 @@ public class AzurermTrafficManagerExternalEndpointCustomHeaderBlock : ITerraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformPropertyName("value")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
+    public required TerraformValue<string> Value { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public class AzurermTrafficManagerExternalEndpointCustomHeaderBlock : ITerraform
 /// Block type for subnet in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermTrafficManagerExternalEndpointSubnetBlock : ITerraformBlock
+public class AzurermTrafficManagerExternalEndpointSubnetBlock
 {
     /// <summary>
     /// The first attribute.
@@ -38,21 +38,21 @@ public class AzurermTrafficManagerExternalEndpointSubnetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "First is required")]
     [TerraformPropertyName("first")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> First { get; set; }
+    public required TerraformValue<string> First { get; set; }
 
     /// <summary>
     /// The last attribute.
     /// </summary>
     [TerraformPropertyName("last")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Last { get; set; }
+    public TerraformValue<string>? Last { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [TerraformPropertyName("scope")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Scope { get; set; }
+    public TerraformValue<double>? Scope { get; set; }
 
 }
 
@@ -60,35 +60,35 @@ public class AzurermTrafficManagerExternalEndpointSubnetBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermTrafficManagerExternalEndpointTimeoutsBlock : ITerraformBlock
+public class AzurermTrafficManagerExternalEndpointTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -106,35 +106,35 @@ public class AzurermTrafficManagerExternalEndpoint : TerraformResource
     /// </summary>
     [TerraformPropertyName("always_serve_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AlwaysServeEnabled { get; set; }
+    public TerraformValue<bool>? AlwaysServeEnabled { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The endpoint_location attribute.
     /// </summary>
     [TerraformPropertyName("endpoint_location")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> EndpointLocation { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_location");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> EndpointLocation { get; set; } = default!;
 
     /// <summary>
     /// The geo_mappings attribute.
     /// </summary>
     [TerraformPropertyName("geo_mappings")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? GeoMappings { get; set; }
+    public TerraformList<string>? GeoMappings { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -142,14 +142,14 @@ public class AzurermTrafficManagerExternalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [TerraformPropertyName("priority")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Priority { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "priority");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Priority { get; set; } = default!;
 
     /// <summary>
     /// The profile_id attribute.
@@ -157,7 +157,7 @@ public class AzurermTrafficManagerExternalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     [TerraformPropertyName("profile_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ProfileId { get; set; }
+    public required TerraformValue<string> ProfileId { get; set; }
 
     /// <summary>
     /// The target attribute.
@@ -165,34 +165,34 @@ public class AzurermTrafficManagerExternalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     [TerraformPropertyName("target")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Target { get; set; }
+    public required TerraformValue<string> Target { get; set; }
 
     /// <summary>
     /// The weight attribute.
     /// </summary>
     [TerraformPropertyName("weight")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Weight { get; set; }
+    public TerraformValue<double>? Weight { get; set; }
 
     /// <summary>
     /// Block for custom_header.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("custom_header")]
-    public TerraformList<TerraformBlock<AzurermTrafficManagerExternalEndpointCustomHeaderBlock>>? CustomHeader { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermTrafficManagerExternalEndpointCustomHeaderBlock>>? CustomHeader { get; set; }
 
     /// <summary>
     /// Block for subnet.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("subnet")]
-    public TerraformList<TerraformBlock<AzurermTrafficManagerExternalEndpointSubnetBlock>>? Subnet { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermTrafficManagerExternalEndpointSubnetBlock>>? Subnet { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermTrafficManagerExternalEndpointTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermTrafficManagerExternalEndpointTimeoutsBlock>? Timeouts { get; set; }
 
 }

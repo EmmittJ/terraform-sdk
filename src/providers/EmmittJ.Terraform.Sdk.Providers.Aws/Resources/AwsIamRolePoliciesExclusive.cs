@@ -17,7 +17,7 @@ public class AwsIamRolePoliciesExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyNames is required")]
     [TerraformPropertyName("policy_names")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? PolicyNames { get; set; }
+    public required TerraformSet<string> PolicyNames { get; set; }
 
     /// <summary>
     /// The role_name attribute.
@@ -25,6 +25,6 @@ public class AwsIamRolePoliciesExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     [TerraformPropertyName("role_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleName { get; set; }
+    public required TerraformValue<string> RoleName { get; set; }
 
 }

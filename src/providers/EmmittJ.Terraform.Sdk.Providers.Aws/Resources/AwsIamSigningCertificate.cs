@@ -17,21 +17,21 @@ public class AwsIamSigningCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBody is required")]
     [TerraformPropertyName("certificate_body")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CertificateBody { get; set; }
+    public required TerraformValue<string> CertificateBody { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
+    public TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The user_name attribute.
@@ -39,13 +39,13 @@ public class AwsIamSigningCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     [TerraformPropertyName("user_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> UserName { get; set; }
+    public required TerraformValue<string> UserName { get; set; }
 
     /// <summary>
     /// The certificate_id attribute.
     /// </summary>
     [TerraformPropertyName("certificate_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CertificateId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_id");
+    public TerraformValue<string> CertificateId => new TerraformReference(this, "certificate_id");
 
 }

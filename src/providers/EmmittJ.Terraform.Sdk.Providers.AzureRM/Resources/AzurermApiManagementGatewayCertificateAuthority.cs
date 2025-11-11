@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock : ITerraformBlock
+public class AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     [TerraformPropertyName("api_management_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ApiManagementId { get; set; }
+    public required TerraformValue<string> ApiManagementId { get; set; }
 
     /// <summary>
     /// The certificate_name attribute.
@@ -61,7 +61,7 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
     [TerraformPropertyName("certificate_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CertificateName { get; set; }
+    public required TerraformValue<string> CertificateName { get; set; }
 
     /// <summary>
     /// The gateway_name attribute.
@@ -69,27 +69,27 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
     [TerraformPropertyName("gateway_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GatewayName { get; set; }
+    public required TerraformValue<string> GatewayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The is_trusted attribute.
     /// </summary>
     [TerraformPropertyName("is_trusted")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IsTrusted { get; set; }
+    public TerraformValue<bool>? IsTrusted { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAdvisorRecommendationsDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermAdvisorRecommendationsDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,34 +31,34 @@ public class AzurermAdvisorRecommendationsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("filter_by_category")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? FilterByCategory { get; set; }
+    public TerraformSet<string>? FilterByCategory { get; set; }
 
     /// <summary>
     /// The filter_by_resource_groups attribute.
     /// </summary>
     [TerraformPropertyName("filter_by_resource_groups")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? FilterByResourceGroups { get; set; }
+    public TerraformSet<string>? FilterByResourceGroups { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermAdvisorRecommendationsDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermAdvisorRecommendationsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The recommendations attribute.
     /// </summary>
     [TerraformPropertyName("recommendations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Recommendations => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "recommendations");
+    public TerraformList<object> Recommendations => new TerraformReference(this, "recommendations");
 
 }

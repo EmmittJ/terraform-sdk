@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPrivateDnsZoneVirtualNetworkLinkTimeoutsBlock : ITerraformBlock
+public class AzurermPrivateDnsZoneVirtualNetworkLinkTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -51,8 +51,8 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -60,7 +60,7 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_dns_zone_name attribute.
@@ -68,21 +68,21 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsZoneName is required")]
     [TerraformPropertyName("private_dns_zone_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PrivateDnsZoneName { get; set; }
+    public required TerraformValue<string> PrivateDnsZoneName { get; set; }
 
     /// <summary>
     /// The registration_enabled attribute.
     /// </summary>
     [TerraformPropertyName("registration_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RegistrationEnabled { get; set; }
+    public TerraformValue<bool>? RegistrationEnabled { get; set; }
 
     /// <summary>
     /// The resolution_policy attribute.
     /// </summary>
     [TerraformPropertyName("resolution_policy")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ResolutionPolicy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resolution_policy");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ResolutionPolicy { get; set; } = default!;
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -90,14 +90,14 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The virtual_network_id attribute.
@@ -105,13 +105,13 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     [TerraformPropertyName("virtual_network_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VirtualNetworkId { get; set; }
+    public required TerraformValue<string> VirtualNetworkId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermPrivateDnsZoneVirtualNetworkLinkTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermPrivateDnsZoneVirtualNetworkLinkTimeoutsBlock>? Timeouts { get; set; }
 
 }

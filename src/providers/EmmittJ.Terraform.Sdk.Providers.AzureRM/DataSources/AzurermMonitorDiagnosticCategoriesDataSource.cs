@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorDiagnosticCategoriesDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermMonitorDiagnosticCategoriesDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermMonitorDiagnosticCategoriesDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The resource_id attribute.
@@ -39,34 +39,34 @@ public class AzurermMonitorDiagnosticCategoriesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     [TerraformPropertyName("resource_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceId { get; set; }
+    public required TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermMonitorDiagnosticCategoriesDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermMonitorDiagnosticCategoriesDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The log_category_groups attribute.
     /// </summary>
     [TerraformPropertyName("log_category_groups")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> LogCategoryGroups => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "log_category_groups");
+    public TerraformSet<string> LogCategoryGroups => new TerraformReference(this, "log_category_groups");
 
     /// <summary>
     /// The log_category_types attribute.
     /// </summary>
     [TerraformPropertyName("log_category_types")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> LogCategoryTypes => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "log_category_types");
+    public TerraformSet<string> LogCategoryTypes => new TerraformReference(this, "log_category_types");
 
     /// <summary>
     /// The metrics attribute.
     /// </summary>
     [TerraformPropertyName("metrics")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> Metrics => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "metrics");
+    public TerraformSet<string> Metrics => new TerraformReference(this, "metrics");
 
 }

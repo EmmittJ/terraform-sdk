@@ -16,49 +16,49 @@ public class AwsKmsReplicaExternalKey : TerraformResource
     /// </summary>
     [TerraformPropertyName("bypass_policy_lockout_safety_check")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? BypassPolicyLockoutSafetyCheck { get; set; }
+    public TerraformValue<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
 
     /// <summary>
     /// The deletion_window_in_days attribute.
     /// </summary>
     [TerraformPropertyName("deletion_window_in_days")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? DeletionWindowInDays { get; set; }
+    public TerraformValue<double>? DeletionWindowInDays { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> Enabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enabled");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> Enabled { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The key_material_base64 attribute.
     /// </summary>
     [TerraformPropertyName("key_material_base64")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KeyMaterialBase64 { get; set; }
+    public TerraformValue<string>? KeyMaterialBase64 { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [TerraformPropertyName("policy")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Policy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Policy { get; set; } = default!;
 
     /// <summary>
     /// The primary_key_arn attribute.
@@ -66,69 +66,69 @@ public class AwsKmsReplicaExternalKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKeyArn is required")]
     [TerraformPropertyName("primary_key_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PrimaryKeyArn { get; set; }
+    public required TerraformValue<string> PrimaryKeyArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The valid_to attribute.
     /// </summary>
     [TerraformPropertyName("valid_to")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ValidTo { get; set; }
+    public TerraformValue<string>? ValidTo { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The expiration_model attribute.
     /// </summary>
     [TerraformPropertyName("expiration_model")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExpirationModel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_model");
+    public TerraformValue<string> ExpirationModel => new TerraformReference(this, "expiration_model");
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
     [TerraformPropertyName("key_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_id");
+    public TerraformValue<string> KeyId => new TerraformReference(this, "key_id");
 
     /// <summary>
     /// The key_state attribute.
     /// </summary>
     [TerraformPropertyName("key_state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KeyState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_state");
+    public TerraformValue<string> KeyState => new TerraformReference(this, "key_state");
 
     /// <summary>
     /// The key_usage attribute.
     /// </summary>
     [TerraformPropertyName("key_usage")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KeyUsage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_usage");
+    public TerraformValue<string> KeyUsage => new TerraformReference(this, "key_usage");
 
 }

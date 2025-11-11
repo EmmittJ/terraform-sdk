@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for notification_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleHealthcareHl7V2StoreNotificationConfigBlock : ITerraformBlock
+public class GoogleHealthcareHl7V2StoreNotificationConfigBlock
 {
     /// <summary>
     /// The Cloud Pub/Sub topic that notifications of changes are published on. Supplied by the client.
@@ -19,7 +19,7 @@ public class GoogleHealthcareHl7V2StoreNotificationConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     [TerraformPropertyName("pubsub_topic")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PubsubTopic { get; set; }
+    public required TerraformValue<string> PubsubTopic { get; set; }
 
 }
 
@@ -27,7 +27,7 @@ public class GoogleHealthcareHl7V2StoreNotificationConfigBlock : ITerraformBlock
 /// Block type for notification_configs in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleHealthcareHl7V2StoreNotificationConfigsBlock : ITerraformBlock
+public class GoogleHealthcareHl7V2StoreNotificationConfigsBlock
 {
     /// <summary>
     /// Restricts notifications sent for messages matching a filter. If this is empty, all messages
@@ -44,7 +44,7 @@ public class GoogleHealthcareHl7V2StoreNotificationConfigsBlock : ITerraformBloc
     /// </summary>
     [TerraformPropertyName("filter")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Filter { get; set; }
+    public TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The Cloud Pub/Sub topic that notifications of changes are published on. Supplied by the client.
@@ -59,7 +59,7 @@ public class GoogleHealthcareHl7V2StoreNotificationConfigsBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     [TerraformPropertyName("pubsub_topic")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PubsubTopic { get; set; }
+    public required TerraformValue<string> PubsubTopic { get; set; }
 
 }
 
@@ -67,14 +67,14 @@ public class GoogleHealthcareHl7V2StoreNotificationConfigsBlock : ITerraformBloc
 /// Block type for parser_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleHealthcareHl7V2StoreParserConfigBlock : ITerraformBlock
+public class GoogleHealthcareHl7V2StoreParserConfigBlock
 {
     /// <summary>
     /// Determines whether messages with no header are allowed.
     /// </summary>
     [TerraformPropertyName("allow_null_header")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AllowNullHeader { get; set; }
+    public TerraformValue<bool>? AllowNullHeader { get; set; }
 
     /// <summary>
     /// JSON encoded string for schemas used to parse messages in this
@@ -82,7 +82,7 @@ public class GoogleHealthcareHl7V2StoreParserConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("schema")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Schema { get; set; }
+    public TerraformValue<string>? Schema { get; set; }
 
     /// <summary>
     /// Byte(s) to be used as the segment terminator. If this is unset, &#39;\r&#39; will be used as segment terminator.
@@ -91,14 +91,14 @@ public class GoogleHealthcareHl7V2StoreParserConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("segment_terminator")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SegmentTerminator { get; set; }
+    public TerraformValue<string>? SegmentTerminator { get; set; }
 
     /// <summary>
     /// The version of the unschematized parser to be used when a custom &#39;schema&#39; is not set. Default value: &amp;quot;V1&amp;quot; Possible values: [&amp;quot;V1&amp;quot;, &amp;quot;V2&amp;quot;, &amp;quot;V3&amp;quot;]
     /// </summary>
     [TerraformPropertyName("version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
+    public TerraformValue<string>? Version { get; set; }
 
 }
 
@@ -106,28 +106,28 @@ public class GoogleHealthcareHl7V2StoreParserConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleHealthcareHl7V2StoreTimeoutsBlock : ITerraformBlock
+public class GoogleHealthcareHl7V2StoreTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -148,14 +148,14 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     [TerraformPropertyName("dataset")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Dataset { get; set; }
+    public required TerraformValue<string> Dataset { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// User-supplied key-value pairs used to organize HL7v2 stores.
@@ -177,7 +177,7 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The resource name for the Hl7V2Store.
@@ -187,14 +187,14 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Determines whether duplicate messages are allowed.
     /// </summary>
     [TerraformPropertyName("reject_duplicate_message")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RejectDuplicateMessage { get; set; }
+    public TerraformValue<bool>? RejectDuplicateMessage { get; set; }
 
     /// <summary>
     /// Block for notification_config.
@@ -202,14 +202,14 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     [TerraformPropertyName("notification_config")]
-    public TerraformList<TerraformBlock<GoogleHealthcareHl7V2StoreNotificationConfigBlock>>? NotificationConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleHealthcareHl7V2StoreNotificationConfigBlock>>? NotificationConfig { get; set; }
 
     /// <summary>
     /// Block for notification_configs.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("notification_configs")]
-    public TerraformList<TerraformBlock<GoogleHealthcareHl7V2StoreNotificationConfigsBlock>>? NotificationConfigs { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleHealthcareHl7V2StoreNotificationConfigsBlock>>? NotificationConfigs { get; set; }
 
     /// <summary>
     /// Block for parser_config.
@@ -217,28 +217,28 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParserConfig block(s) allowed")]
     [TerraformPropertyName("parser_config")]
-    public TerraformList<TerraformBlock<GoogleHealthcareHl7V2StoreParserConfigBlock>>? ParserConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleHealthcareHl7V2StoreParserConfigBlock>>? ParserConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleHealthcareHl7V2StoreTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleHealthcareHl7V2StoreTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The fully qualified name of this dataset
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -246,6 +246,6 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

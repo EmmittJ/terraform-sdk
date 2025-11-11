@@ -16,7 +16,7 @@ public class GoogleBillingSubaccount : TerraformResource
     /// </summary>
     [TerraformPropertyName("deletion_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeletionPolicy { get; set; }
+    public TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -24,14 +24,14 @@ public class GoogleBillingSubaccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The master_billing_account attribute.
@@ -39,27 +39,27 @@ public class GoogleBillingSubaccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterBillingAccount is required")]
     [TerraformPropertyName("master_billing_account")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MasterBillingAccount { get; set; }
+    public required TerraformValue<string> MasterBillingAccount { get; set; }
 
     /// <summary>
     /// The billing_account_id attribute.
     /// </summary>
     [TerraformPropertyName("billing_account_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> BillingAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "billing_account_id");
+    public TerraformValue<string> BillingAccountId => new TerraformReference(this, "billing_account_id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The open attribute.
     /// </summary>
     [TerraformPropertyName("open")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Open => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "open");
+    public TerraformValue<bool> Open => new TerraformReference(this, "open");
 
 }

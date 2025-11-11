@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKeyVaultCertificateDataDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermKeyVaultCertificateDataDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermKeyVaultCertificateDataDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The key_vault_id attribute.
@@ -39,7 +39,7 @@ public class AzurermKeyVaultCertificateDataDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformPropertyName("key_vault_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyVaultId { get; set; }
+    public required TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,69 +47,69 @@ public class AzurermKeyVaultCertificateDataDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformPropertyName("version")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Version { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Version { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermKeyVaultCertificateDataDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermKeyVaultCertificateDataDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The certificates_count attribute.
     /// </summary>
     [TerraformPropertyName("certificates_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> CertificatesCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "certificates_count");
+    public TerraformValue<double> CertificatesCount => new TerraformReference(this, "certificates_count");
 
     /// <summary>
     /// The expires attribute.
     /// </summary>
     [TerraformPropertyName("expires")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Expires => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expires");
+    public TerraformValue<string> Expires => new TerraformReference(this, "expires");
 
     /// <summary>
     /// The hex attribute.
     /// </summary>
     [TerraformPropertyName("hex")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Hex => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hex");
+    public TerraformValue<string> Hex => new TerraformReference(this, "hex");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [TerraformPropertyName("key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Key => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key");
+    public TerraformValue<string> Key => new TerraformReference(this, "key");
 
     /// <summary>
     /// The not_before attribute.
     /// </summary>
     [TerraformPropertyName("not_before")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NotBefore => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "not_before");
+    public TerraformValue<string> NotBefore => new TerraformReference(this, "not_before");
 
     /// <summary>
     /// The pem attribute.
     /// </summary>
     [TerraformPropertyName("pem")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Pem => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "pem");
+    public TerraformValue<string> Pem => new TerraformReference(this, "pem");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
 }

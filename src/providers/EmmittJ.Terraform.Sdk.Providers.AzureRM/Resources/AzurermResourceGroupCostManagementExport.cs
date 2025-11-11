@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for export_data_options in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermResourceGroupCostManagementExportExportDataOptionsBlock : ITerraformBlock
+public class AzurermResourceGroupCostManagementExportExportDataOptionsBlock
 {
     /// <summary>
     /// The time_frame attribute.
@@ -14,7 +14,7 @@ public class AzurermResourceGroupCostManagementExportExportDataOptionsBlock : IT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeFrame is required")]
     [TerraformPropertyName("time_frame")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TimeFrame { get; set; }
+    public required TerraformValue<string> TimeFrame { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public class AzurermResourceGroupCostManagementExportExportDataOptionsBlock : IT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public class AzurermResourceGroupCostManagementExportExportDataOptionsBlock : IT
 /// Block type for export_data_storage_location in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermResourceGroupCostManagementExportExportDataStorageLocationBlock : ITerraformBlock
+public class AzurermResourceGroupCostManagementExportExportDataStorageLocationBlock
 {
     /// <summary>
     /// The container_id attribute.
@@ -38,7 +38,7 @@ public class AzurermResourceGroupCostManagementExportExportDataStorageLocationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     [TerraformPropertyName("container_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContainerId { get; set; }
+    public required TerraformValue<string> ContainerId { get; set; }
 
     /// <summary>
     /// The root_folder_path attribute.
@@ -46,7 +46,7 @@ public class AzurermResourceGroupCostManagementExportExportDataStorageLocationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolderPath is required")]
     [TerraformPropertyName("root_folder_path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RootFolderPath { get; set; }
+    public required TerraformValue<string> RootFolderPath { get; set; }
 
 }
 
@@ -54,35 +54,35 @@ public class AzurermResourceGroupCostManagementExportExportDataStorageLocationBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermResourceGroupCostManagementExportTimeoutsBlock : ITerraformBlock
+public class AzurermResourceGroupCostManagementExportTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -101,21 +101,21 @@ public class AzurermResourceGroupCostManagementExport : TerraformResource
     /// </summary>
     [TerraformPropertyName("active")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Active { get; set; }
+    public TerraformValue<bool>? Active { get; set; }
 
     /// <summary>
     /// The file_format attribute.
     /// </summary>
     [TerraformPropertyName("file_format")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FileFormat { get; set; }
+    public TerraformValue<string>? FileFormat { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -123,7 +123,7 @@ public class AzurermResourceGroupCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recurrence_period_end_date attribute.
@@ -131,7 +131,7 @@ public class AzurermResourceGroupCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrencePeriodEndDate is required")]
     [TerraformPropertyName("recurrence_period_end_date")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RecurrencePeriodEndDate { get; set; }
+    public required TerraformValue<string> RecurrencePeriodEndDate { get; set; }
 
     /// <summary>
     /// The recurrence_period_start_date attribute.
@@ -139,7 +139,7 @@ public class AzurermResourceGroupCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrencePeriodStartDate is required")]
     [TerraformPropertyName("recurrence_period_start_date")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RecurrencePeriodStartDate { get; set; }
+    public required TerraformValue<string> RecurrencePeriodStartDate { get; set; }
 
     /// <summary>
     /// The recurrence_type attribute.
@@ -147,7 +147,7 @@ public class AzurermResourceGroupCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrenceType is required")]
     [TerraformPropertyName("recurrence_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RecurrenceType { get; set; }
+    public required TerraformValue<string> RecurrenceType { get; set; }
 
     /// <summary>
     /// The resource_group_id attribute.
@@ -155,7 +155,7 @@ public class AzurermResourceGroupCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     [TerraformPropertyName("resource_group_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupId { get; set; }
+    public required TerraformValue<string> ResourceGroupId { get; set; }
 
     /// <summary>
     /// Block for export_data_options.
@@ -165,7 +165,7 @@ public class AzurermResourceGroupCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportDataOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportDataOptions block(s) allowed")]
     [TerraformPropertyName("export_data_options")]
-    public TerraformList<TerraformBlock<AzurermResourceGroupCostManagementExportExportDataOptionsBlock>>? ExportDataOptions { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermResourceGroupCostManagementExportExportDataOptionsBlock>>? ExportDataOptions { get; set; }
 
     /// <summary>
     /// Block for export_data_storage_location.
@@ -175,13 +175,13 @@ public class AzurermResourceGroupCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportDataStorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportDataStorageLocation block(s) allowed")]
     [TerraformPropertyName("export_data_storage_location")]
-    public TerraformList<TerraformBlock<AzurermResourceGroupCostManagementExportExportDataStorageLocationBlock>>? ExportDataStorageLocation { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermResourceGroupCostManagementExportExportDataStorageLocationBlock>>? ExportDataStorageLocation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermResourceGroupCostManagementExportTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermResourceGroupCostManagementExportTimeoutsBlock>? Timeouts { get; set; }
 
 }

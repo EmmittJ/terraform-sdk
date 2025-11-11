@@ -10,9 +10,10 @@ namespace {{Namespace}};
 {{#IsDeprecated}}
 [Obsolete("This block is deprecated.")]
 {{/IsDeprecated}}
-public class {{ClassName}} : ITerraformBlock
+public class {{ClassName}}
 {
 {{#Properties}}
+{{^IsComputedAttribute}}
     /// <summary>
     /// {{Description}}
     /// </summary>
@@ -42,17 +43,9 @@ public class {{ClassName}} : ITerraformBlock
 {{/UseNullable}}
 {{/IsOptionalArgument}}
 {{#IsOptionalAndComputed}}
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-{{#UseRequiredKeyword}}
-    public required {{{PropertyWrapper}}} {{Name}} { get; set; } = new TerraformComputedProperty<{{{CSharpType}}}>("", "{{TerraformName}}");
-{{/UseRequiredKeyword}}
-{{^UseRequiredKeyword}}
-    public {{{PropertyWrapper}}} {{Name}} { get; set; } = new TerraformComputedProperty<{{{CSharpType}}}>("", "{{TerraformName}}");
-{{/UseRequiredKeyword}}
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public {{{PropertyWrapper}}} {{Name}} { get; set; } = default!;
 {{/IsOptionalAndComputed}}
-{{#IsComputedAttribute}}
-    // Computed attribute - read-only reference
-    public {{{PropertyWrapper}}} {{Name}} => new TerraformComputedProperty<{{{CSharpType}}}>("", "{{TerraformName}}");
 {{/IsComputedAttribute}}
 
 {{/Properties}}
@@ -105,17 +98,12 @@ public class {{ClassName}} : {{BaseClassName}}
 {{/UseNullable}}
 {{/IsOptionalArgument}}
 {{#IsOptionalAndComputed}}
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-{{#UseRequiredKeyword}}
-    public required {{{PropertyWrapper}}} {{Name}} { get; set; } = new TerraformComputedProperty<{{{CSharpType}}}>(ResourceAddress, "{{TerraformName}}");
-{{/UseRequiredKeyword}}
-{{^UseRequiredKeyword}}
-    public {{{PropertyWrapper}}} {{Name}} { get; set; } = new TerraformComputedProperty<{{{CSharpType}}}>(ResourceAddress, "{{TerraformName}}");
-{{/UseRequiredKeyword}}
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public {{{PropertyWrapper}}} {{Name}} { get; set; } = default!;
 {{/IsOptionalAndComputed}}
 {{#IsComputedAttribute}}
     // Computed attribute - read-only reference
-    public {{{PropertyWrapper}}} {{Name}} => new TerraformComputedProperty<{{{CSharpType}}}>(ResourceAddress, "{{TerraformName}}");
+    public {{{PropertyWrapper}}} {{Name}} => new TerraformReference(this, "{{TerraformName}}");
 {{/IsComputedAttribute}}
 
 {{/Properties}}
@@ -132,10 +120,10 @@ public class {{ClassName}} : {{BaseClassName}}
 {{/IsDeprecated}}
     [TerraformPropertyName("{{TerraformName}}")]
 {{#UseRequiredKeyword}}
-    public required {{{BlockPropertyType}}} {{Name}} { get; set; } = new(ResourceAddress, "{{TerraformName}}");
+    public required {{{BlockPropertyType}}} {{Name}} { get; set; } = default!;
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{{BlockPropertyType}}}? {{Name}} { get; set; } = new(ResourceAddress, "{{TerraformName}}");
+    public {{{BlockPropertyType}}}? {{Name}} { get; set; }
 {{/UseNullable}}
 
 {{/BlockTypes}}
@@ -145,7 +133,7 @@ public class {{ClassName}} : {{BaseClassName}}
     /// </summary>
     [TerraformPropertyName("{{TerraformName}}")]
     // Output-only attribute - read-only reference
-    public {{{PropertyWrapper}}} {{Name}} => new TerraformComputedProperty<{{{CSharpType}}}>(ResourceAddress, "{{TerraformName}}");
+    public {{{PropertyWrapper}}} {{Name}} => new TerraformReference(this, "{{TerraformName}}");
 
 {{/OutputAttributes}}
 }

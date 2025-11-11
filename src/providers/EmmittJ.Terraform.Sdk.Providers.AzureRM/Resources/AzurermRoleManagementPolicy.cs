@@ -6,49 +6,49 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for activation_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRoleManagementPolicyActivationRulesBlock : ITerraformBlock
+public class AzurermRoleManagementPolicyActivationRulesBlock
 {
     /// <summary>
     /// The time after which the an activation can be valid for
     /// </summary>
     [TerraformPropertyName("maximum_duration")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> MaximumDuration { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "maximum_duration");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> MaximumDuration { get; set; } = default!;
 
     /// <summary>
     /// Whether an approval is required for activation
     /// </summary>
     [TerraformPropertyName("require_approval")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> RequireApproval { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "require_approval");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> RequireApproval { get; set; } = default!;
 
     /// <summary>
     /// Whether a justification is required during activation
     /// </summary>
     [TerraformPropertyName("require_justification")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> RequireJustification { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "require_justification");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> RequireJustification { get; set; } = default!;
 
     /// <summary>
     /// Whether multi-factor authentication is required during activation
     /// </summary>
     [TerraformPropertyName("require_multifactor_authentication")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> RequireMultifactorAuthentication { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "require_multifactor_authentication");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> RequireMultifactorAuthentication { get; set; } = default!;
 
     /// <summary>
     /// Whether ticket information is required during activation
     /// </summary>
     [TerraformPropertyName("require_ticket_info")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> RequireTicketInfo { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "require_ticket_info");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> RequireTicketInfo { get; set; } = default!;
 
     /// <summary>
     /// Whether a conditional access context is required during activation
     /// </summary>
     [TerraformPropertyName("required_conditional_access_authentication_context")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> RequiredConditionalAccessAuthenticationContext { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "required_conditional_access_authentication_context");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> RequiredConditionalAccessAuthenticationContext { get; set; } = default!;
 
 }
 
@@ -56,42 +56,42 @@ public class AzurermRoleManagementPolicyActivationRulesBlock : ITerraformBlock
 /// Block type for active_assignment_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRoleManagementPolicyActiveAssignmentRulesBlock : ITerraformBlock
+public class AzurermRoleManagementPolicyActiveAssignmentRulesBlock
 {
     /// <summary>
     /// Must the assignment have an expiry date
     /// </summary>
     [TerraformPropertyName("expiration_required")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> ExpirationRequired { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "expiration_required");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> ExpirationRequired { get; set; } = default!;
 
     /// <summary>
     /// The duration after which assignments expire
     /// </summary>
     [TerraformPropertyName("expire_after")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ExpireAfter { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "expire_after");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ExpireAfter { get; set; } = default!;
 
     /// <summary>
     /// Whether a justification is required to make an assignment
     /// </summary>
     [TerraformPropertyName("require_justification")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> RequireJustification { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "require_justification");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> RequireJustification { get; set; } = default!;
 
     /// <summary>
     /// Whether multi-factor authentication is required to make an assignment
     /// </summary>
     [TerraformPropertyName("require_multifactor_authentication")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> RequireMultifactorAuthentication { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "require_multifactor_authentication");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> RequireMultifactorAuthentication { get; set; } = default!;
 
     /// <summary>
     /// Whether ticket information is required to make an assignment
     /// </summary>
     [TerraformPropertyName("require_ticket_info")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> RequireTicketInfo { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "require_ticket_info");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> RequireTicketInfo { get; set; } = default!;
 
 }
 
@@ -99,21 +99,21 @@ public class AzurermRoleManagementPolicyActiveAssignmentRulesBlock : ITerraformB
 /// Block type for eligible_assignment_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRoleManagementPolicyEligibleAssignmentRulesBlock : ITerraformBlock
+public class AzurermRoleManagementPolicyEligibleAssignmentRulesBlock
 {
     /// <summary>
     /// Must the assignment have an expiry date
     /// </summary>
     [TerraformPropertyName("expiration_required")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> ExpirationRequired { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "expiration_required");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> ExpirationRequired { get; set; } = default!;
 
     /// <summary>
     /// The duration after which assignments expire
     /// </summary>
     [TerraformPropertyName("expire_after")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ExpireAfter { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "expire_after");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ExpireAfter { get; set; } = default!;
 
 }
 
@@ -121,7 +121,7 @@ public class AzurermRoleManagementPolicyEligibleAssignmentRulesBlock : ITerrafor
 /// Block type for notification_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRoleManagementPolicyNotificationRulesBlock : ITerraformBlock
+public class AzurermRoleManagementPolicyNotificationRulesBlock
 {
 }
 
@@ -129,35 +129,35 @@ public class AzurermRoleManagementPolicyNotificationRulesBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermRoleManagementPolicyTimeoutsBlock : ITerraformBlock
+public class AzurermRoleManagementPolicyTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -175,8 +175,8 @@ public class AzurermRoleManagementPolicy : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// ID of the Azure Role to which this policy is assigned
@@ -184,7 +184,7 @@ public class AzurermRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     [TerraformPropertyName("role_definition_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleDefinitionId { get; set; }
+    public required TerraformValue<string> RoleDefinitionId { get; set; }
 
     /// <summary>
     /// The scope of the role to which this policy will apply
@@ -192,7 +192,7 @@ public class AzurermRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformPropertyName("scope")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Scope { get; set; }
+    public required TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// Block for activation_rules.
@@ -200,7 +200,7 @@ public class AzurermRoleManagementPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActivationRules block(s) allowed")]
     [TerraformPropertyName("activation_rules")]
-    public TerraformList<TerraformBlock<AzurermRoleManagementPolicyActivationRulesBlock>>? ActivationRules { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermRoleManagementPolicyActivationRulesBlock>>? ActivationRules { get; set; }
 
     /// <summary>
     /// Block for active_assignment_rules.
@@ -208,7 +208,7 @@ public class AzurermRoleManagementPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveAssignmentRules block(s) allowed")]
     [TerraformPropertyName("active_assignment_rules")]
-    public TerraformList<TerraformBlock<AzurermRoleManagementPolicyActiveAssignmentRulesBlock>>? ActiveAssignmentRules { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermRoleManagementPolicyActiveAssignmentRulesBlock>>? ActiveAssignmentRules { get; set; }
 
     /// <summary>
     /// Block for eligible_assignment_rules.
@@ -216,7 +216,7 @@ public class AzurermRoleManagementPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EligibleAssignmentRules block(s) allowed")]
     [TerraformPropertyName("eligible_assignment_rules")]
-    public TerraformList<TerraformBlock<AzurermRoleManagementPolicyEligibleAssignmentRulesBlock>>? EligibleAssignmentRules { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermRoleManagementPolicyEligibleAssignmentRulesBlock>>? EligibleAssignmentRules { get; set; }
 
     /// <summary>
     /// Block for notification_rules.
@@ -224,27 +224,27 @@ public class AzurermRoleManagementPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationRules block(s) allowed")]
     [TerraformPropertyName("notification_rules")]
-    public TerraformList<TerraformBlock<AzurermRoleManagementPolicyNotificationRulesBlock>>? NotificationRules { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermRoleManagementPolicyNotificationRulesBlock>>? NotificationRules { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermRoleManagementPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermRoleManagementPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The Description of the policy
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The name of the policy
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

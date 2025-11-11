@@ -17,7 +17,7 @@ public class AwsChimeVoiceConnectorTermination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallingRegions is required")]
     [TerraformPropertyName("calling_regions")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? CallingRegions { get; set; }
+    public required TerraformSet<string> CallingRegions { get; set; }
 
     /// <summary>
     /// The cidr_allow_list attribute.
@@ -25,42 +25,42 @@ public class AwsChimeVoiceConnectorTermination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrAllowList is required")]
     [TerraformPropertyName("cidr_allow_list")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? CidrAllowList { get; set; }
+    public required TerraformSet<string> CidrAllowList { get; set; }
 
     /// <summary>
     /// The cps_limit attribute.
     /// </summary>
     [TerraformPropertyName("cps_limit")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? CpsLimit { get; set; }
+    public TerraformValue<double>? CpsLimit { get; set; }
 
     /// <summary>
     /// The default_phone_number attribute.
     /// </summary>
     [TerraformPropertyName("default_phone_number")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DefaultPhoneNumber { get; set; }
+    public TerraformValue<string>? DefaultPhoneNumber { get; set; }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The voice_connector_id attribute.
@@ -68,6 +68,6 @@ public class AwsChimeVoiceConnectorTermination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     [TerraformPropertyName("voice_connector_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VoiceConnectorId { get; set; }
+    public required TerraformValue<string> VoiceConnectorId { get; set; }
 
 }

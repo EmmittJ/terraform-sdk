@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for lifecycle_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEfsFileSystemLifecyclePolicyBlock : ITerraformBlock
+public class AwsEfsFileSystemLifecyclePolicyBlock
 {
     /// <summary>
     /// The transition_to_archive attribute.
     /// </summary>
     [TerraformPropertyName("transition_to_archive")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TransitionToArchive { get; set; }
+    public TerraformValue<string>? TransitionToArchive { get; set; }
 
     /// <summary>
     /// The transition_to_ia attribute.
     /// </summary>
     [TerraformPropertyName("transition_to_ia")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TransitionToIa { get; set; }
+    public TerraformValue<string>? TransitionToIa { get; set; }
 
     /// <summary>
     /// The transition_to_primary_storage_class attribute.
     /// </summary>
     [TerraformPropertyName("transition_to_primary_storage_class")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TransitionToPrimaryStorageClass { get; set; }
+    public TerraformValue<string>? TransitionToPrimaryStorageClass { get; set; }
 
 }
 
@@ -35,14 +35,14 @@ public class AwsEfsFileSystemLifecyclePolicyBlock : ITerraformBlock
 /// Block type for protection in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEfsFileSystemProtectionBlock : ITerraformBlock
+public class AwsEfsFileSystemProtectionBlock
 {
     /// <summary>
     /// The replication_overwrite attribute.
     /// </summary>
     [TerraformPropertyName("replication_overwrite")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ReplicationOverwrite { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "replication_overwrite");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ReplicationOverwrite { get; set; } = default!;
 
 }
 
@@ -60,78 +60,78 @@ public class AwsEfsFileSystem : TerraformResource
     /// The availability_zone_name attribute.
     /// </summary>
     [TerraformPropertyName("availability_zone_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AvailabilityZoneName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AvailabilityZoneName { get; set; } = default!;
 
     /// <summary>
     /// The creation_token attribute.
     /// </summary>
     [TerraformPropertyName("creation_token")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CreationToken { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_token");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CreationToken { get; set; } = default!;
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     [TerraformPropertyName("encrypted")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> Encrypted { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "encrypted");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> Encrypted { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> KmsKeyId { get; set; } = default!;
 
     /// <summary>
     /// The performance_mode attribute.
     /// </summary>
     [TerraformPropertyName("performance_mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PerformanceMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "performance_mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PerformanceMode { get; set; } = default!;
 
     /// <summary>
     /// The provisioned_throughput_in_mibps attribute.
     /// </summary>
     [TerraformPropertyName("provisioned_throughput_in_mibps")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? ProvisionedThroughputInMibps { get; set; }
+    public TerraformValue<double>? ProvisionedThroughputInMibps { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The throughput_mode attribute.
     /// </summary>
     [TerraformPropertyName("throughput_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ThroughputMode { get; set; }
+    public TerraformValue<string>? ThroughputMode { get; set; }
 
     /// <summary>
     /// Block for lifecycle_policy.
@@ -139,7 +139,7 @@ public class AwsEfsFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 LifecyclePolicy block(s) allowed")]
     [TerraformPropertyName("lifecycle_policy")]
-    public TerraformList<TerraformBlock<AwsEfsFileSystemLifecyclePolicyBlock>>? LifecyclePolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsEfsFileSystemLifecyclePolicyBlock>>? LifecyclePolicy { get; set; }
 
     /// <summary>
     /// Block for protection.
@@ -147,55 +147,55 @@ public class AwsEfsFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Protection block(s) allowed")]
     [TerraformPropertyName("protection")]
-    public TerraformList<TerraformBlock<AwsEfsFileSystemProtectionBlock>>? Protection { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsEfsFileSystemProtectionBlock>>? Protection { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
     [TerraformPropertyName("availability_zone_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AvailabilityZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone_id");
+    public TerraformValue<string> AvailabilityZoneId => new TerraformReference(this, "availability_zone_id");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     [TerraformPropertyName("dns_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
+    public TerraformValue<string> DnsName => new TerraformReference(this, "dns_name");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The number_of_mount_targets attribute.
     /// </summary>
     [TerraformPropertyName("number_of_mount_targets")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> NumberOfMountTargets => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "number_of_mount_targets");
+    public TerraformValue<double> NumberOfMountTargets => new TerraformReference(this, "number_of_mount_targets");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     [TerraformPropertyName("owner_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
+    public TerraformValue<string> OwnerId => new TerraformReference(this, "owner_id");
 
     /// <summary>
     /// The size_in_bytes attribute.
     /// </summary>
     [TerraformPropertyName("size_in_bytes")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> SizeInBytes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "size_in_bytes");
+    public TerraformList<object> SizeInBytes => new TerraformReference(this, "size_in_bytes");
 
 }

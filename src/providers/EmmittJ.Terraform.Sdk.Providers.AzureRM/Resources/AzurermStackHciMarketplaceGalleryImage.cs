@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identifier in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : ITerraformBlock
+public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock
 {
     /// <summary>
     /// The offer attribute.
@@ -14,7 +14,7 @@ public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     [TerraformPropertyName("offer")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Offer { get; set; }
+    public required TerraformValue<string> Offer { get; set; }
 
     /// <summary>
     /// The publisher attribute.
@@ -22,7 +22,7 @@ public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     [TerraformPropertyName("publisher")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
+    public required TerraformValue<string> Publisher { get; set; }
 
     /// <summary>
     /// The sku attribute.
@@ -30,7 +30,7 @@ public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [TerraformPropertyName("sku")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Sku { get; set; }
+    public required TerraformValue<string> Sku { get; set; }
 
 }
 
@@ -38,35 +38,35 @@ public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : ITerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStackHciMarketplaceGalleryImageTimeoutsBlock : ITerraformBlock
+public class AzurermStackHciMarketplaceGalleryImageTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -86,7 +86,7 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     [TerraformPropertyName("custom_location_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CustomLocationId { get; set; }
+    public required TerraformValue<string> CustomLocationId { get; set; }
 
     /// <summary>
     /// The hyperv_generation attribute.
@@ -94,14 +94,14 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HypervGeneration is required")]
     [TerraformPropertyName("hyperv_generation")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HypervGeneration { get; set; }
+    public required TerraformValue<string> HypervGeneration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -109,7 +109,7 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -117,7 +117,7 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The os_type attribute.
@@ -125,7 +125,7 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     [TerraformPropertyName("os_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OsType { get; set; }
+    public required TerraformValue<string> OsType { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -133,21 +133,21 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The storage_path_id attribute.
     /// </summary>
     [TerraformPropertyName("storage_path_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StoragePathId { get; set; }
+    public TerraformValue<string>? StoragePathId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -155,7 +155,7 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformPropertyName("version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
+    public required TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// Block for identifier.
@@ -165,13 +165,13 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identifier block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identifier block(s) allowed")]
     [TerraformPropertyName("identifier")]
-    public TerraformList<TerraformBlock<AzurermStackHciMarketplaceGalleryImageIdentifierBlock>>? Identifier { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermStackHciMarketplaceGalleryImageIdentifierBlock>>? Identifier { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermStackHciMarketplaceGalleryImageTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermStackHciMarketplaceGalleryImageTimeoutsBlock>? Timeouts { get; set; }
 
 }

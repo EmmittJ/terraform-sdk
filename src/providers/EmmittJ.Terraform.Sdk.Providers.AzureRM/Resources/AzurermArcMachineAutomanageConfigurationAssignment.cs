@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermArcMachineAutomanageConfigurationAssignmentTimeoutsBlock : ITerraformBlock
+public class AzurermArcMachineAutomanageConfigurationAssignmentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class AzurermArcMachineAutomanageConfigurationAssignment : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcMachineId is required")]
     [TerraformPropertyName("arc_machine_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ArcMachineId { get; set; }
+    public required TerraformValue<string> ArcMachineId { get; set; }
 
     /// <summary>
     /// The configuration_id attribute.
@@ -54,20 +54,20 @@ public class AzurermArcMachineAutomanageConfigurationAssignment : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationId is required")]
     [TerraformPropertyName("configuration_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConfigurationId { get; set; }
+    public required TerraformValue<string> ConfigurationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermArcMachineAutomanageConfigurationAssignmentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermArcMachineAutomanageConfigurationAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

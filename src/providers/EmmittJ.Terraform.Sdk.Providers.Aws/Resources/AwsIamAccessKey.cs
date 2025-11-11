@@ -15,22 +15,22 @@ public class AwsIamAccessKey : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The pgp_key attribute.
     /// </summary>
     [TerraformPropertyName("pgp_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PgpKey { get; set; }
+    public TerraformValue<string>? PgpKey { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
+    public TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The user attribute.
@@ -38,48 +38,48 @@ public class AwsIamAccessKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [TerraformPropertyName("user")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> User { get; set; }
+    public required TerraformValue<string> User { get; set; }
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
     [TerraformPropertyName("create_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_date");
+    public TerraformValue<string> CreateDate => new TerraformReference(this, "create_date");
 
     /// <summary>
     /// The encrypted_secret attribute.
     /// </summary>
     [TerraformPropertyName("encrypted_secret")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EncryptedSecret => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "encrypted_secret");
+    public TerraformValue<string> EncryptedSecret => new TerraformReference(this, "encrypted_secret");
 
     /// <summary>
     /// The encrypted_ses_smtp_password_v4 attribute.
     /// </summary>
     [TerraformPropertyName("encrypted_ses_smtp_password_v4")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EncryptedSesSmtpPasswordV4 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "encrypted_ses_smtp_password_v4");
+    public TerraformValue<string> EncryptedSesSmtpPasswordV4 => new TerraformReference(this, "encrypted_ses_smtp_password_v4");
 
     /// <summary>
     /// The key_fingerprint attribute.
     /// </summary>
     [TerraformPropertyName("key_fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KeyFingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_fingerprint");
+    public TerraformValue<string> KeyFingerprint => new TerraformReference(this, "key_fingerprint");
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
     [TerraformPropertyName("secret")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Secret => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secret");
+    public TerraformValue<string> Secret => new TerraformReference(this, "secret");
 
     /// <summary>
     /// The ses_smtp_password_v4 attribute.
     /// </summary>
     [TerraformPropertyName("ses_smtp_password_v4")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SesSmtpPasswordV4 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ses_smtp_password_v4");
+    public TerraformValue<string> SesSmtpPasswordV4 => new TerraformReference(this, "ses_smtp_password_v4");
 
 }

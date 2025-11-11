@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsOrganizationsAccountTimeoutsBlock : ITerraformBlock
+public class AwsOrganizationsAccountTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public class AwsOrganizationsAccount : TerraformResource
     /// </summary>
     [TerraformPropertyName("close_on_deletion")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? CloseOnDeletion { get; set; }
+    public TerraformValue<bool>? CloseOnDeletion { get; set; }
 
     /// <summary>
     /// The create_govcloud attribute.
     /// </summary>
     [TerraformPropertyName("create_govcloud")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? CreateGovcloud { get; set; }
+    public TerraformValue<bool>? CreateGovcloud { get; set; }
 
     /// <summary>
     /// The email attribute.
@@ -60,21 +60,21 @@ public class AwsOrganizationsAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     [TerraformPropertyName("email")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Email { get; set; }
+    public required TerraformValue<string> Email { get; set; }
 
     /// <summary>
     /// The iam_user_access_to_billing attribute.
     /// </summary>
     [TerraformPropertyName("iam_user_access_to_billing")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IamUserAccessToBilling { get; set; }
+    public TerraformValue<string>? IamUserAccessToBilling { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -82,83 +82,83 @@ public class AwsOrganizationsAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
     [TerraformPropertyName("parent_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ParentId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parent_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ParentId { get; set; } = default!;
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     [TerraformPropertyName("role_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RoleName { get; set; }
+    public TerraformValue<string>? RoleName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsOrganizationsAccountTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsOrganizationsAccountTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The govcloud_id attribute.
     /// </summary>
     [TerraformPropertyName("govcloud_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GovcloudId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "govcloud_id");
+    public TerraformValue<string> GovcloudId => new TerraformReference(this, "govcloud_id");
 
     /// <summary>
     /// The joined_method attribute.
     /// </summary>
     [TerraformPropertyName("joined_method")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> JoinedMethod => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "joined_method");
+    public TerraformValue<string> JoinedMethod => new TerraformReference(this, "joined_method");
 
     /// <summary>
     /// The joined_timestamp attribute.
     /// </summary>
     [TerraformPropertyName("joined_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> JoinedTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "joined_timestamp");
+    public TerraformValue<string> JoinedTimestamp => new TerraformReference(this, "joined_timestamp");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
 }

@@ -6,42 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for catalog_info in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : ITerraformBlock
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock
 {
     /// <summary>
     /// The administrator_login attribute.
     /// </summary>
     [TerraformPropertyName("administrator_login")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AdministratorLogin { get; set; }
+    public TerraformValue<string>? AdministratorLogin { get; set; }
 
     /// <summary>
     /// The administrator_password attribute.
     /// </summary>
     [TerraformPropertyName("administrator_password")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AdministratorPassword { get; set; }
+    public TerraformValue<string>? AdministratorPassword { get; set; }
 
     /// <summary>
     /// The dual_standby_pair_name attribute.
     /// </summary>
     [TerraformPropertyName("dual_standby_pair_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DualStandbyPairName { get; set; }
+    public TerraformValue<string>? DualStandbyPairName { get; set; }
 
     /// <summary>
     /// The elastic_pool_name attribute.
     /// </summary>
     [TerraformPropertyName("elastic_pool_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ElasticPoolName { get; set; }
+    public TerraformValue<string>? ElasticPoolName { get; set; }
 
     /// <summary>
     /// The pricing_tier attribute.
     /// </summary>
     [TerraformPropertyName("pricing_tier")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PricingTier { get; set; }
+    public TerraformValue<string>? PricingTier { get; set; }
 
     /// <summary>
     /// The server_endpoint attribute.
@@ -49,7 +49,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : ITe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerEndpoint is required")]
     [TerraformPropertyName("server_endpoint")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServerEndpoint { get; set; }
+    public required TerraformValue<string> ServerEndpoint { get; set; }
 
 }
 
@@ -57,21 +57,21 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : ITe
 /// Block type for copy_compute_scale in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock : ITerraformBlock
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock
 {
     /// <summary>
     /// The data_integration_unit attribute.
     /// </summary>
     [TerraformPropertyName("data_integration_unit")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? DataIntegrationUnit { get; set; }
+    public TerraformValue<double>? DataIntegrationUnit { get; set; }
 
     /// <summary>
     /// The time_to_live attribute.
     /// </summary>
     [TerraformPropertyName("time_to_live")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? TimeToLive { get; set; }
+    public TerraformValue<double>? TimeToLive { get; set; }
 
 }
 
@@ -79,7 +79,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock 
 /// Block type for custom_setup_script in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock : ITerraformBlock
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock
 {
     /// <summary>
     /// The blob_container_uri attribute.
@@ -87,7 +87,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobContainerUri is required")]
     [TerraformPropertyName("blob_container_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BlobContainerUri { get; set; }
+    public required TerraformValue<string> BlobContainerUri { get; set; }
 
     /// <summary>
     /// The sas_token attribute.
@@ -95,7 +95,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasToken is required")]
     [TerraformPropertyName("sas_token")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SasToken { get; set; }
+    public required TerraformValue<string> SasToken { get; set; }
 
 }
 
@@ -103,21 +103,21 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock
 /// Block type for express_custom_setup in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock : ITerraformBlock
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock
 {
     /// <summary>
     /// The environment attribute.
     /// </summary>
     [TerraformPropertyName("environment")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Environment { get; set; }
+    public TerraformMap<string>? Environment { get; set; }
 
     /// <summary>
     /// The powershell_version attribute.
     /// </summary>
     [TerraformPropertyName("powershell_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PowershellVersion { get; set; }
+    public TerraformValue<string>? PowershellVersion { get; set; }
 
 }
 
@@ -125,7 +125,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
 /// Block type for express_vnet_integration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock : ITerraformBlock
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock
 {
     /// <summary>
     /// The subnet_id attribute.
@@ -133,7 +133,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegration
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformPropertyName("subnet_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
+    public required TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -141,7 +141,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegration
 /// Block type for package_store in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock : ITerraformBlock
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -149,7 +149,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock : IT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     [TerraformPropertyName("linked_service_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LinkedServiceName { get; set; }
+    public required TerraformValue<string> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -157,7 +157,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock : IT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -165,28 +165,28 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock : IT
 /// Block type for pipeline_external_compute_scale in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock : ITerraformBlock
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock
 {
     /// <summary>
     /// The number_of_external_nodes attribute.
     /// </summary>
     [TerraformPropertyName("number_of_external_nodes")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? NumberOfExternalNodes { get; set; }
+    public TerraformValue<double>? NumberOfExternalNodes { get; set; }
 
     /// <summary>
     /// The number_of_pipeline_nodes attribute.
     /// </summary>
     [TerraformPropertyName("number_of_pipeline_nodes")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? NumberOfPipelineNodes { get; set; }
+    public TerraformValue<double>? NumberOfPipelineNodes { get; set; }
 
     /// <summary>
     /// The time_to_live attribute.
     /// </summary>
     [TerraformPropertyName("time_to_live")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? TimeToLive { get; set; }
+    public TerraformValue<double>? TimeToLive { get; set; }
 
 }
 
@@ -194,14 +194,14 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComput
 /// Block type for proxy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : ITerraformBlock
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock
 {
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformPropertyName("path")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
+    public TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The self_hosted_integration_runtime_name attribute.
@@ -209,7 +209,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : ITerrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelfHostedIntegrationRuntimeName is required")]
     [TerraformPropertyName("self_hosted_integration_runtime_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SelfHostedIntegrationRuntimeName { get; set; }
+    public required TerraformValue<string> SelfHostedIntegrationRuntimeName { get; set; }
 
     /// <summary>
     /// The staging_storage_linked_service_name attribute.
@@ -217,7 +217,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : ITerrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StagingStorageLinkedServiceName is required")]
     [TerraformPropertyName("staging_storage_linked_service_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StagingStorageLinkedServiceName { get; set; }
+    public required TerraformValue<string> StagingStorageLinkedServiceName { get; set; }
 
 }
 
@@ -225,35 +225,35 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : ITerrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock : ITerraformBlock
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -261,35 +261,35 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock : ITerra
 /// Block type for vnet_integration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock : ITerraformBlock
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock
 {
     /// <summary>
     /// The public_ips attribute.
     /// </summary>
     [TerraformPropertyName("public_ips")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? PublicIps { get; set; }
+    public TerraformList<string>? PublicIps { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [TerraformPropertyName("subnet_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SubnetId { get; set; }
+    public TerraformValue<string>? SubnetId { get; set; }
 
     /// <summary>
     /// The subnet_name attribute.
     /// </summary>
     [TerraformPropertyName("subnet_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SubnetName { get; set; }
+    public TerraformValue<string>? SubnetName { get; set; }
 
     /// <summary>
     /// The vnet_id attribute.
     /// </summary>
     [TerraformPropertyName("vnet_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VnetId { get; set; }
+    public TerraformValue<string>? VnetId { get; set; }
 
 }
 
@@ -308,7 +308,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     /// </summary>
     [TerraformPropertyName("credential_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CredentialName { get; set; }
+    public TerraformValue<string>? CredentialName { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -316,35 +316,35 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformPropertyName("data_factory_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DataFactoryId { get; set; }
+    public required TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
     [TerraformPropertyName("edition")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Edition { get; set; }
+    public TerraformValue<string>? Edition { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     [TerraformPropertyName("license_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? LicenseType { get; set; }
+    public TerraformValue<string>? LicenseType { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -352,14 +352,14 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The max_parallel_executions_per_node attribute.
     /// </summary>
     [TerraformPropertyName("max_parallel_executions_per_node")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxParallelExecutionsPerNode { get; set; }
+    public TerraformValue<double>? MaxParallelExecutionsPerNode { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -367,7 +367,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The node_size attribute.
@@ -375,14 +375,14 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeSize is required")]
     [TerraformPropertyName("node_size")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NodeSize { get; set; }
+    public required TerraformValue<string> NodeSize { get; set; }
 
     /// <summary>
     /// The number_of_nodes attribute.
     /// </summary>
     [TerraformPropertyName("number_of_nodes")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? NumberOfNodes { get; set; }
+    public TerraformValue<double>? NumberOfNodes { get; set; }
 
     /// <summary>
     /// Block for catalog_info.
@@ -390,7 +390,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogInfo block(s) allowed")]
     [TerraformPropertyName("catalog_info")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock>>? CatalogInfo { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock>>? CatalogInfo { get; set; }
 
     /// <summary>
     /// Block for copy_compute_scale.
@@ -398,7 +398,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CopyComputeScale block(s) allowed")]
     [TerraformPropertyName("copy_compute_scale")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock>>? CopyComputeScale { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock>>? CopyComputeScale { get; set; }
 
     /// <summary>
     /// Block for custom_setup_script.
@@ -406,7 +406,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomSetupScript block(s) allowed")]
     [TerraformPropertyName("custom_setup_script")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock>>? CustomSetupScript { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock>>? CustomSetupScript { get; set; }
 
     /// <summary>
     /// Block for express_custom_setup.
@@ -414,7 +414,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpressCustomSetup block(s) allowed")]
     [TerraformPropertyName("express_custom_setup")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock>>? ExpressCustomSetup { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock>>? ExpressCustomSetup { get; set; }
 
     /// <summary>
     /// Block for express_vnet_integration.
@@ -422,14 +422,14 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpressVnetIntegration block(s) allowed")]
     [TerraformPropertyName("express_vnet_integration")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock>>? ExpressVnetIntegration { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock>>? ExpressVnetIntegration { get; set; }
 
     /// <summary>
     /// Block for package_store.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("package_store")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock>>? PackageStore { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock>>? PackageStore { get; set; }
 
     /// <summary>
     /// Block for pipeline_external_compute_scale.
@@ -437,7 +437,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PipelineExternalComputeScale block(s) allowed")]
     [TerraformPropertyName("pipeline_external_compute_scale")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock>>? PipelineExternalComputeScale { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock>>? PipelineExternalComputeScale { get; set; }
 
     /// <summary>
     /// Block for proxy.
@@ -445,14 +445,14 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
     [TerraformPropertyName("proxy")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock>>? Proxy { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock>>? Proxy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vnet_integration.
@@ -460,6 +460,6 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VnetIntegration block(s) allowed")]
     [TerraformPropertyName("vnet_integration")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock>>? VnetIntegration { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock>>? VnetIntegration { get; set; }
 
 }

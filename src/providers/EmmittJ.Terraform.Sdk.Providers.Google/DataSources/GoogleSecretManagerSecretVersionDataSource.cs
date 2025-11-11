@@ -16,28 +16,28 @@ public class GoogleSecretManagerSecretVersionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("fetch_secret_data")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? FetchSecretData { get; set; }
+    public TerraformValue<bool>? FetchSecretData { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The is_secret_data_base64 attribute.
     /// </summary>
     [TerraformPropertyName("is_secret_data_base64")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IsSecretDataBase64 { get; set; }
+    public TerraformValue<bool>? IsSecretDataBase64 { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The secret attribute.
@@ -45,48 +45,48 @@ public class GoogleSecretManagerSecretVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     [TerraformPropertyName("secret")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Secret { get; set; }
+    public required TerraformValue<string> Secret { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformPropertyName("version")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Version { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Version { get; set; } = default!;
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The destroy_time attribute.
     /// </summary>
     [TerraformPropertyName("destroy_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DestroyTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "destroy_time");
+    public TerraformValue<string> DestroyTime => new TerraformReference(this, "destroy_time");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Enabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enabled");
+    public TerraformValue<bool> Enabled => new TerraformReference(this, "enabled");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The secret_data attribute.
     /// </summary>
     [TerraformPropertyName("secret_data")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SecretData => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secret_data");
+    public TerraformValue<string> SecretData => new TerraformReference(this, "secret_data");
 
 }

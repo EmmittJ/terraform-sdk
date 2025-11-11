@@ -17,21 +17,21 @@ public class GoogleKmsAutokeyConfigDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     [TerraformPropertyName("folder")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Folder { get; set; }
+    public required TerraformValue<string> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The etag of the AutokeyConfig for optimistic concurrency control.
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// The target key project for a given folder where KMS Autokey will provision a
@@ -40,6 +40,6 @@ public class GoogleKmsAutokeyConfigDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("key_project")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KeyProject => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_project");
+    public TerraformValue<string> KeyProject => new TerraformReference(this, "key_project");
 
 }

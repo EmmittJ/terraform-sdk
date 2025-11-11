@@ -15,21 +15,21 @@ public class GoogleComputeLbIpRangesDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The http_ssl_tcp_internal attribute.
     /// </summary>
     [TerraformPropertyName("http_ssl_tcp_internal")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> HttpSslTcpInternal => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "http_ssl_tcp_internal");
+    public TerraformList<string> HttpSslTcpInternal => new TerraformReference(this, "http_ssl_tcp_internal");
 
     /// <summary>
     /// The network attribute.
     /// </summary>
     [TerraformPropertyName("network")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Network => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "network");
+    public TerraformList<string> Network => new TerraformReference(this, "network");
 
 }

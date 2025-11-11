@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadDirectoryRoleEligibilityScheduleRequestTimeoutsBlock : ITerraformBlock
+public class AzureadDirectoryRoleEligibilityScheduleRequestTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryScopeId is required")]
     [TerraformPropertyName("directory_scope_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DirectoryScopeId { get; set; }
+    public required TerraformValue<string> DirectoryScopeId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Justification for why the role is assigned
@@ -61,7 +61,7 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Justification is required")]
     [TerraformPropertyName("justification")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Justification { get; set; }
+    public required TerraformValue<string> Justification { get; set; }
 
     /// <summary>
     /// The object ID of the member principal
@@ -69,7 +69,7 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     [TerraformPropertyName("principal_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PrincipalId { get; set; }
+    public required TerraformValue<string> PrincipalId { get; set; }
 
     /// <summary>
     /// The object ID of the directory role for this role eligibility schedule request
@@ -77,13 +77,13 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     [TerraformPropertyName("role_definition_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleDefinitionId { get; set; }
+    public required TerraformValue<string> RoleDefinitionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzureadDirectoryRoleEligibilityScheduleRequestTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzureadDirectoryRoleEligibilityScheduleRequestTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeStoragePoolTimeoutsBlock : ITerraformBlock
+public class GoogleComputeStoragePoolTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -44,8 +44,8 @@ public class GoogleComputeStoragePool : TerraformResource
     /// Provisioning type of the byte capacity of the pool. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ADVANCED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("capacity_provisioning_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CapacityProvisioningType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "capacity_provisioning_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CapacityProvisioningType { get; set; } = default!;
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the StoragePool.
@@ -55,14 +55,14 @@ public class GoogleComputeStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("deletion_protection")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DeletionProtection { get; set; }
+    public TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// A description of this resource. Provide this property when you create the resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Labels to apply to this storage pool. These can be later modified by the setLabels method.
@@ -73,7 +73,7 @@ public class GoogleComputeStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is created.
@@ -87,14 +87,14 @@ public class GoogleComputeStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Provisioning type of the performance-related parameters of the pool, such as throughput and IOPS. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ADVANCED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("performance_provisioning_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PerformanceProvisioningType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "performance_provisioning_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PerformanceProvisioningType { get; set; } = default!;
 
     /// <summary>
     /// Size, in GiB, of the storage pool. For more information about the size limits,
@@ -103,7 +103,7 @@ public class GoogleComputeStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolProvisionedCapacityGb is required")]
     [TerraformPropertyName("pool_provisioned_capacity_gb")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PoolProvisionedCapacityGb { get; set; }
+    public required TerraformValue<string> PoolProvisionedCapacityGb { get; set; }
 
     /// <summary>
     /// Provisioned IOPS of the storage pool.
@@ -111,7 +111,7 @@ public class GoogleComputeStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("pool_provisioned_iops")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PoolProvisionedIops { get; set; }
+    public TerraformValue<string>? PoolProvisionedIops { get; set; }
 
     /// <summary>
     /// Provisioned throughput, in MB/s, of the storage pool.
@@ -120,14 +120,14 @@ public class GoogleComputeStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolProvisionedThroughput is required")]
     [TerraformPropertyName("pool_provisioned_throughput")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PoolProvisionedThroughput { get; set; }
+    public required TerraformValue<string> PoolProvisionedThroughput { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Type of the storage pool. For example, the
@@ -139,49 +139,49 @@ public class GoogleComputeStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePoolType is required")]
     [TerraformPropertyName("storage_pool_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StoragePoolType { get; set; }
+    public required TerraformValue<string> StoragePoolType { get; set; }
 
     /// <summary>
     /// A reference to the zone where the storage pool resides.
     /// </summary>
     [TerraformPropertyName("zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Zone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Zone { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeStoragePoolTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeStoragePoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// Type of the resource.
     /// </summary>
     [TerraformPropertyName("kind")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Kind => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kind");
+    public TerraformValue<string> Kind => new TerraformReference(this, "kind");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.
@@ -189,21 +189,21 @@ public class GoogleComputeStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("label_fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LabelFingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "label_fingerprint");
+    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
 
     /// <summary>
     /// Status information for the storage pool resource.
     /// </summary>
     [TerraformPropertyName("resource_status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ResourceStatus => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "resource_status");
+    public TerraformList<object> ResourceStatus => new TerraformReference(this, "resource_status");
 
     /// <summary>
     /// Status information for the storage pool resource.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Status => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "status");
+    public TerraformList<object> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -211,6 +211,6 @@ public class GoogleComputeStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

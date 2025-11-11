@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for extended_attributes_oauth2_client in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock : ITerraformBlock
+public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock
 {
     /// <summary>
     /// Represents the IdP and type of claims that should be fetched.
@@ -22,7 +22,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesType is required")]
     [TerraformPropertyName("attributes_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AttributesType { get; set; }
+    public required TerraformValue<string> AttributesType { get; set; }
 
     /// <summary>
     /// The OAuth 2.0 client ID for retrieving extended attributes from the identity provider. Required to get the Access Token using client credentials grant flow.
@@ -30,7 +30,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     [TerraformPropertyName("client_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClientId { get; set; }
+    public required TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The OIDC identity provider&#39;s issuer URI. Must be a valid URI using the &#39;https&#39; scheme. Required to get the OIDC discovery document.
@@ -38,7 +38,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     [TerraformPropertyName("issuer_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IssuerUri { get; set; }
+    public required TerraformValue<string> IssuerUri { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
 /// Block type for extra_attributes_oauth2_client in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : ITerraformBlock
+public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock
 {
     /// <summary>
     /// Represents the IdP and type of claims that should be fetched.
@@ -66,7 +66,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : IT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesType is required")]
     [TerraformPropertyName("attributes_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AttributesType { get; set; }
+    public required TerraformValue<string> AttributesType { get; set; }
 
     /// <summary>
     /// The OAuth 2.0 client ID for retrieving extra attributes from the identity provider. Required to get the Access Token using client credentials grant flow.
@@ -74,7 +74,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : IT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     [TerraformPropertyName("client_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClientId { get; set; }
+    public required TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The OIDC identity provider&#39;s issuer URI. Must be a valid URI using the &#39;https&#39; scheme. Required to get the OIDC discovery document.
@@ -82,7 +82,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : IT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     [TerraformPropertyName("issuer_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IssuerUri { get; set; }
+    public required TerraformValue<string> IssuerUri { get; set; }
 
 }
 
@@ -90,7 +90,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : IT
 /// Block type for oidc in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIamWorkforcePoolProviderOidcBlock : ITerraformBlock
+public class GoogleIamWorkforcePoolProviderOidcBlock
 {
     /// <summary>
     /// The client ID. Must match the audience claim of the JWT issued by the identity provider.
@@ -98,7 +98,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     [TerraformPropertyName("client_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClientId { get; set; }
+    public required TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The OIDC issuer URI. Must be a valid URI using the &#39;https&#39; scheme.
@@ -106,7 +106,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     [TerraformPropertyName("issuer_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IssuerUri { get; set; }
+    public required TerraformValue<string> IssuerUri { get; set; }
 
     /// <summary>
     /// OIDC JWKs in JSON String format. For details on definition of a
@@ -135,7 +135,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("jwks_json")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? JwksJson { get; set; }
+    public TerraformValue<string>? JwksJson { get; set; }
 
 }
 
@@ -143,7 +143,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : ITerraformBlock
 /// Block type for saml in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIamWorkforcePoolProviderSamlBlock : ITerraformBlock
+public class GoogleIamWorkforcePoolProviderSamlBlock
 {
     /// <summary>
     /// SAML Identity provider configuration metadata xml doc.
@@ -165,7 +165,7 @@ public class GoogleIamWorkforcePoolProviderSamlBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpMetadataXml is required")]
     [TerraformPropertyName("idp_metadata_xml")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IdpMetadataXml { get; set; }
+    public required TerraformValue<string> IdpMetadataXml { get; set; }
 
 }
 
@@ -173,28 +173,28 @@ public class GoogleIamWorkforcePoolProviderSamlBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIamWorkforcePoolProviderTimeoutsBlock : ITerraformBlock
+public class GoogleIamWorkforcePoolProviderTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -231,7 +231,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [TerraformPropertyName("attribute_condition")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AttributeCondition { get; set; }
+    public TerraformValue<string>? AttributeCondition { get; set; }
 
     /// <summary>
     /// Maps attributes from the authentication credentials issued by an external identity provider
@@ -288,14 +288,14 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [TerraformPropertyName("attribute_mapping")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? AttributeMapping { get; set; }
+    public TerraformMap<string>? AttributeMapping { get; set; }
 
     /// <summary>
     /// A user-specified description of the provider. Cannot exceed 256 characters.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Whether the provider is disabled. You cannot use a disabled provider to exchange tokens.
@@ -303,21 +303,21 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// A user-specified display name for the provider. Cannot exceed 32 characters.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location for the resource.
@@ -325,7 +325,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The ID for the provider, which becomes the final component of the resource name.
@@ -335,7 +335,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     [TerraformPropertyName("provider_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ProviderId { get; set; }
+    public required TerraformValue<string> ProviderId { get; set; }
 
     /// <summary>
     /// Agentspace only. Specifies whether the workforce identity pool
@@ -351,7 +351,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [TerraformPropertyName("scim_usage")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ScimUsage { get; set; }
+    public TerraformValue<string>? ScimUsage { get; set; }
 
     /// <summary>
     /// The ID to use for the pool, which becomes the final component of the resource name.
@@ -362,7 +362,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     [TerraformPropertyName("workforce_pool_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkforcePoolId { get; set; }
+    public required TerraformValue<string> WorkforcePoolId { get; set; }
 
     /// <summary>
     /// Block for extended_attributes_oauth2_client.
@@ -370,7 +370,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExtendedAttributesOauth2Client block(s) allowed")]
     [TerraformPropertyName("extended_attributes_oauth2_client")]
-    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock>>? ExtendedAttributesOauth2Client { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock>>? ExtendedAttributesOauth2Client { get; set; }
 
     /// <summary>
     /// Block for extra_attributes_oauth2_client.
@@ -378,7 +378,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExtraAttributesOauth2Client block(s) allowed")]
     [TerraformPropertyName("extra_attributes_oauth2_client")]
-    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock>>? ExtraAttributesOauth2Client { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock>>? ExtraAttributesOauth2Client { get; set; }
 
     /// <summary>
     /// Block for oidc.
@@ -386,7 +386,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oidc block(s) allowed")]
     [TerraformPropertyName("oidc")]
-    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderOidcBlock>>? Oidc { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderOidcBlock>>? Oidc { get; set; }
 
     /// <summary>
     /// Block for saml.
@@ -394,14 +394,14 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Saml block(s) allowed")]
     [TerraformPropertyName("saml")]
-    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderSamlBlock>>? Saml { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderSamlBlock>>? Saml { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleIamWorkforcePoolProviderTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleIamWorkforcePoolProviderTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The resource name of the provider.
@@ -409,7 +409,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The current state of the provider.
@@ -421,6 +421,6 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
 }

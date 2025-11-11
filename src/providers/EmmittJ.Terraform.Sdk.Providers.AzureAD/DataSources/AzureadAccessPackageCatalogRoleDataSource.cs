@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadAccessPackageCatalogRoleDataSourceTimeoutsBlock : ITerraformBlock
+public class AzureadAccessPackageCatalogRoleDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,42 +30,42 @@ public class AzureadAccessPackageCatalogRoleDataSource : TerraformDataSource
     /// The display name of the catalog role
     /// </summary>
     [TerraformPropertyName("display_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DisplayName { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The object ID of the catalog role
     /// </summary>
     [TerraformPropertyName("object_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ObjectId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ObjectId { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzureadAccessPackageCatalogRoleDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzureadAccessPackageCatalogRoleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description of the catalog role
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The object ID of the template associated with the catalog role
     /// </summary>
     [TerraformPropertyName("template_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TemplateId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "template_id");
+    public TerraformValue<string> TemplateId => new TerraformReference(this, "template_id");
 
 }

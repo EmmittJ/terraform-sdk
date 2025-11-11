@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for annotator_selector in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : ITerraformBlock
+public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock
 {
     /// <summary>
     /// The issue model to run. If not provided, the most recently deployed topic
@@ -17,7 +17,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : ITe
     /// </summary>
     [TerraformPropertyName("issue_models")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? IssueModels { get; set; }
+    public TerraformList<string>? IssueModels { get; set; }
 
     /// <summary>
     /// The list of phrase matchers to run. If not provided, all active phrase
@@ -28,28 +28,28 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : ITe
     /// </summary>
     [TerraformPropertyName("phrase_matchers")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? PhraseMatchers { get; set; }
+    public TerraformList<string>? PhraseMatchers { get; set; }
 
     /// <summary>
     /// Whether to run the entity annotator.
     /// </summary>
     [TerraformPropertyName("run_entity_annotator")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RunEntityAnnotator { get; set; }
+    public TerraformValue<bool>? RunEntityAnnotator { get; set; }
 
     /// <summary>
     /// Whether to run the intent annotator.
     /// </summary>
     [TerraformPropertyName("run_intent_annotator")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RunIntentAnnotator { get; set; }
+    public TerraformValue<bool>? RunIntentAnnotator { get; set; }
 
     /// <summary>
     /// Whether to run the interruption annotator.
     /// </summary>
     [TerraformPropertyName("run_interruption_annotator")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RunInterruptionAnnotator { get; set; }
+    public TerraformValue<bool>? RunInterruptionAnnotator { get; set; }
 
     /// <summary>
     /// Whether to run the issue model annotator. A model should have already been
@@ -57,42 +57,42 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : ITe
     /// </summary>
     [TerraformPropertyName("run_issue_model_annotator")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RunIssueModelAnnotator { get; set; }
+    public TerraformValue<bool>? RunIssueModelAnnotator { get; set; }
 
     /// <summary>
     /// Whether to run the active phrase matcher annotator(s).
     /// </summary>
     [TerraformPropertyName("run_phrase_matcher_annotator")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RunPhraseMatcherAnnotator { get; set; }
+    public TerraformValue<bool>? RunPhraseMatcherAnnotator { get; set; }
 
     /// <summary>
     /// Whether to run the QA annotator.
     /// </summary>
     [TerraformPropertyName("run_qa_annotator")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RunQaAnnotator { get; set; }
+    public TerraformValue<bool>? RunQaAnnotator { get; set; }
 
     /// <summary>
     /// Whether to run the sentiment annotator.
     /// </summary>
     [TerraformPropertyName("run_sentiment_annotator")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RunSentimentAnnotator { get; set; }
+    public TerraformValue<bool>? RunSentimentAnnotator { get; set; }
 
     /// <summary>
     /// Whether to run the silence annotator.
     /// </summary>
     [TerraformPropertyName("run_silence_annotator")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RunSilenceAnnotator { get; set; }
+    public TerraformValue<bool>? RunSilenceAnnotator { get; set; }
 
     /// <summary>
     /// Whether to run the summarization annotator.
     /// </summary>
     [TerraformPropertyName("run_summarization_annotator")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RunSummarizationAnnotator { get; set; }
+    public TerraformValue<bool>? RunSummarizationAnnotator { get; set; }
 
 }
 
@@ -100,28 +100,28 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : ITe
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock : ITerraformBlock
+public class GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -141,7 +141,7 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// </summary>
     [TerraformPropertyName("active")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Active { get; set; }
+    public TerraformValue<bool>? Active { get; set; }
 
     /// <summary>
     /// Percentage of conversations that we should apply this analysis setting
@@ -151,7 +151,7 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// </summary>
     [TerraformPropertyName("analysis_percentage")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? AnalysisPercentage { get; set; }
+    public TerraformValue<double>? AnalysisPercentage { get; set; }
 
     /// <summary>
     /// Filter for the conversations that should apply this analysis
@@ -162,21 +162,21 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// </summary>
     [TerraformPropertyName("conversation_filter")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConversationFilter { get; set; }
+    public TerraformValue<string>? ConversationFilter { get; set; }
 
     /// <summary>
     /// Display Name of the analysis rule.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Location of the resource.
@@ -184,14 +184,14 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for annotator_selector.
@@ -199,34 +199,34 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnnotatorSelector block(s) allowed")]
     [TerraformPropertyName("annotator_selector")]
-    public TerraformList<TerraformBlock<GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock>>? AnnotatorSelector { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock>>? AnnotatorSelector { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time at which this analysis rule was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The resource name of the analysis rule. Randomly generated by Insights.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Output only. The most recent time at which this analysis rule was updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

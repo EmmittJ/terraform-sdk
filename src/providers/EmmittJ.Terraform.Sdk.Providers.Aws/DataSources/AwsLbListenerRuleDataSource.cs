@@ -6,21 +6,9 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLbListenerRuleDataSourceActionBlock : ITerraformBlock
+public class AwsLbListenerRuleDataSourceActionBlock
 {
-    /// <summary>
-    /// The order attribute.
-    /// </summary>
-    [TerraformPropertyName("order")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Order => new TerraformReferenceProperty<TerraformProperty<double>>("", "order");
 
-    /// <summary>
-    /// The type attribute.
-    /// </summary>
-    [TerraformPropertyName("type")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>("", "type");
 
 }
 
@@ -28,7 +16,7 @@ public class AwsLbListenerRuleDataSourceActionBlock : ITerraformBlock
 /// Block type for condition in .
 /// Nesting mode: set
 /// </summary>
-public class AwsLbListenerRuleDataSourceConditionBlock : ITerraformBlock
+public class AwsLbListenerRuleDataSourceConditionBlock
 {
 }
 
@@ -36,14 +24,8 @@ public class AwsLbListenerRuleDataSourceConditionBlock : ITerraformBlock
 /// Block type for transform in .
 /// Nesting mode: set
 /// </summary>
-public class AwsLbListenerRuleDataSourceTransformBlock : ITerraformBlock
+public class AwsLbListenerRuleDataSourceTransformBlock
 {
-    /// <summary>
-    /// The type attribute.
-    /// </summary>
-    [TerraformPropertyName("type")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>("", "type");
 
 }
 
@@ -60,56 +42,56 @@ public class AwsLbListenerRuleDataSource : TerraformDataSource
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Arn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Arn { get; set; } = default!;
 
     /// <summary>
     /// The listener_arn attribute.
     /// </summary>
     [TerraformPropertyName("listener_arn")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ListenerArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "listener_arn");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ListenerArn { get; set; } = default!;
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [TerraformPropertyName("priority")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Priority { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "priority");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Priority { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for action.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("action")]
-    public TerraformList<TerraformBlock<AwsLbListenerRuleDataSourceActionBlock>>? Action { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsLbListenerRuleDataSourceActionBlock>>? Action { get; set; }
 
     /// <summary>
     /// Block for condition.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("condition")]
-    public TerraformSet<TerraformBlock<AwsLbListenerRuleDataSourceConditionBlock>>? Condition { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsLbListenerRuleDataSourceConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// Block for transform.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("transform")]
-    public TerraformSet<TerraformBlock<AwsLbListenerRuleDataSourceTransformBlock>>? Transform { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsLbListenerRuleDataSourceTransformBlock>>? Transform { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermServicebusNamespaceAuthorizationRuleDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermServicebusNamespaceAuthorizationRuleDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermServicebusNamespaceAuthorizationRuleDataSource : TerraformDa
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,14 +39,14 @@ public class AzurermServicebusNamespaceAuthorizationRuleDataSource : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
     [TerraformPropertyName("namespace_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NamespaceId { get; set; }
+    public TerraformValue<string>? NamespaceId { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
@@ -54,7 +54,7 @@ public class AzurermServicebusNamespaceAuthorizationRuleDataSource : TerraformDa
     [Obsolete("This property is deprecated.")]
     [TerraformPropertyName("namespace_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NamespaceName { get; set; }
+    public TerraformValue<string>? NamespaceName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -62,55 +62,55 @@ public class AzurermServicebusNamespaceAuthorizationRuleDataSource : TerraformDa
     [Obsolete("This property is deprecated.")]
     [TerraformPropertyName("resource_group_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ResourceGroupName { get; set; }
+    public TerraformValue<string>? ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermServicebusNamespaceAuthorizationRuleDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermServicebusNamespaceAuthorizationRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     [TerraformPropertyName("primary_connection_string")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrimaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_connection_string");
+    public TerraformValue<string> PrimaryConnectionString => new TerraformReference(this, "primary_connection_string");
 
     /// <summary>
     /// The primary_connection_string_alias attribute.
     /// </summary>
     [TerraformPropertyName("primary_connection_string_alias")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrimaryConnectionStringAlias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_connection_string_alias");
+    public TerraformValue<string> PrimaryConnectionStringAlias => new TerraformReference(this, "primary_connection_string_alias");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     [TerraformPropertyName("primary_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrimaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_key");
+    public TerraformValue<string> PrimaryKey => new TerraformReference(this, "primary_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     [TerraformPropertyName("secondary_connection_string")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SecondaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_connection_string");
+    public TerraformValue<string> SecondaryConnectionString => new TerraformReference(this, "secondary_connection_string");
 
     /// <summary>
     /// The secondary_connection_string_alias attribute.
     /// </summary>
     [TerraformPropertyName("secondary_connection_string_alias")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SecondaryConnectionStringAlias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_connection_string_alias");
+    public TerraformValue<string> SecondaryConnectionStringAlias => new TerraformReference(this, "secondary_connection_string_alias");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     [TerraformPropertyName("secondary_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SecondaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_key");
+    public TerraformValue<string> SecondaryKey => new TerraformReference(this, "secondary_key");
 
 }

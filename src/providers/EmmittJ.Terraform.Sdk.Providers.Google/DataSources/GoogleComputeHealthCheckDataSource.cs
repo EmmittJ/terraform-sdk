@@ -15,8 +15,8 @@ public class GoogleComputeHealthCheckDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -30,14 +30,14 @@ public class GoogleComputeHealthCheckDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// How often (in seconds) to send a health check. The default value is 5
@@ -45,14 +45,14 @@ public class GoogleComputeHealthCheckDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("check_interval_sec")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> CheckIntervalSec => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "check_interval_sec");
+    public TerraformValue<double> CheckIntervalSec => new TerraformReference(this, "check_interval_sec");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
@@ -60,21 +60,21 @@ public class GoogleComputeHealthCheckDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     [TerraformPropertyName("grpc_health_check")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> GrpcHealthCheck => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "grpc_health_check");
+    public TerraformList<object> GrpcHealthCheck => new TerraformReference(this, "grpc_health_check");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     [TerraformPropertyName("grpc_tls_health_check")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> GrpcTlsHealthCheck => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "grpc_tls_health_check");
+    public TerraformList<object> GrpcTlsHealthCheck => new TerraformReference(this, "grpc_tls_health_check");
 
     /// <summary>
     /// A so-far unhealthy instance will be marked healthy after this many
@@ -82,42 +82,42 @@ public class GoogleComputeHealthCheckDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("healthy_threshold")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> HealthyThreshold => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "healthy_threshold");
+    public TerraformValue<double> HealthyThreshold => new TerraformReference(this, "healthy_threshold");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     [TerraformPropertyName("http2_health_check")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Http2HealthCheck => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "http2_health_check");
+    public TerraformList<object> Http2HealthCheck => new TerraformReference(this, "http2_health_check");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     [TerraformPropertyName("http_health_check")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> HttpHealthCheck => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "http_health_check");
+    public TerraformList<object> HttpHealthCheck => new TerraformReference(this, "http_health_check");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     [TerraformPropertyName("https_health_check")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> HttpsHealthCheck => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "https_health_check");
+    public TerraformList<object> HttpsHealthCheck => new TerraformReference(this, "https_health_check");
 
     /// <summary>
     /// Configure logging on this health check.
     /// </summary>
     [TerraformPropertyName("log_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> LogConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "log_config");
+    public TerraformList<object> LogConfig => new TerraformReference(this, "log_config");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// The list of cloud regions from which health checks are performed. If
@@ -140,21 +140,21 @@ public class GoogleComputeHealthCheckDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("source_regions")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> SourceRegions => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "source_regions");
+    public TerraformList<string> SourceRegions => new TerraformReference(this, "source_regions");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     [TerraformPropertyName("ssl_health_check")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> SslHealthCheck => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ssl_health_check");
+    public TerraformList<object> SslHealthCheck => new TerraformReference(this, "ssl_health_check");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     [TerraformPropertyName("tcp_health_check")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> TcpHealthCheck => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "tcp_health_check");
+    public TerraformList<object> TcpHealthCheck => new TerraformReference(this, "tcp_health_check");
 
     /// <summary>
     /// How long (in seconds) to wait before claiming failure.
@@ -163,14 +163,14 @@ public class GoogleComputeHealthCheckDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("timeout_sec")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> TimeoutSec => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "timeout_sec");
+    public TerraformValue<double> TimeoutSec => new TerraformReference(this, "timeout_sec");
 
     /// <summary>
     /// The type of the health check. One of HTTP, HTTPS, TCP, or SSL.
     /// </summary>
     [TerraformPropertyName("type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
+    public TerraformValue<string> Type => new TerraformReference(this, "type");
 
     /// <summary>
     /// A so-far healthy instance will be marked unhealthy after this many
@@ -178,6 +178,6 @@ public class GoogleComputeHealthCheckDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("unhealthy_threshold")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> UnhealthyThreshold => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "unhealthy_threshold");
+    public TerraformValue<double> UnhealthyThreshold => new TerraformReference(this, "unhealthy_threshold");
 
 }

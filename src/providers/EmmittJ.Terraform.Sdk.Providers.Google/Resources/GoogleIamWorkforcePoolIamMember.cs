@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIamWorkforcePoolIamMemberConditionBlock : ITerraformBlock
+public class GoogleIamWorkforcePoolIamMemberConditionBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The expression attribute.
@@ -21,7 +21,7 @@ public class GoogleIamWorkforcePoolIamMemberConditionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     [TerraformPropertyName("expression")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Expression { get; set; }
+    public required TerraformValue<string> Expression { get; set; }
 
     /// <summary>
     /// The title attribute.
@@ -29,7 +29,7 @@ public class GoogleIamWorkforcePoolIamMemberConditionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     [TerraformPropertyName("title")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Title { get; set; }
+    public required TerraformValue<string> Title { get; set; }
 
 }
 
@@ -47,15 +47,15 @@ public class GoogleIamWorkforcePoolIamMember : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Location { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Location { get; set; } = default!;
 
     /// <summary>
     /// The member attribute.
@@ -63,7 +63,7 @@ public class GoogleIamWorkforcePoolIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
     [TerraformPropertyName("member")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Member { get; set; }
+    public required TerraformValue<string> Member { get; set; }
 
     /// <summary>
     /// The role attribute.
@@ -71,7 +71,7 @@ public class GoogleIamWorkforcePoolIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [TerraformPropertyName("role")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Role { get; set; }
+    public required TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// The workforce_pool_id attribute.
@@ -79,7 +79,7 @@ public class GoogleIamWorkforcePoolIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     [TerraformPropertyName("workforce_pool_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkforcePoolId { get; set; }
+    public required TerraformValue<string> WorkforcePoolId { get; set; }
 
     /// <summary>
     /// Block for condition.
@@ -87,13 +87,13 @@ public class GoogleIamWorkforcePoolIamMember : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformPropertyName("condition")]
-    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolIamMemberConditionBlock>>? Condition { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolIamMemberConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
 }

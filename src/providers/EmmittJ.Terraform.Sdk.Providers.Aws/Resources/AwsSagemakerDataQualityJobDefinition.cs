@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_quality_app_specification in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBlock : ITerraformBlock
+public class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBlock
 {
     /// <summary>
     /// The environment attribute.
     /// </summary>
     [TerraformPropertyName("environment")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Environment { get; set; }
+    public TerraformMap<string>? Environment { get; set; }
 
     /// <summary>
     /// The image_uri attribute.
@@ -21,21 +21,21 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageUri is required")]
     [TerraformPropertyName("image_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ImageUri { get; set; }
+    public required TerraformValue<string> ImageUri { get; set; }
 
     /// <summary>
     /// The post_analytics_processor_source_uri attribute.
     /// </summary>
     [TerraformPropertyName("post_analytics_processor_source_uri")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PostAnalyticsProcessorSourceUri { get; set; }
+    public TerraformValue<string>? PostAnalyticsProcessorSourceUri { get; set; }
 
     /// <summary>
     /// The record_preprocessor_source_uri attribute.
     /// </summary>
     [TerraformPropertyName("record_preprocessor_source_uri")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RecordPreprocessorSourceUri { get; set; }
+    public TerraformValue<string>? RecordPreprocessorSourceUri { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBloc
 /// Block type for data_quality_baseline_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlock : ITerraformBlock
+public class AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlock
 {
 }
 
@@ -51,7 +51,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlock 
 /// Block type for data_quality_job_input in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlock : ITerraformBlock
+public class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlock
 {
 }
 
@@ -59,14 +59,14 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlock : ITer
 /// Block type for data_quality_job_output_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock : ITerraformBlock
+public class AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock
 {
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
+    public TerraformValue<string>? KmsKeyId { get; set; }
 
 }
 
@@ -74,7 +74,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock
 /// Block type for job_resources in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerDataQualityJobDefinitionJobResourcesBlock : ITerraformBlock
+public class AwsSagemakerDataQualityJobDefinitionJobResourcesBlock
 {
 }
 
@@ -82,21 +82,21 @@ public class AwsSagemakerDataQualityJobDefinitionJobResourcesBlock : ITerraformB
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock : ITerraformBlock
+public class AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock
 {
     /// <summary>
     /// The enable_inter_container_traffic_encryption attribute.
     /// </summary>
     [TerraformPropertyName("enable_inter_container_traffic_encryption")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableInterContainerTrafficEncryption { get; set; }
+    public TerraformValue<bool>? EnableInterContainerTrafficEncryption { get; set; }
 
     /// <summary>
     /// The enable_network_isolation attribute.
     /// </summary>
     [TerraformPropertyName("enable_network_isolation")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableNetworkIsolation { get; set; }
+    public TerraformValue<bool>? EnableNetworkIsolation { get; set; }
 
 }
 
@@ -104,14 +104,14 @@ public class AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock : ITerraform
 /// Block type for stopping_condition in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock : ITerraformBlock
+public class AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock
 {
     /// <summary>
     /// The max_runtime_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("max_runtime_in_seconds")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MaxRuntimeInSeconds { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "max_runtime_in_seconds");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MaxRuntimeInSeconds { get; set; } = default!;
 
 }
 
@@ -129,22 +129,22 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Name { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The role_arn attribute.
@@ -152,21 +152,21 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformPropertyName("role_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
+    public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for data_quality_app_specification.
@@ -176,7 +176,7 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataQualityAppSpecification block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityAppSpecification block(s) allowed")]
     [TerraformPropertyName("data_quality_app_specification")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBlock>>? DataQualityAppSpecification { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBlock>>? DataQualityAppSpecification { get; set; }
 
     /// <summary>
     /// Block for data_quality_baseline_config.
@@ -184,7 +184,7 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityBaselineConfig block(s) allowed")]
     [TerraformPropertyName("data_quality_baseline_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlock>>? DataQualityBaselineConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlock>>? DataQualityBaselineConfig { get; set; }
 
     /// <summary>
     /// Block for data_quality_job_input.
@@ -194,7 +194,7 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataQualityJobInput block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityJobInput block(s) allowed")]
     [TerraformPropertyName("data_quality_job_input")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlock>>? DataQualityJobInput { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlock>>? DataQualityJobInput { get; set; }
 
     /// <summary>
     /// Block for data_quality_job_output_config.
@@ -204,7 +204,7 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataQualityJobOutputConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityJobOutputConfig block(s) allowed")]
     [TerraformPropertyName("data_quality_job_output_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock>>? DataQualityJobOutputConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock>>? DataQualityJobOutputConfig { get; set; }
 
     /// <summary>
     /// Block for job_resources.
@@ -214,7 +214,7 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 JobResources block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JobResources block(s) allowed")]
     [TerraformPropertyName("job_resources")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionJobResourcesBlock>>? JobResources { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionJobResourcesBlock>>? JobResources { get; set; }
 
     /// <summary>
     /// Block for network_config.
@@ -222,7 +222,7 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformPropertyName("network_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock>>? NetworkConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock>>? NetworkConfig { get; set; }
 
     /// <summary>
     /// Block for stopping_condition.
@@ -230,13 +230,13 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StoppingCondition block(s) allowed")]
     [TerraformPropertyName("stopping_condition")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock>>? StoppingCondition { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock>>? StoppingCondition { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

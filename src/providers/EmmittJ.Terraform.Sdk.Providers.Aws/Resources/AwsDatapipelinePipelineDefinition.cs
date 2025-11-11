@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameter_object in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDatapipelinePipelineDefinitionParameterObjectBlock : ITerraformBlock
+public class AwsDatapipelinePipelineDefinitionParameterObjectBlock
 {
     /// <summary>
     /// The id attribute.
@@ -14,7 +14,7 @@ public class AwsDatapipelinePipelineDefinitionParameterObjectBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformPropertyName("id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
+    public required TerraformValue<string> Id { get; set; }
 
 }
 
@@ -22,7 +22,7 @@ public class AwsDatapipelinePipelineDefinitionParameterObjectBlock : ITerraformB
 /// Block type for parameter_value in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDatapipelinePipelineDefinitionParameterValueBlock : ITerraformBlock
+public class AwsDatapipelinePipelineDefinitionParameterValueBlock
 {
     /// <summary>
     /// The id attribute.
@@ -30,7 +30,7 @@ public class AwsDatapipelinePipelineDefinitionParameterValueBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformPropertyName("id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
+    public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The string_value attribute.
@@ -38,7 +38,7 @@ public class AwsDatapipelinePipelineDefinitionParameterValueBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StringValue is required")]
     [TerraformPropertyName("string_value")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StringValue { get; set; }
+    public required TerraformValue<string> StringValue { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class AwsDatapipelinePipelineDefinitionParameterValueBlock : ITerraformBl
 /// Block type for pipeline_object in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDatapipelinePipelineDefinitionPipelineObjectBlock : ITerraformBlock
+public class AwsDatapipelinePipelineDefinitionPipelineObjectBlock
 {
     /// <summary>
     /// The id attribute.
@@ -54,7 +54,7 @@ public class AwsDatapipelinePipelineDefinitionPipelineObjectBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformPropertyName("id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
+    public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -62,7 +62,7 @@ public class AwsDatapipelinePipelineDefinitionPipelineObjectBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -80,8 +80,8 @@ public class AwsDatapipelinePipelineDefinition : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The pipeline_id attribute.
@@ -89,28 +89,28 @@ public class AwsDatapipelinePipelineDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
     [TerraformPropertyName("pipeline_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PipelineId { get; set; }
+    public required TerraformValue<string> PipelineId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for parameter_object.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("parameter_object")]
-    public TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionParameterObjectBlock>>? ParameterObject { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionParameterObjectBlock>>? ParameterObject { get; set; }
 
     /// <summary>
     /// Block for parameter_value.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("parameter_value")]
-    public TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionParameterValueBlock>>? ParameterValue { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionParameterValueBlock>>? ParameterValue { get; set; }
 
     /// <summary>
     /// Block for pipeline_object.
@@ -119,6 +119,6 @@ public class AwsDatapipelinePipelineDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineObject is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PipelineObject block(s) required")]
     [TerraformPropertyName("pipeline_object")]
-    public TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionPipelineObjectBlock>>? PipelineObject { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionPipelineObjectBlock>>? PipelineObject { get; set; }
 
 }

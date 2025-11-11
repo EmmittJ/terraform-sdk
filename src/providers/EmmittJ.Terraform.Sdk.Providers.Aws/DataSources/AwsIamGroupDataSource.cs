@@ -17,41 +17,41 @@ public class AwsIamGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     [TerraformPropertyName("group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GroupName { get; set; }
+    public required TerraformValue<string> GroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The group_id attribute.
     /// </summary>
     [TerraformPropertyName("group_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "group_id");
+    public TerraformValue<string> GroupId => new TerraformReference(this, "group_id");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformPropertyName("path")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Path => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "path");
+    public TerraformValue<string> Path => new TerraformReference(this, "path");
 
     /// <summary>
     /// The users attribute.
     /// </summary>
     [TerraformPropertyName("users")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Users => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "users");
+    public TerraformList<object> Users => new TerraformReference(this, "users");
 
 }

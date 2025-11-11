@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for preferred_member_key in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock : ITerraformBlock
+public class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock
 {
     /// <summary>
     /// The ID of the entity.
@@ -22,7 +22,7 @@ public class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformPropertyName("id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
+    public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The namespace in which the entity exists.
@@ -36,7 +36,7 @@ public class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock : ITerraf
     /// </summary>
     [TerraformPropertyName("namespace")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Namespace { get; set; }
+    public TerraformValue<string>? Namespace { get; set; }
 
 }
 
@@ -44,7 +44,7 @@ public class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock : ITerraf
 /// Block type for roles in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleCloudIdentityGroupMembershipRolesBlock : ITerraformBlock
+public class GoogleCloudIdentityGroupMembershipRolesBlock
 {
     /// <summary>
     /// The name of the MembershipRole. Must be one of OWNER, MANAGER, MEMBER. Possible values: [&amp;quot;OWNER&amp;quot;, &amp;quot;MANAGER&amp;quot;, &amp;quot;MEMBER&amp;quot;]
@@ -52,7 +52,7 @@ public class GoogleCloudIdentityGroupMembershipRolesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -60,28 +60,28 @@ public class GoogleCloudIdentityGroupMembershipRolesBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCloudIdentityGroupMembershipTimeoutsBlock : ITerraformBlock
+public class GoogleCloudIdentityGroupMembershipTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -100,7 +100,7 @@ public class GoogleCloudIdentityGroupMembership : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_ignore_already_exists")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? CreateIgnoreAlreadyExists { get; set; }
+    public TerraformValue<bool>? CreateIgnoreAlreadyExists { get; set; }
 
     /// <summary>
     /// The name of the Group to create this membership in.
@@ -108,14 +108,14 @@ public class GoogleCloudIdentityGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     [TerraformPropertyName("group")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Group { get; set; }
+    public required TerraformValue<string> Group { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Block for preferred_member_key.
@@ -123,7 +123,7 @@ public class GoogleCloudIdentityGroupMembership : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreferredMemberKey block(s) allowed")]
     [TerraformPropertyName("preferred_member_key")]
-    public TerraformList<TerraformBlock<GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock>>? PreferredMemberKey { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock>>? PreferredMemberKey { get; set; }
 
     /// <summary>
     /// Block for roles.
@@ -132,41 +132,41 @@ public class GoogleCloudIdentityGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     [TerraformPropertyName("roles")]
-    public TerraformSet<TerraformBlock<GoogleCloudIdentityGroupMembershipRolesBlock>>? Roles { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleCloudIdentityGroupMembershipRolesBlock>>? Roles { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleCloudIdentityGroupMembershipTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleCloudIdentityGroupMembershipTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the Membership was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The resource name of the Membership, of the form groups/{group_id}/memberships/{membership_id}.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The type of the membership.
     /// </summary>
     [TerraformPropertyName("type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
+    public TerraformValue<string> Type => new TerraformReference(this, "type");
 
     /// <summary>
     /// The time when the Membership was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

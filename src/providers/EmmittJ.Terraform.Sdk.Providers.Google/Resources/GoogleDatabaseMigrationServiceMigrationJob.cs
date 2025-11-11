@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for dump_flags in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock : ITerraformBlock
+public class GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock
 {
 }
 
@@ -14,14 +14,14 @@ public class GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock : ITerrafo
 /// Block type for performance_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock : ITerraformBlock
+public class GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock
 {
     /// <summary>
     /// Initial dump parallelism level. Possible values: [&amp;quot;MIN&amp;quot;, &amp;quot;OPTIMAL&amp;quot;, &amp;quot;MAX&amp;quot;]
     /// </summary>
     [TerraformPropertyName("dump_parallel_level")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DumpParallelLevel { get; set; }
+    public TerraformValue<string>? DumpParallelLevel { get; set; }
 
 }
 
@@ -29,7 +29,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock : 
 /// Block type for reverse_ssh_connectivity in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock : ITerraformBlock
+public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock
 {
     /// <summary>
     /// The name of the virtual machine (Compute Engine) used as the bastion server
@@ -37,7 +37,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlo
     /// </summary>
     [TerraformPropertyName("vm")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Vm { get; set; }
+    public TerraformValue<string>? Vm { get; set; }
 
     /// <summary>
     /// The IP of the virtual machine (Compute Engine) used as the bastion server
@@ -45,7 +45,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlo
     /// </summary>
     [TerraformPropertyName("vm_ip")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VmIp { get; set; }
+    public TerraformValue<string>? VmIp { get; set; }
 
     /// <summary>
     /// The forwarding port of the virtual machine (Compute Engine) used as the
@@ -53,14 +53,14 @@ public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlo
     /// </summary>
     [TerraformPropertyName("vm_port")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? VmPort { get; set; }
+    public TerraformValue<double>? VmPort { get; set; }
 
     /// <summary>
     /// The name of the VPC to peer with the Cloud SQL private network.
     /// </summary>
     [TerraformPropertyName("vpc")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Vpc { get; set; }
+    public TerraformValue<string>? Vpc { get; set; }
 
 }
 
@@ -68,7 +68,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlo
 /// Block type for static_ip_connectivity in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock : ITerraformBlock
+public class GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock
 {
 }
 
@@ -76,28 +76,28 @@ public class GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock : ITerraformBlock
+public class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -105,14 +105,14 @@ public class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock : ITerrafor
 /// Block type for vpc_peering_connectivity in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock : ITerraformBlock
+public class GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock
 {
     /// <summary>
     /// The name of the VPC network to peer with the Cloud SQL private network.
     /// </summary>
     [TerraformPropertyName("vpc")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Vpc { get; set; }
+    public TerraformValue<string>? Vpc { get; set; }
 
 }
 
@@ -132,14 +132,14 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [TerraformPropertyName("destination")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Destination { get; set; }
+    public required TerraformValue<string> Destination { get; set; }
 
     /// <summary>
     /// The migration job display name.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The path to the dump file in Google Cloud Storage,
@@ -148,7 +148,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// </summary>
     [TerraformPropertyName("dump_path")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DumpPath { get; set; }
+    public TerraformValue<string>? DumpPath { get; set; }
 
     /// <summary>
     /// The type of the data dump. Supported for MySQL to CloudSQL for MySQL
@@ -156,14 +156,14 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// </summary>
     [TerraformPropertyName("dump_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DumpType { get; set; }
+    public TerraformValue<string>? DumpType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The resource labels for migration job to use to annotate any related underlying resources such as Compute Engine VMs.
@@ -174,14 +174,14 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location where the migration job should reside.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The ID of the migration job.
@@ -189,14 +189,14 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MigrationJobId is required")]
     [TerraformPropertyName("migration_job_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MigrationJobId { get; set; }
+    public required TerraformValue<string> MigrationJobId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The name of the source connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{sourceConnectionProfile}.
@@ -204,7 +204,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [TerraformPropertyName("source")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Source { get; set; }
+    public required TerraformValue<string> Source { get; set; }
 
     /// <summary>
     /// The type of the migration job. Possible values: [&amp;quot;ONE_TIME&amp;quot;, &amp;quot;CONTINUOUS&amp;quot;]
@@ -212,7 +212,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for dump_flags.
@@ -220,7 +220,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DumpFlags block(s) allowed")]
     [TerraformPropertyName("dump_flags")]
-    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock>>? DumpFlags { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock>>? DumpFlags { get; set; }
 
     /// <summary>
     /// Block for performance_config.
@@ -228,7 +228,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PerformanceConfig block(s) allowed")]
     [TerraformPropertyName("performance_config")]
-    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock>>? PerformanceConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock>>? PerformanceConfig { get; set; }
 
     /// <summary>
     /// Block for reverse_ssh_connectivity.
@@ -236,7 +236,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseSshConnectivity block(s) allowed")]
     [TerraformPropertyName("reverse_ssh_connectivity")]
-    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock>>? ReverseSshConnectivity { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock>>? ReverseSshConnectivity { get; set; }
 
     /// <summary>
     /// Block for static_ip_connectivity.
@@ -244,14 +244,14 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StaticIpConnectivity block(s) allowed")]
     [TerraformPropertyName("static_ip_connectivity")]
-    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock>>? StaticIpConnectivity { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock>>? StaticIpConnectivity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpc_peering_connectivity.
@@ -259,49 +259,49 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcPeeringConnectivity block(s) allowed")]
     [TerraformPropertyName("vpc_peering_connectivity")]
-    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock>>? VpcPeeringConnectivity { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock>>? VpcPeeringConnectivity { get; set; }
 
     /// <summary>
     /// Output only. The timestamp when the resource was created. A timestamp in RFC3339 UTC &#39;Zulu&#39; format, accurate to nanoseconds. Example: &#39;2014-10-02T15:01:23.045123456Z&#39;.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Output only. The error details in case of state FAILED.
     /// </summary>
     [TerraformPropertyName("error")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Error => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "error");
+    public TerraformList<object> Error => new TerraformReference(this, "error");
 
     /// <summary>
     /// The name of this migration job resource in the form of projects/{project}/locations/{location}/migrationJobs/{migrationJob}.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The current migration job phase.
     /// </summary>
     [TerraformPropertyName("phase")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Phase => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "phase");
+    public TerraformValue<string> Phase => new TerraformReference(this, "phase");
 
     /// <summary>
     /// The current migration job state.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -309,6 +309,6 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

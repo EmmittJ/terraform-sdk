@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDevCenterAttachedNetworkDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermDevCenterAttachedNetworkDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public class AzurermDevCenterAttachedNetworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
     [TerraformPropertyName("dev_center_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DevCenterId { get; set; }
+    public required TerraformValue<string> DevCenterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -47,20 +47,20 @@ public class AzurermDevCenterAttachedNetworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDevCenterAttachedNetworkDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDevCenterAttachedNetworkDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The network_connection_id attribute.
     /// </summary>
     [TerraformPropertyName("network_connection_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NetworkConnectionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_connection_id");
+    public TerraformValue<string> NetworkConnectionId => new TerraformReference(this, "network_connection_id");
 
 }

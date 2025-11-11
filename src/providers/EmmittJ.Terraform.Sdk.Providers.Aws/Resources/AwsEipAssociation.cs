@@ -15,56 +15,56 @@ public class AwsEipAssociation : TerraformResource
     /// The allocation_id attribute.
     /// </summary>
     [TerraformPropertyName("allocation_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AllocationId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "allocation_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AllocationId { get; set; } = default!;
 
     /// <summary>
     /// The allow_reassociation attribute.
     /// </summary>
     [TerraformPropertyName("allow_reassociation")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AllowReassociation { get; set; }
+    public TerraformValue<bool>? AllowReassociation { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
     [TerraformPropertyName("instance_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> InstanceId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "instance_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> InstanceId { get; set; } = default!;
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
     [TerraformPropertyName("network_interface_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> NetworkInterfaceId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_interface_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> NetworkInterfaceId { get; set; } = default!;
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     [TerraformPropertyName("private_ip_address")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PrivateIpAddress { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_ip_address");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PrivateIpAddress { get; set; } = default!;
 
     /// <summary>
     /// The public_ip attribute.
     /// </summary>
     [TerraformPropertyName("public_ip")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PublicIp { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_ip");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PublicIp { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
 }

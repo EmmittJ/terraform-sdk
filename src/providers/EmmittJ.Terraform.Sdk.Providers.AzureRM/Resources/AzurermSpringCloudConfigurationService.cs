@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for repository in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudConfigurationServiceRepositoryBlock : ITerraformBlock
+public class AzurermSpringCloudConfigurationServiceRepositoryBlock
 {
     /// <summary>
     /// The ca_certificate_id attribute.
     /// </summary>
     [TerraformPropertyName("ca_certificate_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CaCertificateId { get; set; }
+    public TerraformValue<string>? CaCertificateId { get; set; }
 
     /// <summary>
     /// The host_key attribute.
     /// </summary>
     [TerraformPropertyName("host_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? HostKey { get; set; }
+    public TerraformValue<string>? HostKey { get; set; }
 
     /// <summary>
     /// The host_key_algorithm attribute.
     /// </summary>
     [TerraformPropertyName("host_key_algorithm")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? HostKeyAlgorithm { get; set; }
+    public TerraformValue<string>? HostKeyAlgorithm { get; set; }
 
     /// <summary>
     /// The label attribute.
@@ -35,7 +35,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Label is required")]
     [TerraformPropertyName("label")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Label { get; set; }
+    public required TerraformValue<string> Label { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -43,14 +43,14 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     [TerraformPropertyName("password")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Password { get; set; }
+    public TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// The patterns attribute.
@@ -58,28 +58,28 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Patterns is required")]
     [TerraformPropertyName("patterns")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Patterns { get; set; }
+    public required TerraformSet<string> Patterns { get; set; }
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
     [TerraformPropertyName("private_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PrivateKey { get; set; }
+    public TerraformValue<string>? PrivateKey { get; set; }
 
     /// <summary>
     /// The search_paths attribute.
     /// </summary>
     [TerraformPropertyName("search_paths")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SearchPaths { get; set; }
+    public TerraformSet<string>? SearchPaths { get; set; }
 
     /// <summary>
     /// The strict_host_key_checking attribute.
     /// </summary>
     [TerraformPropertyName("strict_host_key_checking")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? StrictHostKeyChecking { get; set; }
+    public TerraformValue<bool>? StrictHostKeyChecking { get; set; }
 
     /// <summary>
     /// The uri attribute.
@@ -87,14 +87,14 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     [TerraformPropertyName("uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Uri { get; set; }
+    public required TerraformValue<string> Uri { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
     [TerraformPropertyName("username")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Username { get; set; }
+    public TerraformValue<string>? Username { get; set; }
 
 }
 
@@ -102,35 +102,35 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : ITerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudConfigurationServiceTimeoutsBlock : ITerraformBlock
+public class AzurermSpringCloudConfigurationServiceTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -148,14 +148,14 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     /// </summary>
     [TerraformPropertyName("generation")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Generation { get; set; }
+    public TerraformValue<string>? Generation { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -163,14 +163,14 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The refresh_interval_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("refresh_interval_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? RefreshIntervalInSeconds { get; set; }
+    public TerraformValue<double>? RefreshIntervalInSeconds { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
@@ -178,20 +178,20 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     [TerraformPropertyName("spring_cloud_service_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SpringCloudServiceId { get; set; }
+    public required TerraformValue<string> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// Block for repository.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("repository")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudConfigurationServiceRepositoryBlock>>? Repository { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermSpringCloudConfigurationServiceRepositoryBlock>>? Repository { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermSpringCloudConfigurationServiceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermSpringCloudConfigurationServiceTimeoutsBlock>? Timeouts { get; set; }
 
 }

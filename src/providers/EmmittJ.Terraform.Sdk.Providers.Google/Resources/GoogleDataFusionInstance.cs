@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for accelerators in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataFusionInstanceAcceleratorsBlock : ITerraformBlock
+public class GoogleDataFusionInstanceAcceleratorsBlock
 {
     /// <summary>
     /// The type of an accelator for a CDF instance. Possible values: [&amp;quot;CDC&amp;quot;, &amp;quot;HEALTHCARE&amp;quot;, &amp;quot;CCAI_INSIGHTS&amp;quot;]
@@ -14,7 +14,7 @@ public class GoogleDataFusionInstanceAcceleratorsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorType is required")]
     [TerraformPropertyName("accelerator_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AcceleratorType { get; set; }
+    public required TerraformValue<string> AcceleratorType { get; set; }
 
     /// <summary>
     /// The type of an accelator for a CDF instance. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
@@ -22,7 +22,7 @@ public class GoogleDataFusionInstanceAcceleratorsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     [TerraformPropertyName("state")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> State { get; set; }
+    public required TerraformValue<string> State { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public class GoogleDataFusionInstanceAcceleratorsBlock : ITerraformBlock
 /// Block type for crypto_key_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataFusionInstanceCryptoKeyConfigBlock : ITerraformBlock
+public class GoogleDataFusionInstanceCryptoKeyConfigBlock
 {
     /// <summary>
     /// The name of the key which is used to encrypt/decrypt customer data. For key in Cloud KMS, the key should be in the format of projects/*/locations/*/keyRings/*/cryptoKeys/*.
@@ -38,7 +38,7 @@ public class GoogleDataFusionInstanceCryptoKeyConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyReference is required")]
     [TerraformPropertyName("key_reference")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyReference { get; set; }
+    public required TerraformValue<string> KeyReference { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class GoogleDataFusionInstanceCryptoKeyConfigBlock : ITerraformBlock
 /// Block type for event_publish_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataFusionInstanceEventPublishConfigBlock : ITerraformBlock
+public class GoogleDataFusionInstanceEventPublishConfigBlock
 {
     /// <summary>
     /// Option to enable Event Publishing.
@@ -54,7 +54,7 @@ public class GoogleDataFusionInstanceEventPublishConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformPropertyName("enabled")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
+    public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The resource name of the Pub/Sub topic. Format: projects/{projectId}/topics/{topic_id}
@@ -62,7 +62,7 @@ public class GoogleDataFusionInstanceEventPublishConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     [TerraformPropertyName("topic")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Topic { get; set; }
+    public required TerraformValue<string> Topic { get; set; }
 
 }
 
@@ -70,7 +70,7 @@ public class GoogleDataFusionInstanceEventPublishConfigBlock : ITerraformBlock
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataFusionInstanceNetworkConfigBlock : ITerraformBlock
+public class GoogleDataFusionInstanceNetworkConfigBlock
 {
     /// <summary>
     /// Optional. Type of connection for establishing private IP connectivity between the Data Fusion customer project VPC and
@@ -79,7 +79,7 @@ public class GoogleDataFusionInstanceNetworkConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("connection_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConnectionType { get; set; }
+    public TerraformValue<string>? ConnectionType { get; set; }
 
     /// <summary>
     /// The IP range in CIDR notation to use for the managed Data Fusion instance
@@ -87,7 +87,7 @@ public class GoogleDataFusionInstanceNetworkConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("ip_allocation")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IpAllocation { get; set; }
+    public TerraformValue<string>? IpAllocation { get; set; }
 
     /// <summary>
     /// Name of the network in the project with which the tenant project
@@ -96,7 +96,7 @@ public class GoogleDataFusionInstanceNetworkConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("network")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Network { get; set; }
+    public TerraformValue<string>? Network { get; set; }
 
 }
 
@@ -104,28 +104,28 @@ public class GoogleDataFusionInstanceNetworkConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataFusionInstanceTimeoutsBlock : ITerraformBlock
+public class GoogleDataFusionInstanceTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -144,49 +144,49 @@ public class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("dataproc_service_account")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DataprocServiceAccount { get; set; }
+    public TerraformValue<string>? DataprocServiceAccount { get; set; }
 
     /// <summary>
     /// An optional description of the instance.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Display name for an instance.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// Option to enable granular role-based access control.
     /// </summary>
     [TerraformPropertyName("enable_rbac")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableRbac { get; set; }
+    public TerraformValue<bool>? EnableRbac { get; set; }
 
     /// <summary>
     /// Option to enable Stackdriver Logging.
     /// </summary>
     [TerraformPropertyName("enable_stackdriver_logging")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableStackdriverLogging { get; set; }
+    public TerraformValue<bool>? EnableStackdriverLogging { get; set; }
 
     /// <summary>
     /// Option to enable Stackdriver Monitoring.
     /// </summary>
     [TerraformPropertyName("enable_stackdriver_monitoring")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableStackdriverMonitoring { get; set; }
+    public TerraformValue<bool>? EnableStackdriverMonitoring { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The resource labels for instance to use to annotate any related underlying resources,
@@ -198,7 +198,7 @@ public class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The ID of the instance or a fully qualified identifier for the instance.
@@ -206,14 +206,14 @@ public class GoogleDataFusionInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Map of additional options used to configure the behavior of Data Fusion instance.
     /// </summary>
     [TerraformPropertyName("options")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Options { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "options");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Options { get; set; } = default!;
 
     /// <summary>
     /// Specifies whether the Data Fusion instance should be private. If set to
@@ -222,21 +222,21 @@ public class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("private_instance")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? PrivateInstance { get; set; }
+    public TerraformValue<bool>? PrivateInstance { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The region of the Data Fusion instance.
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// A map of resource manager tags.
@@ -246,7 +246,7 @@ public class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Represents the type of Data Fusion instance. Each type is configured with
@@ -263,28 +263,28 @@ public class GoogleDataFusionInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Current version of the Data Fusion.
     /// </summary>
     [TerraformPropertyName("version")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Version { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Version { get; set; } = default!;
 
     /// <summary>
     /// Name of the zone in which the Data Fusion instance will be created. Only DEVELOPER instances use this field.
     /// </summary>
     [TerraformPropertyName("zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Zone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Zone { get; set; } = default!;
 
     /// <summary>
     /// Block for accelerators.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("accelerators")]
-    public TerraformList<TerraformBlock<GoogleDataFusionInstanceAcceleratorsBlock>>? Accelerators { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDataFusionInstanceAcceleratorsBlock>>? Accelerators { get; set; }
 
     /// <summary>
     /// Block for crypto_key_config.
@@ -292,7 +292,7 @@ public class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CryptoKeyConfig block(s) allowed")]
     [TerraformPropertyName("crypto_key_config")]
-    public TerraformList<TerraformBlock<GoogleDataFusionInstanceCryptoKeyConfigBlock>>? CryptoKeyConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDataFusionInstanceCryptoKeyConfigBlock>>? CryptoKeyConfig { get; set; }
 
     /// <summary>
     /// Block for event_publish_config.
@@ -300,7 +300,7 @@ public class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventPublishConfig block(s) allowed")]
     [TerraformPropertyName("event_publish_config")]
-    public TerraformList<TerraformBlock<GoogleDataFusionInstanceEventPublishConfigBlock>>? EventPublishConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDataFusionInstanceEventPublishConfigBlock>>? EventPublishConfig { get; set; }
 
     /// <summary>
     /// Block for network_config.
@@ -308,56 +308,56 @@ public class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformPropertyName("network_config")]
-    public TerraformList<TerraformBlock<GoogleDataFusionInstanceNetworkConfigBlock>>? NetworkConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDataFusionInstanceNetworkConfigBlock>>? NetworkConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDataFusionInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDataFusionInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Endpoint on which the REST APIs is accessible.
     /// </summary>
     [TerraformPropertyName("api_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ApiEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "api_endpoint");
+    public TerraformValue<string> ApiEndpoint => new TerraformReference(this, "api_endpoint");
 
     /// <summary>
     /// The time the instance was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Cloud Storage bucket generated by Data Fusion in the customer project.
     /// </summary>
     [TerraformPropertyName("gcs_bucket")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GcsBucket => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gcs_bucket");
+    public TerraformValue<string> GcsBucket => new TerraformReference(this, "gcs_bucket");
 
     /// <summary>
     /// P4 service account for the customer project.
     /// </summary>
     [TerraformPropertyName("p4_service_account")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> P4ServiceAccount => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "p4_service_account");
+    public TerraformValue<string> P4ServiceAccount => new TerraformReference(this, "p4_service_account");
 
     /// <summary>
     /// Endpoint on which the Data Fusion UI and REST APIs are accessible.
     /// </summary>
     [TerraformPropertyName("service_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServiceEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_endpoint");
+    public TerraformValue<string> ServiceEndpoint => new TerraformReference(this, "service_endpoint");
 
     /// <summary>
     /// The current state of this Data Fusion instance.
@@ -370,21 +370,21 @@ public class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// Additional information about the current state of this Data Fusion instance if available.
     /// </summary>
     [TerraformPropertyName("state_message")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StateMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state_message");
+    public TerraformValue<string> StateMessage => new TerraformReference(this, "state_message");
 
     /// <summary>
     /// The name of the tenant project.
     /// </summary>
     [TerraformPropertyName("tenant_project_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantProjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tenant_project_id");
+    public TerraformValue<string> TenantProjectId => new TerraformReference(this, "tenant_project_id");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -392,13 +392,13 @@ public class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The time the instance was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

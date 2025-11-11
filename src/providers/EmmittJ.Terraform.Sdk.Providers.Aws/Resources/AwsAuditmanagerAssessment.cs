@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for assessment_reports_destination in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock : ITerraformBlock
+public class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock
 {
     /// <summary>
     /// The destination attribute.
@@ -14,7 +14,7 @@ public class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock : ITerra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [TerraformPropertyName("destination")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Destination { get; set; }
+    public required TerraformValue<string> Destination { get; set; }
 
     /// <summary>
     /// The destination_type attribute.
@@ -22,7 +22,7 @@ public class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock : ITerra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationType is required")]
     [TerraformPropertyName("destination_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DestinationType { get; set; }
+    public required TerraformValue<string> DestinationType { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock : ITerra
 /// Block type for roles in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAuditmanagerAssessmentRolesBlock : ITerraformBlock
+public class AwsAuditmanagerAssessmentRolesBlock
 {
     /// <summary>
     /// The role_arn attribute.
@@ -38,7 +38,7 @@ public class AwsAuditmanagerAssessmentRolesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformPropertyName("role_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
+    public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The role_type attribute.
@@ -46,7 +46,7 @@ public class AwsAuditmanagerAssessmentRolesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleType is required")]
     [TerraformPropertyName("role_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleType { get; set; }
+    public required TerraformValue<string> RoleType { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public class AwsAuditmanagerAssessmentRolesBlock : ITerraformBlock
 /// Block type for scope in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAuditmanagerAssessmentScopeBlock : ITerraformBlock
+public class AwsAuditmanagerAssessmentScopeBlock
 {
 }
 
@@ -72,7 +72,7 @@ public class AwsAuditmanagerAssessment : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The framework_id attribute.
@@ -80,7 +80,7 @@ public class AwsAuditmanagerAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkId is required")]
     [TerraformPropertyName("framework_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FrameworkId { get; set; }
+    public required TerraformValue<string> FrameworkId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -88,76 +88,76 @@ public class AwsAuditmanagerAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for assessment_reports_destination.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("assessment_reports_destination")]
-    public TerraformList<TerraformBlock<AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock>>? AssessmentReportsDestination { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock>>? AssessmentReportsDestination { get; set; }
 
     /// <summary>
     /// Block for roles.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("roles")]
-    public TerraformSet<TerraformBlock<AwsAuditmanagerAssessmentRolesBlock>>? Roles { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsAuditmanagerAssessmentRolesBlock>>? Roles { get; set; }
 
     /// <summary>
     /// Block for scope.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("scope")]
-    public TerraformList<TerraformBlock<AwsAuditmanagerAssessmentScopeBlock>>? Scope { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsAuditmanagerAssessmentScopeBlock>>? Scope { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The roles_all attribute.
     /// </summary>
     [TerraformPropertyName("roles_all")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> RolesAll => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "roles_all");
+    public TerraformList<object> RolesAll => new TerraformReference(this, "roles_all");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
 
 }

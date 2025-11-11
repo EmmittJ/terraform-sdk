@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for agent_setting in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermContainerRegistryTaskAgentSettingBlock : ITerraformBlock
+public class AzurermContainerRegistryTaskAgentSettingBlock
 {
     /// <summary>
     /// The cpu attribute.
@@ -14,7 +14,7 @@ public class AzurermContainerRegistryTaskAgentSettingBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     [TerraformPropertyName("cpu")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Cpu { get; set; }
+    public required TerraformValue<double> Cpu { get; set; }
 
 }
 
@@ -22,14 +22,14 @@ public class AzurermContainerRegistryTaskAgentSettingBlock : ITerraformBlock
 /// Block type for base_image_trigger in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermContainerRegistryTaskBaseImageTriggerBlock : ITerraformBlock
+public class AzurermContainerRegistryTaskBaseImageTriggerBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -37,7 +37,7 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -45,21 +45,21 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The update_trigger_endpoint attribute.
     /// </summary>
     [TerraformPropertyName("update_trigger_endpoint")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UpdateTriggerEndpoint { get; set; }
+    public TerraformValue<string>? UpdateTriggerEndpoint { get; set; }
 
     /// <summary>
     /// The update_trigger_payload_type attribute.
     /// </summary>
     [TerraformPropertyName("update_trigger_payload_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UpdateTriggerPayloadType { get; set; }
+    public TerraformValue<string>? UpdateTriggerPayloadType { get; set; }
 
 }
 
@@ -67,21 +67,21 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : ITerraformBlock
 /// Block type for docker_step in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermContainerRegistryTaskDockerStepBlock : ITerraformBlock
+public class AzurermContainerRegistryTaskDockerStepBlock
 {
     /// <summary>
     /// The arguments attribute.
     /// </summary>
     [TerraformPropertyName("arguments")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Arguments { get; set; }
+    public TerraformMap<string>? Arguments { get; set; }
 
     /// <summary>
     /// The cache_enabled attribute.
     /// </summary>
     [TerraformPropertyName("cache_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? CacheEnabled { get; set; }
+    public TerraformValue<bool>? CacheEnabled { get; set; }
 
     /// <summary>
     /// The context_access_token attribute.
@@ -89,7 +89,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContextAccessToken is required")]
     [TerraformPropertyName("context_access_token")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContextAccessToken { get; set; }
+    public required TerraformValue<string> ContextAccessToken { get; set; }
 
     /// <summary>
     /// The context_path attribute.
@@ -97,7 +97,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContextPath is required")]
     [TerraformPropertyName("context_path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContextPath { get; set; }
+    public required TerraformValue<string> ContextPath { get; set; }
 
     /// <summary>
     /// The dockerfile_path attribute.
@@ -105,35 +105,35 @@ public class AzurermContainerRegistryTaskDockerStepBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DockerfilePath is required")]
     [TerraformPropertyName("dockerfile_path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DockerfilePath { get; set; }
+    public required TerraformValue<string> DockerfilePath { get; set; }
 
     /// <summary>
     /// The image_names attribute.
     /// </summary>
     [TerraformPropertyName("image_names")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ImageNames { get; set; }
+    public TerraformList<string>? ImageNames { get; set; }
 
     /// <summary>
     /// The push_enabled attribute.
     /// </summary>
     [TerraformPropertyName("push_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? PushEnabled { get; set; }
+    public TerraformValue<bool>? PushEnabled { get; set; }
 
     /// <summary>
     /// The secret_arguments attribute.
     /// </summary>
     [TerraformPropertyName("secret_arguments")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? SecretArguments { get; set; }
+    public TerraformMap<string>? SecretArguments { get; set; }
 
     /// <summary>
     /// The target attribute.
     /// </summary>
     [TerraformPropertyName("target")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Target { get; set; }
+    public TerraformValue<string>? Target { get; set; }
 
 }
 
@@ -141,28 +141,28 @@ public class AzurermContainerRegistryTaskDockerStepBlock : ITerraformBlock
 /// Block type for encoded_step in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermContainerRegistryTaskEncodedStepBlock : ITerraformBlock
+public class AzurermContainerRegistryTaskEncodedStepBlock
 {
     /// <summary>
     /// The context_access_token attribute.
     /// </summary>
     [TerraformPropertyName("context_access_token")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContextAccessToken { get; set; }
+    public TerraformValue<string>? ContextAccessToken { get; set; }
 
     /// <summary>
     /// The context_path attribute.
     /// </summary>
     [TerraformPropertyName("context_path")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContextPath { get; set; }
+    public TerraformValue<string>? ContextPath { get; set; }
 
     /// <summary>
     /// The secret_values attribute.
     /// </summary>
     [TerraformPropertyName("secret_values")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? SecretValues { get; set; }
+    public TerraformMap<string>? SecretValues { get; set; }
 
     /// <summary>
     /// The task_content attribute.
@@ -170,21 +170,21 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskContent is required")]
     [TerraformPropertyName("task_content")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TaskContent { get; set; }
+    public required TerraformValue<string> TaskContent { get; set; }
 
     /// <summary>
     /// The value_content attribute.
     /// </summary>
     [TerraformPropertyName("value_content")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ValueContent { get; set; }
+    public TerraformValue<string>? ValueContent { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [TerraformPropertyName("values")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Values { get; set; }
+    public TerraformMap<string>? Values { get; set; }
 
 }
 
@@ -192,28 +192,28 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : ITerraformBlock
 /// Block type for file_step in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermContainerRegistryTaskFileStepBlock : ITerraformBlock
+public class AzurermContainerRegistryTaskFileStepBlock
 {
     /// <summary>
     /// The context_access_token attribute.
     /// </summary>
     [TerraformPropertyName("context_access_token")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContextAccessToken { get; set; }
+    public TerraformValue<string>? ContextAccessToken { get; set; }
 
     /// <summary>
     /// The context_path attribute.
     /// </summary>
     [TerraformPropertyName("context_path")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContextPath { get; set; }
+    public TerraformValue<string>? ContextPath { get; set; }
 
     /// <summary>
     /// The secret_values attribute.
     /// </summary>
     [TerraformPropertyName("secret_values")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? SecretValues { get; set; }
+    public TerraformMap<string>? SecretValues { get; set; }
 
     /// <summary>
     /// The task_file_path attribute.
@@ -221,21 +221,21 @@ public class AzurermContainerRegistryTaskFileStepBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskFilePath is required")]
     [TerraformPropertyName("task_file_path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TaskFilePath { get; set; }
+    public required TerraformValue<string> TaskFilePath { get; set; }
 
     /// <summary>
     /// The value_file_path attribute.
     /// </summary>
     [TerraformPropertyName("value_file_path")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ValueFilePath { get; set; }
+    public TerraformValue<string>? ValueFilePath { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [TerraformPropertyName("values")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Values { get; set; }
+    public TerraformMap<string>? Values { get; set; }
 
 }
 
@@ -243,28 +243,16 @@ public class AzurermContainerRegistryTaskFileStepBlock : ITerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermContainerRegistryTaskIdentityBlock : ITerraformBlock
+public class AzurermContainerRegistryTaskIdentityBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [TerraformPropertyName("identity_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
+    public TerraformSet<string>? IdentityIds { get; set; }
 
-    /// <summary>
-    /// The principal_id attribute.
-    /// </summary>
-    [TerraformPropertyName("principal_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
-    /// <summary>
-    /// The tenant_id attribute.
-    /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -272,7 +260,7 @@ public class AzurermContainerRegistryTaskIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -280,14 +268,14 @@ public class AzurermContainerRegistryTaskIdentityBlock : ITerraformBlock
 /// Block type for platform in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermContainerRegistryTaskPlatformBlock : ITerraformBlock
+public class AzurermContainerRegistryTaskPlatformBlock
 {
     /// <summary>
     /// The architecture attribute.
     /// </summary>
     [TerraformPropertyName("architecture")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Architecture { get; set; }
+    public TerraformValue<string>? Architecture { get; set; }
 
     /// <summary>
     /// The os attribute.
@@ -295,14 +283,14 @@ public class AzurermContainerRegistryTaskPlatformBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Os is required")]
     [TerraformPropertyName("os")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Os { get; set; }
+    public required TerraformValue<string> Os { get; set; }
 
     /// <summary>
     /// The variant attribute.
     /// </summary>
     [TerraformPropertyName("variant")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Variant { get; set; }
+    public TerraformValue<string>? Variant { get; set; }
 
 }
 
@@ -310,7 +298,7 @@ public class AzurermContainerRegistryTaskPlatformBlock : ITerraformBlock
 /// Block type for registry_credential in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermContainerRegistryTaskRegistryCredentialBlock : ITerraformBlock
+public class AzurermContainerRegistryTaskRegistryCredentialBlock
 {
 }
 
@@ -318,21 +306,21 @@ public class AzurermContainerRegistryTaskRegistryCredentialBlock : ITerraformBlo
 /// Block type for source_trigger in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermContainerRegistryTaskSourceTriggerBlock : ITerraformBlock
+public class AzurermContainerRegistryTaskSourceTriggerBlock
 {
     /// <summary>
     /// The branch attribute.
     /// </summary>
     [TerraformPropertyName("branch")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Branch { get; set; }
+    public TerraformValue<string>? Branch { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The events attribute.
@@ -340,7 +328,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     [TerraformPropertyName("events")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? Events { get; set; }
+    public TerraformList<string>? Events { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -348,7 +336,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The repository_url attribute.
@@ -356,7 +344,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     [TerraformPropertyName("repository_url")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RepositoryUrl { get; set; }
+    public required TerraformValue<string> RepositoryUrl { get; set; }
 
     /// <summary>
     /// The source_type attribute.
@@ -364,7 +352,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     [TerraformPropertyName("source_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SourceType { get; set; }
+    public required TerraformValue<string> SourceType { get; set; }
 
 }
 
@@ -372,35 +360,35 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerRegistryTaskTimeoutsBlock : ITerraformBlock
+public class AzurermContainerRegistryTaskTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -408,14 +396,14 @@ public class AzurermContainerRegistryTaskTimeoutsBlock : ITerraformBlock
 /// Block type for timer_trigger in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermContainerRegistryTaskTimerTriggerBlock : ITerraformBlock
+public class AzurermContainerRegistryTaskTimerTriggerBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -423,7 +411,7 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The schedule attribute.
@@ -431,7 +419,7 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [TerraformPropertyName("schedule")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Schedule { get; set; }
+    public required TerraformValue<string> Schedule { get; set; }
 
 }
 
@@ -450,7 +438,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [TerraformPropertyName("agent_pool_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AgentPoolName { get; set; }
+    public TerraformValue<string>? AgentPoolName { get; set; }
 
     /// <summary>
     /// The container_registry_id attribute.
@@ -458,35 +446,35 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     [TerraformPropertyName("container_registry_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContainerRegistryId { get; set; }
+    public required TerraformValue<string> ContainerRegistryId { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The is_system_task attribute.
     /// </summary>
     [TerraformPropertyName("is_system_task")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IsSystemTask { get; set; }
+    public TerraformValue<bool>? IsSystemTask { get; set; }
 
     /// <summary>
     /// The log_template attribute.
     /// </summary>
     [TerraformPropertyName("log_template")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? LogTemplate { get; set; }
+    public TerraformValue<string>? LogTemplate { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -494,21 +482,21 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("timeout_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? TimeoutInSeconds { get; set; }
+    public TerraformValue<double>? TimeoutInSeconds { get; set; }
 
     /// <summary>
     /// Block for agent_setting.
@@ -516,7 +504,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AgentSetting block(s) allowed")]
     [TerraformPropertyName("agent_setting")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskAgentSettingBlock>>? AgentSetting { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskAgentSettingBlock>>? AgentSetting { get; set; }
 
     /// <summary>
     /// Block for base_image_trigger.
@@ -524,7 +512,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BaseImageTrigger block(s) allowed")]
     [TerraformPropertyName("base_image_trigger")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskBaseImageTriggerBlock>>? BaseImageTrigger { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskBaseImageTriggerBlock>>? BaseImageTrigger { get; set; }
 
     /// <summary>
     /// Block for docker_step.
@@ -532,7 +520,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DockerStep block(s) allowed")]
     [TerraformPropertyName("docker_step")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskDockerStepBlock>>? DockerStep { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskDockerStepBlock>>? DockerStep { get; set; }
 
     /// <summary>
     /// Block for encoded_step.
@@ -540,7 +528,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncodedStep block(s) allowed")]
     [TerraformPropertyName("encoded_step")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskEncodedStepBlock>>? EncodedStep { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskEncodedStepBlock>>? EncodedStep { get; set; }
 
     /// <summary>
     /// Block for file_step.
@@ -548,7 +536,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileStep block(s) allowed")]
     [TerraformPropertyName("file_step")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskFileStepBlock>>? FileStep { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskFileStepBlock>>? FileStep { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -556,7 +544,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformPropertyName("identity")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskIdentityBlock>>? Identity { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for platform.
@@ -564,7 +552,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Platform block(s) allowed")]
     [TerraformPropertyName("platform")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskPlatformBlock>>? Platform { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskPlatformBlock>>? Platform { get; set; }
 
     /// <summary>
     /// Block for registry_credential.
@@ -572,27 +560,27 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RegistryCredential block(s) allowed")]
     [TerraformPropertyName("registry_credential")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskRegistryCredentialBlock>>? RegistryCredential { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskRegistryCredentialBlock>>? RegistryCredential { get; set; }
 
     /// <summary>
     /// Block for source_trigger.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("source_trigger")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskSourceTriggerBlock>>? SourceTrigger { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskSourceTriggerBlock>>? SourceTrigger { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermContainerRegistryTaskTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermContainerRegistryTaskTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for timer_trigger.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("timer_trigger")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskTimerTriggerBlock>>? TimerTrigger { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermContainerRegistryTaskTimerTriggerBlock>>? TimerTrigger { get; set; }
 
 }

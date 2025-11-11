@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for macsec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeInterconnectMacsecBlock : ITerraformBlock
+public class GoogleComputeInterconnectMacsecBlock
 {
     /// <summary>
     /// If set to true, the Interconnect connection is configured with a should-secure
@@ -17,7 +17,7 @@ public class GoogleComputeInterconnectMacsecBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("fail_open")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? FailOpen { get; set; }
+    public TerraformValue<bool>? FailOpen { get; set; }
 
 }
 
@@ -25,28 +25,28 @@ public class GoogleComputeInterconnectMacsecBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeInterconnectTimeoutsBlock : ITerraformBlock
+public class GoogleComputeInterconnectTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -67,7 +67,7 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("admin_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AdminEnabled { get; set; }
+    public TerraformValue<bool>? AdminEnabled { get; set; }
 
     /// <summary>
     /// Customer name, to put in the Letter of Authorization as the party authorized to request a
@@ -76,21 +76,21 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("customer_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomerName { get; set; }
+    public TerraformValue<string>? CustomerName { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Type of interconnect. Note that a value IT_PRIVATE has been deprecated in favor of DEDICATED.
@@ -101,7 +101,7 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterconnectType is required")]
     [TerraformPropertyName("interconnect_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InterconnectType { get; set; }
+    public required TerraformValue<string> InterconnectType { get; set; }
 
     /// <summary>
     /// Labels for this resource. These can only be added or modified by the setLabels
@@ -113,7 +113,7 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Type of link requested. Note that this field indicates the speed of each of the links in the
@@ -125,7 +125,7 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkType is required")]
     [TerraformPropertyName("link_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LinkType { get; set; }
+    public required TerraformValue<string> LinkType { get; set; }
 
     /// <summary>
     /// URL of the InterconnectLocation object that represents where this connection is to be provisioned.
@@ -134,7 +134,7 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Enable or disable MACsec on this Interconnect connection.
@@ -142,7 +142,7 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("macsec_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? MacsecEnabled { get; set; }
+    public TerraformValue<bool>? MacsecEnabled { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is created. The name must be
@@ -154,7 +154,7 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Email address to contact the customer NOC for operations and maintenance notifications
@@ -165,14 +165,14 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("noc_contact_email")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NocContactEmail { get; set; }
+    public TerraformValue<string>? NocContactEmail { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Indicates that this is a Cross-Cloud Interconnect. This field specifies the location outside
@@ -180,7 +180,7 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("remote_location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RemoteLocation { get; set; }
+    public TerraformValue<string>? RemoteLocation { get; set; }
 
     /// <summary>
     /// interconnects.list of features requested for this Interconnect connection. Options: IF_MACSEC (
@@ -191,7 +191,7 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("requested_features")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? RequestedFeatures { get; set; }
+    public TerraformList<string>? RequestedFeatures { get; set; }
 
     /// <summary>
     /// Target number of physical links in the link bundle, as requested by the customer.
@@ -199,7 +199,7 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestedLinkCount is required")]
     [TerraformPropertyName("requested_link_count")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> RequestedLinkCount { get; set; }
+    public required TerraformValue<double> RequestedLinkCount { get; set; }
 
     /// <summary>
     /// Block for macsec.
@@ -207,14 +207,14 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Macsec block(s) allowed")]
     [TerraformPropertyName("macsec")]
-    public TerraformList<TerraformBlock<GoogleComputeInterconnectMacsecBlock>>? Macsec { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeInterconnectMacsecBlock>>? Macsec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeInterconnectTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeInterconnectTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// interconnects.list of features available for this Interconnect connection. Can take the value:
@@ -224,35 +224,35 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("available_features")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> AvailableFeatures => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "available_features");
+    public TerraformList<string> AvailableFeatures => new TerraformReference(this, "available_features");
 
     /// <summary>
     /// A list of CircuitInfo objects, that describe the individual circuits in this LAG.
     /// </summary>
     [TerraformPropertyName("circuit_infos")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CircuitInfos => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "circuit_infos");
+    public TerraformList<object> CircuitInfos => new TerraformReference(this, "circuit_infos");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// A list of outages expected for this Interconnect.
     /// </summary>
     [TerraformPropertyName("expected_outages")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ExpectedOutages => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "expected_outages");
+    public TerraformList<object> ExpectedOutages => new TerraformReference(this, "expected_outages");
 
     /// <summary>
     /// IP address configured on the Google side of the Interconnect link.
@@ -260,7 +260,7 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("google_ip_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GoogleIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "google_ip_address");
+    public TerraformValue<string> GoogleIpAddress => new TerraformReference(this, "google_ip_address");
 
     /// <summary>
     /// Google reference ID to be used when raising support tickets with Google or otherwise to debug
@@ -268,14 +268,14 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("google_reference_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GoogleReferenceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "google_reference_id");
+    public TerraformValue<string> GoogleReferenceId => new TerraformReference(this, "google_reference_id");
 
     /// <summary>
     /// A list of the URLs of all InterconnectAttachments configured to use this Interconnect.
     /// </summary>
     [TerraformPropertyName("interconnect_attachments")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> InterconnectAttachments => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "interconnect_attachments");
+    public TerraformList<string> InterconnectAttachments => new TerraformReference(this, "interconnect_attachments");
 
     /// <summary>
     /// URLs of InterconnectGroups that include this Interconnect.
@@ -283,7 +283,7 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("interconnect_groups")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> InterconnectGroups => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "interconnect_groups");
+    public TerraformSet<string> InterconnectGroups => new TerraformReference(this, "interconnect_groups");
 
     /// <summary>
     /// A fingerprint for the labels being applied to this Interconnect, which is essentially a hash
@@ -294,7 +294,7 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("label_fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LabelFingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "label_fingerprint");
+    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
 
     /// <summary>
     /// The current status of this Interconnect&#39;s functionality, which can take one of the following:
@@ -307,7 +307,7 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("operational_status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OperationalStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "operational_status");
+    public TerraformValue<string> OperationalStatus => new TerraformReference(this, "operational_status");
 
     /// <summary>
     /// IP address configured on the customer side of the Interconnect link.
@@ -316,21 +316,21 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("peer_ip_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PeerIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_ip_address");
+    public TerraformValue<string> PeerIpAddress => new TerraformReference(this, "peer_ip_address");
 
     /// <summary>
     /// Number of links actually provisioned in this interconnect.
     /// </summary>
     [TerraformPropertyName("provisioned_link_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ProvisionedLinkCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "provisioned_link_count");
+    public TerraformValue<double> ProvisionedLinkCount => new TerraformReference(this, "provisioned_link_count");
 
     /// <summary>
     /// Reserved for future use.
     /// </summary>
     [TerraformPropertyName("satisfies_pzs")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> SatisfiesPzs => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "satisfies_pzs");
+    public TerraformValue<bool> SatisfiesPzs => new TerraformReference(this, "satisfies_pzs");
 
     /// <summary>
     /// The current state of Interconnect functionality, which can take one of the following values:
@@ -343,7 +343,7 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -351,6 +351,6 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

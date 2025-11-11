@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryCapacityCommitmentTimeoutsBlock : ITerraformBlock
+public class GoogleBigqueryCapacityCommitmentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -48,28 +48,28 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
     /// </summary>
     [TerraformPropertyName("capacity_commitment_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CapacityCommitmentId { get; set; }
+    public TerraformValue<string>? CapacityCommitmentId { get; set; }
 
     /// <summary>
     /// The edition type. Valid values are STANDARD, ENTERPRISE, ENTERPRISE_PLUS
     /// </summary>
     [TerraformPropertyName("edition")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Edition { get; set; }
+    public TerraformValue<string>? Edition { get; set; }
 
     /// <summary>
     /// If true, fail the request if another project in the organization has a capacity commitment.
     /// </summary>
     [TerraformPropertyName("enforce_single_admin_project_per_org")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EnforceSingleAdminProjectPerOrg { get; set; }
+    public TerraformValue<string>? EnforceSingleAdminProjectPerOrg { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The geographic location where the transfer config should reside.
@@ -77,7 +77,7 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Capacity commitment plan. Valid values are at https://cloud.google.com/bigquery/docs/reference/reservations/rpc/google.cloud.bigquery.reservation.v1#commitmentplan
@@ -85,21 +85,21 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     [TerraformPropertyName("plan")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Plan { get; set; }
+    public required TerraformValue<string> Plan { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The plan this capacity commitment is converted to after commitmentEndTime passes. Once the plan is changed, committed period is extended according to commitment plan. Only applicable for some commitment plans.
     /// </summary>
     [TerraformPropertyName("renewal_plan")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RenewalPlan { get; set; }
+    public TerraformValue<string>? RenewalPlan { get; set; }
 
     /// <summary>
     /// Number of slots in this commitment.
@@ -107,41 +107,41 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotCount is required")]
     [TerraformPropertyName("slot_count")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> SlotCount { get; set; }
+    public required TerraformValue<double> SlotCount { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleBigqueryCapacityCommitmentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleBigqueryCapacityCommitmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The start of the current commitment period. It is applicable only for ACTIVE capacity commitments.
     /// </summary>
     [TerraformPropertyName("commitment_end_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CommitmentEndTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "commitment_end_time");
+    public TerraformValue<string> CommitmentEndTime => new TerraformReference(this, "commitment_end_time");
 
     /// <summary>
     /// The start of the current commitment period. It is applicable only for ACTIVE capacity commitments.
     /// </summary>
     [TerraformPropertyName("commitment_start_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CommitmentStartTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "commitment_start_time");
+    public TerraformValue<string> CommitmentStartTime => new TerraformReference(this, "commitment_start_time");
 
     /// <summary>
     /// The resource name of the capacity commitment, e.g., projects/myproject/locations/US/capacityCommitments/123
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// State of the commitment
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
 }

@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for logs in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermElasticCloudElasticsearchLogsBlock : ITerraformBlock
+public class AzurermElasticCloudElasticsearchLogsBlock
 {
     /// <summary>
     /// The send_activity_logs attribute.
     /// </summary>
     [TerraformPropertyName("send_activity_logs")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SendActivityLogs { get; set; }
+    public TerraformValue<bool>? SendActivityLogs { get; set; }
 
     /// <summary>
     /// The send_azuread_logs attribute.
     /// </summary>
     [TerraformPropertyName("send_azuread_logs")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SendAzureadLogs { get; set; }
+    public TerraformValue<bool>? SendAzureadLogs { get; set; }
 
     /// <summary>
     /// The send_subscription_logs attribute.
     /// </summary>
     [TerraformPropertyName("send_subscription_logs")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SendSubscriptionLogs { get; set; }
+    public TerraformValue<bool>? SendSubscriptionLogs { get; set; }
 
 }
 
@@ -35,35 +35,35 @@ public class AzurermElasticCloudElasticsearchLogsBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermElasticCloudElasticsearchTimeoutsBlock : ITerraformBlock
+public class AzurermElasticCloudElasticsearchTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -83,14 +83,14 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticCloudEmailAddress is required")]
     [TerraformPropertyName("elastic_cloud_email_address")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ElasticCloudEmailAddress { get; set; }
+    public required TerraformValue<string> ElasticCloudEmailAddress { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -98,14 +98,14 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
     [TerraformPropertyName("monitoring_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? MonitoringEnabled { get; set; }
+    public TerraformValue<bool>? MonitoringEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -113,7 +113,7 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -121,7 +121,7 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -129,14 +129,14 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformPropertyName("sku_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SkuName { get; set; }
+    public required TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for logs.
@@ -144,55 +144,55 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
     [TerraformPropertyName("logs")]
-    public TerraformList<TerraformBlock<AzurermElasticCloudElasticsearchLogsBlock>>? Logs { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermElasticCloudElasticsearchLogsBlock>>? Logs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermElasticCloudElasticsearchTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermElasticCloudElasticsearchTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The elastic_cloud_deployment_id attribute.
     /// </summary>
     [TerraformPropertyName("elastic_cloud_deployment_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ElasticCloudDeploymentId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "elastic_cloud_deployment_id");
+    public TerraformValue<string> ElasticCloudDeploymentId => new TerraformReference(this, "elastic_cloud_deployment_id");
 
     /// <summary>
     /// The elastic_cloud_sso_default_url attribute.
     /// </summary>
     [TerraformPropertyName("elastic_cloud_sso_default_url")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ElasticCloudSsoDefaultUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "elastic_cloud_sso_default_url");
+    public TerraformValue<string> ElasticCloudSsoDefaultUrl => new TerraformReference(this, "elastic_cloud_sso_default_url");
 
     /// <summary>
     /// The elastic_cloud_user_id attribute.
     /// </summary>
     [TerraformPropertyName("elastic_cloud_user_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ElasticCloudUserId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "elastic_cloud_user_id");
+    public TerraformValue<string> ElasticCloudUserId => new TerraformReference(this, "elastic_cloud_user_id");
 
     /// <summary>
     /// The elasticsearch_service_url attribute.
     /// </summary>
     [TerraformPropertyName("elasticsearch_service_url")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ElasticsearchServiceUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "elasticsearch_service_url");
+    public TerraformValue<string> ElasticsearchServiceUrl => new TerraformReference(this, "elasticsearch_service_url");
 
     /// <summary>
     /// The kibana_service_url attribute.
     /// </summary>
     [TerraformPropertyName("kibana_service_url")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KibanaServiceUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kibana_service_url");
+    public TerraformValue<string> KibanaServiceUrl => new TerraformReference(this, "kibana_service_url");
 
     /// <summary>
     /// The kibana_sso_uri attribute.
     /// </summary>
     [TerraformPropertyName("kibana_sso_uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KibanaSsoUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kibana_sso_uri");
+    public TerraformValue<string> KibanaSsoUri => new TerraformReference(this, "kibana_sso_uri");
 
 }

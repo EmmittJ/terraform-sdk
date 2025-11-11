@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermTrafficManagerProfileDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermTrafficManagerProfileDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermTrafficManagerProfileDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermTrafficManagerProfileDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,62 +47,62 @@ public class AzurermTrafficManagerProfileDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The traffic_view_enabled attribute.
     /// </summary>
     [TerraformPropertyName("traffic_view_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? TrafficViewEnabled { get; set; }
+    public TerraformValue<bool>? TrafficViewEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermTrafficManagerProfileDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermTrafficManagerProfileDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The dns_config attribute.
     /// </summary>
     [TerraformPropertyName("dns_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> DnsConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "dns_config");
+    public TerraformList<object> DnsConfig => new TerraformReference(this, "dns_config");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     [TerraformPropertyName("fqdn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Fqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fqdn");
+    public TerraformValue<string> Fqdn => new TerraformReference(this, "fqdn");
 
     /// <summary>
     /// The monitor_config attribute.
     /// </summary>
     [TerraformPropertyName("monitor_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MonitorConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "monitor_config");
+    public TerraformList<object> MonitorConfig => new TerraformReference(this, "monitor_config");
 
     /// <summary>
     /// The profile_status attribute.
     /// </summary>
     [TerraformPropertyName("profile_status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ProfileStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "profile_status");
+    public TerraformValue<string> ProfileStatus => new TerraformReference(this, "profile_status");
 
     /// <summary>
     /// The traffic_routing_method attribute.
     /// </summary>
     [TerraformPropertyName("traffic_routing_method")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TrafficRoutingMethod => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "traffic_routing_method");
+    public TerraformValue<string> TrafficRoutingMethod => new TerraformReference(this, "traffic_routing_method");
 
 }

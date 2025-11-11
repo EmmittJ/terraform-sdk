@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKeyVaultAccessPolicyTimeoutsBlock : ITerraformBlock
+public class AzurermKeyVaultAccessPolicyTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,28 +52,28 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     /// </summary>
     [TerraformPropertyName("application_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ApplicationId { get; set; }
+    public TerraformValue<string>? ApplicationId { get; set; }
 
     /// <summary>
     /// The certificate_permissions attribute.
     /// </summary>
     [TerraformPropertyName("certificate_permissions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? CertificatePermissions { get; set; }
+    public TerraformList<string>? CertificatePermissions { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The key_permissions attribute.
     /// </summary>
     [TerraformPropertyName("key_permissions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? KeyPermissions { get; set; }
+    public TerraformList<string>? KeyPermissions { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
@@ -81,7 +81,7 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformPropertyName("key_vault_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyVaultId { get; set; }
+    public required TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The object_id attribute.
@@ -89,21 +89,21 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     [TerraformPropertyName("object_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ObjectId { get; set; }
+    public required TerraformValue<string> ObjectId { get; set; }
 
     /// <summary>
     /// The secret_permissions attribute.
     /// </summary>
     [TerraformPropertyName("secret_permissions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? SecretPermissions { get; set; }
+    public TerraformList<string>? SecretPermissions { get; set; }
 
     /// <summary>
     /// The storage_permissions attribute.
     /// </summary>
     [TerraformPropertyName("storage_permissions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? StoragePermissions { get; set; }
+    public TerraformList<string>? StoragePermissions { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
@@ -111,13 +111,13 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     [TerraformPropertyName("tenant_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TenantId { get; set; }
+    public required TerraformValue<string> TenantId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermKeyVaultAccessPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermKeyVaultAccessPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

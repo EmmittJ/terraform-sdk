@@ -15,35 +15,35 @@ public class GoogleProjectIamCustomRolesDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The show_deleted attribute.
     /// </summary>
     [TerraformPropertyName("show_deleted")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ShowDeleted { get; set; }
+    public TerraformValue<bool>? ShowDeleted { get; set; }
 
     /// <summary>
     /// The view attribute.
     /// </summary>
     [TerraformPropertyName("view")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? View { get; set; }
+    public TerraformValue<string>? View { get; set; }
 
     /// <summary>
     /// The roles attribute.
     /// </summary>
     [TerraformPropertyName("roles")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Roles => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "roles");
+    public TerraformList<object> Roles => new TerraformReference(this, "roles");
 
 }

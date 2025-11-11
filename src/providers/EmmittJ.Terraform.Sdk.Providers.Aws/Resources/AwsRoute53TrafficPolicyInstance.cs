@@ -17,14 +17,14 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
     [TerraformPropertyName("hosted_zone_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HostedZoneId { get; set; }
+    public required TerraformValue<string> HostedZoneId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -32,7 +32,7 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The traffic_policy_id attribute.
@@ -40,7 +40,7 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficPolicyId is required")]
     [TerraformPropertyName("traffic_policy_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TrafficPolicyId { get; set; }
+    public required TerraformValue<string> TrafficPolicyId { get; set; }
 
     /// <summary>
     /// The traffic_policy_version attribute.
@@ -48,7 +48,7 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficPolicyVersion is required")]
     [TerraformPropertyName("traffic_policy_version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> TrafficPolicyVersion { get; set; }
+    public required TerraformValue<double> TrafficPolicyVersion { get; set; }
 
     /// <summary>
     /// The ttl attribute.
@@ -56,13 +56,13 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     [TerraformPropertyName("ttl")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Ttl { get; set; }
+    public required TerraformValue<double> Ttl { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

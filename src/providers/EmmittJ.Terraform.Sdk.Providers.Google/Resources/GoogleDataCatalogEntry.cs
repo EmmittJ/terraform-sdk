@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for gcs_fileset_spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataCatalogEntryGcsFilesetSpecBlock : ITerraformBlock
+public class GoogleDataCatalogEntryGcsFilesetSpecBlock
 {
     /// <summary>
     /// Patterns to identify a set of files in Google Cloud Storage.
@@ -25,14 +25,8 @@ public class GoogleDataCatalogEntryGcsFilesetSpecBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilePatterns is required")]
     [TerraformPropertyName("file_patterns")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? FilePatterns { get; set; }
+    public TerraformList<string>? FilePatterns { get; set; }
 
-    /// <summary>
-    /// Sample files contained in this fileset, not all files contained in this fileset are represented here.
-    /// </summary>
-    [TerraformPropertyName("sample_gcs_file_specs")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> SampleGcsFileSpecs => new TerraformReferenceProperty<List<TerraformProperty<object>>>("", "sample_gcs_file_specs");
 
 }
 
@@ -40,28 +34,28 @@ public class GoogleDataCatalogEntryGcsFilesetSpecBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataCatalogEntryTimeoutsBlock : ITerraformBlock
+public class GoogleDataCatalogEntryTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -81,7 +75,7 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Display information such as title and description. A short name to identify the entry,
@@ -89,7 +83,7 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The name of the entry group this entry is in.
@@ -97,7 +91,7 @@ public class GoogleDataCatalogEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroup is required")]
     [TerraformPropertyName("entry_group")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EntryGroup { get; set; }
+    public required TerraformValue<string> EntryGroup { get; set; }
 
     /// <summary>
     /// The id of the entry to create.
@@ -105,14 +99,14 @@ public class GoogleDataCatalogEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryId is required")]
     [TerraformPropertyName("entry_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EntryId { get; set; }
+    public required TerraformValue<string> EntryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The resource this metadata entry refers to.
@@ -123,8 +117,8 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// this field is optional and defaults to an empty string.
     /// </summary>
     [TerraformPropertyName("linked_resource")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LinkedResource { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "linked_resource");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LinkedResource { get; set; } = default!;
 
     /// <summary>
     /// Schema of the entry (e.g. BigQuery, GoogleSQL, Avro schema), as a json string. An entry might not have any schema
@@ -134,7 +128,7 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// </summary>
     [TerraformPropertyName("schema")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Schema { get; set; }
+    public TerraformValue<string>? Schema { get; set; }
 
     /// <summary>
     /// The type of the entry. Only used for Entries with types in the EntryType enum.
@@ -142,7 +136,7 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// This field indicates the entry&#39;s source system that Data Catalog does not integrate with.
@@ -151,7 +145,7 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// </summary>
     [TerraformPropertyName("user_specified_system")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserSpecifiedSystem { get; set; }
+    public TerraformValue<string>? UserSpecifiedSystem { get; set; }
 
     /// <summary>
     /// Entry type if it does not fit any of the input-allowed values listed in EntryType enum above.
@@ -162,7 +156,7 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// </summary>
     [TerraformPropertyName("user_specified_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserSpecifiedType { get; set; }
+    public TerraformValue<string>? UserSpecifiedType { get; set; }
 
     /// <summary>
     /// Block for gcs_fileset_spec.
@@ -170,14 +164,14 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsFilesetSpec block(s) allowed")]
     [TerraformPropertyName("gcs_fileset_spec")]
-    public TerraformList<TerraformBlock<GoogleDataCatalogEntryGcsFilesetSpecBlock>>? GcsFilesetSpec { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDataCatalogEntryGcsFilesetSpecBlock>>? GcsFilesetSpec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDataCatalogEntryTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDataCatalogEntryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Specification for a group of BigQuery tables with name pattern [prefix]YYYYMMDD.
@@ -185,21 +179,21 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// </summary>
     [TerraformPropertyName("bigquery_date_sharded_spec")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> BigqueryDateShardedSpec => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "bigquery_date_sharded_spec");
+    public TerraformList<object> BigqueryDateShardedSpec => new TerraformReference(this, "bigquery_date_sharded_spec");
 
     /// <summary>
     /// Specification that applies to a BigQuery table. This is only valid on entries of type TABLE.
     /// </summary>
     [TerraformPropertyName("bigquery_table_spec")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> BigqueryTableSpec => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "bigquery_table_spec");
+    public TerraformList<object> BigqueryTableSpec => new TerraformReference(this, "bigquery_table_spec");
 
     /// <summary>
     /// This field indicates the entry&#39;s source system that Data Catalog integrates with, such as BigQuery or Pub/Sub.
     /// </summary>
     [TerraformPropertyName("integrated_system")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> IntegratedSystem => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "integrated_system");
+    public TerraformValue<string> IntegratedSystem => new TerraformReference(this, "integrated_system");
 
     /// <summary>
     /// The Data Catalog resource name of the entry in URL format.
@@ -208,6 +202,6 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

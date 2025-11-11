@@ -15,14 +15,14 @@ public class AwsIamAccountAliasDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The account_alias attribute.
     /// </summary>
     [TerraformPropertyName("account_alias")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AccountAlias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_alias");
+    public TerraformValue<string> AccountAlias => new TerraformReference(this, "account_alias");
 
 }

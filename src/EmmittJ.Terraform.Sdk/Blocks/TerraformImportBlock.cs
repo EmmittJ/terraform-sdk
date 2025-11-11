@@ -78,9 +78,9 @@ public class TerraformImportBlock : TerraformConstruct
         Id = id;
         Provider = provider;
 
-        // Initialize properties
+        // Initialize properties using implicit conversions
         ToProperty = new ImportAddressProperty(to);
-        IdProperty = new TerraformLiteralProperty<string>("", "") { Value = id };
+        IdProperty = id;
 
         if (!string.IsNullOrWhiteSpace(provider))
         {
@@ -92,7 +92,7 @@ public class TerraformImportBlock : TerraformConstruct
     public ImportAddressProperty ToProperty { get; set; }
 
     [TerraformPropertyName("id")]
-    public TerraformProperty<string> IdProperty { get; set; }
+    public TerraformValue<string> IdProperty { get; set; }
 
     [TerraformPropertyName("provider")]
     public ImportAddressProperty? ProviderProperty { get; set; }
@@ -107,21 +107,16 @@ public class TerraformImportBlock : TerraformConstruct
 /// <summary>
 /// Internal property type for import block addresses that renders without quotes.
 /// </summary>
-public class ImportAddressProperty : TerraformProperty<TerraformExpression>
+public class ImportAddressProperty : ITerraformResolvable
 {
     private readonly string _address;
 
-    public ImportAddressProperty(string address) : base("", "")
+    public ImportAddressProperty(string address)
     {
         _address = address;
     }
 
-    public override void Prepare(ITerraformContext context)
-    {
-        // No preparation needed
-    }
-
-    public override TerraformExpression Resolve(ITerraformContext? context = null)
+    public TerraformExpression Resolve(ITerraformResolveContext context)
     {
         return new ImportAddressExpression(_address);
     }

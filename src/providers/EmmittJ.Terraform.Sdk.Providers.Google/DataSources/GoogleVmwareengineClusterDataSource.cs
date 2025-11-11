@@ -15,8 +15,8 @@ public class GoogleVmwareengineClusterDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ID of the Cluster.
@@ -24,7 +24,7 @@ public class GoogleVmwareengineClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource name of the private cloud to create a new cluster in.
@@ -34,14 +34,14 @@ public class GoogleVmwareengineClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformPropertyName("parent")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
+    public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Configuration of the autoscaling applied to this cluster
     /// </summary>
     [TerraformPropertyName("autoscaling_settings")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> AutoscalingSettings => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "autoscaling_settings");
+    public TerraformList<object> AutoscalingSettings => new TerraformReference(this, "autoscaling_settings");
 
     /// <summary>
     /// Creation time of this resource.
@@ -50,7 +50,7 @@ public class GoogleVmwareengineClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// True if the cluster is a management cluster; false otherwise.
@@ -58,7 +58,7 @@ public class GoogleVmwareengineClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("management")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Management => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "management");
+    public TerraformValue<bool> Management => new TerraformReference(this, "management");
 
     /// <summary>
     /// The map of cluster node types in this cluster,
@@ -66,21 +66,21 @@ public class GoogleVmwareengineClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("node_type_configs")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> NodeTypeConfigs => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "node_type_configs");
+    public TerraformSet<object> NodeTypeConfigs => new TerraformReference(this, "node_type_configs");
 
     /// <summary>
     /// State of the Cluster.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Last updated time of this resource.
@@ -89,6 +89,6 @@ public class GoogleVmwareengineClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

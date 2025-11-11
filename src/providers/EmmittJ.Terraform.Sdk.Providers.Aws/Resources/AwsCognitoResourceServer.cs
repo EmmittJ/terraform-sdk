@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for scope in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCognitoResourceServerScopeBlock : ITerraformBlock
+public class AwsCognitoResourceServerScopeBlock
 {
     /// <summary>
     /// The scope_description attribute.
@@ -14,7 +14,7 @@ public class AwsCognitoResourceServerScopeBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeDescription is required")]
     [TerraformPropertyName("scope_description")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ScopeDescription { get; set; }
+    public required TerraformValue<string> ScopeDescription { get; set; }
 
     /// <summary>
     /// The scope_name attribute.
@@ -22,7 +22,7 @@ public class AwsCognitoResourceServerScopeBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeName is required")]
     [TerraformPropertyName("scope_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ScopeName { get; set; }
+    public required TerraformValue<string> ScopeName { get; set; }
 
 }
 
@@ -40,8 +40,8 @@ public class AwsCognitoResourceServer : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The identifier attribute.
@@ -49,7 +49,7 @@ public class AwsCognitoResourceServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     [TerraformPropertyName("identifier")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Identifier { get; set; }
+    public required TerraformValue<string> Identifier { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -57,14 +57,14 @@ public class AwsCognitoResourceServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The user_pool_id attribute.
@@ -72,7 +72,7 @@ public class AwsCognitoResourceServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     [TerraformPropertyName("user_pool_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> UserPoolId { get; set; }
+    public required TerraformValue<string> UserPoolId { get; set; }
 
     /// <summary>
     /// Block for scope.
@@ -80,13 +80,13 @@ public class AwsCognitoResourceServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Scope block(s) allowed")]
     [TerraformPropertyName("scope")]
-    public TerraformSet<TerraformBlock<AwsCognitoResourceServerScopeBlock>>? Scope { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsCognitoResourceServerScopeBlock>>? Scope { get; set; }
 
     /// <summary>
     /// The scope_identifiers attribute.
     /// </summary>
     [TerraformPropertyName("scope_identifiers")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> ScopeIdentifiers => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "scope_identifiers");
+    public TerraformList<string> ScopeIdentifiers => new TerraformReference(this, "scope_identifiers");
 
 }

@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleEdgenetworkInterconnectAttachmentTimeoutsBlock : ITerraformBlock
+public class GoogleEdgenetworkInterconnectAttachmentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ID of the underlying interconnect that this attachment&#39;s traffic will traverse through.
@@ -60,7 +60,7 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interconnect is required")]
     [TerraformPropertyName("interconnect")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Interconnect { get; set; }
+    public required TerraformValue<string> Interconnect { get; set; }
 
     /// <summary>
     /// A unique ID that identifies this interconnect attachment.
@@ -68,7 +68,7 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterconnectAttachmentId is required")]
     [TerraformPropertyName("interconnect_attachment_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InterconnectAttachmentId { get; set; }
+    public required TerraformValue<string> InterconnectAttachmentId { get; set; }
 
     /// <summary>
     /// Labels associated with this resource.
@@ -79,7 +79,7 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The Google Cloud region to which the target Distributed Cloud Edge zone belongs.
@@ -87,14 +87,14 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// IP (L3) MTU value of the virtual edge cloud. Default value is &#39;1500&#39;. Possible values are: &#39;1500&#39;, &#39;9000&#39;.
     /// </summary>
     [TerraformPropertyName("mtu")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Mtu { get; set; }
+    public TerraformValue<double>? Mtu { get; set; }
 
     /// <summary>
     /// The ID of the network to which this interconnect attachment belongs.
@@ -103,14 +103,14 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformPropertyName("network")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
+    public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// VLAN ID provided by user. Must be site-wise unique.
@@ -118,7 +118,7 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VlanId is required")]
     [TerraformPropertyName("vlan_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> VlanId { get; set; }
+    public required TerraformValue<double> VlanId { get; set; }
 
     /// <summary>
     /// The name of the target Distributed Cloud Edge zone.
@@ -126,14 +126,14 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     [TerraformPropertyName("zone")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Zone { get; set; }
+    public required TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleEdgenetworkInterconnectAttachmentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleEdgenetworkInterconnectAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the resource was created.
@@ -142,14 +142,14 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The canonical name of this resource, with format
@@ -157,7 +157,7 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -165,7 +165,7 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The time when the resource was last updated.
@@ -174,6 +174,6 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

@@ -15,56 +15,56 @@ public class AwsRoute53ResolverRulesDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
     [TerraformPropertyName("name_regex")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NameRegex { get; set; }
+    public TerraformValue<string>? NameRegex { get; set; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     [TerraformPropertyName("owner_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? OwnerId { get; set; }
+    public TerraformValue<string>? OwnerId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The resolver_endpoint_id attribute.
     /// </summary>
     [TerraformPropertyName("resolver_endpoint_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ResolverEndpointId { get; set; }
+    public TerraformValue<string>? ResolverEndpointId { get; set; }
 
     /// <summary>
     /// The rule_type attribute.
     /// </summary>
     [TerraformPropertyName("rule_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RuleType { get; set; }
+    public TerraformValue<string>? RuleType { get; set; }
 
     /// <summary>
     /// The share_status attribute.
     /// </summary>
     [TerraformPropertyName("share_status")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ShareStatus { get; set; }
+    public TerraformValue<string>? ShareStatus { get; set; }
 
     /// <summary>
     /// The resolver_rule_ids attribute.
     /// </summary>
     [TerraformPropertyName("resolver_rule_ids")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> ResolverRuleIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "resolver_rule_ids");
+    public TerraformSet<string> ResolverRuleIds => new TerraformReference(this, "resolver_rule_ids");
 
 }

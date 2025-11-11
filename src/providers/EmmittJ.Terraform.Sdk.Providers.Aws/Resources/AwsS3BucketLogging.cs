@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target_grant in .
 /// Nesting mode: set
 /// </summary>
-public class AwsS3BucketLoggingTargetGrantBlock : ITerraformBlock
+public class AwsS3BucketLoggingTargetGrantBlock
 {
     /// <summary>
     /// The permission attribute.
@@ -14,7 +14,7 @@ public class AwsS3BucketLoggingTargetGrantBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     [TerraformPropertyName("permission")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Permission { get; set; }
+    public required TerraformValue<string> Permission { get; set; }
 
 }
 
@@ -22,7 +22,7 @@ public class AwsS3BucketLoggingTargetGrantBlock : ITerraformBlock
 /// Block type for target_object_key_format in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketLoggingTargetObjectKeyFormatBlock : ITerraformBlock
+public class AwsS3BucketLoggingTargetObjectKeyFormatBlock
 {
 }
 
@@ -42,28 +42,28 @@ public class AwsS3BucketLogging : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformPropertyName("bucket")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
+    public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
     [TerraformPropertyName("expected_bucket_owner")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ExpectedBucketOwner { get; set; }
+    public TerraformValue<string>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The target_bucket attribute.
@@ -71,7 +71,7 @@ public class AwsS3BucketLogging : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetBucket is required")]
     [TerraformPropertyName("target_bucket")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetBucket { get; set; }
+    public required TerraformValue<string> TargetBucket { get; set; }
 
     /// <summary>
     /// The target_prefix attribute.
@@ -79,14 +79,14 @@ public class AwsS3BucketLogging : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPrefix is required")]
     [TerraformPropertyName("target_prefix")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetPrefix { get; set; }
+    public required TerraformValue<string> TargetPrefix { get; set; }
 
     /// <summary>
     /// Block for target_grant.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("target_grant")]
-    public TerraformSet<TerraformBlock<AwsS3BucketLoggingTargetGrantBlock>>? TargetGrant { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsS3BucketLoggingTargetGrantBlock>>? TargetGrant { get; set; }
 
     /// <summary>
     /// Block for target_object_key_format.
@@ -94,6 +94,6 @@ public class AwsS3BucketLogging : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetObjectKeyFormat block(s) allowed")]
     [TerraformPropertyName("target_object_key_format")]
-    public TerraformList<TerraformBlock<AwsS3BucketLoggingTargetObjectKeyFormatBlock>>? TargetObjectKeyFormat { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsS3BucketLoggingTargetObjectKeyFormatBlock>>? TargetObjectKeyFormat { get; set; }
 
 }

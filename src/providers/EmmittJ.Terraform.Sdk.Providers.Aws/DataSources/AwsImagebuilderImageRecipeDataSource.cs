@@ -17,111 +17,111 @@ public class AwsImagebuilderImageRecipeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     [TerraformPropertyName("arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
+    public required TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Tags { get; set; } = default!;
 
     /// <summary>
     /// The ami_tags attribute.
     /// </summary>
     [TerraformPropertyName("ami_tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> AmiTags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "ami_tags");
+    public TerraformMap<string> AmiTags => new TerraformReference(this, "ami_tags");
 
     /// <summary>
     /// The block_device_mapping attribute.
     /// </summary>
     [TerraformPropertyName("block_device_mapping")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> BlockDeviceMapping => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "block_device_mapping");
+    public TerraformSet<object> BlockDeviceMapping => new TerraformReference(this, "block_device_mapping");
 
     /// <summary>
     /// The component attribute.
     /// </summary>
     [TerraformPropertyName("component")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Component => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "component");
+    public TerraformList<object> Component => new TerraformReference(this, "component");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     [TerraformPropertyName("date_created")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DateCreated => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "date_created");
+    public TerraformValue<string> DateCreated => new TerraformReference(this, "date_created");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [TerraformPropertyName("owner")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Owner => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner");
+    public TerraformValue<string> Owner => new TerraformReference(this, "owner");
 
     /// <summary>
     /// The parent_image attribute.
     /// </summary>
     [TerraformPropertyName("parent_image")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ParentImage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parent_image");
+    public TerraformValue<string> ParentImage => new TerraformReference(this, "parent_image");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     [TerraformPropertyName("platform")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Platform => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "platform");
+    public TerraformValue<string> Platform => new TerraformReference(this, "platform");
 
     /// <summary>
     /// The user_data_base64 attribute.
     /// </summary>
     [TerraformPropertyName("user_data_base64")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UserDataBase64 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_data_base64");
+    public TerraformValue<string> UserDataBase64 => new TerraformReference(this, "user_data_base64");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformPropertyName("version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
+    public TerraformValue<string> Version => new TerraformReference(this, "version");
 
     /// <summary>
     /// The working_directory attribute.
     /// </summary>
     [TerraformPropertyName("working_directory")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> WorkingDirectory => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "working_directory");
+    public TerraformValue<string> WorkingDirectory => new TerraformReference(this, "working_directory");
 
 }

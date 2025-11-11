@@ -15,35 +15,35 @@ public class GoogleStorageProjectServiceAccountDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The user_project attribute.
     /// </summary>
     [TerraformPropertyName("user_project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserProject { get; set; }
+    public TerraformValue<string>? UserProject { get; set; }
 
     /// <summary>
     /// The email_address attribute.
     /// </summary>
     [TerraformPropertyName("email_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EmailAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "email_address");
+    public TerraformValue<string> EmailAddress => new TerraformReference(this, "email_address");
 
     /// <summary>
     /// The member attribute.
     /// </summary>
     [TerraformPropertyName("member")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Member => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "member");
+    public TerraformValue<string> Member => new TerraformReference(this, "member");
 
 }

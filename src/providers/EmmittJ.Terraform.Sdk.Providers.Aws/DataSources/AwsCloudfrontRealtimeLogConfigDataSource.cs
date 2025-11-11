@@ -15,8 +15,8 @@ public class AwsCloudfrontRealtimeLogConfigDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -24,34 +24,34 @@ public class AwsCloudfrontRealtimeLogConfigDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [TerraformPropertyName("endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Endpoint => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "endpoint");
+    public TerraformList<object> Endpoint => new TerraformReference(this, "endpoint");
 
     /// <summary>
     /// The fields attribute.
     /// </summary>
     [TerraformPropertyName("fields")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> Fields => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "fields");
+    public TerraformSet<string> Fields => new TerraformReference(this, "fields");
 
     /// <summary>
     /// The sampling_rate attribute.
     /// </summary>
     [TerraformPropertyName("sampling_rate")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> SamplingRate => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "sampling_rate");
+    public TerraformValue<double> SamplingRate => new TerraformReference(this, "sampling_rate");
 
 }

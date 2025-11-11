@@ -15,35 +15,35 @@ public class GoogleNetblockIpRangesDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The range_type attribute.
     /// </summary>
     [TerraformPropertyName("range_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RangeType { get; set; }
+    public TerraformValue<string>? RangeType { get; set; }
 
     /// <summary>
     /// The cidr_blocks attribute.
     /// </summary>
     [TerraformPropertyName("cidr_blocks")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> CidrBlocks => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "cidr_blocks");
+    public TerraformList<string> CidrBlocks => new TerraformReference(this, "cidr_blocks");
 
     /// <summary>
     /// The cidr_blocks_ipv4 attribute.
     /// </summary>
     [TerraformPropertyName("cidr_blocks_ipv4")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> CidrBlocksIpv4 => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "cidr_blocks_ipv4");
+    public TerraformList<string> CidrBlocksIpv4 => new TerraformReference(this, "cidr_blocks_ipv4");
 
     /// <summary>
     /// The cidr_blocks_ipv6 attribute.
     /// </summary>
     [TerraformPropertyName("cidr_blocks_ipv6")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> CidrBlocksIpv6 => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "cidr_blocks_ipv6");
+    public TerraformList<string> CidrBlocksIpv6 => new TerraformReference(this, "cidr_blocks_ipv6");
 
 }

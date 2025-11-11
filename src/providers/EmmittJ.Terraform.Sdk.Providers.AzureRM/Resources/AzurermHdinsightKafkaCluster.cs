@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for component_version in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterComponentVersionBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterComponentVersionBlock
 {
     /// <summary>
     /// The kafka attribute.
@@ -14,7 +14,7 @@ public class AzurermHdinsightKafkaClusterComponentVersionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kafka is required")]
     [TerraformPropertyName("kafka")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Kafka { get; set; }
+    public required TerraformValue<string> Kafka { get; set; }
 
 }
 
@@ -22,21 +22,21 @@ public class AzurermHdinsightKafkaClusterComponentVersionBlock : ITerraformBlock
 /// Block type for compute_isolation in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterComputeIsolationBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterComputeIsolationBlock
 {
     /// <summary>
     /// The compute_isolation_enabled attribute.
     /// </summary>
     [TerraformPropertyName("compute_isolation_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ComputeIsolationEnabled { get; set; }
+    public TerraformValue<bool>? ComputeIsolationEnabled { get; set; }
 
     /// <summary>
     /// The host_sku attribute.
     /// </summary>
     [TerraformPropertyName("host_sku")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? HostSku { get; set; }
+    public TerraformValue<string>? HostSku { get; set; }
 
 }
 
@@ -44,35 +44,35 @@ public class AzurermHdinsightKafkaClusterComputeIsolationBlock : ITerraformBlock
 /// Block type for disk_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterDiskEncryptionBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterDiskEncryptionBlock
 {
     /// <summary>
     /// The encryption_algorithm attribute.
     /// </summary>
     [TerraformPropertyName("encryption_algorithm")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EncryptionAlgorithm { get; set; }
+    public TerraformValue<string>? EncryptionAlgorithm { get; set; }
 
     /// <summary>
     /// The encryption_at_host_enabled attribute.
     /// </summary>
     [TerraformPropertyName("encryption_at_host_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EncryptionAtHostEnabled { get; set; }
+    public TerraformValue<bool>? EncryptionAtHostEnabled { get; set; }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
     [TerraformPropertyName("key_vault_key_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KeyVaultKeyId { get; set; }
+    public TerraformValue<string>? KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The key_vault_managed_identity_id attribute.
     /// </summary>
     [TerraformPropertyName("key_vault_managed_identity_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KeyVaultManagedIdentityId { get; set; }
+    public TerraformValue<string>? KeyVaultManagedIdentityId { get; set; }
 
 }
 
@@ -80,7 +80,7 @@ public class AzurermHdinsightKafkaClusterDiskEncryptionBlock : ITerraformBlock
 /// Block type for extension in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterExtensionBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterExtensionBlock
 {
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -88,7 +88,7 @@ public class AzurermHdinsightKafkaClusterExtensionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     [TerraformPropertyName("log_analytics_workspace_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LogAnalyticsWorkspaceId { get; set; }
+    public required TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The primary_key attribute.
@@ -96,7 +96,7 @@ public class AzurermHdinsightKafkaClusterExtensionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
     [TerraformPropertyName("primary_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PrimaryKey { get; set; }
+    public required TerraformValue<string> PrimaryKey { get; set; }
 
 }
 
@@ -104,7 +104,7 @@ public class AzurermHdinsightKafkaClusterExtensionBlock : ITerraformBlock
 /// Block type for gateway in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterGatewayBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterGatewayBlock
 {
     /// <summary>
     /// The password attribute.
@@ -112,7 +112,7 @@ public class AzurermHdinsightKafkaClusterGatewayBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     [TerraformPropertyName("password")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
+    public required TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// The username attribute.
@@ -120,7 +120,7 @@ public class AzurermHdinsightKafkaClusterGatewayBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformPropertyName("username")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
+    public required TerraformValue<string> Username { get; set; }
 
 }
 
@@ -128,7 +128,7 @@ public class AzurermHdinsightKafkaClusterGatewayBlock : ITerraformBlock
 /// Block type for metastores in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterMetastoresBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterMetastoresBlock
 {
 }
 
@@ -136,7 +136,7 @@ public class AzurermHdinsightKafkaClusterMetastoresBlock : ITerraformBlock
 /// Block type for monitor in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterMonitorBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterMonitorBlock
 {
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -144,7 +144,7 @@ public class AzurermHdinsightKafkaClusterMonitorBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     [TerraformPropertyName("log_analytics_workspace_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LogAnalyticsWorkspaceId { get; set; }
+    public required TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The primary_key attribute.
@@ -152,7 +152,7 @@ public class AzurermHdinsightKafkaClusterMonitorBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
     [TerraformPropertyName("primary_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PrimaryKey { get; set; }
+    public required TerraformValue<string> PrimaryKey { get; set; }
 
 }
 
@@ -160,21 +160,21 @@ public class AzurermHdinsightKafkaClusterMonitorBlock : ITerraformBlock
 /// Block type for network in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterNetworkBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterNetworkBlock
 {
     /// <summary>
     /// The connection_direction attribute.
     /// </summary>
     [TerraformPropertyName("connection_direction")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConnectionDirection { get; set; }
+    public TerraformValue<string>? ConnectionDirection { get; set; }
 
     /// <summary>
     /// The private_link_enabled attribute.
     /// </summary>
     [TerraformPropertyName("private_link_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? PrivateLinkEnabled { get; set; }
+    public TerraformValue<bool>? PrivateLinkEnabled { get; set; }
 
 }
 
@@ -182,7 +182,7 @@ public class AzurermHdinsightKafkaClusterNetworkBlock : ITerraformBlock
 /// Block type for private_link_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock
 {
     /// <summary>
     /// The group_id attribute.
@@ -190,7 +190,7 @@ public class AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     [TerraformPropertyName("group_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GroupId { get; set; }
+    public required TerraformValue<string> GroupId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -198,7 +198,7 @@ public class AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -206,7 +206,7 @@ public class AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock : ITerraf
 /// Block type for rest_proxy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterRestProxyBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterRestProxyBlock
 {
     /// <summary>
     /// The security_group_id attribute.
@@ -214,7 +214,7 @@ public class AzurermHdinsightKafkaClusterRestProxyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
     [TerraformPropertyName("security_group_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SecurityGroupId { get; set; }
+    public required TerraformValue<string> SecurityGroupId { get; set; }
 
     /// <summary>
     /// The security_group_name attribute.
@@ -222,7 +222,7 @@ public class AzurermHdinsightKafkaClusterRestProxyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupName is required")]
     [TerraformPropertyName("security_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SecurityGroupName { get; set; }
+    public required TerraformValue<string> SecurityGroupName { get; set; }
 
 }
 
@@ -230,7 +230,7 @@ public class AzurermHdinsightKafkaClusterRestProxyBlock : ITerraformBlock
 /// Block type for roles in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterRolesBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterRolesBlock
 {
 }
 
@@ -238,7 +238,7 @@ public class AzurermHdinsightKafkaClusterRolesBlock : ITerraformBlock
 /// Block type for security_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterSecurityProfileBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterSecurityProfileBlock
 {
     /// <summary>
     /// The aadds_resource_id attribute.
@@ -246,14 +246,14 @@ public class AzurermHdinsightKafkaClusterSecurityProfileBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AaddsResourceId is required")]
     [TerraformPropertyName("aadds_resource_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AaddsResourceId { get; set; }
+    public required TerraformValue<string> AaddsResourceId { get; set; }
 
     /// <summary>
     /// The cluster_users_group_dns attribute.
     /// </summary>
     [TerraformPropertyName("cluster_users_group_dns")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? ClusterUsersGroupDns { get; set; }
+    public TerraformSet<string>? ClusterUsersGroupDns { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
@@ -261,7 +261,7 @@ public class AzurermHdinsightKafkaClusterSecurityProfileBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformPropertyName("domain_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
+    public required TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The domain_user_password attribute.
@@ -269,7 +269,7 @@ public class AzurermHdinsightKafkaClusterSecurityProfileBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUserPassword is required")]
     [TerraformPropertyName("domain_user_password")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DomainUserPassword { get; set; }
+    public required TerraformValue<string> DomainUserPassword { get; set; }
 
     /// <summary>
     /// The domain_username attribute.
@@ -277,7 +277,7 @@ public class AzurermHdinsightKafkaClusterSecurityProfileBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUsername is required")]
     [TerraformPropertyName("domain_username")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DomainUsername { get; set; }
+    public required TerraformValue<string> DomainUsername { get; set; }
 
     /// <summary>
     /// The ldaps_urls attribute.
@@ -285,7 +285,7 @@ public class AzurermHdinsightKafkaClusterSecurityProfileBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LdapsUrls is required")]
     [TerraformPropertyName("ldaps_urls")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? LdapsUrls { get; set; }
+    public required TerraformSet<string> LdapsUrls { get; set; }
 
     /// <summary>
     /// The msi_resource_id attribute.
@@ -293,7 +293,7 @@ public class AzurermHdinsightKafkaClusterSecurityProfileBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MsiResourceId is required")]
     [TerraformPropertyName("msi_resource_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MsiResourceId { get; set; }
+    public required TerraformValue<string> MsiResourceId { get; set; }
 
 }
 
@@ -301,7 +301,7 @@ public class AzurermHdinsightKafkaClusterSecurityProfileBlock : ITerraformBlock
 /// Block type for storage_account in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterStorageAccountBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterStorageAccountBlock
 {
     /// <summary>
     /// The is_default attribute.
@@ -309,7 +309,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
     [TerraformPropertyName("is_default")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> IsDefault { get; set; }
+    public required TerraformValue<bool> IsDefault { get; set; }
 
     /// <summary>
     /// The storage_account_key attribute.
@@ -317,7 +317,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     [TerraformPropertyName("storage_account_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StorageAccountKey { get; set; }
+    public required TerraformValue<string> StorageAccountKey { get; set; }
 
     /// <summary>
     /// The storage_container_id attribute.
@@ -325,14 +325,14 @@ public class AzurermHdinsightKafkaClusterStorageAccountBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
     [TerraformPropertyName("storage_container_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StorageContainerId { get; set; }
+    public required TerraformValue<string> StorageContainerId { get; set; }
 
     /// <summary>
     /// The storage_resource_id attribute.
     /// </summary>
     [TerraformPropertyName("storage_resource_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StorageResourceId { get; set; }
+    public TerraformValue<string>? StorageResourceId { get; set; }
 
 }
 
@@ -340,7 +340,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountBlock : ITerraformBlock
 /// Block type for storage_account_gen2 in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightKafkaClusterStorageAccountGen2Block : ITerraformBlock
+public class AzurermHdinsightKafkaClusterStorageAccountGen2Block
 {
     /// <summary>
     /// The filesystem_id attribute.
@@ -348,7 +348,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountGen2Block : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilesystemId is required")]
     [TerraformPropertyName("filesystem_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FilesystemId { get; set; }
+    public required TerraformValue<string> FilesystemId { get; set; }
 
     /// <summary>
     /// The is_default attribute.
@@ -356,7 +356,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountGen2Block : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
     [TerraformPropertyName("is_default")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> IsDefault { get; set; }
+    public required TerraformValue<bool> IsDefault { get; set; }
 
     /// <summary>
     /// The managed_identity_resource_id attribute.
@@ -364,7 +364,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountGen2Block : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityResourceId is required")]
     [TerraformPropertyName("managed_identity_resource_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ManagedIdentityResourceId { get; set; }
+    public required TerraformValue<string> ManagedIdentityResourceId { get; set; }
 
     /// <summary>
     /// The storage_resource_id attribute.
@@ -372,7 +372,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountGen2Block : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageResourceId is required")]
     [TerraformPropertyName("storage_resource_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StorageResourceId { get; set; }
+    public required TerraformValue<string> StorageResourceId { get; set; }
 
 }
 
@@ -380,35 +380,35 @@ public class AzurermHdinsightKafkaClusterStorageAccountGen2Block : ITerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermHdinsightKafkaClusterTimeoutsBlock : ITerraformBlock
+public class AzurermHdinsightKafkaClusterTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -428,21 +428,21 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
     [TerraformPropertyName("cluster_version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClusterVersion { get; set; }
+    public required TerraformValue<string> ClusterVersion { get; set; }
 
     /// <summary>
     /// The encryption_in_transit_enabled attribute.
     /// </summary>
     [TerraformPropertyName("encryption_in_transit_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EncryptionInTransitEnabled { get; set; }
+    public TerraformValue<bool>? EncryptionInTransitEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -450,7 +450,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -458,7 +458,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -466,14 +466,14 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tier attribute.
@@ -481,14 +481,14 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     [TerraformPropertyName("tier")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Tier { get; set; }
+    public required TerraformValue<string> Tier { get; set; }
 
     /// <summary>
     /// The tls_min_version attribute.
     /// </summary>
     [TerraformPropertyName("tls_min_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TlsMinVersion { get; set; }
+    public TerraformValue<string>? TlsMinVersion { get; set; }
 
     /// <summary>
     /// Block for component_version.
@@ -498,7 +498,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComponentVersion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComponentVersion block(s) allowed")]
     [TerraformPropertyName("component_version")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterComponentVersionBlock>>? ComponentVersion { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterComponentVersionBlock>>? ComponentVersion { get; set; }
 
     /// <summary>
     /// Block for compute_isolation.
@@ -506,14 +506,14 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeIsolation block(s) allowed")]
     [TerraformPropertyName("compute_isolation")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterComputeIsolationBlock>>? ComputeIsolation { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterComputeIsolationBlock>>? ComputeIsolation { get; set; }
 
     /// <summary>
     /// Block for disk_encryption.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("disk_encryption")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterDiskEncryptionBlock>>? DiskEncryption { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterDiskEncryptionBlock>>? DiskEncryption { get; set; }
 
     /// <summary>
     /// Block for extension.
@@ -521,7 +521,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extension block(s) allowed")]
     [TerraformPropertyName("extension")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterExtensionBlock>>? Extension { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterExtensionBlock>>? Extension { get; set; }
 
     /// <summary>
     /// Block for gateway.
@@ -531,7 +531,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Gateway block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
     [TerraformPropertyName("gateway")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterGatewayBlock>>? Gateway { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterGatewayBlock>>? Gateway { get; set; }
 
     /// <summary>
     /// Block for metastores.
@@ -539,7 +539,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metastores block(s) allowed")]
     [TerraformPropertyName("metastores")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterMetastoresBlock>>? Metastores { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterMetastoresBlock>>? Metastores { get; set; }
 
     /// <summary>
     /// Block for monitor.
@@ -547,7 +547,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitor block(s) allowed")]
     [TerraformPropertyName("monitor")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterMonitorBlock>>? Monitor { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterMonitorBlock>>? Monitor { get; set; }
 
     /// <summary>
     /// Block for network.
@@ -555,7 +555,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
     [TerraformPropertyName("network")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterNetworkBlock>>? Network { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterNetworkBlock>>? Network { get; set; }
 
     /// <summary>
     /// Block for private_link_configuration.
@@ -563,7 +563,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLinkConfiguration block(s) allowed")]
     [TerraformPropertyName("private_link_configuration")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock>>? PrivateLinkConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock>>? PrivateLinkConfiguration { get; set; }
 
     /// <summary>
     /// Block for rest_proxy.
@@ -571,7 +571,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestProxy block(s) allowed")]
     [TerraformPropertyName("rest_proxy")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterRestProxyBlock>>? RestProxy { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterRestProxyBlock>>? RestProxy { get; set; }
 
     /// <summary>
     /// Block for roles.
@@ -581,7 +581,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Roles block(s) allowed")]
     [TerraformPropertyName("roles")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterRolesBlock>>? Roles { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterRolesBlock>>? Roles { get; set; }
 
     /// <summary>
     /// Block for security_profile.
@@ -589,14 +589,14 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
     [TerraformPropertyName("security_profile")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterSecurityProfileBlock>>? SecurityProfile { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterSecurityProfileBlock>>? SecurityProfile { get; set; }
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("storage_account")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterStorageAccountBlock>>? StorageAccount { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterStorageAccountBlock>>? StorageAccount { get; set; }
 
     /// <summary>
     /// Block for storage_account_gen2.
@@ -604,34 +604,34 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccountGen2 block(s) allowed")]
     [TerraformPropertyName("storage_account_gen2")]
-    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterStorageAccountGen2Block>>? StorageAccountGen2 { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterStorageAccountGen2Block>>? StorageAccountGen2 { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermHdinsightKafkaClusterTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermHdinsightKafkaClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The https_endpoint attribute.
     /// </summary>
     [TerraformPropertyName("https_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> HttpsEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "https_endpoint");
+    public TerraformValue<string> HttpsEndpoint => new TerraformReference(this, "https_endpoint");
 
     /// <summary>
     /// The kafka_rest_proxy_endpoint attribute.
     /// </summary>
     [TerraformPropertyName("kafka_rest_proxy_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KafkaRestProxyEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kafka_rest_proxy_endpoint");
+    public TerraformValue<string> KafkaRestProxyEndpoint => new TerraformReference(this, "kafka_rest_proxy_endpoint");
 
     /// <summary>
     /// The ssh_endpoint attribute.
     /// </summary>
     [TerraformPropertyName("ssh_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SshEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ssh_endpoint");
+    public TerraformValue<string> SshEndpoint => new TerraformReference(this, "ssh_endpoint");
 
 }

@@ -17,13 +17,13 @@ public class AwsIamAccountAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountAlias is required")]
     [TerraformPropertyName("account_alias")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AccountAlias { get; set; }
+    public required TerraformValue<string> AccountAlias { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for index_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFirestoreFieldIndexConfigBlock : ITerraformBlock
+public class GoogleFirestoreFieldIndexConfigBlock
 {
 }
 
@@ -14,28 +14,28 @@ public class GoogleFirestoreFieldIndexConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirestoreFieldTimeoutsBlock : ITerraformBlock
+public class GoogleFirestoreFieldTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -43,14 +43,8 @@ public class GoogleFirestoreFieldTimeoutsBlock : ITerraformBlock
 /// Block type for ttl_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFirestoreFieldTtlConfigBlock : ITerraformBlock
+public class GoogleFirestoreFieldTtlConfigBlock
 {
-    /// <summary>
-    /// The state of TTL (time-to-live) configuration for documents that have this Field set.
-    /// </summary>
-    [TerraformPropertyName("state")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>("", "state");
 
 }
 
@@ -70,14 +64,14 @@ public class GoogleFirestoreField : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     [TerraformPropertyName("collection")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Collection { get; set; }
+    public required TerraformValue<string> Collection { get; set; }
 
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
     [TerraformPropertyName("database")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Database { get; set; }
+    public TerraformValue<string>? Database { get; set; }
 
     /// <summary>
     /// The id of the field to configure.
@@ -85,21 +79,21 @@ public class GoogleFirestoreField : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     [TerraformPropertyName("field")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Field { get; set; }
+    public required TerraformValue<string> Field { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for index_config.
@@ -107,14 +101,14 @@ public class GoogleFirestoreField : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexConfig block(s) allowed")]
     [TerraformPropertyName("index_config")]
-    public TerraformList<TerraformBlock<GoogleFirestoreFieldIndexConfigBlock>>? IndexConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleFirestoreFieldIndexConfigBlock>>? IndexConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleFirestoreFieldTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleFirestoreFieldTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for ttl_config.
@@ -122,7 +116,7 @@ public class GoogleFirestoreField : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TtlConfig block(s) allowed")]
     [TerraformPropertyName("ttl_config")]
-    public TerraformList<TerraformBlock<GoogleFirestoreFieldTtlConfigBlock>>? TtlConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleFirestoreFieldTtlConfigBlock>>? TtlConfig { get; set; }
 
     /// <summary>
     /// The name of this field. Format:
@@ -130,6 +124,6 @@ public class GoogleFirestoreField : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

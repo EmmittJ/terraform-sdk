@@ -39,7 +39,7 @@ public class TerraformValueResolverTests
     public Task PrepareValue_WithList_PreparesAllItems()
     {
         // Arrange
-        var list = new List<TerraformProperty<string>>
+        var list = new List<TerraformValue<string>>
         {
             new TerraformLiteralProperty<string>("item1"),
             new TerraformLiteralProperty<string>("item2"),
@@ -58,7 +58,7 @@ public class TerraformValueResolverTests
     public Task PrepareValue_WithHashSet_PreparesAllItems()
     {
         // Arrange
-        var set = new HashSet<TerraformProperty<string>>
+        var set = new HashSet<TerraformValue<string>>
         {
             new TerraformLiteralProperty<string>("a"),
             new TerraformLiteralProperty<string>("b")
@@ -76,7 +76,7 @@ public class TerraformValueResolverTests
     public Task PrepareValue_WithDictionary_PreparesAllValues()
     {
         // Arrange
-        var dict = new Dictionary<string, TerraformProperty<int>>
+        var dict = new Dictionary<string, TerraformValue<int>>
         {
             ["one"] = new TerraformLiteralProperty<int>(1),
             ["two"] = new TerraformLiteralProperty<int>(2)
@@ -132,7 +132,7 @@ public class TerraformValueResolverTests
     public Task ResolveValue_WithList_ResolvesToListExpression()
     {
         // Arrange
-        var list = new List<TerraformProperty<int>>
+        var list = new List<TerraformValue<int>>
         {
             new TerraformLiteralProperty<int>(1),
             new TerraformLiteralProperty<int>(2),
@@ -150,7 +150,7 @@ public class TerraformValueResolverTests
     public Task ResolveValue_WithHashSet_ResolvesToListExpression()
     {
         // Arrange
-        var set = new HashSet<TerraformProperty<string>>
+        var set = new HashSet<TerraformValue<string>>
         {
             new TerraformLiteralProperty<string>("a"),
             new TerraformLiteralProperty<string>("b")
@@ -167,7 +167,7 @@ public class TerraformValueResolverTests
     public Task ResolveValue_WithDictionary_ResolvesToMapExpression()
     {
         // Arrange
-        var dict = new Dictionary<string, TerraformProperty<string>>
+        var dict = new Dictionary<string, TerraformValue<string>>
         {
             ["key1"] = new TerraformLiteralProperty<string>("value1"),
             ["key2"] = new TerraformLiteralProperty<string>("value2")
@@ -215,13 +215,13 @@ public class TerraformValueResolverTests
         var blocks = new List<TestBlock>
         {
             new TestBlock()
-                .WithProperty("tags", new Dictionary<string, TerraformProperty<string>>
+                .WithProperty("tags", new Dictionary<string, TerraformValue<string>>
                 {
                     ["env"] = new TerraformLiteralProperty<string>("dev"),
                     ["owner"] = new TerraformLiteralProperty<string>("team")
                 }),
             new TestBlock()
-                .WithProperty("tags", new Dictionary<string, TerraformProperty<string>>
+                .WithProperty("tags", new Dictionary<string, TerraformValue<string>>
                 {
                     ["env"] = new TerraformLiteralProperty<string>("prod")
                 })
@@ -238,9 +238,11 @@ public class TerraformValueResolverTests
     /// <summary>
     /// Test block for testing purposes.
     /// </summary>
-    private class TestBlock : TerraformBlock
+    private class TestBlock : TerraformBlock<object>
     {
-        public new TestBlock WithProperty(string key, object? value, int? priority = null)
+        public TestBlock() : base("", "") { }
+
+        public TestBlock WithProperty(string key, object? value, int? priority = null)
         {
             base.WithProperty(key, value, priority);
             return this;

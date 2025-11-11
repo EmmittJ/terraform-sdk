@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationApiAccessTimeoutsBlock : ITerraformBlock
+public class AzureadApplicationApiAccessTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public class AzureadApplicationApiAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiClientId is required")]
     [TerraformPropertyName("api_client_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ApiClientId { get; set; }
+    public required TerraformValue<string> ApiClientId { get; set; }
 
     /// <summary>
     /// The resource ID of the application to which this API access is granted
@@ -61,34 +61,34 @@ public class AzureadApplicationApiAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     [TerraformPropertyName("application_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
+    public required TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// A set of role IDs to be granted to the application, as published by the API
     /// </summary>
     [TerraformPropertyName("role_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? RoleIds { get; set; }
+    public TerraformSet<string>? RoleIds { get; set; }
 
     /// <summary>
     /// A set of scope IDs to be granted to the application, as published by the API
     /// </summary>
     [TerraformPropertyName("scope_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? ScopeIds { get; set; }
+    public TerraformSet<string>? ScopeIds { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzureadApplicationApiAccessTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzureadApplicationApiAccessTimeoutsBlock>? Timeouts { get; set; }
 
 }

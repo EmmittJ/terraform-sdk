@@ -16,7 +16,7 @@ public class AwsServicequotasTemplatesDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("aws_region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AwsRegion { get; set; }
+    public TerraformValue<string>? AwsRegion { get; set; }
 
     /// <summary>
     /// The region attribute.
@@ -24,20 +24,20 @@ public class AwsServicequotasTemplatesDataSource : TerraformDataSource
     [Obsolete("This property is deprecated.")]
     [TerraformPropertyName("region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The templates attribute.
     /// </summary>
     [TerraformPropertyName("templates")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Templates => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "templates");
+    public TerraformList<object> Templates => new TerraformReference(this, "templates");
 
 }

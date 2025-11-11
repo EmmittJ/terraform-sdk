@@ -15,15 +15,15 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The resource name of the instance.
@@ -31,56 +31,56 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Indicates whether the instance is protected against deletion.
     /// </summary>
     [TerraformPropertyName("deletion_protection_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> DeletionProtectionEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection_enabled");
+    public TerraformValue<bool> DeletionProtectionEnabled => new TerraformReference(this, "deletion_protection_enabled");
 
     /// <summary>
     /// The reason for enabling deletion protection.
     /// </summary>
     [TerraformPropertyName("deletion_protection_reason")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DeletionProtectionReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deletion_protection_reason");
+    public TerraformValue<string> DeletionProtectionReason => new TerraformReference(this, "deletion_protection_reason");
 
     /// <summary>
     /// A description of the instance.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Output only fields for replication configuration.
     /// </summary>
     [TerraformPropertyName("effective_replication")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> EffectiveReplication => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "effective_replication");
+    public TerraformList<object> EffectiveReplication => new TerraformReference(this, "effective_replication");
 
     /// <summary>
     /// Server-specified ETag for the instance resource to prevent
@@ -88,7 +88,7 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// File system shares on the instance. For this version, only a
@@ -96,7 +96,7 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("file_shares")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> FileShares => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "file_shares");
+    public TerraformList<object> FileShares => new TerraformReference(this, "file_shares");
 
     /// <summary>
     /// Replication configuration, once set, this cannot be updated.
@@ -104,14 +104,14 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("initial_replication")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> InitialReplication => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "initial_replication");
+    public TerraformList<object> InitialReplication => new TerraformReference(this, "initial_replication");
 
     /// <summary>
     /// KMS key name used for data encryption.
     /// </summary>
     [TerraformPropertyName("kms_key_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsKeyName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_name");
+    public TerraformValue<string> KmsKeyName => new TerraformReference(this, "kms_key_name");
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -122,7 +122,7 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// VPC networks to which the instance is connected. For this version,
@@ -130,7 +130,7 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("networks")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Networks => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "networks");
+    public TerraformList<object> Networks => new TerraformReference(this, "networks");
 
     /// <summary>
     /// Performance configuration for the instance. If not provided,
@@ -138,7 +138,7 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("performance_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PerformanceConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "performance_config");
+    public TerraformList<object> PerformanceConfig => new TerraformReference(this, "performance_config");
 
     /// <summary>
     /// Either NFSv3, for using NFS version 3 as file sharing protocol,
@@ -148,7 +148,7 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("protocol")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Protocol => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protocol");
+    public TerraformValue<string> Protocol => new TerraformReference(this, "protocol");
 
     /// <summary>
     /// A map of resource manager tags. Resource manager tag keys
@@ -163,7 +163,7 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -171,7 +171,7 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The service tier of the instance.
@@ -179,13 +179,13 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("tier")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Tier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tier");
+    public TerraformValue<string> Tier => new TerraformReference(this, "tier");
 
     /// <summary>
     /// The name of the Filestore zone of the instance.
     /// </summary>
     [TerraformPropertyName("zone")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Zone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
+    public TerraformValue<string> Zone => new TerraformReference(this, "zone");
 
 }

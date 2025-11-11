@@ -15,8 +15,8 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the subscription.
@@ -24,14 +24,14 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// This value is the maximum time after a subscriber receives a message
@@ -55,7 +55,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("ack_deadline_seconds")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> AckDeadlineSeconds => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ack_deadline_seconds");
+    public TerraformValue<double> AckDeadlineSeconds => new TerraformReference(this, "ack_deadline_seconds");
 
     /// <summary>
     /// If delivery to BigQuery is used with this subscription, this field is used to configure it.
@@ -64,7 +64,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("bigquery_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> BigqueryConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "bigquery_config");
+    public TerraformList<object> BigqueryConfig => new TerraformReference(this, "bigquery_config");
 
     /// <summary>
     /// If delivery to Cloud Storage is used with this subscription, this field is used to configure it.
@@ -73,7 +73,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("cloud_storage_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CloudStorageConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cloud_storage_config");
+    public TerraformList<object> CloudStorageConfig => new TerraformReference(this, "cloud_storage_config");
 
     /// <summary>
     /// A policy that specifies the conditions for dead lettering messages in
@@ -87,14 +87,14 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("dead_letter_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> DeadLetterPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "dead_letter_policy");
+    public TerraformList<object> DeadLetterPolicy => new TerraformReference(this, "dead_letter_policy");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// If &#39;true&#39;, Pub/Sub provides the following guarantees for the delivery
@@ -109,7 +109,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("enable_exactly_once_delivery")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> EnableExactlyOnceDelivery => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_exactly_once_delivery");
+    public TerraformValue<bool> EnableExactlyOnceDelivery => new TerraformReference(this, "enable_exactly_once_delivery");
 
     /// <summary>
     /// If &#39;true&#39;, messages published with the same orderingKey in PubsubMessage will be delivered to
@@ -118,7 +118,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("enable_message_ordering")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> EnableMessageOrdering => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_message_ordering");
+    public TerraformValue<bool> EnableMessageOrdering => new TerraformReference(this, "enable_message_ordering");
 
     /// <summary>
     /// A policy that specifies the conditions for this subscription&#39;s expiration.
@@ -131,7 +131,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("expiration_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ExpirationPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "expiration_policy");
+    public TerraformList<object> ExpirationPolicy => new TerraformReference(this, "expiration_policy");
 
     /// <summary>
     /// The subscription only delivers the messages that match the filter.
@@ -141,7 +141,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("filter")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Filter => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "filter");
+    public TerraformValue<string> Filter => new TerraformReference(this, "filter");
 
     /// <summary>
     /// A set of key/value label pairs to assign to this Subscription.
@@ -152,7 +152,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// How long to retain unacknowledged messages in the subscription&#39;s
@@ -167,7 +167,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("message_retention_duration")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MessageRetentionDuration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "message_retention_duration");
+    public TerraformValue<string> MessageRetentionDuration => new TerraformReference(this, "message_retention_duration");
 
     /// <summary>
     /// Transforms to be applied to messages published to the topic. Transforms are applied in the
@@ -175,7 +175,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("message_transforms")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MessageTransforms => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "message_transforms");
+    public TerraformList<object> MessageTransforms => new TerraformReference(this, "message_transforms");
 
     /// <summary>
     /// If push delivery is used with this subscription, this field is used to
@@ -184,7 +184,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("push_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PushConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "push_config");
+    public TerraformList<object> PushConfig => new TerraformReference(this, "push_config");
 
     /// <summary>
     /// Indicates whether to retain acknowledged messages. If &#39;true&#39;, then
@@ -194,7 +194,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("retain_acked_messages")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> RetainAckedMessages => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "retain_acked_messages");
+    public TerraformValue<bool> RetainAckedMessages => new TerraformReference(this, "retain_acked_messages");
 
     /// <summary>
     /// A policy that specifies how Pub/Sub retries message delivery for this subscription.
@@ -204,7 +204,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("retry_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> RetryPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "retry_policy");
+    public TerraformList<object> RetryPolicy => new TerraformReference(this, "retry_policy");
 
     /// <summary>
     /// Input only. Resource manager tags to be bound to the subscription. Tag
@@ -218,7 +218,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -226,7 +226,7 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// A reference to a Topic resource, of the form projects/{project}/topics/{{name}}
@@ -235,6 +235,6 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("topic")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Topic => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "topic");
+    public TerraformValue<string> Topic => new TerraformReference(this, "topic");
 
 }

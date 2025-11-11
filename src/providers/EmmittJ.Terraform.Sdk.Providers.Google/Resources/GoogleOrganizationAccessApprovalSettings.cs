@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for enrolled_services in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleOrganizationAccessApprovalSettingsEnrolledServicesBlock : ITerraformBlock
+public class GoogleOrganizationAccessApprovalSettingsEnrolledServicesBlock
 {
     /// <summary>
     /// The product for which Access Approval will be enrolled. Allowed values are listed (case-sensitive):
@@ -24,14 +24,14 @@ public class GoogleOrganizationAccessApprovalSettingsEnrolledServicesBlock : ITe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudProduct is required")]
     [TerraformPropertyName("cloud_product")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CloudProduct { get; set; }
+    public required TerraformValue<string> CloudProduct { get; set; }
 
     /// <summary>
     /// The enrollment level of the service. Default value: &amp;quot;BLOCK_ALL&amp;quot; Possible values: [&amp;quot;BLOCK_ALL&amp;quot;]
     /// </summary>
     [TerraformPropertyName("enrollment_level")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EnrollmentLevel { get; set; }
+    public TerraformValue<string>? EnrollmentLevel { get; set; }
 
 }
 
@@ -39,28 +39,28 @@ public class GoogleOrganizationAccessApprovalSettingsEnrolledServicesBlock : ITe
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleOrganizationAccessApprovalSettingsTimeoutsBlock : ITerraformBlock
+public class GoogleOrganizationAccessApprovalSettingsTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -80,14 +80,14 @@ public class GoogleOrganizationAccessApprovalSettings : TerraformResource
     /// </summary>
     [TerraformPropertyName("active_key_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ActiveKeyVersion { get; set; }
+    public TerraformValue<string>? ActiveKeyVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// A list of email addresses to which notifications relating to approval requests should be sent.
@@ -95,8 +95,8 @@ public class GoogleOrganizationAccessApprovalSettings : TerraformResource
     /// resources of that resource. A maximum of 50 email addresses are allowed.
     /// </summary>
     [TerraformPropertyName("notification_emails")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<HashSet<TerraformProperty<string>>> NotificationEmails { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "notification_emails");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformSet<string> NotificationEmails { get; set; } = default!;
 
     /// <summary>
     /// ID of the organization of the access approval settings.
@@ -104,7 +104,7 @@ public class GoogleOrganizationAccessApprovalSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
     [TerraformPropertyName("organization_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OrganizationId { get; set; }
+    public required TerraformValue<string> OrganizationId { get; set; }
 
     /// <summary>
     /// Block for enrolled_services.
@@ -113,28 +113,28 @@ public class GoogleOrganizationAccessApprovalSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrolledServices is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnrolledServices block(s) required")]
     [TerraformPropertyName("enrolled_services")]
-    public TerraformSet<TerraformBlock<GoogleOrganizationAccessApprovalSettingsEnrolledServicesBlock>>? EnrolledServices { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleOrganizationAccessApprovalSettingsEnrolledServicesBlock>>? EnrolledServices { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleOrganizationAccessApprovalSettingsTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleOrganizationAccessApprovalSettingsTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// This field will always be unset for the organization since organizations do not have ancestors.
     /// </summary>
     [TerraformPropertyName("ancestor_has_active_key_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> AncestorHasActiveKeyVersion => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "ancestor_has_active_key_version");
+    public TerraformValue<bool> AncestorHasActiveKeyVersion => new TerraformReference(this, "ancestor_has_active_key_version");
 
     /// <summary>
     /// This field will always be unset for the organization since organizations do not have ancestors.
     /// </summary>
     [TerraformPropertyName("enrolled_ancestor")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> EnrolledAncestor => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enrolled_ancestor");
+    public TerraformValue<bool> EnrolledAncestor => new TerraformReference(this, "enrolled_ancestor");
 
     /// <summary>
     /// If the field is true, that indicates that there is some configuration issue with the active_key_version
@@ -143,13 +143,13 @@ public class GoogleOrganizationAccessApprovalSettings : TerraformResource
     /// </summary>
     [TerraformPropertyName("invalid_key_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> InvalidKeyVersion => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "invalid_key_version");
+    public TerraformValue<bool> InvalidKeyVersion => new TerraformReference(this, "invalid_key_version");
 
     /// <summary>
     /// The resource name of the settings. Format is &amp;quot;organizations/{organization_id}/accessApprovalSettings&amp;quot;
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

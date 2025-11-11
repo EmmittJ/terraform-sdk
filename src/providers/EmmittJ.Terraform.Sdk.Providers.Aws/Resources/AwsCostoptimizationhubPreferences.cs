@@ -15,21 +15,21 @@ public class AwsCostoptimizationhubPreferences : TerraformResource
     /// The member_account_discount_visibility attribute.
     /// </summary>
     [TerraformPropertyName("member_account_discount_visibility")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> MemberAccountDiscountVisibility { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "member_account_discount_visibility");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> MemberAccountDiscountVisibility { get; set; } = default!;
 
     /// <summary>
     /// The savings_estimation_mode attribute.
     /// </summary>
     [TerraformPropertyName("savings_estimation_mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> SavingsEstimationMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "savings_estimation_mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> SavingsEstimationMode { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

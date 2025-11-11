@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for snapshot_delivery_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock : ITerraformBlock
+public class AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock
 {
     /// <summary>
     /// The delivery_frequency attribute.
     /// </summary>
     [TerraformPropertyName("delivery_frequency")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeliveryFrequency { get; set; }
+    public TerraformValue<string>? DeliveryFrequency { get; set; }
 
 }
 
@@ -31,22 +31,22 @@ public class AwsConfigDeliveryChannel : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
+    public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The s3_bucket_name attribute.
@@ -54,28 +54,28 @@ public class AwsConfigDeliveryChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     [TerraformPropertyName("s3_bucket_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> S3BucketName { get; set; }
+    public required TerraformValue<string> S3BucketName { get; set; }
 
     /// <summary>
     /// The s3_key_prefix attribute.
     /// </summary>
     [TerraformPropertyName("s3_key_prefix")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? S3KeyPrefix { get; set; }
+    public TerraformValue<string>? S3KeyPrefix { get; set; }
 
     /// <summary>
     /// The s3_kms_key_arn attribute.
     /// </summary>
     [TerraformPropertyName("s3_kms_key_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? S3KmsKeyArn { get; set; }
+    public TerraformValue<string>? S3KmsKeyArn { get; set; }
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
     [TerraformPropertyName("sns_topic_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SnsTopicArn { get; set; }
+    public TerraformValue<string>? SnsTopicArn { get; set; }
 
     /// <summary>
     /// Block for snapshot_delivery_properties.
@@ -83,6 +83,6 @@ public class AwsConfigDeliveryChannel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotDeliveryProperties block(s) allowed")]
     [TerraformPropertyName("snapshot_delivery_properties")]
-    public TerraformList<TerraformBlock<AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock>>? SnapshotDeliveryProperties { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock>>? SnapshotDeliveryProperties { get; set; }
 
 }

@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKustoClusterManagedPrivateEndpointTimeoutsBlock : ITerraformBlock
+public class AzurermKustoClusterManagedPrivateEndpointTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public class AzurermKustoClusterManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     [TerraformPropertyName("cluster_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClusterName { get; set; }
+    public required TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The group_id attribute.
@@ -61,14 +61,14 @@ public class AzurermKustoClusterManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     [TerraformPropertyName("group_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GroupId { get; set; }
+    public required TerraformValue<string> GroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -76,7 +76,7 @@ public class AzurermKustoClusterManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_link_resource_id attribute.
@@ -84,21 +84,21 @@ public class AzurermKustoClusterManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkResourceId is required")]
     [TerraformPropertyName("private_link_resource_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PrivateLinkResourceId { get; set; }
+    public required TerraformValue<string> PrivateLinkResourceId { get; set; }
 
     /// <summary>
     /// The private_link_resource_region attribute.
     /// </summary>
     [TerraformPropertyName("private_link_resource_region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PrivateLinkResourceRegion { get; set; }
+    public TerraformValue<string>? PrivateLinkResourceRegion { get; set; }
 
     /// <summary>
     /// The request_message attribute.
     /// </summary>
     [TerraformPropertyName("request_message")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RequestMessage { get; set; }
+    public TerraformValue<string>? RequestMessage { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -106,13 +106,13 @@ public class AzurermKustoClusterManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermKustoClusterManagedPrivateEndpointTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermKustoClusterManagedPrivateEndpointTimeoutsBlock>? Timeouts { get; set; }
 
 }

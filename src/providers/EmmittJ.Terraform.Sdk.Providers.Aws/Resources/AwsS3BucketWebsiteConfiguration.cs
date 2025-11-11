@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for error_document in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketWebsiteConfigurationErrorDocumentBlock : ITerraformBlock
+public class AwsS3BucketWebsiteConfigurationErrorDocumentBlock
 {
     /// <summary>
     /// The key attribute.
@@ -14,7 +14,7 @@ public class AwsS3BucketWebsiteConfigurationErrorDocumentBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformPropertyName("key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
+    public required TerraformValue<string> Key { get; set; }
 
 }
 
@@ -22,7 +22,7 @@ public class AwsS3BucketWebsiteConfigurationErrorDocumentBlock : ITerraformBlock
 /// Block type for index_document in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketWebsiteConfigurationIndexDocumentBlock : ITerraformBlock
+public class AwsS3BucketWebsiteConfigurationIndexDocumentBlock
 {
     /// <summary>
     /// The suffix attribute.
@@ -30,7 +30,7 @@ public class AwsS3BucketWebsiteConfigurationIndexDocumentBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Suffix is required")]
     [TerraformPropertyName("suffix")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Suffix { get; set; }
+    public required TerraformValue<string> Suffix { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public class AwsS3BucketWebsiteConfigurationIndexDocumentBlock : ITerraformBlock
 /// Block type for redirect_all_requests_to in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock : ITerraformBlock
+public class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock
 {
     /// <summary>
     /// The host_name attribute.
@@ -46,14 +46,14 @@ public class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     [TerraformPropertyName("host_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HostName { get; set; }
+    public required TerraformValue<string> HostName { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [TerraformPropertyName("protocol")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Protocol { get; set; }
+    public TerraformValue<string>? Protocol { get; set; }
 
 }
 
@@ -61,7 +61,7 @@ public class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock : ITerraf
 /// Block type for routing_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketWebsiteConfigurationRoutingRuleBlock : ITerraformBlock
+public class AwsS3BucketWebsiteConfigurationRoutingRuleBlock
 {
 }
 
@@ -81,35 +81,35 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformPropertyName("bucket")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
+    public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
     [TerraformPropertyName("expected_bucket_owner")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ExpectedBucketOwner { get; set; }
+    public TerraformValue<string>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The routing_rules attribute.
     /// </summary>
     [TerraformPropertyName("routing_rules")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> RoutingRules { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "routing_rules");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> RoutingRules { get; set; } = default!;
 
     /// <summary>
     /// Block for error_document.
@@ -117,7 +117,7 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ErrorDocument block(s) allowed")]
     [TerraformPropertyName("error_document")]
-    public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationErrorDocumentBlock>>? ErrorDocument { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationErrorDocumentBlock>>? ErrorDocument { get; set; }
 
     /// <summary>
     /// Block for index_document.
@@ -125,7 +125,7 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexDocument block(s) allowed")]
     [TerraformPropertyName("index_document")]
-    public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationIndexDocumentBlock>>? IndexDocument { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationIndexDocumentBlock>>? IndexDocument { get; set; }
 
     /// <summary>
     /// Block for redirect_all_requests_to.
@@ -133,27 +133,27 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedirectAllRequestsTo block(s) allowed")]
     [TerraformPropertyName("redirect_all_requests_to")]
-    public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock>>? RedirectAllRequestsTo { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock>>? RedirectAllRequestsTo { get; set; }
 
     /// <summary>
     /// Block for routing_rule.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("routing_rule")]
-    public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationRoutingRuleBlock>>? RoutingRule { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationRoutingRuleBlock>>? RoutingRule { get; set; }
 
     /// <summary>
     /// The website_domain attribute.
     /// </summary>
     [TerraformPropertyName("website_domain")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> WebsiteDomain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "website_domain");
+    public TerraformValue<string> WebsiteDomain => new TerraformReference(this, "website_domain");
 
     /// <summary>
     /// The website_endpoint attribute.
     /// </summary>
     [TerraformPropertyName("website_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> WebsiteEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "website_endpoint");
+    public TerraformValue<string> WebsiteEndpoint => new TerraformReference(this, "website_endpoint");
 
 }

@@ -15,70 +15,70 @@ public class GoogleComputeInstanceGroupDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
+    public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> SelfLink { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> SelfLink { get; set; } = default!;
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
     [TerraformPropertyName("zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Zone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Zone { get; set; } = default!;
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
     [TerraformPropertyName("instances")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> Instances => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "instances");
+    public TerraformSet<string> Instances => new TerraformReference(this, "instances");
 
     /// <summary>
     /// The named_port attribute.
     /// </summary>
     [TerraformPropertyName("named_port")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> NamedPort => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "named_port");
+    public TerraformList<object> NamedPort => new TerraformReference(this, "named_port");
 
     /// <summary>
     /// The network attribute.
     /// </summary>
     [TerraformPropertyName("network")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Network => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network");
+    public TerraformValue<string> Network => new TerraformReference(this, "network");
 
     /// <summary>
     /// The size attribute.
     /// </summary>
     [TerraformPropertyName("size")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Size => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "size");
+    public TerraformValue<double> Size => new TerraformReference(this, "size");
 
 }

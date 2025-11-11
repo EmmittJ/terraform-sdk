@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cipher_suite in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeVpnTunnelCipherSuiteBlock : ITerraformBlock
+public class GoogleComputeVpnTunnelCipherSuiteBlock
 {
 }
 
@@ -14,28 +14,28 @@ public class GoogleComputeVpnTunnelCipherSuiteBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeVpnTunnelTimeoutsBlock : ITerraformBlock
+public class GoogleComputeVpnTunnelTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,14 +54,14 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// IKE protocol version to use when establishing the VPN tunnel with
@@ -70,7 +70,7 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// </summary>
     [TerraformPropertyName("ike_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? IkeVersion { get; set; }
+    public TerraformValue<double>? IkeVersion { get; set; }
 
     /// <summary>
     /// Labels to apply to this VpnTunnel.
@@ -80,7 +80,7 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Local traffic selector to use when establishing the VPN tunnel with
@@ -89,8 +89,8 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// Only IPv4 is supported.
     /// </summary>
     [TerraformPropertyName("local_traffic_selector")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<HashSet<TerraformProperty<string>>> LocalTrafficSelector { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "local_traffic_selector");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformSet<string> LocalTrafficSelector { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long, and
@@ -104,21 +104,21 @@ public class GoogleComputeVpnTunnel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// URL of the peer side external VPN gateway to which this VPN tunnel is connected.
     /// </summary>
     [TerraformPropertyName("peer_external_gateway")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PeerExternalGateway { get; set; }
+    public TerraformValue<string>? PeerExternalGateway { get; set; }
 
     /// <summary>
     /// The interface ID of the external VPN gateway to which this VPN tunnel is connected.
     /// </summary>
     [TerraformPropertyName("peer_external_gateway_interface")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? PeerExternalGatewayInterface { get; set; }
+    public TerraformValue<double>? PeerExternalGatewayInterface { get; set; }
 
     /// <summary>
     /// URL of the peer side HA GCP VPN gateway to which this VPN tunnel is connected.
@@ -128,28 +128,28 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// </summary>
     [TerraformPropertyName("peer_gcp_gateway")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PeerGcpGateway { get; set; }
+    public TerraformValue<string>? PeerGcpGateway { get; set; }
 
     /// <summary>
     /// IP address of the peer VPN gateway. Only IPv4 is supported.
     /// </summary>
     [TerraformPropertyName("peer_ip")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PeerIp { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_ip");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PeerIp { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The region where the tunnel is located. If unset, is set to the region of &#39;target_vpn_gateway&#39;.
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Remote traffic selector to use when establishing the VPN tunnel with
@@ -158,15 +158,15 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// Only IPv4 is supported.
     /// </summary>
     [TerraformPropertyName("remote_traffic_selector")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<HashSet<TerraformProperty<string>>> RemoteTrafficSelector { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "remote_traffic_selector");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformSet<string> RemoteTrafficSelector { get; set; } = default!;
 
     /// <summary>
     /// URL of router resource to be used for dynamic routing.
     /// </summary>
     [TerraformPropertyName("router")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Router { get; set; }
+    public TerraformValue<string>? Router { get; set; }
 
     /// <summary>
     /// Shared secret used to set the secure session between the Cloud VPN
@@ -174,7 +174,7 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// </summary>
     [TerraformPropertyName("shared_secret")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SharedSecret { get; set; }
+    public TerraformValue<string>? SharedSecret { get; set; }
 
     /// <summary>
     /// Shared secret used to set the secure session between the Cloud VPN
@@ -183,14 +183,14 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// </summary>
     [TerraformPropertyName("shared_secret_wo")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SharedSecretWo { get; set; }
+    public TerraformValue<string>? SharedSecretWo { get; set; }
 
     /// <summary>
     /// Triggers update of shared_secret_wo write-only. For more info see [updating write-only attributes](/docs/providers/google/guides/using_write_only_attributes.html#updating-write-only-attributes)
     /// </summary>
     [TerraformPropertyName("shared_secret_wo_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SharedSecretWoVersion { get; set; }
+    public TerraformValue<string>? SharedSecretWoVersion { get; set; }
 
     /// <summary>
     /// URL of the Target VPN gateway with which this VPN tunnel is
@@ -198,7 +198,7 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// </summary>
     [TerraformPropertyName("target_vpn_gateway")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TargetVpnGateway { get; set; }
+    public TerraformValue<string>? TargetVpnGateway { get; set; }
 
     /// <summary>
     /// URL of the VPN gateway with which this VPN tunnel is associated.
@@ -207,14 +207,14 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// </summary>
     [TerraformPropertyName("vpn_gateway")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VpnGateway { get; set; }
+    public TerraformValue<string>? VpnGateway { get; set; }
 
     /// <summary>
     /// The interface ID of the VPN gateway with which this VPN tunnel is associated.
     /// </summary>
     [TerraformPropertyName("vpn_gateway_interface")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? VpnGatewayInterface { get; set; }
+    public TerraformValue<double>? VpnGatewayInterface { get; set; }
 
     /// <summary>
     /// Block for cipher_suite.
@@ -222,35 +222,35 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CipherSuite block(s) allowed")]
     [TerraformPropertyName("cipher_suite")]
-    public TerraformList<TerraformBlock<GoogleComputeVpnTunnelCipherSuiteBlock>>? CipherSuite { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeVpnTunnelCipherSuiteBlock>>? CipherSuite { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeVpnTunnelTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeVpnTunnelTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// Detailed status message for the VPN tunnel.
     /// </summary>
     [TerraformPropertyName("detailed_status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DetailedStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "detailed_status");
+    public TerraformValue<string> DetailedStatus => new TerraformReference(this, "detailed_status");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
@@ -258,21 +258,21 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// </summary>
     [TerraformPropertyName("label_fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LabelFingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "label_fingerprint");
+    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// Hash of the shared secret.
     /// </summary>
     [TerraformPropertyName("shared_secret_hash")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SharedSecretHash => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "shared_secret_hash");
+    public TerraformValue<string> SharedSecretHash => new TerraformReference(this, "shared_secret_hash");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -280,13 +280,13 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformPropertyName("tunnel_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TunnelId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tunnel_id");
+    public TerraformValue<string> TunnelId => new TerraformReference(this, "tunnel_id");
 
 }

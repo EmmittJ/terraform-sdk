@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for storage_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConnectInstanceStorageConfigStorageConfigBlock : ITerraformBlock
+public class AwsConnectInstanceStorageConfigStorageConfigBlock
 {
     /// <summary>
     /// The storage_type attribute.
@@ -14,7 +14,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
     [TerraformPropertyName("storage_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StorageType { get; set; }
+    public required TerraformValue<string> StorageType { get; set; }
 
 }
 
@@ -32,8 +32,8 @@ public class AwsConnectInstanceStorageConfig : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The instance_id attribute.
@@ -41,14 +41,14 @@ public class AwsConnectInstanceStorageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformPropertyName("instance_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
+    public required TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The resource_type attribute.
@@ -56,7 +56,7 @@ public class AwsConnectInstanceStorageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     [TerraformPropertyName("resource_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceType { get; set; }
+    public required TerraformValue<string> ResourceType { get; set; }
 
     /// <summary>
     /// Block for storage_config.
@@ -66,13 +66,13 @@ public class AwsConnectInstanceStorageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageConfig block(s) allowed")]
     [TerraformPropertyName("storage_config")]
-    public TerraformList<TerraformBlock<AwsConnectInstanceStorageConfigStorageConfigBlock>>? StorageConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsConnectInstanceStorageConfigStorageConfigBlock>>? StorageConfig { get; set; }
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     [TerraformPropertyName("association_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AssociationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "association_id");
+    public TerraformValue<string> AssociationId => new TerraformReference(this, "association_id");
 
 }

@@ -15,8 +15,8 @@ public class GoogleServiceNetworkingPeeredDnsDomainDataSource : TerraformDataSou
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -24,7 +24,7 @@ public class GoogleServiceNetworkingPeeredDnsDomainDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network attribute.
@@ -32,7 +32,7 @@ public class GoogleServiceNetworkingPeeredDnsDomainDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformPropertyName("network")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
+    public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The project attribute.
@@ -40,7 +40,7 @@ public class GoogleServiceNetworkingPeeredDnsDomainDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformPropertyName("project")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Project { get; set; }
+    public required TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The service attribute.
@@ -48,20 +48,20 @@ public class GoogleServiceNetworkingPeeredDnsDomainDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformPropertyName("service")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Service { get; set; }
+    public required TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// The dns_suffix attribute.
     /// </summary>
     [TerraformPropertyName("dns_suffix")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DnsSuffix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_suffix");
+    public TerraformValue<string> DnsSuffix => new TerraformReference(this, "dns_suffix");
 
     /// <summary>
     /// The parent attribute.
     /// </summary>
     [TerraformPropertyName("parent")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Parent => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parent");
+    public TerraformValue<string> Parent => new TerraformReference(this, "parent");
 
 }

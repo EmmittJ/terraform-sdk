@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDevCenterProjectPoolDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermDevCenterProjectPoolDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public class AzurermDevCenterProjectPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
     [TerraformPropertyName("dev_center_project_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DevCenterProjectId { get; set; }
+    public required TerraformValue<string> DevCenterProjectId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -47,62 +47,62 @@ public class AzurermDevCenterProjectPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDevCenterProjectPoolDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDevCenterProjectPoolDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The dev_box_definition_name attribute.
     /// </summary>
     [TerraformPropertyName("dev_box_definition_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DevBoxDefinitionName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dev_box_definition_name");
+    public TerraformValue<string> DevBoxDefinitionName => new TerraformReference(this, "dev_box_definition_name");
 
     /// <summary>
     /// The dev_center_attached_network_name attribute.
     /// </summary>
     [TerraformPropertyName("dev_center_attached_network_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DevCenterAttachedNetworkName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dev_center_attached_network_name");
+    public TerraformValue<string> DevCenterAttachedNetworkName => new TerraformReference(this, "dev_center_attached_network_name");
 
     /// <summary>
     /// The local_administrator_enabled attribute.
     /// </summary>
     [TerraformPropertyName("local_administrator_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> LocalAdministratorEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "local_administrator_enabled");
+    public TerraformValue<bool> LocalAdministratorEnabled => new TerraformReference(this, "local_administrator_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The single_sign_on_enabled attribute.
     /// </summary>
     [TerraformPropertyName("single_sign_on_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> SingleSignOnEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "single_sign_on_enabled");
+    public TerraformValue<bool> SingleSignOnEnabled => new TerraformReference(this, "single_sign_on_enabled");
 
     /// <summary>
     /// The stop_on_disconnect_grace_period_minutes attribute.
     /// </summary>
     [TerraformPropertyName("stop_on_disconnect_grace_period_minutes")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> StopOnDisconnectGracePeriodMinutes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "stop_on_disconnect_grace_period_minutes");
+    public TerraformValue<double> StopOnDisconnectGracePeriodMinutes => new TerraformReference(this, "stop_on_disconnect_grace_period_minutes");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
 }

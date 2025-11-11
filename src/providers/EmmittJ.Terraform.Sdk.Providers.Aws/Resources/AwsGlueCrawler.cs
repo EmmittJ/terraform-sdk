@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for catalog_target in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCrawlerCatalogTargetBlock : ITerraformBlock
+public class AwsGlueCrawlerCatalogTargetBlock
 {
     /// <summary>
     /// The connection_name attribute.
     /// </summary>
     [TerraformPropertyName("connection_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConnectionName { get; set; }
+    public TerraformValue<string>? ConnectionName { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -21,21 +21,21 @@ public class AwsGlueCrawlerCatalogTargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformPropertyName("database_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
+    public required TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The dlq_event_queue_arn attribute.
     /// </summary>
     [TerraformPropertyName("dlq_event_queue_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DlqEventQueueArn { get; set; }
+    public TerraformValue<string>? DlqEventQueueArn { get; set; }
 
     /// <summary>
     /// The event_queue_arn attribute.
     /// </summary>
     [TerraformPropertyName("event_queue_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EventQueueArn { get; set; }
+    public TerraformValue<string>? EventQueueArn { get; set; }
 
     /// <summary>
     /// The tables attribute.
@@ -43,7 +43,7 @@ public class AwsGlueCrawlerCatalogTargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tables is required")]
     [TerraformPropertyName("tables")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? Tables { get; set; }
+    public TerraformList<string>? Tables { get; set; }
 
 }
 
@@ -51,21 +51,21 @@ public class AwsGlueCrawlerCatalogTargetBlock : ITerraformBlock
 /// Block type for delta_target in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCrawlerDeltaTargetBlock : ITerraformBlock
+public class AwsGlueCrawlerDeltaTargetBlock
 {
     /// <summary>
     /// The connection_name attribute.
     /// </summary>
     [TerraformPropertyName("connection_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConnectionName { get; set; }
+    public TerraformValue<string>? ConnectionName { get; set; }
 
     /// <summary>
     /// The create_native_delta_table attribute.
     /// </summary>
     [TerraformPropertyName("create_native_delta_table")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? CreateNativeDeltaTable { get; set; }
+    public TerraformValue<bool>? CreateNativeDeltaTable { get; set; }
 
     /// <summary>
     /// The delta_tables attribute.
@@ -73,7 +73,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeltaTables is required")]
     [TerraformPropertyName("delta_tables")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? DeltaTables { get; set; }
+    public required TerraformSet<string> DeltaTables { get; set; }
 
     /// <summary>
     /// The write_manifest attribute.
@@ -81,7 +81,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WriteManifest is required")]
     [TerraformPropertyName("write_manifest")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> WriteManifest { get; set; }
+    public required TerraformValue<bool> WriteManifest { get; set; }
 
 }
 
@@ -89,7 +89,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : ITerraformBlock
 /// Block type for dynamodb_target in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCrawlerDynamodbTargetBlock : ITerraformBlock
+public class AwsGlueCrawlerDynamodbTargetBlock
 {
     /// <summary>
     /// The path attribute.
@@ -97,21 +97,21 @@ public class AwsGlueCrawlerDynamodbTargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     [TerraformPropertyName("path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Path { get; set; }
+    public required TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// The scan_all attribute.
     /// </summary>
     [TerraformPropertyName("scan_all")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ScanAll { get; set; }
+    public TerraformValue<bool>? ScanAll { get; set; }
 
     /// <summary>
     /// The scan_rate attribute.
     /// </summary>
     [TerraformPropertyName("scan_rate")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? ScanRate { get; set; }
+    public TerraformValue<double>? ScanRate { get; set; }
 
 }
 
@@ -119,21 +119,21 @@ public class AwsGlueCrawlerDynamodbTargetBlock : ITerraformBlock
 /// Block type for hudi_target in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCrawlerHudiTargetBlock : ITerraformBlock
+public class AwsGlueCrawlerHudiTargetBlock
 {
     /// <summary>
     /// The connection_name attribute.
     /// </summary>
     [TerraformPropertyName("connection_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConnectionName { get; set; }
+    public TerraformValue<string>? ConnectionName { get; set; }
 
     /// <summary>
     /// The exclusions attribute.
     /// </summary>
     [TerraformPropertyName("exclusions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Exclusions { get; set; }
+    public TerraformList<string>? Exclusions { get; set; }
 
     /// <summary>
     /// The maximum_traversal_depth attribute.
@@ -141,7 +141,7 @@ public class AwsGlueCrawlerHudiTargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumTraversalDepth is required")]
     [TerraformPropertyName("maximum_traversal_depth")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> MaximumTraversalDepth { get; set; }
+    public required TerraformValue<double> MaximumTraversalDepth { get; set; }
 
     /// <summary>
     /// The paths attribute.
@@ -149,7 +149,7 @@ public class AwsGlueCrawlerHudiTargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     [TerraformPropertyName("paths")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Paths { get; set; }
+    public required TerraformSet<string> Paths { get; set; }
 
 }
 
@@ -157,21 +157,21 @@ public class AwsGlueCrawlerHudiTargetBlock : ITerraformBlock
 /// Block type for iceberg_target in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCrawlerIcebergTargetBlock : ITerraformBlock
+public class AwsGlueCrawlerIcebergTargetBlock
 {
     /// <summary>
     /// The connection_name attribute.
     /// </summary>
     [TerraformPropertyName("connection_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConnectionName { get; set; }
+    public TerraformValue<string>? ConnectionName { get; set; }
 
     /// <summary>
     /// The exclusions attribute.
     /// </summary>
     [TerraformPropertyName("exclusions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Exclusions { get; set; }
+    public TerraformList<string>? Exclusions { get; set; }
 
     /// <summary>
     /// The maximum_traversal_depth attribute.
@@ -179,7 +179,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumTraversalDepth is required")]
     [TerraformPropertyName("maximum_traversal_depth")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> MaximumTraversalDepth { get; set; }
+    public required TerraformValue<double> MaximumTraversalDepth { get; set; }
 
     /// <summary>
     /// The paths attribute.
@@ -187,7 +187,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     [TerraformPropertyName("paths")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Paths { get; set; }
+    public required TerraformSet<string> Paths { get; set; }
 
 }
 
@@ -195,7 +195,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : ITerraformBlock
 /// Block type for jdbc_target in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCrawlerJdbcTargetBlock : ITerraformBlock
+public class AwsGlueCrawlerJdbcTargetBlock
 {
     /// <summary>
     /// The connection_name attribute.
@@ -203,21 +203,21 @@ public class AwsGlueCrawlerJdbcTargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
     [TerraformPropertyName("connection_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConnectionName { get; set; }
+    public required TerraformValue<string> ConnectionName { get; set; }
 
     /// <summary>
     /// The enable_additional_metadata attribute.
     /// </summary>
     [TerraformPropertyName("enable_additional_metadata")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? EnableAdditionalMetadata { get; set; }
+    public TerraformList<string>? EnableAdditionalMetadata { get; set; }
 
     /// <summary>
     /// The exclusions attribute.
     /// </summary>
     [TerraformPropertyName("exclusions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Exclusions { get; set; }
+    public TerraformList<string>? Exclusions { get; set; }
 
     /// <summary>
     /// The path attribute.
@@ -225,7 +225,7 @@ public class AwsGlueCrawlerJdbcTargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     [TerraformPropertyName("path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Path { get; set; }
+    public required TerraformValue<string> Path { get; set; }
 
 }
 
@@ -233,21 +233,21 @@ public class AwsGlueCrawlerJdbcTargetBlock : ITerraformBlock
 /// Block type for lake_formation_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCrawlerLakeFormationConfigurationBlock : ITerraformBlock
+public class AwsGlueCrawlerLakeFormationConfigurationBlock
 {
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [TerraformPropertyName("account_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "account_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AccountId { get; set; } = default!;
 
     /// <summary>
     /// The use_lake_formation_credentials attribute.
     /// </summary>
     [TerraformPropertyName("use_lake_formation_credentials")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? UseLakeFormationCredentials { get; set; }
+    public TerraformValue<bool>? UseLakeFormationCredentials { get; set; }
 
 }
 
@@ -255,14 +255,14 @@ public class AwsGlueCrawlerLakeFormationConfigurationBlock : ITerraformBlock
 /// Block type for lineage_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCrawlerLineageConfigurationBlock : ITerraformBlock
+public class AwsGlueCrawlerLineageConfigurationBlock
 {
     /// <summary>
     /// The crawler_lineage_settings attribute.
     /// </summary>
     [TerraformPropertyName("crawler_lineage_settings")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CrawlerLineageSettings { get; set; }
+    public TerraformValue<string>? CrawlerLineageSettings { get; set; }
 
 }
 
@@ -270,7 +270,7 @@ public class AwsGlueCrawlerLineageConfigurationBlock : ITerraformBlock
 /// Block type for mongodb_target in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCrawlerMongodbTargetBlock : ITerraformBlock
+public class AwsGlueCrawlerMongodbTargetBlock
 {
     /// <summary>
     /// The connection_name attribute.
@@ -278,7 +278,7 @@ public class AwsGlueCrawlerMongodbTargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
     [TerraformPropertyName("connection_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConnectionName { get; set; }
+    public required TerraformValue<string> ConnectionName { get; set; }
 
     /// <summary>
     /// The path attribute.
@@ -286,14 +286,14 @@ public class AwsGlueCrawlerMongodbTargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     [TerraformPropertyName("path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Path { get; set; }
+    public required TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// The scan_all attribute.
     /// </summary>
     [TerraformPropertyName("scan_all")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ScanAll { get; set; }
+    public TerraformValue<bool>? ScanAll { get; set; }
 
 }
 
@@ -301,14 +301,14 @@ public class AwsGlueCrawlerMongodbTargetBlock : ITerraformBlock
 /// Block type for recrawl_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCrawlerRecrawlPolicyBlock : ITerraformBlock
+public class AwsGlueCrawlerRecrawlPolicyBlock
 {
     /// <summary>
     /// The recrawl_behavior attribute.
     /// </summary>
     [TerraformPropertyName("recrawl_behavior")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RecrawlBehavior { get; set; }
+    public TerraformValue<string>? RecrawlBehavior { get; set; }
 
 }
 
@@ -316,35 +316,35 @@ public class AwsGlueCrawlerRecrawlPolicyBlock : ITerraformBlock
 /// Block type for s3_target in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCrawlerS3TargetBlock : ITerraformBlock
+public class AwsGlueCrawlerS3TargetBlock
 {
     /// <summary>
     /// The connection_name attribute.
     /// </summary>
     [TerraformPropertyName("connection_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConnectionName { get; set; }
+    public TerraformValue<string>? ConnectionName { get; set; }
 
     /// <summary>
     /// The dlq_event_queue_arn attribute.
     /// </summary>
     [TerraformPropertyName("dlq_event_queue_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DlqEventQueueArn { get; set; }
+    public TerraformValue<string>? DlqEventQueueArn { get; set; }
 
     /// <summary>
     /// The event_queue_arn attribute.
     /// </summary>
     [TerraformPropertyName("event_queue_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EventQueueArn { get; set; }
+    public TerraformValue<string>? EventQueueArn { get; set; }
 
     /// <summary>
     /// The exclusions attribute.
     /// </summary>
     [TerraformPropertyName("exclusions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Exclusions { get; set; }
+    public TerraformList<string>? Exclusions { get; set; }
 
     /// <summary>
     /// The path attribute.
@@ -352,14 +352,14 @@ public class AwsGlueCrawlerS3TargetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     [TerraformPropertyName("path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Path { get; set; }
+    public required TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// The sample_size attribute.
     /// </summary>
     [TerraformPropertyName("sample_size")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? SampleSize { get; set; }
+    public TerraformValue<double>? SampleSize { get; set; }
 
 }
 
@@ -367,21 +367,21 @@ public class AwsGlueCrawlerS3TargetBlock : ITerraformBlock
 /// Block type for schema_change_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCrawlerSchemaChangePolicyBlock : ITerraformBlock
+public class AwsGlueCrawlerSchemaChangePolicyBlock
 {
     /// <summary>
     /// The delete_behavior attribute.
     /// </summary>
     [TerraformPropertyName("delete_behavior")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeleteBehavior { get; set; }
+    public TerraformValue<string>? DeleteBehavior { get; set; }
 
     /// <summary>
     /// The update_behavior attribute.
     /// </summary>
     [TerraformPropertyName("update_behavior")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UpdateBehavior { get; set; }
+    public TerraformValue<string>? UpdateBehavior { get; set; }
 
 }
 
@@ -400,14 +400,14 @@ public class AwsGlueCrawler : TerraformResource
     /// </summary>
     [TerraformPropertyName("classifiers")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Classifiers { get; set; }
+    public TerraformList<string>? Classifiers { get; set; }
 
     /// <summary>
     /// The configuration attribute.
     /// </summary>
     [TerraformPropertyName("configuration")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Configuration { get; set; }
+    public TerraformValue<string>? Configuration { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -415,21 +415,21 @@ public class AwsGlueCrawler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformPropertyName("database_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
+    public required TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -437,14 +437,14 @@ public class AwsGlueCrawler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The role attribute.
@@ -452,84 +452,84 @@ public class AwsGlueCrawler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [TerraformPropertyName("role")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Role { get; set; }
+    public required TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
     [TerraformPropertyName("schedule")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Schedule { get; set; }
+    public TerraformValue<string>? Schedule { get; set; }
 
     /// <summary>
     /// The security_configuration attribute.
     /// </summary>
     [TerraformPropertyName("security_configuration")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SecurityConfiguration { get; set; }
+    public TerraformValue<string>? SecurityConfiguration { get; set; }
 
     /// <summary>
     /// The table_prefix attribute.
     /// </summary>
     [TerraformPropertyName("table_prefix")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TablePrefix { get; set; }
+    public TerraformValue<string>? TablePrefix { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for catalog_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("catalog_target")]
-    public TerraformList<TerraformBlock<AwsGlueCrawlerCatalogTargetBlock>>? CatalogTarget { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueCrawlerCatalogTargetBlock>>? CatalogTarget { get; set; }
 
     /// <summary>
     /// Block for delta_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("delta_target")]
-    public TerraformList<TerraformBlock<AwsGlueCrawlerDeltaTargetBlock>>? DeltaTarget { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueCrawlerDeltaTargetBlock>>? DeltaTarget { get; set; }
 
     /// <summary>
     /// Block for dynamodb_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("dynamodb_target")]
-    public TerraformList<TerraformBlock<AwsGlueCrawlerDynamodbTargetBlock>>? DynamodbTarget { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueCrawlerDynamodbTargetBlock>>? DynamodbTarget { get; set; }
 
     /// <summary>
     /// Block for hudi_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("hudi_target")]
-    public TerraformList<TerraformBlock<AwsGlueCrawlerHudiTargetBlock>>? HudiTarget { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueCrawlerHudiTargetBlock>>? HudiTarget { get; set; }
 
     /// <summary>
     /// Block for iceberg_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("iceberg_target")]
-    public TerraformList<TerraformBlock<AwsGlueCrawlerIcebergTargetBlock>>? IcebergTarget { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueCrawlerIcebergTargetBlock>>? IcebergTarget { get; set; }
 
     /// <summary>
     /// Block for jdbc_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("jdbc_target")]
-    public TerraformList<TerraformBlock<AwsGlueCrawlerJdbcTargetBlock>>? JdbcTarget { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueCrawlerJdbcTargetBlock>>? JdbcTarget { get; set; }
 
     /// <summary>
     /// Block for lake_formation_configuration.
@@ -537,7 +537,7 @@ public class AwsGlueCrawler : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LakeFormationConfiguration block(s) allowed")]
     [TerraformPropertyName("lake_formation_configuration")]
-    public TerraformList<TerraformBlock<AwsGlueCrawlerLakeFormationConfigurationBlock>>? LakeFormationConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueCrawlerLakeFormationConfigurationBlock>>? LakeFormationConfiguration { get; set; }
 
     /// <summary>
     /// Block for lineage_configuration.
@@ -545,14 +545,14 @@ public class AwsGlueCrawler : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LineageConfiguration block(s) allowed")]
     [TerraformPropertyName("lineage_configuration")]
-    public TerraformList<TerraformBlock<AwsGlueCrawlerLineageConfigurationBlock>>? LineageConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueCrawlerLineageConfigurationBlock>>? LineageConfiguration { get; set; }
 
     /// <summary>
     /// Block for mongodb_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("mongodb_target")]
-    public TerraformList<TerraformBlock<AwsGlueCrawlerMongodbTargetBlock>>? MongodbTarget { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueCrawlerMongodbTargetBlock>>? MongodbTarget { get; set; }
 
     /// <summary>
     /// Block for recrawl_policy.
@@ -560,14 +560,14 @@ public class AwsGlueCrawler : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecrawlPolicy block(s) allowed")]
     [TerraformPropertyName("recrawl_policy")]
-    public TerraformList<TerraformBlock<AwsGlueCrawlerRecrawlPolicyBlock>>? RecrawlPolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueCrawlerRecrawlPolicyBlock>>? RecrawlPolicy { get; set; }
 
     /// <summary>
     /// Block for s3_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("s3_target")]
-    public TerraformList<TerraformBlock<AwsGlueCrawlerS3TargetBlock>>? S3Target { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueCrawlerS3TargetBlock>>? S3Target { get; set; }
 
     /// <summary>
     /// Block for schema_change_policy.
@@ -575,13 +575,13 @@ public class AwsGlueCrawler : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaChangePolicy block(s) allowed")]
     [TerraformPropertyName("schema_change_policy")]
-    public TerraformList<TerraformBlock<AwsGlueCrawlerSchemaChangePolicyBlock>>? SchemaChangePolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueCrawlerSchemaChangePolicyBlock>>? SchemaChangePolicy { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

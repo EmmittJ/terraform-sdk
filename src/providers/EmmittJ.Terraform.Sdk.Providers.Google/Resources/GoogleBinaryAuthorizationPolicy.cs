@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for admission_whitelist_patterns in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock : ITerraformBlock
+public class GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock
 {
     /// <summary>
     /// An image name pattern to whitelist, in the form
@@ -17,7 +17,7 @@ public class GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock : IT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamePattern is required")]
     [TerraformPropertyName("name_pattern")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NamePattern { get; set; }
+    public required TerraformValue<string> NamePattern { get; set; }
 
 }
 
@@ -25,7 +25,7 @@ public class GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock : IT
 /// Block type for cluster_admission_rules in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : ITerraformBlock
+public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock
 {
     /// <summary>
     /// The cluster attribute.
@@ -33,7 +33,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     [TerraformPropertyName("cluster")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Cluster { get; set; }
+    public required TerraformValue<string> Cluster { get; set; }
 
     /// <summary>
     /// The action when a pod creation is denied by the admission rule. Possible values: [&amp;quot;ENFORCED_BLOCK_AND_AUDIT_LOG&amp;quot;, &amp;quot;DRYRUN_AUDIT_LOG_ONLY&amp;quot;]
@@ -41,7 +41,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforcementMode is required")]
     [TerraformPropertyName("enforcement_mode")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EnforcementMode { get; set; }
+    public required TerraformValue<string> EnforcementMode { get; set; }
 
     /// <summary>
     /// How this admission rule will be evaluated. Possible values: [&amp;quot;ALWAYS_ALLOW&amp;quot;, &amp;quot;REQUIRE_ATTESTATION&amp;quot;, &amp;quot;ALWAYS_DENY&amp;quot;]
@@ -49,7 +49,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationMode is required")]
     [TerraformPropertyName("evaluation_mode")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EvaluationMode { get; set; }
+    public required TerraformValue<string> EvaluationMode { get; set; }
 
     /// <summary>
     /// The resource names of the attestors that must attest to a
@@ -64,7 +64,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : ITerraf
     /// </summary>
     [TerraformPropertyName("require_attestations_by")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? RequireAttestationsBy { get; set; }
+    public TerraformSet<string>? RequireAttestationsBy { get; set; }
 
 }
 
@@ -72,7 +72,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : ITerraf
 /// Block type for default_admission_rule in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : ITerraformBlock
+public class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock
 {
     /// <summary>
     /// The action when a pod creation is denied by the admission rule. Possible values: [&amp;quot;ENFORCED_BLOCK_AND_AUDIT_LOG&amp;quot;, &amp;quot;DRYRUN_AUDIT_LOG_ONLY&amp;quot;]
@@ -80,7 +80,7 @@ public class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : ITerrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforcementMode is required")]
     [TerraformPropertyName("enforcement_mode")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EnforcementMode { get; set; }
+    public required TerraformValue<string> EnforcementMode { get; set; }
 
     /// <summary>
     /// How this admission rule will be evaluated. Possible values: [&amp;quot;ALWAYS_ALLOW&amp;quot;, &amp;quot;REQUIRE_ATTESTATION&amp;quot;, &amp;quot;ALWAYS_DENY&amp;quot;]
@@ -88,7 +88,7 @@ public class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : ITerrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationMode is required")]
     [TerraformPropertyName("evaluation_mode")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EvaluationMode { get; set; }
+    public required TerraformValue<string> EvaluationMode { get; set; }
 
     /// <summary>
     /// The resource names of the attestors that must attest to a
@@ -103,7 +103,7 @@ public class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : ITerrafo
     /// </summary>
     [TerraformPropertyName("require_attestations_by")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? RequireAttestationsBy { get; set; }
+    public TerraformSet<string>? RequireAttestationsBy { get; set; }
 
 }
 
@@ -111,28 +111,28 @@ public class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : ITerrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBinaryAuthorizationPolicyTimeoutsBlock : ITerraformBlock
+public class GoogleBinaryAuthorizationPolicyTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -151,7 +151,7 @@ public class GoogleBinaryAuthorizationPolicy : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Controls the evaluation of a Google-maintained global admission policy
@@ -159,36 +159,36 @@ public class GoogleBinaryAuthorizationPolicy : TerraformResource
     /// policy will be subject to the project admission policy. Possible values: [&amp;quot;ENABLE&amp;quot;, &amp;quot;DISABLE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("global_policy_evaluation_mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> GlobalPolicyEvaluationMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "global_policy_evaluation_mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> GlobalPolicyEvaluationMode { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for admission_whitelist_patterns.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("admission_whitelist_patterns")]
-    public TerraformList<TerraformBlock<GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock>>? AdmissionWhitelistPatterns { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock>>? AdmissionWhitelistPatterns { get; set; }
 
     /// <summary>
     /// Block for cluster_admission_rules.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("cluster_admission_rules")]
-    public TerraformSet<TerraformBlock<GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock>>? ClusterAdmissionRules { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock>>? ClusterAdmissionRules { get; set; }
 
     /// <summary>
     /// Block for default_admission_rule.
@@ -198,13 +198,13 @@ public class GoogleBinaryAuthorizationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultAdmissionRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAdmissionRule block(s) allowed")]
     [TerraformPropertyName("default_admission_rule")]
-    public TerraformList<TerraformBlock<GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock>>? DefaultAdmissionRule { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock>>? DefaultAdmissionRule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleBinaryAuthorizationPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleBinaryAuthorizationPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

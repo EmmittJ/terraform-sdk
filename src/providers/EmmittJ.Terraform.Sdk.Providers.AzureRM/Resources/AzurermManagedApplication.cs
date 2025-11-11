@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermManagedApplicationPlanBlock : ITerraformBlock
+public class AzurermManagedApplicationPlanBlock
 {
     /// <summary>
     /// The name attribute.
@@ -14,7 +14,7 @@ public class AzurermManagedApplicationPlanBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The product attribute.
@@ -22,14 +22,14 @@ public class AzurermManagedApplicationPlanBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     [TerraformPropertyName("product")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Product { get; set; }
+    public required TerraformValue<string> Product { get; set; }
 
     /// <summary>
     /// The promotion_code attribute.
     /// </summary>
     [TerraformPropertyName("promotion_code")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PromotionCode { get; set; }
+    public TerraformValue<string>? PromotionCode { get; set; }
 
     /// <summary>
     /// The publisher attribute.
@@ -37,7 +37,7 @@ public class AzurermManagedApplicationPlanBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     [TerraformPropertyName("publisher")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
+    public required TerraformValue<string> Publisher { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -45,7 +45,7 @@ public class AzurermManagedApplicationPlanBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformPropertyName("version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
+    public required TerraformValue<string> Version { get; set; }
 
 }
 
@@ -53,35 +53,35 @@ public class AzurermManagedApplicationPlanBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermManagedApplicationTimeoutsBlock : ITerraformBlock
+public class AzurermManagedApplicationTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -100,14 +100,14 @@ public class AzurermManagedApplication : TerraformResource
     /// </summary>
     [TerraformPropertyName("application_definition_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ApplicationDefinitionId { get; set; }
+    public TerraformValue<string>? ApplicationDefinitionId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The kind attribute.
@@ -115,7 +115,7 @@ public class AzurermManagedApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     [TerraformPropertyName("kind")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Kind { get; set; }
+    public required TerraformValue<string> Kind { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -123,7 +123,7 @@ public class AzurermManagedApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
@@ -131,7 +131,7 @@ public class AzurermManagedApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedResourceGroupName is required")]
     [TerraformPropertyName("managed_resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ManagedResourceGroupName { get; set; }
+    public required TerraformValue<string> ManagedResourceGroupName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -139,14 +139,14 @@ public class AzurermManagedApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameter_values attribute.
     /// </summary>
     [TerraformPropertyName("parameter_values")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ParameterValues { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parameter_values");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ParameterValues { get; set; } = default!;
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -154,14 +154,14 @@ public class AzurermManagedApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for plan.
@@ -169,20 +169,20 @@ public class AzurermManagedApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformPropertyName("plan")]
-    public TerraformList<TerraformBlock<AzurermManagedApplicationPlanBlock>>? Plan { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermManagedApplicationPlanBlock>>? Plan { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermManagedApplicationTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermManagedApplicationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The outputs attribute.
     /// </summary>
     [TerraformPropertyName("outputs")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Outputs => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "outputs");
+    public TerraformMap<string> Outputs => new TerraformReference(this, "outputs");
 
 }

@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock : ITerraformBlock
+public class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     [TerraformPropertyName("application_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
+    public required TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// List of audiences that can appear in the external token. This specifies what should be accepted in the `aud` claim of incoming tokens.
@@ -61,14 +61,14 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Audiences is required")]
     [TerraformPropertyName("audiences")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? Audiences { get; set; }
+    public TerraformList<string>? Audiences { get; set; }
 
     /// <summary>
     /// A description for the federated identity credential
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A unique display name for the federated identity credential
@@ -76,14 +76,14 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The URL of the external identity provider, which must match the issuer claim of the external token being exchanged. The combination of the values of issuer and subject must be unique on the app.
@@ -91,7 +91,7 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     [TerraformPropertyName("issuer")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Issuer { get; set; }
+    public required TerraformValue<string> Issuer { get; set; }
 
     /// <summary>
     /// The identifier of the external software workload within the external identity provider. The combination of issuer and subject must be unique on the app.
@@ -99,20 +99,20 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     [TerraformPropertyName("subject")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Subject { get; set; }
+    public required TerraformValue<string> Subject { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzureadApplicationFederatedIdentityCredentialTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzureadApplicationFederatedIdentityCredentialTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A UUID used to uniquely identify this federated identity credential
     /// </summary>
     [TerraformPropertyName("credential_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CredentialId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "credential_id");
+    public TerraformValue<string> CredentialId => new TerraformReference(this, "credential_id");
 
 }

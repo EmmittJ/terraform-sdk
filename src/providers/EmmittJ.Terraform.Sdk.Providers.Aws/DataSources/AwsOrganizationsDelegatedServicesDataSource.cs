@@ -17,20 +17,20 @@ public class AwsOrganizationsDelegatedServicesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     [TerraformPropertyName("account_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AccountId { get; set; }
+    public required TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The delegated_services attribute.
     /// </summary>
     [TerraformPropertyName("delegated_services")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> DelegatedServices => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "delegated_services");
+    public TerraformSet<object> DelegatedServices => new TerraformReference(this, "delegated_services");
 
 }

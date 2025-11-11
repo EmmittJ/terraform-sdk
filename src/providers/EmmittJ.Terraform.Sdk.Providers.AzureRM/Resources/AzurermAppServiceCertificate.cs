@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAppServiceCertificateTimeoutsBlock : ITerraformBlock
+public class AzurermAppServiceCertificateTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,28 +52,28 @@ public class AzurermAppServiceCertificate : TerraformResource
     /// </summary>
     [TerraformPropertyName("app_service_plan_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AppServicePlanId { get; set; }
+    public TerraformValue<string>? AppServicePlanId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [TerraformPropertyName("key_vault_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KeyVaultId { get; set; }
+    public TerraformValue<string>? KeyVaultId { get; set; }
 
     /// <summary>
     /// The key_vault_secret_id attribute.
     /// </summary>
     [TerraformPropertyName("key_vault_secret_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KeyVaultSecretId { get; set; }
+    public TerraformValue<string>? KeyVaultSecretId { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -81,7 +81,7 @@ public class AzurermAppServiceCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -89,21 +89,21 @@ public class AzurermAppServiceCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     [TerraformPropertyName("password")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Password { get; set; }
+    public TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// The pfx_blob attribute.
     /// </summary>
     [TerraformPropertyName("pfx_blob")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PfxBlob { get; set; }
+    public TerraformValue<string>? PfxBlob { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -111,76 +111,76 @@ public class AzurermAppServiceCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermAppServiceCertificateTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermAppServiceCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     [TerraformPropertyName("expiration_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExpirationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_date");
+    public TerraformValue<string> ExpirationDate => new TerraformReference(this, "expiration_date");
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
     [TerraformPropertyName("friendly_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> FriendlyName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "friendly_name");
+    public TerraformValue<string> FriendlyName => new TerraformReference(this, "friendly_name");
 
     /// <summary>
     /// The host_names attribute.
     /// </summary>
     [TerraformPropertyName("host_names")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> HostNames => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "host_names");
+    public TerraformList<string> HostNames => new TerraformReference(this, "host_names");
 
     /// <summary>
     /// The hosting_environment_profile_id attribute.
     /// </summary>
     [TerraformPropertyName("hosting_environment_profile_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> HostingEnvironmentProfileId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hosting_environment_profile_id");
+    public TerraformValue<string> HostingEnvironmentProfileId => new TerraformReference(this, "hosting_environment_profile_id");
 
     /// <summary>
     /// The issue_date attribute.
     /// </summary>
     [TerraformPropertyName("issue_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> IssueDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "issue_date");
+    public TerraformValue<string> IssueDate => new TerraformReference(this, "issue_date");
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
     [TerraformPropertyName("issuer")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Issuer => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "issuer");
+    public TerraformValue<string> Issuer => new TerraformReference(this, "issuer");
 
     /// <summary>
     /// The subject_name attribute.
     /// </summary>
     [TerraformPropertyName("subject_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SubjectName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subject_name");
+    public TerraformValue<string> SubjectName => new TerraformReference(this, "subject_name");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     [TerraformPropertyName("thumbprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Thumbprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "thumbprint");
+    public TerraformValue<string> Thumbprint => new TerraformReference(this, "thumbprint");
 
 }

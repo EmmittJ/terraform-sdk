@@ -17,14 +17,14 @@ public class AwsS3controlAccessPointPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPointArn is required")]
     [TerraformPropertyName("access_point_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AccessPointArn { get; set; }
+    public required TerraformValue<string> AccessPointArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The policy attribute.
@@ -32,20 +32,20 @@ public class AwsS3controlAccessPointPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     [TerraformPropertyName("policy")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Policy { get; set; }
+    public required TerraformValue<string> Policy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The has_public_access_policy attribute.
     /// </summary>
     [TerraformPropertyName("has_public_access_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> HasPublicAccessPolicy => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "has_public_access_policy");
+    public TerraformValue<bool> HasPublicAccessPolicy => new TerraformReference(this, "has_public_access_policy");
 
 }

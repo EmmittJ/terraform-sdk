@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for process_interval in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleChronicleRetrohuntProcessIntervalBlock : ITerraformBlock
+public class GoogleChronicleRetrohuntProcessIntervalBlock
 {
     /// <summary>
     /// Exclusive end of the interval.
@@ -14,7 +14,7 @@ public class GoogleChronicleRetrohuntProcessIntervalBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTime is required")]
     [TerraformPropertyName("end_time")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EndTime { get; set; }
+    public required TerraformValue<string> EndTime { get; set; }
 
     /// <summary>
     /// Inclusive start of the interval.
@@ -22,7 +22,7 @@ public class GoogleChronicleRetrohuntProcessIntervalBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     [TerraformPropertyName("start_time")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StartTime { get; set; }
+    public required TerraformValue<string> StartTime { get; set; }
 
 }
 
@@ -30,21 +30,21 @@ public class GoogleChronicleRetrohuntProcessIntervalBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleChronicleRetrohuntTimeoutsBlock : ITerraformBlock
+public class GoogleChronicleRetrohuntTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -62,8 +62,8 @@ public class GoogleChronicleRetrohunt : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
@@ -71,7 +71,7 @@ public class GoogleChronicleRetrohunt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformPropertyName("instance")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
+    public required TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
@@ -79,21 +79,21 @@ public class GoogleChronicleRetrohunt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The retrohunt ID of the Retrohunt. A retrohunt is an execution of a Rule over a time range in the past.
     /// </summary>
     [TerraformPropertyName("retrohunt")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Retrohunt { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "retrohunt");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Retrohunt { get; set; } = default!;
 
     /// <summary>
     /// The Rule ID of the rule.
@@ -101,7 +101,7 @@ public class GoogleChronicleRetrohunt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [TerraformPropertyName("rule")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Rule { get; set; }
+    public required TerraformValue<string> Rule { get; set; }
 
     /// <summary>
     /// Block for process_interval.
@@ -111,14 +111,14 @@ public class GoogleChronicleRetrohunt : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProcessInterval block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProcessInterval block(s) allowed")]
     [TerraformPropertyName("process_interval")]
-    public TerraformList<TerraformBlock<GoogleChronicleRetrohuntProcessIntervalBlock>>? ProcessInterval { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleChronicleRetrohuntProcessIntervalBlock>>? ProcessInterval { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleChronicleRetrohuntTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleChronicleRetrohuntTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Represents a time interval, encoded as a Timestamp start (inclusive) and a
@@ -130,7 +130,7 @@ public class GoogleChronicleRetrohunt : TerraformResource
     /// </summary>
     [TerraformPropertyName("execution_interval")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ExecutionInterval => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "execution_interval");
+    public TerraformList<object> ExecutionInterval => new TerraformReference(this, "execution_interval");
 
     /// <summary>
     /// The resource name of the retrohunt.
@@ -141,14 +141,14 @@ public class GoogleChronicleRetrohunt : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Output only. Percent progress of the retrohunt towards completion, from 0.00 to 100.00.
     /// </summary>
     [TerraformPropertyName("progress_percentage")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ProgressPercentage => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "progress_percentage");
+    public TerraformValue<double> ProgressPercentage => new TerraformReference(this, "progress_percentage");
 
     /// <summary>
     /// Output only. The state of the retrohunt.
@@ -160,6 +160,6 @@ public class GoogleChronicleRetrohunt : TerraformResource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
 }

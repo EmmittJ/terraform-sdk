@@ -15,8 +15,8 @@ public class AwsSsmParametersByPathDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The path attribute.
@@ -24,55 +24,55 @@ public class AwsSsmParametersByPathDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     [TerraformPropertyName("path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Path { get; set; }
+    public required TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// The recursive attribute.
     /// </summary>
     [TerraformPropertyName("recursive")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Recursive { get; set; }
+    public TerraformValue<bool>? Recursive { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The with_decryption attribute.
     /// </summary>
     [TerraformPropertyName("with_decryption")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? WithDecryption { get; set; }
+    public TerraformValue<bool>? WithDecryption { get; set; }
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
     [TerraformPropertyName("arns")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Arns => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "arns");
+    public TerraformList<string> Arns => new TerraformReference(this, "arns");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
     [TerraformPropertyName("names")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Names => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "names");
+    public TerraformList<string> Names => new TerraformReference(this, "names");
 
     /// <summary>
     /// The types attribute.
     /// </summary>
     [TerraformPropertyName("types")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Types => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "types");
+    public TerraformList<string> Types => new TerraformReference(this, "types");
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [TerraformPropertyName("values")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Values => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "values");
+    public TerraformList<string> Values => new TerraformReference(this, "values");
 
 }

@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSubscriptionTimeoutsBlock : ITerraformBlock
+public class AzurermSubscriptionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -51,29 +51,29 @@ public class AzurermSubscription : TerraformResource
     /// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
     /// </summary>
     [TerraformPropertyName("alias")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Alias { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "alias");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Alias { get; set; } = default!;
 
     /// <summary>
     /// The billing_scope_id attribute.
     /// </summary>
     [TerraformPropertyName("billing_scope_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? BillingScopeId { get; set; }
+    public TerraformValue<string>? BillingScopeId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The GUID of the Subscription.
     /// </summary>
     [TerraformPropertyName("subscription_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> SubscriptionId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subscription_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> SubscriptionId { get; set; } = default!;
 
     /// <summary>
     /// The Display Name for the Subscription.
@@ -81,34 +81,34 @@ public class AzurermSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionName is required")]
     [TerraformPropertyName("subscription_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SubscriptionName { get; set; }
+    public required TerraformValue<string> SubscriptionName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The workload type for the Subscription. Possible values are `Production` (default) and `DevTest`.
     /// </summary>
     [TerraformPropertyName("workload")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Workload { get; set; }
+    public TerraformValue<string>? Workload { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermSubscriptionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermSubscriptionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The Tenant ID to which the subscription belongs
     /// </summary>
     [TerraformPropertyName("tenant_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tenant_id");
+    public TerraformValue<string> TenantId => new TerraformReference(this, "tenant_id");
 
 }

@@ -15,43 +15,43 @@ public class AwsEcrImageDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The image_digest attribute.
     /// </summary>
     [TerraformPropertyName("image_digest")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ImageDigest { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_digest");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ImageDigest { get; set; } = default!;
 
     /// <summary>
     /// The image_tag attribute.
     /// </summary>
     [TerraformPropertyName("image_tag")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ImageTag { get; set; }
+    public TerraformValue<string>? ImageTag { get; set; }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
     [TerraformPropertyName("most_recent")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? MostRecent { get; set; }
+    public TerraformValue<bool>? MostRecent { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
     [TerraformPropertyName("registry_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> RegistryId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registry_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> RegistryId { get; set; } = default!;
 
     /// <summary>
     /// The repository_name attribute.
@@ -59,34 +59,34 @@ public class AwsEcrImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     [TerraformPropertyName("repository_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RepositoryName { get; set; }
+    public required TerraformValue<string> RepositoryName { get; set; }
 
     /// <summary>
     /// The image_pushed_at attribute.
     /// </summary>
     [TerraformPropertyName("image_pushed_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ImagePushedAt => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "image_pushed_at");
+    public TerraformValue<double> ImagePushedAt => new TerraformReference(this, "image_pushed_at");
 
     /// <summary>
     /// The image_size_in_bytes attribute.
     /// </summary>
     [TerraformPropertyName("image_size_in_bytes")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ImageSizeInBytes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "image_size_in_bytes");
+    public TerraformValue<double> ImageSizeInBytes => new TerraformReference(this, "image_size_in_bytes");
 
     /// <summary>
     /// The image_tags attribute.
     /// </summary>
     [TerraformPropertyName("image_tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> ImageTags => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "image_tags");
+    public TerraformList<string> ImageTags => new TerraformReference(this, "image_tags");
 
     /// <summary>
     /// The image_uri attribute.
     /// </summary>
     [TerraformPropertyName("image_uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ImageUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_uri");
+    public TerraformValue<string> ImageUri => new TerraformReference(this, "image_uri");
 
 }

@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadGroupMemberTimeoutsBlock : ITerraformBlock
+public class AzureadGroupMemberTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public class AzureadGroupMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupObjectId is required")]
     [TerraformPropertyName("group_object_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GroupObjectId { get; set; }
+    public required TerraformValue<string> GroupObjectId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The object ID of the principal you want to add as a member to the group. Supported object types are Users, Groups or Service Principals
@@ -61,13 +61,13 @@ public class AzureadGroupMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberObjectId is required")]
     [TerraformPropertyName("member_object_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MemberObjectId { get; set; }
+    public required TerraformValue<string> MemberObjectId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzureadGroupMemberTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzureadGroupMemberTimeoutsBlock>? Timeouts { get; set; }
 
 }

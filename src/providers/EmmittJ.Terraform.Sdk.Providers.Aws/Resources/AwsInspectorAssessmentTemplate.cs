@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for event_subscription in .
 /// Nesting mode: set
 /// </summary>
-public class AwsInspectorAssessmentTemplateEventSubscriptionBlock : ITerraformBlock
+public class AwsInspectorAssessmentTemplateEventSubscriptionBlock
 {
     /// <summary>
     /// The event attribute.
@@ -14,7 +14,7 @@ public class AwsInspectorAssessmentTemplateEventSubscriptionBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Event is required")]
     [TerraformPropertyName("event")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Event { get; set; }
+    public required TerraformValue<string> Event { get; set; }
 
     /// <summary>
     /// The topic_arn attribute.
@@ -22,7 +22,7 @@ public class AwsInspectorAssessmentTemplateEventSubscriptionBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     [TerraformPropertyName("topic_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TopicArn { get; set; }
+    public required TerraformValue<string> TopicArn { get; set; }
 
 }
 
@@ -41,14 +41,14 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     [TerraformPropertyName("duration")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Duration { get; set; }
+    public required TerraformValue<double> Duration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -56,14 +56,14 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The rules_package_arns attribute.
@@ -71,21 +71,21 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulesPackageArns is required")]
     [TerraformPropertyName("rules_package_arns")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? RulesPackageArns { get; set; }
+    public required TerraformSet<string> RulesPackageArns { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The target_arn attribute.
@@ -93,20 +93,20 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     [TerraformPropertyName("target_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetArn { get; set; }
+    public required TerraformValue<string> TargetArn { get; set; }
 
     /// <summary>
     /// Block for event_subscription.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("event_subscription")]
-    public TerraformSet<TerraformBlock<AwsInspectorAssessmentTemplateEventSubscriptionBlock>>? EventSubscription { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsInspectorAssessmentTemplateEventSubscriptionBlock>>? EventSubscription { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

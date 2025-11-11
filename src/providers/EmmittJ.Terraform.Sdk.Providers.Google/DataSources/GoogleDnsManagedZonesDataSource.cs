@@ -16,20 +16,20 @@ public class GoogleDnsManagedZonesDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The managed_zones attribute.
     /// </summary>
     [TerraformPropertyName("managed_zones")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ManagedZones => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "managed_zones");
+    public TerraformList<object> ManagedZones => new TerraformReference(this, "managed_zones");
 
 }

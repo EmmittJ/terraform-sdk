@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for daily_recurrence in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFirestoreBackupScheduleDailyRecurrenceBlock : ITerraformBlock
+public class GoogleFirestoreBackupScheduleDailyRecurrenceBlock
 {
 }
 
@@ -14,28 +14,28 @@ public class GoogleFirestoreBackupScheduleDailyRecurrenceBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirestoreBackupScheduleTimeoutsBlock : ITerraformBlock
+public class GoogleFirestoreBackupScheduleTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -43,14 +43,14 @@ public class GoogleFirestoreBackupScheduleTimeoutsBlock : ITerraformBlock
 /// Block type for weekly_recurrence in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFirestoreBackupScheduleWeeklyRecurrenceBlock : ITerraformBlock
+public class GoogleFirestoreBackupScheduleWeeklyRecurrenceBlock
 {
     /// <summary>
     /// The day of week to run. Possible values: [&amp;quot;DAY_OF_WEEK_UNSPECIFIED&amp;quot;, &amp;quot;MONDAY&amp;quot;, &amp;quot;TUESDAY&amp;quot;, &amp;quot;WEDNESDAY&amp;quot;, &amp;quot;THURSDAY&amp;quot;, &amp;quot;FRIDAY&amp;quot;, &amp;quot;SATURDAY&amp;quot;, &amp;quot;SUNDAY&amp;quot;]
     /// </summary>
     [TerraformPropertyName("day")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Day { get; set; }
+    public TerraformValue<string>? Day { get; set; }
 
 }
 
@@ -69,21 +69,21 @@ public class GoogleFirestoreBackupSchedule : TerraformResource
     /// </summary>
     [TerraformPropertyName("database")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Database { get; set; }
+    public TerraformValue<string>? Database { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// At what relative time in the future, compared to its creation time, the backup should be deleted, e.g. keep backups for 7 days.
@@ -94,7 +94,7 @@ public class GoogleFirestoreBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retention is required")]
     [TerraformPropertyName("retention")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Retention { get; set; }
+    public required TerraformValue<string> Retention { get; set; }
 
     /// <summary>
     /// Block for daily_recurrence.
@@ -102,14 +102,14 @@ public class GoogleFirestoreBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DailyRecurrence block(s) allowed")]
     [TerraformPropertyName("daily_recurrence")]
-    public TerraformList<TerraformBlock<GoogleFirestoreBackupScheduleDailyRecurrenceBlock>>? DailyRecurrence { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleFirestoreBackupScheduleDailyRecurrenceBlock>>? DailyRecurrence { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleFirestoreBackupScheduleTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleFirestoreBackupScheduleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for weekly_recurrence.
@@ -117,7 +117,7 @@ public class GoogleFirestoreBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeeklyRecurrence block(s) allowed")]
     [TerraformPropertyName("weekly_recurrence")]
-    public TerraformList<TerraformBlock<GoogleFirestoreBackupScheduleWeeklyRecurrenceBlock>>? WeeklyRecurrence { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleFirestoreBackupScheduleWeeklyRecurrenceBlock>>? WeeklyRecurrence { get; set; }
 
     /// <summary>
     /// The unique backup schedule identifier across all locations and databases for the given project. Format:
@@ -125,6 +125,6 @@ public class GoogleFirestoreBackupSchedule : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

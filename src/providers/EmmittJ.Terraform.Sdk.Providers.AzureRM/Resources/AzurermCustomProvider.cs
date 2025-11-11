@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermCustomProviderActionBlock : ITerraformBlock
+public class AzurermCustomProviderActionBlock
 {
     /// <summary>
     /// The endpoint attribute.
@@ -14,7 +14,7 @@ public class AzurermCustomProviderActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     [TerraformPropertyName("endpoint")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Endpoint { get; set; }
+    public required TerraformValue<string> Endpoint { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -22,7 +22,7 @@ public class AzurermCustomProviderActionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public class AzurermCustomProviderActionBlock : ITerraformBlock
 /// Block type for resource_type in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermCustomProviderResourceTypeBlock : ITerraformBlock
+public class AzurermCustomProviderResourceTypeBlock
 {
     /// <summary>
     /// The endpoint attribute.
@@ -38,7 +38,7 @@ public class AzurermCustomProviderResourceTypeBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     [TerraformPropertyName("endpoint")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Endpoint { get; set; }
+    public required TerraformValue<string> Endpoint { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -46,14 +46,14 @@ public class AzurermCustomProviderResourceTypeBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The routing_type attribute.
     /// </summary>
     [TerraformPropertyName("routing_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RoutingType { get; set; }
+    public TerraformValue<string>? RoutingType { get; set; }
 
 }
 
@@ -61,35 +61,35 @@ public class AzurermCustomProviderResourceTypeBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCustomProviderTimeoutsBlock : ITerraformBlock
+public class AzurermCustomProviderTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -97,7 +97,7 @@ public class AzurermCustomProviderTimeoutsBlock : ITerraformBlock
 /// Block type for validation in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermCustomProviderValidationBlock : ITerraformBlock
+public class AzurermCustomProviderValidationBlock
 {
     /// <summary>
     /// The specification attribute.
@@ -105,7 +105,7 @@ public class AzurermCustomProviderValidationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Specification is required")]
     [TerraformPropertyName("specification")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Specification { get; set; }
+    public required TerraformValue<string> Specification { get; set; }
 
 }
 
@@ -122,8 +122,8 @@ public class AzurermCustomProvider : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -131,7 +131,7 @@ public class AzurermCustomProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -139,7 +139,7 @@ public class AzurermCustomProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -147,41 +147,41 @@ public class AzurermCustomProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for action.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("action")]
-    public TerraformSet<TerraformBlock<AzurermCustomProviderActionBlock>>? Action { get; set; } = new();
+    public TerraformSet<TerraformBlock<AzurermCustomProviderActionBlock>>? Action { get; set; }
 
     /// <summary>
     /// Block for resource_type.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("resource_type")]
-    public TerraformSet<TerraformBlock<AzurermCustomProviderResourceTypeBlock>>? ResourceType { get; set; } = new();
+    public TerraformSet<TerraformBlock<AzurermCustomProviderResourceTypeBlock>>? ResourceType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermCustomProviderTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermCustomProviderTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for validation.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("validation")]
-    public TerraformSet<TerraformBlock<AzurermCustomProviderValidationBlock>>? Validation { get; set; } = new();
+    public TerraformSet<TerraformBlock<AzurermCustomProviderValidationBlock>>? Validation { get; set; }
 
 }

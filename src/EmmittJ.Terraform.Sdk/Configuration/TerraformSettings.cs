@@ -18,11 +18,7 @@ public class TerraformSettings : ITerraformPreparable
     /// <summary>
     /// Gets or sets the required Terraform version constraint (e.g., ">= 1.0", "~> 1.5.0").
     /// </summary>
-    public TerraformProperty<string>? RequiredVersion
-    {
-        get => GetProperty<TerraformProperty<string>>("required_version");
-        set => SetProperty("required_version", value);
-    }
+    public TerraformValue<string>? RequiredVersion { get; set; }
 
     /// <summary>
     /// Gets the required providers with their source and version constraints.
@@ -39,11 +35,7 @@ public class TerraformSettings : ITerraformPreparable
     /// Gets or sets the backend configuration for remote state storage.
     /// Backend is a block expression with a label.
     /// </summary>
-    public TerraformBackend? Backend
-    {
-        get => GetProperty<TerraformExpressionProperty<TerraformBackend>>("backend")?.Resolve() as TerraformBackend;
-        set => SetProperty("backend", value != null ? new TerraformExpressionProperty<TerraformBackend>("backend", "", value) : null);
-    }
+    public TerraformValue<TerraformBackend>? Backend { get; set; }
 
     /// <summary>
     /// Gets the list of provider metadata configurations.
@@ -61,9 +53,9 @@ public class TerraformSettings : ITerraformPreparable
     /// <summary>
     /// Adds or updates an arbitrary property on the terraform block.
     /// </summary>
-    public TerraformSettings WithProperty<T>(string key, TerraformProperty<T> value, int? priority = null)
+    public TerraformSettings WithProperty<T>(string key, TerraformValue<T>? value, int? priority = null)
     {
-        SetProperty(key, value, priority);
+        _properties.Set(key, value, priority);
         return this;
     }
 
@@ -100,10 +92,9 @@ public class TerraformSettings : ITerraformPreparable
         using (context.PushIndent())
         {
             // 1. required_version (conventionally first)
-            var versionProp = _properties.Get<TerraformProperty<string>>("required_version");
-            if (versionProp != null)
+            if (RequiredVersion != null)
             {
-                var expression = TerraformValueResolver.ResolveValue(versionProp, context);
+                var expression = TerraformValueResolver.ResolveValue(RequiredVersion, context);
                 var hcl = expression.ToHcl(context);
                 sb.AppendLine($"{context.Indent}required_version{expression.AssignmentOperator}{hcl}");
             }
@@ -267,12 +258,12 @@ public class TerraformSettings : ITerraformPreparable
     private T? GetProperty<T>(string key) where T : class
         => _properties.Get<T>(key);
 
-    private void SetProperty<T>(string key, TerraformProperty<T>? value, int? priority = null)
+    private void SetProperty<T>(string key, TerraformValue<T>? value, int? priority = null)
     {
         _properties.Set(key, value, priority);
     }
 
-    private void SetProperty<T>(string key, TerraformProperty<T>? value)
+    private void SetProperty<T>(string key, TerraformValue<T>? value)
         => SetProperty(key, value, null);
 }
 

@@ -21,7 +21,7 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("config")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Config { get; set; }
+    public TerraformValue<string>? Config { get; set; }
 
     /// <summary>
     /// The descriptive name for this instance as it appears in UIs. Must be
@@ -29,14 +29,14 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// A unique identifier for the instance, which cannot be changed after
@@ -47,14 +47,14 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The autoscaling configuration. Autoscaling is enabled if this field is set.
@@ -66,7 +66,7 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("autoscaling_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> AutoscalingConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "autoscaling_config");
+    public TerraformList<object> AutoscalingConfig => new TerraformReference(this, "autoscaling_config");
 
     /// <summary>
     /// Controls the default backup behavior for new databases within the instance.
@@ -75,21 +75,21 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("default_backup_schedule_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DefaultBackupScheduleType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_backup_schedule_type");
+    public TerraformValue<string> DefaultBackupScheduleType => new TerraformReference(this, "default_backup_schedule_type");
 
     /// <summary>
     /// The edition selected for this instance. Different editions provide different capabilities at different price points. Possible values: [&amp;quot;EDITION_UNSPECIFIED&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;, &amp;quot;ENTERPRISE_PLUS&amp;quot;]
     /// </summary>
     [TerraformPropertyName("edition")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Edition => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "edition");
+    public TerraformValue<string> Edition => new TerraformReference(this, "edition");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// When deleting a spanner instance, this boolean option will delete all backups of this instance.
@@ -97,7 +97,7 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("force_destroy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> ForceDestroy => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "force_destroy");
+    public TerraformValue<bool> ForceDestroy => new TerraformReference(this, "force_destroy");
 
     /// <summary>
     /// The type of this instance. The type can be used to distinguish product variants, that can affect aspects like:
@@ -106,7 +106,7 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("instance_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> InstanceType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "instance_type");
+    public TerraformValue<string> InstanceType => new TerraformReference(this, "instance_type");
 
     /// <summary>
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs.
@@ -118,7 +118,7 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// The number of nodes allocated to this instance. Exactly one of either num_nodes, processing_units or
@@ -126,7 +126,7 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("num_nodes")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> NumNodes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "num_nodes");
+    public TerraformValue<double> NumNodes => new TerraformReference(this, "num_nodes");
 
     /// <summary>
     /// The number of processing units allocated to this instance. Exactly one of either num_nodes,
@@ -134,14 +134,14 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("processing_units")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ProcessingUnits => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "processing_units");
+    public TerraformValue<double> ProcessingUnits => new TerraformReference(this, "processing_units");
 
     /// <summary>
     /// Instance status: &#39;CREATING&#39; or &#39;READY&#39;.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -149,6 +149,6 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

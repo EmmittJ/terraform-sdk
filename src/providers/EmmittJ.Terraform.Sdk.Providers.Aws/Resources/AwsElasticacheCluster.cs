@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for log_delivery_configuration in .
 /// Nesting mode: set
 /// </summary>
-public class AwsElasticacheClusterLogDeliveryConfigurationBlock : ITerraformBlock
+public class AwsElasticacheClusterLogDeliveryConfigurationBlock
 {
     /// <summary>
     /// The destination attribute.
@@ -14,7 +14,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [TerraformPropertyName("destination")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Destination { get; set; }
+    public required TerraformValue<string> Destination { get; set; }
 
     /// <summary>
     /// The destination_type attribute.
@@ -22,7 +22,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationType is required")]
     [TerraformPropertyName("destination_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DestinationType { get; set; }
+    public required TerraformValue<string> DestinationType { get; set; }
 
     /// <summary>
     /// The log_format attribute.
@@ -30,7 +30,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFormat is required")]
     [TerraformPropertyName("log_format")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LogFormat { get; set; }
+    public required TerraformValue<string> LogFormat { get; set; }
 
     /// <summary>
     /// The log_type attribute.
@@ -38,7 +38,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     [TerraformPropertyName("log_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LogType { get; set; }
+    public required TerraformValue<string> LogType { get; set; }
 
 }
 
@@ -46,28 +46,28 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : ITerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsElasticacheClusterTimeoutsBlock : ITerraformBlock
+public class AwsElasticacheClusterTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -85,29 +85,29 @@ public class AwsElasticacheCluster : TerraformResource
     /// The apply_immediately attribute.
     /// </summary>
     [TerraformPropertyName("apply_immediately")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> ApplyImmediately { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "apply_immediately");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> ApplyImmediately { get; set; } = default!;
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
     [TerraformPropertyName("auto_minor_version_upgrade")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AutoMinorVersionUpgrade { get; set; }
+    public TerraformValue<string>? AutoMinorVersionUpgrade { get; set; }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     [TerraformPropertyName("availability_zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AvailabilityZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AvailabilityZone { get; set; } = default!;
 
     /// <summary>
     /// The az_mode attribute.
     /// </summary>
     [TerraformPropertyName("az_mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AzMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "az_mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AzMode { get; set; } = default!;
 
     /// <summary>
     /// The cluster_id attribute.
@@ -115,189 +115,189 @@ public class AwsElasticacheCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformPropertyName("cluster_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
+    public required TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
     [TerraformPropertyName("engine")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Engine { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Engine { get; set; } = default!;
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     [TerraformPropertyName("engine_version")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> EngineVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> EngineVersion { get; set; } = default!;
 
     /// <summary>
     /// The final_snapshot_identifier attribute.
     /// </summary>
     [TerraformPropertyName("final_snapshot_identifier")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FinalSnapshotIdentifier { get; set; }
+    public TerraformValue<string>? FinalSnapshotIdentifier { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ip_discovery attribute.
     /// </summary>
     [TerraformPropertyName("ip_discovery")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> IpDiscovery { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_discovery");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> IpDiscovery { get; set; } = default!;
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
     [TerraformPropertyName("maintenance_window")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> MaintenanceWindow { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "maintenance_window");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> MaintenanceWindow { get; set; } = default!;
 
     /// <summary>
     /// The network_type attribute.
     /// </summary>
     [TerraformPropertyName("network_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> NetworkType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> NetworkType { get; set; } = default!;
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
     [TerraformPropertyName("node_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> NodeType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> NodeType { get; set; } = default!;
 
     /// <summary>
     /// The notification_topic_arn attribute.
     /// </summary>
     [TerraformPropertyName("notification_topic_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NotificationTopicArn { get; set; }
+    public TerraformValue<string>? NotificationTopicArn { get; set; }
 
     /// <summary>
     /// The num_cache_nodes attribute.
     /// </summary>
     [TerraformPropertyName("num_cache_nodes")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> NumCacheNodes { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "num_cache_nodes");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> NumCacheNodes { get; set; } = default!;
 
     /// <summary>
     /// The outpost_mode attribute.
     /// </summary>
     [TerraformPropertyName("outpost_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? OutpostMode { get; set; }
+    public TerraformValue<string>? OutpostMode { get; set; }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
     [TerraformPropertyName("parameter_group_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ParameterGroupName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parameter_group_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ParameterGroupName { get; set; } = default!;
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [TerraformPropertyName("port")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Port { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "port");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Port { get; set; } = default!;
 
     /// <summary>
     /// The preferred_availability_zones attribute.
     /// </summary>
     [TerraformPropertyName("preferred_availability_zones")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? PreferredAvailabilityZones { get; set; }
+    public TerraformList<string>? PreferredAvailabilityZones { get; set; }
 
     /// <summary>
     /// The preferred_outpost_arn attribute.
     /// </summary>
     [TerraformPropertyName("preferred_outpost_arn")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PreferredOutpostArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_outpost_arn");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PreferredOutpostArn { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The replication_group_id attribute.
     /// </summary>
     [TerraformPropertyName("replication_group_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ReplicationGroupId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "replication_group_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ReplicationGroupId { get; set; } = default!;
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     [TerraformPropertyName("security_group_ids")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<HashSet<TerraformProperty<string>>> SecurityGroupIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "security_group_ids");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformSet<string> SecurityGroupIds { get; set; } = default!;
 
     /// <summary>
     /// The snapshot_arns attribute.
     /// </summary>
     [TerraformPropertyName("snapshot_arns")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? SnapshotArns { get; set; }
+    public TerraformList<string>? SnapshotArns { get; set; }
 
     /// <summary>
     /// The snapshot_name attribute.
     /// </summary>
     [TerraformPropertyName("snapshot_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SnapshotName { get; set; }
+    public TerraformValue<string>? SnapshotName { get; set; }
 
     /// <summary>
     /// The snapshot_retention_limit attribute.
     /// </summary>
     [TerraformPropertyName("snapshot_retention_limit")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? SnapshotRetentionLimit { get; set; }
+    public TerraformValue<double>? SnapshotRetentionLimit { get; set; }
 
     /// <summary>
     /// The snapshot_window attribute.
     /// </summary>
     [TerraformPropertyName("snapshot_window")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> SnapshotWindow { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "snapshot_window");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> SnapshotWindow { get; set; } = default!;
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
     [TerraformPropertyName("subnet_group_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> SubnetGroupName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subnet_group_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> SubnetGroupName { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The transit_encryption_enabled attribute.
     /// </summary>
     [TerraformPropertyName("transit_encryption_enabled")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> TransitEncryptionEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "transit_encryption_enabled");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> TransitEncryptionEnabled { get; set; } = default!;
 
     /// <summary>
     /// Block for log_delivery_configuration.
@@ -305,48 +305,48 @@ public class AwsElasticacheCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 LogDeliveryConfiguration block(s) allowed")]
     [TerraformPropertyName("log_delivery_configuration")]
-    public TerraformSet<TerraformBlock<AwsElasticacheClusterLogDeliveryConfigurationBlock>>? LogDeliveryConfiguration { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsElasticacheClusterLogDeliveryConfigurationBlock>>? LogDeliveryConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsElasticacheClusterTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsElasticacheClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The cache_nodes attribute.
     /// </summary>
     [TerraformPropertyName("cache_nodes")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CacheNodes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cache_nodes");
+    public TerraformList<object> CacheNodes => new TerraformReference(this, "cache_nodes");
 
     /// <summary>
     /// The cluster_address attribute.
     /// </summary>
     [TerraformPropertyName("cluster_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ClusterAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_address");
+    public TerraformValue<string> ClusterAddress => new TerraformReference(this, "cluster_address");
 
     /// <summary>
     /// The configuration_endpoint attribute.
     /// </summary>
     [TerraformPropertyName("configuration_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ConfigurationEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "configuration_endpoint");
+    public TerraformValue<string> ConfigurationEndpoint => new TerraformReference(this, "configuration_endpoint");
 
     /// <summary>
     /// The engine_version_actual attribute.
     /// </summary>
     [TerraformPropertyName("engine_version_actual")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EngineVersionActual => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version_actual");
+    public TerraformValue<string> EngineVersionActual => new TerraformReference(this, "engine_version_actual");
 
 }

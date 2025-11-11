@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerAppEnvironmentStorageTimeoutsBlock : ITerraformBlock
+public class AzurermContainerAppEnvironmentStorageTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     /// </summary>
     [TerraformPropertyName("access_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AccessKey { get; set; }
+    public TerraformValue<string>? AccessKey { get; set; }
 
     /// <summary>
     /// The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`.
@@ -60,14 +60,14 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessMode is required")]
     [TerraformPropertyName("access_mode")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AccessMode { get; set; }
+    public required TerraformValue<string> AccessMode { get; set; }
 
     /// <summary>
     /// The Azure Storage Account in which the Share to be used is located.
     /// </summary>
     [TerraformPropertyName("account_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AccountName { get; set; }
+    public TerraformValue<string>? AccountName { get; set; }
 
     /// <summary>
     /// The ID of the Container App Environment to which this storage belongs.
@@ -75,14 +75,14 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     [TerraformPropertyName("container_app_environment_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContainerAppEnvironmentId { get; set; }
+    public required TerraformValue<string> ContainerAppEnvironmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name for this Storage.
@@ -90,14 +90,14 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The nfs_server_url attribute.
     /// </summary>
     [TerraformPropertyName("nfs_server_url")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NfsServerUrl { get; set; }
+    public TerraformValue<string>? NfsServerUrl { get; set; }
 
     /// <summary>
     /// The name of the Azure Storage Share to use.
@@ -105,13 +105,13 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     [TerraformPropertyName("share_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ShareName { get; set; }
+    public required TerraformValue<string> ShareName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermContainerAppEnvironmentStorageTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermContainerAppEnvironmentStorageTimeoutsBlock>? Timeouts { get; set; }
 
 }

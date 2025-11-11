@@ -17,14 +17,14 @@ public class AwsDynamodbTableItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKey is required")]
     [TerraformPropertyName("hash_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HashKey { get; set; }
+    public required TerraformValue<string> HashKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The item attribute.
@@ -32,21 +32,21 @@ public class AwsDynamodbTableItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Item is required")]
     [TerraformPropertyName("item")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Item { get; set; }
+    public required TerraformValue<string> Item { get; set; }
 
     /// <summary>
     /// The range_key attribute.
     /// </summary>
     [TerraformPropertyName("range_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RangeKey { get; set; }
+    public TerraformValue<string>? RangeKey { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The table_name attribute.
@@ -54,6 +54,6 @@ public class AwsDynamodbTableItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     [TerraformPropertyName("table_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TableName { get; set; }
+    public required TerraformValue<string> TableName { get; set; }
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bitbucket_cloud_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock : ITerraformBlock
+public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock
 {
     /// <summary>
     /// Required. Immutable. SecretManager resource containing the webhook secret used to verify webhook
@@ -16,7 +16,7 @@ public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     [TerraformPropertyName("webhook_secret_secret_version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WebhookSecretSecretVersion { get; set; }
+    public required TerraformValue<string> WebhookSecretSecretVersion { get; set; }
 
     /// <summary>
     /// Required. The Bitbucket Cloud Workspace ID to be connected to Google Cloud Platform.
@@ -24,7 +24,7 @@ public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Workspace is required")]
     [TerraformPropertyName("workspace")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Workspace { get; set; }
+    public required TerraformValue<string> Workspace { get; set; }
 
 }
 
@@ -32,7 +32,7 @@ public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock : ITerraf
 /// Block type for bitbucket_data_center_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : ITerraformBlock
+public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock
 {
     /// <summary>
     /// Required. The URI of the Bitbucket Data Center host this connection is for.
@@ -40,14 +40,8 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : IT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     [TerraformPropertyName("host_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HostUri { get; set; }
+    public required TerraformValue<string> HostUri { get; set; }
 
-    /// <summary>
-    /// Output only. Version of the Bitbucket Data Center server running on the &#39;host_uri&#39;.
-    /// </summary>
-    [TerraformPropertyName("server_version")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServerVersion => new TerraformReferenceProperty<TerraformProperty<string>>("", "server_version");
 
     /// <summary>
     /// Optional. SSL certificate authority to trust when making requests to Bitbucket Data
@@ -55,7 +49,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : IT
     /// </summary>
     [TerraformPropertyName("ssl_ca_certificate")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SslCaCertificate { get; set; }
+    public TerraformValue<string>? SslCaCertificate { get; set; }
 
     /// <summary>
     /// Required. Immutable. SecretManager resource containing the webhook secret used to verify webhook
@@ -65,7 +59,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : IT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     [TerraformPropertyName("webhook_secret_secret_version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WebhookSecretSecretVersion { get; set; }
+    public required TerraformValue<string> WebhookSecretSecretVersion { get; set; }
 
 }
 
@@ -73,7 +67,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : IT
 /// Block type for crypto_key_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDeveloperConnectConnectionCryptoKeyConfigBlock : ITerraformBlock
+public class GoogleDeveloperConnectConnectionCryptoKeyConfigBlock
 {
     /// <summary>
     /// Required. The name of the key which is used to encrypt/decrypt customer data. For key
@@ -83,7 +77,7 @@ public class GoogleDeveloperConnectConnectionCryptoKeyConfigBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyReference is required")]
     [TerraformPropertyName("key_reference")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyReference { get; set; }
+    public required TerraformValue<string> KeyReference { get; set; }
 
 }
 
@@ -91,14 +85,14 @@ public class GoogleDeveloperConnectConnectionCryptoKeyConfigBlock : ITerraformBl
 /// Block type for github_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDeveloperConnectConnectionGithubConfigBlock : ITerraformBlock
+public class GoogleDeveloperConnectConnectionGithubConfigBlock
 {
     /// <summary>
     /// Optional. GitHub App installation id.
     /// </summary>
     [TerraformPropertyName("app_installation_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AppInstallationId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "app_installation_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AppInstallationId { get; set; } = default!;
 
     /// <summary>
     /// Required. Immutable. The GitHub Application that was installed to the GitHub user or
@@ -111,15 +105,8 @@ public class GoogleDeveloperConnectConnectionGithubConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GithubApp is required")]
     [TerraformPropertyName("github_app")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GithubApp { get; set; }
+    public required TerraformValue<string> GithubApp { get; set; }
 
-    /// <summary>
-    /// Output only. The URI to navigate to in order to manage the installation associated
-    /// with this GitHubConfig.
-    /// </summary>
-    [TerraformPropertyName("installation_uri")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> InstallationUri => new TerraformReferenceProperty<TerraformProperty<string>>("", "installation_uri");
 
 }
 
@@ -127,28 +114,22 @@ public class GoogleDeveloperConnectConnectionGithubConfigBlock : ITerraformBlock
 /// Block type for github_enterprise_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : ITerraformBlock
+public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock
 {
     /// <summary>
     /// Optional. ID of the GitHub App created from the manifest.
     /// </summary>
     [TerraformPropertyName("app_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AppId { get; set; }
+    public TerraformValue<string>? AppId { get; set; }
 
     /// <summary>
     /// Optional. ID of the installation of the GitHub App.
     /// </summary>
     [TerraformPropertyName("app_installation_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AppInstallationId { get; set; }
+    public TerraformValue<string>? AppInstallationId { get; set; }
 
-    /// <summary>
-    /// Output only. The URL-friendly name of the GitHub App.
-    /// </summary>
-    [TerraformPropertyName("app_slug")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AppSlug => new TerraformReferenceProperty<TerraformProperty<string>>("", "app_slug");
 
     /// <summary>
     /// Required. The URI of the GitHub Enterprise host this connection is for.
@@ -156,15 +137,8 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : ITerr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     [TerraformPropertyName("host_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HostUri { get; set; }
+    public required TerraformValue<string> HostUri { get; set; }
 
-    /// <summary>
-    /// Output only. The URI to navigate to in order to manage the installation associated
-    /// with this GitHubEnterpriseConfig.
-    /// </summary>
-    [TerraformPropertyName("installation_uri")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> InstallationUri => new TerraformReferenceProperty<TerraformProperty<string>>("", "installation_uri");
 
     /// <summary>
     /// Optional. SecretManager resource containing the private key of the GitHub App,
@@ -172,21 +146,15 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : ITerr
     /// </summary>
     [TerraformPropertyName("private_key_secret_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PrivateKeySecretVersion { get; set; }
+    public TerraformValue<string>? PrivateKeySecretVersion { get; set; }
 
-    /// <summary>
-    /// Output only. GitHub Enterprise version installed at the host_uri.
-    /// </summary>
-    [TerraformPropertyName("server_version")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServerVersion => new TerraformReferenceProperty<TerraformProperty<string>>("", "server_version");
 
     /// <summary>
     /// Optional. SSL certificate to use for requests to GitHub Enterprise.
     /// </summary>
     [TerraformPropertyName("ssl_ca_certificate")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SslCaCertificate { get; set; }
+    public TerraformValue<string>? SslCaCertificate { get; set; }
 
     /// <summary>
     /// Optional. SecretManager resource containing the webhook secret of the GitHub App,
@@ -194,7 +162,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : ITerr
     /// </summary>
     [TerraformPropertyName("webhook_secret_secret_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? WebhookSecretSecretVersion { get; set; }
+    public TerraformValue<string>? WebhookSecretSecretVersion { get; set; }
 
 }
 
@@ -202,7 +170,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : ITerr
 /// Block type for gitlab_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDeveloperConnectConnectionGitlabConfigBlock : ITerraformBlock
+public class GoogleDeveloperConnectConnectionGitlabConfigBlock
 {
     /// <summary>
     /// Required. Immutable. SecretManager resource containing the webhook secret of a GitLab project,
@@ -212,7 +180,7 @@ public class GoogleDeveloperConnectConnectionGitlabConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     [TerraformPropertyName("webhook_secret_secret_version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WebhookSecretSecretVersion { get; set; }
+    public required TerraformValue<string> WebhookSecretSecretVersion { get; set; }
 
 }
 
@@ -220,7 +188,7 @@ public class GoogleDeveloperConnectConnectionGitlabConfigBlock : ITerraformBlock
 /// Block type for gitlab_enterprise_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : ITerraformBlock
+public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock
 {
     /// <summary>
     /// Required. The URI of the GitLab Enterprise host this connection is for.
@@ -228,14 +196,8 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : ITerr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     [TerraformPropertyName("host_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HostUri { get; set; }
+    public required TerraformValue<string> HostUri { get; set; }
 
-    /// <summary>
-    /// Output only. Version of the GitLab Enterprise server running on the &#39;host_uri&#39;.
-    /// </summary>
-    [TerraformPropertyName("server_version")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServerVersion => new TerraformReferenceProperty<TerraformProperty<string>>("", "server_version");
 
     /// <summary>
     /// Optional. SSL Certificate Authority certificate to use for requests to GitLab
@@ -243,7 +205,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : ITerr
     /// </summary>
     [TerraformPropertyName("ssl_ca_certificate")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SslCaCertificate { get; set; }
+    public TerraformValue<string>? SslCaCertificate { get; set; }
 
     /// <summary>
     /// Required. Immutable. SecretManager resource containing the webhook secret of a GitLab project,
@@ -253,7 +215,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : ITerr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     [TerraformPropertyName("webhook_secret_secret_version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WebhookSecretSecretVersion { get; set; }
+    public required TerraformValue<string> WebhookSecretSecretVersion { get; set; }
 
 }
 
@@ -261,28 +223,28 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : ITerr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDeveloperConnectConnectionTimeoutsBlock : ITerraformBlock
+public class GoogleDeveloperConnectConnectionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -304,7 +266,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
+    public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// Required. Id of the requesting object
@@ -314,7 +276,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     [TerraformPropertyName("connection_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConnectionId { get; set; }
+    public required TerraformValue<string> ConnectionId { get; set; }
 
     /// <summary>
     /// Optional. If disabled is set to true, functionality is disabled for this connection.
@@ -323,7 +285,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// Optional. This checksum is computed by the server based on the value of other
@@ -332,14 +294,14 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("etag")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Etag { get; set; }
+    public TerraformValue<string>? Etag { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Optional. Labels as key value pairs
@@ -349,7 +311,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -357,14 +319,14 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for bitbucket_cloud_config.
@@ -372,7 +334,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketCloudConfig block(s) allowed")]
     [TerraformPropertyName("bitbucket_cloud_config")]
-    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock>>? BitbucketCloudConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock>>? BitbucketCloudConfig { get; set; }
 
     /// <summary>
     /// Block for bitbucket_data_center_config.
@@ -380,7 +342,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketDataCenterConfig block(s) allowed")]
     [TerraformPropertyName("bitbucket_data_center_config")]
-    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock>>? BitbucketDataCenterConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock>>? BitbucketDataCenterConfig { get; set; }
 
     /// <summary>
     /// Block for crypto_key_config.
@@ -388,7 +350,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CryptoKeyConfig block(s) allowed")]
     [TerraformPropertyName("crypto_key_config")]
-    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionCryptoKeyConfigBlock>>? CryptoKeyConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionCryptoKeyConfigBlock>>? CryptoKeyConfig { get; set; }
 
     /// <summary>
     /// Block for github_config.
@@ -396,7 +358,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubConfig block(s) allowed")]
     [TerraformPropertyName("github_config")]
-    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionGithubConfigBlock>>? GithubConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionGithubConfigBlock>>? GithubConfig { get; set; }
 
     /// <summary>
     /// Block for github_enterprise_config.
@@ -404,7 +366,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubEnterpriseConfig block(s) allowed")]
     [TerraformPropertyName("github_enterprise_config")]
-    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock>>? GithubEnterpriseConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock>>? GithubEnterpriseConfig { get; set; }
 
     /// <summary>
     /// Block for gitlab_config.
@@ -412,7 +374,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitlabConfig block(s) allowed")]
     [TerraformPropertyName("gitlab_config")]
-    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionGitlabConfigBlock>>? GitlabConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionGitlabConfigBlock>>? GitlabConfig { get; set; }
 
     /// <summary>
     /// Block for gitlab_enterprise_config.
@@ -420,42 +382,42 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitlabEnterpriseConfig block(s) allowed")]
     [TerraformPropertyName("gitlab_enterprise_config")]
-    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock>>? GitlabEnterpriseConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock>>? GitlabEnterpriseConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDeveloperConnectConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDeveloperConnectConnectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. [Output only] Create timestamp
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Output only. [Output only] Delete timestamp
     /// </summary>
     [TerraformPropertyName("delete_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DeleteTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delete_time");
+    public TerraformValue<string> DeleteTime => new TerraformReference(this, "delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_annotations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
+    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Describes stage and necessary actions to be taken by the
@@ -464,7 +426,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("installation_state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> InstallationState => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "installation_state");
+    public TerraformList<object> InstallationState => new TerraformReference(this, "installation_state");
 
     /// <summary>
     /// Identifier. The resource name of the connection, in the format
@@ -472,7 +434,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Output only. Set to true when the connection is being set up or updated in the
@@ -480,7 +442,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("reconciling")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
+    public TerraformValue<bool> Reconciling => new TerraformReference(this, "reconciling");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -488,20 +450,20 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Output only. A system-assigned unique identifier for a the GitRepositoryLink.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Output only. [Output only] Update timestamp
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

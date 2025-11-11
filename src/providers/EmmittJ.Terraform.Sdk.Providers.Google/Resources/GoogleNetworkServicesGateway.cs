@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkServicesGatewayTimeoutsBlock : ITerraformBlock
+public class GoogleNetworkServicesGatewayTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -48,8 +48,8 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// Gateways of type &#39;OPEN_MESH&#39; listen on 0.0.0.0 for IPv4 and :: for IPv6.
     /// </summary>
     [TerraformPropertyName("addresses")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> Addresses { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "addresses");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> Addresses { get; set; } = default!;
 
     /// <summary>
     /// A fully-qualified Certificates URL reference. The proxy presents a Certificate (selected based on SNI) when establishing a TLS connection.
@@ -57,7 +57,7 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("certificate_urls")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? CertificateUrls { get; set; }
+    public TerraformList<string>? CertificateUrls { get; set; }
 
     /// <summary>
     /// When deleting a gateway of type &#39;SECURE_WEB_GATEWAY&#39;, this boolean option will also delete auto generated router by the gateway creation.
@@ -65,14 +65,14 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("delete_swg_autogen_router_on_destroy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DeleteSwgAutogenRouterOnDestroy { get; set; }
+    public TerraformValue<bool>? DeleteSwgAutogenRouterOnDestroy { get; set; }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Determines if envoy will insert internal debug headers into upstream requests.
@@ -81,7 +81,7 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("envoy_headers")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EnvoyHeaders { get; set; }
+    public TerraformValue<string>? EnvoyHeaders { get; set; }
 
     /// <summary>
     /// A fully-qualified GatewaySecurityPolicy URL reference. Defines how a server should apply security policy to inbound (VM to Proxy) initiated connections.
@@ -90,21 +90,21 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("gateway_security_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? GatewaySecurityPolicy { get; set; }
+    public TerraformValue<string>? GatewaySecurityPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The IP Version that will be used by this gateway. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
     [TerraformPropertyName("ip_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IpVersion { get; set; }
+    public TerraformValue<string>? IpVersion { get; set; }
 
     /// <summary>
     /// Set of label tags associated with the Gateway resource.
@@ -115,7 +115,7 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the gateway.
@@ -123,7 +123,7 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Name of the Gateway resource.
@@ -131,7 +131,7 @@ public class GoogleNetworkServicesGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The relative resource name identifying the VPC network that is using this configuration.
@@ -141,7 +141,7 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("network")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Network { get; set; }
+    public TerraformValue<string>? Network { get; set; }
 
     /// <summary>
     /// One or more port numbers (1-65535), on which the Gateway will receive traffic.
@@ -151,21 +151,21 @@ public class GoogleNetworkServicesGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ports is required")]
     [TerraformPropertyName("ports")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<double>>>? Ports { get; set; }
+    public TerraformList<double>? Ports { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The routing mode of the Gateway. This field is configurable only for gateways of type SECURE_WEB_GATEWAY. This field is required for gateways of type SECURE_WEB_GATEWAY. Possible values: [&amp;quot;NEXT_HOP_ROUTING_MODE&amp;quot;, &amp;quot;EXPLICIT_ROUTING_MODE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("routing_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RoutingMode { get; set; }
+    public TerraformValue<string>? RoutingMode { get; set; }
 
     /// <summary>
     /// Immutable. Scope determines how configuration across multiple Gateway instances are merged.
@@ -175,14 +175,14 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("scope")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Scope { get; set; }
+    public TerraformValue<string>? Scope { get; set; }
 
     /// <summary>
     /// A fully-qualified ServerTLSPolicy URL reference. Specifies how TLS traffic is terminated. If empty, TLS termination is disabled.
     /// </summary>
     [TerraformPropertyName("server_tls_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ServerTlsPolicy { get; set; }
+    public TerraformValue<string>? ServerTlsPolicy { get; set; }
 
     /// <summary>
     /// The relative resource name identifying the subnetwork in which this SWG is allocated.
@@ -192,7 +192,7 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("subnetwork")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Subnetwork { get; set; }
+    public TerraformValue<string>? Subnetwork { get; set; }
 
     /// <summary>
     /// Immutable. The type of the customer managed gateway. Possible values: [&amp;quot;OPEN_MESH&amp;quot;, &amp;quot;SECURE_WEB_GATEWAY&amp;quot;]
@@ -200,35 +200,35 @@ public class GoogleNetworkServicesGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleNetworkServicesGatewayTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleNetworkServicesGatewayTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp when the resource was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Server-defined URL of this resource.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -236,13 +236,13 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The timestamp when the resource was updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

@@ -6,105 +6,105 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for admin_contact in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53domainsRegisteredDomainAdminContactBlock : ITerraformBlock
+public class AwsRoute53domainsRegisteredDomainAdminContactBlock
 {
     /// <summary>
     /// The address_line_1 attribute.
     /// </summary>
     [TerraformPropertyName("address_line_1")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AddressLine1 { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "address_line_1");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AddressLine1 { get; set; } = default!;
 
     /// <summary>
     /// The address_line_2 attribute.
     /// </summary>
     [TerraformPropertyName("address_line_2")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AddressLine2 { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "address_line_2");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AddressLine2 { get; set; } = default!;
 
     /// <summary>
     /// The city attribute.
     /// </summary>
     [TerraformPropertyName("city")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> City { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "city");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> City { get; set; } = default!;
 
     /// <summary>
     /// The contact_type attribute.
     /// </summary>
     [TerraformPropertyName("contact_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ContactType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "contact_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ContactType { get; set; } = default!;
 
     /// <summary>
     /// The country_code attribute.
     /// </summary>
     [TerraformPropertyName("country_code")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CountryCode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "country_code");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CountryCode { get; set; } = default!;
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [TerraformPropertyName("email")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Email { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "email");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Email { get; set; } = default!;
 
     /// <summary>
     /// The extra_params attribute.
     /// </summary>
     [TerraformPropertyName("extra_params")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> ExtraParams { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "extra_params");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> ExtraParams { get; set; } = default!;
 
     /// <summary>
     /// The fax attribute.
     /// </summary>
     [TerraformPropertyName("fax")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Fax { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "fax");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Fax { get; set; } = default!;
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
     [TerraformPropertyName("first_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> FirstName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "first_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> FirstName { get; set; } = default!;
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
     [TerraformPropertyName("last_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LastName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "last_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LastName { get; set; } = default!;
 
     /// <summary>
     /// The organization_name attribute.
     /// </summary>
     [TerraformPropertyName("organization_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> OrganizationName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "organization_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> OrganizationName { get; set; } = default!;
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
     [TerraformPropertyName("phone_number")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PhoneNumber { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "phone_number");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PhoneNumber { get; set; } = default!;
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformPropertyName("state")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> State { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "state");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> State { get; set; } = default!;
 
     /// <summary>
     /// The zip_code attribute.
     /// </summary>
     [TerraformPropertyName("zip_code")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ZipCode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "zip_code");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ZipCode { get; set; } = default!;
 
 }
 
@@ -112,105 +112,105 @@ public class AwsRoute53domainsRegisteredDomainAdminContactBlock : ITerraformBloc
 /// Block type for billing_contact in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53domainsRegisteredDomainBillingContactBlock : ITerraformBlock
+public class AwsRoute53domainsRegisteredDomainBillingContactBlock
 {
     /// <summary>
     /// The address_line_1 attribute.
     /// </summary>
     [TerraformPropertyName("address_line_1")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AddressLine1 { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "address_line_1");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AddressLine1 { get; set; } = default!;
 
     /// <summary>
     /// The address_line_2 attribute.
     /// </summary>
     [TerraformPropertyName("address_line_2")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AddressLine2 { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "address_line_2");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AddressLine2 { get; set; } = default!;
 
     /// <summary>
     /// The city attribute.
     /// </summary>
     [TerraformPropertyName("city")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> City { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "city");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> City { get; set; } = default!;
 
     /// <summary>
     /// The contact_type attribute.
     /// </summary>
     [TerraformPropertyName("contact_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ContactType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "contact_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ContactType { get; set; } = default!;
 
     /// <summary>
     /// The country_code attribute.
     /// </summary>
     [TerraformPropertyName("country_code")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CountryCode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "country_code");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CountryCode { get; set; } = default!;
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [TerraformPropertyName("email")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Email { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "email");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Email { get; set; } = default!;
 
     /// <summary>
     /// The extra_params attribute.
     /// </summary>
     [TerraformPropertyName("extra_params")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> ExtraParams { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "extra_params");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> ExtraParams { get; set; } = default!;
 
     /// <summary>
     /// The fax attribute.
     /// </summary>
     [TerraformPropertyName("fax")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Fax { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "fax");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Fax { get; set; } = default!;
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
     [TerraformPropertyName("first_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> FirstName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "first_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> FirstName { get; set; } = default!;
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
     [TerraformPropertyName("last_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LastName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "last_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LastName { get; set; } = default!;
 
     /// <summary>
     /// The organization_name attribute.
     /// </summary>
     [TerraformPropertyName("organization_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> OrganizationName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "organization_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> OrganizationName { get; set; } = default!;
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
     [TerraformPropertyName("phone_number")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PhoneNumber { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "phone_number");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PhoneNumber { get; set; } = default!;
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformPropertyName("state")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> State { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "state");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> State { get; set; } = default!;
 
     /// <summary>
     /// The zip_code attribute.
     /// </summary>
     [TerraformPropertyName("zip_code")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ZipCode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "zip_code");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ZipCode { get; set; } = default!;
 
 }
 
@@ -218,14 +218,14 @@ public class AwsRoute53domainsRegisteredDomainBillingContactBlock : ITerraformBl
 /// Block type for name_server in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53domainsRegisteredDomainNameServerBlock : ITerraformBlock
+public class AwsRoute53domainsRegisteredDomainNameServerBlock
 {
     /// <summary>
     /// The glue_ips attribute.
     /// </summary>
     [TerraformPropertyName("glue_ips")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? GlueIps { get; set; }
+    public TerraformSet<string>? GlueIps { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -233,7 +233,7 @@ public class AwsRoute53domainsRegisteredDomainNameServerBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -241,105 +241,105 @@ public class AwsRoute53domainsRegisteredDomainNameServerBlock : ITerraformBlock
 /// Block type for registrant_contact in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : ITerraformBlock
+public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock
 {
     /// <summary>
     /// The address_line_1 attribute.
     /// </summary>
     [TerraformPropertyName("address_line_1")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AddressLine1 { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "address_line_1");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AddressLine1 { get; set; } = default!;
 
     /// <summary>
     /// The address_line_2 attribute.
     /// </summary>
     [TerraformPropertyName("address_line_2")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AddressLine2 { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "address_line_2");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AddressLine2 { get; set; } = default!;
 
     /// <summary>
     /// The city attribute.
     /// </summary>
     [TerraformPropertyName("city")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> City { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "city");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> City { get; set; } = default!;
 
     /// <summary>
     /// The contact_type attribute.
     /// </summary>
     [TerraformPropertyName("contact_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ContactType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "contact_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ContactType { get; set; } = default!;
 
     /// <summary>
     /// The country_code attribute.
     /// </summary>
     [TerraformPropertyName("country_code")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CountryCode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "country_code");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CountryCode { get; set; } = default!;
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [TerraformPropertyName("email")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Email { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "email");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Email { get; set; } = default!;
 
     /// <summary>
     /// The extra_params attribute.
     /// </summary>
     [TerraformPropertyName("extra_params")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> ExtraParams { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "extra_params");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> ExtraParams { get; set; } = default!;
 
     /// <summary>
     /// The fax attribute.
     /// </summary>
     [TerraformPropertyName("fax")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Fax { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "fax");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Fax { get; set; } = default!;
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
     [TerraformPropertyName("first_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> FirstName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "first_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> FirstName { get; set; } = default!;
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
     [TerraformPropertyName("last_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LastName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "last_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LastName { get; set; } = default!;
 
     /// <summary>
     /// The organization_name attribute.
     /// </summary>
     [TerraformPropertyName("organization_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> OrganizationName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "organization_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> OrganizationName { get; set; } = default!;
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
     [TerraformPropertyName("phone_number")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PhoneNumber { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "phone_number");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PhoneNumber { get; set; } = default!;
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformPropertyName("state")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> State { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "state");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> State { get; set; } = default!;
 
     /// <summary>
     /// The zip_code attribute.
     /// </summary>
     [TerraformPropertyName("zip_code")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ZipCode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "zip_code");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ZipCode { get; set; } = default!;
 
 }
 
@@ -347,105 +347,105 @@ public class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : ITerrafor
 /// Block type for tech_contact in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53domainsRegisteredDomainTechContactBlock : ITerraformBlock
+public class AwsRoute53domainsRegisteredDomainTechContactBlock
 {
     /// <summary>
     /// The address_line_1 attribute.
     /// </summary>
     [TerraformPropertyName("address_line_1")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AddressLine1 { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "address_line_1");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AddressLine1 { get; set; } = default!;
 
     /// <summary>
     /// The address_line_2 attribute.
     /// </summary>
     [TerraformPropertyName("address_line_2")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AddressLine2 { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "address_line_2");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AddressLine2 { get; set; } = default!;
 
     /// <summary>
     /// The city attribute.
     /// </summary>
     [TerraformPropertyName("city")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> City { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "city");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> City { get; set; } = default!;
 
     /// <summary>
     /// The contact_type attribute.
     /// </summary>
     [TerraformPropertyName("contact_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ContactType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "contact_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ContactType { get; set; } = default!;
 
     /// <summary>
     /// The country_code attribute.
     /// </summary>
     [TerraformPropertyName("country_code")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CountryCode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "country_code");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CountryCode { get; set; } = default!;
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [TerraformPropertyName("email")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Email { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "email");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Email { get; set; } = default!;
 
     /// <summary>
     /// The extra_params attribute.
     /// </summary>
     [TerraformPropertyName("extra_params")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> ExtraParams { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "extra_params");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> ExtraParams { get; set; } = default!;
 
     /// <summary>
     /// The fax attribute.
     /// </summary>
     [TerraformPropertyName("fax")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Fax { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "fax");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Fax { get; set; } = default!;
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
     [TerraformPropertyName("first_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> FirstName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "first_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> FirstName { get; set; } = default!;
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
     [TerraformPropertyName("last_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LastName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "last_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LastName { get; set; } = default!;
 
     /// <summary>
     /// The organization_name attribute.
     /// </summary>
     [TerraformPropertyName("organization_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> OrganizationName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "organization_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> OrganizationName { get; set; } = default!;
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
     [TerraformPropertyName("phone_number")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PhoneNumber { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "phone_number");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PhoneNumber { get; set; } = default!;
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformPropertyName("state")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> State { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "state");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> State { get; set; } = default!;
 
     /// <summary>
     /// The zip_code attribute.
     /// </summary>
     [TerraformPropertyName("zip_code")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ZipCode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "zip_code");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ZipCode { get; set; } = default!;
 
 }
 
@@ -453,21 +453,21 @@ public class AwsRoute53domainsRegisteredDomainTechContactBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRoute53domainsRegisteredDomainTimeoutsBlock : ITerraformBlock
+public class AwsRoute53domainsRegisteredDomainTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -486,21 +486,21 @@ public class AwsRoute53domainsRegisteredDomain : TerraformResource
     /// </summary>
     [TerraformPropertyName("admin_privacy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AdminPrivacy { get; set; }
+    public TerraformValue<bool>? AdminPrivacy { get; set; }
 
     /// <summary>
     /// The auto_renew attribute.
     /// </summary>
     [TerraformPropertyName("auto_renew")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AutoRenew { get; set; }
+    public TerraformValue<bool>? AutoRenew { get; set; }
 
     /// <summary>
     /// The billing_privacy attribute.
     /// </summary>
     [TerraformPropertyName("billing_privacy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? BillingPrivacy { get; set; }
+    public TerraformValue<bool>? BillingPrivacy { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
@@ -508,49 +508,49 @@ public class AwsRoute53domainsRegisteredDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformPropertyName("domain_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
+    public required TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The registrant_privacy attribute.
     /// </summary>
     [TerraformPropertyName("registrant_privacy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RegistrantPrivacy { get; set; }
+    public TerraformValue<bool>? RegistrantPrivacy { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The tech_privacy attribute.
     /// </summary>
     [TerraformPropertyName("tech_privacy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? TechPrivacy { get; set; }
+    public TerraformValue<bool>? TechPrivacy { get; set; }
 
     /// <summary>
     /// The transfer_lock attribute.
     /// </summary>
     [TerraformPropertyName("transfer_lock")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? TransferLock { get; set; }
+    public TerraformValue<bool>? TransferLock { get; set; }
 
     /// <summary>
     /// Block for admin_contact.
@@ -558,7 +558,7 @@ public class AwsRoute53domainsRegisteredDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdminContact block(s) allowed")]
     [TerraformPropertyName("admin_contact")]
-    public TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainAdminContactBlock>>? AdminContact { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainAdminContactBlock>>? AdminContact { get; set; }
 
     /// <summary>
     /// Block for billing_contact.
@@ -566,7 +566,7 @@ public class AwsRoute53domainsRegisteredDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BillingContact block(s) allowed")]
     [TerraformPropertyName("billing_contact")]
-    public TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainBillingContactBlock>>? BillingContact { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainBillingContactBlock>>? BillingContact { get; set; }
 
     /// <summary>
     /// Block for name_server.
@@ -574,7 +574,7 @@ public class AwsRoute53domainsRegisteredDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(6, ErrorMessage = "Maximum 6 NameServer block(s) allowed")]
     [TerraformPropertyName("name_server")]
-    public TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainNameServerBlock>>? NameServer { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainNameServerBlock>>? NameServer { get; set; }
 
     /// <summary>
     /// Block for registrant_contact.
@@ -582,7 +582,7 @@ public class AwsRoute53domainsRegisteredDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RegistrantContact block(s) allowed")]
     [TerraformPropertyName("registrant_contact")]
-    public TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainRegistrantContactBlock>>? RegistrantContact { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainRegistrantContactBlock>>? RegistrantContact { get; set; }
 
     /// <summary>
     /// Block for tech_contact.
@@ -590,83 +590,83 @@ public class AwsRoute53domainsRegisteredDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TechContact block(s) allowed")]
     [TerraformPropertyName("tech_contact")]
-    public TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainTechContactBlock>>? TechContact { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainTechContactBlock>>? TechContact { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsRoute53domainsRegisteredDomainTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsRoute53domainsRegisteredDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The abuse_contact_email attribute.
     /// </summary>
     [TerraformPropertyName("abuse_contact_email")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AbuseContactEmail => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "abuse_contact_email");
+    public TerraformValue<string> AbuseContactEmail => new TerraformReference(this, "abuse_contact_email");
 
     /// <summary>
     /// The abuse_contact_phone attribute.
     /// </summary>
     [TerraformPropertyName("abuse_contact_phone")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AbuseContactPhone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "abuse_contact_phone");
+    public TerraformValue<string> AbuseContactPhone => new TerraformReference(this, "abuse_contact_phone");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     [TerraformPropertyName("creation_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_date");
+    public TerraformValue<string> CreationDate => new TerraformReference(this, "creation_date");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     [TerraformPropertyName("expiration_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExpirationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_date");
+    public TerraformValue<string> ExpirationDate => new TerraformReference(this, "expiration_date");
 
     /// <summary>
     /// The registrar_name attribute.
     /// </summary>
     [TerraformPropertyName("registrar_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RegistrarName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registrar_name");
+    public TerraformValue<string> RegistrarName => new TerraformReference(this, "registrar_name");
 
     /// <summary>
     /// The registrar_url attribute.
     /// </summary>
     [TerraformPropertyName("registrar_url")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RegistrarUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registrar_url");
+    public TerraformValue<string> RegistrarUrl => new TerraformReference(this, "registrar_url");
 
     /// <summary>
     /// The reseller attribute.
     /// </summary>
     [TerraformPropertyName("reseller")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Reseller => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "reseller");
+    public TerraformValue<string> Reseller => new TerraformReference(this, "reseller");
 
     /// <summary>
     /// The status_list attribute.
     /// </summary>
     [TerraformPropertyName("status_list")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> StatusList => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "status_list");
+    public TerraformList<string> StatusList => new TerraformReference(this, "status_list");
 
     /// <summary>
     /// The updated_date attribute.
     /// </summary>
     [TerraformPropertyName("updated_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdatedDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "updated_date");
+    public TerraformValue<string> UpdatedDate => new TerraformReference(this, "updated_date");
 
     /// <summary>
     /// The whois_server attribute.
     /// </summary>
     [TerraformPropertyName("whois_server")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> WhoisServer => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "whois_server");
+    public TerraformValue<string> WhoisServer => new TerraformReference(this, "whois_server");
 
 }

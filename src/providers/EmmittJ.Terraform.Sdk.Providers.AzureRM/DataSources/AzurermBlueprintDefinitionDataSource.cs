@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBlueprintDefinitionDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermBlueprintDefinitionDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The scope_id attribute.
@@ -47,55 +47,55 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     [TerraformPropertyName("scope_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ScopeId { get; set; }
+    public required TerraformValue<string> ScopeId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermBlueprintDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermBlueprintDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
+    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     [TerraformPropertyName("last_modified")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastModified => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified");
+    public TerraformValue<string> LastModified => new TerraformReference(this, "last_modified");
 
     /// <summary>
     /// The target_scope attribute.
     /// </summary>
     [TerraformPropertyName("target_scope")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TargetScope => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "target_scope");
+    public TerraformValue<string> TargetScope => new TerraformReference(this, "target_scope");
 
     /// <summary>
     /// The time_created attribute.
     /// </summary>
     [TerraformPropertyName("time_created")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TimeCreated => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_created");
+    public TerraformValue<string> TimeCreated => new TerraformReference(this, "time_created");
 
     /// <summary>
     /// The versions attribute.
     /// </summary>
     [TerraformPropertyName("versions")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Versions => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "versions");
+    public TerraformList<string> Versions => new TerraformReference(this, "versions");
 
 }

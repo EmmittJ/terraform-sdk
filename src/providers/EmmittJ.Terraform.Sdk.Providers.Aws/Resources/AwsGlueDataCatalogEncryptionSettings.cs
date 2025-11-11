@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_catalog_encryption_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBlock : ITerraformBlock
+public class AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBlock
 {
 }
 
@@ -24,22 +24,22 @@ public class AwsGlueDataCatalogEncryptionSettings : TerraformResource
     /// The catalog_id attribute.
     /// </summary>
     [TerraformPropertyName("catalog_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "catalog_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CatalogId { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for data_catalog_encryption_settings.
@@ -49,6 +49,6 @@ public class AwsGlueDataCatalogEncryptionSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataCatalogEncryptionSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCatalogEncryptionSettings block(s) allowed")]
     [TerraformPropertyName("data_catalog_encryption_settings")]
-    public TerraformList<TerraformBlock<AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBlock>>? DataCatalogEncryptionSettings { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBlock>>? DataCatalogEncryptionSettings { get; set; }
 
 }

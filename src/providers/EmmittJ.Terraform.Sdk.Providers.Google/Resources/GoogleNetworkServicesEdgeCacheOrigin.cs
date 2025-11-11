@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for aws_v4_authentication in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : ITerraformBlock
+public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock
 {
     /// <summary>
     /// The access key ID your origin uses to identify the key.
@@ -14,7 +14,7 @@ public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : ITer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKeyId is required")]
     [TerraformPropertyName("access_key_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AccessKeyId { get; set; }
+    public required TerraformValue<string> AccessKeyId { get; set; }
 
     /// <summary>
     /// The name of the AWS region that your origin is in.
@@ -22,7 +22,7 @@ public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : ITer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginRegion is required")]
     [TerraformPropertyName("origin_region")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OriginRegion { get; set; }
+    public required TerraformValue<string> OriginRegion { get; set; }
 
     /// <summary>
     /// The Secret Manager secret version of the secret access key used by your origin.
@@ -32,7 +32,7 @@ public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : ITer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretAccessKeyVersion is required")]
     [TerraformPropertyName("secret_access_key_version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SecretAccessKeyVersion { get; set; }
+    public required TerraformValue<string> SecretAccessKeyVersion { get; set; }
 
 }
 
@@ -40,7 +40,7 @@ public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : ITer
 /// Block type for flex_shielding in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock : ITerraformBlock
+public class GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock
 {
     /// <summary>
     /// Whenever possible, content will be fetched from origin and cached in or
@@ -50,7 +50,7 @@ public class GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock : ITerraform
     /// </summary>
     [TerraformPropertyName("flex_shielding_regions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? FlexShieldingRegions { get; set; }
+    public TerraformList<string>? FlexShieldingRegions { get; set; }
 
 }
 
@@ -58,7 +58,7 @@ public class GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock : ITerraform
 /// Block type for origin_override_action in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock : ITerraformBlock
+public class GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock
 {
 }
 
@@ -66,7 +66,7 @@ public class GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock : ITe
 /// Block type for origin_redirect in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock : ITerraformBlock
+public class GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock
 {
     /// <summary>
     /// The set of redirect response codes that the CDN
@@ -76,7 +76,7 @@ public class GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock : ITerrafor
     /// </summary>
     [TerraformPropertyName("redirect_conditions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? RedirectConditions { get; set; }
+    public TerraformList<string>? RedirectConditions { get; set; }
 
 }
 
@@ -84,7 +84,7 @@ public class GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock : ITerrafor
 /// Block type for timeout in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : ITerraformBlock
+public class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock
 {
     /// <summary>
     /// The maximum duration to wait for a single origin connection to be established, including DNS lookup, TLS handshake and TCP/QUIC connection establishment.
@@ -95,7 +95,7 @@ public class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("connect_timeout")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConnectTimeout { get; set; }
+    public TerraformValue<string>? ConnectTimeout { get; set; }
 
     /// <summary>
     /// The maximum time across all connection attempts to the origin, including failover origins, before returning an error to the client. A HTTP 504 will be returned if the timeout is reached before a response is returned.
@@ -106,7 +106,7 @@ public class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("max_attempts_timeout")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MaxAttemptsTimeout { get; set; }
+    public TerraformValue<string>? MaxAttemptsTimeout { get; set; }
 
     /// <summary>
     /// The maximum duration to wait between reads of a single HTTP connection/stream.
@@ -119,7 +119,7 @@ public class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("read_timeout")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ReadTimeout { get; set; }
+    public TerraformValue<string>? ReadTimeout { get; set; }
 
     /// <summary>
     /// The maximum duration to wait for the last byte of a response to arrive when reading from the HTTP connection/stream.
@@ -134,7 +134,7 @@ public class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("response_timeout")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ResponseTimeout { get; set; }
+    public TerraformValue<string>? ResponseTimeout { get; set; }
 
 }
 
@@ -142,28 +142,28 @@ public class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock : ITerraformBlock
+public class GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -182,7 +182,7 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The Origin resource to try when the current origin cannot be reached.
@@ -193,14 +193,14 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [TerraformPropertyName("failover_origin")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FailoverOrigin { get; set; }
+    public TerraformValue<string>? FailoverOrigin { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Set of label tags associated with the EdgeCache resource.
@@ -210,7 +210,7 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The maximum number of attempts to cache fill from this origin. Another attempt is made when a cache fill fails with one of the retryConditions.
@@ -228,7 +228,7 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [TerraformPropertyName("max_attempts")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxAttempts { get; set; }
+    public TerraformValue<double>? MaxAttempts { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is created.
@@ -238,7 +238,7 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// A fully qualified domain name (FQDN) or IP address reachable over the public Internet, or the address of a Google Cloud Storage bucket.
@@ -251,22 +251,22 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginAddress is required")]
     [TerraformPropertyName("origin_address")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OriginAddress { get; set; }
+    public required TerraformValue<string> OriginAddress { get; set; }
 
     /// <summary>
     /// The port to connect to the origin on.
     /// Defaults to port 443 for HTTP2 and HTTPS protocols, and port 80 for HTTP.
     /// </summary>
     [TerraformPropertyName("port")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Port { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "port");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Port { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The protocol to use to connect to the configured origin. Defaults to HTTP2, and it is strongly recommended that users use HTTP2 for both security &amp;amp; performance.
@@ -274,8 +274,8 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// When using HTTP2 or HTTPS as the protocol, a valid, publicly-signed, unexpired TLS (SSL) certificate must be presented by the origin server. Possible values: [&amp;quot;HTTP2&amp;quot;, &amp;quot;HTTPS&amp;quot;, &amp;quot;HTTP&amp;quot;]
     /// </summary>
     [TerraformPropertyName("protocol")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Protocol { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protocol");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Protocol { get; set; } = default!;
 
     /// <summary>
     /// Specifies one or more retry conditions for the configured origin.
@@ -298,8 +298,8 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// - FORBIDDEN: Retry if the origin returns a HTTP 403 (Forbidden). Possible values: [&amp;quot;CONNECT_FAILURE&amp;quot;, &amp;quot;HTTP_5XX&amp;quot;, &amp;quot;GATEWAY_ERROR&amp;quot;, &amp;quot;RETRIABLE_4XX&amp;quot;, &amp;quot;NOT_FOUND&amp;quot;, &amp;quot;FORBIDDEN&amp;quot;]
     /// </summary>
     [TerraformPropertyName("retry_conditions")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> RetryConditions { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "retry_conditions");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> RetryConditions { get; set; } = default!;
 
     /// <summary>
     /// Block for aws_v4_authentication.
@@ -307,7 +307,7 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AwsV4Authentication block(s) allowed")]
     [TerraformPropertyName("aws_v4_authentication")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock>>? AwsV4Authentication { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock>>? AwsV4Authentication { get; set; }
 
     /// <summary>
     /// Block for flex_shielding.
@@ -315,7 +315,7 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FlexShielding block(s) allowed")]
     [TerraformPropertyName("flex_shielding")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock>>? FlexShielding { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock>>? FlexShielding { get; set; }
 
     /// <summary>
     /// Block for origin_override_action.
@@ -323,7 +323,7 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OriginOverrideAction block(s) allowed")]
     [TerraformPropertyName("origin_override_action")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock>>? OriginOverrideAction { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock>>? OriginOverrideAction { get; set; }
 
     /// <summary>
     /// Block for origin_redirect.
@@ -331,7 +331,7 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OriginRedirect block(s) allowed")]
     [TerraformPropertyName("origin_redirect")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock>>? OriginRedirect { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock>>? OriginRedirect { get; set; }
 
     /// <summary>
     /// Block for timeout.
@@ -339,21 +339,21 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Timeout block(s) allowed")]
     [TerraformPropertyName("timeout")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginTimeoutBlock>>? Timeout { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginTimeoutBlock>>? Timeout { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -361,6 +361,6 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

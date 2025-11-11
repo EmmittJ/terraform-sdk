@@ -17,14 +17,14 @@ public class GoogleServiceAccountAccessTokenEphemeralResource : TerraformEphemer
     /// </summary>
     [TerraformPropertyName("delegates")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Delegates { get; set; }
+    public TerraformSet<string>? Delegates { get; set; }
 
     /// <summary>
     /// Lifetime of the impersonated token (defaults to its max: `3600s`)
     /// </summary>
     [TerraformPropertyName("lifetime")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Lifetime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "lifetime");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Lifetime { get; set; } = default!;
 
     /// <summary>
     /// The scopes the new credential should have (e.g. `[&#39;cloud-platform&#39;]`)
@@ -32,7 +32,7 @@ public class GoogleServiceAccountAccessTokenEphemeralResource : TerraformEphemer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     [TerraformPropertyName("scopes")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Scopes { get; set; }
+    public required TerraformSet<string> Scopes { get; set; }
 
     /// <summary>
     /// The service account to impersonate (e.g. `service_B@your-project-id.iam.gserviceaccount.com`)
@@ -40,13 +40,13 @@ public class GoogleServiceAccountAccessTokenEphemeralResource : TerraformEphemer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     [TerraformPropertyName("target_service_account")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetServiceAccount { get; set; }
+    public required TerraformValue<string> TargetServiceAccount { get; set; }
 
     /// <summary>
     /// The `access_token` representing the new generated identity.
     /// </summary>
     [TerraformPropertyName("access_token")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AccessToken => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_token");
+    public TerraformValue<string> AccessToken => new TerraformReference(this, "access_token");
 
 }

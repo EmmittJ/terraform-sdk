@@ -16,7 +16,7 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
     /// </summary>
     [TerraformPropertyName("comment")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Comment { get; set; }
+    public TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The destination_account attribute.
@@ -24,7 +24,7 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationAccount is required")]
     [TerraformPropertyName("destination_account")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DestinationAccount { get; set; }
+    public required TerraformValue<string> DestinationAccount { get; set; }
 
     /// <summary>
     /// The destination_region attribute.
@@ -32,7 +32,7 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRegion is required")]
     [TerraformPropertyName("destination_region")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DestinationRegion { get; set; }
+    public required TerraformValue<string> DestinationRegion { get; set; }
 
     /// <summary>
     /// The framework_id attribute.
@@ -40,27 +40,27 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkId is required")]
     [TerraformPropertyName("framework_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FrameworkId { get; set; }
+    public required TerraformValue<string> FrameworkId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
 }

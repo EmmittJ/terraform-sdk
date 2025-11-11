@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleStorageHmacKeyTimeoutsBlock : ITerraformBlock
+public class GoogleStorageHmacKeyTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -44,15 +44,15 @@ public class GoogleStorageHmacKey : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The email address of the key&#39;s associated service account.
@@ -60,48 +60,48 @@ public class GoogleStorageHmacKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountEmail is required")]
     [TerraformPropertyName("service_account_email")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceAccountEmail { get; set; }
+    public required TerraformValue<string> ServiceAccountEmail { get; set; }
 
     /// <summary>
     /// The state of the key. Can be set to one of ACTIVE, INACTIVE. Default value: &amp;quot;ACTIVE&amp;quot; Possible values: [&amp;quot;ACTIVE&amp;quot;, &amp;quot;INACTIVE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("state")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? State { get; set; }
+    public TerraformValue<string>? State { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleStorageHmacKeyTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleStorageHmacKeyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The access ID of the HMAC Key.
     /// </summary>
     [TerraformPropertyName("access_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AccessId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_id");
+    public TerraformValue<string> AccessId => new TerraformReference(this, "access_id");
 
     /// <summary>
     /// HMAC secret key material.
     /// </summary>
     [TerraformPropertyName("secret")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Secret => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secret");
+    public TerraformValue<string> Secret => new TerraformReference(this, "secret");
 
     /// <summary>
     /// &#39;The creation time of the HMAC key in RFC 3339 format. &#39;
     /// </summary>
     [TerraformPropertyName("time_created")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TimeCreated => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_created");
+    public TerraformValue<string> TimeCreated => new TerraformReference(this, "time_created");
 
     /// <summary>
     /// &#39;The last modification time of the HMAC key metadata in RFC 3339 format.&#39;
     /// </summary>
     [TerraformPropertyName("updated")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Updated => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "updated");
+    public TerraformValue<string> Updated => new TerraformReference(this, "updated");
 
 }

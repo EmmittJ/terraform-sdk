@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backup_retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetappBackupVaultBackupRetentionPolicyBlock : ITerraformBlock
+public class GoogleNetappBackupVaultBackupRetentionPolicyBlock
 {
     /// <summary>
     /// Minimum retention duration in days for backups in the backup vault.
@@ -14,35 +14,35 @@ public class GoogleNetappBackupVaultBackupRetentionPolicyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupMinimumEnforcedRetentionDays is required")]
     [TerraformPropertyName("backup_minimum_enforced_retention_days")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> BackupMinimumEnforcedRetentionDays { get; set; }
+    public required TerraformValue<double> BackupMinimumEnforcedRetentionDays { get; set; }
 
     /// <summary>
     /// Indicates if the daily backups are immutable. At least one of daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable and manual_backup_immutable must be true.
     /// </summary>
     [TerraformPropertyName("daily_backup_immutable")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DailyBackupImmutable { get; set; }
+    public TerraformValue<bool>? DailyBackupImmutable { get; set; }
 
     /// <summary>
     /// Indicates if the manual backups are immutable. At least one of daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable and manual_backup_immutable must be true.
     /// </summary>
     [TerraformPropertyName("manual_backup_immutable")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ManualBackupImmutable { get; set; }
+    public TerraformValue<bool>? ManualBackupImmutable { get; set; }
 
     /// <summary>
     /// Indicates if the monthly backups are immutable. At least one of daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable and manual_backup_immutable must be true.
     /// </summary>
     [TerraformPropertyName("monthly_backup_immutable")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? MonthlyBackupImmutable { get; set; }
+    public TerraformValue<bool>? MonthlyBackupImmutable { get; set; }
 
     /// <summary>
     /// Indicates if the weekly backups are immutable. At least one of daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable and manual_backup_immutable must be true.
     /// </summary>
     [TerraformPropertyName("weekly_backup_immutable")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? WeeklyBackupImmutable { get; set; }
+    public TerraformValue<bool>? WeeklyBackupImmutable { get; set; }
 
 }
 
@@ -50,28 +50,28 @@ public class GoogleNetappBackupVaultBackupRetentionPolicyBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetappBackupVaultTimeoutsBlock : ITerraformBlock
+public class GoogleNetappBackupVaultTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,28 +90,28 @@ public class GoogleNetappBackupVault : TerraformResource
     /// </summary>
     [TerraformPropertyName("backup_region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? BackupRegion { get; set; }
+    public TerraformValue<string>? BackupRegion { get; set; }
 
     /// <summary>
     /// Type of the backup vault to be created. Default is IN_REGION. Possible values: [&amp;quot;BACKUP_VAULT_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;IN_REGION&amp;quot;, &amp;quot;CROSS_REGION&amp;quot;]
     /// </summary>
     [TerraformPropertyName("backup_vault_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> BackupVaultType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backup_vault_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> BackupVaultType { get; set; } = default!;
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Labels as key value pairs. Example: &#39;{ &amp;quot;owner&amp;quot;: &amp;quot;Bob&amp;quot;, &amp;quot;department&amp;quot;: &amp;quot;finance&amp;quot;, &amp;quot;purpose&amp;quot;: &amp;quot;testing&amp;quot; }&#39;.
@@ -122,7 +122,7 @@ public class GoogleNetappBackupVault : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Location (region) of the backup vault.
@@ -130,7 +130,7 @@ public class GoogleNetappBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource name of the backup vault. Needs to be unique per location.
@@ -138,14 +138,14 @@ public class GoogleNetappBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for backup_retention_policy.
@@ -153,56 +153,56 @@ public class GoogleNetappBackupVault : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupRetentionPolicy block(s) allowed")]
     [TerraformPropertyName("backup_retention_policy")]
-    public TerraformList<TerraformBlock<GoogleNetappBackupVaultBackupRetentionPolicyBlock>>? BackupRetentionPolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetappBackupVaultBackupRetentionPolicyBlock>>? BackupRetentionPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleNetappBackupVaultTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleNetappBackupVaultTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Create time of the backup vault. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Name of the Backup vault created in backup region.
     /// </summary>
     [TerraformPropertyName("destination_backup_vault")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DestinationBackupVault => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "destination_backup_vault");
+    public TerraformValue<string> DestinationBackupVault => new TerraformReference(this, "destination_backup_vault");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Name of the Backup vault created in source region.
     /// </summary>
     [TerraformPropertyName("source_backup_vault")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SourceBackupVault => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_backup_vault");
+    public TerraformValue<string> SourceBackupVault => new TerraformReference(this, "source_backup_vault");
 
     /// <summary>
     /// Region in which the backup vault is created.
     /// </summary>
     [TerraformPropertyName("source_region")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SourceRegion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_region");
+    public TerraformValue<string> SourceRegion => new TerraformReference(this, "source_region");
 
     /// <summary>
     /// The state of the Backup Vault.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -210,6 +210,6 @@ public class GoogleNetappBackupVault : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryTriggerScheduleDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermDataFactoryTriggerScheduleDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public class AzurermDataFactoryTriggerScheduleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformPropertyName("data_factory_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DataFactoryId { get; set; }
+    public required TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -47,83 +47,83 @@ public class AzurermDataFactoryTriggerScheduleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDataFactoryTriggerScheduleDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDataFactoryTriggerScheduleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The activated attribute.
     /// </summary>
     [TerraformPropertyName("activated")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Activated => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "activated");
+    public TerraformValue<bool> Activated => new TerraformReference(this, "activated");
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Annotations => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "annotations");
+    public TerraformList<string> Annotations => new TerraformReference(this, "annotations");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
     [TerraformPropertyName("end_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EndTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "end_time");
+    public TerraformValue<string> EndTime => new TerraformReference(this, "end_time");
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     [TerraformPropertyName("frequency")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Frequency => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "frequency");
+    public TerraformValue<string> Frequency => new TerraformReference(this, "frequency");
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
     [TerraformPropertyName("interval")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Interval => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "interval");
+    public TerraformValue<double> Interval => new TerraformReference(this, "interval");
 
     /// <summary>
     /// The pipeline_name attribute.
     /// </summary>
     [TerraformPropertyName("pipeline_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PipelineName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "pipeline_name");
+    public TerraformValue<string> PipelineName => new TerraformReference(this, "pipeline_name");
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
     [TerraformPropertyName("schedule")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Schedule => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "schedule");
+    public TerraformList<object> Schedule => new TerraformReference(this, "schedule");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     [TerraformPropertyName("start_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StartTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_time");
+    public TerraformValue<string> StartTime => new TerraformReference(this, "start_time");
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
     [TerraformPropertyName("time_zone")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TimeZone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_zone");
+    public TerraformValue<string> TimeZone => new TerraformReference(this, "time_zone");
 
 }

@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationTimeoutsBlock : ITerraformBlock
+public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
     [TerraformPropertyName("backend_address_pool_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BackendAddressPoolId { get; set; }
+    public required TerraformValue<string> BackendAddressPoolId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ip_configuration_name attribute.
@@ -61,7 +61,7 @@ public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfigurationName is required")]
     [TerraformPropertyName("ip_configuration_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IpConfigurationName { get; set; }
+    public required TerraformValue<string> IpConfigurationName { get; set; }
 
     /// <summary>
     /// The network_interface_id attribute.
@@ -69,13 +69,13 @@ public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     [TerraformPropertyName("network_interface_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NetworkInterfaceId { get; set; }
+    public required TerraformValue<string> NetworkInterfaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

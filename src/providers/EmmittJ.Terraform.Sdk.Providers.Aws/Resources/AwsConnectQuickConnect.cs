@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for quick_connect_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConnectQuickConnectQuickConnectConfigBlock : ITerraformBlock
+public class AwsConnectQuickConnectQuickConnectConfigBlock
 {
     /// <summary>
     /// The quick_connect_type attribute.
@@ -14,7 +14,7 @@ public class AwsConnectQuickConnectQuickConnectConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuickConnectType is required")]
     [TerraformPropertyName("quick_connect_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> QuickConnectType { get; set; }
+    public required TerraformValue<string> QuickConnectType { get; set; }
 
 }
 
@@ -33,14 +33,14 @@ public class AwsConnectQuickConnect : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The instance_id attribute.
@@ -48,7 +48,7 @@ public class AwsConnectQuickConnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformPropertyName("instance_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
+    public required TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -56,28 +56,28 @@ public class AwsConnectQuickConnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for quick_connect_config.
@@ -87,20 +87,20 @@ public class AwsConnectQuickConnect : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QuickConnectConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuickConnectConfig block(s) allowed")]
     [TerraformPropertyName("quick_connect_config")]
-    public TerraformList<TerraformBlock<AwsConnectQuickConnectQuickConnectConfigBlock>>? QuickConnectConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsConnectQuickConnectQuickConnectConfigBlock>>? QuickConnectConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The quick_connect_id attribute.
     /// </summary>
     [TerraformPropertyName("quick_connect_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> QuickConnectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "quick_connect_id");
+    public TerraformValue<string> QuickConnectId => new TerraformReference(this, "quick_connect_id");
 
 }

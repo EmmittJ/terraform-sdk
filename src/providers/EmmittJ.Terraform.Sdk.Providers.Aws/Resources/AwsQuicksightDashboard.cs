@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dashboard_publish_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDashboardDashboardPublishOptionsBlock : ITerraformBlock
+public class AwsQuicksightDashboardDashboardPublishOptionsBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsQuicksightDashboardDashboardPublishOptionsBlock : ITerraformBloc
 /// Block type for definition in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDashboardDefinitionBlock : ITerraformBlock
+public class AwsQuicksightDashboardDefinitionBlock
 {
 }
 
@@ -22,7 +22,7 @@ public class AwsQuicksightDashboardDefinitionBlock : ITerraformBlock
 /// Block type for parameters in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDashboardParametersBlock : ITerraformBlock
+public class AwsQuicksightDashboardParametersBlock
 {
 }
 
@@ -30,7 +30,7 @@ public class AwsQuicksightDashboardParametersBlock : ITerraformBlock
 /// Block type for permissions in .
 /// Nesting mode: set
 /// </summary>
-public class AwsQuicksightDashboardPermissionsBlock : ITerraformBlock
+public class AwsQuicksightDashboardPermissionsBlock
 {
     /// <summary>
     /// The actions attribute.
@@ -38,7 +38,7 @@ public class AwsQuicksightDashboardPermissionsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     [TerraformPropertyName("actions")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Actions { get; set; }
+    public required TerraformSet<string> Actions { get; set; }
 
     /// <summary>
     /// The principal attribute.
@@ -46,7 +46,7 @@ public class AwsQuicksightDashboardPermissionsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     [TerraformPropertyName("principal")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
+    public required TerraformValue<string> Principal { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public class AwsQuicksightDashboardPermissionsBlock : ITerraformBlock
 /// Block type for source_entity in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDashboardSourceEntityBlock : ITerraformBlock
+public class AwsQuicksightDashboardSourceEntityBlock
 {
 }
 
@@ -62,28 +62,28 @@ public class AwsQuicksightDashboardSourceEntityBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsQuicksightDashboardTimeoutsBlock : ITerraformBlock
+public class AwsQuicksightDashboardTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -101,8 +101,8 @@ public class AwsQuicksightDashboard : TerraformResource
     /// The aws_account_id attribute.
     /// </summary>
     [TerraformPropertyName("aws_account_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AwsAccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_account_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AwsAccountId { get; set; } = default!;
 
     /// <summary>
     /// The dashboard_id attribute.
@@ -110,14 +110,14 @@ public class AwsQuicksightDashboard : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DashboardId is required")]
     [TerraformPropertyName("dashboard_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DashboardId { get; set; }
+    public required TerraformValue<string> DashboardId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -125,35 +125,35 @@ public class AwsQuicksightDashboard : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The theme_arn attribute.
     /// </summary>
     [TerraformPropertyName("theme_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ThemeArn { get; set; }
+    public TerraformValue<string>? ThemeArn { get; set; }
 
     /// <summary>
     /// The version_description attribute.
@@ -161,7 +161,7 @@ public class AwsQuicksightDashboard : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionDescription is required")]
     [TerraformPropertyName("version_description")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VersionDescription { get; set; }
+    public required TerraformValue<string> VersionDescription { get; set; }
 
     /// <summary>
     /// Block for dashboard_publish_options.
@@ -169,7 +169,7 @@ public class AwsQuicksightDashboard : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DashboardPublishOptions block(s) allowed")]
     [TerraformPropertyName("dashboard_publish_options")]
-    public TerraformList<TerraformBlock<AwsQuicksightDashboardDashboardPublishOptionsBlock>>? DashboardPublishOptions { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsQuicksightDashboardDashboardPublishOptionsBlock>>? DashboardPublishOptions { get; set; }
 
     /// <summary>
     /// Block for definition.
@@ -177,7 +177,7 @@ public class AwsQuicksightDashboard : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Definition block(s) allowed")]
     [TerraformPropertyName("definition")]
-    public TerraformList<TerraformBlock<AwsQuicksightDashboardDefinitionBlock>>? Definition { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsQuicksightDashboardDefinitionBlock>>? Definition { get; set; }
 
     /// <summary>
     /// Block for parameters.
@@ -185,7 +185,7 @@ public class AwsQuicksightDashboard : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Parameters block(s) allowed")]
     [TerraformPropertyName("parameters")]
-    public TerraformList<TerraformBlock<AwsQuicksightDashboardParametersBlock>>? Parameters { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsQuicksightDashboardParametersBlock>>? Parameters { get; set; }
 
     /// <summary>
     /// Block for permissions.
@@ -193,7 +193,7 @@ public class AwsQuicksightDashboard : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
     [TerraformPropertyName("permissions")]
-    public TerraformSet<TerraformBlock<AwsQuicksightDashboardPermissionsBlock>>? Permissions { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsQuicksightDashboardPermissionsBlock>>? Permissions { get; set; }
 
     /// <summary>
     /// Block for source_entity.
@@ -201,62 +201,62 @@ public class AwsQuicksightDashboard : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceEntity block(s) allowed")]
     [TerraformPropertyName("source_entity")]
-    public TerraformList<TerraformBlock<AwsQuicksightDashboardSourceEntityBlock>>? SourceEntity { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsQuicksightDashboardSourceEntityBlock>>? SourceEntity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsQuicksightDashboardTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsQuicksightDashboardTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     [TerraformPropertyName("created_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_time");
+    public TerraformValue<string> CreatedTime => new TerraformReference(this, "created_time");
 
     /// <summary>
     /// The last_published_time attribute.
     /// </summary>
     [TerraformPropertyName("last_published_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastPublishedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_published_time");
+    public TerraformValue<string> LastPublishedTime => new TerraformReference(this, "last_published_time");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     [TerraformPropertyName("last_updated_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastUpdatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_updated_time");
+    public TerraformValue<string> LastUpdatedTime => new TerraformReference(this, "last_updated_time");
 
     /// <summary>
     /// The source_entity_arn attribute.
     /// </summary>
     [TerraformPropertyName("source_entity_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SourceEntityArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_entity_arn");
+    public TerraformValue<string> SourceEntityArn => new TerraformReference(this, "source_entity_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The version_number attribute.
     /// </summary>
     [TerraformPropertyName("version_number")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> VersionNumber => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "version_number");
+    public TerraformValue<double> VersionNumber => new TerraformReference(this, "version_number");
 
 }

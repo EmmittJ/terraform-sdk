@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDocumentAiWarehouseLocationTimeoutsBlock : ITerraformBlock
+public class GoogleDocumentAiWarehouseLocationTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessControlMode is required")]
     [TerraformPropertyName("access_control_mode")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AccessControlMode { get; set; }
+    public required TerraformValue<string> AccessControlMode { get; set; }
 
     /// <summary>
     /// The type of database used to store customer data. Possible values: [&amp;quot;DB_INFRA_SPANNER&amp;quot;, &amp;quot;DB_CLOUD_SQL_POSTGRES&amp;quot;]
@@ -47,21 +47,21 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseType is required")]
     [TerraformPropertyName("database_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatabaseType { get; set; }
+    public required TerraformValue<string> DatabaseType { get; set; }
 
     /// <summary>
     /// The default role for the person who create a document. Possible values: [&amp;quot;DOCUMENT_ADMIN&amp;quot;, &amp;quot;DOCUMENT_EDITOR&amp;quot;, &amp;quot;DOCUMENT_VIEWER&amp;quot;]
     /// </summary>
     [TerraformPropertyName("document_creator_default_role")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DocumentCreatorDefaultRole { get; set; }
+    public TerraformValue<string>? DocumentCreatorDefaultRole { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The KMS key used for CMEK encryption. It is required that
@@ -72,7 +72,7 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     /// </summary>
     [TerraformPropertyName("kms_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKey { get; set; }
+    public TerraformValue<string>? KmsKey { get; set; }
 
     /// <summary>
     /// The location in which the instance is to be provisioned. It takes the form projects/{projectNumber}/locations/{location}.
@@ -80,7 +80,7 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The unique identifier of the project.
@@ -88,13 +88,13 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectNumber is required")]
     [TerraformPropertyName("project_number")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ProjectNumber { get; set; }
+    public required TerraformValue<string> ProjectNumber { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDocumentAiWarehouseLocationTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDocumentAiWarehouseLocationTimeoutsBlock>? Timeouts { get; set; }
 
 }

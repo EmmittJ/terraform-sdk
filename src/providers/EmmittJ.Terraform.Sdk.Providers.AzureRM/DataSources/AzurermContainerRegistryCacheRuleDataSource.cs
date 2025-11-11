@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     [TerraformPropertyName("container_registry_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContainerRegistryId { get; set; }
+    public required TerraformValue<string> ContainerRegistryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -47,34 +47,34 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The credential_set_id attribute.
     /// </summary>
     [TerraformPropertyName("credential_set_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CredentialSetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "credential_set_id");
+    public TerraformValue<string> CredentialSetId => new TerraformReference(this, "credential_set_id");
 
     /// <summary>
     /// The source_repo attribute.
     /// </summary>
     [TerraformPropertyName("source_repo")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SourceRepo => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_repo");
+    public TerraformValue<string> SourceRepo => new TerraformReference(this, "source_repo");
 
     /// <summary>
     /// The target_repo attribute.
     /// </summary>
     [TerraformPropertyName("target_repo")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TargetRepo => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "target_repo");
+    public TerraformValue<string> TargetRepo => new TerraformReference(this, "target_repo");
 
 }

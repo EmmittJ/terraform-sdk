@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSentinelAlertRuleAnomalyDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermSentinelAlertRuleAnomalyDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,15 +30,15 @@ public class AzurermSentinelAlertRuleAnomalyDataSource : TerraformDataSource
     /// The display_name attribute.
     /// </summary>
     [TerraformPropertyName("display_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DisplayName { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -46,118 +46,118 @@ public class AzurermSentinelAlertRuleAnomalyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     [TerraformPropertyName("log_analytics_workspace_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LogAnalyticsWorkspaceId { get; set; }
+    public required TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Name { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermSentinelAlertRuleAnomalyDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermSentinelAlertRuleAnomalyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The anomaly_settings_version attribute.
     /// </summary>
     [TerraformPropertyName("anomaly_settings_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> AnomalySettingsVersion => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "anomaly_settings_version");
+    public TerraformValue<double> AnomalySettingsVersion => new TerraformReference(this, "anomaly_settings_version");
 
     /// <summary>
     /// The anomaly_version attribute.
     /// </summary>
     [TerraformPropertyName("anomaly_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AnomalyVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "anomaly_version");
+    public TerraformValue<string> AnomalyVersion => new TerraformReference(this, "anomaly_version");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Enabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enabled");
+    public TerraformValue<bool> Enabled => new TerraformReference(this, "enabled");
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     [TerraformPropertyName("frequency")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Frequency => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "frequency");
+    public TerraformValue<string> Frequency => new TerraformReference(this, "frequency");
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformPropertyName("mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Mode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mode");
+    public TerraformValue<string> Mode => new TerraformReference(this, "mode");
 
     /// <summary>
     /// The multi_select_observation attribute.
     /// </summary>
     [TerraformPropertyName("multi_select_observation")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MultiSelectObservation => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "multi_select_observation");
+    public TerraformList<object> MultiSelectObservation => new TerraformReference(this, "multi_select_observation");
 
     /// <summary>
     /// The prioritized_exclude_observation attribute.
     /// </summary>
     [TerraformPropertyName("prioritized_exclude_observation")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PrioritizedExcludeObservation => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "prioritized_exclude_observation");
+    public TerraformList<object> PrioritizedExcludeObservation => new TerraformReference(this, "prioritized_exclude_observation");
 
     /// <summary>
     /// The required_data_connector attribute.
     /// </summary>
     [TerraformPropertyName("required_data_connector")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> RequiredDataConnector => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "required_data_connector");
+    public TerraformList<object> RequiredDataConnector => new TerraformReference(this, "required_data_connector");
 
     /// <summary>
     /// The settings_definition_id attribute.
     /// </summary>
     [TerraformPropertyName("settings_definition_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SettingsDefinitionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "settings_definition_id");
+    public TerraformValue<string> SettingsDefinitionId => new TerraformReference(this, "settings_definition_id");
 
     /// <summary>
     /// The single_select_observation attribute.
     /// </summary>
     [TerraformPropertyName("single_select_observation")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> SingleSelectObservation => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "single_select_observation");
+    public TerraformList<object> SingleSelectObservation => new TerraformReference(this, "single_select_observation");
 
     /// <summary>
     /// The tactics attribute.
     /// </summary>
     [TerraformPropertyName("tactics")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Tactics => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "tactics");
+    public TerraformList<string> Tactics => new TerraformReference(this, "tactics");
 
     /// <summary>
     /// The techniques attribute.
     /// </summary>
     [TerraformPropertyName("techniques")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Techniques => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "techniques");
+    public TerraformList<string> Techniques => new TerraformReference(this, "techniques");
 
     /// <summary>
     /// The threshold_observation attribute.
     /// </summary>
     [TerraformPropertyName("threshold_observation")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ThresholdObservation => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "threshold_observation");
+    public TerraformList<object> ThresholdObservation => new TerraformReference(this, "threshold_observation");
 
 }

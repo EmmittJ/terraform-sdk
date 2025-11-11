@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIamOauthClientCredentialTimeoutsBlock : ITerraformBlock
+public class GoogleIamOauthClientCredentialTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// A user-specified display name of the OauthClientCredential.
@@ -55,14 +55,14 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -70,7 +70,7 @@ public class GoogleIamOauthClientCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Required. The ID to use for the OauthClientCredential, which becomes the
@@ -81,7 +81,7 @@ public class GoogleIamOauthClientCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthClientCredentialId is required")]
     [TerraformPropertyName("oauth_client_credential_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OauthClientCredentialId { get; set; }
+    public required TerraformValue<string> OauthClientCredentialId { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -89,21 +89,21 @@ public class GoogleIamOauthClientCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauthclient is required")]
     [TerraformPropertyName("oauthclient")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Oauthclient { get; set; }
+    public required TerraformValue<string> Oauthclient { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleIamOauthClientCredentialTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleIamOauthClientCredentialTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The system-generated OAuth client secret.
@@ -115,7 +115,7 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// </summary>
     [TerraformPropertyName("client_secret")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ClientSecret => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "client_secret");
+    public TerraformValue<string> ClientSecret => new TerraformReference(this, "client_secret");
 
     /// <summary>
     /// Immutable. Identifier. The resource name of the OauthClientCredential.
@@ -125,6 +125,6 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

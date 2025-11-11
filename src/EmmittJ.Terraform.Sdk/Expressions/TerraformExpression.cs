@@ -5,8 +5,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// Expressions are syntax trees that can be rendered to HCL strings.
 /// They support optional context for indentation in multi-line structures.
 /// Implements ITerraformSerializable to support two-phase resolution (Prepare → ToHcl).
+/// Implements ITerraformResolvable so expressions can be directly assigned to TerraformValue&lt;T&gt;.
 /// </summary>
-public abstract class TerraformExpression : ITerraformSerializable
+public abstract class TerraformExpression : ITerraformSerializable, ITerraformResolvable
 {
     /// <summary>
     /// The assignment operator used when rendering properties.
@@ -23,6 +24,14 @@ public abstract class TerraformExpression : ITerraformSerializable
     {
         // Base implementation does nothing - leaf expressions don't need preparation
     }
+
+    /// <summary>
+    /// Expressions resolve to themselves - they are already the final form.
+    /// This allows expressions to be directly assigned to TerraformValue&lt;T&gt; via implicit conversion.
+    /// </summary>
+    /// <param name="context">The resolution context (unused for expressions).</param>
+    /// <returns>This expression instance.</returns>
+    public virtual TerraformExpression Resolve(ITerraformResolveContext context) => this;
 
     /// <summary>
     /// Converts expression to HCL string with optional context for indentation.
@@ -46,7 +55,7 @@ public abstract class TerraformExpression : ITerraformSerializable
     /// Example: Identifier(provider, p => p.Alias?.LiteralValue != null ? $"aws.{p.Alias.LiteralValue}" : "aws")
     /// </summary>
     public static TerraformExpression Identifier<T>(T value, Func<T, string>? resolver = null)
-        => new IdentifierExpression<T>(value, resolver);
+        => new TerraformIdentifierExpression<T>(value, resolver);
 
     /// <summary>
     /// Creates a raw HCL expression (use sparingly - prefer typed expressions).
@@ -62,6 +71,36 @@ public abstract class TerraformExpression : ITerraformSerializable
     /// Creates a list literal expression.
     /// </summary>
     public static TerraformExpression List(IEnumerable<TerraformExpression> elements) => new ListExpression(elements);
+
+    /// <summary>
+    /// Creates a set literal expression.
+    /// Terraform sets are unordered collections of unique values.
+    /// </summary>
+    public static TerraformExpression Set(params TerraformExpression[] elements) => new ListExpression(elements);
+
+    /// <summary>
+    /// Creates a set literal expression.
+    /// Terraform sets are unordered collections of unique values.
+    /// Note: In HCL, sets use the same syntax as lists. The type system distinguishes them.
+    /// </summary>
+    public static TerraformExpression Set(IEnumerable<TerraformExpression> elements) => new ListExpression(elements);
+
+    /// <summary>
+    /// Creates a map literal expression from key-value pairs.
+    /// Example: Map(new[] { KeyValuePair.Create("key1", expr1), KeyValuePair.Create("key2", expr2) })
+    /// </summary>
+    public static TerraformExpression Map(IEnumerable<KeyValuePair<string, TerraformExpression>>? pairs = null)
+    {
+        var map = new TerraformMapExpression();
+        if (pairs != null)
+        {
+            foreach (var (key, value) in pairs)
+            {
+                map[key] = value;
+            }
+        }
+        return map;
+    }
 
     /// <summary>
     /// Creates a map literal expression.

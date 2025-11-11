@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAppServiceHybridConnectionTimeoutsBlock : ITerraformBlock
+public class AzurermAppServiceHybridConnectionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
     [TerraformPropertyName("app_service_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AppServiceName { get; set; }
+    public required TerraformValue<string> AppServiceName { get; set; }
 
     /// <summary>
     /// The hostname attribute.
@@ -62,14 +62,14 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     [TerraformPropertyName("hostname")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Hostname { get; set; }
+    public required TerraformValue<string> Hostname { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The port attribute.
@@ -77,7 +77,7 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     [TerraformPropertyName("port")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Port { get; set; }
+    public required TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// The relay_id attribute.
@@ -85,7 +85,7 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelayId is required")]
     [TerraformPropertyName("relay_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RelayId { get; set; }
+    public required TerraformValue<string> RelayId { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -93,55 +93,55 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The send_key_name attribute.
     /// </summary>
     [TerraformPropertyName("send_key_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SendKeyName { get; set; }
+    public TerraformValue<string>? SendKeyName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermAppServiceHybridConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermAppServiceHybridConnectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [TerraformPropertyName("namespace_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NamespaceName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "namespace_name");
+    public TerraformValue<string> NamespaceName => new TerraformReference(this, "namespace_name");
 
     /// <summary>
     /// The relay_name attribute.
     /// </summary>
     [TerraformPropertyName("relay_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RelayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "relay_name");
+    public TerraformValue<string> RelayName => new TerraformReference(this, "relay_name");
 
     /// <summary>
     /// The send_key_value attribute.
     /// </summary>
     [TerraformPropertyName("send_key_value")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SendKeyValue => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "send_key_value");
+    public TerraformValue<string> SendKeyValue => new TerraformReference(this, "send_key_value");
 
     /// <summary>
     /// The service_bus_namespace attribute.
     /// </summary>
     [TerraformPropertyName("service_bus_namespace")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServiceBusNamespace => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_bus_namespace");
+    public TerraformValue<string> ServiceBusNamespace => new TerraformReference(this, "service_bus_namespace");
 
     /// <summary>
     /// The service_bus_suffix attribute.
     /// </summary>
     [TerraformPropertyName("service_bus_suffix")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServiceBusSuffix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_bus_suffix");
+    public TerraformValue<string> ServiceBusSuffix => new TerraformReference(this, "service_bus_suffix");
 
 }

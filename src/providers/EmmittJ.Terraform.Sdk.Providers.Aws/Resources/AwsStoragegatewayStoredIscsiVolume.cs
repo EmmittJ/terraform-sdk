@@ -17,7 +17,7 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskId is required")]
     [TerraformPropertyName("disk_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DiskId { get; set; }
+    public required TerraformValue<string> DiskId { get; set; }
 
     /// <summary>
     /// The gateway_arn attribute.
@@ -25,28 +25,28 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     [TerraformPropertyName("gateway_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GatewayArn { get; set; }
+    public required TerraformValue<string> GatewayArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The kms_encrypted attribute.
     /// </summary>
     [TerraformPropertyName("kms_encrypted")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? KmsEncrypted { get; set; }
+    public TerraformValue<bool>? KmsEncrypted { get; set; }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
     [TerraformPropertyName("kms_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKey { get; set; }
+    public TerraformValue<string>? KmsKey { get; set; }
 
     /// <summary>
     /// The network_interface_id attribute.
@@ -54,7 +54,7 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     [TerraformPropertyName("network_interface_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NetworkInterfaceId { get; set; }
+    public required TerraformValue<string> NetworkInterfaceId { get; set; }
 
     /// <summary>
     /// The preserve_existing_data attribute.
@@ -62,35 +62,35 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreserveExistingData is required")]
     [TerraformPropertyName("preserve_existing_data")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> PreserveExistingData { get; set; }
+    public required TerraformValue<bool> PreserveExistingData { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
     [TerraformPropertyName("snapshot_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SnapshotId { get; set; }
+    public TerraformValue<string>? SnapshotId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The target_name attribute.
@@ -98,76 +98,76 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
     [TerraformPropertyName("target_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetName { get; set; }
+    public required TerraformValue<string> TargetName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The chap_enabled attribute.
     /// </summary>
     [TerraformPropertyName("chap_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> ChapEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "chap_enabled");
+    public TerraformValue<bool> ChapEnabled => new TerraformReference(this, "chap_enabled");
 
     /// <summary>
     /// The lun_number attribute.
     /// </summary>
     [TerraformPropertyName("lun_number")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> LunNumber => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "lun_number");
+    public TerraformValue<double> LunNumber => new TerraformReference(this, "lun_number");
 
     /// <summary>
     /// The network_interface_port attribute.
     /// </summary>
     [TerraformPropertyName("network_interface_port")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> NetworkInterfacePort => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "network_interface_port");
+    public TerraformValue<double> NetworkInterfacePort => new TerraformReference(this, "network_interface_port");
 
     /// <summary>
     /// The target_arn attribute.
     /// </summary>
     [TerraformPropertyName("target_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TargetArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "target_arn");
+    public TerraformValue<string> TargetArn => new TerraformReference(this, "target_arn");
 
     /// <summary>
     /// The volume_attachment_status attribute.
     /// </summary>
     [TerraformPropertyName("volume_attachment_status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VolumeAttachmentStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "volume_attachment_status");
+    public TerraformValue<string> VolumeAttachmentStatus => new TerraformReference(this, "volume_attachment_status");
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
     [TerraformPropertyName("volume_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VolumeId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "volume_id");
+    public TerraformValue<string> VolumeId => new TerraformReference(this, "volume_id");
 
     /// <summary>
     /// The volume_size_in_bytes attribute.
     /// </summary>
     [TerraformPropertyName("volume_size_in_bytes")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> VolumeSizeInBytes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "volume_size_in_bytes");
+    public TerraformValue<double> VolumeSizeInBytes => new TerraformReference(this, "volume_size_in_bytes");
 
     /// <summary>
     /// The volume_status attribute.
     /// </summary>
     [TerraformPropertyName("volume_status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VolumeStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "volume_status");
+    public TerraformValue<string> VolumeStatus => new TerraformReference(this, "volume_status");
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
     [TerraformPropertyName("volume_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VolumeType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "volume_type");
+    public TerraformValue<string> VolumeType => new TerraformReference(this, "volume_type");
 
 }

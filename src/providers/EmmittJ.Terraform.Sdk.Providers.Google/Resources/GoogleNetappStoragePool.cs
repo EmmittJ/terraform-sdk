@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetappStoragePoolTimeoutsBlock : ITerraformBlock
+public class GoogleNetappStoragePoolTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class GoogleNetappStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("active_directory")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ActiveDirectory { get; set; }
+    public TerraformValue<string>? ActiveDirectory { get; set; }
 
     /// <summary>
     /// Optional. True if the storage pool supports Auto Tiering enabled volumes. Default is false.
@@ -54,7 +54,7 @@ public class GoogleNetappStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("allow_auto_tiering")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AllowAutoTiering { get; set; }
+    public TerraformValue<bool>? AllowAutoTiering { get; set; }
 
     /// <summary>
     /// Capacity of the storage pool (in GiB).
@@ -62,21 +62,21 @@ public class GoogleNetappStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     [TerraformPropertyName("capacity_gib")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CapacityGib { get; set; }
+    public required TerraformValue<string> CapacityGib { get; set; }
 
     /// <summary>
     /// Optional. True if using Independent Scaling of capacity and performance (Hyperdisk). Default is false.
     /// </summary>
     [TerraformPropertyName("custom_performance_enabled")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> CustomPerformanceEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "custom_performance_enabled");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> CustomPerformanceEnabled { get; set; } = default!;
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Flag indicating that the hot-tier threshold will be auto-increased by 10% of the hot-tier when it hits 100%. Default is true.
@@ -84,7 +84,7 @@ public class GoogleNetappStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("enable_hot_tier_auto_resize")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableHotTierAutoResize { get; set; }
+    public TerraformValue<bool>? EnableHotTierAutoResize { get; set; }
 
     /// <summary>
     /// Total hot tier capacity for the Storage Pool. It is applicable only to Flex service level.
@@ -92,14 +92,14 @@ public class GoogleNetappStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("hot_tier_size_gib")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? HotTierSizeGib { get; set; }
+    public TerraformValue<string>? HotTierSizeGib { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Specifies the CMEK policy to be used for volume encryption. Format: &#39;projects/{{project}}/locations/{{location}}/kmsConfigs/{{name}}&#39;.
@@ -107,7 +107,7 @@ public class GoogleNetappStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("kms_config")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsConfig { get; set; }
+    public TerraformValue<string>? KmsConfig { get; set; }
 
     /// <summary>
     /// Labels as key value pairs. Example: &#39;{ &amp;quot;owner&amp;quot;: &amp;quot;Bob&amp;quot;, &amp;quot;department&amp;quot;: &amp;quot;finance&amp;quot;, &amp;quot;purpose&amp;quot;: &amp;quot;testing&amp;quot; }&#39;.
@@ -118,7 +118,7 @@ public class GoogleNetappStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// When enabled, the volumes uses Active Directory as LDAP name service for UID/GID lookups. Required to enable extended group support for NFSv3,
@@ -126,7 +126,7 @@ public class GoogleNetappStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("ldap_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? LdapEnabled { get; set; }
+    public TerraformValue<bool>? LdapEnabled { get; set; }
 
     /// <summary>
     /// Name of the location. For zonal Flex pools specify a zone name, in all other cases a region name.
@@ -134,7 +134,7 @@ public class GoogleNetappStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource name of the storage pool. Needs to be unique per location/region.
@@ -142,7 +142,7 @@ public class GoogleNetappStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// VPC network name with format: &#39;projects/{{project}}/global/networks/{{network}}&#39;
@@ -150,22 +150,22 @@ public class GoogleNetappStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformPropertyName("network")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
+    public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// QoS (Quality of Service) type of the storage pool.
     /// Possible values are: AUTO, MANUAL. Possible values: [&amp;quot;QOS_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;AUTO&amp;quot;, &amp;quot;MANUAL&amp;quot;]
     /// </summary>
     [TerraformPropertyName("qos_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> QosType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "qos_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> QosType { get; set; } = default!;
 
     /// <summary>
     /// Specifies the replica zone for regional Flex pools. &#39;zone&#39; and &#39;replica_zone&#39; values can be swapped to initiate a
@@ -173,7 +173,7 @@ public class GoogleNetappStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("replica_zone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ReplicaZone { get; set; }
+    public TerraformValue<string>? ReplicaZone { get; set; }
 
     /// <summary>
     /// Service level of the storage pool. Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;EXTREME&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;FLEX&amp;quot;]
@@ -181,21 +181,21 @@ public class GoogleNetappStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
     [TerraformPropertyName("service_level")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceLevel { get; set; }
+    public required TerraformValue<string> ServiceLevel { get; set; }
 
     /// <summary>
     /// Optional. Custom Performance Total IOPS of the pool If not provided, it will be calculated based on the totalThroughputMibps
     /// </summary>
     [TerraformPropertyName("total_iops")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> TotalIops { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "total_iops");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> TotalIops { get; set; } = default!;
 
     /// <summary>
     /// Optional. Custom Performance Total Throughput of the pool (in MiB/s).
     /// </summary>
     [TerraformPropertyName("total_throughput_mibps")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> TotalThroughputMibps { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "total_throughput_mibps");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> TotalThroughputMibps { get; set; } = default!;
 
     /// <summary>
     /// Type of the storage pool.
@@ -203,8 +203,8 @@ public class GoogleNetappStoragePool : TerraformResource
     /// If not specified during creation, it defaults to FILE. Possible values: [&amp;quot;STORAGE_POOL_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;FILE&amp;quot;, &amp;quot;UNIFIED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Type { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Type { get; set; } = default!;
 
     /// <summary>
     /// Specifies the active zone for regional Flex pools. &#39;zone&#39; and &#39;replica_zone&#39; values can be swapped to initiate a
@@ -212,50 +212,50 @@ public class GoogleNetappStoragePool : TerraformResource
     /// If you want to create a zonal Flex pool, specify a zone name for &#39;location&#39; and omit &#39;zone&#39;.
     /// </summary>
     [TerraformPropertyName("zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Zone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Zone { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleNetappStoragePoolTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleNetappStoragePoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Available throughput of the storage pool (in MiB/s).
     /// </summary>
     [TerraformPropertyName("available_throughput_mibps")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> AvailableThroughputMibps => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "available_throughput_mibps");
+    public TerraformValue<double> AvailableThroughputMibps => new TerraformReference(this, "available_throughput_mibps");
 
     /// <summary>
     /// Total cold tier data rounded down to the nearest GiB used by the storage pool.
     /// </summary>
     [TerraformPropertyName("cold_tier_size_used_gib")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ColdTierSizeUsedGib => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cold_tier_size_used_gib");
+    public TerraformValue<string> ColdTierSizeUsedGib => new TerraformReference(this, "cold_tier_size_used_gib");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Reports if volumes in the pool are encrypted using a Google-managed encryption key or CMEK.
     /// </summary>
     [TerraformPropertyName("encryption_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EncryptionType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "encryption_type");
+    public TerraformValue<string> EncryptionType => new TerraformReference(this, "encryption_type");
 
     /// <summary>
     /// Total hot tier data rounded down to the nearest GiB used by the storage pool.
     /// </summary>
     [TerraformPropertyName("hot_tier_size_used_gib")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> HotTierSizeUsedGib => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hot_tier_size_used_gib");
+    public TerraformValue<string> HotTierSizeUsedGib => new TerraformReference(this, "hot_tier_size_used_gib");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -263,20 +263,20 @@ public class GoogleNetappStoragePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Size allocated to volumes in the storage pool (in GiB).
     /// </summary>
     [TerraformPropertyName("volume_capacity_gib")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VolumeCapacityGib => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "volume_capacity_gib");
+    public TerraformValue<string> VolumeCapacityGib => new TerraformReference(this, "volume_capacity_gib");
 
     /// <summary>
     /// Number of volume in the storage pool.
     /// </summary>
     [TerraformPropertyName("volume_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> VolumeCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "volume_count");
+    public TerraformValue<double> VolumeCount => new TerraformReference(this, "volume_count");
 
 }

@@ -6,28 +6,16 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKustoClusterIdentityBlock : ITerraformBlock
+public class AzurermKustoClusterIdentityBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [TerraformPropertyName("identity_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
+    public TerraformSet<string>? IdentityIds { get; set; }
 
-    /// <summary>
-    /// The principal_id attribute.
-    /// </summary>
-    [TerraformPropertyName("principal_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
-    /// <summary>
-    /// The tenant_id attribute.
-    /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -35,7 +23,7 @@ public class AzurermKustoClusterIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -43,7 +31,7 @@ public class AzurermKustoClusterIdentityBlock : ITerraformBlock
 /// Block type for language_extension in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKustoClusterLanguageExtensionBlock : ITerraformBlock
+public class AzurermKustoClusterLanguageExtensionBlock
 {
     /// <summary>
     /// The image attribute.
@@ -51,7 +39,7 @@ public class AzurermKustoClusterLanguageExtensionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     [TerraformPropertyName("image")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Image { get; set; }
+    public required TerraformValue<string> Image { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -59,7 +47,7 @@ public class AzurermKustoClusterLanguageExtensionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -68,7 +56,7 @@ public class AzurermKustoClusterLanguageExtensionBlock : ITerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AzurermKustoClusterLanguageExtensionsBlock : ITerraformBlock
+public class AzurermKustoClusterLanguageExtensionsBlock
 {
     /// <summary>
     /// The image attribute.
@@ -76,7 +64,7 @@ public class AzurermKustoClusterLanguageExtensionsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     [TerraformPropertyName("image")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Image { get; set; }
+    public required TerraformValue<string> Image { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -84,7 +72,7 @@ public class AzurermKustoClusterLanguageExtensionsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -92,7 +80,7 @@ public class AzurermKustoClusterLanguageExtensionsBlock : ITerraformBlock
 /// Block type for optimized_auto_scale in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKustoClusterOptimizedAutoScaleBlock : ITerraformBlock
+public class AzurermKustoClusterOptimizedAutoScaleBlock
 {
     /// <summary>
     /// The maximum_instances attribute.
@@ -100,7 +88,7 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumInstances is required")]
     [TerraformPropertyName("maximum_instances")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> MaximumInstances { get; set; }
+    public required TerraformValue<double> MaximumInstances { get; set; }
 
     /// <summary>
     /// The minimum_instances attribute.
@@ -108,7 +96,7 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumInstances is required")]
     [TerraformPropertyName("minimum_instances")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> MinimumInstances { get; set; }
+    public required TerraformValue<double> MinimumInstances { get; set; }
 
 }
 
@@ -116,14 +104,14 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : ITerraformBlock
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKustoClusterSkuBlock : ITerraformBlock
+public class AzurermKustoClusterSkuBlock
 {
     /// <summary>
     /// The capacity attribute.
     /// </summary>
     [TerraformPropertyName("capacity")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Capacity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "capacity");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Capacity { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -131,7 +119,7 @@ public class AzurermKustoClusterSkuBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -139,35 +127,35 @@ public class AzurermKustoClusterSkuBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKustoClusterTimeoutsBlock : ITerraformBlock
+public class AzurermKustoClusterTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -176,7 +164,7 @@ public class AzurermKustoClusterTimeoutsBlock : ITerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AzurermKustoClusterVirtualNetworkConfigurationBlock : ITerraformBlock
+public class AzurermKustoClusterVirtualNetworkConfigurationBlock
 {
     /// <summary>
     /// The data_management_public_ip_id attribute.
@@ -184,7 +172,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataManagementPublicIpId is required")]
     [TerraformPropertyName("data_management_public_ip_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DataManagementPublicIpId { get; set; }
+    public required TerraformValue<string> DataManagementPublicIpId { get; set; }
 
     /// <summary>
     /// The engine_public_ip_id attribute.
@@ -192,7 +180,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnginePublicIpId is required")]
     [TerraformPropertyName("engine_public_ip_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EnginePublicIpId { get; set; }
+    public required TerraformValue<string> EnginePublicIpId { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -200,7 +188,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformPropertyName("subnet_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
+    public required TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -219,42 +207,42 @@ public class AzurermKustoCluster : TerraformResource
     /// </summary>
     [TerraformPropertyName("allowed_fqdns")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? AllowedFqdns { get; set; }
+    public TerraformList<string>? AllowedFqdns { get; set; }
 
     /// <summary>
     /// The allowed_ip_ranges attribute.
     /// </summary>
     [TerraformPropertyName("allowed_ip_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? AllowedIpRanges { get; set; }
+    public TerraformList<string>? AllowedIpRanges { get; set; }
 
     /// <summary>
     /// The auto_stop_enabled attribute.
     /// </summary>
     [TerraformPropertyName("auto_stop_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AutoStopEnabled { get; set; }
+    public TerraformValue<bool>? AutoStopEnabled { get; set; }
 
     /// <summary>
     /// The disk_encryption_enabled attribute.
     /// </summary>
     [TerraformPropertyName("disk_encryption_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DiskEncryptionEnabled { get; set; }
+    public TerraformValue<bool>? DiskEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The double_encryption_enabled attribute.
     /// </summary>
     [TerraformPropertyName("double_encryption_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DoubleEncryptionEnabled { get; set; }
+    public TerraformValue<bool>? DoubleEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -262,7 +250,7 @@ public class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -270,35 +258,35 @@ public class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The outbound_network_access_restricted attribute.
     /// </summary>
     [TerraformPropertyName("outbound_network_access_restricted")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? OutboundNetworkAccessRestricted { get; set; }
+    public TerraformValue<bool>? OutboundNetworkAccessRestricted { get; set; }
 
     /// <summary>
     /// The public_ip_type attribute.
     /// </summary>
     [TerraformPropertyName("public_ip_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PublicIpType { get; set; }
+    public TerraformValue<string>? PublicIpType { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformPropertyName("public_network_access_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
+    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The purge_enabled attribute.
     /// </summary>
     [TerraformPropertyName("purge_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? PurgeEnabled { get; set; }
+    public TerraformValue<bool>? PurgeEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -306,35 +294,35 @@ public class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The streaming_ingestion_enabled attribute.
     /// </summary>
     [TerraformPropertyName("streaming_ingestion_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? StreamingIngestionEnabled { get; set; }
+    public TerraformValue<bool>? StreamingIngestionEnabled { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The trusted_external_tenants attribute.
     /// </summary>
     [TerraformPropertyName("trusted_external_tenants")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> TrustedExternalTenants { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "trusted_external_tenants");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> TrustedExternalTenants { get; set; } = default!;
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [TerraformPropertyName("zones")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Zones { get; set; }
+    public TerraformSet<string>? Zones { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -342,14 +330,14 @@ public class AzurermKustoCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformPropertyName("identity")]
-    public TerraformList<TerraformBlock<AzurermKustoClusterIdentityBlock>>? Identity { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermKustoClusterIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for language_extension.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("language_extension")]
-    public TerraformList<TerraformBlock<AzurermKustoClusterLanguageExtensionBlock>>? LanguageExtension { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermKustoClusterLanguageExtensionBlock>>? LanguageExtension { get; set; }
 
     /// <summary>
     /// Block for language_extensions.
@@ -357,7 +345,7 @@ public class AzurermKustoCluster : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformPropertyName("language_extensions")]
-    public TerraformList<TerraformBlock<AzurermKustoClusterLanguageExtensionsBlock>>? LanguageExtensions { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermKustoClusterLanguageExtensionsBlock>>? LanguageExtensions { get; set; }
 
     /// <summary>
     /// Block for optimized_auto_scale.
@@ -365,7 +353,7 @@ public class AzurermKustoCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OptimizedAutoScale block(s) allowed")]
     [TerraformPropertyName("optimized_auto_scale")]
-    public TerraformList<TerraformBlock<AzurermKustoClusterOptimizedAutoScaleBlock>>? OptimizedAutoScale { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermKustoClusterOptimizedAutoScaleBlock>>? OptimizedAutoScale { get; set; }
 
     /// <summary>
     /// Block for sku.
@@ -375,14 +363,14 @@ public class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformPropertyName("sku")]
-    public TerraformList<TerraformBlock<AzurermKustoClusterSkuBlock>>? Sku { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermKustoClusterSkuBlock>>? Sku { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermKustoClusterTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermKustoClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for virtual_network_configuration.
@@ -391,20 +379,20 @@ public class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualNetworkConfiguration block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformPropertyName("virtual_network_configuration")]
-    public TerraformList<TerraformBlock<AzurermKustoClusterVirtualNetworkConfigurationBlock>>? VirtualNetworkConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermKustoClusterVirtualNetworkConfigurationBlock>>? VirtualNetworkConfiguration { get; set; }
 
     /// <summary>
     /// The data_ingestion_uri attribute.
     /// </summary>
     [TerraformPropertyName("data_ingestion_uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DataIngestionUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "data_ingestion_uri");
+    public TerraformValue<string> DataIngestionUri => new TerraformReference(this, "data_ingestion_uri");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [TerraformPropertyName("uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uri");
+    public TerraformValue<string> Uri => new TerraformReference(this, "uri");
 
 }

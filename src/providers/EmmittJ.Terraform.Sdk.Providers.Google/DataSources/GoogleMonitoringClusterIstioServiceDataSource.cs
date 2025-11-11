@@ -18,14 +18,14 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     [TerraformPropertyName("cluster_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClusterName { get; set; }
+    public required TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location of the Kubernetes cluster in which this Istio service is defined. 
@@ -34,14 +34,14 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The name of the Istio service underlying this service. 
@@ -50,7 +50,7 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     [TerraformPropertyName("service_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceName { get; set; }
+    public required TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// The namespace of the Istio service underlying this service. 
@@ -59,14 +59,14 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     [TerraformPropertyName("service_namespace")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceNamespace { get; set; }
+    public required TerraformValue<string> ServiceNamespace { get; set; }
 
     /// <summary>
     /// Name used for UI elements listing this Service.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
+    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
 
     /// <summary>
     /// The full resource name for this service. The syntax is:
@@ -74,7 +74,7 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// An optional service ID to use. If not given, the server will generate a
@@ -82,14 +82,14 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("service_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServiceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_id");
+    public TerraformValue<string> ServiceId => new TerraformReference(this, "service_id");
 
     /// <summary>
     /// Configuration for how to query telemetry on a Service.
     /// </summary>
     [TerraformPropertyName("telemetry")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Telemetry => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "telemetry");
+    public TerraformList<object> Telemetry => new TerraformReference(this, "telemetry");
 
     /// <summary>
     /// Labels which have been used to annotate the service. Label keys must start
@@ -101,6 +101,6 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("user_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> UserLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "user_labels");
+    public TerraformMap<string> UserLabels => new TerraformReference(this, "user_labels");
 
 }

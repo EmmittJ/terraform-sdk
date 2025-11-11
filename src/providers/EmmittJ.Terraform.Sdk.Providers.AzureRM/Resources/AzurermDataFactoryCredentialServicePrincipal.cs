@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for service_principal_key in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock : ITerraformBlock
+public class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -14,7 +14,7 @@ public class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     [TerraformPropertyName("linked_service_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LinkedServiceName { get; set; }
+    public required TerraformValue<string> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The secret_name attribute.
@@ -22,14 +22,14 @@ public class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     [TerraformPropertyName("secret_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SecretName { get; set; }
+    public required TerraformValue<string> SecretName { get; set; }
 
     /// <summary>
     /// The secret_version attribute.
     /// </summary>
     [TerraformPropertyName("secret_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SecretVersion { get; set; }
+    public TerraformValue<string>? SecretVersion { get; set; }
 
 }
 
@@ -37,35 +37,35 @@ public class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock : ITerraformBlock
+public class AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,7 +84,7 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Annotations { get; set; }
+    public TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The resource ID of the parent Data Factory
@@ -92,21 +92,21 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformPropertyName("data_factory_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DataFactoryId { get; set; }
+    public required TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// (Optional) Short text description
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The desired name of the credential resource
@@ -114,7 +114,7 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The Client ID of the Service Principal
@@ -122,7 +122,7 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     [TerraformPropertyName("service_principal_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServicePrincipalId { get; set; }
+    public required TerraformValue<string> ServicePrincipalId { get; set; }
 
     /// <summary>
     /// The Tenant ID of the Service Principal
@@ -130,7 +130,7 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     [TerraformPropertyName("tenant_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TenantId { get; set; }
+    public required TerraformValue<string> TenantId { get; set; }
 
     /// <summary>
     /// Block for service_principal_key.
@@ -138,13 +138,13 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipalKey block(s) allowed")]
     [TerraformPropertyName("service_principal_key")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock>>? ServicePrincipalKey { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock>>? ServicePrincipalKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock>? Timeouts { get; set; }
 
 }

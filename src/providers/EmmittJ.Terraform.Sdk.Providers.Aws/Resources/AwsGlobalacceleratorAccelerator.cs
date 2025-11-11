@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attributes in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlobalacceleratorAcceleratorAttributesBlock : ITerraformBlock
+public class AwsGlobalacceleratorAcceleratorAttributesBlock
 {
     /// <summary>
     /// The flow_logs_enabled attribute.
     /// </summary>
     [TerraformPropertyName("flow_logs_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? FlowLogsEnabled { get; set; }
+    public TerraformValue<bool>? FlowLogsEnabled { get; set; }
 
     /// <summary>
     /// The flow_logs_s3_bucket attribute.
     /// </summary>
     [TerraformPropertyName("flow_logs_s3_bucket")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FlowLogsS3Bucket { get; set; }
+    public TerraformValue<string>? FlowLogsS3Bucket { get; set; }
 
     /// <summary>
     /// The flow_logs_s3_prefix attribute.
     /// </summary>
     [TerraformPropertyName("flow_logs_s3_prefix")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FlowLogsS3Prefix { get; set; }
+    public TerraformValue<string>? FlowLogsS3Prefix { get; set; }
 
 }
 
@@ -35,21 +35,21 @@ public class AwsGlobalacceleratorAcceleratorAttributesBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsGlobalacceleratorAcceleratorTimeoutsBlock : ITerraformBlock
+public class AwsGlobalacceleratorAcceleratorTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -68,28 +68,28 @@ public class AwsGlobalacceleratorAccelerator : TerraformResource
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
     [TerraformPropertyName("ip_address_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IpAddressType { get; set; }
+    public TerraformValue<string>? IpAddressType { get; set; }
 
     /// <summary>
     /// The ip_addresses attribute.
     /// </summary>
     [TerraformPropertyName("ip_addresses")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? IpAddresses { get; set; }
+    public TerraformList<string>? IpAddresses { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -97,21 +97,21 @@ public class AwsGlobalacceleratorAccelerator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for attributes.
@@ -119,48 +119,48 @@ public class AwsGlobalacceleratorAccelerator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attributes block(s) allowed")]
     [TerraformPropertyName("attributes")]
-    public TerraformList<TerraformBlock<AwsGlobalacceleratorAcceleratorAttributesBlock>>? Attributes { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlobalacceleratorAcceleratorAttributesBlock>>? Attributes { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsGlobalacceleratorAcceleratorTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsGlobalacceleratorAcceleratorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     [TerraformPropertyName("dns_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
+    public TerraformValue<string> DnsName => new TerraformReference(this, "dns_name");
 
     /// <summary>
     /// The dual_stack_dns_name attribute.
     /// </summary>
     [TerraformPropertyName("dual_stack_dns_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DualStackDnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dual_stack_dns_name");
+    public TerraformValue<string> DualStackDnsName => new TerraformReference(this, "dual_stack_dns_name");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     [TerraformPropertyName("hosted_zone_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> HostedZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hosted_zone_id");
+    public TerraformValue<string> HostedZoneId => new TerraformReference(this, "hosted_zone_id");
 
     /// <summary>
     /// The ip_sets attribute.
     /// </summary>
     [TerraformPropertyName("ip_sets")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> IpSets => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ip_sets");
+    public TerraformList<object> IpSets => new TerraformReference(this, "ip_sets");
 
 }

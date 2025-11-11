@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bigquery_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleLoggingBillingAccountSinkBigqueryOptionsBlock : ITerraformBlock
+public class GoogleLoggingBillingAccountSinkBigqueryOptionsBlock
 {
     /// <summary>
     /// Whether to use BigQuery&#39;s partition tables. By default, Logging creates dated tables based on the log entries&#39; timestamps, e.g. syslog_20170523. With partitioned tables the date suffix is no longer present and special query syntax has to be used instead. In both cases, tables are sharded based on UTC timezone.
@@ -14,7 +14,7 @@ public class GoogleLoggingBillingAccountSinkBigqueryOptionsBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsePartitionedTables is required")]
     [TerraformPropertyName("use_partitioned_tables")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> UsePartitionedTables { get; set; }
+    public required TerraformValue<bool> UsePartitionedTables { get; set; }
 
 }
 
@@ -22,21 +22,21 @@ public class GoogleLoggingBillingAccountSinkBigqueryOptionsBlock : ITerraformBlo
 /// Block type for exclusions in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleLoggingBillingAccountSinkExclusionsBlock : ITerraformBlock
+public class GoogleLoggingBillingAccountSinkExclusionsBlock
 {
     /// <summary>
     /// A description of this exclusion.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// If set to True, then this exclusion is disabled and it does not exclude any log entries
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// An advanced logs filter that matches the log entries to be excluded. By using the sample function, you can exclude less than 100% of the matching log entries
@@ -44,7 +44,7 @@ public class GoogleLoggingBillingAccountSinkExclusionsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformPropertyName("filter")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Filter { get; set; }
+    public required TerraformValue<string> Filter { get; set; }
 
     /// <summary>
     /// A client-assigned identifier, such as &amp;quot;load-balancer-exclusion&amp;quot;. Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. First character has to be alphanumeric.
@@ -52,7 +52,7 @@ public class GoogleLoggingBillingAccountSinkExclusionsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -72,14 +72,14 @@ public class GoogleLoggingBillingAccountSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     [TerraformPropertyName("billing_account")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BillingAccount { get; set; }
+    public required TerraformValue<string> BillingAccount { get; set; }
 
     /// <summary>
     /// A description of this sink. The maximum length of the description is 8000 characters.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The destination of the sink (or, in other words, where logs are written to). Can be a Cloud Storage bucket, a PubSub topic, or a BigQuery dataset. Examples: &amp;quot;storage.googleapis.com/[GCS_BUCKET]&amp;quot; &amp;quot;bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET]&amp;quot; &amp;quot;pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]&amp;quot; The writer associated with the sink must have access to write to the above resource.
@@ -87,28 +87,28 @@ public class GoogleLoggingBillingAccountSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [TerraformPropertyName("destination")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Destination { get; set; }
+    public required TerraformValue<string> Destination { get; set; }
 
     /// <summary>
     /// If set to True, then this sink is disabled and it does not export any log entries.
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The filter to apply when exporting logs. Only log entries that match the filter are exported.
     /// </summary>
     [TerraformPropertyName("filter")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Filter { get; set; }
+    public TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the logging sink.
@@ -116,7 +116,7 @@ public class GoogleLoggingBillingAccountSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for bigquery_options.
@@ -124,20 +124,20 @@ public class GoogleLoggingBillingAccountSink : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryOptions block(s) allowed")]
     [TerraformPropertyName("bigquery_options")]
-    public TerraformList<TerraformBlock<GoogleLoggingBillingAccountSinkBigqueryOptionsBlock>>? BigqueryOptions { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleLoggingBillingAccountSinkBigqueryOptionsBlock>>? BigqueryOptions { get; set; }
 
     /// <summary>
     /// Block for exclusions.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("exclusions")]
-    public TerraformList<TerraformBlock<GoogleLoggingBillingAccountSinkExclusionsBlock>>? Exclusions { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleLoggingBillingAccountSinkExclusionsBlock>>? Exclusions { get; set; }
 
     /// <summary>
     /// The identity associated with this sink. This identity must be granted write access to the configured destination.
     /// </summary>
     [TerraformPropertyName("writer_identity")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> WriterIdentity => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "writer_identity");
+    public TerraformValue<string> WriterIdentity => new TerraformReference(this, "writer_identity");
 
 }

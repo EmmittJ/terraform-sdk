@@ -15,28 +15,28 @@ public class AwsPartitionDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The dns_suffix attribute.
     /// </summary>
     [TerraformPropertyName("dns_suffix")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DnsSuffix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_suffix");
+    public TerraformValue<string> DnsSuffix => new TerraformReference(this, "dns_suffix");
 
     /// <summary>
     /// The partition attribute.
     /// </summary>
     [TerraformPropertyName("partition")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Partition => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "partition");
+    public TerraformValue<string> Partition => new TerraformReference(this, "partition");
 
     /// <summary>
     /// The reverse_dns_prefix attribute.
     /// </summary>
     [TerraformPropertyName("reverse_dns_prefix")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ReverseDnsPrefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "reverse_dns_prefix");
+    public TerraformValue<string> ReverseDnsPrefix => new TerraformReference(this, "reverse_dns_prefix");
 
 }

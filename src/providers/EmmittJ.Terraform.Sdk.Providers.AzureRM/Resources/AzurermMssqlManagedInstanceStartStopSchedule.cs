@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : ITerraformBlock
+public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock
 {
     /// <summary>
     /// The start_day attribute.
@@ -14,7 +14,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDay is required")]
     [TerraformPropertyName("start_day")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StartDay { get; set; }
+    public required TerraformValue<string> StartDay { get; set; }
 
     /// <summary>
     /// The start_time attribute.
@@ -22,7 +22,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     [TerraformPropertyName("start_time")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StartTime { get; set; }
+    public required TerraformValue<string> StartTime { get; set; }
 
     /// <summary>
     /// The stop_day attribute.
@@ -30,7 +30,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopDay is required")]
     [TerraformPropertyName("stop_day")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StopDay { get; set; }
+    public required TerraformValue<string> StopDay { get; set; }
 
     /// <summary>
     /// The stop_time attribute.
@@ -38,7 +38,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopTime is required")]
     [TerraformPropertyName("stop_time")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StopTime { get; set; }
+    public required TerraformValue<string> StopTime { get; set; }
 
 }
 
@@ -46,35 +46,35 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : ITerraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : ITerraformBlock
+public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -93,14 +93,14 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The managed_instance_id attribute.
@@ -108,14 +108,14 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     [TerraformPropertyName("managed_instance_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ManagedInstanceId { get; set; }
+    public required TerraformValue<string> ManagedInstanceId { get; set; }
 
     /// <summary>
     /// The timezone_id attribute.
     /// </summary>
     [TerraformPropertyName("timezone_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TimezoneId { get; set; }
+    public TerraformValue<string>? TimezoneId { get; set; }
 
     /// <summary>
     /// Block for schedule.
@@ -124,27 +124,27 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [TerraformPropertyName("schedule")]
-    public TerraformList<TerraformBlock<AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock>>? Schedule { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock>>? Schedule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The next_execution_time attribute.
     /// </summary>
     [TerraformPropertyName("next_execution_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NextExecutionTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "next_execution_time");
+    public TerraformValue<string> NextExecutionTime => new TerraformReference(this, "next_execution_time");
 
     /// <summary>
     /// The next_run_action attribute.
     /// </summary>
     [TerraformPropertyName("next_run_action")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NextRunAction => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "next_run_action");
+    public TerraformValue<string> NextRunAction => new TerraformReference(this, "next_run_action");
 
 }

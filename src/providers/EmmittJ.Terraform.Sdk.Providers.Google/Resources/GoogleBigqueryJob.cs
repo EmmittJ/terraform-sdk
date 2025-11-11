@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for copy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryJobCopyBlock : ITerraformBlock
+public class GoogleBigqueryJobCopyBlock
 {
     /// <summary>
     /// Specifies whether the job is allowed to create new tables. The following values are supported:
@@ -16,7 +16,7 @@ public class GoogleBigqueryJobCopyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("create_disposition")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CreateDisposition { get; set; }
+    public TerraformValue<string>? CreateDisposition { get; set; }
 
     /// <summary>
     /// Specifies the action that occurs if the destination table already exists. The following values are supported:
@@ -28,7 +28,7 @@ public class GoogleBigqueryJobCopyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("write_disposition")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? WriteDisposition { get; set; }
+    public TerraformValue<string>? WriteDisposition { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public class GoogleBigqueryJobCopyBlock : ITerraformBlock
 /// Block type for extract in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryJobExtractBlock : ITerraformBlock
+public class GoogleBigqueryJobExtractBlock
 {
     /// <summary>
     /// The compression type to use for exported files. Possible values include GZIP, DEFLATE, SNAPPY, and NONE.
@@ -44,7 +44,7 @@ public class GoogleBigqueryJobExtractBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("compression")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Compression { get; set; }
+    public TerraformValue<string>? Compression { get; set; }
 
     /// <summary>
     /// The exported file format. Possible values include CSV, NEWLINE_DELIMITED_JSON and AVRO for tables and SAVED_MODEL for models.
@@ -52,8 +52,8 @@ public class GoogleBigqueryJobExtractBlock : ITerraformBlock
     /// The default value for models is SAVED_MODEL.
     /// </summary>
     [TerraformPropertyName("destination_format")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DestinationFormat { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "destination_format");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DestinationFormat { get; set; } = default!;
 
     /// <summary>
     /// A list of fully-qualified Google Cloud Storage URIs where the extracted table should be written.
@@ -61,29 +61,29 @@ public class GoogleBigqueryJobExtractBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationUris is required")]
     [TerraformPropertyName("destination_uris")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? DestinationUris { get; set; }
+    public TerraformList<string>? DestinationUris { get; set; }
 
     /// <summary>
     /// When extracting data in CSV format, this defines the delimiter to use between fields in the exported data.
     /// Default is &#39;,&#39;
     /// </summary>
     [TerraformPropertyName("field_delimiter")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> FieldDelimiter { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "field_delimiter");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> FieldDelimiter { get; set; } = default!;
 
     /// <summary>
     /// Whether to print out a header row in the results. Default is true.
     /// </summary>
     [TerraformPropertyName("print_header")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? PrintHeader { get; set; }
+    public TerraformValue<bool>? PrintHeader { get; set; }
 
     /// <summary>
     /// Whether to use logical types when extracting to AVRO format.
     /// </summary>
     [TerraformPropertyName("use_avro_logical_types")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? UseAvroLogicalTypes { get; set; }
+    public TerraformValue<bool>? UseAvroLogicalTypes { get; set; }
 
 }
 
@@ -91,7 +91,7 @@ public class GoogleBigqueryJobExtractBlock : ITerraformBlock
 /// Block type for load in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryJobLoadBlock : ITerraformBlock
+public class GoogleBigqueryJobLoadBlock
 {
     /// <summary>
     /// Accept rows that are missing trailing optional columns. The missing values are treated as nulls.
@@ -100,7 +100,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("allow_jagged_rows")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AllowJaggedRows { get; set; }
+    public TerraformValue<bool>? AllowJaggedRows { get; set; }
 
     /// <summary>
     /// Indicates if BigQuery should allow quoted data sections that contain newline characters in a CSV file.
@@ -108,14 +108,14 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("allow_quoted_newlines")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AllowQuotedNewlines { get; set; }
+    public TerraformValue<bool>? AllowQuotedNewlines { get; set; }
 
     /// <summary>
     /// Indicates if we should automatically infer the options and schema for CSV and JSON sources.
     /// </summary>
     [TerraformPropertyName("autodetect")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Autodetect { get; set; }
+    public TerraformValue<bool>? Autodetect { get; set; }
 
     /// <summary>
     /// Specifies whether the job is allowed to create new tables. The following values are supported:
@@ -125,7 +125,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("create_disposition")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CreateDisposition { get; set; }
+    public TerraformValue<string>? CreateDisposition { get; set; }
 
     /// <summary>
     /// The character encoding of the data. The supported values are UTF-8 or ISO-8859-1.
@@ -134,7 +134,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("encoding")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Encoding { get; set; }
+    public TerraformValue<string>? Encoding { get; set; }
 
     /// <summary>
     /// The separator for fields in a CSV file. The separator can be any ISO-8859-1 single-byte character.
@@ -144,8 +144,8 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// The default value is a comma (&#39;,&#39;).
     /// </summary>
     [TerraformPropertyName("field_delimiter")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> FieldDelimiter { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "field_delimiter");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> FieldDelimiter { get; set; } = default!;
 
     /// <summary>
     /// Indicates if BigQuery should allow extra values that are not represented in the table schema.
@@ -157,7 +157,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("ignore_unknown_values")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IgnoreUnknownValues { get; set; }
+    public TerraformValue<bool>? IgnoreUnknownValues { get; set; }
 
     /// <summary>
     /// If sourceFormat is set to newline-delimited JSON, indicates whether it should be processed as a JSON variant such as GeoJSON.
@@ -166,7 +166,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("json_extension")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? JsonExtension { get; set; }
+    public TerraformValue<string>? JsonExtension { get; set; }
 
     /// <summary>
     /// The maximum number of bad records that BigQuery can ignore when running the job. If the number of bad records exceeds this value,
@@ -174,7 +174,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("max_bad_records")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxBadRecords { get; set; }
+    public TerraformValue<double>? MaxBadRecords { get; set; }
 
     /// <summary>
     /// Specifies a string that represents a null value in a CSV file. For example, if you specify &amp;quot;\N&amp;quot;, BigQuery interprets &amp;quot;\N&amp;quot; as a null value
@@ -184,7 +184,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("null_marker")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NullMarker { get; set; }
+    public TerraformValue<string>? NullMarker { get; set; }
 
     /// <summary>
     /// If sourceFormat is set to &amp;quot;DATASTORE_BACKUP&amp;quot;, indicates which entity properties to load into BigQuery from a Cloud Datastore backup.
@@ -193,7 +193,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("projection_fields")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ProjectionFields { get; set; }
+    public TerraformList<string>? ProjectionFields { get; set; }
 
     /// <summary>
     /// The value that is used to quote data sections in a CSV file. BigQuery converts the string to ISO-8859-1 encoding,
@@ -202,8 +202,8 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// If your data contains quoted newline characters, you must also set the allowQuotedNewlines property to true.
     /// </summary>
     [TerraformPropertyName("quote")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Quote { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "quote");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Quote { get; set; } = default!;
 
     /// <summary>
     /// Allows the schema of the destination table to be updated as a side effect of the load job if a schema is autodetected or
@@ -215,7 +215,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("schema_update_options")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? SchemaUpdateOptions { get; set; }
+    public TerraformList<string>? SchemaUpdateOptions { get; set; }
 
     /// <summary>
     /// The number of rows at the top of a CSV file that BigQuery will skip when loading the data.
@@ -229,7 +229,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("skip_leading_rows")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? SkipLeadingRows { get; set; }
+    public TerraformValue<double>? SkipLeadingRows { get; set; }
 
     /// <summary>
     /// The format of the data files. For CSV files, specify &amp;quot;CSV&amp;quot;. For datastore backups, specify &amp;quot;DATASTORE_BACKUP&amp;quot;.
@@ -239,7 +239,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("source_format")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SourceFormat { get; set; }
+    public TerraformValue<string>? SourceFormat { get; set; }
 
     /// <summary>
     /// The fully-qualified URIs that point to your data in Google Cloud.
@@ -252,7 +252,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUris is required")]
     [TerraformPropertyName("source_uris")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? SourceUris { get; set; }
+    public TerraformList<string>? SourceUris { get; set; }
 
     /// <summary>
     /// Specifies the action that occurs if the destination table already exists. The following values are supported:
@@ -264,7 +264,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("write_disposition")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? WriteDisposition { get; set; }
+    public TerraformValue<string>? WriteDisposition { get; set; }
 
 }
 
@@ -272,7 +272,7 @@ public class GoogleBigqueryJobLoadBlock : ITerraformBlock
 /// Block type for query in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryJobQueryBlock : ITerraformBlock
+public class GoogleBigqueryJobQueryBlock
 {
     /// <summary>
     /// If true and query uses legacy SQL dialect, allows the query to produce arbitrarily large result tables at a slight cost in performance.
@@ -281,7 +281,7 @@ public class GoogleBigqueryJobQueryBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("allow_large_results")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AllowLargeResults { get; set; }
+    public TerraformValue<bool>? AllowLargeResults { get; set; }
 
     /// <summary>
     /// Specifies whether the job is allowed to create new tables. The following values are supported:
@@ -291,7 +291,7 @@ public class GoogleBigqueryJobQueryBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("create_disposition")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CreateDisposition { get; set; }
+    public TerraformValue<string>? CreateDisposition { get; set; }
 
     /// <summary>
     /// If true and query uses legacy SQL dialect, flattens all nested and repeated fields in the query results.
@@ -299,7 +299,7 @@ public class GoogleBigqueryJobQueryBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("flatten_results")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? FlattenResults { get; set; }
+    public TerraformValue<bool>? FlattenResults { get; set; }
 
     /// <summary>
     /// Limits the billing tier for this job. Queries that have resource usage beyond this tier will fail (without incurring a charge).
@@ -307,7 +307,7 @@ public class GoogleBigqueryJobQueryBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("maximum_billing_tier")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaximumBillingTier { get; set; }
+    public TerraformValue<double>? MaximumBillingTier { get; set; }
 
     /// <summary>
     /// Limits the bytes billed for this job. Queries that will have bytes billed beyond this limit will fail (without incurring a charge).
@@ -315,21 +315,21 @@ public class GoogleBigqueryJobQueryBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("maximum_bytes_billed")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MaximumBytesBilled { get; set; }
+    public TerraformValue<string>? MaximumBytesBilled { get; set; }
 
     /// <summary>
     /// Standard SQL only. Set to POSITIONAL to use positional (?) query parameters or to NAMED to use named (@myparam) query parameters in this query.
     /// </summary>
     [TerraformPropertyName("parameter_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ParameterMode { get; set; }
+    public TerraformValue<string>? ParameterMode { get; set; }
 
     /// <summary>
     /// Specifies a priority for the query. Default value: &amp;quot;INTERACTIVE&amp;quot; Possible values: [&amp;quot;INTERACTIVE&amp;quot;, &amp;quot;BATCH&amp;quot;]
     /// </summary>
     [TerraformPropertyName("priority")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Priority { get; set; }
+    public TerraformValue<string>? Priority { get; set; }
 
     /// <summary>
     /// SQL query text to execute. The useLegacySql field can be used to indicate whether the query uses legacy SQL or standard SQL.
@@ -339,7 +339,7 @@ public class GoogleBigqueryJobQueryBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     [TerraformPropertyName("query")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Query { get; set; }
+    public required TerraformValue<string> Query { get; set; }
 
     /// <summary>
     /// Allows the schema of the destination table to be updated as a side effect of the query job.
@@ -352,7 +352,7 @@ public class GoogleBigqueryJobQueryBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("schema_update_options")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? SchemaUpdateOptions { get; set; }
+    public TerraformList<string>? SchemaUpdateOptions { get; set; }
 
     /// <summary>
     /// Specifies whether to use BigQuery&#39;s legacy SQL dialect for this query. The default value is true.
@@ -360,7 +360,7 @@ public class GoogleBigqueryJobQueryBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("use_legacy_sql")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? UseLegacySql { get; set; }
+    public TerraformValue<bool>? UseLegacySql { get; set; }
 
     /// <summary>
     /// Whether to look for the result in the query cache. The query cache is a best-effort cache that will be flushed whenever
@@ -369,7 +369,7 @@ public class GoogleBigqueryJobQueryBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("use_query_cache")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? UseQueryCache { get; set; }
+    public TerraformValue<bool>? UseQueryCache { get; set; }
 
     /// <summary>
     /// Specifies the action that occurs if the destination table already exists. The following values are supported:
@@ -381,7 +381,7 @@ public class GoogleBigqueryJobQueryBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("write_disposition")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? WriteDisposition { get; set; }
+    public TerraformValue<string>? WriteDisposition { get; set; }
 
 }
 
@@ -389,28 +389,28 @@ public class GoogleBigqueryJobQueryBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryJobTimeoutsBlock : ITerraformBlock
+public class GoogleBigqueryJobTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -428,8 +428,8 @@ public class GoogleBigqueryJob : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ID of the job. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). The maximum length is 1,024 characters.
@@ -437,14 +437,14 @@ public class GoogleBigqueryJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
     [TerraformPropertyName("job_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> JobId { get; set; }
+    public required TerraformValue<string> JobId { get; set; }
 
     /// <summary>
     /// Job timeout in milliseconds. If this time limit is exceeded, BigQuery may attempt to terminate the job.
     /// </summary>
     [TerraformPropertyName("job_timeout_ms")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? JobTimeoutMs { get; set; }
+    public TerraformValue<string>? JobTimeoutMs { get; set; }
 
     /// <summary>
     /// The labels associated with this job. You can use these to organize and group your jobs.
@@ -455,21 +455,21 @@ public class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The geographic location of the job. The default value is US.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for copy.
@@ -477,7 +477,7 @@ public class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Copy block(s) allowed")]
     [TerraformPropertyName("copy")]
-    public TerraformList<TerraformBlock<GoogleBigqueryJobCopyBlock>>? Copy { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryJobCopyBlock>>? Copy { get; set; }
 
     /// <summary>
     /// Block for extract.
@@ -485,7 +485,7 @@ public class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extract block(s) allowed")]
     [TerraformPropertyName("extract")]
-    public TerraformList<TerraformBlock<GoogleBigqueryJobExtractBlock>>? Extract { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryJobExtractBlock>>? Extract { get; set; }
 
     /// <summary>
     /// Block for load.
@@ -493,7 +493,7 @@ public class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Load block(s) allowed")]
     [TerraformPropertyName("load")]
-    public TerraformList<TerraformBlock<GoogleBigqueryJobLoadBlock>>? Load { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryJobLoadBlock>>? Load { get; set; }
 
     /// <summary>
     /// Block for query.
@@ -501,35 +501,35 @@ public class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Query block(s) allowed")]
     [TerraformPropertyName("query")]
-    public TerraformList<TerraformBlock<GoogleBigqueryJobQueryBlock>>? Query { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryJobQueryBlock>>? Query { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleBigqueryJobTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleBigqueryJobTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The type of the job.
     /// </summary>
     [TerraformPropertyName("job_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> JobType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "job_type");
+    public TerraformValue<string> JobType => new TerraformReference(this, "job_type");
 
     /// <summary>
     /// The status of this job. Examine this value when polling an asynchronous job to see if the job is complete.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Status => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "status");
+    public TerraformList<object> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -537,13 +537,13 @@ public class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Email address of the user who ran the job.
     /// </summary>
     [TerraformPropertyName("user_email")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UserEmail => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_email");
+    public TerraformValue<string> UserEmail => new TerraformReference(this, "user_email");
 
 }

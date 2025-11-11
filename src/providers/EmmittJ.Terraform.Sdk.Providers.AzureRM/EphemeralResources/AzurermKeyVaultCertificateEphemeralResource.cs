@@ -18,7 +18,7 @@ public class AzurermKeyVaultCertificateEphemeralResource : TerraformEphemeralRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformPropertyName("key_vault_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyVaultId { get; set; }
+    public required TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -26,55 +26,55 @@ public class AzurermKeyVaultCertificateEphemeralResource : TerraformEphemeralRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformPropertyName("version")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Version { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Version { get; set; } = default!;
 
     /// <summary>
     /// The certificate_count attribute.
     /// </summary>
     [TerraformPropertyName("certificate_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> CertificateCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "certificate_count");
+    public TerraformValue<double> CertificateCount => new TerraformReference(this, "certificate_count");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     [TerraformPropertyName("expiration_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExpirationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_date");
+    public TerraformValue<string> ExpirationDate => new TerraformReference(this, "expiration_date");
 
     /// <summary>
     /// The hex attribute.
     /// </summary>
     [TerraformPropertyName("hex")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Hex => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hex");
+    public TerraformValue<string> Hex => new TerraformReference(this, "hex");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [TerraformPropertyName("key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Key => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key");
+    public TerraformValue<string> Key => new TerraformReference(this, "key");
 
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
     [TerraformPropertyName("not_before_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NotBeforeDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "not_before_date");
+    public TerraformValue<string> NotBeforeDate => new TerraformReference(this, "not_before_date");
 
     /// <summary>
     /// The pem attribute.
     /// </summary>
     [TerraformPropertyName("pem")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Pem => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "pem");
+    public TerraformValue<string> Pem => new TerraformReference(this, "pem");
 
 }

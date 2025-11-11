@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for emergency_contact in .
 /// Nesting mode: list
 /// </summary>
-public class AwsShieldProactiveEngagementEmergencyContactBlock : ITerraformBlock
+public class AwsShieldProactiveEngagementEmergencyContactBlock
 {
     /// <summary>
     /// The contact_notes attribute.
     /// </summary>
     [TerraformPropertyName("contact_notes")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContactNotes { get; set; }
+    public TerraformValue<string>? ContactNotes { get; set; }
 
     /// <summary>
     /// The email_address attribute.
@@ -21,14 +21,14 @@ public class AwsShieldProactiveEngagementEmergencyContactBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     [TerraformPropertyName("email_address")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EmailAddress { get; set; }
+    public required TerraformValue<string> EmailAddress { get; set; }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
     [TerraformPropertyName("phone_number")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PhoneNumber { get; set; }
+    public TerraformValue<string>? PhoneNumber { get; set; }
 
 }
 
@@ -47,20 +47,20 @@ public class AwsShieldProactiveEngagement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformPropertyName("enabled")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
+    public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// Block for emergency_contact.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("emergency_contact")]
-    public TerraformList<TerraformBlock<AwsShieldProactiveEngagementEmergencyContactBlock>>? EmergencyContact { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsShieldProactiveEngagementEmergencyContactBlock>>? EmergencyContact { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

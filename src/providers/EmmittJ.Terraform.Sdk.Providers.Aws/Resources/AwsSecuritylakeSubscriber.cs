@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for source in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSecuritylakeSubscriberSourceBlock : ITerraformBlock
+public class AwsSecuritylakeSubscriberSourceBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsSecuritylakeSubscriberSourceBlock : ITerraformBlock
 /// Block type for subscriber_identity in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSecuritylakeSubscriberSubscriberIdentityBlock : ITerraformBlock
+public class AwsSecuritylakeSubscriberSubscriberIdentityBlock
 {
     /// <summary>
     /// The external_id attribute.
@@ -22,7 +22,7 @@ public class AwsSecuritylakeSubscriberSubscriberIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
     [TerraformPropertyName("external_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ExternalId { get; set; }
+    public required TerraformValue<string> ExternalId { get; set; }
 
     /// <summary>
     /// The principal attribute.
@@ -30,7 +30,7 @@ public class AwsSecuritylakeSubscriberSubscriberIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     [TerraformPropertyName("principal")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
+    public required TerraformValue<string> Principal { get; set; }
 
 }
 
@@ -38,28 +38,28 @@ public class AwsSecuritylakeSubscriberSubscriberIdentityBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSecuritylakeSubscriberTimeoutsBlock : ITerraformBlock
+public class AwsSecuritylakeSubscriberTimeoutsBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -76,119 +76,119 @@ public class AwsSecuritylakeSubscriber : TerraformResource
     /// The access_type attribute.
     /// </summary>
     [TerraformPropertyName("access_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AccessType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AccessType { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The subscriber_description attribute.
     /// </summary>
     [TerraformPropertyName("subscriber_description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SubscriberDescription { get; set; }
+    public TerraformValue<string>? SubscriberDescription { get; set; }
 
     /// <summary>
     /// The subscriber_name attribute.
     /// </summary>
     [TerraformPropertyName("subscriber_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SubscriberName { get; set; }
+    public TerraformValue<string>? SubscriberName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("source")]
-    public TerraformSet<TerraformBlock<AwsSecuritylakeSubscriberSourceBlock>>? Source { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsSecuritylakeSubscriberSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// Block for subscriber_identity.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("subscriber_identity")]
-    public TerraformList<TerraformBlock<AwsSecuritylakeSubscriberSubscriberIdentityBlock>>? SubscriberIdentity { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSecuritylakeSubscriberSubscriberIdentityBlock>>? SubscriberIdentity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsSecuritylakeSubscriberTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsSecuritylakeSubscriberTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The resource_share_arn attribute.
     /// </summary>
     [TerraformPropertyName("resource_share_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ResourceShareArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_share_arn");
+    public TerraformValue<string> ResourceShareArn => new TerraformReference(this, "resource_share_arn");
 
     /// <summary>
     /// The resource_share_name attribute.
     /// </summary>
     [TerraformPropertyName("resource_share_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ResourceShareName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_share_name");
+    public TerraformValue<string> ResourceShareName => new TerraformReference(this, "resource_share_name");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [TerraformPropertyName("role_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_arn");
+    public TerraformValue<string> RoleArn => new TerraformReference(this, "role_arn");
 
     /// <summary>
     /// The s3_bucket_arn attribute.
     /// </summary>
     [TerraformPropertyName("s3_bucket_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> S3BucketArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "s3_bucket_arn");
+    public TerraformValue<string> S3BucketArn => new TerraformReference(this, "s3_bucket_arn");
 
     /// <summary>
     /// The subscriber_endpoint attribute.
     /// </summary>
     [TerraformPropertyName("subscriber_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SubscriberEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subscriber_endpoint");
+    public TerraformValue<string> SubscriberEndpoint => new TerraformReference(this, "subscriber_endpoint");
 
     /// <summary>
     /// The subscriber_status attribute.
     /// </summary>
     [TerraformPropertyName("subscriber_status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SubscriberStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subscriber_status");
+    public TerraformValue<string> SubscriberStatus => new TerraformReference(this, "subscriber_status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
 
 }

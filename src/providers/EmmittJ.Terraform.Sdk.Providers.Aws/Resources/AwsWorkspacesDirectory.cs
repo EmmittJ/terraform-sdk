@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for active_directory_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWorkspacesDirectoryActiveDirectoryConfigBlock : ITerraformBlock
+public class AwsWorkspacesDirectoryActiveDirectoryConfigBlock
 {
     /// <summary>
     /// The domain_name attribute.
@@ -14,7 +14,7 @@ public class AwsWorkspacesDirectoryActiveDirectoryConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformPropertyName("domain_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
+    public required TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The service_account_secret_arn attribute.
@@ -22,7 +22,7 @@ public class AwsWorkspacesDirectoryActiveDirectoryConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountSecretArn is required")]
     [TerraformPropertyName("service_account_secret_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceAccountSecretArn { get; set; }
+    public required TerraformValue<string> ServiceAccountSecretArn { get; set; }
 
 }
 
@@ -30,21 +30,21 @@ public class AwsWorkspacesDirectoryActiveDirectoryConfigBlock : ITerraformBlock
 /// Block type for certificate_based_auth_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWorkspacesDirectoryCertificateBasedAuthPropertiesBlock : ITerraformBlock
+public class AwsWorkspacesDirectoryCertificateBasedAuthPropertiesBlock
 {
     /// <summary>
     /// The certificate_authority_arn attribute.
     /// </summary>
     [TerraformPropertyName("certificate_authority_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CertificateAuthorityArn { get; set; }
+    public TerraformValue<string>? CertificateAuthorityArn { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Status { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "status");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Status { get; set; } = default!;
 
 }
 
@@ -52,28 +52,28 @@ public class AwsWorkspacesDirectoryCertificateBasedAuthPropertiesBlock : ITerraf
 /// Block type for saml_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWorkspacesDirectorySamlPropertiesBlock : ITerraformBlock
+public class AwsWorkspacesDirectorySamlPropertiesBlock
 {
     /// <summary>
     /// The relay_state_parameter_name attribute.
     /// </summary>
     [TerraformPropertyName("relay_state_parameter_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RelayStateParameterName { get; set; }
+    public TerraformValue<string>? RelayStateParameterName { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
+    public TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The user_access_url attribute.
     /// </summary>
     [TerraformPropertyName("user_access_url")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserAccessUrl { get; set; }
+    public TerraformValue<string>? UserAccessUrl { get; set; }
 
 }
 
@@ -81,42 +81,42 @@ public class AwsWorkspacesDirectorySamlPropertiesBlock : ITerraformBlock
 /// Block type for self_service_permissions in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWorkspacesDirectorySelfServicePermissionsBlock : ITerraformBlock
+public class AwsWorkspacesDirectorySelfServicePermissionsBlock
 {
     /// <summary>
     /// The change_compute_type attribute.
     /// </summary>
     [TerraformPropertyName("change_compute_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ChangeComputeType { get; set; }
+    public TerraformValue<bool>? ChangeComputeType { get; set; }
 
     /// <summary>
     /// The increase_volume_size attribute.
     /// </summary>
     [TerraformPropertyName("increase_volume_size")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IncreaseVolumeSize { get; set; }
+    public TerraformValue<bool>? IncreaseVolumeSize { get; set; }
 
     /// <summary>
     /// The rebuild_workspace attribute.
     /// </summary>
     [TerraformPropertyName("rebuild_workspace")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RebuildWorkspace { get; set; }
+    public TerraformValue<bool>? RebuildWorkspace { get; set; }
 
     /// <summary>
     /// The restart_workspace attribute.
     /// </summary>
     [TerraformPropertyName("restart_workspace")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RestartWorkspace { get; set; }
+    public TerraformValue<bool>? RestartWorkspace { get; set; }
 
     /// <summary>
     /// The switch_running_mode attribute.
     /// </summary>
     [TerraformPropertyName("switch_running_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SwitchRunningMode { get; set; }
+    public TerraformValue<bool>? SwitchRunningMode { get; set; }
 
 }
 
@@ -124,63 +124,63 @@ public class AwsWorkspacesDirectorySelfServicePermissionsBlock : ITerraformBlock
 /// Block type for workspace_access_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock : ITerraformBlock
+public class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock
 {
     /// <summary>
     /// The device_type_android attribute.
     /// </summary>
     [TerraformPropertyName("device_type_android")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeviceTypeAndroid { get; set; }
+    public TerraformValue<string>? DeviceTypeAndroid { get; set; }
 
     /// <summary>
     /// The device_type_chromeos attribute.
     /// </summary>
     [TerraformPropertyName("device_type_chromeos")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeviceTypeChromeos { get; set; }
+    public TerraformValue<string>? DeviceTypeChromeos { get; set; }
 
     /// <summary>
     /// The device_type_ios attribute.
     /// </summary>
     [TerraformPropertyName("device_type_ios")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeviceTypeIos { get; set; }
+    public TerraformValue<string>? DeviceTypeIos { get; set; }
 
     /// <summary>
     /// The device_type_linux attribute.
     /// </summary>
     [TerraformPropertyName("device_type_linux")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeviceTypeLinux { get; set; }
+    public TerraformValue<string>? DeviceTypeLinux { get; set; }
 
     /// <summary>
     /// The device_type_osx attribute.
     /// </summary>
     [TerraformPropertyName("device_type_osx")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeviceTypeOsx { get; set; }
+    public TerraformValue<string>? DeviceTypeOsx { get; set; }
 
     /// <summary>
     /// The device_type_web attribute.
     /// </summary>
     [TerraformPropertyName("device_type_web")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeviceTypeWeb { get; set; }
+    public TerraformValue<string>? DeviceTypeWeb { get; set; }
 
     /// <summary>
     /// The device_type_windows attribute.
     /// </summary>
     [TerraformPropertyName("device_type_windows")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeviceTypeWindows { get; set; }
+    public TerraformValue<string>? DeviceTypeWindows { get; set; }
 
     /// <summary>
     /// The device_type_zeroclient attribute.
     /// </summary>
     [TerraformPropertyName("device_type_zeroclient")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeviceTypeZeroclient { get; set; }
+    public TerraformValue<string>? DeviceTypeZeroclient { get; set; }
 
 }
 
@@ -188,42 +188,42 @@ public class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock : ITerraformBl
 /// Block type for workspace_creation_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock : ITerraformBlock
+public class AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock
 {
     /// <summary>
     /// The custom_security_group_id attribute.
     /// </summary>
     [TerraformPropertyName("custom_security_group_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomSecurityGroupId { get; set; }
+    public TerraformValue<string>? CustomSecurityGroupId { get; set; }
 
     /// <summary>
     /// The default_ou attribute.
     /// </summary>
     [TerraformPropertyName("default_ou")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DefaultOu { get; set; }
+    public TerraformValue<string>? DefaultOu { get; set; }
 
     /// <summary>
     /// The enable_internet_access attribute.
     /// </summary>
     [TerraformPropertyName("enable_internet_access")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableInternetAccess { get; set; }
+    public TerraformValue<bool>? EnableInternetAccess { get; set; }
 
     /// <summary>
     /// The enable_maintenance_mode attribute.
     /// </summary>
     [TerraformPropertyName("enable_maintenance_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableMaintenanceMode { get; set; }
+    public TerraformValue<bool>? EnableMaintenanceMode { get; set; }
 
     /// <summary>
     /// The user_enabled_as_local_administrator attribute.
     /// </summary>
     [TerraformPropertyName("user_enabled_as_local_administrator")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? UserEnabledAsLocalAdministrator { get; set; }
+    public TerraformValue<bool>? UserEnabledAsLocalAdministrator { get; set; }
 
 }
 
@@ -241,78 +241,78 @@ public class AwsWorkspacesDirectory : TerraformResource
     /// The directory_id attribute.
     /// </summary>
     [TerraformPropertyName("directory_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DirectoryId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "directory_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DirectoryId { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ip_group_ids attribute.
     /// </summary>
     [TerraformPropertyName("ip_group_ids")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<HashSet<TerraformProperty<string>>> IpGroupIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "ip_group_ids");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformSet<string> IpGroupIds { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [TerraformPropertyName("subnet_ids")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<HashSet<TerraformProperty<string>>> SubnetIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "subnet_ids");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformSet<string> SubnetIds { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The user_identity_type attribute.
     /// </summary>
     [TerraformPropertyName("user_identity_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> UserIdentityType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_identity_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> UserIdentityType { get; set; } = default!;
 
     /// <summary>
     /// The workspace_directory_description attribute.
     /// </summary>
     [TerraformPropertyName("workspace_directory_description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? WorkspaceDirectoryDescription { get; set; }
+    public TerraformValue<string>? WorkspaceDirectoryDescription { get; set; }
 
     /// <summary>
     /// The workspace_directory_name attribute.
     /// </summary>
     [TerraformPropertyName("workspace_directory_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? WorkspaceDirectoryName { get; set; }
+    public TerraformValue<string>? WorkspaceDirectoryName { get; set; }
 
     /// <summary>
     /// The workspace_type attribute.
     /// </summary>
     [TerraformPropertyName("workspace_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? WorkspaceType { get; set; }
+    public TerraformValue<string>? WorkspaceType { get; set; }
 
     /// <summary>
     /// Block for active_directory_config.
@@ -320,7 +320,7 @@ public class AwsWorkspacesDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveDirectoryConfig block(s) allowed")]
     [TerraformPropertyName("active_directory_config")]
-    public TerraformList<TerraformBlock<AwsWorkspacesDirectoryActiveDirectoryConfigBlock>>? ActiveDirectoryConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsWorkspacesDirectoryActiveDirectoryConfigBlock>>? ActiveDirectoryConfig { get; set; }
 
     /// <summary>
     /// Block for certificate_based_auth_properties.
@@ -328,7 +328,7 @@ public class AwsWorkspacesDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateBasedAuthProperties block(s) allowed")]
     [TerraformPropertyName("certificate_based_auth_properties")]
-    public TerraformList<TerraformBlock<AwsWorkspacesDirectoryCertificateBasedAuthPropertiesBlock>>? CertificateBasedAuthProperties { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsWorkspacesDirectoryCertificateBasedAuthPropertiesBlock>>? CertificateBasedAuthProperties { get; set; }
 
     /// <summary>
     /// Block for saml_properties.
@@ -336,7 +336,7 @@ public class AwsWorkspacesDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SamlProperties block(s) allowed")]
     [TerraformPropertyName("saml_properties")]
-    public TerraformList<TerraformBlock<AwsWorkspacesDirectorySamlPropertiesBlock>>? SamlProperties { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsWorkspacesDirectorySamlPropertiesBlock>>? SamlProperties { get; set; }
 
     /// <summary>
     /// Block for self_service_permissions.
@@ -344,7 +344,7 @@ public class AwsWorkspacesDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfServicePermissions block(s) allowed")]
     [TerraformPropertyName("self_service_permissions")]
-    public TerraformList<TerraformBlock<AwsWorkspacesDirectorySelfServicePermissionsBlock>>? SelfServicePermissions { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsWorkspacesDirectorySelfServicePermissionsBlock>>? SelfServicePermissions { get; set; }
 
     /// <summary>
     /// Block for workspace_access_properties.
@@ -352,7 +352,7 @@ public class AwsWorkspacesDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkspaceAccessProperties block(s) allowed")]
     [TerraformPropertyName("workspace_access_properties")]
-    public TerraformList<TerraformBlock<AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock>>? WorkspaceAccessProperties { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock>>? WorkspaceAccessProperties { get; set; }
 
     /// <summary>
     /// Block for workspace_creation_properties.
@@ -360,62 +360,62 @@ public class AwsWorkspacesDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkspaceCreationProperties block(s) allowed")]
     [TerraformPropertyName("workspace_creation_properties")]
-    public TerraformList<TerraformBlock<AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock>>? WorkspaceCreationProperties { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock>>? WorkspaceCreationProperties { get; set; }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
     [TerraformPropertyName("alias")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Alias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "alias");
+    public TerraformValue<string> Alias => new TerraformReference(this, "alias");
 
     /// <summary>
     /// The customer_user_name attribute.
     /// </summary>
     [TerraformPropertyName("customer_user_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CustomerUserName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "customer_user_name");
+    public TerraformValue<string> CustomerUserName => new TerraformReference(this, "customer_user_name");
 
     /// <summary>
     /// The directory_name attribute.
     /// </summary>
     [TerraformPropertyName("directory_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DirectoryName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "directory_name");
+    public TerraformValue<string> DirectoryName => new TerraformReference(this, "directory_name");
 
     /// <summary>
     /// The directory_type attribute.
     /// </summary>
     [TerraformPropertyName("directory_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DirectoryType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "directory_type");
+    public TerraformValue<string> DirectoryType => new TerraformReference(this, "directory_type");
 
     /// <summary>
     /// The dns_ip_addresses attribute.
     /// </summary>
     [TerraformPropertyName("dns_ip_addresses")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> DnsIpAddresses => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "dns_ip_addresses");
+    public TerraformSet<string> DnsIpAddresses => new TerraformReference(this, "dns_ip_addresses");
 
     /// <summary>
     /// The iam_role_id attribute.
     /// </summary>
     [TerraformPropertyName("iam_role_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> IamRoleId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "iam_role_id");
+    public TerraformValue<string> IamRoleId => new TerraformReference(this, "iam_role_id");
 
     /// <summary>
     /// The registration_code attribute.
     /// </summary>
     [TerraformPropertyName("registration_code")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RegistrationCode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registration_code");
+    public TerraformValue<string> RegistrationCode => new TerraformReference(this, "registration_code");
 
     /// <summary>
     /// The workspace_security_group_id attribute.
     /// </summary>
     [TerraformPropertyName("workspace_security_group_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> WorkspaceSecurityGroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workspace_security_group_id");
+    public TerraformValue<string> WorkspaceSecurityGroupId => new TerraformReference(this, "workspace_security_group_id");
 
 }

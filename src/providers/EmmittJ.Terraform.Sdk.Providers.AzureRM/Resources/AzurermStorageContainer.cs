@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageContainerTimeoutsBlock : ITerraformBlock
+public class AzurermStorageContainerTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,35 +52,35 @@ public class AzurermStorageContainer : TerraformResource
     /// </summary>
     [TerraformPropertyName("container_access_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContainerAccessType { get; set; }
+    public TerraformValue<string>? ContainerAccessType { get; set; }
 
     /// <summary>
     /// The default_encryption_scope attribute.
     /// </summary>
     [TerraformPropertyName("default_encryption_scope")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DefaultEncryptionScope { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_encryption_scope");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DefaultEncryptionScope { get; set; } = default!;
 
     /// <summary>
     /// The encryption_scope_override_enabled attribute.
     /// </summary>
     [TerraformPropertyName("encryption_scope_override_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EncryptionScopeOverrideEnabled { get; set; }
+    public TerraformValue<bool>? EncryptionScopeOverrideEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformPropertyName("metadata")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Metadata { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "metadata");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Metadata { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -88,14 +88,14 @@ public class AzurermStorageContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [TerraformPropertyName("storage_account_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StorageAccountId { get; set; }
+    public TerraformValue<string>? StorageAccountId { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
@@ -103,34 +103,34 @@ public class AzurermStorageContainer : TerraformResource
     [Obsolete("This property is deprecated.")]
     [TerraformPropertyName("storage_account_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StorageAccountName { get; set; }
+    public TerraformValue<string>? StorageAccountName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermStorageContainerTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermStorageContainerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The has_immutability_policy attribute.
     /// </summary>
     [TerraformPropertyName("has_immutability_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> HasImmutabilityPolicy => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "has_immutability_policy");
+    public TerraformValue<bool> HasImmutabilityPolicy => new TerraformReference(this, "has_immutability_policy");
 
     /// <summary>
     /// The has_legal_hold attribute.
     /// </summary>
     [TerraformPropertyName("has_legal_hold")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> HasLegalHold => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "has_legal_hold");
+    public TerraformValue<bool> HasLegalHold => new TerraformReference(this, "has_legal_hold");
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     [TerraformPropertyName("resource_manager_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ResourceManagerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_manager_id");
+    public TerraformValue<string> ResourceManagerId => new TerraformReference(this, "resource_manager_id");
 
 }

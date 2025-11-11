@@ -16,13 +16,13 @@ public class AwsRoute53ZonesDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
     [TerraformPropertyName("ids")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Ids => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "ids");
+    public TerraformList<string> Ids => new TerraformReference(this, "ids");
 
 }

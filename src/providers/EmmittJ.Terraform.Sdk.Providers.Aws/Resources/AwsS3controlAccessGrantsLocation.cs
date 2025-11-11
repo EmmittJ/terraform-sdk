@@ -15,8 +15,8 @@ public class AwsS3controlAccessGrantsLocation : TerraformResource
     /// The account_id attribute.
     /// </summary>
     [TerraformPropertyName("account_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AccountId { get; set; } = default!;
 
     /// <summary>
     /// The iam_role_arn attribute.
@@ -24,7 +24,7 @@ public class AwsS3controlAccessGrantsLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     [TerraformPropertyName("iam_role_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IamRoleArn { get; set; }
+    public required TerraformValue<string> IamRoleArn { get; set; }
 
     /// <summary>
     /// The location_scope attribute.
@@ -32,48 +32,48 @@ public class AwsS3controlAccessGrantsLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationScope is required")]
     [TerraformPropertyName("location_scope")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LocationScope { get; set; }
+    public required TerraformValue<string> LocationScope { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The access_grants_location_arn attribute.
     /// </summary>
     [TerraformPropertyName("access_grants_location_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AccessGrantsLocationArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_grants_location_arn");
+    public TerraformValue<string> AccessGrantsLocationArn => new TerraformReference(this, "access_grants_location_arn");
 
     /// <summary>
     /// The access_grants_location_id attribute.
     /// </summary>
     [TerraformPropertyName("access_grants_location_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AccessGrantsLocationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_grants_location_id");
+    public TerraformValue<string> AccessGrantsLocationId => new TerraformReference(this, "access_grants_location_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
 
 }

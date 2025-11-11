@@ -17,7 +17,7 @@ public class AwsIamUserPoliciesExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyNames is required")]
     [TerraformPropertyName("policy_names")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? PolicyNames { get; set; }
+    public required TerraformSet<string> PolicyNames { get; set; }
 
     /// <summary>
     /// The user_name attribute.
@@ -25,6 +25,6 @@ public class AwsIamUserPoliciesExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     [TerraformPropertyName("user_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> UserName { get; set; }
+    public required TerraformValue<string> UserName { get; set; }
 
 }

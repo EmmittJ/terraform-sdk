@@ -16,62 +16,62 @@ public class AwsWorkspacesBundleDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("bundle_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? BundleId { get; set; }
+    public TerraformValue<string>? BundleId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
+    public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [TerraformPropertyName("owner")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Owner { get; set; }
+    public TerraformValue<string>? Owner { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
     [TerraformPropertyName("compute_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ComputeType => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "compute_type");
+    public TerraformList<object> ComputeType => new TerraformReference(this, "compute_type");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The root_storage attribute.
     /// </summary>
     [TerraformPropertyName("root_storage")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> RootStorage => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "root_storage");
+    public TerraformList<object> RootStorage => new TerraformReference(this, "root_storage");
 
     /// <summary>
     /// The user_storage attribute.
     /// </summary>
     [TerraformPropertyName("user_storage")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> UserStorage => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "user_storage");
+    public TerraformList<object> UserStorage => new TerraformReference(this, "user_storage");
 
 }

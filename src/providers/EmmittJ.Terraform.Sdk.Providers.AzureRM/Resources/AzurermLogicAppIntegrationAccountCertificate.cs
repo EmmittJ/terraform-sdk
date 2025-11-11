@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for key_vault_key in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock : ITerraformBlock
+public class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock
 {
     /// <summary>
     /// The key_name attribute.
@@ -14,7 +14,7 @@ public class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock : ITer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyName is required")]
     [TerraformPropertyName("key_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyName { get; set; }
+    public required TerraformValue<string> KeyName { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
@@ -22,14 +22,14 @@ public class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock : ITer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformPropertyName("key_vault_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyVaultId { get; set; }
+    public required TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The key_version attribute.
     /// </summary>
     [TerraformPropertyName("key_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KeyVersion { get; set; }
+    public TerraformValue<string>? KeyVersion { get; set; }
 
 }
 
@@ -37,35 +37,35 @@ public class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock : ITer
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock : ITerraformBlock
+public class AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -83,8 +83,8 @@ public class AzurermLogicAppIntegrationAccountCertificate : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The integration_account_name attribute.
@@ -92,14 +92,14 @@ public class AzurermLogicAppIntegrationAccountCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
     [TerraformPropertyName("integration_account_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IntegrationAccountName { get; set; }
+    public required TerraformValue<string> IntegrationAccountName { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformPropertyName("metadata")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Metadata { get; set; }
+    public TerraformValue<string>? Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -107,14 +107,14 @@ public class AzurermLogicAppIntegrationAccountCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_certificate attribute.
     /// </summary>
     [TerraformPropertyName("public_certificate")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PublicCertificate { get; set; }
+    public TerraformValue<string>? PublicCertificate { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -122,7 +122,7 @@ public class AzurermLogicAppIntegrationAccountCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for key_vault_key.
@@ -130,13 +130,13 @@ public class AzurermLogicAppIntegrationAccountCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultKey block(s) allowed")]
     [TerraformPropertyName("key_vault_key")]
-    public TerraformList<TerraformBlock<AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock>>? KeyVaultKey { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock>>? KeyVaultKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock>? Timeouts { get; set; }
 
 }

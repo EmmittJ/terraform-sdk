@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for properties in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeOrganizationPropertiesBlock : ITerraformBlock
+public class GoogleApigeeOrganizationPropertiesBlock
 {
 }
 
@@ -14,28 +14,28 @@ public class GoogleApigeeOrganizationPropertiesBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeOrganizationTimeoutsBlock : ITerraformBlock
+public class GoogleApigeeOrganizationTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,14 +54,14 @@ public class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformPropertyName("analytics_region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AnalyticsRegion { get; set; }
+    public TerraformValue<string>? AnalyticsRegion { get; set; }
 
     /// <summary>
     /// Cloud KMS key name used for encrypting API consumer data.
     /// </summary>
     [TerraformPropertyName("api_consumer_data_encryption_key_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ApiConsumerDataEncryptionKeyName { get; set; }
+    public TerraformValue<string>? ApiConsumerDataEncryptionKeyName { get; set; }
 
     /// <summary>
     /// This field is needed only for customers using non-default data residency regions.
@@ -70,7 +70,7 @@ public class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformPropertyName("api_consumer_data_location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ApiConsumerDataLocation { get; set; }
+    public TerraformValue<string>? ApiConsumerDataLocation { get; set; }
 
     /// <summary>
     /// Compute Engine network used for Service Networking to be peered with Apigee runtime instances.
@@ -79,14 +79,14 @@ public class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformPropertyName("authorized_network")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AuthorizedNetwork { get; set; }
+    public TerraformValue<string>? AuthorizedNetwork { get; set; }
 
     /// <summary>
     /// Billing type of the Apigee organization. See [Apigee pricing](https://cloud.google.com/apigee/pricing).
     /// </summary>
     [TerraformPropertyName("billing_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> BillingType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "billing_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> BillingType { get; set; } = default!;
 
     /// <summary>
     /// Cloud KMS key name used for encrypting control plane data that is stored in a multi region.
@@ -94,14 +94,14 @@ public class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformPropertyName("control_plane_encryption_key_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ControlPlaneEncryptionKeyName { get; set; }
+    public TerraformValue<string>? ControlPlaneEncryptionKeyName { get; set; }
 
     /// <summary>
     /// Description of the Apigee organization.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Flag that specifies whether the VPC Peering through Private Google Access should be
@@ -112,21 +112,21 @@ public class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformPropertyName("disable_vpc_peering")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DisableVpcPeering { get; set; }
+    public TerraformValue<bool>? DisableVpcPeering { get; set; }
 
     /// <summary>
     /// The display name of the Apigee organization.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The project ID associated with the Apigee organization.
@@ -134,7 +134,7 @@ public class GoogleApigeeOrganization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     [TerraformPropertyName("project_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ProjectId { get; set; }
+    public required TerraformValue<string> ProjectId { get; set; }
 
     /// <summary>
     /// Optional. This setting is applicable only for organizations that are soft-deleted (i.e., BillingType
@@ -144,7 +144,7 @@ public class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformPropertyName("retention")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Retention { get; set; }
+    public TerraformValue<string>? Retention { get; set; }
 
     /// <summary>
     /// Cloud KMS key name used for encrypting the data that is stored and replicated across runtime instances.
@@ -154,14 +154,14 @@ public class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformPropertyName("runtime_database_encryption_key_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RuntimeDatabaseEncryptionKeyName { get; set; }
+    public TerraformValue<string>? RuntimeDatabaseEncryptionKeyName { get; set; }
 
     /// <summary>
     /// Runtime type of the Apigee organization based on the Apigee subscription purchased. Default value: &amp;quot;CLOUD&amp;quot; Possible values: [&amp;quot;CLOUD&amp;quot;, &amp;quot;HYBRID&amp;quot;]
     /// </summary>
     [TerraformPropertyName("runtime_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RuntimeType { get; set; }
+    public TerraformValue<string>? RuntimeType { get; set; }
 
     /// <summary>
     /// Block for properties.
@@ -169,21 +169,21 @@ public class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     [TerraformPropertyName("properties")]
-    public TerraformList<TerraformBlock<GoogleApigeeOrganizationPropertiesBlock>>? Properties { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleApigeeOrganizationPropertiesBlock>>? Properties { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleApigeeOrganizationTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleApigeeOrganizationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Project ID of the Apigee Tenant Project.
     /// </summary>
     [TerraformPropertyName("apigee_project_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ApigeeProjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "apigee_project_id");
+    public TerraformValue<string> ApigeeProjectId => new TerraformReference(this, "apigee_project_id");
 
     /// <summary>
     /// Output only. Base64-encoded public certificate for the root CA of the Apigee organization.
@@ -191,14 +191,14 @@ public class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformPropertyName("ca_certificate")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CaCertificate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ca_certificate");
+    public TerraformValue<string> CaCertificate => new TerraformReference(this, "ca_certificate");
 
     /// <summary>
     /// Output only. Name of the Apigee organization.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Output only. Subscription type of the Apigee organization.
@@ -206,6 +206,6 @@ public class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformPropertyName("subscription_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SubscriptionType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subscription_type");
+    public TerraformValue<string> SubscriptionType => new TerraformReference(this, "subscription_type");
 
 }

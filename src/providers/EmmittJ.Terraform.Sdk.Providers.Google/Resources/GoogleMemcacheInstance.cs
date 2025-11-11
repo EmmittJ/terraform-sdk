@@ -6,16 +6,8 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for maintenance_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMemcacheInstanceMaintenancePolicyBlock : ITerraformBlock
+public class GoogleMemcacheInstanceMaintenancePolicyBlock
 {
-    /// <summary>
-    /// Output only. The time when the policy was created.
-    /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond
-    /// resolution and up to nine fractional digits
-    /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "create_time");
 
     /// <summary>
     /// Optional. Description of what this policy is for.
@@ -24,16 +16,8 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
-    /// <summary>
-    /// Output only. The time when the policy was updated.
-    /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond
-    /// resolution and up to nine fractional digits.
-    /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "update_time");
 
 }
 
@@ -41,21 +25,15 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlock : ITerraformBlock
 /// Block type for memcache_parameters in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMemcacheInstanceMemcacheParametersBlock : ITerraformBlock
+public class GoogleMemcacheInstanceMemcacheParametersBlock
 {
-    /// <summary>
-    /// This is a unique ID associated with this set of parameters.
-    /// </summary>
-    [TerraformPropertyName("id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// User-defined set of parameters to use in the memcache process.
     /// </summary>
     [TerraformPropertyName("params")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Params { get; set; }
+    public TerraformMap<string>? Params { get; set; }
 
 }
 
@@ -63,7 +41,7 @@ public class GoogleMemcacheInstanceMemcacheParametersBlock : ITerraformBlock
 /// Block type for node_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMemcacheInstanceNodeConfigBlock : ITerraformBlock
+public class GoogleMemcacheInstanceNodeConfigBlock
 {
     /// <summary>
     /// Number of CPUs per node.
@@ -71,7 +49,7 @@ public class GoogleMemcacheInstanceNodeConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCount is required")]
     [TerraformPropertyName("cpu_count")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> CpuCount { get; set; }
+    public required TerraformValue<double> CpuCount { get; set; }
 
     /// <summary>
     /// Memory size in Mebibytes for each memcache node.
@@ -79,7 +57,7 @@ public class GoogleMemcacheInstanceNodeConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeMb is required")]
     [TerraformPropertyName("memory_size_mb")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> MemorySizeMb { get; set; }
+    public required TerraformValue<double> MemorySizeMb { get; set; }
 
 }
 
@@ -87,28 +65,28 @@ public class GoogleMemcacheInstanceNodeConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleMemcacheInstanceTimeoutsBlock : ITerraformBlock
+public class GoogleMemcacheInstanceTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -127,8 +105,8 @@ public class GoogleMemcacheInstance : TerraformResource
     /// &#39;default&#39; will be used.
     /// </summary>
     [TerraformPropertyName("authorized_network")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AuthorizedNetwork { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "authorized_network");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AuthorizedNetwork { get; set; } = default!;
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the instance.
@@ -140,21 +118,21 @@ public class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("deletion_protection")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DeletionProtection { get; set; }
+    public TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// A user-visible name for the instance.
     /// </summary>
     [TerraformPropertyName("display_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DisplayName { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -165,7 +143,7 @@ public class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The major version of Memcached software. If not provided, latest supported version will be used.
@@ -174,7 +152,7 @@ public class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("memcache_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MemcacheVersion { get; set; }
+    public TerraformValue<string>? MemcacheVersion { get; set; }
 
     /// <summary>
     /// The resource name of the instance.
@@ -182,7 +160,7 @@ public class GoogleMemcacheInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Number of nodes in the memcache instance.
@@ -190,21 +168,21 @@ public class GoogleMemcacheInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     [TerraformPropertyName("node_count")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> NodeCount { get; set; }
+    public required TerraformValue<double> NodeCount { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The region of the Memcache instance. If it is not provided, the provider region is used.
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Contains the name of allocated IP address ranges associated with
@@ -213,15 +191,15 @@ public class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("reserved_ip_range_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ReservedIpRangeId { get; set; }
+    public TerraformList<string>? ReservedIpRangeId { get; set; }
 
     /// <summary>
     /// Zones where memcache nodes should be provisioned.  If not
     /// provided, all zones will be used.
     /// </summary>
     [TerraformPropertyName("zones")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<HashSet<TerraformProperty<string>>> Zones { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "zones");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformSet<string> Zones { get; set; } = default!;
 
     /// <summary>
     /// Block for maintenance_policy.
@@ -229,7 +207,7 @@ public class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     [TerraformPropertyName("maintenance_policy")]
-    public TerraformList<TerraformBlock<GoogleMemcacheInstanceMaintenancePolicyBlock>>? MaintenancePolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleMemcacheInstanceMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
 
     /// <summary>
     /// Block for memcache_parameters.
@@ -237,7 +215,7 @@ public class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MemcacheParameters block(s) allowed")]
     [TerraformPropertyName("memcache_parameters")]
-    public TerraformList<TerraformBlock<GoogleMemcacheInstanceMemcacheParametersBlock>>? MemcacheParameters { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleMemcacheInstanceMemcacheParametersBlock>>? MemcacheParameters { get; set; }
 
     /// <summary>
     /// Block for node_config.
@@ -247,56 +225,56 @@ public class GoogleMemcacheInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NodeConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformPropertyName("node_config")]
-    public TerraformList<TerraformBlock<GoogleMemcacheInstanceNodeConfigBlock>>? NodeConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleMemcacheInstanceNodeConfigBlock>>? NodeConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleMemcacheInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleMemcacheInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Endpoint for Discovery API
     /// </summary>
     [TerraformPropertyName("discovery_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DiscoveryEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "discovery_endpoint");
+    public TerraformValue<string> DiscoveryEndpoint => new TerraformReference(this, "discovery_endpoint");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Output only. Published maintenance schedule.
     /// </summary>
     [TerraformPropertyName("maintenance_schedule")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MaintenanceSchedule => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maintenance_schedule");
+    public TerraformList<object> MaintenanceSchedule => new TerraformReference(this, "maintenance_schedule");
 
     /// <summary>
     /// The full version of memcached server running on this instance.
     /// </summary>
     [TerraformPropertyName("memcache_full_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MemcacheFullVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "memcache_full_version");
+    public TerraformValue<string> MemcacheFullVersion => new TerraformReference(this, "memcache_full_version");
 
     /// <summary>
     /// Additional information about the instance state, if available.
     /// </summary>
     [TerraformPropertyName("memcache_nodes")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MemcacheNodes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "memcache_nodes");
+    public TerraformList<object> MemcacheNodes => new TerraformReference(this, "memcache_nodes");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -304,6 +282,6 @@ public class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

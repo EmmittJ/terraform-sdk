@@ -18,14 +18,14 @@ public class GoogleKmsSecretCiphertextDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     [TerraformPropertyName("crypto_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CryptoKey { get; set; }
+    public required TerraformValue<string> CryptoKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The plaintext attribute.
@@ -33,13 +33,13 @@ public class GoogleKmsSecretCiphertextDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plaintext is required")]
     [TerraformPropertyName("plaintext")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Plaintext { get; set; }
+    public required TerraformValue<string> Plaintext { get; set; }
 
     /// <summary>
     /// The ciphertext attribute.
     /// </summary>
     [TerraformPropertyName("ciphertext")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Ciphertext => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ciphertext");
+    public TerraformValue<string> Ciphertext => new TerraformReference(this, "ciphertext");
 
 }

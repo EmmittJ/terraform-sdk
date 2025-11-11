@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataCatalogPolicyTagTimeoutsBlock : ITerraformBlock
+public class GoogleDataCatalogPolicyTagTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -48,7 +48,7 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// User defined name of this policy tag. It must: be unique within the parent
@@ -58,14 +58,14 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Resource name of this policy tag&#39;s parent policy tag.
@@ -74,7 +74,7 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     /// </summary>
     [TerraformPropertyName("parent_policy_tag")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ParentPolicyTag { get; set; }
+    public TerraformValue<string>? ParentPolicyTag { get; set; }
 
     /// <summary>
     /// Taxonomy the policy tag is associated with
@@ -82,21 +82,21 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Taxonomy is required")]
     [TerraformPropertyName("taxonomy")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Taxonomy { get; set; }
+    public required TerraformValue<string> Taxonomy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDataCatalogPolicyTagTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDataCatalogPolicyTagTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Resource names of child policy tags of this policy tag.
     /// </summary>
     [TerraformPropertyName("child_policy_tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> ChildPolicyTags => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "child_policy_tags");
+    public TerraformList<string> ChildPolicyTags => new TerraformReference(this, "child_policy_tags");
 
     /// <summary>
     /// Resource name of this policy tag, whose format is:
@@ -104,6 +104,6 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

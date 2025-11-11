@@ -6,56 +6,56 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for compute_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDmsReplicationConfigComputeConfigBlock : ITerraformBlock
+public class AwsDmsReplicationConfigComputeConfigBlock
 {
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     [TerraformPropertyName("availability_zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AvailabilityZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "availability_zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AvailabilityZone { get; set; } = default!;
 
     /// <summary>
     /// The dns_name_servers attribute.
     /// </summary>
     [TerraformPropertyName("dns_name_servers")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DnsNameServers { get; set; }
+    public TerraformValue<string>? DnsNameServers { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> KmsKeyId { get; set; } = default!;
 
     /// <summary>
     /// The max_capacity_units attribute.
     /// </summary>
     [TerraformPropertyName("max_capacity_units")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxCapacityUnits { get; set; }
+    public TerraformValue<double>? MaxCapacityUnits { get; set; }
 
     /// <summary>
     /// The min_capacity_units attribute.
     /// </summary>
     [TerraformPropertyName("min_capacity_units")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MinCapacityUnits { get; set; }
+    public TerraformValue<double>? MinCapacityUnits { get; set; }
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
     [TerraformPropertyName("multi_az")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> MultiAz { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "multi_az");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> MultiAz { get; set; } = default!;
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
     [TerraformPropertyName("preferred_maintenance_window")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PreferredMaintenanceWindow { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "preferred_maintenance_window");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PreferredMaintenanceWindow { get; set; } = default!;
 
     /// <summary>
     /// The replication_subnet_group_id attribute.
@@ -63,14 +63,14 @@ public class AwsDmsReplicationConfigComputeConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationSubnetGroupId is required")]
     [TerraformPropertyName("replication_subnet_group_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ReplicationSubnetGroupId { get; set; }
+    public required TerraformValue<string> ReplicationSubnetGroupId { get; set; }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
     [TerraformPropertyName("vpc_security_group_ids")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<HashSet<TerraformProperty<string>>> VpcSecurityGroupIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "vpc_security_group_ids");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformSet<string> VpcSecurityGroupIds { get; set; } = default!;
 
 }
 
@@ -78,28 +78,28 @@ public class AwsDmsReplicationConfigComputeConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDmsReplicationConfigTimeoutsBlock : ITerraformBlock
+public class AwsDmsReplicationConfigTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -117,15 +117,15 @@ public class AwsDmsReplicationConfig : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The replication_config_identifier attribute.
@@ -133,14 +133,14 @@ public class AwsDmsReplicationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationConfigIdentifier is required")]
     [TerraformPropertyName("replication_config_identifier")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ReplicationConfigIdentifier { get; set; }
+    public required TerraformValue<string> ReplicationConfigIdentifier { get; set; }
 
     /// <summary>
     /// The replication_settings attribute.
     /// </summary>
     [TerraformPropertyName("replication_settings")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ReplicationSettings { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "replication_settings");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ReplicationSettings { get; set; } = default!;
 
     /// <summary>
     /// The replication_type attribute.
@@ -148,14 +148,14 @@ public class AwsDmsReplicationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationType is required")]
     [TerraformPropertyName("replication_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ReplicationType { get; set; }
+    public required TerraformValue<string> ReplicationType { get; set; }
 
     /// <summary>
     /// The resource_identifier attribute.
     /// </summary>
     [TerraformPropertyName("resource_identifier")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ResourceIdentifier { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_identifier");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ResourceIdentifier { get; set; } = default!;
 
     /// <summary>
     /// The source_endpoint_arn attribute.
@@ -163,21 +163,21 @@ public class AwsDmsReplicationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEndpointArn is required")]
     [TerraformPropertyName("source_endpoint_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SourceEndpointArn { get; set; }
+    public required TerraformValue<string> SourceEndpointArn { get; set; }
 
     /// <summary>
     /// The start_replication attribute.
     /// </summary>
     [TerraformPropertyName("start_replication")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? StartReplication { get; set; }
+    public TerraformValue<bool>? StartReplication { get; set; }
 
     /// <summary>
     /// The supplemental_settings attribute.
     /// </summary>
     [TerraformPropertyName("supplemental_settings")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SupplementalSettings { get; set; }
+    public TerraformValue<string>? SupplementalSettings { get; set; }
 
     /// <summary>
     /// The table_mappings attribute.
@@ -185,21 +185,21 @@ public class AwsDmsReplicationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableMappings is required")]
     [TerraformPropertyName("table_mappings")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TableMappings { get; set; }
+    public required TerraformValue<string> TableMappings { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The target_endpoint_arn attribute.
@@ -207,7 +207,7 @@ public class AwsDmsReplicationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetEndpointArn is required")]
     [TerraformPropertyName("target_endpoint_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetEndpointArn { get; set; }
+    public required TerraformValue<string> TargetEndpointArn { get; set; }
 
     /// <summary>
     /// Block for compute_config.
@@ -217,20 +217,20 @@ public class AwsDmsReplicationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComputeConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeConfig block(s) allowed")]
     [TerraformPropertyName("compute_config")]
-    public TerraformList<TerraformBlock<AwsDmsReplicationConfigComputeConfigBlock>>? ComputeConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsDmsReplicationConfigComputeConfigBlock>>? ComputeConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsDmsReplicationConfigTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsDmsReplicationConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

@@ -6,28 +6,10 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for application_assignments in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsoadminPrincipalApplicationAssignmentsDataSourceApplicationAssignmentsBlock : ITerraformBlock
+public class AwsSsoadminPrincipalApplicationAssignmentsDataSourceApplicationAssignmentsBlock
 {
-    /// <summary>
-    /// The application_arn attribute.
-    /// </summary>
-    [TerraformPropertyName("application_arn")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ApplicationArn => new TerraformReferenceProperty<TerraformProperty<string>>("", "application_arn");
 
-    /// <summary>
-    /// The principal_id attribute.
-    /// </summary>
-    [TerraformPropertyName("principal_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
-    /// <summary>
-    /// The principal_type attribute.
-    /// </summary>
-    [TerraformPropertyName("principal_type")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrincipalType => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_type");
 
 }
 
@@ -46,7 +28,7 @@ public class AwsSsoadminPrincipalApplicationAssignmentsDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     [TerraformPropertyName("instance_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceArn { get; set; }
+    public required TerraformValue<string> InstanceArn { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
@@ -54,7 +36,7 @@ public class AwsSsoadminPrincipalApplicationAssignmentsDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     [TerraformPropertyName("principal_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PrincipalId { get; set; }
+    public required TerraformValue<string> PrincipalId { get; set; }
 
     /// <summary>
     /// The principal_type attribute.
@@ -62,27 +44,27 @@ public class AwsSsoadminPrincipalApplicationAssignmentsDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     [TerraformPropertyName("principal_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PrincipalType { get; set; }
+    public required TerraformValue<string> PrincipalType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for application_assignments.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("application_assignments")]
-    public TerraformList<TerraformBlock<AwsSsoadminPrincipalApplicationAssignmentsDataSourceApplicationAssignmentsBlock>>? ApplicationAssignments { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSsoadminPrincipalApplicationAssignmentsDataSourceApplicationAssignmentsBlock>>? ApplicationAssignments { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

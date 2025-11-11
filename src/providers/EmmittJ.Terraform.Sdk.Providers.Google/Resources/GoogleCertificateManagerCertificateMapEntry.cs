@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCertificateManagerCertificateMapEntryTimeoutsBlock : ITerraformBlock
+public class GoogleCertificateManagerCertificateMapEntryTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -48,14 +48,14 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificates is required")]
     [TerraformPropertyName("certificates")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? Certificates { get; set; }
+    public TerraformList<string>? Certificates { get; set; }
 
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A Hostname (FQDN, e.g. example.com) or a wildcard hostname expression (*.example.com)
@@ -64,14 +64,14 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     /// </summary>
     [TerraformPropertyName("hostname")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Hostname { get; set; }
+    public TerraformValue<string>? Hostname { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Set of labels associated with a Certificate Map Entry.
@@ -84,7 +84,7 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// A map entry that is inputted into the certificate map
@@ -92,14 +92,14 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Map is required")]
     [TerraformPropertyName("map")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Map { get; set; }
+    public required TerraformValue<string> Map { get; set; }
 
     /// <summary>
     /// A predefined matcher for particular cases, other than SNI selection
     /// </summary>
     [TerraformPropertyName("matcher")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Matcher { get; set; }
+    public TerraformValue<string>? Matcher { get; set; }
 
     /// <summary>
     /// A user-defined name of the Certificate Map Entry. Certificate Map Entry
@@ -109,21 +109,21 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleCertificateManagerCertificateMapEntryTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleCertificateManagerCertificateMapEntryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp of a Certificate Map Entry. Timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -132,21 +132,21 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// A serving state of this Certificate Map Entry.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -154,7 +154,7 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Update timestamp of a Certificate Map Entry. Timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -163,6 +163,6 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

@@ -16,48 +16,48 @@ public class AwsBedrockFoundationModelsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("by_customization_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ByCustomizationType { get; set; }
+    public TerraformValue<string>? ByCustomizationType { get; set; }
 
     /// <summary>
     /// The by_inference_type attribute.
     /// </summary>
     [TerraformPropertyName("by_inference_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ByInferenceType { get; set; }
+    public TerraformValue<string>? ByInferenceType { get; set; }
 
     /// <summary>
     /// The by_output_modality attribute.
     /// </summary>
     [TerraformPropertyName("by_output_modality")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ByOutputModality { get; set; }
+    public TerraformValue<string>? ByOutputModality { get; set; }
 
     /// <summary>
     /// The by_provider attribute.
     /// </summary>
     [TerraformPropertyName("by_provider")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ByProvider { get; set; }
+    public TerraformValue<string>? ByProvider { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The model_summaries attribute.
     /// </summary>
     [TerraformPropertyName("model_summaries")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ModelSummaries => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "model_summaries");
+    public TerraformList<object> ModelSummaries => new TerraformReference(this, "model_summaries");
 
 }

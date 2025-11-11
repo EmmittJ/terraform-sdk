@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for application_endpoint in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : ITerraformBlock
+public class GoogleBeyondcorpAppConnectionApplicationEndpointBlock
 {
     /// <summary>
     /// Hostname or IP address of the remote application endpoint.
@@ -14,7 +14,7 @@ public class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     [TerraformPropertyName("host")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Host { get; set; }
+    public required TerraformValue<string> Host { get; set; }
 
     /// <summary>
     /// Port of the remote application endpoint.
@@ -22,7 +22,7 @@ public class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     [TerraformPropertyName("port")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Port { get; set; }
+    public required TerraformValue<double> Port { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : ITerraformB
 /// Block type for gateway in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBeyondcorpAppConnectionGatewayBlock : ITerraformBlock
+public class GoogleBeyondcorpAppConnectionGatewayBlock
 {
     /// <summary>
     /// AppGateway name in following format: projects/{project_id}/locations/{locationId}/appgateways/{gateway_id}.
@@ -38,14 +38,8 @@ public class GoogleBeyondcorpAppConnectionGatewayBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppGateway is required")]
     [TerraformPropertyName("app_gateway")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AppGateway { get; set; }
+    public required TerraformValue<string> AppGateway { get; set; }
 
-    /// <summary>
-    /// Ingress port reserved on the gateways for this AppConnection, if not specified or zero, the default port is 19443.
-    /// </summary>
-    [TerraformPropertyName("ingress_port")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> IngressPort => new TerraformReferenceProperty<TerraformProperty<double>>("", "ingress_port");
 
     /// <summary>
     /// The type of hosting used by the gateway. Refer to
@@ -54,14 +48,8 @@ public class GoogleBeyondcorpAppConnectionGatewayBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
-    /// <summary>
-    /// Server-defined URI for this resource.
-    /// </summary>
-    [TerraformPropertyName("uri")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uri => new TerraformReferenceProperty<TerraformProperty<string>>("", "uri");
 
 }
 
@@ -69,28 +57,28 @@ public class GoogleBeyondcorpAppConnectionGatewayBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBeyondcorpAppConnectionTimeoutsBlock : ITerraformBlock
+public class GoogleBeyondcorpAppConnectionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -109,21 +97,21 @@ public class GoogleBeyondcorpAppConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("connectors")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Connectors { get; set; }
+    public TerraformList<string>? Connectors { get; set; }
 
     /// <summary>
     /// An arbitrary user-provided name for the AppConnection.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Resource labels to represent user provided metadata.
@@ -134,7 +122,7 @@ public class GoogleBeyondcorpAppConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// ID of the AppConnection.
@@ -142,21 +130,21 @@ public class GoogleBeyondcorpAppConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The region of the AppConnection.
     /// </summary>
     [TerraformPropertyName("region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The type of network connectivity used by the AppConnection. Refer
@@ -165,7 +153,7 @@ public class GoogleBeyondcorpAppConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for application_endpoint.
@@ -175,7 +163,7 @@ public class GoogleBeyondcorpAppConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ApplicationEndpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationEndpoint block(s) allowed")]
     [TerraformPropertyName("application_endpoint")]
-    public TerraformList<TerraformBlock<GoogleBeyondcorpAppConnectionApplicationEndpointBlock>>? ApplicationEndpoint { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBeyondcorpAppConnectionApplicationEndpointBlock>>? ApplicationEndpoint { get; set; }
 
     /// <summary>
     /// Block for gateway.
@@ -183,21 +171,21 @@ public class GoogleBeyondcorpAppConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
     [TerraformPropertyName("gateway")]
-    public TerraformList<TerraformBlock<GoogleBeyondcorpAppConnectionGatewayBlock>>? Gateway { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBeyondcorpAppConnectionGatewayBlock>>? Gateway { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleBeyondcorpAppConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleBeyondcorpAppConnectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -205,6 +193,6 @@ public class GoogleBeyondcorpAppConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for country in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadNamedLocationCountryBlock : ITerraformBlock
+public class AzureadNamedLocationCountryBlock
 {
     /// <summary>
     /// The countries_and_regions attribute.
@@ -14,21 +14,21 @@ public class AzureadNamedLocationCountryBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountriesAndRegions is required")]
     [TerraformPropertyName("countries_and_regions")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? CountriesAndRegions { get; set; }
+    public TerraformList<string>? CountriesAndRegions { get; set; }
 
     /// <summary>
     /// The country_lookup_method attribute.
     /// </summary>
     [TerraformPropertyName("country_lookup_method")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CountryLookupMethod { get; set; }
+    public TerraformValue<string>? CountryLookupMethod { get; set; }
 
     /// <summary>
     /// The include_unknown_countries_and_regions attribute.
     /// </summary>
     [TerraformPropertyName("include_unknown_countries_and_regions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IncludeUnknownCountriesAndRegions { get; set; }
+    public TerraformValue<bool>? IncludeUnknownCountriesAndRegions { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public class AzureadNamedLocationCountryBlock : ITerraformBlock
 /// Block type for ip in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadNamedLocationIpBlock : ITerraformBlock
+public class AzureadNamedLocationIpBlock
 {
     /// <summary>
     /// The ip_ranges attribute.
@@ -44,14 +44,14 @@ public class AzureadNamedLocationIpBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRanges is required")]
     [TerraformPropertyName("ip_ranges")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? IpRanges { get; set; }
+    public TerraformList<string>? IpRanges { get; set; }
 
     /// <summary>
     /// The trusted attribute.
     /// </summary>
     [TerraformPropertyName("trusted")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Trusted { get; set; }
+    public TerraformValue<bool>? Trusted { get; set; }
 
 }
 
@@ -59,35 +59,35 @@ public class AzureadNamedLocationIpBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadNamedLocationTimeoutsBlock : ITerraformBlock
+public class AzureadNamedLocationTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -107,14 +107,14 @@ public class AzureadNamedLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Block for country.
@@ -122,7 +122,7 @@ public class AzureadNamedLocation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Country block(s) allowed")]
     [TerraformPropertyName("country")]
-    public TerraformList<TerraformBlock<AzureadNamedLocationCountryBlock>>? Country { get; set; } = new();
+    public TerraformList<TerraformBlock<AzureadNamedLocationCountryBlock>>? Country { get; set; }
 
     /// <summary>
     /// Block for ip.
@@ -130,20 +130,20 @@ public class AzureadNamedLocation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ip block(s) allowed")]
     [TerraformPropertyName("ip")]
-    public TerraformList<TerraformBlock<AzureadNamedLocationIpBlock>>? Ip { get; set; } = new();
+    public TerraformList<TerraformBlock<AzureadNamedLocationIpBlock>>? Ip { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzureadNamedLocationTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzureadNamedLocationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The object ID of the named location
     /// </summary>
     [TerraformPropertyName("object_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ObjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_id");
+    public TerraformValue<string> ObjectId => new TerraformReference(this, "object_id");
 
 }

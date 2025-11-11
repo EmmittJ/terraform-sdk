@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for subset_view in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigtableAuthorizedViewSubsetViewBlock : ITerraformBlock
+public class GoogleBigtableAuthorizedViewSubsetViewBlock
 {
     /// <summary>
     /// Base64-encoded row prefixes to be included in the authorized view. To provide access to all rows, include the empty string as a prefix (&amp;quot;&amp;quot;).
     /// </summary>
     [TerraformPropertyName("row_prefixes")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? RowPrefixes { get; set; }
+    public TerraformSet<string>? RowPrefixes { get; set; }
 
 }
 
@@ -21,21 +21,21 @@ public class GoogleBigtableAuthorizedViewSubsetViewBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigtableAuthorizedViewTimeoutsBlock : ITerraformBlock
+public class GoogleBigtableAuthorizedViewTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,15 +54,15 @@ public class GoogleBigtableAuthorizedView : TerraformResource
     /// If not provided, currently deletion protection will be set to UNPROTECTED as it is the API default value. Note this field configs the deletion protection provided by the API in the backend, and should not be confused with Terraform-side deletion protection.
     /// </summary>
     [TerraformPropertyName("deletion_protection")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DeletionProtection { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deletion_protection");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DeletionProtection { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the Bigtable instance in which the authorized view belongs.
@@ -70,7 +70,7 @@ public class GoogleBigtableAuthorizedView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     [TerraformPropertyName("instance_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceName { get; set; }
+    public required TerraformValue<string> InstanceName { get; set; }
 
     /// <summary>
     /// The name of the authorized view. Must be 1-50 characters and must only contain hyphens, underscores, periods, letters and numbers.
@@ -78,14 +78,14 @@ public class GoogleBigtableAuthorizedView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The name of the Bigtable table in which the authorized view belongs.
@@ -93,7 +93,7 @@ public class GoogleBigtableAuthorizedView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     [TerraformPropertyName("table_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TableName { get; set; }
+    public required TerraformValue<string> TableName { get; set; }
 
     /// <summary>
     /// Block for subset_view.
@@ -101,13 +101,13 @@ public class GoogleBigtableAuthorizedView : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubsetView block(s) allowed")]
     [TerraformPropertyName("subset_view")]
-    public TerraformList<TerraformBlock<GoogleBigtableAuthorizedViewSubsetViewBlock>>? SubsetView { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigtableAuthorizedViewSubsetViewBlock>>? SubsetView { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleBigtableAuthorizedViewTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleBigtableAuthorizedViewTimeoutsBlock>? Timeouts { get; set; }
 
 }

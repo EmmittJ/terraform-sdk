@@ -15,8 +15,8 @@ public class GoogleVmwareengineVcenterCredentialsDataSource : TerraformDataSourc
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The resource name of the private cloud which contains vcenter.
@@ -26,20 +26,20 @@ public class GoogleVmwareengineVcenterCredentialsDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformPropertyName("parent")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
+    public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Initial password.
     /// </summary>
     [TerraformPropertyName("password")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Password => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "password");
+    public TerraformValue<string> Password => new TerraformReference(this, "password");
 
     /// <summary>
     /// Initial username.
     /// </summary>
     [TerraformPropertyName("username")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Username => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "username");
+    public TerraformValue<string> Username => new TerraformReference(this, "username");
 
 }

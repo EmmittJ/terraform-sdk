@@ -15,8 +15,8 @@ public class AwsGlueCatalogTableDataSource : TerraformDataSource
     /// The catalog_id attribute.
     /// </summary>
     [TerraformPropertyName("catalog_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "catalog_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CatalogId { get; set; } = default!;
 
     /// <summary>
     /// The database_name attribute.
@@ -24,14 +24,14 @@ public class AwsGlueCatalogTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformPropertyName("database_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
+    public required TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,111 +39,111 @@ public class AwsGlueCatalogTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The query_as_of_time attribute.
     /// </summary>
     [TerraformPropertyName("query_as_of_time")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? QueryAsOfTime { get; set; }
+    public TerraformValue<string>? QueryAsOfTime { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The transaction_id attribute.
     /// </summary>
     [TerraformPropertyName("transaction_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? TransactionId { get; set; }
+    public TerraformValue<double>? TransactionId { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [TerraformPropertyName("owner")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Owner => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner");
+    public TerraformValue<string> Owner => new TerraformReference(this, "owner");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformPropertyName("parameters")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Parameters => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "parameters");
+    public TerraformMap<string> Parameters => new TerraformReference(this, "parameters");
 
     /// <summary>
     /// The partition_index attribute.
     /// </summary>
     [TerraformPropertyName("partition_index")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PartitionIndex => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "partition_index");
+    public TerraformList<object> PartitionIndex => new TerraformReference(this, "partition_index");
 
     /// <summary>
     /// The partition_keys attribute.
     /// </summary>
     [TerraformPropertyName("partition_keys")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PartitionKeys => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "partition_keys");
+    public TerraformList<object> PartitionKeys => new TerraformReference(this, "partition_keys");
 
     /// <summary>
     /// The retention attribute.
     /// </summary>
     [TerraformPropertyName("retention")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Retention => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "retention");
+    public TerraformValue<double> Retention => new TerraformReference(this, "retention");
 
     /// <summary>
     /// The storage_descriptor attribute.
     /// </summary>
     [TerraformPropertyName("storage_descriptor")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> StorageDescriptor => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "storage_descriptor");
+    public TerraformList<object> StorageDescriptor => new TerraformReference(this, "storage_descriptor");
 
     /// <summary>
     /// The table_type attribute.
     /// </summary>
     [TerraformPropertyName("table_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TableType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "table_type");
+    public TerraformValue<string> TableType => new TerraformReference(this, "table_type");
 
     /// <summary>
     /// The target_table attribute.
     /// </summary>
     [TerraformPropertyName("target_table")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> TargetTable => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "target_table");
+    public TerraformList<object> TargetTable => new TerraformReference(this, "target_table");
 
     /// <summary>
     /// The view_expanded_text attribute.
     /// </summary>
     [TerraformPropertyName("view_expanded_text")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ViewExpandedText => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "view_expanded_text");
+    public TerraformValue<string> ViewExpandedText => new TerraformReference(this, "view_expanded_text");
 
     /// <summary>
     /// The view_original_text attribute.
     /// </summary>
     [TerraformPropertyName("view_original_text")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ViewOriginalText => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "view_original_text");
+    public TerraformValue<string> ViewOriginalText => new TerraformReference(this, "view_original_text");
 
 }

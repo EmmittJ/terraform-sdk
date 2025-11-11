@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for advanced_backup_setting in .
 /// Nesting mode: set
 /// </summary>
-public class AwsBackupPlanAdvancedBackupSettingBlock : ITerraformBlock
+public class AwsBackupPlanAdvancedBackupSettingBlock
 {
     /// <summary>
     /// The backup_options attribute.
@@ -14,7 +14,7 @@ public class AwsBackupPlanAdvancedBackupSettingBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupOptions is required")]
     [TerraformPropertyName("backup_options")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? BackupOptions { get; set; }
+    public required TerraformMap<string> BackupOptions { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
@@ -22,7 +22,7 @@ public class AwsBackupPlanAdvancedBackupSettingBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     [TerraformPropertyName("resource_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceType { get; set; }
+    public required TerraformValue<string> ResourceType { get; set; }
 
 }
 
@@ -30,28 +30,28 @@ public class AwsBackupPlanAdvancedBackupSettingBlock : ITerraformBlock
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public class AwsBackupPlanRuleBlock : ITerraformBlock
+public class AwsBackupPlanRuleBlock
 {
     /// <summary>
     /// The completion_window attribute.
     /// </summary>
     [TerraformPropertyName("completion_window")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? CompletionWindow { get; set; }
+    public TerraformValue<double>? CompletionWindow { get; set; }
 
     /// <summary>
     /// The enable_continuous_backup attribute.
     /// </summary>
     [TerraformPropertyName("enable_continuous_backup")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableContinuousBackup { get; set; }
+    public TerraformValue<bool>? EnableContinuousBackup { get; set; }
 
     /// <summary>
     /// The recovery_point_tags attribute.
     /// </summary>
     [TerraformPropertyName("recovery_point_tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? RecoveryPointTags { get; set; }
+    public TerraformMap<string>? RecoveryPointTags { get; set; }
 
     /// <summary>
     /// The rule_name attribute.
@@ -59,28 +59,28 @@ public class AwsBackupPlanRuleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     [TerraformPropertyName("rule_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RuleName { get; set; }
+    public required TerraformValue<string> RuleName { get; set; }
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
     [TerraformPropertyName("schedule")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Schedule { get; set; }
+    public TerraformValue<string>? Schedule { get; set; }
 
     /// <summary>
     /// The schedule_expression_timezone attribute.
     /// </summary>
     [TerraformPropertyName("schedule_expression_timezone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ScheduleExpressionTimezone { get; set; }
+    public TerraformValue<string>? ScheduleExpressionTimezone { get; set; }
 
     /// <summary>
     /// The start_window attribute.
     /// </summary>
     [TerraformPropertyName("start_window")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? StartWindow { get; set; }
+    public TerraformValue<double>? StartWindow { get; set; }
 
     /// <summary>
     /// The target_vault_name attribute.
@@ -88,7 +88,7 @@ public class AwsBackupPlanRuleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVaultName is required")]
     [TerraformPropertyName("target_vault_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetVaultName { get; set; }
+    public required TerraformValue<string> TargetVaultName { get; set; }
 
 }
 
@@ -106,8 +106,8 @@ public class AwsBackupPlan : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -115,35 +115,35 @@ public class AwsBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for advanced_backup_setting.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("advanced_backup_setting")]
-    public TerraformSet<TerraformBlock<AwsBackupPlanAdvancedBackupSettingBlock>>? AdvancedBackupSetting { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsBackupPlanAdvancedBackupSettingBlock>>? AdvancedBackupSetting { get; set; }
 
     /// <summary>
     /// Block for rule.
@@ -152,20 +152,20 @@ public class AwsBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [TerraformPropertyName("rule")]
-    public TerraformSet<TerraformBlock<AwsBackupPlanRuleBlock>>? Rule { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsBackupPlanRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformPropertyName("version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
+    public TerraformValue<string> Version => new TerraformReference(this, "version");
 
 }

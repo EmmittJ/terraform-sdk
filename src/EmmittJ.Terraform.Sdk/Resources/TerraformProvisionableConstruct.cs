@@ -11,8 +11,8 @@ namespace EmmittJ.Terraform.Sdk;
 /// <param name="constructName">The name of the construct.</param>
 public abstract class TerraformProvisionableConstruct(string constructType, string constructName) : NamedTerraformConstruct(constructName)
 {
-    private TerraformProperty<TerraformExpression>? _count;
-    private TerraformProperty<TerraformExpression>? _forEach;
+    private TerraformValue<TerraformExpression>? _count;
+    private TerraformValue<TerraformExpression>? _forEach;
 
     /// <summary>
     /// Gets the type of this construct (e.g., "aws_vpc", "azurerm_resource_group").
@@ -20,10 +20,15 @@ public abstract class TerraformProvisionableConstruct(string constructType, stri
     public string ConstructType { get; } = constructType ?? throw new ArgumentNullException(nameof(constructType));
 
     /// <summary>
+    /// Gets the fully qualified Terraform resource address (e.g., "aws_vpc.main", "data.aws_ami.ubuntu").
+    /// </summary>
+    public string ResourceAddress => $"{ConstructType}.{ConstructName}";
+
+    /// <summary>
     /// Gets or sets the count meta-argument.
     /// Can be a number or an expression.
     /// </summary>
-    public TerraformProperty<TerraformExpression>? Count
+    public TerraformValue<TerraformExpression>? Count
     {
         get => _count;
         set => _count = value;
@@ -33,7 +38,7 @@ public abstract class TerraformProvisionableConstruct(string constructType, stri
     /// Gets or sets the for_each meta-argument.
     /// Can be a set, map, or an expression.
     /// </summary>
-    public TerraformProperty<TerraformExpression>? ForEach
+    public TerraformValue<TerraformExpression>? ForEach
     {
         get => _forEach;
         set => _forEach = value;
@@ -67,8 +72,7 @@ public abstract class TerraformProvisionableConstruct(string constructType, stri
     {
         base.Prepare(context);
 
-        _count?.Prepare(context);
-        _forEach?.Prepare(context);
+        // TerraformValue<T> structs don't need preparation - they're resolved during serialization
     }
 
     /// <summary>
@@ -78,13 +82,13 @@ public abstract class TerraformProvisionableConstruct(string constructType, stri
     {
         if (_count != null)
         {
-            var countExpr = _count.Resolve(context);
+            var countExpr = TerraformValueResolver.ResolveValue(_count, context);
             sb.AppendLine($"{context.Indent}count = {countExpr.ToHcl(context)}");
         }
 
         if (_forEach != null)
         {
-            var forEachExpr = _forEach.Resolve(context);
+            var forEachExpr = TerraformValueResolver.ResolveValue(_forEach, context);
             sb.AppendLine($"{context.Indent}for_each = {forEachExpr.ToHcl(context)}");
         }
 

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for local_disk_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock : ITerraformBlock
+public class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock
 {
     /// <summary>
     /// The Cloud KMS CryptoKey e.g. projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{cryptoKey} to use for protecting node local disks.
@@ -14,22 +14,9 @@ public class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock : ITerraformBlo
     /// </summary>
     [TerraformPropertyName("kms_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKey { get; set; }
+    public TerraformValue<string>? KmsKey { get; set; }
 
-    /// <summary>
-    /// The Cloud KMS CryptoKeyVersion currently in use for protecting node local disks. Only applicable if kmsKey is set.
-    /// </summary>
-    [TerraformPropertyName("kms_key_active_version")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsKeyActiveVersion => new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key_active_version");
 
-    /// <summary>
-    /// Availability of the Cloud KMS CryptoKey. If not KEY_AVAILABLE, then nodes may go offline as they cannot access their local data.
-    /// This can be caused by a lack of permissions to use the key, or if the key is disabled or deleted.
-    /// </summary>
-    [TerraformPropertyName("kms_key_state")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsKeyState => new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key_state");
 
 }
 
@@ -37,14 +24,14 @@ public class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock : ITerraformBlo
 /// Block type for node_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEdgecontainerNodePoolNodeConfigBlock : ITerraformBlock
+public class GoogleEdgecontainerNodePoolNodeConfigBlock
 {
     /// <summary>
     /// &amp;quot;The Kubernetes node labels&amp;quot;
     /// </summary>
     [TerraformPropertyName("labels")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "labels");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Labels { get; set; } = default!;
 
 }
 
@@ -52,28 +39,28 @@ public class GoogleEdgecontainerNodePoolNodeConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleEdgecontainerNodePoolTimeoutsBlock : ITerraformBlock
+public class GoogleEdgecontainerNodePoolTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -93,14 +80,14 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     [TerraformPropertyName("cluster")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Cluster { get; set; }
+    public required TerraformValue<string> Cluster { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Labels associated with this resource.
@@ -110,7 +97,7 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the resource.
@@ -118,7 +105,7 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Only machines matching this filter will be allowed to join the node pool.
@@ -126,8 +113,8 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// documented in more detail in [AIP-160](https://google.aip.dev/160).
     /// </summary>
     [TerraformPropertyName("machine_filter")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> MachineFilter { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "machine_filter");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> MachineFilter { get; set; } = default!;
 
     /// <summary>
     /// The resource name of the node pool.
@@ -135,7 +122,7 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The number of nodes in the pool.
@@ -143,7 +130,7 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     [TerraformPropertyName("node_count")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> NodeCount { get; set; }
+    public required TerraformValue<double> NodeCount { get; set; }
 
     /// <summary>
     /// Name of the Google Distributed Cloud Edge zone where this node pool will be created. For example: &#39;us-central1-edge-customer-a&#39;.
@@ -151,14 +138,14 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeLocation is required")]
     [TerraformPropertyName("node_location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NodeLocation { get; set; }
+    public required TerraformValue<string> NodeLocation { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for local_disk_encryption.
@@ -166,7 +153,7 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalDiskEncryption block(s) allowed")]
     [TerraformPropertyName("local_disk_encryption")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock>>? LocalDiskEncryption { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock>>? LocalDiskEncryption { get; set; }
 
     /// <summary>
     /// Block for node_config.
@@ -174,35 +161,35 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformPropertyName("node_config")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerNodePoolNodeConfigBlock>>? NodeConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEdgecontainerNodePoolNodeConfigBlock>>? NodeConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleEdgecontainerNodePoolTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleEdgecontainerNodePoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the node pool was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The lowest release version among all worker nodes.
     /// </summary>
     [TerraformPropertyName("node_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NodeVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_version");
+    public TerraformValue<string> NodeVersion => new TerraformReference(this, "node_version");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -210,13 +197,13 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The time when the node pool was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

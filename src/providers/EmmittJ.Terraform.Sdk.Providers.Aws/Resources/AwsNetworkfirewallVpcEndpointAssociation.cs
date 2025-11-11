@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for subnet_mapping in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock : ITerraformBlock
+public class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock
 {
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
     [TerraformPropertyName("ip_address_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> IpAddressType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "ip_address_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> IpAddressType { get; set; } = default!;
 
     /// <summary>
     /// The subnet_id attribute.
@@ -21,7 +21,7 @@ public class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock : ITerra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformPropertyName("subnet_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
+    public required TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock : ITerra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock : ITerraformBlock
+public class AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -61,7 +61,7 @@ public class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The firewall_arn attribute.
@@ -69,21 +69,21 @@ public class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallArn is required")]
     [TerraformPropertyName("firewall_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FirewallArn { get; set; }
+    public required TerraformValue<string> FirewallArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
@@ -91,48 +91,48 @@ public class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     [TerraformPropertyName("vpc_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VpcId { get; set; }
+    public required TerraformValue<string> VpcId { get; set; }
 
     /// <summary>
     /// Block for subnet_mapping.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("subnet_mapping")]
-    public TerraformList<TerraformBlock<AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock>>? SubnetMapping { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock>>? SubnetMapping { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
 
     /// <summary>
     /// The vpc_endpoint_association_arn attribute.
     /// </summary>
     [TerraformPropertyName("vpc_endpoint_association_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VpcEndpointAssociationArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_endpoint_association_arn");
+    public TerraformValue<string> VpcEndpointAssociationArn => new TerraformReference(this, "vpc_endpoint_association_arn");
 
     /// <summary>
     /// The vpc_endpoint_association_id attribute.
     /// </summary>
     [TerraformPropertyName("vpc_endpoint_association_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VpcEndpointAssociationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_endpoint_association_id");
+    public TerraformValue<string> VpcEndpointAssociationId => new TerraformReference(this, "vpc_endpoint_association_id");
 
     /// <summary>
     /// The vpc_endpoint_association_status attribute.
     /// </summary>
     [TerraformPropertyName("vpc_endpoint_association_status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> VpcEndpointAssociationStatus => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "vpc_endpoint_association_status");
+    public TerraformList<object> VpcEndpointAssociationStatus => new TerraformReference(this, "vpc_endpoint_association_status");
 
 }

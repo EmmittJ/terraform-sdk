@@ -15,15 +15,15 @@ public class GoogleBeyondcorpSecurityGatewayDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Optional. User-settable SecurityGateway resource ID.
@@ -34,21 +34,21 @@ public class GoogleBeyondcorpSecurityGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     [TerraformPropertyName("security_gateway_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SecurityGatewayId { get; set; }
+    public required TerraformValue<string> SecurityGatewayId { get; set; }
 
     /// <summary>
     /// Output only. Timestamp when the resource was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Service account used for operations that involve resources in consumer projects.
     /// </summary>
     [TerraformPropertyName("delegating_service_account")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DelegatingServiceAccount => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delegating_service_account");
+    public TerraformValue<string> DelegatingServiceAccount => new TerraformReference(this, "delegating_service_account");
 
     /// <summary>
     /// Optional. An arbitrary user-provided name for the SecurityGateway.
@@ -56,7 +56,7 @@ public class GoogleBeyondcorpSecurityGatewayDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
+    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
 
     /// <summary>
     /// Output only. IP addresses that will be used for establishing
@@ -64,7 +64,7 @@ public class GoogleBeyondcorpSecurityGatewayDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("external_ips")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> ExternalIps => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "external_ips");
+    public TerraformList<string> ExternalIps => new TerraformReference(this, "external_ips");
 
     /// <summary>
     /// Optional. Map of Hubs that represents regional data path deployment with GCP region
@@ -72,35 +72,35 @@ public class GoogleBeyondcorpSecurityGatewayDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("hubs")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> Hubs => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "hubs");
+    public TerraformSet<object> Hubs => new TerraformReference(this, "hubs");
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122. Must be omitted or set to &#39;global&#39;.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// Identifier. Name of the resource.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Shared proxy configuration for all apps.
     /// </summary>
     [TerraformPropertyName("proxy_protocol_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ProxyProtocolConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "proxy_protocol_config");
+    public TerraformList<object> ProxyProtocolConfig => new TerraformReference(this, "proxy_protocol_config");
 
     /// <summary>
     /// Settings related to the Service Discovery.
     /// </summary>
     [TerraformPropertyName("service_discovery")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ServiceDiscovery => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "service_discovery");
+    public TerraformList<object> ServiceDiscovery => new TerraformReference(this, "service_discovery");
 
     /// <summary>
     /// Output only. The operational state of the SecurityGateway.
@@ -115,13 +115,13 @@ public class GoogleBeyondcorpSecurityGatewayDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// Output only. Timestamp when the resource was last modified.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

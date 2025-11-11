@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryDatasetAccessConditionBlock : ITerraformBlock
+public class GoogleBigqueryDatasetAccessConditionBlock
 {
     /// <summary>
     /// Description of the expression. This is a longer text which describes the expression,
@@ -14,7 +14,7 @@ public class GoogleBigqueryDatasetAccessConditionBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Textual representation of an expression in Common Expression Language syntax.
@@ -22,7 +22,7 @@ public class GoogleBigqueryDatasetAccessConditionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     [TerraformPropertyName("expression")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Expression { get; set; }
+    public required TerraformValue<string> Expression { get; set; }
 
     /// <summary>
     /// String indicating the location of the expression for error reporting, e.g. a file
@@ -30,7 +30,7 @@ public class GoogleBigqueryDatasetAccessConditionBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Title for the expression, i.e. a short string describing its purpose.
@@ -38,7 +38,7 @@ public class GoogleBigqueryDatasetAccessConditionBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("title")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Title { get; set; }
+    public TerraformValue<string>? Title { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class GoogleBigqueryDatasetAccessConditionBlock : ITerraformBlock
 /// Block type for dataset in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryDatasetAccessDatasetBlock : ITerraformBlock
+public class GoogleBigqueryDatasetAccessDatasetBlock
 {
     /// <summary>
     /// Which resources in the dataset this entry applies to. Currently, only views are supported,
@@ -55,7 +55,7 @@ public class GoogleBigqueryDatasetAccessDatasetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetTypes is required")]
     [TerraformPropertyName("target_types")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? TargetTypes { get; set; }
+    public TerraformList<string>? TargetTypes { get; set; }
 
 }
 
@@ -63,7 +63,7 @@ public class GoogleBigqueryDatasetAccessDatasetBlock : ITerraformBlock
 /// Block type for routine in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryDatasetAccessRoutineBlock : ITerraformBlock
+public class GoogleBigqueryDatasetAccessRoutineBlock
 {
     /// <summary>
     /// The ID of the dataset containing this table.
@@ -71,7 +71,7 @@ public class GoogleBigqueryDatasetAccessRoutineBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     [TerraformPropertyName("dataset_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatasetId { get; set; }
+    public required TerraformValue<string> DatasetId { get; set; }
 
     /// <summary>
     /// The ID of the project containing this table.
@@ -79,7 +79,7 @@ public class GoogleBigqueryDatasetAccessRoutineBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     [TerraformPropertyName("project_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ProjectId { get; set; }
+    public required TerraformValue<string> ProjectId { get; set; }
 
     /// <summary>
     /// The ID of the routine. The ID must contain only letters (a-z,
@@ -89,7 +89,7 @@ public class GoogleBigqueryDatasetAccessRoutineBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineId is required")]
     [TerraformPropertyName("routine_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoutineId { get; set; }
+    public required TerraformValue<string> RoutineId { get; set; }
 
 }
 
@@ -97,21 +97,21 @@ public class GoogleBigqueryDatasetAccessRoutineBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryDatasetAccessTimeoutsBlock : ITerraformBlock
+public class GoogleBigqueryDatasetAccessTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -119,7 +119,7 @@ public class GoogleBigqueryDatasetAccessTimeoutsBlock : ITerraformBlock
 /// Block type for view in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryDatasetAccessViewBlock : ITerraformBlock
+public class GoogleBigqueryDatasetAccessViewBlock
 {
     /// <summary>
     /// The ID of the dataset containing this table.
@@ -127,7 +127,7 @@ public class GoogleBigqueryDatasetAccessViewBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     [TerraformPropertyName("dataset_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatasetId { get; set; }
+    public required TerraformValue<string> DatasetId { get; set; }
 
     /// <summary>
     /// The ID of the project containing this table.
@@ -135,7 +135,7 @@ public class GoogleBigqueryDatasetAccessViewBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     [TerraformPropertyName("project_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ProjectId { get; set; }
+    public required TerraformValue<string> ProjectId { get; set; }
 
     /// <summary>
     /// The ID of the table. The ID must contain only letters (a-z,
@@ -145,7 +145,7 @@ public class GoogleBigqueryDatasetAccessViewBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     [TerraformPropertyName("table_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TableId { get; set; }
+    public required TerraformValue<string> TableId { get; set; }
 
 }
 
@@ -167,7 +167,7 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     [TerraformPropertyName("dataset_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatasetId { get; set; }
+    public required TerraformValue<string> DatasetId { get; set; }
 
     /// <summary>
     /// A domain to grant access to. Any users signed in with the
@@ -175,14 +175,14 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     [TerraformPropertyName("domain")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Domain { get; set; }
+    public TerraformValue<string>? Domain { get; set; }
 
     /// <summary>
     /// An email address of a Google Group to grant access to.
     /// </summary>
     [TerraformPropertyName("group_by_email")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? GroupByEmail { get; set; }
+    public TerraformValue<string>? GroupByEmail { get; set; }
 
     /// <summary>
     /// Some other type of member that appears in the IAM Policy but isn&#39;t a user,
@@ -190,21 +190,21 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     [TerraformPropertyName("iam_member")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IamMember { get; set; }
+    public TerraformValue<string>? IamMember { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Describes the rights granted to the user specified by the other
@@ -216,7 +216,7 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     [TerraformPropertyName("role")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Role { get; set; }
+    public TerraformValue<string>? Role { get; set; }
 
     /// <summary>
     /// A special group to grant access to. Possible values include:
@@ -227,7 +227,7 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     [TerraformPropertyName("special_group")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SpecialGroup { get; set; }
+    public TerraformValue<string>? SpecialGroup { get; set; }
 
     /// <summary>
     /// An email address of a user to grant access to. For example:
@@ -235,7 +235,7 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     [TerraformPropertyName("user_by_email")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserByEmail { get; set; }
+    public TerraformValue<string>? UserByEmail { get; set; }
 
     /// <summary>
     /// Block for condition.
@@ -243,7 +243,7 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformPropertyName("condition")]
-    public TerraformList<TerraformBlock<GoogleBigqueryDatasetAccessConditionBlock>>? Condition { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryDatasetAccessConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// Block for dataset.
@@ -251,7 +251,7 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
     [TerraformPropertyName("dataset")]
-    public TerraformList<TerraformBlock<GoogleBigqueryDatasetAccessDatasetBlock>>? Dataset { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryDatasetAccessDatasetBlock>>? Dataset { get; set; }
 
     /// <summary>
     /// Block for routine.
@@ -259,14 +259,14 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routine block(s) allowed")]
     [TerraformPropertyName("routine")]
-    public TerraformList<TerraformBlock<GoogleBigqueryDatasetAccessRoutineBlock>>? Routine { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryDatasetAccessRoutineBlock>>? Routine { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleBigqueryDatasetAccessTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleBigqueryDatasetAccessTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for view.
@@ -274,13 +274,13 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 View block(s) allowed")]
     [TerraformPropertyName("view")]
-    public TerraformList<TerraformBlock<GoogleBigqueryDatasetAccessViewBlock>>? View { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryDatasetAccessViewBlock>>? View { get; set; }
 
     /// <summary>
     /// If true, represents that that the iam_member in the config was translated to a different member type by the API, and is stored in state as a different member type
     /// </summary>
     [TerraformPropertyName("api_updated_member")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> ApiUpdatedMember => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "api_updated_member");
+    public TerraformValue<bool> ApiUpdatedMember => new TerraformReference(this, "api_updated_member");
 
 }

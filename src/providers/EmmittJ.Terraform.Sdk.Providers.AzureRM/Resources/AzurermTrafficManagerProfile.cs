@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for dns_config in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermTrafficManagerProfileDnsConfigBlock : ITerraformBlock
+public class AzurermTrafficManagerProfileDnsConfigBlock
 {
     /// <summary>
     /// The relative_name attribute.
@@ -14,7 +14,7 @@ public class AzurermTrafficManagerProfileDnsConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeName is required")]
     [TerraformPropertyName("relative_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RelativeName { get; set; }
+    public required TerraformValue<string> RelativeName { get; set; }
 
     /// <summary>
     /// The ttl attribute.
@@ -22,7 +22,7 @@ public class AzurermTrafficManagerProfileDnsConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     [TerraformPropertyName("ttl")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Ttl { get; set; }
+    public required TerraformValue<double> Ttl { get; set; }
 
 }
 
@@ -30,28 +30,28 @@ public class AzurermTrafficManagerProfileDnsConfigBlock : ITerraformBlock
 /// Block type for monitor_config in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermTrafficManagerProfileMonitorConfigBlock : ITerraformBlock
+public class AzurermTrafficManagerProfileMonitorConfigBlock
 {
     /// <summary>
     /// The expected_status_code_ranges attribute.
     /// </summary>
     [TerraformPropertyName("expected_status_code_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ExpectedStatusCodeRanges { get; set; }
+    public TerraformList<string>? ExpectedStatusCodeRanges { get; set; }
 
     /// <summary>
     /// The interval_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("interval_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? IntervalInSeconds { get; set; }
+    public TerraformValue<double>? IntervalInSeconds { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformPropertyName("path")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
+    public TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The port attribute.
@@ -59,7 +59,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     [TerraformPropertyName("port")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Port { get; set; }
+    public required TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// The protocol attribute.
@@ -67,21 +67,21 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformPropertyName("protocol")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
+    public required TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("timeout_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? TimeoutInSeconds { get; set; }
+    public TerraformValue<double>? TimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The tolerated_number_of_failures attribute.
     /// </summary>
     [TerraformPropertyName("tolerated_number_of_failures")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? ToleratedNumberOfFailures { get; set; }
+    public TerraformValue<double>? ToleratedNumberOfFailures { get; set; }
 
 }
 
@@ -89,35 +89,35 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermTrafficManagerProfileTimeoutsBlock : ITerraformBlock
+public class AzurermTrafficManagerProfileTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -135,15 +135,15 @@ public class AzurermTrafficManagerProfile : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The max_return attribute.
     /// </summary>
     [TerraformPropertyName("max_return")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxReturn { get; set; }
+    public TerraformValue<double>? MaxReturn { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -151,14 +151,14 @@ public class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The profile_status attribute.
     /// </summary>
     [TerraformPropertyName("profile_status")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ProfileStatus { get; set; }
+    public TerraformValue<string>? ProfileStatus { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -166,14 +166,14 @@ public class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The traffic_routing_method attribute.
@@ -181,14 +181,14 @@ public class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficRoutingMethod is required")]
     [TerraformPropertyName("traffic_routing_method")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TrafficRoutingMethod { get; set; }
+    public required TerraformValue<string> TrafficRoutingMethod { get; set; }
 
     /// <summary>
     /// The traffic_view_enabled attribute.
     /// </summary>
     [TerraformPropertyName("traffic_view_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? TrafficViewEnabled { get; set; }
+    public TerraformValue<bool>? TrafficViewEnabled { get; set; }
 
     /// <summary>
     /// Block for dns_config.
@@ -198,7 +198,7 @@ public class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DnsConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
     [TerraformPropertyName("dns_config")]
-    public TerraformList<TerraformBlock<AzurermTrafficManagerProfileDnsConfigBlock>>? DnsConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermTrafficManagerProfileDnsConfigBlock>>? DnsConfig { get; set; }
 
     /// <summary>
     /// Block for monitor_config.
@@ -208,20 +208,20 @@ public class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MonitorConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitorConfig block(s) allowed")]
     [TerraformPropertyName("monitor_config")]
-    public TerraformList<TerraformBlock<AzurermTrafficManagerProfileMonitorConfigBlock>>? MonitorConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermTrafficManagerProfileMonitorConfigBlock>>? MonitorConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermTrafficManagerProfileTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermTrafficManagerProfileTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     [TerraformPropertyName("fqdn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Fqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fqdn");
+    public TerraformValue<string> Fqdn => new TerraformReference(this, "fqdn");
 
 }

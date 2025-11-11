@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCeCostCategoryRuleBlock : ITerraformBlock
+public class AwsCeCostCategoryRuleBlock
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformPropertyName("value")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
+    public TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -28,7 +28,7 @@ public class AwsCeCostCategoryRuleBlock : ITerraformBlock
 /// Block type for split_charge_rule in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCeCostCategorySplitChargeRuleBlock : ITerraformBlock
+public class AwsCeCostCategorySplitChargeRuleBlock
 {
     /// <summary>
     /// The method attribute.
@@ -36,7 +36,7 @@ public class AwsCeCostCategorySplitChargeRuleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
     [TerraformPropertyName("method")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Method { get; set; }
+    public required TerraformValue<string> Method { get; set; }
 
     /// <summary>
     /// The source attribute.
@@ -44,7 +44,7 @@ public class AwsCeCostCategorySplitChargeRuleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [TerraformPropertyName("source")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Source { get; set; }
+    public required TerraformValue<string> Source { get; set; }
 
     /// <summary>
     /// The targets attribute.
@@ -52,7 +52,7 @@ public class AwsCeCostCategorySplitChargeRuleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Targets is required")]
     [TerraformPropertyName("targets")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Targets { get; set; }
+    public required TerraformSet<string> Targets { get; set; }
 
 }
 
@@ -71,21 +71,21 @@ public class AwsCeCostCategory : TerraformResource
     /// </summary>
     [TerraformPropertyName("default_value")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DefaultValue { get; set; }
+    public TerraformValue<string>? DefaultValue { get; set; }
 
     /// <summary>
     /// The effective_start attribute.
     /// </summary>
     [TerraformPropertyName("effective_start")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> EffectiveStart { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "effective_start");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> EffectiveStart { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -93,7 +93,7 @@ public class AwsCeCostCategory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The rule_version attribute.
@@ -101,21 +101,21 @@ public class AwsCeCostCategory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleVersion is required")]
     [TerraformPropertyName("rule_version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RuleVersion { get; set; }
+    public required TerraformValue<string> RuleVersion { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for rule.
@@ -124,27 +124,27 @@ public class AwsCeCostCategory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [TerraformPropertyName("rule")]
-    public TerraformList<TerraformBlock<AwsCeCostCategoryRuleBlock>>? Rule { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsCeCostCategoryRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// Block for split_charge_rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("split_charge_rule")]
-    public TerraformSet<TerraformBlock<AwsCeCostCategorySplitChargeRuleBlock>>? SplitChargeRule { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsCeCostCategorySplitChargeRuleBlock>>? SplitChargeRule { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The effective_end attribute.
     /// </summary>
     [TerraformPropertyName("effective_end")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EffectiveEnd => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "effective_end");
+    public TerraformValue<string> EffectiveEnd => new TerraformReference(this, "effective_end");
 
 }

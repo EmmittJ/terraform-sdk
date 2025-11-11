@@ -16,14 +16,14 @@ public class AwsCloudfrontKeyGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("comment")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Comment { get; set; }
+    public TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The items attribute.
@@ -31,7 +31,7 @@ public class AwsCloudfrontKeyGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Items is required")]
     [TerraformPropertyName("items")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Items { get; set; }
+    public required TerraformSet<string> Items { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,13 +39,13 @@ public class AwsCloudfrontKeyGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
 }

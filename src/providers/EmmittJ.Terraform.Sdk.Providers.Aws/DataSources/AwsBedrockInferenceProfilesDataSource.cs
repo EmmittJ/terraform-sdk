@@ -15,21 +15,21 @@ public class AwsBedrockInferenceProfilesDataSource : TerraformDataSource
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The inference_profile_summaries attribute.
     /// </summary>
     [TerraformPropertyName("inference_profile_summaries")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> InferenceProfileSummaries => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "inference_profile_summaries");
+    public TerraformList<object> InferenceProfileSummaries => new TerraformReference(this, "inference_profile_summaries");
 
 }

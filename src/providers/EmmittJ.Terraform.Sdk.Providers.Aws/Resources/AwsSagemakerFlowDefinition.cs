@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for human_loop_activation_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlock : ITerraformBlock
+public class AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlock : ITerrafo
 /// Block type for human_loop_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : ITerraformBlock
+public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock
 {
     /// <summary>
     /// The human_task_ui_arn attribute.
@@ -22,14 +22,14 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanTaskUiArn is required")]
     [TerraformPropertyName("human_task_ui_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HumanTaskUiArn { get; set; }
+    public required TerraformValue<string> HumanTaskUiArn { get; set; }
 
     /// <summary>
     /// The task_availability_lifetime_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("task_availability_lifetime_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? TaskAvailabilityLifetimeInSeconds { get; set; }
+    public TerraformValue<double>? TaskAvailabilityLifetimeInSeconds { get; set; }
 
     /// <summary>
     /// The task_count attribute.
@@ -37,7 +37,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskCount is required")]
     [TerraformPropertyName("task_count")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> TaskCount { get; set; }
+    public required TerraformValue<double> TaskCount { get; set; }
 
     /// <summary>
     /// The task_description attribute.
@@ -45,21 +45,21 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDescription is required")]
     [TerraformPropertyName("task_description")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TaskDescription { get; set; }
+    public required TerraformValue<string> TaskDescription { get; set; }
 
     /// <summary>
     /// The task_keywords attribute.
     /// </summary>
     [TerraformPropertyName("task_keywords")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? TaskKeywords { get; set; }
+    public TerraformSet<string>? TaskKeywords { get; set; }
 
     /// <summary>
     /// The task_time_limit_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("task_time_limit_in_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? TaskTimeLimitInSeconds { get; set; }
+    public TerraformValue<double>? TaskTimeLimitInSeconds { get; set; }
 
     /// <summary>
     /// The task_title attribute.
@@ -67,7 +67,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskTitle is required")]
     [TerraformPropertyName("task_title")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TaskTitle { get; set; }
+    public required TerraformValue<string> TaskTitle { get; set; }
 
     /// <summary>
     /// The workteam_arn attribute.
@@ -75,7 +75,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkteamArn is required")]
     [TerraformPropertyName("workteam_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkteamArn { get; set; }
+    public required TerraformValue<string> WorkteamArn { get; set; }
 
 }
 
@@ -83,7 +83,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : ITerraformBlock
 /// Block type for human_loop_request_source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock : ITerraformBlock
+public class AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock
 {
     /// <summary>
     /// The aws_managed_human_loop_request_source attribute.
@@ -91,7 +91,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock : ITerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsManagedHumanLoopRequestSource is required")]
     [TerraformPropertyName("aws_managed_human_loop_request_source")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AwsManagedHumanLoopRequestSource { get; set; }
+    public required TerraformValue<string> AwsManagedHumanLoopRequestSource { get; set; }
 
 }
 
@@ -99,14 +99,14 @@ public class AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock : ITerraformB
 /// Block type for output_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerFlowDefinitionOutputConfigBlock : ITerraformBlock
+public class AwsSagemakerFlowDefinitionOutputConfigBlock
 {
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
+    public TerraformValue<string>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The s3_output_path attribute.
@@ -114,7 +114,7 @@ public class AwsSagemakerFlowDefinitionOutputConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3OutputPath is required")]
     [TerraformPropertyName("s3_output_path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> S3OutputPath { get; set; }
+    public required TerraformValue<string> S3OutputPath { get; set; }
 
 }
 
@@ -134,21 +134,21 @@ public class AwsSagemakerFlowDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowDefinitionName is required")]
     [TerraformPropertyName("flow_definition_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FlowDefinitionName { get; set; }
+    public required TerraformValue<string> FlowDefinitionName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The role_arn attribute.
@@ -156,21 +156,21 @@ public class AwsSagemakerFlowDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformPropertyName("role_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
+    public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for human_loop_activation_config.
@@ -178,7 +178,7 @@ public class AwsSagemakerFlowDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanLoopActivationConfig block(s) allowed")]
     [TerraformPropertyName("human_loop_activation_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlock>>? HumanLoopActivationConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlock>>? HumanLoopActivationConfig { get; set; }
 
     /// <summary>
     /// Block for human_loop_config.
@@ -188,7 +188,7 @@ public class AwsSagemakerFlowDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HumanLoopConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanLoopConfig block(s) allowed")]
     [TerraformPropertyName("human_loop_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerFlowDefinitionHumanLoopConfigBlock>>? HumanLoopConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerFlowDefinitionHumanLoopConfigBlock>>? HumanLoopConfig { get; set; }
 
     /// <summary>
     /// Block for human_loop_request_source.
@@ -196,7 +196,7 @@ public class AwsSagemakerFlowDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanLoopRequestSource block(s) allowed")]
     [TerraformPropertyName("human_loop_request_source")]
-    public TerraformList<TerraformBlock<AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock>>? HumanLoopRequestSource { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock>>? HumanLoopRequestSource { get; set; }
 
     /// <summary>
     /// Block for output_config.
@@ -206,13 +206,13 @@ public class AwsSagemakerFlowDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OutputConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputConfig block(s) allowed")]
     [TerraformPropertyName("output_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerFlowDefinitionOutputConfigBlock>>? OutputConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerFlowDefinitionOutputConfigBlock>>? OutputConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

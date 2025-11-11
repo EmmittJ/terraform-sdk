@@ -17,7 +17,7 @@ public class AwsVpcEndpointConnectionNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionEvents is required")]
     [TerraformPropertyName("connection_events")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? ConnectionEvents { get; set; }
+    public required TerraformSet<string> ConnectionEvents { get; set; }
 
     /// <summary>
     /// The connection_notification_arn attribute.
@@ -25,48 +25,48 @@ public class AwsVpcEndpointConnectionNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionNotificationArn is required")]
     [TerraformPropertyName("connection_notification_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConnectionNotificationArn { get; set; }
+    public required TerraformValue<string> ConnectionNotificationArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
     [TerraformPropertyName("vpc_endpoint_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VpcEndpointId { get; set; }
+    public TerraformValue<string>? VpcEndpointId { get; set; }
 
     /// <summary>
     /// The vpc_endpoint_service_id attribute.
     /// </summary>
     [TerraformPropertyName("vpc_endpoint_service_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VpcEndpointServiceId { get; set; }
+    public TerraformValue<string>? VpcEndpointServiceId { get; set; }
 
     /// <summary>
     /// The notification_type attribute.
     /// </summary>
     [TerraformPropertyName("notification_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NotificationType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "notification_type");
+    public TerraformValue<string> NotificationType => new TerraformReference(this, "notification_type");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ec2_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDatasyncLocationEfsEc2ConfigBlock : ITerraformBlock
+public class AwsDatasyncLocationEfsEc2ConfigBlock
 {
     /// <summary>
     /// The security_group_arns attribute.
@@ -14,7 +14,7 @@ public class AwsDatasyncLocationEfsEc2ConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupArns is required")]
     [TerraformPropertyName("security_group_arns")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupArns { get; set; }
+    public required TerraformSet<string> SecurityGroupArns { get; set; }
 
     /// <summary>
     /// The subnet_arn attribute.
@@ -22,7 +22,7 @@ public class AwsDatasyncLocationEfsEc2ConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetArn is required")]
     [TerraformPropertyName("subnet_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SubnetArn { get; set; }
+    public required TerraformValue<string> SubnetArn { get; set; }
 
 }
 
@@ -41,7 +41,7 @@ public class AwsDatasyncLocationEfs : TerraformResource
     /// </summary>
     [TerraformPropertyName("access_point_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AccessPointArn { get; set; }
+    public TerraformValue<string>? AccessPointArn { get; set; }
 
     /// <summary>
     /// The efs_file_system_arn attribute.
@@ -49,56 +49,56 @@ public class AwsDatasyncLocationEfs : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EfsFileSystemArn is required")]
     [TerraformPropertyName("efs_file_system_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EfsFileSystemArn { get; set; }
+    public required TerraformValue<string> EfsFileSystemArn { get; set; }
 
     /// <summary>
     /// The file_system_access_role_arn attribute.
     /// </summary>
     [TerraformPropertyName("file_system_access_role_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FileSystemAccessRoleArn { get; set; }
+    public TerraformValue<string>? FileSystemAccessRoleArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The in_transit_encryption attribute.
     /// </summary>
     [TerraformPropertyName("in_transit_encryption")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? InTransitEncryption { get; set; }
+    public TerraformValue<string>? InTransitEncryption { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
     [TerraformPropertyName("subdirectory")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Subdirectory { get; set; }
+    public TerraformValue<string>? Subdirectory { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for ec2_config.
@@ -108,20 +108,20 @@ public class AwsDatasyncLocationEfs : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Ec2Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ec2Config block(s) allowed")]
     [TerraformPropertyName("ec2_config")]
-    public TerraformList<TerraformBlock<AwsDatasyncLocationEfsEc2ConfigBlock>>? Ec2Config { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsDatasyncLocationEfsEc2ConfigBlock>>? Ec2Config { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [TerraformPropertyName("uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uri");
+    public TerraformValue<string> Uri => new TerraformReference(this, "uri");
 
 }

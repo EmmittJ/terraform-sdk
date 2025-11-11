@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNginxApiKeyDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermNginxApiKeyDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermNginxApiKeyDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermNginxApiKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The nginx_deployment_id attribute.
@@ -47,27 +47,27 @@ public class AzurermNginxApiKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     [TerraformPropertyName("nginx_deployment_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NginxDeploymentId { get; set; }
+    public required TerraformValue<string> NginxDeploymentId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermNginxApiKeyDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermNginxApiKeyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The end_date_time attribute.
     /// </summary>
     [TerraformPropertyName("end_date_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EndDateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "end_date_time");
+    public TerraformValue<string> EndDateTime => new TerraformReference(this, "end_date_time");
 
     /// <summary>
     /// The hint attribute.
     /// </summary>
     [TerraformPropertyName("hint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Hint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hint");
+    public TerraformValue<string> Hint => new TerraformReference(this, "hint");
 
 }

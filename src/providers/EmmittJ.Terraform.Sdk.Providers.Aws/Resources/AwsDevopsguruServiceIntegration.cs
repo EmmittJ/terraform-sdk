@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for kms_server_side_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock : ITerraformBlock
+public class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock
 {
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> KmsKeyId { get; set; } = default!;
 
     /// <summary>
     /// The opt_in_status attribute.
     /// </summary>
     [TerraformPropertyName("opt_in_status")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> OptInStatus { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "opt_in_status");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> OptInStatus { get; set; } = default!;
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Type { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Type { get; set; } = default!;
 
 }
 
@@ -35,14 +35,14 @@ public class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock : ITerr
 /// Block type for logs_anomaly_detection in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock : ITerraformBlock
+public class AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock
 {
     /// <summary>
     /// The opt_in_status attribute.
     /// </summary>
     [TerraformPropertyName("opt_in_status")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> OptInStatus { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "opt_in_status");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> OptInStatus { get; set; } = default!;
 
 }
 
@@ -50,14 +50,14 @@ public class AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock : ITerrafo
 /// Block type for ops_center in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDevopsguruServiceIntegrationOpsCenterBlock : ITerraformBlock
+public class AwsDevopsguruServiceIntegrationOpsCenterBlock
 {
     /// <summary>
     /// The opt_in_status attribute.
     /// </summary>
     [TerraformPropertyName("opt_in_status")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> OptInStatus { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "opt_in_status");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> OptInStatus { get; set; } = default!;
 
 }
 
@@ -74,35 +74,35 @@ public class AwsDevopsguruServiceIntegration : TerraformResource
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for kms_server_side_encryption.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("kms_server_side_encryption")]
-    public TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock>>? KmsServerSideEncryption { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock>>? KmsServerSideEncryption { get; set; }
 
     /// <summary>
     /// Block for logs_anomaly_detection.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("logs_anomaly_detection")]
-    public TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock>>? LogsAnomalyDetection { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock>>? LogsAnomalyDetection { get; set; }
 
     /// <summary>
     /// Block for ops_center.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("ops_center")]
-    public TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationOpsCenterBlock>>? OpsCenter { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationOpsCenterBlock>>? OpsCenter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

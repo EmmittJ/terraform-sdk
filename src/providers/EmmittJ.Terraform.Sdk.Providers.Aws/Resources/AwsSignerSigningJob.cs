@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSignerSigningJobDestinationBlock : ITerraformBlock
+public class AwsSignerSigningJobDestinationBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsSignerSigningJobDestinationBlock : ITerraformBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSignerSigningJobSourceBlock : ITerraformBlock
+public class AwsSignerSigningJobSourceBlock
 {
 }
 
@@ -32,15 +32,15 @@ public class AwsSignerSigningJob : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ignore_signing_job_failure attribute.
     /// </summary>
     [TerraformPropertyName("ignore_signing_job_failure")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IgnoreSigningJobFailure { get; set; }
+    public TerraformValue<bool>? IgnoreSigningJobFailure { get; set; }
 
     /// <summary>
     /// The profile_name attribute.
@@ -48,14 +48,14 @@ public class AwsSignerSigningJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
     [TerraformPropertyName("profile_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ProfileName { get; set; }
+    public required TerraformValue<string> ProfileName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for destination.
@@ -65,7 +65,7 @@ public class AwsSignerSigningJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     [TerraformPropertyName("destination")]
-    public TerraformList<TerraformBlock<AwsSignerSigningJobDestinationBlock>>? Destination { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSignerSigningJobDestinationBlock>>? Destination { get; set; }
 
     /// <summary>
     /// Block for source.
@@ -75,104 +75,104 @@ public class AwsSignerSigningJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformPropertyName("source")]
-    public TerraformList<TerraformBlock<AwsSignerSigningJobSourceBlock>>? Source { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSignerSigningJobSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// The completed_at attribute.
     /// </summary>
     [TerraformPropertyName("completed_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CompletedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "completed_at");
+    public TerraformValue<string> CompletedAt => new TerraformReference(this, "completed_at");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformPropertyName("created_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
+    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
 
     /// <summary>
     /// The job_id attribute.
     /// </summary>
     [TerraformPropertyName("job_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> JobId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "job_id");
+    public TerraformValue<string> JobId => new TerraformReference(this, "job_id");
 
     /// <summary>
     /// The job_invoker attribute.
     /// </summary>
     [TerraformPropertyName("job_invoker")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> JobInvoker => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "job_invoker");
+    public TerraformValue<string> JobInvoker => new TerraformReference(this, "job_invoker");
 
     /// <summary>
     /// The job_owner attribute.
     /// </summary>
     [TerraformPropertyName("job_owner")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> JobOwner => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "job_owner");
+    public TerraformValue<string> JobOwner => new TerraformReference(this, "job_owner");
 
     /// <summary>
     /// The platform_display_name attribute.
     /// </summary>
     [TerraformPropertyName("platform_display_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PlatformDisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "platform_display_name");
+    public TerraformValue<string> PlatformDisplayName => new TerraformReference(this, "platform_display_name");
 
     /// <summary>
     /// The platform_id attribute.
     /// </summary>
     [TerraformPropertyName("platform_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PlatformId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "platform_id");
+    public TerraformValue<string> PlatformId => new TerraformReference(this, "platform_id");
 
     /// <summary>
     /// The profile_version attribute.
     /// </summary>
     [TerraformPropertyName("profile_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ProfileVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "profile_version");
+    public TerraformValue<string> ProfileVersion => new TerraformReference(this, "profile_version");
 
     /// <summary>
     /// The requested_by attribute.
     /// </summary>
     [TerraformPropertyName("requested_by")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RequestedBy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "requested_by");
+    public TerraformValue<string> RequestedBy => new TerraformReference(this, "requested_by");
 
     /// <summary>
     /// The revocation_record attribute.
     /// </summary>
     [TerraformPropertyName("revocation_record")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> RevocationRecord => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "revocation_record");
+    public TerraformList<object> RevocationRecord => new TerraformReference(this, "revocation_record");
 
     /// <summary>
     /// The signature_expires_at attribute.
     /// </summary>
     [TerraformPropertyName("signature_expires_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SignatureExpiresAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signature_expires_at");
+    public TerraformValue<string> SignatureExpiresAt => new TerraformReference(this, "signature_expires_at");
 
     /// <summary>
     /// The signed_object attribute.
     /// </summary>
     [TerraformPropertyName("signed_object")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> SignedObject => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "signed_object");
+    public TerraformList<object> SignedObject => new TerraformReference(this, "signed_object");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
     [TerraformPropertyName("status_reason")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StatusReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status_reason");
+    public TerraformValue<string> StatusReason => new TerraformReference(this, "status_reason");
 
 }

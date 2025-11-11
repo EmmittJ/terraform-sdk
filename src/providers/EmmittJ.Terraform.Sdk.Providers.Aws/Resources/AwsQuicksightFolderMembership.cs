@@ -15,8 +15,8 @@ public class AwsQuicksightFolderMembership : TerraformResource
     /// The aws_account_id attribute.
     /// </summary>
     [TerraformPropertyName("aws_account_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AwsAccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_account_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AwsAccountId { get; set; } = default!;
 
     /// <summary>
     /// The folder_id attribute.
@@ -24,7 +24,7 @@ public class AwsQuicksightFolderMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     [TerraformPropertyName("folder_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FolderId { get; set; }
+    public required TerraformValue<string> FolderId { get; set; }
 
     /// <summary>
     /// The member_id attribute.
@@ -32,7 +32,7 @@ public class AwsQuicksightFolderMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberId is required")]
     [TerraformPropertyName("member_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MemberId { get; set; }
+    public required TerraformValue<string> MemberId { get; set; }
 
     /// <summary>
     /// The member_type attribute.
@@ -40,20 +40,20 @@ public class AwsQuicksightFolderMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberType is required")]
     [TerraformPropertyName("member_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MemberType { get; set; }
+    public required TerraformValue<string> MemberType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

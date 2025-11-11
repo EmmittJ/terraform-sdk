@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for external_mapping in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVpnGatewayNatRuleExternalMappingBlock : ITerraformBlock
+public class AzurermVpnGatewayNatRuleExternalMappingBlock
 {
     /// <summary>
     /// The address_space attribute.
@@ -14,14 +14,14 @@ public class AzurermVpnGatewayNatRuleExternalMappingBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     [TerraformPropertyName("address_space")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AddressSpace { get; set; }
+    public required TerraformValue<string> AddressSpace { get; set; }
 
     /// <summary>
     /// The port_range attribute.
     /// </summary>
     [TerraformPropertyName("port_range")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PortRange { get; set; }
+    public TerraformValue<string>? PortRange { get; set; }
 
 }
 
@@ -29,7 +29,7 @@ public class AzurermVpnGatewayNatRuleExternalMappingBlock : ITerraformBlock
 /// Block type for internal_mapping in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVpnGatewayNatRuleInternalMappingBlock : ITerraformBlock
+public class AzurermVpnGatewayNatRuleInternalMappingBlock
 {
     /// <summary>
     /// The address_space attribute.
@@ -37,14 +37,14 @@ public class AzurermVpnGatewayNatRuleInternalMappingBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     [TerraformPropertyName("address_space")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AddressSpace { get; set; }
+    public required TerraformValue<string> AddressSpace { get; set; }
 
     /// <summary>
     /// The port_range attribute.
     /// </summary>
     [TerraformPropertyName("port_range")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PortRange { get; set; }
+    public TerraformValue<string>? PortRange { get; set; }
 
 }
 
@@ -52,35 +52,35 @@ public class AzurermVpnGatewayNatRuleInternalMappingBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVpnGatewayNatRuleTimeoutsBlock : ITerraformBlock
+public class AzurermVpnGatewayNatRuleTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -97,22 +97,22 @@ public class AzurermVpnGatewayNatRule : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ip_configuration_id attribute.
     /// </summary>
     [TerraformPropertyName("ip_configuration_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IpConfigurationId { get; set; }
+    public TerraformValue<string>? IpConfigurationId { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformPropertyName("mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
+    public TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -120,14 +120,14 @@ public class AzurermVpnGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The vpn_gateway_id attribute.
@@ -135,27 +135,27 @@ public class AzurermVpnGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnGatewayId is required")]
     [TerraformPropertyName("vpn_gateway_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VpnGatewayId { get; set; }
+    public required TerraformValue<string> VpnGatewayId { get; set; }
 
     /// <summary>
     /// Block for external_mapping.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("external_mapping")]
-    public TerraformList<TerraformBlock<AzurermVpnGatewayNatRuleExternalMappingBlock>>? ExternalMapping { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermVpnGatewayNatRuleExternalMappingBlock>>? ExternalMapping { get; set; }
 
     /// <summary>
     /// Block for internal_mapping.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("internal_mapping")]
-    public TerraformList<TerraformBlock<AzurermVpnGatewayNatRuleInternalMappingBlock>>? InternalMapping { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermVpnGatewayNatRuleInternalMappingBlock>>? InternalMapping { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermVpnGatewayNatRuleTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermVpnGatewayNatRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

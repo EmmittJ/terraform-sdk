@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for service_resolvers in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleKmsEkmConnectionServiceResolversBlock : ITerraformBlock
+public class GoogleKmsEkmConnectionServiceResolversBlock
 {
     /// <summary>
     /// Optional. The filter applied to the endpoints of the resolved service. If no filter is specified, all endpoints will be considered. An endpoint will be chosen arbitrarily from the filtered list for each request. For endpoint filter syntax and examples, see https://cloud.google.com/service-directory/docs/reference/rpc/google.cloud.servicedirectory.v1#resolveservicerequest.
     /// </summary>
     [TerraformPropertyName("endpoint_filter")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> EndpointFilter { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "endpoint_filter");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> EndpointFilter { get; set; } = default!;
 
     /// <summary>
     /// Required. The hostname of the EKM replica used at TLS and HTTP layers.
@@ -21,7 +21,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     [TerraformPropertyName("hostname")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Hostname { get; set; }
+    public required TerraformValue<string> Hostname { get; set; }
 
     /// <summary>
     /// Required. The resource name of the Service Directory service pointing to an EKM replica, in the format projects/*/locations/*/namespaces/*/services/*
@@ -29,7 +29,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceDirectoryService is required")]
     [TerraformPropertyName("service_directory_service")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceDirectoryService { get; set; }
+    public required TerraformValue<string> ServiceDirectoryService { get; set; }
 
 }
 
@@ -37,28 +37,28 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleKmsEkmConnectionTimeoutsBlock : ITerraformBlock
+public class GoogleKmsEkmConnectionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -76,29 +76,29 @@ public class GoogleKmsEkmConnection : TerraformResource
     /// Optional. Identifies the EKM Crypto Space that this EkmConnection maps to. Note: This field is required if KeyManagementMode is CLOUD_KMS.
     /// </summary>
     [TerraformPropertyName("crypto_space_path")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CryptoSpacePath { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "crypto_space_path");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CryptoSpacePath { get; set; } = default!;
 
     /// <summary>
     /// Optional. Etag of the currently stored EkmConnection.
     /// </summary>
     [TerraformPropertyName("etag")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Etag { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Etag { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Optional. Describes who can perform control plane operations on the EKM. If unset, this defaults to MANUAL Default value: &amp;quot;MANUAL&amp;quot; Possible values: [&amp;quot;MANUAL&amp;quot;, &amp;quot;CLOUD_KMS&amp;quot;]
     /// </summary>
     [TerraformPropertyName("key_management_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KeyManagementMode { get; set; }
+    public TerraformValue<string>? KeyManagementMode { get; set; }
 
     /// <summary>
     /// The location for the EkmConnection.
@@ -107,7 +107,7 @@ public class GoogleKmsEkmConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource name for the EkmConnection.
@@ -115,14 +115,14 @@ public class GoogleKmsEkmConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for service_resolvers.
@@ -131,14 +131,14 @@ public class GoogleKmsEkmConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceResolvers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceResolvers block(s) required")]
     [TerraformPropertyName("service_resolvers")]
-    public TerraformList<TerraformBlock<GoogleKmsEkmConnectionServiceResolversBlock>>? ServiceResolvers { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleKmsEkmConnectionServiceResolversBlock>>? ServiceResolvers { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleKmsEkmConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleKmsEkmConnectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time at which the EkmConnection was created.
@@ -146,6 +146,6 @@ public class GoogleKmsEkmConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
 }

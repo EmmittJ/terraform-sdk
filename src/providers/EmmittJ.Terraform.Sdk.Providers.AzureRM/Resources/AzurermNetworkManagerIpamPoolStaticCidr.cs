@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock : ITerraformBlock
+public class AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public class AzurermNetworkManagerIpamPoolStaticCidr : TerraformResource
     /// </summary>
     [TerraformPropertyName("address_prefixes")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? AddressPrefixes { get; set; }
+    public TerraformList<string>? AddressPrefixes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ipam_pool_id attribute.
@@ -67,7 +67,7 @@ public class AzurermNetworkManagerIpamPoolStaticCidr : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
     [TerraformPropertyName("ipam_pool_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IpamPoolId { get; set; }
+    public required TerraformValue<string> IpamPoolId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -75,20 +75,20 @@ public class AzurermNetworkManagerIpamPoolStaticCidr : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The number_of_ip_addresses_to_allocate attribute.
     /// </summary>
     [TerraformPropertyName("number_of_ip_addresses_to_allocate")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NumberOfIpAddressesToAllocate { get; set; }
+    public TerraformValue<string>? NumberOfIpAddressesToAllocate { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock>? Timeouts { get; set; }
 
 }

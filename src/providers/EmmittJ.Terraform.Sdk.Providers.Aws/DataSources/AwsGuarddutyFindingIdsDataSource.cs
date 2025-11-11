@@ -17,34 +17,34 @@ public class AwsGuarddutyFindingIdsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     [TerraformPropertyName("detector_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DetectorId { get; set; }
+    public required TerraformValue<string> DetectorId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The finding_ids attribute.
     /// </summary>
     [TerraformPropertyName("finding_ids")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> FindingIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "finding_ids");
+    public TerraformList<string> FindingIds => new TerraformReference(this, "finding_ids");
 
     /// <summary>
     /// The has_findings attribute.
     /// </summary>
     [TerraformPropertyName("has_findings")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> HasFindings => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "has_findings");
+    public TerraformValue<bool> HasFindings => new TerraformReference(this, "has_findings");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

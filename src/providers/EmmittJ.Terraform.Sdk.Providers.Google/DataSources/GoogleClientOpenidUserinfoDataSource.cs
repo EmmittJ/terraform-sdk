@@ -19,13 +19,13 @@ public class GoogleClientOpenidUserinfoDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("email")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Email => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "email");
+    public TerraformValue<string> Email => new TerraformReference(this, "email");
 
     /// <summary>
     /// The ID of this data source in Terraform state. Its value is the same as the `email` attribute. Do not use this field, use the `email` attribute instead.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

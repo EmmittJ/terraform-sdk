@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for enabled_tool in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGeminiCodeToolsSettingEnabledToolBlock : ITerraformBlock
+public class GoogleGeminiCodeToolsSettingEnabledToolBlock
 {
     /// <summary>
     /// Link to the Dev Connect Account Connector that holds the user credentials.
@@ -14,7 +14,7 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("account_connector")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AccountConnector { get; set; }
+    public TerraformValue<string>? AccountConnector { get; set; }
 
     /// <summary>
     /// Handle used to invoke the tool.
@@ -22,7 +22,7 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Handle is required")]
     [TerraformPropertyName("handle")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Handle { get; set; }
+    public required TerraformValue<string> Handle { get; set; }
 
     /// <summary>
     /// Link to the Tool
@@ -30,14 +30,14 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tool is required")]
     [TerraformPropertyName("tool")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Tool { get; set; }
+    public required TerraformValue<string> Tool { get; set; }
 
     /// <summary>
     /// Overridden URI, if allowed by Tool.
     /// </summary>
     [TerraformPropertyName("uri_override")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UriOverride { get; set; }
+    public TerraformValue<string>? UriOverride { get; set; }
 
 }
 
@@ -45,28 +45,28 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleGeminiCodeToolsSettingTimeoutsBlock : ITerraformBlock
+public class GoogleGeminiCodeToolsSettingTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -86,14 +86,14 @@ public class GoogleGeminiCodeToolsSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeToolsSettingId is required")]
     [TerraformPropertyName("code_tools_setting_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CodeToolsSettingId { get; set; }
+    public required TerraformValue<string> CodeToolsSettingId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Labels as key value pairs.
@@ -103,21 +103,21 @@ public class GoogleGeminiCodeToolsSetting : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for enabled_tool.
@@ -126,28 +126,28 @@ public class GoogleGeminiCodeToolsSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledTool is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnabledTool block(s) required")]
     [TerraformPropertyName("enabled_tool")]
-    public TerraformList<TerraformBlock<GoogleGeminiCodeToolsSettingEnabledToolBlock>>? EnabledTool { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleGeminiCodeToolsSettingEnabledToolBlock>>? EnabledTool { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleGeminiCodeToolsSettingTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleGeminiCodeToolsSettingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Create time stamp.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Identifier. Name of the resource.
@@ -155,7 +155,7 @@ public class GoogleGeminiCodeToolsSetting : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -163,13 +163,13 @@ public class GoogleGeminiCodeToolsSetting : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Update time stamp.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

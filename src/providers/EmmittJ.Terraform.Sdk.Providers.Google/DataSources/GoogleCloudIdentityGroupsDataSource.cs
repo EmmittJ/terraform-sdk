@@ -15,8 +15,8 @@ public class GoogleCloudIdentityGroupsDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The resource name of the entity under which this Group resides in the
@@ -28,13 +28,13 @@ public class GoogleCloudIdentityGroupsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformPropertyName("parent")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
+    public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// List of Cloud Identity groups.
     /// </summary>
     [TerraformPropertyName("groups")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Groups => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "groups");
+    public TerraformList<object> Groups => new TerraformReference(this, "groups");
 
 }

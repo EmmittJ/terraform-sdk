@@ -15,15 +15,15 @@ public class AwsDmsReplicationTaskDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The replication_task_id attribute.
@@ -31,90 +31,90 @@ public class AwsDmsReplicationTaskDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationTaskId is required")]
     [TerraformPropertyName("replication_task_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ReplicationTaskId { get; set; }
+    public required TerraformValue<string> ReplicationTaskId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Tags { get; set; } = default!;
 
     /// <summary>
     /// The cdc_start_position attribute.
     /// </summary>
     [TerraformPropertyName("cdc_start_position")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CdcStartPosition => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cdc_start_position");
+    public TerraformValue<string> CdcStartPosition => new TerraformReference(this, "cdc_start_position");
 
     /// <summary>
     /// The cdc_start_time attribute.
     /// </summary>
     [TerraformPropertyName("cdc_start_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CdcStartTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cdc_start_time");
+    public TerraformValue<string> CdcStartTime => new TerraformReference(this, "cdc_start_time");
 
     /// <summary>
     /// The migration_type attribute.
     /// </summary>
     [TerraformPropertyName("migration_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MigrationType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "migration_type");
+    public TerraformValue<string> MigrationType => new TerraformReference(this, "migration_type");
 
     /// <summary>
     /// The replication_instance_arn attribute.
     /// </summary>
     [TerraformPropertyName("replication_instance_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ReplicationInstanceArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "replication_instance_arn");
+    public TerraformValue<string> ReplicationInstanceArn => new TerraformReference(this, "replication_instance_arn");
 
     /// <summary>
     /// The replication_task_arn attribute.
     /// </summary>
     [TerraformPropertyName("replication_task_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ReplicationTaskArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "replication_task_arn");
+    public TerraformValue<string> ReplicationTaskArn => new TerraformReference(this, "replication_task_arn");
 
     /// <summary>
     /// The replication_task_settings attribute.
     /// </summary>
     [TerraformPropertyName("replication_task_settings")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ReplicationTaskSettings => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "replication_task_settings");
+    public TerraformValue<string> ReplicationTaskSettings => new TerraformReference(this, "replication_task_settings");
 
     /// <summary>
     /// The source_endpoint_arn attribute.
     /// </summary>
     [TerraformPropertyName("source_endpoint_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SourceEndpointArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_endpoint_arn");
+    public TerraformValue<string> SourceEndpointArn => new TerraformReference(this, "source_endpoint_arn");
 
     /// <summary>
     /// The start_replication_task attribute.
     /// </summary>
     [TerraformPropertyName("start_replication_task")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> StartReplicationTask => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "start_replication_task");
+    public TerraformValue<bool> StartReplicationTask => new TerraformReference(this, "start_replication_task");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The table_mappings attribute.
     /// </summary>
     [TerraformPropertyName("table_mappings")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TableMappings => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "table_mappings");
+    public TerraformValue<string> TableMappings => new TerraformReference(this, "table_mappings");
 
     /// <summary>
     /// The target_endpoint_arn attribute.
     /// </summary>
     [TerraformPropertyName("target_endpoint_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TargetEndpointArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "target_endpoint_arn");
+    public TerraformValue<string> TargetEndpointArn => new TerraformReference(this, "target_endpoint_arn");
 
 }

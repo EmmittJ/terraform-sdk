@@ -154,12 +154,12 @@ public class SchemaParser
         var csharpType = MapTerraformTypeToCSharp(attr.Type);
         var isCollection = csharpType.Contains("List<") || csharpType.Contains("Dictionary<") || csharpType.Contains("HashSet<");
 
-        // Extract the inner type from TerraformProperty<T> or collection types
+        // Extract the inner type from TerraformValue<T> or collection types
         var isValueType = false;
-        if (csharpType.StartsWith("TerraformProperty<"))
+        if (csharpType.StartsWith("TerraformValue<"))
         {
-            // Extract T from TerraformProperty<T>
-            var innerType = csharpType.Substring("TerraformProperty<".Length, csharpType.Length - "TerraformProperty<".Length - 1);
+            // Extract T from TerraformValue<T>
+            var innerType = csharpType.Substring("TerraformValue<".Length, csharpType.Length - "TerraformValue<".Length - 1);
             isValueType = innerType == "bool" || innerType == "double" || innerType == "int" || innerType == "long" || innerType == "float";
         }
 
@@ -201,10 +201,63 @@ public class SchemaParser
         return model;
     }
 
+    /// <summary>
+    /// Maps a raw Terraform type (e.g., "string", "number") to the unwrapped C# type (e.g., "string", "double").
+    /// Used for collection element types where the collection handles the wrapping.
+    /// </summary>
+    private string MapTerraformTypeToRawCSharp(object? type)
+    {
+        if (type == null)
+            return "string";
+
+        var typeStr = type.ToString() ?? "string";
+
+        // Handle JSON element from deserialization
+        if (type is JsonElement element)
+        {
+            if (element.ValueKind == JsonValueKind.String)
+            {
+                typeStr = element.GetString() ?? "string";
+            }
+            else if (element.ValueKind == JsonValueKind.Array)
+            {
+                // Handle nested collections like ["list", ["list", "string"]]
+                var arr = element.EnumerateArray().ToList();
+                if (arr.Count >= 2)
+                {
+                    var collectionType = arr[0].GetString();
+                    var innerType = MapTerraformTypeToRawCSharp(arr[1]);
+
+                    return collectionType switch
+                    {
+                        "list" => $"TerraformList<{innerType}>",
+                        "set" => $"TerraformSet<{innerType}>",
+                        "map" => $"TerraformMap<{innerType}>",
+                        _ => "object"
+                    };
+                }
+            }
+            else if (element.ValueKind == JsonValueKind.Object)
+            {
+                // Complex object type
+                return "TerraformMap<object>";
+            }
+        }
+
+        return typeStr switch
+        {
+            "string" => "string",
+            "number" => "double",
+            "bool" => "bool",
+            "dynamic" => "object",
+            _ => "string"
+        };
+    }
+
     public string MapTerraformTypeToCSharp(object? type)
     {
         if (type == null)
-            return "TerraformProperty<string>";
+            return "TerraformValue<string>";
 
         var typeStr = type.ToString() ?? "string";
 
@@ -218,35 +271,37 @@ public class SchemaParser
             else if (element.ValueKind == JsonValueKind.Array)
             {
                 // Handle complex types like ["list", "string"]
+                // TerraformList/Map/Set already wrap their elements in TerraformValue<T>
+                // So we should map ["list", "string"] to TerraformList<string>, not TerraformList<TerraformValue<string>>
                 var arr = element.EnumerateArray().ToList();
                 if (arr.Count >= 2)
                 {
                     var collectionType = arr[0].GetString();
-                    var innerType = MapTerraformTypeToCSharp(arr[1]);
+                    var innerType = MapTerraformTypeToRawCSharp(arr[1]); // Use raw type for collection elements
 
                     return collectionType switch
                     {
-                        "list" => $"List<{innerType}>",
-                        "set" => $"HashSet<{innerType}>",
-                        "map" => $"Dictionary<string, {innerType}>",
-                        _ => "TerraformProperty<object>"
+                        "list" => $"TerraformList<{innerType}>",
+                        "set" => $"TerraformSet<{innerType}>",
+                        "map" => $"TerraformMap<{innerType}>",
+                        _ => "TerraformValue<object>"
                     };
                 }
             }
             else if (element.ValueKind == JsonValueKind.Object)
             {
                 // Complex object type - use Dictionary for now
-                return "Dictionary<string, TerraformProperty<object>>";
+                return "TerraformMap<object>";
             }
         }
 
         return typeStr switch
         {
-            "string" => "TerraformProperty<string>",
-            "number" => "TerraformProperty<double>",
-            "bool" => "TerraformProperty<bool>",
-            "dynamic" => "TerraformProperty<object>",
-            _ => "TerraformProperty<string>"
+            "string" => "TerraformValue<string>",
+            "number" => "TerraformValue<double>",
+            "bool" => "TerraformValue<bool>",
+            "dynamic" => "TerraformValue<object>",
+            _ => "TerraformValue<string>"
         };
     }
 

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for destinations in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEventarcPipelineDestinationsBlock : ITerraformBlock
+public class GoogleEventarcPipelineDestinationsBlock
 {
     /// <summary>
     /// The resource name of the Message Bus to which events should be
@@ -16,7 +16,7 @@ public class GoogleEventarcPipelineDestinationsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("message_bus")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MessageBus { get; set; }
+    public TerraformValue<string>? MessageBus { get; set; }
 
     /// <summary>
     /// The resource name of the Pub/Sub topic to which events should be
@@ -25,7 +25,7 @@ public class GoogleEventarcPipelineDestinationsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("topic")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Topic { get; set; }
+    public TerraformValue<string>? Topic { get; set; }
 
     /// <summary>
     /// The resource name of the Workflow whose Executions are triggered by
@@ -35,7 +35,7 @@ public class GoogleEventarcPipelineDestinationsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("workflow")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Workflow { get; set; }
+    public TerraformValue<string>? Workflow { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public class GoogleEventarcPipelineDestinationsBlock : ITerraformBlock
 /// Block type for input_payload_format in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEventarcPipelineInputPayloadFormatBlock : ITerraformBlock
+public class GoogleEventarcPipelineInputPayloadFormatBlock
 {
 }
 
@@ -51,15 +51,15 @@ public class GoogleEventarcPipelineInputPayloadFormatBlock : ITerraformBlock
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEventarcPipelineLoggingConfigBlock : ITerraformBlock
+public class GoogleEventarcPipelineLoggingConfigBlock
 {
     /// <summary>
     /// The minimum severity of logs that will be sent to Stackdriver/Platform
     /// Telemetry. Logs at severitiy ≥ this value will be sent, unless it is NONE. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;DEBUG&amp;quot;, &amp;quot;INFO&amp;quot;, &amp;quot;NOTICE&amp;quot;, &amp;quot;WARNING&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;CRITICAL&amp;quot;, &amp;quot;ALERT&amp;quot;, &amp;quot;EMERGENCY&amp;quot;]
     /// </summary>
     [TerraformPropertyName("log_severity")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LogSeverity { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "log_severity");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LogSeverity { get; set; } = default!;
 
 }
 
@@ -67,7 +67,7 @@ public class GoogleEventarcPipelineLoggingConfigBlock : ITerraformBlock
 /// Block type for mediations in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEventarcPipelineMediationsBlock : ITerraformBlock
+public class GoogleEventarcPipelineMediationsBlock
 {
 }
 
@@ -75,7 +75,7 @@ public class GoogleEventarcPipelineMediationsBlock : ITerraformBlock
 /// Block type for retry_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEventarcPipelineRetryPolicyBlock : ITerraformBlock
+public class GoogleEventarcPipelineRetryPolicyBlock
 {
     /// <summary>
     /// The maximum number of delivery attempts for any message. The value must
@@ -84,7 +84,7 @@ public class GoogleEventarcPipelineRetryPolicyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("max_attempts")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxAttempts { get; set; }
+    public TerraformValue<double>? MaxAttempts { get; set; }
 
     /// <summary>
     /// The maximum amount of seconds to wait between retry attempts. The value
@@ -93,7 +93,7 @@ public class GoogleEventarcPipelineRetryPolicyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("max_retry_delay")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MaxRetryDelay { get; set; }
+    public TerraformValue<string>? MaxRetryDelay { get; set; }
 
     /// <summary>
     /// The minimum amount of seconds to wait between retry attempts. The value
@@ -102,7 +102,7 @@ public class GoogleEventarcPipelineRetryPolicyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("min_retry_delay")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MinRetryDelay { get; set; }
+    public TerraformValue<string>? MinRetryDelay { get; set; }
 
 }
 
@@ -110,28 +110,28 @@ public class GoogleEventarcPipelineRetryPolicyBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleEventarcPipelineTimeoutsBlock : ITerraformBlock
+public class GoogleEventarcPipelineTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -153,7 +153,7 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
+    public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// Resource name of a KMS crypto key (managed by the user) used to
@@ -163,21 +163,21 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [TerraformPropertyName("crypto_key_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CryptoKeyName { get; set; }
+    public TerraformValue<string>? CryptoKeyName { get; set; }
 
     /// <summary>
     /// Display name of resource.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// User labels attached to the Pipeline that can be used to group
@@ -189,7 +189,7 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -197,7 +197,7 @@ public class GoogleEventarcPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The user-provided ID to be assigned to the Pipeline. It should match the
@@ -206,14 +206,14 @@ public class GoogleEventarcPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
     [TerraformPropertyName("pipeline_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PipelineId { get; set; }
+    public required TerraformValue<string> PipelineId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for destinations.
@@ -222,7 +222,7 @@ public class GoogleEventarcPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destinations block(s) required")]
     [TerraformPropertyName("destinations")]
-    public TerraformList<TerraformBlock<GoogleEventarcPipelineDestinationsBlock>>? Destinations { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEventarcPipelineDestinationsBlock>>? Destinations { get; set; }
 
     /// <summary>
     /// Block for input_payload_format.
@@ -230,7 +230,7 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputPayloadFormat block(s) allowed")]
     [TerraformPropertyName("input_payload_format")]
-    public TerraformList<TerraformBlock<GoogleEventarcPipelineInputPayloadFormatBlock>>? InputPayloadFormat { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEventarcPipelineInputPayloadFormatBlock>>? InputPayloadFormat { get; set; }
 
     /// <summary>
     /// Block for logging_config.
@@ -238,14 +238,14 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformPropertyName("logging_config")]
-    public TerraformList<TerraformBlock<GoogleEventarcPipelineLoggingConfigBlock>>? LoggingConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEventarcPipelineLoggingConfigBlock>>? LoggingConfig { get; set; }
 
     /// <summary>
     /// Block for mediations.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("mediations")]
-    public TerraformList<TerraformBlock<GoogleEventarcPipelineMediationsBlock>>? Mediations { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEventarcPipelineMediationsBlock>>? Mediations { get; set; }
 
     /// <summary>
     /// Block for retry_policy.
@@ -253,14 +253,14 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
     [TerraformPropertyName("retry_policy")]
-    public TerraformList<TerraformBlock<GoogleEventarcPipelineRetryPolicyBlock>>? RetryPolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEventarcPipelineRetryPolicyBlock>>? RetryPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleEventarcPipelineTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleEventarcPipelineTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The creation time.
@@ -270,21 +270,21 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_annotations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
+    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of
@@ -293,7 +293,7 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// The resource name of the Pipeline. Must be unique within the
@@ -302,7 +302,7 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -310,7 +310,7 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Server-assigned unique identifier for the Pipeline. The value
@@ -319,7 +319,7 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// The last-modified time.
@@ -329,6 +329,6 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

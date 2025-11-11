@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRegionTargetHttpsProxyTimeoutsBlock : ITerraformBlock
+public class GoogleComputeRegionTargetHttpsProxyTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -47,14 +47,14 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformPropertyName("certificate_manager_certificates")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? CertificateManagerCertificates { get; set; }
+    public TerraformList<string>? CertificateManagerCertificates { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Specifies how long to keep a connection open, after completing a response,
@@ -65,14 +65,14 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformPropertyName("http_keep_alive_timeout_sec")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? HttpKeepAliveTimeoutSec { get; set; }
+    public TerraformValue<double>? HttpKeepAliveTimeoutSec { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -86,22 +86,22 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The Region in which the created target https proxy should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// A URL referring to a networksecurity.ServerTlsPolicy
@@ -121,7 +121,7 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformPropertyName("server_tls_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ServerTlsPolicy { get; set; }
+    public TerraformValue<string>? ServerTlsPolicy { get; set; }
 
     /// <summary>
     /// URLs to SslCertificate resources that are used to authenticate connections between users and the load balancer.
@@ -130,7 +130,7 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformPropertyName("ssl_certificates")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? SslCertificates { get; set; }
+    public TerraformList<string>? SslCertificates { get; set; }
 
     /// <summary>
     /// A reference to the Region SslPolicy resource that will be associated with
@@ -139,7 +139,7 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformPropertyName("ssl_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SslPolicy { get; set; }
+    public TerraformValue<string>? SslPolicy { get; set; }
 
     /// <summary>
     /// A reference to the RegionUrlMap resource that defines the mapping from URL
@@ -148,34 +148,34 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlMap is required")]
     [TerraformPropertyName("url_map")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> UrlMap { get; set; }
+    public required TerraformValue<string> UrlMap { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeRegionTargetHttpsProxyTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeRegionTargetHttpsProxyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     [TerraformPropertyName("proxy_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ProxyId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "proxy_id");
+    public TerraformValue<double> ProxyId => new TerraformReference(this, "proxy_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
 }

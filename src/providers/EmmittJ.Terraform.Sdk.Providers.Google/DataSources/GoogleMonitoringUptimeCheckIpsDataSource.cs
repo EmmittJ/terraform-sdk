@@ -15,14 +15,14 @@ public class GoogleMonitoringUptimeCheckIpsDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The uptime_check_ips attribute.
     /// </summary>
     [TerraformPropertyName("uptime_check_ips")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> UptimeCheckIps => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "uptime_check_ips");
+    public TerraformList<object> UptimeCheckIps => new TerraformReference(this, "uptime_check_ips");
 
 }

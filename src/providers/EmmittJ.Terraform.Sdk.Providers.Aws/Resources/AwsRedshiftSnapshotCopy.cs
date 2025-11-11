@@ -17,7 +17,7 @@ public class AwsRedshiftSnapshotCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     [TerraformPropertyName("cluster_identifier")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClusterIdentifier { get; set; }
+    public required TerraformValue<string> ClusterIdentifier { get; set; }
 
     /// <summary>
     /// The destination_region attribute.
@@ -25,41 +25,41 @@ public class AwsRedshiftSnapshotCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRegion is required")]
     [TerraformPropertyName("destination_region")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DestinationRegion { get; set; }
+    public required TerraformValue<string> DestinationRegion { get; set; }
 
     /// <summary>
     /// The manual_snapshot_retention_period attribute.
     /// </summary>
     [TerraformPropertyName("manual_snapshot_retention_period")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> ManualSnapshotRetentionPeriod { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "manual_snapshot_retention_period");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> ManualSnapshotRetentionPeriod { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The retention_period attribute.
     /// </summary>
     [TerraformPropertyName("retention_period")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> RetentionPeriod { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "retention_period");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> RetentionPeriod { get; set; } = default!;
 
     /// <summary>
     /// The snapshot_copy_grant_name attribute.
     /// </summary>
     [TerraformPropertyName("snapshot_copy_grant_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SnapshotCopyGrantName { get; set; }
+    public TerraformValue<string>? SnapshotCopyGrantName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

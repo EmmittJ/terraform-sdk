@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for replicas in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleSpannerInstanceConfigReplicasBlock : ITerraformBlock
+public class GoogleSpannerInstanceConfigReplicasBlock
 {
     /// <summary>
     /// If true, this location is designated as the default leader location where
@@ -14,14 +14,14 @@ public class GoogleSpannerInstanceConfigReplicasBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("default_leader_location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DefaultLeaderLocation { get; set; }
+    public TerraformValue<bool>? DefaultLeaderLocation { get; set; }
 
     /// <summary>
     /// The location of the serving resources, e.g. &amp;quot;us-central1&amp;quot;.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Indicates the type of replica.  See the [replica types
@@ -30,7 +30,7 @@ public class GoogleSpannerInstanceConfigReplicasBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -38,28 +38,28 @@ public class GoogleSpannerInstanceConfigReplicasBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSpannerInstanceConfigTimeoutsBlock : ITerraformBlock
+public class GoogleSpannerInstanceConfigTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -79,8 +79,8 @@ public class GoogleSpannerInstanceConfig : TerraformResource
     /// baseConfig must refer to a configuration of type GOOGLE_MANAGED in the same project as this configuration.
     /// </summary>
     [TerraformPropertyName("base_config")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> BaseConfig { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "base_config");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> BaseConfig { get; set; } = default!;
 
     /// <summary>
     /// The name of this instance configuration as it appears in UIs.
@@ -88,14 +88,14 @@ public class GoogleSpannerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs.
@@ -107,22 +107,22 @@ public class GoogleSpannerInstanceConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// A unique identifier for the instance configuration. Values are of the
     /// form projects/&amp;lt;project&amp;gt;/instanceConfigs/[a-z][-a-z0-9]*
     /// </summary>
     [TerraformPropertyName("name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Name { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for replicas.
@@ -131,28 +131,28 @@ public class GoogleSpannerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replicas is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Replicas block(s) required")]
     [TerraformPropertyName("replicas")]
-    public TerraformSet<TerraformBlock<GoogleSpannerInstanceConfigReplicasBlock>>? Replicas { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleSpannerInstanceConfigReplicasBlock>>? Replicas { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleSpannerInstanceConfigTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleSpannerInstanceConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Whether this instance config is a Google or User Managed Configuration.
     /// </summary>
     [TerraformPropertyName("config_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ConfigType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "config_type");
+    public TerraformValue<string> ConfigType => new TerraformReference(this, "config_type");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -160,6 +160,6 @@ public class GoogleSpannerInstanceConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

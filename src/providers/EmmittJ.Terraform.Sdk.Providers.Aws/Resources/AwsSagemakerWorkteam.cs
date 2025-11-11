@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for member_definition in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerWorkteamMemberDefinitionBlock : ITerraformBlock
+public class AwsSagemakerWorkteamMemberDefinitionBlock
 {
 }
 
@@ -14,14 +14,14 @@ public class AwsSagemakerWorkteamMemberDefinitionBlock : ITerraformBlock
 /// Block type for notification_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerWorkteamNotificationConfigurationBlock : ITerraformBlock
+public class AwsSagemakerWorkteamNotificationConfigurationBlock
 {
     /// <summary>
     /// The notification_topic_arn attribute.
     /// </summary>
     [TerraformPropertyName("notification_topic_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NotificationTopicArn { get; set; }
+    public TerraformValue<string>? NotificationTopicArn { get; set; }
 
 }
 
@@ -29,7 +29,7 @@ public class AwsSagemakerWorkteamNotificationConfigurationBlock : ITerraformBloc
 /// Block type for worker_access_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerWorkteamWorkerAccessConfigurationBlock : ITerraformBlock
+public class AwsSagemakerWorkteamWorkerAccessConfigurationBlock
 {
 }
 
@@ -49,42 +49,42 @@ public class AwsSagemakerWorkteam : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     [TerraformPropertyName("description")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Description { get; set; }
+    public required TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The workforce_name attribute.
     /// </summary>
     [TerraformPropertyName("workforce_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? WorkforceName { get; set; }
+    public TerraformValue<string>? WorkforceName { get; set; }
 
     /// <summary>
     /// The workteam_name attribute.
@@ -92,7 +92,7 @@ public class AwsSagemakerWorkteam : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkteamName is required")]
     [TerraformPropertyName("workteam_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkteamName { get; set; }
+    public required TerraformValue<string> WorkteamName { get; set; }
 
     /// <summary>
     /// Block for member_definition.
@@ -102,7 +102,7 @@ public class AwsSagemakerWorkteam : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MemberDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 MemberDefinition block(s) allowed")]
     [TerraformPropertyName("member_definition")]
-    public TerraformList<TerraformBlock<AwsSagemakerWorkteamMemberDefinitionBlock>>? MemberDefinition { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerWorkteamMemberDefinitionBlock>>? MemberDefinition { get; set; }
 
     /// <summary>
     /// Block for notification_configuration.
@@ -110,7 +110,7 @@ public class AwsSagemakerWorkteam : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfiguration block(s) allowed")]
     [TerraformPropertyName("notification_configuration")]
-    public TerraformList<TerraformBlock<AwsSagemakerWorkteamNotificationConfigurationBlock>>? NotificationConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerWorkteamNotificationConfigurationBlock>>? NotificationConfiguration { get; set; }
 
     /// <summary>
     /// Block for worker_access_configuration.
@@ -118,20 +118,20 @@ public class AwsSagemakerWorkteam : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerAccessConfiguration block(s) allowed")]
     [TerraformPropertyName("worker_access_configuration")]
-    public TerraformList<TerraformBlock<AwsSagemakerWorkteamWorkerAccessConfigurationBlock>>? WorkerAccessConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsSagemakerWorkteamWorkerAccessConfigurationBlock>>? WorkerAccessConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The subdomain attribute.
     /// </summary>
     [TerraformPropertyName("subdomain")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Subdomain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subdomain");
+    public TerraformValue<string> Subdomain => new TerraformReference(this, "subdomain");
 
 }

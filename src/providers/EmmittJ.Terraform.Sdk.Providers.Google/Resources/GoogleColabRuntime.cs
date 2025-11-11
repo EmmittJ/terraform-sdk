@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for notebook_runtime_template_ref in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleColabRuntimeNotebookRuntimeTemplateRefBlock : ITerraformBlock
+public class GoogleColabRuntimeNotebookRuntimeTemplateRefBlock
 {
     /// <summary>
     /// The resource name of the NotebookRuntimeTemplate based on which a NotebookRuntime will be created.
@@ -14,7 +14,7 @@ public class GoogleColabRuntimeNotebookRuntimeTemplateRefBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotebookRuntimeTemplate is required")]
     [TerraformPropertyName("notebook_runtime_template")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NotebookRuntimeTemplate { get; set; }
+    public required TerraformValue<string> NotebookRuntimeTemplate { get; set; }
 
 }
 
@@ -22,28 +22,28 @@ public class GoogleColabRuntimeNotebookRuntimeTemplateRefBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleColabRuntimeTimeoutsBlock : ITerraformBlock
+public class GoogleColabRuntimeTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -62,21 +62,21 @@ public class GoogleColabRuntime : TerraformResource
     /// </summary>
     [TerraformPropertyName("auto_upgrade")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AutoUpgrade { get; set; }
+    public TerraformValue<bool>? AutoUpgrade { get; set; }
 
     /// <summary>
     /// The description of the Runtime.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Desired state of the Colab Runtime. Set this field to &#39;RUNNING&#39; to start the runtime, and &#39;STOPPED&#39; to stop it.
     /// </summary>
     [TerraformPropertyName("desired_state")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DesiredState { get; set; }
+    public TerraformValue<string>? DesiredState { get; set; }
 
     /// <summary>
     /// Required. The display name of the Runtime.
@@ -84,14 +84,14 @@ public class GoogleColabRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location for the resource: https://cloud.google.com/colab/docs/locations
@@ -99,21 +99,21 @@ public class GoogleColabRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource name of the Runtime
     /// </summary>
     [TerraformPropertyName("name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
+    public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The user email of the NotebookRuntime.
@@ -121,7 +121,7 @@ public class GoogleColabRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeUser is required")]
     [TerraformPropertyName("runtime_user")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RuntimeUser { get; set; }
+    public required TerraformValue<string> RuntimeUser { get; set; }
 
     /// <summary>
     /// Block for notebook_runtime_template_ref.
@@ -129,41 +129,41 @@ public class GoogleColabRuntime : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotebookRuntimeTemplateRef block(s) allowed")]
     [TerraformPropertyName("notebook_runtime_template_ref")]
-    public TerraformList<TerraformBlock<GoogleColabRuntimeNotebookRuntimeTemplateRefBlock>>? NotebookRuntimeTemplateRef { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleColabRuntimeNotebookRuntimeTemplateRefBlock>>? NotebookRuntimeTemplateRef { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleColabRuntimeTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleColabRuntimeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Timestamp when this NotebookRuntime will be expired.
     /// </summary>
     [TerraformPropertyName("expiration_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExpirationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_time");
+    public TerraformValue<string> ExpirationTime => new TerraformReference(this, "expiration_time");
 
     /// <summary>
     /// Output only. Checks if the NotebookRuntime is upgradable.
     /// </summary>
     [TerraformPropertyName("is_upgradable")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> IsUpgradable => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "is_upgradable");
+    public TerraformValue<bool> IsUpgradable => new TerraformReference(this, "is_upgradable");
 
     /// <summary>
     /// Output only. The type of the notebook runtime.
     /// </summary>
     [TerraformPropertyName("notebook_runtime_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NotebookRuntimeType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "notebook_runtime_type");
+    public TerraformValue<string> NotebookRuntimeType => new TerraformReference(this, "notebook_runtime_type");
 
     /// <summary>
     /// Output only. The state of the runtime.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
 }

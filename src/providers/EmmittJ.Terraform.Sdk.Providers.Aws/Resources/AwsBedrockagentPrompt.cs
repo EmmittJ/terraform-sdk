@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for variant in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentPromptVariantBlock : ITerraformBlock
+public class AwsBedrockagentPromptVariantBlock
 {
     /// <summary>
     /// The additional_model_request_fields attribute.
     /// </summary>
     [TerraformPropertyName("additional_model_request_fields")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AdditionalModelRequestFields { get; set; }
+    public TerraformValue<string>? AdditionalModelRequestFields { get; set; }
 
     /// <summary>
     /// The model_id attribute.
     /// </summary>
     [TerraformPropertyName("model_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ModelId { get; set; }
+    public TerraformValue<string>? ModelId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -28,7 +28,7 @@ public class AwsBedrockagentPromptVariantBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The template_type attribute.
@@ -36,7 +36,7 @@ public class AwsBedrockagentPromptVariantBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateType is required")]
     [TerraformPropertyName("template_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TemplateType { get; set; }
+    public required TerraformValue<string> TemplateType { get; set; }
 
 }
 
@@ -54,21 +54,21 @@ public class AwsBedrockagentPrompt : TerraformResource
     /// </summary>
     [TerraformPropertyName("customer_encryption_key_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomerEncryptionKeyArn { get; set; }
+    public TerraformValue<string>? CustomerEncryptionKeyArn { get; set; }
 
     /// <summary>
     /// The default_variant attribute.
     /// </summary>
     [TerraformPropertyName("default_variant")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DefaultVariant { get; set; }
+    public TerraformValue<string>? DefaultVariant { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -76,69 +76,69 @@ public class AwsBedrockagentPrompt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for variant.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("variant")]
-    public TerraformList<TerraformBlock<AwsBedrockagentPromptVariantBlock>>? Variant { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsBedrockagentPromptVariantBlock>>? Variant { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformPropertyName("created_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
+    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     [TerraformPropertyName("updated_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "updated_at");
+    public TerraformValue<string> UpdatedAt => new TerraformReference(this, "updated_at");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformPropertyName("version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
+    public TerraformValue<string> Version => new TerraformReference(this, "version");
 
 }

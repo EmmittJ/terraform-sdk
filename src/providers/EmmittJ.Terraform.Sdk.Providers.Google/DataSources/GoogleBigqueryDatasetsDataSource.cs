@@ -15,21 +15,21 @@ public class GoogleBigqueryDatasetsDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ID of the project in which the datasets are located. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The datasets attribute.
     /// </summary>
     [TerraformPropertyName("datasets")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Datasets => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "datasets");
+    public TerraformList<object> Datasets => new TerraformReference(this, "datasets");
 
 }

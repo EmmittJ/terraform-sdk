@@ -15,8 +15,8 @@ public class AwsIamInstanceProfileDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -24,48 +24,48 @@ public class AwsIamInstanceProfileDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
     [TerraformPropertyName("create_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_date");
+    public TerraformValue<string> CreateDate => new TerraformReference(this, "create_date");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformPropertyName("path")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Path => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "path");
+    public TerraformValue<string> Path => new TerraformReference(this, "path");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [TerraformPropertyName("role_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_arn");
+    public TerraformValue<string> RoleArn => new TerraformReference(this, "role_arn");
 
     /// <summary>
     /// The role_id attribute.
     /// </summary>
     [TerraformPropertyName("role_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RoleId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_id");
+    public TerraformValue<string> RoleId => new TerraformReference(this, "role_id");
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     [TerraformPropertyName("role_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RoleName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_name");
+    public TerraformValue<string> RoleName => new TerraformReference(this, "role_name");
 
 }

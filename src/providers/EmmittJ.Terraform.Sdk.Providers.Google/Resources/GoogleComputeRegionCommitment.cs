@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for license_resource in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionCommitmentLicenseResourceBlock : ITerraformBlock
+public class GoogleComputeRegionCommitmentLicenseResourceBlock
 {
     /// <summary>
     /// The number of licenses purchased.
     /// </summary>
     [TerraformPropertyName("amount")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Amount { get; set; }
+    public TerraformValue<string>? Amount { get; set; }
 
     /// <summary>
     /// Specifies the core range of the instance for which this license applies.
     /// </summary>
     [TerraformPropertyName("cores_per_license")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CoresPerLicense { get; set; }
+    public TerraformValue<string>? CoresPerLicense { get; set; }
 
     /// <summary>
     /// Any applicable license URI.
@@ -28,7 +28,7 @@ public class GoogleComputeRegionCommitmentLicenseResourceBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "License is required")]
     [TerraformPropertyName("license")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> License { get; set; }
+    public required TerraformValue<string> License { get; set; }
 
 }
 
@@ -36,14 +36,14 @@ public class GoogleComputeRegionCommitmentLicenseResourceBlock : ITerraformBlock
 /// Block type for resources in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionCommitmentResourcesBlock : ITerraformBlock
+public class GoogleComputeRegionCommitmentResourcesBlock
 {
     /// <summary>
     /// Name of the accelerator type resource. Applicable only when the type is ACCELERATOR.
     /// </summary>
     [TerraformPropertyName("accelerator_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AcceleratorType { get; set; }
+    public TerraformValue<string>? AcceleratorType { get; set; }
 
     /// <summary>
     /// The amount of the resource purchased (in a type-dependent unit,
@@ -53,7 +53,7 @@ public class GoogleComputeRegionCommitmentResourcesBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("amount")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Amount { get; set; }
+    public TerraformValue<string>? Amount { get; set; }
 
     /// <summary>
     /// Type of resource for which this commitment applies.
@@ -61,7 +61,7 @@ public class GoogleComputeRegionCommitmentResourcesBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -69,21 +69,21 @@ public class GoogleComputeRegionCommitmentResourcesBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRegionCommitmentTimeoutsBlock : ITerraformBlock
+public class GoogleComputeRegionCommitmentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -104,8 +104,8 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// one or three years according to the terms of the existing commitment.
     /// </summary>
     [TerraformPropertyName("auto_renew")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> AutoRenew { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "auto_renew");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> AutoRenew { get; set; } = default!;
 
     /// <summary>
     /// The category of the commitment. Category MACHINE specifies commitments composed of
@@ -114,29 +114,29 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// Note that only MACHINE commitments should have a Type specified. Possible values: [&amp;quot;LICENSE&amp;quot;, &amp;quot;MACHINE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("category")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Category { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "category");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Category { get; set; } = default!;
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Specifies the already existing reservations to attach to the Commitment.
     /// </summary>
     [TerraformPropertyName("existing_reservations")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ExistingReservations { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "existing_reservations");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ExistingReservations { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long and match
@@ -148,7 +148,7 @@ public class GoogleComputeRegionCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The plan for this commitment, which determines duration and discount rate.
@@ -157,21 +157,21 @@ public class GoogleComputeRegionCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     [TerraformPropertyName("plan")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Plan { get; set; }
+    public required TerraformValue<string> Plan { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// URL of the region where this commitment may be used.
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The type of commitment, which affects the discount rate and the eligible resources.
@@ -181,8 +181,8 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// &#39;GRAPHICS_OPTIMIZED_G2&#39;
     /// </summary>
     [TerraformPropertyName("type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Type { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Type { get; set; } = default!;
 
     /// <summary>
     /// Block for license_resource.
@@ -190,56 +190,56 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LicenseResource block(s) allowed")]
     [TerraformPropertyName("license_resource")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionCommitmentLicenseResourceBlock>>? LicenseResource { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeRegionCommitmentLicenseResourceBlock>>? LicenseResource { get; set; }
 
     /// <summary>
     /// Block for resources.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("resources")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionCommitmentResourcesBlock>>? Resources { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeRegionCommitmentResourcesBlock>>? Resources { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeRegionCommitmentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeRegionCommitmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Unique identifier for the resource.
     /// </summary>
     [TerraformPropertyName("commitment_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> CommitmentId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "commitment_id");
+    public TerraformValue<double> CommitmentId => new TerraformReference(this, "commitment_id");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// Commitment end time in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("end_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EndTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "end_timestamp");
+    public TerraformValue<string> EndTimestamp => new TerraformReference(this, "end_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// Commitment start time in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("start_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StartTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_timestamp");
+    public TerraformValue<string> StartTimestamp => new TerraformReference(this, "start_timestamp");
 
     /// <summary>
     /// Status of the commitment with regards to eventual expiration
@@ -247,13 +247,13 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// A human-readable explanation of the status.
     /// </summary>
     [TerraformPropertyName("status_message")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StatusMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status_message");
+    public TerraformValue<string> StatusMessage => new TerraformReference(this, "status_message");
 
 }

@@ -15,8 +15,8 @@ public class AwsCloudfrontFunctionDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -24,7 +24,7 @@ public class AwsCloudfrontFunctionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The stage attribute.
@@ -32,62 +32,62 @@ public class AwsCloudfrontFunctionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     [TerraformPropertyName("stage")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Stage { get; set; }
+    public required TerraformValue<string> Stage { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The code attribute.
     /// </summary>
     [TerraformPropertyName("code")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Code => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "code");
+    public TerraformValue<string> Code => new TerraformReference(this, "code");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     [TerraformPropertyName("comment")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Comment => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "comment");
+    public TerraformValue<string> Comment => new TerraformReference(this, "comment");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// The key_value_store_associations attribute.
     /// </summary>
     [TerraformPropertyName("key_value_store_associations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> KeyValueStoreAssociations => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "key_value_store_associations");
+    public TerraformSet<string> KeyValueStoreAssociations => new TerraformReference(this, "key_value_store_associations");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
     [TerraformPropertyName("last_modified_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastModifiedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_time");
+    public TerraformValue<string> LastModifiedTime => new TerraformReference(this, "last_modified_time");
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
     [TerraformPropertyName("runtime")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Runtime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "runtime");
+    public TerraformValue<string> Runtime => new TerraformReference(this, "runtime");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
 }

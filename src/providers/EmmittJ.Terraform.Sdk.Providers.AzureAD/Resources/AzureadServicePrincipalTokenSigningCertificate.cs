@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock : ITerraformBlock
+public class AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -44,22 +44,22 @@ public class AzureadServicePrincipalTokenSigningCertificate : TerraformResource
     /// A friendly name for the certificate
     /// </summary>
     [TerraformPropertyName("display_name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DisplayName { get; set; } = default!;
 
     /// <summary>
     /// The end date until which the certificate is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Default is 3 years from current date.
     /// </summary>
     [TerraformPropertyName("end_date")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> EndDate { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "end_date");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> EndDate { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ID of the service principal for which this certificate should be created
@@ -67,41 +67,41 @@ public class AzureadServicePrincipalTokenSigningCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     [TerraformPropertyName("service_principal_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServicePrincipalId { get; set; }
+    public required TerraformValue<string> ServicePrincipalId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A UUID used to uniquely identify the verify certificate.
     /// </summary>
     [TerraformPropertyName("key_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_id");
+    public TerraformValue<string> KeyId => new TerraformReference(this, "key_id");
 
     /// <summary>
     /// The start date from which the certificate is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
     /// </summary>
     [TerraformPropertyName("start_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StartDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_date");
+    public TerraformValue<string> StartDate => new TerraformReference(this, "start_date");
 
     /// <summary>
     /// The thumbprint of the certificate.
     /// </summary>
     [TerraformPropertyName("thumbprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Thumbprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "thumbprint");
+    public TerraformValue<string> Thumbprint => new TerraformReference(this, "thumbprint");
 
     /// <summary>
     /// The certificate data, which is PEM encoded but does not include the header/footer
     /// </summary>
     [TerraformPropertyName("value")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Value => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "value");
+    public TerraformValue<string> Value => new TerraformReference(this, "value");
 
 }

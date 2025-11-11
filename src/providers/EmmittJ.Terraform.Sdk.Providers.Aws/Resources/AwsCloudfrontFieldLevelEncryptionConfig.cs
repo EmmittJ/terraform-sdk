@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for content_type_profile_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBlock : ITerraformBlock
+public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBlock
 {
     /// <summary>
     /// The forward_when_content_type_is_unknown attribute.
@@ -14,7 +14,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardWhenContentTypeIsUnknown is required")]
     [TerraformPropertyName("forward_when_content_type_is_unknown")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> ForwardWhenContentTypeIsUnknown { get; set; }
+    public required TerraformValue<bool> ForwardWhenContentTypeIsUnknown { get; set; }
 
 }
 
@@ -22,7 +22,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBloc
 /// Block type for query_arg_profile_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock : ITerraformBlock
+public class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock
 {
     /// <summary>
     /// The forward_when_query_arg_profile_is_unknown attribute.
@@ -30,7 +30,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardWhenQueryArgProfileIsUnknown is required")]
     [TerraformPropertyName("forward_when_query_arg_profile_is_unknown")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> ForwardWhenQueryArgProfileIsUnknown { get; set; }
+    public required TerraformValue<bool> ForwardWhenQueryArgProfileIsUnknown { get; set; }
 
 }
 
@@ -49,14 +49,14 @@ public class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("comment")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Comment { get; set; }
+    public TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Block for content_type_profile_config.
@@ -66,7 +66,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContentTypeProfileConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContentTypeProfileConfig block(s) allowed")]
     [TerraformPropertyName("content_type_profile_config")]
-    public TerraformList<TerraformBlock<AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBlock>>? ContentTypeProfileConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBlock>>? ContentTypeProfileConfig { get; set; }
 
     /// <summary>
     /// Block for query_arg_profile_config.
@@ -76,27 +76,27 @@ public class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QueryArgProfileConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueryArgProfileConfig block(s) allowed")]
     [TerraformPropertyName("query_arg_profile_config")]
-    public TerraformList<TerraformBlock<AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock>>? QueryArgProfileConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock>>? QueryArgProfileConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     [TerraformPropertyName("caller_reference")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CallerReference => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "caller_reference");
+    public TerraformValue<string> CallerReference => new TerraformReference(this, "caller_reference");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
 }

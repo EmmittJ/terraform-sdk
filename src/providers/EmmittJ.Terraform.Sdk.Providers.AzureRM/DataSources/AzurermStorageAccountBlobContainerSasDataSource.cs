@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for permissions in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : ITerraformBlock
+public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock
 {
     /// <summary>
     /// The add attribute.
@@ -14,7 +14,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : I
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Add is required")]
     [TerraformPropertyName("add")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Add { get; set; }
+    public required TerraformValue<bool> Add { get; set; }
 
     /// <summary>
     /// The create attribute.
@@ -22,7 +22,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : I
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Create is required")]
     [TerraformPropertyName("create")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Create { get; set; }
+    public required TerraformValue<bool> Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
@@ -30,7 +30,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : I
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
     [TerraformPropertyName("delete")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Delete { get; set; }
+    public required TerraformValue<bool> Delete { get; set; }
 
     /// <summary>
     /// The list attribute.
@@ -38,7 +38,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : I
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "List is required")]
     [TerraformPropertyName("list")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> List { get; set; }
+    public required TerraformValue<bool> List { get; set; }
 
     /// <summary>
     /// The read attribute.
@@ -46,7 +46,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : I
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
     [TerraformPropertyName("read")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Read { get; set; }
+    public required TerraformValue<bool> Read { get; set; }
 
     /// <summary>
     /// The write attribute.
@@ -54,7 +54,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : I
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
     [TerraformPropertyName("write")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Write { get; set; }
+    public required TerraformValue<bool> Write { get; set; }
 
 }
 
@@ -62,14 +62,14 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : I
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -88,7 +88,7 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// </summary>
     [TerraformPropertyName("cache_control")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CacheControl { get; set; }
+    public TerraformValue<string>? CacheControl { get; set; }
 
     /// <summary>
     /// The connection_string attribute.
@@ -96,7 +96,7 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     [TerraformPropertyName("connection_string")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConnectionString { get; set; }
+    public required TerraformValue<string> ConnectionString { get; set; }
 
     /// <summary>
     /// The container_name attribute.
@@ -104,35 +104,35 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     [TerraformPropertyName("container_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContainerName { get; set; }
+    public required TerraformValue<string> ContainerName { get; set; }
 
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
     [TerraformPropertyName("content_disposition")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContentDisposition { get; set; }
+    public TerraformValue<string>? ContentDisposition { get; set; }
 
     /// <summary>
     /// The content_encoding attribute.
     /// </summary>
     [TerraformPropertyName("content_encoding")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContentEncoding { get; set; }
+    public TerraformValue<string>? ContentEncoding { get; set; }
 
     /// <summary>
     /// The content_language attribute.
     /// </summary>
     [TerraformPropertyName("content_language")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContentLanguage { get; set; }
+    public TerraformValue<string>? ContentLanguage { get; set; }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
     [TerraformPropertyName("content_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContentType { get; set; }
+    public TerraformValue<string>? ContentType { get; set; }
 
     /// <summary>
     /// The expiry attribute.
@@ -140,28 +140,28 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
     [TerraformPropertyName("expiry")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Expiry { get; set; }
+    public required TerraformValue<string> Expiry { get; set; }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
     [TerraformPropertyName("https_only")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? HttpsOnly { get; set; }
+    public TerraformValue<bool>? HttpsOnly { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     [TerraformPropertyName("ip_address")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IpAddress { get; set; }
+    public TerraformValue<string>? IpAddress { get; set; }
 
     /// <summary>
     /// The start attribute.
@@ -169,7 +169,7 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     [TerraformPropertyName("start")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Start { get; set; }
+    public required TerraformValue<string> Start { get; set; }
 
     /// <summary>
     /// Block for permissions.
@@ -179,20 +179,20 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Permissions block(s) allowed")]
     [TerraformPropertyName("permissions")]
-    public TerraformList<TerraformBlock<AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock>>? Permissions { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock>>? Permissions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The sas attribute.
     /// </summary>
     [TerraformPropertyName("sas")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Sas => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sas");
+    public TerraformValue<string> Sas => new TerraformReference(this, "sas");
 
 }

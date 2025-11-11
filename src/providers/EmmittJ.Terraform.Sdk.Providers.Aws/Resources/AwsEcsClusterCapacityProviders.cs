@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for default_capacity_provider_strategy in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock : ITerraformBlock
+public class AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock
 {
     /// <summary>
     /// The base attribute.
     /// </summary>
     [TerraformPropertyName("base")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Base { get; set; }
+    public TerraformValue<double>? Base { get; set; }
 
     /// <summary>
     /// The capacity_provider attribute.
@@ -21,14 +21,14 @@ public class AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     [TerraformPropertyName("capacity_provider")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CapacityProvider { get; set; }
+    public required TerraformValue<string> CapacityProvider { get; set; }
 
     /// <summary>
     /// The weight attribute.
     /// </summary>
     [TerraformPropertyName("weight")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Weight { get; set; }
+    public TerraformValue<double>? Weight { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class AwsEcsClusterCapacityProviders : TerraformResource
     /// </summary>
     [TerraformPropertyName("capacity_providers")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? CapacityProviders { get; set; }
+    public TerraformSet<string>? CapacityProviders { get; set; }
 
     /// <summary>
     /// The cluster_name attribute.
@@ -54,27 +54,27 @@ public class AwsEcsClusterCapacityProviders : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     [TerraformPropertyName("cluster_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClusterName { get; set; }
+    public required TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for default_capacity_provider_strategy.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("default_capacity_provider_strategy")]
-    public TerraformSet<TerraformBlock<AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock>>? DefaultCapacityProviderStrategy { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock>>? DefaultCapacityProviderStrategy { get; set; }
 
 }

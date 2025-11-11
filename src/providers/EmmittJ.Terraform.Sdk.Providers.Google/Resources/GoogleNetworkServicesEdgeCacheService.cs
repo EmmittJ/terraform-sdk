@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesEdgeCacheServiceLogConfigBlock : ITerraformBlock
+public class GoogleNetworkServicesEdgeCacheServiceLogConfigBlock
 {
     /// <summary>
     /// Specifies whether to enable logging for traffic served by this service.
     /// </summary>
     [TerraformPropertyName("enable")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> Enable { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "enable");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> Enable { get; set; } = default!;
 
     /// <summary>
     /// Configures the sampling rate of requests, where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 1.0, and the value of the field must be in [0, 1].
@@ -22,7 +22,7 @@ public class GoogleNetworkServicesEdgeCacheServiceLogConfigBlock : ITerraformBlo
     /// </summary>
     [TerraformPropertyName("sample_rate")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? SampleRate { get; set; }
+    public TerraformValue<double>? SampleRate { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public class GoogleNetworkServicesEdgeCacheServiceLogConfigBlock : ITerraformBlo
 /// Block type for routing in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesEdgeCacheServiceRoutingBlock : ITerraformBlock
+public class GoogleNetworkServicesEdgeCacheServiceRoutingBlock
 {
 }
 
@@ -38,28 +38,28 @@ public class GoogleNetworkServicesEdgeCacheServiceRoutingBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock : ITerraformBlock
+public class GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,7 +78,7 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Disables HTTP/2.
@@ -89,21 +89,21 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [TerraformPropertyName("disable_http2")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DisableHttp2 { get; set; }
+    public TerraformValue<bool>? DisableHttp2 { get; set; }
 
     /// <summary>
     /// HTTP/3 (IETF QUIC) and Google QUIC are enabled by default.
     /// </summary>
     [TerraformPropertyName("disable_quic")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> DisableQuic { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "disable_quic");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> DisableQuic { get; set; } = default!;
 
     /// <summary>
     /// Resource URL that points at the Cloud Armor edge security policy that is applied on each request against the EdgeCacheService.
     /// </summary>
     [TerraformPropertyName("edge_security_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EdgeSecurityPolicy { get; set; }
+    public TerraformValue<string>? EdgeSecurityPolicy { get; set; }
 
     /// <summary>
     /// URLs to sslCertificate resources that are used to authenticate connections between users and the EdgeCacheService.
@@ -112,14 +112,14 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [TerraformPropertyName("edge_ssl_certificates")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? EdgeSslCertificates { get; set; }
+    public TerraformList<string>? EdgeSslCertificates { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Set of label tags associated with the EdgeCache resource.
@@ -129,7 +129,7 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is created.
@@ -139,14 +139,14 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Require TLS (HTTPS) for all clients connecting to this service.
@@ -155,8 +155,8 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// You must have at least one (1) edgeSslCertificate specified to enable this.
     /// </summary>
     [TerraformPropertyName("require_tls")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> RequireTls { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "require_tls");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> RequireTls { get; set; } = default!;
 
     /// <summary>
     /// URL of the SslPolicy resource that will be associated with the EdgeCacheService.
@@ -165,7 +165,7 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [TerraformPropertyName("ssl_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SslPolicy { get; set; }
+    public TerraformValue<string>? SslPolicy { get; set; }
 
     /// <summary>
     /// Block for log_config.
@@ -173,7 +173,7 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformPropertyName("log_config")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheServiceLogConfigBlock>>? LogConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheServiceLogConfigBlock>>? LogConfig { get; set; }
 
     /// <summary>
     /// Block for routing.
@@ -183,35 +183,35 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Routing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
     [TerraformPropertyName("routing")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheServiceRoutingBlock>>? Routing { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheServiceRoutingBlock>>? Routing { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The IPv4 addresses associated with this service. Addresses are static for the lifetime of the service.
     /// </summary>
     [TerraformPropertyName("ipv4_addresses")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Ipv4Addresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "ipv4_addresses");
+    public TerraformList<string> Ipv4Addresses => new TerraformReference(this, "ipv4_addresses");
 
     /// <summary>
     /// The IPv6 addresses associated with this service. Addresses are static for the lifetime of the service.
     /// </summary>
     [TerraformPropertyName("ipv6_addresses")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Ipv6Addresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "ipv6_addresses");
+    public TerraformList<string> Ipv6Addresses => new TerraformReference(this, "ipv6_addresses");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -219,6 +219,6 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

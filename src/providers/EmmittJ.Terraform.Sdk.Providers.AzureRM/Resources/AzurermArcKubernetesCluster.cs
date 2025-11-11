@@ -6,21 +6,9 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermArcKubernetesClusterIdentityBlock : ITerraformBlock
+public class AzurermArcKubernetesClusterIdentityBlock
 {
-    /// <summary>
-    /// The principal_id attribute.
-    /// </summary>
-    [TerraformPropertyName("principal_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
-    /// <summary>
-    /// The tenant_id attribute.
-    /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -28,7 +16,7 @@ public class AzurermArcKubernetesClusterIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -36,35 +24,35 @@ public class AzurermArcKubernetesClusterIdentityBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermArcKubernetesClusterTimeoutsBlock : ITerraformBlock
+public class AzurermArcKubernetesClusterTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,14 +72,14 @@ public class AzurermArcKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentPublicKeyCertificate is required")]
     [TerraformPropertyName("agent_public_key_certificate")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AgentPublicKeyCertificate { get; set; }
+    public required TerraformValue<string> AgentPublicKeyCertificate { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -99,7 +87,7 @@ public class AzurermArcKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -107,7 +95,7 @@ public class AzurermArcKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -115,14 +103,14 @@ public class AzurermArcKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -132,62 +120,62 @@ public class AzurermArcKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformPropertyName("identity")]
-    public TerraformList<TerraformBlock<AzurermArcKubernetesClusterIdentityBlock>>? Identity { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermArcKubernetesClusterIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermArcKubernetesClusterTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermArcKubernetesClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
     [TerraformPropertyName("agent_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AgentVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "agent_version");
+    public TerraformValue<string> AgentVersion => new TerraformReference(this, "agent_version");
 
     /// <summary>
     /// The distribution attribute.
     /// </summary>
     [TerraformPropertyName("distribution")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Distribution => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "distribution");
+    public TerraformValue<string> Distribution => new TerraformReference(this, "distribution");
 
     /// <summary>
     /// The infrastructure attribute.
     /// </summary>
     [TerraformPropertyName("infrastructure")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Infrastructure => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "infrastructure");
+    public TerraformValue<string> Infrastructure => new TerraformReference(this, "infrastructure");
 
     /// <summary>
     /// The kubernetes_version attribute.
     /// </summary>
     [TerraformPropertyName("kubernetes_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KubernetesVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kubernetes_version");
+    public TerraformValue<string> KubernetesVersion => new TerraformReference(this, "kubernetes_version");
 
     /// <summary>
     /// The offering attribute.
     /// </summary>
     [TerraformPropertyName("offering")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Offering => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "offering");
+    public TerraformValue<string> Offering => new TerraformReference(this, "offering");
 
     /// <summary>
     /// The total_core_count attribute.
     /// </summary>
     [TerraformPropertyName("total_core_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> TotalCoreCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_core_count");
+    public TerraformValue<double> TotalCoreCount => new TerraformReference(this, "total_core_count");
 
     /// <summary>
     /// The total_node_count attribute.
     /// </summary>
     [TerraformPropertyName("total_node_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> TotalNodeCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_node_count");
+    public TerraformValue<double> TotalNodeCount => new TerraformReference(this, "total_node_count");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for replication_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcrReplicationConfigurationReplicationConfigurationBlock : ITerraformBlock
+public class AwsEcrReplicationConfigurationReplicationConfigurationBlock
 {
 }
 
@@ -24,15 +24,15 @@ public class AwsEcrReplicationConfiguration : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for replication_configuration.
@@ -40,13 +40,13 @@ public class AwsEcrReplicationConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationConfiguration block(s) allowed")]
     [TerraformPropertyName("replication_configuration")]
-    public TerraformList<TerraformBlock<AwsEcrReplicationConfigurationReplicationConfigurationBlock>>? ReplicationConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsEcrReplicationConfigurationReplicationConfigurationBlock>>? ReplicationConfiguration { get; set; }
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
     [TerraformPropertyName("registry_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RegistryId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registry_id");
+    public TerraformValue<string> RegistryId => new TerraformReference(this, "registry_id");
 
 }

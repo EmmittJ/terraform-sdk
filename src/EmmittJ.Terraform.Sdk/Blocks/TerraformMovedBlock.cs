@@ -64,21 +64,16 @@ public class TerraformMovedBlock : TerraformConstruct
 /// Represents an address property for moved blocks.
 /// This renders without quotes since addresses are references, not strings.
 /// </summary>
-public class MovedAddressProperty : TerraformProperty<TerraformExpression>
+public class MovedAddressProperty : ITerraformResolvable
 {
     private readonly string _address;
 
-    public MovedAddressProperty(string address) : base("", "")
+    public MovedAddressProperty(string address)
     {
         _address = address ?? throw new ArgumentNullException(nameof(address));
     }
 
-    public override void Prepare(ITerraformContext context)
-    {
-        // No preparation needed for moved addresses
-    }
-
-    public override TerraformExpression Resolve(ITerraformContext? context = null)
+    public TerraformExpression Resolve(ITerraformResolveContext context)
     {
         // Return a literal expression that renders without quotes
         return new MovedAddressExpression(_address);

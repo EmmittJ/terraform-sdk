@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for destination_dataset in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock : ITerraformBlock
+public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock
 {
     /// <summary>
     /// A user-friendly description of the dataset.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A descriptive name for the dataset.
     /// </summary>
     [TerraformPropertyName("friendly_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FriendlyName { get; set; }
+    public TerraformValue<string>? FriendlyName { get; set; }
 
     /// <summary>
     /// The labels associated with this dataset. You can use these to
@@ -28,7 +28,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The geographic location where the dataset should reside.
@@ -37,7 +37,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock : ITerraformBlock
+public class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -79,14 +79,14 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     [TerraformPropertyName("data_exchange_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DataExchangeId { get; set; }
+    public required TerraformValue<string> DataExchangeId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ID of the listing. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
@@ -94,7 +94,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
     [TerraformPropertyName("listing_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ListingId { get; set; }
+    public required TerraformValue<string> ListingId { get; set; }
 
     /// <summary>
     /// The name of the location of the data exchange. Distinct from the location of the destination data set.
@@ -102,14 +102,14 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for destination_dataset.
@@ -119,35 +119,35 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationDataset block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationDataset block(s) allowed")]
     [TerraformPropertyName("destination_dataset")]
-    public TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock>>? DestinationDataset { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock>>? DestinationDataset { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Commercial info metadata for this subscription. This is set if this is a commercial subscription i.e. if this subscription was created from subscribing to a commercial listing.
     /// </summary>
     [TerraformPropertyName("commercial_info")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CommercialInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "commercial_info");
+    public TerraformList<object> CommercialInfo => new TerraformReference(this, "commercial_info");
 
     /// <summary>
     /// Timestamp when the subscription was created.
     /// </summary>
     [TerraformPropertyName("creation_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
+    public TerraformValue<string> CreationTime => new TerraformReference(this, "creation_time");
 
     /// <summary>
     /// Timestamp when the subscription was last modified.
     /// </summary>
     [TerraformPropertyName("last_modify_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastModifyTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modify_time");
+    public TerraformValue<string> LastModifyTime => new TerraformReference(this, "last_modify_time");
 
     /// <summary>
     /// Output only. Map of listing resource names to associated linked resource,
@@ -155,69 +155,69 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     /// </summary>
     [TerraformPropertyName("linked_dataset_map")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> LinkedDatasetMap => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "linked_dataset_map");
+    public TerraformSet<object> LinkedDatasetMap => new TerraformReference(this, "linked_dataset_map");
 
     /// <summary>
     /// Output only. Linked resources created in the subscription. Only contains values if state = STATE_ACTIVE.
     /// </summary>
     [TerraformPropertyName("linked_resources")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> LinkedResources => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "linked_resources");
+    public TerraformList<object> LinkedResources => new TerraformReference(this, "linked_resources");
 
     /// <summary>
     /// Output only. By default, false. If true, the Subscriber agreed to the email sharing mandate that is enabled for Listing.
     /// </summary>
     [TerraformPropertyName("log_linked_dataset_query_user_email")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> LogLinkedDatasetQueryUserEmail => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "log_linked_dataset_query_user_email");
+    public TerraformValue<bool> LogLinkedDatasetQueryUserEmail => new TerraformReference(this, "log_linked_dataset_query_user_email");
 
     /// <summary>
     /// The resource name of the subscription. e.g. &amp;quot;projects/myproject/locations/US/subscriptions/123&amp;quot;
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Display name of the project of this subscription.
     /// </summary>
     [TerraformPropertyName("organization_display_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OrganizationDisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "organization_display_name");
+    public TerraformValue<string> OrganizationDisplayName => new TerraformReference(this, "organization_display_name");
 
     /// <summary>
     /// Organization of the project this subscription belongs to.
     /// </summary>
     [TerraformPropertyName("organization_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OrganizationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "organization_id");
+    public TerraformValue<string> OrganizationId => new TerraformReference(this, "organization_id");
 
     /// <summary>
     /// Listing shared asset type.
     /// </summary>
     [TerraformPropertyName("resource_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ResourceType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_type");
+    public TerraformValue<string> ResourceType => new TerraformReference(this, "resource_type");
 
     /// <summary>
     /// Current state of the subscription.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// Email of the subscriber.
     /// </summary>
     [TerraformPropertyName("subscriber_contact")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SubscriberContact => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subscriber_contact");
+    public TerraformValue<string> SubscriberContact => new TerraformReference(this, "subscriber_contact");
 
     /// <summary>
     /// The subscription id used to reference the subscription.
     /// </summary>
     [TerraformPropertyName("subscription_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SubscriptionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subscription_id");
+    public TerraformValue<string> SubscriptionId => new TerraformReference(this, "subscription_id");
 
 }

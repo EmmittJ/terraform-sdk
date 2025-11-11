@@ -15,15 +15,15 @@ public class AwsElasticacheReplicationGroupDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The replication_group_id attribute.
@@ -31,132 +31,132 @@ public class AwsElasticacheReplicationGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationGroupId is required")]
     [TerraformPropertyName("replication_group_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ReplicationGroupId { get; set; }
+    public required TerraformValue<string> ReplicationGroupId { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The auth_token_enabled attribute.
     /// </summary>
     [TerraformPropertyName("auth_token_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> AuthTokenEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "auth_token_enabled");
+    public TerraformValue<bool> AuthTokenEnabled => new TerraformReference(this, "auth_token_enabled");
 
     /// <summary>
     /// The automatic_failover_enabled attribute.
     /// </summary>
     [TerraformPropertyName("automatic_failover_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> AutomaticFailoverEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "automatic_failover_enabled");
+    public TerraformValue<bool> AutomaticFailoverEnabled => new TerraformReference(this, "automatic_failover_enabled");
 
     /// <summary>
     /// The cluster_mode attribute.
     /// </summary>
     [TerraformPropertyName("cluster_mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ClusterMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_mode");
+    public TerraformValue<string> ClusterMode => new TerraformReference(this, "cluster_mode");
 
     /// <summary>
     /// The configuration_endpoint_address attribute.
     /// </summary>
     [TerraformPropertyName("configuration_endpoint_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ConfigurationEndpointAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "configuration_endpoint_address");
+    public TerraformValue<string> ConfigurationEndpointAddress => new TerraformReference(this, "configuration_endpoint_address");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The log_delivery_configuration attribute.
     /// </summary>
     [TerraformPropertyName("log_delivery_configuration")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> LogDeliveryConfiguration => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "log_delivery_configuration");
+    public TerraformSet<object> LogDeliveryConfiguration => new TerraformReference(this, "log_delivery_configuration");
 
     /// <summary>
     /// The member_clusters attribute.
     /// </summary>
     [TerraformPropertyName("member_clusters")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> MemberClusters => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "member_clusters");
+    public TerraformSet<string> MemberClusters => new TerraformReference(this, "member_clusters");
 
     /// <summary>
     /// The multi_az_enabled attribute.
     /// </summary>
     [TerraformPropertyName("multi_az_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> MultiAzEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "multi_az_enabled");
+    public TerraformValue<bool> MultiAzEnabled => new TerraformReference(this, "multi_az_enabled");
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
     [TerraformPropertyName("node_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NodeType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_type");
+    public TerraformValue<string> NodeType => new TerraformReference(this, "node_type");
 
     /// <summary>
     /// The num_cache_clusters attribute.
     /// </summary>
     [TerraformPropertyName("num_cache_clusters")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> NumCacheClusters => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "num_cache_clusters");
+    public TerraformValue<double> NumCacheClusters => new TerraformReference(this, "num_cache_clusters");
 
     /// <summary>
     /// The num_node_groups attribute.
     /// </summary>
     [TerraformPropertyName("num_node_groups")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> NumNodeGroups => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "num_node_groups");
+    public TerraformValue<double> NumNodeGroups => new TerraformReference(this, "num_node_groups");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [TerraformPropertyName("port")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Port => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "port");
+    public TerraformValue<double> Port => new TerraformReference(this, "port");
 
     /// <summary>
     /// The primary_endpoint_address attribute.
     /// </summary>
     [TerraformPropertyName("primary_endpoint_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrimaryEndpointAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_endpoint_address");
+    public TerraformValue<string> PrimaryEndpointAddress => new TerraformReference(this, "primary_endpoint_address");
 
     /// <summary>
     /// The reader_endpoint_address attribute.
     /// </summary>
     [TerraformPropertyName("reader_endpoint_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ReaderEndpointAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "reader_endpoint_address");
+    public TerraformValue<string> ReaderEndpointAddress => new TerraformReference(this, "reader_endpoint_address");
 
     /// <summary>
     /// The replicas_per_node_group attribute.
     /// </summary>
     [TerraformPropertyName("replicas_per_node_group")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ReplicasPerNodeGroup => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "replicas_per_node_group");
+    public TerraformValue<double> ReplicasPerNodeGroup => new TerraformReference(this, "replicas_per_node_group");
 
     /// <summary>
     /// The snapshot_retention_limit attribute.
     /// </summary>
     [TerraformPropertyName("snapshot_retention_limit")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> SnapshotRetentionLimit => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "snapshot_retention_limit");
+    public TerraformValue<double> SnapshotRetentionLimit => new TerraformReference(this, "snapshot_retention_limit");
 
     /// <summary>
     /// The snapshot_window attribute.
     /// </summary>
     [TerraformPropertyName("snapshot_window")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SnapshotWindow => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "snapshot_window");
+    public TerraformValue<string> SnapshotWindow => new TerraformReference(this, "snapshot_window");
 
 }

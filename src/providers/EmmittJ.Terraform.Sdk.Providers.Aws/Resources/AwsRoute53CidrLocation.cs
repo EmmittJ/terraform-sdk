@@ -17,7 +17,7 @@ public class AwsRoute53CidrLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrBlocks is required")]
     [TerraformPropertyName("cidr_blocks")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? CidrBlocks { get; set; }
+    public required TerraformSet<string> CidrBlocks { get; set; }
 
     /// <summary>
     /// The cidr_collection_id attribute.
@@ -25,7 +25,7 @@ public class AwsRoute53CidrLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrCollectionId is required")]
     [TerraformPropertyName("cidr_collection_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CidrCollectionId { get; set; }
+    public required TerraformValue<string> CidrCollectionId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -33,13 +33,13 @@ public class AwsRoute53CidrLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
 }

@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDatazoneProjectTimeoutsBlock : ITerraformBlock
+public class AwsDatazoneProjectTimeoutsBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public class AwsDatazoneProject : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The domain_identifier attribute.
@@ -46,14 +46,14 @@ public class AwsDatazoneProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     [TerraformPropertyName("domain_identifier")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DomainIdentifier { get; set; }
+    public required TerraformValue<string> DomainIdentifier { get; set; }
 
     /// <summary>
     /// The glossary_terms attribute.
     /// </summary>
     [TerraformPropertyName("glossary_terms")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? GlossaryTerms { get; set; }
+    public TerraformList<string>? GlossaryTerms { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -61,69 +61,69 @@ public class AwsDatazoneProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The skip_deletion_check attribute.
     /// </summary>
     [TerraformPropertyName("skip_deletion_check")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SkipDeletionCheck { get; set; }
+    public TerraformValue<bool>? SkipDeletionCheck { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsDatazoneProjectTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsDatazoneProjectTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformPropertyName("created_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
+    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     [TerraformPropertyName("created_by")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedBy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_by");
+    public TerraformValue<string> CreatedBy => new TerraformReference(this, "created_by");
 
     /// <summary>
     /// The failure_reasons attribute.
     /// </summary>
     [TerraformPropertyName("failure_reasons")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> FailureReasons => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "failure_reasons");
+    public TerraformList<object> FailureReasons => new TerraformReference(this, "failure_reasons");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The last_updated_at attribute.
     /// </summary>
     [TerraformPropertyName("last_updated_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastUpdatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_updated_at");
+    public TerraformValue<string> LastUpdatedAt => new TerraformReference(this, "last_updated_at");
 
     /// <summary>
     /// The project_status attribute.
     /// </summary>
     [TerraformPropertyName("project_status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ProjectStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project_status");
+    public TerraformValue<string> ProjectStatus => new TerraformReference(this, "project_status");
 
 }

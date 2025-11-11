@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRouteParamsBlock : ITerraformBlock
+public class GoogleComputeRouteParamsBlock
 {
     /// <summary>
     /// Resource manager tags to be bound to the route. Tag keys and values have the
@@ -18,7 +18,7 @@ public class GoogleComputeRouteParamsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("resource_manager_tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ResourceManagerTags { get; set; }
+    public TerraformMap<string>? ResourceManagerTags { get; set; }
 
 }
 
@@ -26,21 +26,21 @@ public class GoogleComputeRouteParamsBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRouteTimeoutsBlock : ITerraformBlock
+public class GoogleComputeRouteTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -60,7 +60,7 @@ public class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The destination range of outgoing packets that this route applies to.
@@ -69,14 +69,14 @@ public class GoogleComputeRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestRange is required")]
     [TerraformPropertyName("dest_range")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DestRange { get; set; }
+    public required TerraformValue<string> DestRange { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -90,7 +90,7 @@ public class GoogleComputeRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network that this route applies to.
@@ -98,7 +98,7 @@ public class GoogleComputeRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformPropertyName("network")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
+    public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// URL to a gateway that should handle matching packets.
@@ -111,7 +111,7 @@ public class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformPropertyName("next_hop_gateway")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NextHopGateway { get; set; }
+    public TerraformValue<string>? NextHopGateway { get; set; }
 
     /// <summary>
     /// The IP address or URL to a forwarding rule of type
@@ -133,7 +133,7 @@ public class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformPropertyName("next_hop_ilb")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NextHopIlb { get; set; }
+    public TerraformValue<string>? NextHopIlb { get; set; }
 
     /// <summary>
     /// URL to an instance that should handle matching packets.
@@ -145,28 +145,28 @@ public class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformPropertyName("next_hop_instance")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NextHopInstance { get; set; }
+    public TerraformValue<string>? NextHopInstance { get; set; }
 
     /// <summary>
     /// The zone of the instance specified in next_hop_instance. Omit if next_hop_instance is specified as a URL.
     /// </summary>
     [TerraformPropertyName("next_hop_instance_zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> NextHopInstanceZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "next_hop_instance_zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> NextHopInstanceZone { get; set; } = default!;
 
     /// <summary>
     /// Network IP address of an instance that should handle matching packets.
     /// </summary>
     [TerraformPropertyName("next_hop_ip")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> NextHopIp { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "next_hop_ip");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> NextHopIp { get; set; } = default!;
 
     /// <summary>
     /// URL to a VpnTunnel that should handle matching packets.
     /// </summary>
     [TerraformPropertyName("next_hop_vpn_tunnel")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NextHopVpnTunnel { get; set; }
+    public TerraformValue<string>? NextHopVpnTunnel { get; set; }
 
     /// <summary>
     /// The priority of this route. Priority is used to break ties in cases
@@ -179,21 +179,21 @@ public class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformPropertyName("priority")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Priority { get; set; }
+    public TerraformValue<double>? Priority { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// A list of instance tags to which this route applies.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformSet<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for params.
@@ -201,70 +201,70 @@ public class GoogleComputeRoute : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformPropertyName("params")]
-    public TerraformList<TerraformBlock<GoogleComputeRouteParamsBlock>>? Params { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeRouteParamsBlock>>? Params { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeRouteTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeRouteTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The as_paths attribute.
     /// </summary>
     [TerraformPropertyName("as_paths")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> AsPaths => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "as_paths");
+    public TerraformList<object> AsPaths => new TerraformReference(this, "as_paths");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// The hub network that should handle matching packets, which should conform to RFC1035.
     /// </summary>
     [TerraformPropertyName("next_hop_hub")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NextHopHub => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "next_hop_hub");
+    public TerraformValue<string> NextHopHub => new TerraformReference(this, "next_hop_hub");
 
     /// <summary>
     /// Internal fixed region-to-region cost that Google Cloud calculates based on factors such as network performance, distance, and available bandwidth between regions.
     /// </summary>
     [TerraformPropertyName("next_hop_inter_region_cost")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NextHopInterRegionCost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "next_hop_inter_region_cost");
+    public TerraformValue<string> NextHopInterRegionCost => new TerraformReference(this, "next_hop_inter_region_cost");
 
     /// <summary>
     /// Multi-Exit Discriminator, a BGP route metric that indicates the desirability of a particular route in a network.
     /// </summary>
     [TerraformPropertyName("next_hop_med")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NextHopMed => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "next_hop_med");
+    public TerraformValue<string> NextHopMed => new TerraformReference(this, "next_hop_med");
 
     /// <summary>
     /// URL to a Network that should handle matching packets.
     /// </summary>
     [TerraformPropertyName("next_hop_network")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NextHopNetwork => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "next_hop_network");
+    public TerraformValue<string> NextHopNetwork => new TerraformReference(this, "next_hop_network");
 
     /// <summary>
     /// Indicates the origin of the route. Can be IGP (Interior Gateway Protocol), EGP (Exterior Gateway Protocol), or INCOMPLETE.
     /// </summary>
     [TerraformPropertyName("next_hop_origin")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NextHopOrigin => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "next_hop_origin");
+    public TerraformValue<string> NextHopOrigin => new TerraformReference(this, "next_hop_origin");
 
     /// <summary>
     /// The network peering name that should handle matching packets, which should conform to RFC1035.
     /// </summary>
     [TerraformPropertyName("next_hop_peering")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NextHopPeering => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "next_hop_peering");
+    public TerraformValue<string> NextHopPeering => new TerraformReference(this, "next_hop_peering");
 
     /// <summary>
     /// The status of the route, which can be one of the following values:
@@ -273,7 +273,7 @@ public class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformPropertyName("route_status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RouteStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "route_status");
+    public TerraformValue<string> RouteStatus => new TerraformReference(this, "route_status");
 
     /// <summary>
     /// The type of this route, which can be one of the following values:
@@ -284,20 +284,20 @@ public class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformPropertyName("route_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RouteType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "route_type");
+    public TerraformValue<string> RouteType => new TerraformReference(this, "route_type");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// If potential misconfigurations are detected for this route, this field will be populated with warning messages.
     /// </summary>
     [TerraformPropertyName("warnings")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Warnings => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "warnings");
+    public TerraformList<object> Warnings => new TerraformReference(this, "warnings");
 
 }

@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSecurityposturePostureDeploymentTimeoutsBlock : ITerraformBlock
+public class GoogleSecurityposturePostureDeploymentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location of the resource, eg. global&#39;.
@@ -60,7 +60,7 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The parent of the resource, an organization. Format should be &#39;organizations/{organization_id}&#39;.
@@ -68,7 +68,7 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformPropertyName("parent")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
+    public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// ID of the posture deployment.
@@ -76,7 +76,7 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureDeploymentId is required")]
     [TerraformPropertyName("posture_deployment_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PostureDeploymentId { get; set; }
+    public required TerraformValue<string> PostureDeploymentId { get; set; }
 
     /// <summary>
     /// Relative name of the posture which needs to be deployed. It should be in the format:
@@ -85,7 +85,7 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureId is required")]
     [TerraformPropertyName("posture_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PostureId { get; set; }
+    public required TerraformValue<string> PostureId { get; set; }
 
     /// <summary>
     /// Revision_id the posture which needs to be deployed.
@@ -93,7 +93,7 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureRevisionId is required")]
     [TerraformPropertyName("posture_revision_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PostureRevisionId { get; set; }
+    public required TerraformValue<string> PostureRevisionId { get; set; }
 
     /// <summary>
     /// The resource on which the posture should be deployed. This can be in one of the following formats:
@@ -104,21 +104,21 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResource is required")]
     [TerraformPropertyName("target_resource")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetResource { get; set; }
+    public required TerraformValue<string> TargetResource { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleSecurityposturePostureDeploymentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleSecurityposturePostureDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the posture deployment was created in UTC.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// This is an output only optional field which will be filled in case when
@@ -127,7 +127,7 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// </summary>
     [TerraformPropertyName("desired_posture_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DesiredPostureId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "desired_posture_id");
+    public TerraformValue<string> DesiredPostureId => new TerraformReference(this, "desired_posture_id");
 
     /// <summary>
     /// This is an output only optional field which will be filled in case when
@@ -136,14 +136,14 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// </summary>
     [TerraformPropertyName("desired_posture_revision_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DesiredPostureRevisionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "desired_posture_revision_id");
+    public TerraformValue<string> DesiredPostureRevisionId => new TerraformReference(this, "desired_posture_revision_id");
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// This is a output only optional field which will be filled in case where
@@ -153,21 +153,21 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// </summary>
     [TerraformPropertyName("failure_message")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> FailureMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "failure_message");
+    public TerraformValue<string> FailureMessage => new TerraformReference(this, "failure_message");
 
     /// <summary>
     /// Name of the posture deployment instance.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// If set, there are currently changes in flight to the posture deployment.
     /// </summary>
     [TerraformPropertyName("reconciling")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
+    public TerraformValue<bool> Reconciling => new TerraformReference(this, "reconciling");
 
     /// <summary>
     /// State of the posture deployment. A posture deployment can be in the following terminal states:
@@ -175,13 +175,13 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// Time the posture deployment was updated in UTC.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

@@ -58,300 +58,180 @@ public class AzureRMProvider : TerraformProvider
     /// The Azure DevOps Pipeline Service Connection ID.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> AdoPipelineServiceConnectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("ado_pipeline_service_connection_id");
-        set => SetProperty("ado_pipeline_service_connection_id", value);
-    }
+    public TerraformValue<string>? AdoPipelineServiceConnectionId { get; set; }
 
     /// <summary>
     /// The auxiliary_tenant_ids configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<List<TerraformProperty<string>>> AuxiliaryTenantIds
-    {
-        get => GetRequiredOutput<TerraformProperty<List<TerraformProperty<string>>>>("auxiliary_tenant_ids");
-        set => SetProperty("auxiliary_tenant_ids", value);
-    }
+    public TerraformList<string>? AuxiliaryTenantIds { get; set; }
 
     /// <summary>
     /// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> ClientCertificate
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("client_certificate");
-        set => SetProperty("client_certificate", value);
-    }
+    public TerraformValue<string>? ClientCertificate { get; set; }
 
     /// <summary>
     /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> ClientCertificatePassword
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("client_certificate_password");
-        set => SetProperty("client_certificate_password", value);
-    }
+    public TerraformValue<string>? ClientCertificatePassword { get; set; }
 
     /// <summary>
     /// The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> ClientCertificatePath
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("client_certificate_path");
-        set => SetProperty("client_certificate_path", value);
-    }
+    public TerraformValue<string>? ClientCertificatePath { get; set; }
 
     /// <summary>
     /// The Client ID which should be used.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> ClientId
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("client_id");
-        set => SetProperty("client_id", value);
-    }
+    public TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The path to a file containing the Client ID which should be used.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> ClientIdFilePath
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("client_id_file_path");
-        set => SetProperty("client_id_file_path", value);
-    }
+    public TerraformValue<string>? ClientIdFilePath { get; set; }
 
     /// <summary>
     /// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> ClientSecret
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("client_secret");
-        set => SetProperty("client_secret", value);
-    }
+    public TerraformValue<string>? ClientSecret { get; set; }
 
     /// <summary>
     /// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> ClientSecretFilePath
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("client_secret_file_path");
-        set => SetProperty("client_secret_file_path", value);
-    }
+    public TerraformValue<string>? ClientSecretFilePath { get; set; }
 
     /// <summary>
     /// This will disable the x-ms-correlation-request-id header.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> DisableCorrelationRequestId
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("disable_correlation_request_id");
-        set => SetProperty("disable_correlation_request_id", value);
-    }
+    public TerraformValue<bool>? DisableCorrelationRequestId { get; set; }
 
     /// <summary>
     /// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn&#39;t specified.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> DisableTerraformPartnerId
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("disable_terraform_partner_id");
-        set => SetProperty("disable_terraform_partner_id", value);
-    }
+    public TerraformValue<bool>? DisableTerraformPartnerId { get; set; }
 
     /// <summary>
     /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> Environment
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("environment");
-        set => SetProperty("environment", value);
-    }
+    public TerraformValue<string>? Environment { get; set; }
 
     /// <summary>
     /// The Hostname which should be used for the Azure Metadata Service.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> MetadataHost
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("metadata_host");
-        set => SetProperty("metadata_host", value);
-    }
+    public TerraformValue<string>? MetadataHost { get; set; }
 
     /// <summary>
     /// The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> MsiApiVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("msi_api_version");
-        set => SetProperty("msi_api_version", value);
-    }
+    public TerraformValue<string>? MsiApiVersion { get; set; }
 
     /// <summary>
     /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> MsiEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("msi_endpoint");
-        set => SetProperty("msi_endpoint", value);
-    }
+    public TerraformValue<string>? MsiEndpoint { get; set; }
 
     /// <summary>
     /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> OidcRequestToken
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("oidc_request_token");
-        set => SetProperty("oidc_request_token", value);
-    }
+    public TerraformValue<string>? OidcRequestToken { get; set; }
 
     /// <summary>
     /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> OidcRequestUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("oidc_request_url");
-        set => SetProperty("oidc_request_url", value);
-    }
+    public TerraformValue<string>? OidcRequestUrl { get; set; }
 
     /// <summary>
     /// The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> OidcToken
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("oidc_token");
-        set => SetProperty("oidc_token", value);
-    }
+    public TerraformValue<string>? OidcToken { get; set; }
 
     /// <summary>
     /// The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> OidcTokenFilePath
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("oidc_token_file_path");
-        set => SetProperty("oidc_token_file_path", value);
-    }
+    public TerraformValue<string>? OidcTokenFilePath { get; set; }
 
     /// <summary>
     /// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> PartnerId
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("partner_id");
-        set => SetProperty("partner_id", value);
-    }
+    public TerraformValue<string>? PartnerId { get; set; }
 
     /// <summary>
     /// The set of Resource Providers which should be automatically registered for the subscription.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> ResourceProviderRegistrations
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("resource_provider_registrations");
-        set => SetProperty("resource_provider_registrations", value);
-    }
+    public TerraformValue<string>? ResourceProviderRegistrations { get; set; }
 
     /// <summary>
     /// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<List<TerraformProperty<string>>> ResourceProvidersToRegister
-    {
-        get => GetRequiredOutput<TerraformProperty<List<TerraformProperty<string>>>>("resource_providers_to_register");
-        set => SetProperty("resource_providers_to_register", value);
-    }
+    public TerraformList<string>? ResourceProvidersToRegister { get; set; }
 
     /// <summary>
     /// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
     /// (Optional)
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<TerraformProperty<bool>> SkipProviderRegistration
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("skip_provider_registration");
-        set => SetProperty("skip_provider_registration", value);
-    }
+    public TerraformValue<bool>? SkipProviderRegistration { get; set; }
 
     /// <summary>
     /// Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> StorageUseAzuread
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("storage_use_azuread");
-        set => SetProperty("storage_use_azuread", value);
-    }
+    public TerraformValue<bool>? StorageUseAzuread { get; set; }
 
     /// <summary>
     /// The Subscription ID which should be used.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> SubscriptionId
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("subscription_id");
-        set => SetProperty("subscription_id", value);
-    }
+    public TerraformValue<string>? SubscriptionId { get; set; }
 
     /// <summary>
     /// The Tenant ID which should be used.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> TenantId
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("tenant_id");
-        set => SetProperty("tenant_id", value);
-    }
+    public TerraformValue<string>? TenantId { get; set; }
 
     /// <summary>
     /// Allow Azure AKS Workload Identity to be used for Authentication.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> UseAksWorkloadIdentity
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("use_aks_workload_identity");
-        set => SetProperty("use_aks_workload_identity", value);
-    }
+    public TerraformValue<bool>? UseAksWorkloadIdentity { get; set; }
 
     /// <summary>
     /// Allow Azure CLI to be used for Authentication.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> UseCli
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("use_cli");
-        set => SetProperty("use_cli", value);
-    }
+    public TerraformValue<bool>? UseCli { get; set; }
 
     /// <summary>
     /// Allow Managed Service Identity to be used for Authentication.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> UseMsi
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("use_msi");
-        set => SetProperty("use_msi", value);
-    }
+    public TerraformValue<bool>? UseMsi { get; set; }
 
     /// <summary>
     /// Allow OpenID Connect to be used for authentication
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> UseOidc
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("use_oidc");
-        set => SetProperty("use_oidc", value);
-    }
+    public TerraformValue<bool>? UseOidc { get; set; }
 }

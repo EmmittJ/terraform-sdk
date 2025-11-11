@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageControlOrganizationIntelligenceConfigFilterBlock : ITerraformBlock
+public class GoogleStorageControlOrganizationIntelligenceConfigFilterBlock
 {
 }
 
@@ -14,28 +14,28 @@ public class GoogleStorageControlOrganizationIntelligenceConfigFilterBlock : ITe
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleStorageControlOrganizationIntelligenceConfigTimeoutsBlock : ITerraformBlock
+public class GoogleStorageControlOrganizationIntelligenceConfigTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,15 +53,15 @@ public class GoogleStorageControlOrganizationIntelligenceConfig : TerraformResou
     /// Edition configuration of the Storage Intelligence resource. Valid values are INHERIT, DISABLED, TRIAL and STANDARD.
     /// </summary>
     [TerraformPropertyName("edition_config")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> EditionConfig { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "edition_config");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> EditionConfig { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Identifier of the GCP Organization. For GCP org, this field should be organization number.
@@ -69,7 +69,7 @@ public class GoogleStorageControlOrganizationIntelligenceConfig : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for filter.
@@ -77,34 +77,34 @@ public class GoogleStorageControlOrganizationIntelligenceConfig : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformPropertyName("filter")]
-    public TerraformList<TerraformBlock<GoogleStorageControlOrganizationIntelligenceConfigFilterBlock>>? Filter { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleStorageControlOrganizationIntelligenceConfigFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleStorageControlOrganizationIntelligenceConfigTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleStorageControlOrganizationIntelligenceConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The Intelligence config that is effective for the resource.
     /// </summary>
     [TerraformPropertyName("effective_intelligence_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> EffectiveIntelligenceConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "effective_intelligence_config");
+    public TerraformList<object> EffectiveIntelligenceConfig => new TerraformReference(this, "effective_intelligence_config");
 
     /// <summary>
     /// The trial configuration of the Storage Intelligence resource.
     /// </summary>
     [TerraformPropertyName("trial_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> TrialConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "trial_config");
+    public TerraformList<object> TrialConfig => new TerraformReference(this, "trial_config");
 
     /// <summary>
     /// The time at which the Storage Intelligence Config resource is last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

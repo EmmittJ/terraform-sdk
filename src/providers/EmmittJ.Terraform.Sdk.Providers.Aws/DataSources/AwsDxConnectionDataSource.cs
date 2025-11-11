@@ -15,8 +15,8 @@ public class AwsDxConnectionDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -24,83 +24,83 @@ public class AwsDxConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Tags { get; set; } = default!;
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The aws_device attribute.
     /// </summary>
     [TerraformPropertyName("aws_device")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AwsDevice => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_device");
+    public TerraformValue<string> AwsDevice => new TerraformReference(this, "aws_device");
 
     /// <summary>
     /// The bandwidth attribute.
     /// </summary>
     [TerraformPropertyName("bandwidth")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Bandwidth => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bandwidth");
+    public TerraformValue<string> Bandwidth => new TerraformReference(this, "bandwidth");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     [TerraformPropertyName("owner_account_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OwnerAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_account_id");
+    public TerraformValue<string> OwnerAccountId => new TerraformReference(this, "owner_account_id");
 
     /// <summary>
     /// The partner_name attribute.
     /// </summary>
     [TerraformPropertyName("partner_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PartnerName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "partner_name");
+    public TerraformValue<string> PartnerName => new TerraformReference(this, "partner_name");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
     [TerraformPropertyName("provider_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ProviderName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "provider_name");
+    public TerraformValue<string> ProviderName => new TerraformReference(this, "provider_name");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The vlan_id attribute.
     /// </summary>
     [TerraformPropertyName("vlan_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> VlanId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "vlan_id");
+    public TerraformValue<double> VlanId => new TerraformReference(this, "vlan_id");
 
 }

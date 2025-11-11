@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudAssetOrganizationFeedConditionBlock : ITerraformBlock
+public class GoogleCloudAssetOrganizationFeedConditionBlock
 {
     /// <summary>
     /// Description of the expression. This is a longer text which describes the expression,
@@ -14,7 +14,7 @@ public class GoogleCloudAssetOrganizationFeedConditionBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Textual representation of an expression in Common Expression Language syntax.
@@ -22,7 +22,7 @@ public class GoogleCloudAssetOrganizationFeedConditionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     [TerraformPropertyName("expression")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Expression { get; set; }
+    public required TerraformValue<string> Expression { get; set; }
 
     /// <summary>
     /// String indicating the location of the expression for error reporting, e.g. a file
@@ -30,7 +30,7 @@ public class GoogleCloudAssetOrganizationFeedConditionBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Title for the expression, i.e. a short string describing its purpose.
@@ -38,7 +38,7 @@ public class GoogleCloudAssetOrganizationFeedConditionBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("title")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Title { get; set; }
+    public TerraformValue<string>? Title { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class GoogleCloudAssetOrganizationFeedConditionBlock : ITerraformBlock
 /// Block type for feed_output_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudAssetOrganizationFeedFeedOutputConfigBlock : ITerraformBlock
+public class GoogleCloudAssetOrganizationFeedFeedOutputConfigBlock
 {
 }
 
@@ -54,28 +54,28 @@ public class GoogleCloudAssetOrganizationFeedFeedOutputConfigBlock : ITerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCloudAssetOrganizationFeedTimeoutsBlock : ITerraformBlock
+public class GoogleCloudAssetOrganizationFeedTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -97,7 +97,7 @@ public class GoogleCloudAssetOrganizationFeed : TerraformResource
     /// </summary>
     [TerraformPropertyName("asset_names")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? AssetNames { get; set; }
+    public TerraformList<string>? AssetNames { get; set; }
 
     /// <summary>
     /// A list of types of the assets to receive updates. You must specify either or both of assetNames
@@ -108,7 +108,7 @@ public class GoogleCloudAssetOrganizationFeed : TerraformResource
     /// </summary>
     [TerraformPropertyName("asset_types")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? AssetTypes { get; set; }
+    public TerraformList<string>? AssetTypes { get; set; }
 
     /// <summary>
     /// The project whose identity will be used when sending messages to the
@@ -118,14 +118,14 @@ public class GoogleCloudAssetOrganizationFeed : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingProject is required")]
     [TerraformPropertyName("billing_project")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BillingProject { get; set; }
+    public required TerraformValue<string> BillingProject { get; set; }
 
     /// <summary>
     /// Asset content type. If not specified, no content but the asset name and type will be returned. Possible values: [&amp;quot;CONTENT_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;RESOURCE&amp;quot;, &amp;quot;IAM_POLICY&amp;quot;, &amp;quot;ORG_POLICY&amp;quot;, &amp;quot;OS_INVENTORY&amp;quot;, &amp;quot;ACCESS_POLICY&amp;quot;]
     /// </summary>
     [TerraformPropertyName("content_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContentType { get; set; }
+    public TerraformValue<string>? ContentType { get; set; }
 
     /// <summary>
     /// This is the client-assigned asset feed identifier and it needs to be unique under a specific parent.
@@ -133,14 +133,14 @@ public class GoogleCloudAssetOrganizationFeed : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeedId is required")]
     [TerraformPropertyName("feed_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FeedId { get; set; }
+    public required TerraformValue<string> FeedId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The organization this feed should be created in.
@@ -148,7 +148,7 @@ public class GoogleCloudAssetOrganizationFeed : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformPropertyName("org_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
+    public required TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Block for condition.
@@ -156,7 +156,7 @@ public class GoogleCloudAssetOrganizationFeed : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformPropertyName("condition")]
-    public TerraformList<TerraformBlock<GoogleCloudAssetOrganizationFeedConditionBlock>>? Condition { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleCloudAssetOrganizationFeedConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// Block for feed_output_config.
@@ -166,20 +166,20 @@ public class GoogleCloudAssetOrganizationFeed : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FeedOutputConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeedOutputConfig block(s) allowed")]
     [TerraformPropertyName("feed_output_config")]
-    public TerraformList<TerraformBlock<GoogleCloudAssetOrganizationFeedFeedOutputConfigBlock>>? FeedOutputConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleCloudAssetOrganizationFeedFeedOutputConfigBlock>>? FeedOutputConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleCloudAssetOrganizationFeedTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleCloudAssetOrganizationFeedTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The format will be organizations/{organization_number}/feeds/{client-assigned_feed_identifier}.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

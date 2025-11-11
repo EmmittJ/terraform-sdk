@@ -15,8 +15,8 @@ public class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
@@ -28,7 +28,7 @@ public class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("kms_key_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyName { get; set; }
+    public TerraformValue<string>? KmsKeyName { get; set; }
 
     /// <summary>
     /// The project attribute.
@@ -36,7 +36,7 @@ public class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformPropertyName("project")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Project { get; set; }
+    public required TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The CryptoKeyVersion resource name for the configured Cloud KMS key.
@@ -48,14 +48,14 @@ public class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("kms_key_version_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsKeyVersionName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_version_name");
+    public TerraformValue<string> KmsKeyVersionName => new TerraformReference(this, "kms_key_version_name");
 
     /// <summary>
     /// The resource name of the CMEK settings.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The service account associated with a project for which CMEK will apply.
@@ -64,6 +64,6 @@ public class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("service_account_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServiceAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_account_id");
+    public TerraformValue<string> ServiceAccountId => new TerraformReference(this, "service_account_id");
 
 }

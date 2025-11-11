@@ -16,28 +16,28 @@ public class AwsRedshiftserverlessCredentialsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("db_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DbName { get; set; }
+    public TerraformValue<string>? DbName { get; set; }
 
     /// <summary>
     /// The duration_seconds attribute.
     /// </summary>
     [TerraformPropertyName("duration_seconds")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? DurationSeconds { get; set; }
+    public TerraformValue<double>? DurationSeconds { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The workgroup_name attribute.
@@ -45,27 +45,27 @@ public class AwsRedshiftserverlessCredentialsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     [TerraformPropertyName("workgroup_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkgroupName { get; set; }
+    public required TerraformValue<string> WorkgroupName { get; set; }
 
     /// <summary>
     /// The db_password attribute.
     /// </summary>
     [TerraformPropertyName("db_password")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DbPassword => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "db_password");
+    public TerraformValue<string> DbPassword => new TerraformReference(this, "db_password");
 
     /// <summary>
     /// The db_user attribute.
     /// </summary>
     [TerraformPropertyName("db_user")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DbUser => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "db_user");
+    public TerraformValue<string> DbUser => new TerraformReference(this, "db_user");
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
     [TerraformPropertyName("expiration")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Expiration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration");
+    public TerraformValue<string> Expiration => new TerraformReference(this, "expiration");
 
 }

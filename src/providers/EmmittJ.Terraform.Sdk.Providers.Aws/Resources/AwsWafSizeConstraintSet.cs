@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for size_constraints in .
 /// Nesting mode: set
 /// </summary>
-public class AwsWafSizeConstraintSetSizeConstraintsBlock : ITerraformBlock
+public class AwsWafSizeConstraintSetSizeConstraintsBlock
 {
     /// <summary>
     /// The comparison_operator attribute.
@@ -14,7 +14,7 @@ public class AwsWafSizeConstraintSetSizeConstraintsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
     [TerraformPropertyName("comparison_operator")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ComparisonOperator { get; set; }
+    public required TerraformValue<string> ComparisonOperator { get; set; }
 
     /// <summary>
     /// The size attribute.
@@ -22,7 +22,7 @@ public class AwsWafSizeConstraintSetSizeConstraintsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     [TerraformPropertyName("size")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Size { get; set; }
+    public required TerraformValue<double> Size { get; set; }
 
     /// <summary>
     /// The text_transformation attribute.
@@ -30,7 +30,7 @@ public class AwsWafSizeConstraintSetSizeConstraintsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     [TerraformPropertyName("text_transformation")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TextTransformation { get; set; }
+    public required TerraformValue<string> TextTransformation { get; set; }
 
 }
 
@@ -47,8 +47,8 @@ public class AwsWafSizeConstraintSet : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -56,20 +56,20 @@ public class AwsWafSizeConstraintSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for size_constraints.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("size_constraints")]
-    public TerraformSet<TerraformBlock<AwsWafSizeConstraintSetSizeConstraintsBlock>>? SizeConstraints { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsWafSizeConstraintSetSizeConstraintsBlock>>? SizeConstraints { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

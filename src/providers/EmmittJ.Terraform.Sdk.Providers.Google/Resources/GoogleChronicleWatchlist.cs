@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for entity_population_mechanism in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleChronicleWatchlistEntityPopulationMechanismBlock : ITerraformBlock
+public class GoogleChronicleWatchlistEntityPopulationMechanismBlock
 {
 }
 
@@ -14,28 +14,28 @@ public class GoogleChronicleWatchlistEntityPopulationMechanismBlock : ITerraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleChronicleWatchlistTimeoutsBlock : ITerraformBlock
+public class GoogleChronicleWatchlistTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -43,14 +43,14 @@ public class GoogleChronicleWatchlistTimeoutsBlock : ITerraformBlock
 /// Block type for watchlist_user_preferences in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleChronicleWatchlistWatchlistUserPreferencesBlock : ITerraformBlock
+public class GoogleChronicleWatchlistWatchlistUserPreferencesBlock
 {
     /// <summary>
     /// Optional. Whether the watchlist is pinned on the dashboard.
     /// </summary>
     [TerraformPropertyName("pinned")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Pinned { get; set; }
+    public TerraformValue<bool>? Pinned { get; set; }
 
 }
 
@@ -69,7 +69,7 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Required. Display name of the watchlist.
@@ -79,14 +79,14 @@ public class GoogleChronicleWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
@@ -94,7 +94,7 @@ public class GoogleChronicleWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformPropertyName("instance")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
+    public required TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
@@ -102,7 +102,7 @@ public class GoogleChronicleWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Optional. Weight applied to the risk score for entities
@@ -111,14 +111,14 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// </summary>
     [TerraformPropertyName("multiplying_factor")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MultiplyingFactor { get; set; }
+    public TerraformValue<double>? MultiplyingFactor { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Optional. The ID to use for the watchlist,
@@ -127,8 +127,8 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// are /a-z-/.
     /// </summary>
     [TerraformPropertyName("watchlist_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> WatchlistId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "watchlist_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> WatchlistId { get; set; } = default!;
 
     /// <summary>
     /// Block for entity_population_mechanism.
@@ -138,14 +138,14 @@ public class GoogleChronicleWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EntityPopulationMechanism block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EntityPopulationMechanism block(s) allowed")]
     [TerraformPropertyName("entity_population_mechanism")]
-    public TerraformList<TerraformBlock<GoogleChronicleWatchlistEntityPopulationMechanismBlock>>? EntityPopulationMechanism { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleChronicleWatchlistEntityPopulationMechanismBlock>>? EntityPopulationMechanism { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleChronicleWatchlistTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleChronicleWatchlistTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for watchlist_user_preferences.
@@ -153,21 +153,21 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WatchlistUserPreferences block(s) allowed")]
     [TerraformPropertyName("watchlist_user_preferences")]
-    public TerraformList<TerraformBlock<GoogleChronicleWatchlistWatchlistUserPreferencesBlock>>? WatchlistUserPreferences { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleChronicleWatchlistWatchlistUserPreferencesBlock>>? WatchlistUserPreferences { get; set; }
 
     /// <summary>
     /// Output only. Time the watchlist was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Count of different types of entities in the watchlist.
     /// </summary>
     [TerraformPropertyName("entity_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> EntityCount => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "entity_count");
+    public TerraformList<object> EntityCount => new TerraformReference(this, "entity_count");
 
     /// <summary>
     /// Identifier. Resource name of the watchlist. This unique identifier is generated using values provided for the URL parameters.
@@ -176,13 +176,13 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Output only. Time the watchlist was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

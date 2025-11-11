@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSccFolderSccBigQueryExportTimeoutsBlock : ITerraformBlock
+public class GoogleSccFolderSccBigQueryExportTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
     [TerraformPropertyName("big_query_export_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BigQueryExportId { get; set; }
+    public required TerraformValue<string> BigQueryExportId { get; set; }
 
     /// <summary>
     /// The dataset to write findings&#39; updates to.
@@ -56,7 +56,7 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     [TerraformPropertyName("dataset")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Dataset { get; set; }
+    public required TerraformValue<string> Dataset { get; set; }
 
     /// <summary>
     /// The description of the export (max of 1024 characters).
@@ -64,7 +64,7 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     [TerraformPropertyName("description")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Description { get; set; }
+    public required TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// Expression that defines the filter to apply across create/update
@@ -96,7 +96,7 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformPropertyName("filter")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Filter { get; set; }
+    public required TerraformValue<string> Filter { get; set; }
 
     /// <summary>
     /// The folder where Cloud Security Command Center Big Query Export
@@ -105,21 +105,21 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     [TerraformPropertyName("folder")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Folder { get; set; }
+    public required TerraformValue<string> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleSccFolderSccBigQueryExportTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleSccFolderSccBigQueryExportTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time at which the BigQuery export was created.
@@ -128,14 +128,14 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Email address of the user who last edited the BigQuery export.
     /// </summary>
     [TerraformPropertyName("most_recent_editor")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MostRecentEditor => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "most_recent_editor");
+    public TerraformValue<string> MostRecentEditor => new TerraformReference(this, "most_recent_editor");
 
     /// <summary>
     /// The resource name of this export, in the format
@@ -144,14 +144,14 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The service account that needs permission to create table and upload data to the BigQuery dataset.
     /// </summary>
     [TerraformPropertyName("principal")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Principal => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "principal");
+    public TerraformValue<string> Principal => new TerraformReference(this, "principal");
 
     /// <summary>
     /// The most recent time at which the BigQuery export was updated.
@@ -160,6 +160,6 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

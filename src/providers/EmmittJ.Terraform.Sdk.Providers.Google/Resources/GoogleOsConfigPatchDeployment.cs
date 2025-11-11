@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for instance_filter in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOsConfigPatchDeploymentInstanceFilterBlock : ITerraformBlock
+public class GoogleOsConfigPatchDeploymentInstanceFilterBlock
 {
     /// <summary>
     /// Target all VM instances in the project. If true, no other criteria is permitted.
     /// </summary>
     [TerraformPropertyName("all")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? All { get; set; }
+    public TerraformValue<bool>? All { get; set; }
 
     /// <summary>
     /// Targets VMs whose name starts with one of these prefixes. Similar to labels, this is another way to group
@@ -21,7 +21,7 @@ public class GoogleOsConfigPatchDeploymentInstanceFilterBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("instance_name_prefixes")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? InstanceNamePrefixes { get; set; }
+    public TerraformList<string>? InstanceNamePrefixes { get; set; }
 
     /// <summary>
     /// Targets any of the VM instances specified. Instances are specified by their URI in the &#39;form zones/{{zone}}/instances/{{instance_name}}&#39;,
@@ -30,14 +30,14 @@ public class GoogleOsConfigPatchDeploymentInstanceFilterBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("instances")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Instances { get; set; }
+    public TerraformList<string>? Instances { get; set; }
 
     /// <summary>
     /// Targets VM instances in ANY of these zones. Leave empty to target VM instances in any zone.
     /// </summary>
     [TerraformPropertyName("zones")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Zones { get; set; }
+    public TerraformList<string>? Zones { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public class GoogleOsConfigPatchDeploymentInstanceFilterBlock : ITerraformBlock
 /// Block type for one_time_schedule in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOsConfigPatchDeploymentOneTimeScheduleBlock : ITerraformBlock
+public class GoogleOsConfigPatchDeploymentOneTimeScheduleBlock
 {
     /// <summary>
     /// The desired patch job execution time. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -54,7 +54,7 @@ public class GoogleOsConfigPatchDeploymentOneTimeScheduleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecuteTime is required")]
     [TerraformPropertyName("execute_time")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ExecuteTime { get; set; }
+    public required TerraformValue<string> ExecuteTime { get; set; }
 
 }
 
@@ -62,21 +62,21 @@ public class GoogleOsConfigPatchDeploymentOneTimeScheduleBlock : ITerraformBlock
 /// Block type for patch_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOsConfigPatchDeploymentPatchConfigBlock : ITerraformBlock
+public class GoogleOsConfigPatchDeploymentPatchConfigBlock
 {
     /// <summary>
     /// Allows the patch job to run on Managed instance groups (MIGs).
     /// </summary>
     [TerraformPropertyName("mig_instances_allowed")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? MigInstancesAllowed { get; set; }
+    public TerraformValue<bool>? MigInstancesAllowed { get; set; }
 
     /// <summary>
     /// Post-patch reboot settings. Possible values: [&amp;quot;DEFAULT&amp;quot;, &amp;quot;ALWAYS&amp;quot;, &amp;quot;NEVER&amp;quot;]
     /// </summary>
     [TerraformPropertyName("reboot_config")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RebootConfig { get; set; }
+    public TerraformValue<string>? RebootConfig { get; set; }
 
 }
 
@@ -84,7 +84,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlock : ITerraformBlock
 /// Block type for recurring_schedule in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : ITerraformBlock
+public class GoogleOsConfigPatchDeploymentRecurringScheduleBlock
 {
     /// <summary>
     /// The end time at which a recurring patch deployment schedule is no longer active.
@@ -92,23 +92,9 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : ITerraformBlo
     /// </summary>
     [TerraformPropertyName("end_time")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EndTime { get; set; }
+    public TerraformValue<string>? EndTime { get; set; }
 
-    /// <summary>
-    /// The time the last patch job ran successfully.
-    /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
-    /// </summary>
-    [TerraformPropertyName("last_execute_time")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastExecuteTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "last_execute_time");
 
-    /// <summary>
-    /// The time the next patch job is scheduled to run.
-    /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
-    /// </summary>
-    [TerraformPropertyName("next_execute_time")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NextExecuteTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "next_execute_time");
 
     /// <summary>
     /// The time that the recurring schedule becomes effective. Defaults to createTime of the patch deployment.
@@ -116,7 +102,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : ITerraformBlo
     /// </summary>
     [TerraformPropertyName("start_time")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StartTime { get; set; }
+    public TerraformValue<string>? StartTime { get; set; }
 
 }
 
@@ -124,7 +110,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : ITerraformBlo
 /// Block type for rollout in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOsConfigPatchDeploymentRolloutBlock : ITerraformBlock
+public class GoogleOsConfigPatchDeploymentRolloutBlock
 {
     /// <summary>
     /// Mode of the patch rollout. Possible values: [&amp;quot;ZONE_BY_ZONE&amp;quot;, &amp;quot;CONCURRENT_ZONES&amp;quot;]
@@ -132,7 +118,7 @@ public class GoogleOsConfigPatchDeploymentRolloutBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     [TerraformPropertyName("mode")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Mode { get; set; }
+    public required TerraformValue<string> Mode { get; set; }
 
 }
 
@@ -140,21 +126,21 @@ public class GoogleOsConfigPatchDeploymentRolloutBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleOsConfigPatchDeploymentTimeoutsBlock : ITerraformBlock
+public class GoogleOsConfigPatchDeploymentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -173,7 +159,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Duration of the patch. After the duration ends, the patch times out.
@@ -181,14 +167,14 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [TerraformPropertyName("duration")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Duration { get; set; }
+    public TerraformValue<string>? Duration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// A name for the patch deployment in the project. When creating a name the following rules apply:
@@ -201,14 +187,14 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchDeploymentId is required")]
     [TerraformPropertyName("patch_deployment_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PatchDeploymentId { get; set; }
+    public required TerraformValue<string> PatchDeploymentId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for instance_filter.
@@ -218,7 +204,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InstanceFilter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceFilter block(s) allowed")]
     [TerraformPropertyName("instance_filter")]
-    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentInstanceFilterBlock>>? InstanceFilter { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentInstanceFilterBlock>>? InstanceFilter { get; set; }
 
     /// <summary>
     /// Block for one_time_schedule.
@@ -226,7 +212,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OneTimeSchedule block(s) allowed")]
     [TerraformPropertyName("one_time_schedule")]
-    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentOneTimeScheduleBlock>>? OneTimeSchedule { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentOneTimeScheduleBlock>>? OneTimeSchedule { get; set; }
 
     /// <summary>
     /// Block for patch_config.
@@ -234,7 +220,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PatchConfig block(s) allowed")]
     [TerraformPropertyName("patch_config")]
-    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentPatchConfigBlock>>? PatchConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentPatchConfigBlock>>? PatchConfig { get; set; }
 
     /// <summary>
     /// Block for recurring_schedule.
@@ -242,7 +228,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecurringSchedule block(s) allowed")]
     [TerraformPropertyName("recurring_schedule")]
-    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentRecurringScheduleBlock>>? RecurringSchedule { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentRecurringScheduleBlock>>? RecurringSchedule { get; set; }
 
     /// <summary>
     /// Block for rollout.
@@ -250,14 +236,14 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rollout block(s) allowed")]
     [TerraformPropertyName("rollout")]
-    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentRolloutBlock>>? Rollout { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentRolloutBlock>>? Rollout { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleOsConfigPatchDeploymentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleOsConfigPatchDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the patch deployment was created. Timestamp is in RFC3339 text format.
@@ -265,7 +251,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The last time a patch job was started by this deployment. Timestamp is in RFC3339 text format.
@@ -273,7 +259,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [TerraformPropertyName("last_execute_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastExecuteTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_execute_time");
+    public TerraformValue<string> LastExecuteTime => new TerraformReference(this, "last_execute_time");
 
     /// <summary>
     /// Unique name for the patch deployment resource in a project.
@@ -281,7 +267,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Time the patch deployment was last updated. Timestamp is in RFC3339 text format.
@@ -289,6 +275,6 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

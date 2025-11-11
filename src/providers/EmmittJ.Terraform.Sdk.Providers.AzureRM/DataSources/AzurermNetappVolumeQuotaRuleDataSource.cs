@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The volume_id attribute.
@@ -47,41 +47,41 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     [TerraformPropertyName("volume_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VolumeId { get; set; }
+    public required TerraformValue<string> VolumeId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The quota_size_in_kib attribute.
     /// </summary>
     [TerraformPropertyName("quota_size_in_kib")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> QuotaSizeInKib => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "quota_size_in_kib");
+    public TerraformValue<double> QuotaSizeInKib => new TerraformReference(this, "quota_size_in_kib");
 
     /// <summary>
     /// The quota_target attribute.
     /// </summary>
     [TerraformPropertyName("quota_target")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> QuotaTarget => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "quota_target");
+    public TerraformValue<string> QuotaTarget => new TerraformReference(this, "quota_target");
 
     /// <summary>
     /// The quota_type attribute.
     /// </summary>
     [TerraformPropertyName("quota_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> QuotaType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "quota_type");
+    public TerraformValue<string> QuotaType => new TerraformReference(this, "quota_type");
 
 }

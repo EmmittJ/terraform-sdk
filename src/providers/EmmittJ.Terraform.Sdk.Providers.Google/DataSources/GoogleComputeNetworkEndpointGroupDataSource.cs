@@ -15,8 +15,8 @@ public class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is
@@ -29,28 +29,28 @@ public class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
+    public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SelfLink { get; set; }
+    public TerraformValue<string>? SelfLink { get; set; }
 
     /// <summary>
     /// Zone where the network endpoint group is located.
     /// </summary>
     [TerraformPropertyName("zone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Zone { get; set; }
+    public TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
     /// The default port used if the port number is not specified in the
@@ -58,7 +58,7 @@ public class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("default_port")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> DefaultPort => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "default_port");
+    public TerraformValue<double> DefaultPort => new TerraformReference(this, "default_port");
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
@@ -66,14 +66,14 @@ public class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The uniquely generated identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformPropertyName("generated_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> GeneratedId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "generated_id");
+    public TerraformValue<double> GeneratedId => new TerraformReference(this, "generated_id");
 
     /// <summary>
     /// The network to which all network endpoints in the NEG belong.
@@ -81,7 +81,7 @@ public class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("network")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Network => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network");
+    public TerraformValue<string> Network => new TerraformReference(this, "network");
 
     /// <summary>
     /// Type of network endpoints in this network endpoint group.
@@ -96,20 +96,20 @@ public class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("network_endpoint_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NetworkEndpointType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_endpoint_type");
+    public TerraformValue<string> NetworkEndpointType => new TerraformReference(this, "network_endpoint_type");
 
     /// <summary>
     /// Number of network endpoints in the network endpoint group.
     /// </summary>
     [TerraformPropertyName("size")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Size => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "size");
+    public TerraformValue<double> Size => new TerraformReference(this, "size");
 
     /// <summary>
     /// Optional subnetwork to which all network endpoints in the NEG belong.
     /// </summary>
     [TerraformPropertyName("subnetwork")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Subnetwork => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subnetwork");
+    public TerraformValue<string> Subnetwork => new TerraformReference(this, "subnetwork");
 
 }

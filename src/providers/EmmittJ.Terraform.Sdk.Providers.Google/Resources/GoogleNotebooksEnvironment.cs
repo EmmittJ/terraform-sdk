@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for container_image in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNotebooksEnvironmentContainerImageBlock : ITerraformBlock
+public class GoogleNotebooksEnvironmentContainerImageBlock
 {
     /// <summary>
     /// The path to the container image repository.
@@ -15,14 +15,14 @@ public class GoogleNotebooksEnvironmentContainerImageBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     [TerraformPropertyName("repository")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Repository { get; set; }
+    public required TerraformValue<string> Repository { get; set; }
 
     /// <summary>
     /// The tag of the container image. If not specified, this defaults to the latest tag.
     /// </summary>
     [TerraformPropertyName("tag")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Tag { get; set; }
+    public TerraformValue<string>? Tag { get; set; }
 
 }
 
@@ -30,28 +30,28 @@ public class GoogleNotebooksEnvironmentContainerImageBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNotebooksEnvironmentTimeoutsBlock : ITerraformBlock
+public class GoogleNotebooksEnvironmentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -59,21 +59,21 @@ public class GoogleNotebooksEnvironmentTimeoutsBlock : ITerraformBlock
 /// Block type for vm_image in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNotebooksEnvironmentVmImageBlock : ITerraformBlock
+public class GoogleNotebooksEnvironmentVmImageBlock
 {
     /// <summary>
     /// Use this VM image family to find the image; the newest image in this family will be used.
     /// </summary>
     [TerraformPropertyName("image_family")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ImageFamily { get; set; }
+    public TerraformValue<string>? ImageFamily { get; set; }
 
     /// <summary>
     /// Use VM image name to find the image.
     /// </summary>
     [TerraformPropertyName("image_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ImageName { get; set; }
+    public TerraformValue<string>? ImageName { get; set; }
 
     /// <summary>
     /// The name of the Google Cloud project that this VM image belongs to.
@@ -82,7 +82,7 @@ public class GoogleNotebooksEnvironmentVmImageBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformPropertyName("project")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Project { get; set; }
+    public required TerraformValue<string> Project { get; set; }
 
 }
 
@@ -101,21 +101,21 @@ public class GoogleNotebooksEnvironment : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Display name of this environment for the UI.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// A reference to the zone where the machine resides.
@@ -123,7 +123,7 @@ public class GoogleNotebooksEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name specified for the Environment instance.
@@ -132,7 +132,7 @@ public class GoogleNotebooksEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Path to a Bash script that automatically runs after a notebook instance fully boots up.
@@ -140,14 +140,14 @@ public class GoogleNotebooksEnvironment : TerraformResource
     /// </summary>
     [TerraformPropertyName("post_startup_script")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PostStartupScript { get; set; }
+    public TerraformValue<string>? PostStartupScript { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for container_image.
@@ -155,14 +155,14 @@ public class GoogleNotebooksEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerImage block(s) allowed")]
     [TerraformPropertyName("container_image")]
-    public TerraformList<TerraformBlock<GoogleNotebooksEnvironmentContainerImageBlock>>? ContainerImage { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNotebooksEnvironmentContainerImageBlock>>? ContainerImage { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleNotebooksEnvironmentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleNotebooksEnvironmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vm_image.
@@ -170,13 +170,13 @@ public class GoogleNotebooksEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VmImage block(s) allowed")]
     [TerraformPropertyName("vm_image")]
-    public TerraformList<TerraformBlock<GoogleNotebooksEnvironmentVmImageBlock>>? VmImage { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNotebooksEnvironmentVmImageBlock>>? VmImage { get; set; }
 
     /// <summary>
     /// Instance creation time
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
 }

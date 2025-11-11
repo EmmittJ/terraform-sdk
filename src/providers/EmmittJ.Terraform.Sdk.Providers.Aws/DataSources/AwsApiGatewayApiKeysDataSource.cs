@@ -16,34 +16,34 @@ public class AwsApiGatewayApiKeysDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("customer_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CustomerId { get; set; }
+    public TerraformValue<string>? CustomerId { get; set; }
 
     /// <summary>
     /// The include_values attribute.
     /// </summary>
     [TerraformPropertyName("include_values")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IncludeValues { get; set; }
+    public TerraformValue<bool>? IncludeValues { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The items attribute.
     /// </summary>
     [TerraformPropertyName("items")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Items => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "items");
+    public TerraformList<object> Items => new TerraformReference(this, "items");
 
 }

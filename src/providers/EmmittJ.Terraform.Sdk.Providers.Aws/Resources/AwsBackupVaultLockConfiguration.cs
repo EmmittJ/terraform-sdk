@@ -17,48 +17,48 @@ public class AwsBackupVaultLockConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultName is required")]
     [TerraformPropertyName("backup_vault_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BackupVaultName { get; set; }
+    public required TerraformValue<string> BackupVaultName { get; set; }
 
     /// <summary>
     /// The changeable_for_days attribute.
     /// </summary>
     [TerraformPropertyName("changeable_for_days")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? ChangeableForDays { get; set; }
+    public TerraformValue<double>? ChangeableForDays { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The max_retention_days attribute.
     /// </summary>
     [TerraformPropertyName("max_retention_days")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxRetentionDays { get; set; }
+    public TerraformValue<double>? MaxRetentionDays { get; set; }
 
     /// <summary>
     /// The min_retention_days attribute.
     /// </summary>
     [TerraformPropertyName("min_retention_days")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MinRetentionDays { get; set; }
+    public TerraformValue<double>? MinRetentionDays { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The backup_vault_arn attribute.
     /// </summary>
     [TerraformPropertyName("backup_vault_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> BackupVaultArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backup_vault_arn");
+    public TerraformValue<string> BackupVaultArn => new TerraformReference(this, "backup_vault_arn");
 
 }

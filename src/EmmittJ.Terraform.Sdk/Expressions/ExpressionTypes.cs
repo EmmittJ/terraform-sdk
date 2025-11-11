@@ -4,12 +4,12 @@ namespace EmmittJ.Terraform.Sdk;
 /// An identifier expression (e.g., "var.region", "aws_vpc.main").
 /// Can be a static string or dynamically resolved from a value.
 /// </summary>
-internal class IdentifierExpression<T> : TerraformExpression
+internal class TerraformIdentifierExpression<T> : TerraformExpression
 {
     private readonly T _value;
     private readonly Func<T, string> _resolver;
 
-    public IdentifierExpression(T value, Func<T, string>? resolver = null)
+    public TerraformIdentifierExpression(T value, Func<T, string>? resolver = null)
     {
         _value = value ?? throw new ArgumentNullException(nameof(value));
         _resolver = resolver ?? (v => v?.ToString() ?? throw new InvalidOperationException("Value.ToString() returned null"));
@@ -42,7 +42,7 @@ internal class IdentifierExpression<T> : TerraformExpression
             return true;
         }
 
-        return obj is IdentifierExpression<T> other
+        return obj is TerraformIdentifierExpression<T> other
             && EqualityComparer<T>.Default.Equals(_value, other._value);
     }
 

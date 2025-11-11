@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backend_metastores in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : ITerraformBlock
+public class GoogleDataprocMetastoreFederationBackendMetastoresBlock
 {
     /// <summary>
     /// The type of the backend metastore. Possible values: [&amp;quot;METASTORE_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;DATAPROC_METASTORE&amp;quot;, &amp;quot;BIGQUERY&amp;quot;]
@@ -14,7 +14,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : ITerrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetastoreType is required")]
     [TerraformPropertyName("metastore_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> MetastoreType { get; set; }
+    public required TerraformValue<string> MetastoreType { get; set; }
 
     /// <summary>
     /// The relative resource name of the metastore that is being federated. The formats of the relative resource names for the currently supported metastores are listed below: Dataplex: projects/{projectId}/locations/{location}/lakes/{lake_id} BigQuery: projects/{projectId} Dataproc Metastore: projects/{projectId}/locations/{location}/services/{serviceId}
@@ -22,7 +22,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : ITerrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The rank attribute.
@@ -30,7 +30,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : ITerrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rank is required")]
     [TerraformPropertyName("rank")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Rank { get; set; }
+    public required TerraformValue<string> Rank { get; set; }
 
 }
 
@@ -38,28 +38,28 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : ITerrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataprocMetastoreFederationTimeoutsBlock : ITerraformBlock
+public class GoogleDataprocMetastoreFederationTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -80,7 +80,7 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// </summary>
     [TerraformPropertyName("deletion_protection")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DeletionProtection { get; set; }
+    public TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// The ID of the metastore federation. The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
@@ -90,14 +90,14 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FederationId is required")]
     [TerraformPropertyName("federation_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FederationId { get; set; }
+    public required TerraformValue<string> FederationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// User-defined labels for the metastore federation.
@@ -107,21 +107,21 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location where the metastore federation should reside.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// A map of resource manager tags.
@@ -130,7 +130,7 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The Apache Hive metastore version of the federation. All backend metastore versions must be compatible with the federation version.
@@ -138,7 +138,7 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformPropertyName("version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
+    public required TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// Block for backend_metastores.
@@ -147,56 +147,56 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendMetastores is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendMetastores block(s) required")]
     [TerraformPropertyName("backend_metastores")]
-    public TerraformSet<TerraformBlock<GoogleDataprocMetastoreFederationBackendMetastoresBlock>>? BackendMetastores { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleDataprocMetastoreFederationBackendMetastoresBlock>>? BackendMetastores { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDataprocMetastoreFederationTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDataprocMetastoreFederationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time when the metastore federation was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The URI of the endpoint used to access the metastore federation.
     /// </summary>
     [TerraformPropertyName("endpoint_uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EndpointUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_uri");
+    public TerraformValue<string> EndpointUri => new TerraformReference(this, "endpoint_uri");
 
     /// <summary>
     /// The relative resource name of the metastore federation.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The current state of the metastore federation.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// Additional information about the current state of the metastore federation, if available.
     /// </summary>
     [TerraformPropertyName("state_message")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StateMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state_message");
+    public TerraformValue<string> StateMessage => new TerraformReference(this, "state_message");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -204,20 +204,20 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The globally unique resource identifier of the metastore federation.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Output only. The time when the metastore federation was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

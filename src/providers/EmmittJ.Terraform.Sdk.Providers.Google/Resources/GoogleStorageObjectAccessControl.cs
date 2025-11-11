@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleStorageObjectAccessControlTimeoutsBlock : ITerraformBlock
+public class GoogleStorageObjectAccessControlTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class GoogleStorageObjectAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformPropertyName("bucket")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
+    public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The entity holding the permission, in one of the following forms:
@@ -62,14 +62,14 @@ public class GoogleStorageObjectAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entity is required")]
     [TerraformPropertyName("entity")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Entity { get; set; }
+    public required TerraformValue<string> Entity { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the object to apply the access control to.
@@ -77,7 +77,7 @@ public class GoogleStorageObjectAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Object is required")]
     [TerraformPropertyName("object")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Object { get; set; }
+    public required TerraformValue<string> Object { get; set; }
 
     /// <summary>
     /// The access permission for the entity. Possible values: [&amp;quot;OWNER&amp;quot;, &amp;quot;READER&amp;quot;]
@@ -85,48 +85,48 @@ public class GoogleStorageObjectAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [TerraformPropertyName("role")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Role { get; set; }
+    public required TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleStorageObjectAccessControlTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleStorageObjectAccessControlTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The domain associated with the entity.
     /// </summary>
     [TerraformPropertyName("domain")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Domain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain");
+    public TerraformValue<string> Domain => new TerraformReference(this, "domain");
 
     /// <summary>
     /// The email address associated with the entity.
     /// </summary>
     [TerraformPropertyName("email")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Email => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "email");
+    public TerraformValue<string> Email => new TerraformReference(this, "email");
 
     /// <summary>
     /// The ID for the entity
     /// </summary>
     [TerraformPropertyName("entity_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EntityId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "entity_id");
+    public TerraformValue<string> EntityId => new TerraformReference(this, "entity_id");
 
     /// <summary>
     /// The content generation of the object, if applied to an object.
     /// </summary>
     [TerraformPropertyName("generation")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Generation => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "generation");
+    public TerraformValue<double> Generation => new TerraformReference(this, "generation");
 
     /// <summary>
     /// The project team associated with the entity
     /// </summary>
     [TerraformPropertyName("project_team")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ProjectTeam => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "project_team");
+    public TerraformList<object> ProjectTeam => new TerraformReference(this, "project_team");
 
 }

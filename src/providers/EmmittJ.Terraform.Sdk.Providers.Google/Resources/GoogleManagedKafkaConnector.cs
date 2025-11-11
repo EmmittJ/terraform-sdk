@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for task_restart_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : ITerraformBlock
+public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock
 {
     /// <summary>
     /// The maximum amount of time to wait before retrying a failed task. This sets an upper bound for the backoff delay.
@@ -14,7 +14,7 @@ public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("maximum_backoff")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MaximumBackoff { get; set; }
+    public TerraformValue<string>? MaximumBackoff { get; set; }
 
     /// <summary>
     /// The minimum amount of time to wait before retrying a failed task. This sets a lower bound for the backoff delay.
@@ -22,7 +22,7 @@ public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("minimum_backoff")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MinimumBackoff { get; set; }
+    public TerraformValue<string>? MinimumBackoff { get; set; }
 
 }
 
@@ -30,28 +30,28 @@ public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleManagedKafkaConnectorTimeoutsBlock : ITerraformBlock
+public class GoogleManagedKafkaConnectorTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -70,7 +70,7 @@ public class GoogleManagedKafkaConnector : TerraformResource
     /// </summary>
     [TerraformPropertyName("configs")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Configs { get; set; }
+    public TerraformMap<string>? Configs { get; set; }
 
     /// <summary>
     /// The connect cluster name.
@@ -78,7 +78,7 @@ public class GoogleManagedKafkaConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectCluster is required")]
     [TerraformPropertyName("connect_cluster")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConnectCluster { get; set; }
+    public required TerraformValue<string> ConnectCluster { get; set; }
 
     /// <summary>
     /// The ID to use for the connector, which will become the final component of the connector&#39;s name. This value is structured like: &#39;my-connector-id&#39;.
@@ -86,14 +86,14 @@ public class GoogleManagedKafkaConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorId is required")]
     [TerraformPropertyName("connector_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConnectorId { get; set; }
+    public required TerraformValue<string> ConnectorId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// ID of the location of the Kafka Connect resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
@@ -101,14 +101,14 @@ public class GoogleManagedKafkaConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for task_restart_policy.
@@ -116,27 +116,27 @@ public class GoogleManagedKafkaConnector : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TaskRestartPolicy block(s) allowed")]
     [TerraformPropertyName("task_restart_policy")]
-    public TerraformList<TerraformBlock<GoogleManagedKafkaConnectorTaskRestartPolicyBlock>>? TaskRestartPolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleManagedKafkaConnectorTaskRestartPolicyBlock>>? TaskRestartPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleManagedKafkaConnectorTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleManagedKafkaConnectorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The name of the connector. The &#39;connector&#39; segment is used when connecting directly to the connect cluster. Structured like: &#39;projects/PROJECT_ID/locations/LOCATION/connectClusters/CONNECT_CLUSTER/connectors/CONNECTOR_ID&#39;.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The current state of the connect. Possible values: &#39;STATE_UNSPECIFIED&#39;, &#39;UNASSIGNED&#39;, &#39;RUNNING&#39;, &#39;PAUSED&#39;, &#39;FAILED&#39;, &#39;RESTARTING&#39;, and &#39;STOPPED&#39;.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
 }

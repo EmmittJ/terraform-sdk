@@ -17,21 +17,21 @@ public class GoogleLoggingFolderSettingsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     [TerraformPropertyName("folder")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Folder { get; set; }
+    public required TerraformValue<string> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// If set to true, the _Default sink in newly created projects and folders will created in a disabled state. This can be used to automatically disable log storage if there is already an aggregated sink configured in the hierarchy. The _Default sink can be re-enabled manually if needed.
     /// </summary>
     [TerraformPropertyName("disable_default_sink")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> DisableDefaultSink => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "disable_default_sink");
+    public TerraformValue<bool> DisableDefaultSink => new TerraformReference(this, "disable_default_sink");
 
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
@@ -43,7 +43,7 @@ public class GoogleLoggingFolderSettingsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("kms_key_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsKeyName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_name");
+    public TerraformValue<string> KmsKeyName => new TerraformReference(this, "kms_key_name");
 
     /// <summary>
     /// The service account associated with a project for which CMEK will apply.
@@ -52,27 +52,27 @@ public class GoogleLoggingFolderSettingsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("kms_service_account_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsServiceAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_service_account_id");
+    public TerraformValue<string> KmsServiceAccountId => new TerraformReference(this, "kms_service_account_id");
 
     /// <summary>
     /// The service account for the given container. Sinks use this service account as their writerIdentity if no custom service account is provided.
     /// </summary>
     [TerraformPropertyName("logging_service_account_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LoggingServiceAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "logging_service_account_id");
+    public TerraformValue<string> LoggingServiceAccountId => new TerraformReference(this, "logging_service_account_id");
 
     /// <summary>
     /// The resource name of the CMEK settings.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The storage location that Cloud Logging will use to create new resources when a location is needed but not explicitly provided.
     /// </summary>
     [TerraformPropertyName("storage_location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StorageLocation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_location");
+    public TerraformValue<string> StorageLocation => new TerraformReference(this, "storage_location");
 
 }

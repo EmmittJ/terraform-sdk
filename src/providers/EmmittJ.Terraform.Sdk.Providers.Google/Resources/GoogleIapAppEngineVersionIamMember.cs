@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIapAppEngineVersionIamMemberConditionBlock : ITerraformBlock
+public class GoogleIapAppEngineVersionIamMemberConditionBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The expression attribute.
@@ -21,7 +21,7 @@ public class GoogleIapAppEngineVersionIamMemberConditionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     [TerraformPropertyName("expression")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Expression { get; set; }
+    public required TerraformValue<string> Expression { get; set; }
 
     /// <summary>
     /// The title attribute.
@@ -29,7 +29,7 @@ public class GoogleIapAppEngineVersionIamMemberConditionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     [TerraformPropertyName("title")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Title { get; set; }
+    public required TerraformValue<string> Title { get; set; }
 
 }
 
@@ -49,14 +49,14 @@ public class GoogleIapAppEngineVersionIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     [TerraformPropertyName("app_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AppId { get; set; }
+    public required TerraformValue<string> AppId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The member attribute.
@@ -64,14 +64,14 @@ public class GoogleIapAppEngineVersionIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
     [TerraformPropertyName("member")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Member { get; set; }
+    public required TerraformValue<string> Member { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The role attribute.
@@ -79,7 +79,7 @@ public class GoogleIapAppEngineVersionIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [TerraformPropertyName("role")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Role { get; set; }
+    public required TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// The service attribute.
@@ -87,7 +87,7 @@ public class GoogleIapAppEngineVersionIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformPropertyName("service")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Service { get; set; }
+    public required TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// The version_id attribute.
@@ -95,7 +95,7 @@ public class GoogleIapAppEngineVersionIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionId is required")]
     [TerraformPropertyName("version_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VersionId { get; set; }
+    public required TerraformValue<string> VersionId { get; set; }
 
     /// <summary>
     /// Block for condition.
@@ -103,13 +103,13 @@ public class GoogleIapAppEngineVersionIamMember : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformPropertyName("condition")]
-    public TerraformList<TerraformBlock<GoogleIapAppEngineVersionIamMemberConditionBlock>>? Condition { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleIapAppEngineVersionIamMemberConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
 }

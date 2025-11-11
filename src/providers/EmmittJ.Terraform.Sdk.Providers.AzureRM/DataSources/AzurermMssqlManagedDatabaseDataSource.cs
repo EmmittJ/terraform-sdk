@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The managed_instance_id attribute.
@@ -39,7 +39,7 @@ public class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     [TerraformPropertyName("managed_instance_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ManagedInstanceId { get; set; }
+    public required TerraformValue<string> ManagedInstanceId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,48 +47,48 @@ public class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The long_term_retention_policy attribute.
     /// </summary>
     [TerraformPropertyName("long_term_retention_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> LongTermRetentionPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "long_term_retention_policy");
+    public TerraformList<object> LongTermRetentionPolicy => new TerraformReference(this, "long_term_retention_policy");
 
     /// <summary>
     /// The managed_instance_name attribute.
     /// </summary>
     [TerraformPropertyName("managed_instance_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ManagedInstanceName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "managed_instance_name");
+    public TerraformValue<string> ManagedInstanceName => new TerraformReference(this, "managed_instance_name");
 
     /// <summary>
     /// The point_in_time_restore attribute.
     /// </summary>
     [TerraformPropertyName("point_in_time_restore")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PointInTimeRestore => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "point_in_time_restore");
+    public TerraformList<object> PointInTimeRestore => new TerraformReference(this, "point_in_time_restore");
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [TerraformPropertyName("resource_group_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ResourceGroupName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_group_name");
+    public TerraformValue<string> ResourceGroupName => new TerraformReference(this, "resource_group_name");
 
     /// <summary>
     /// The short_term_retention_days attribute.
     /// </summary>
     [TerraformPropertyName("short_term_retention_days")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ShortTermRetentionDays => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "short_term_retention_days");
+    public TerraformValue<double> ShortTermRetentionDays => new TerraformReference(this, "short_term_retention_days");
 
 }

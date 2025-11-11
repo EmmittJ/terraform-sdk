@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for open_api_toolset in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCesToolsetOpenApiToolsetBlock : ITerraformBlock
+public class GoogleCesToolsetOpenApiToolsetBlock
 {
     /// <summary>
     /// If true, the agent will ignore unknown fields in the API response for all
@@ -14,7 +14,7 @@ public class GoogleCesToolsetOpenApiToolsetBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("ignore_unknown_fields")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IgnoreUnknownFields { get; set; }
+    public TerraformValue<bool>? IgnoreUnknownFields { get; set; }
 
     /// <summary>
     /// The OpenAPI schema of the toolset.
@@ -22,19 +22,8 @@ public class GoogleCesToolsetOpenApiToolsetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OpenApiSchema is required")]
     [TerraformPropertyName("open_api_schema")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OpenApiSchema { get; set; }
+    public required TerraformValue<string> OpenApiSchema { get; set; }
 
-    /// <summary>
-    /// The server URL of the Open API schema.
-    /// This field is only set in toolsets in the environment dependencies
-    /// during the export process if the schema contains a server url.
-    /// During the import process, if this url is present in the environment dependencies
-    /// and the schema has the $env_var placeholder,
-    /// it will replace the placeholder in the schema.
-    /// </summary>
-    [TerraformPropertyName("url")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>("", "url");
 
 }
 
@@ -42,28 +31,28 @@ public class GoogleCesToolsetOpenApiToolsetBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCesToolsetTimeoutsBlock : ITerraformBlock
+public class GoogleCesToolsetTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -83,21 +72,21 @@ public class GoogleCesToolset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "App is required")]
     [TerraformPropertyName("app")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> App { get; set; }
+    public required TerraformValue<string> App { get; set; }
 
     /// <summary>
     /// The description of the toolset.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display name of the toolset. Must be unique within the same app.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// Possible values:
@@ -106,14 +95,14 @@ public class GoogleCesToolset : TerraformResource
     /// </summary>
     [TerraformPropertyName("execution_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ExecutionType { get; set; }
+    public TerraformValue<string>? ExecutionType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -121,14 +110,14 @@ public class GoogleCesToolset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The ID to use for the toolset, which will become the final component of
@@ -138,7 +127,7 @@ public class GoogleCesToolset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToolsetId is required")]
     [TerraformPropertyName("toolset_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ToolsetId { get; set; }
+    public required TerraformValue<string> ToolsetId { get; set; }
 
     /// <summary>
     /// Block for open_api_toolset.
@@ -146,21 +135,21 @@ public class GoogleCesToolset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenApiToolset block(s) allowed")]
     [TerraformPropertyName("open_api_toolset")]
-    public TerraformList<TerraformBlock<GoogleCesToolsetOpenApiToolsetBlock>>? OpenApiToolset { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleCesToolsetOpenApiToolsetBlock>>? OpenApiToolset { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleCesToolsetTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleCesToolsetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Timestamp when the toolset was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// ETag used to ensure the object hasn&#39;t changed during a read-modify-write
@@ -169,7 +158,7 @@ public class GoogleCesToolset : TerraformResource
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// Identifier. The unique identifier of the toolset.
@@ -178,13 +167,13 @@ public class GoogleCesToolset : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Timestamp when the toolset was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

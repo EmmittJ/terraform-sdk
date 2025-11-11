@@ -17,118 +17,118 @@ public class AwsCodebuildFleetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Tags { get; set; } = default!;
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The base_capacity attribute.
     /// </summary>
     [TerraformPropertyName("base_capacity")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> BaseCapacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "base_capacity");
+    public TerraformValue<double> BaseCapacity => new TerraformReference(this, "base_capacity");
 
     /// <summary>
     /// The compute_configuration attribute.
     /// </summary>
     [TerraformPropertyName("compute_configuration")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ComputeConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "compute_configuration");
+    public TerraformList<object> ComputeConfiguration => new TerraformReference(this, "compute_configuration");
 
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
     [TerraformPropertyName("compute_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ComputeType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "compute_type");
+    public TerraformValue<string> ComputeType => new TerraformReference(this, "compute_type");
 
     /// <summary>
     /// The created attribute.
     /// </summary>
     [TerraformPropertyName("created")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Created => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created");
+    public TerraformValue<string> Created => new TerraformReference(this, "created");
 
     /// <summary>
     /// The environment_type attribute.
     /// </summary>
     [TerraformPropertyName("environment_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EnvironmentType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "environment_type");
+    public TerraformValue<string> EnvironmentType => new TerraformReference(this, "environment_type");
 
     /// <summary>
     /// The fleet_service_role attribute.
     /// </summary>
     [TerraformPropertyName("fleet_service_role")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> FleetServiceRole => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fleet_service_role");
+    public TerraformValue<string> FleetServiceRole => new TerraformReference(this, "fleet_service_role");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
     [TerraformPropertyName("image_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ImageId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_id");
+    public TerraformValue<string> ImageId => new TerraformReference(this, "image_id");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     [TerraformPropertyName("last_modified")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastModified => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified");
+    public TerraformValue<string> LastModified => new TerraformReference(this, "last_modified");
 
     /// <summary>
     /// The overflow_behavior attribute.
     /// </summary>
     [TerraformPropertyName("overflow_behavior")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OverflowBehavior => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "overflow_behavior");
+    public TerraformValue<string> OverflowBehavior => new TerraformReference(this, "overflow_behavior");
 
     /// <summary>
     /// The scaling_configuration attribute.
     /// </summary>
     [TerraformPropertyName("scaling_configuration")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ScalingConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "scaling_configuration");
+    public TerraformList<object> ScalingConfiguration => new TerraformReference(this, "scaling_configuration");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> Status => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "status");
+    public TerraformSet<object> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The vpc_config attribute.
     /// </summary>
     [TerraformPropertyName("vpc_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> VpcConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "vpc_config");
+    public TerraformList<object> VpcConfig => new TerraformReference(this, "vpc_config");
 
 }

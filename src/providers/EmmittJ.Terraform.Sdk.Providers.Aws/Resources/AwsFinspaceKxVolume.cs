@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for nas1_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFinspaceKxVolumeNas1ConfigurationBlock : ITerraformBlock
+public class AwsFinspaceKxVolumeNas1ConfigurationBlock
 {
     /// <summary>
     /// The size attribute.
@@ -14,7 +14,7 @@ public class AwsFinspaceKxVolumeNas1ConfigurationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     [TerraformPropertyName("size")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Size { get; set; }
+    public required TerraformValue<double> Size { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public class AwsFinspaceKxVolumeNas1ConfigurationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -30,28 +30,28 @@ public class AwsFinspaceKxVolumeNas1ConfigurationBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsFinspaceKxVolumeTimeoutsBlock : ITerraformBlock
+public class AwsFinspaceKxVolumeTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -70,7 +70,7 @@ public class AwsFinspaceKxVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZones is required")]
     [TerraformPropertyName("availability_zones")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? AvailabilityZones { get; set; }
+    public TerraformList<string>? AvailabilityZones { get; set; }
 
     /// <summary>
     /// The az_mode attribute.
@@ -78,14 +78,14 @@ public class AwsFinspaceKxVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzMode is required")]
     [TerraformPropertyName("az_mode")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AzMode { get; set; }
+    public required TerraformValue<string> AzMode { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The environment_id attribute.
@@ -93,14 +93,14 @@ public class AwsFinspaceKxVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     [TerraformPropertyName("environment_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EnvironmentId { get; set; }
+    public required TerraformValue<string> EnvironmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -108,28 +108,28 @@ public class AwsFinspaceKxVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The type attribute.
@@ -137,62 +137,62 @@ public class AwsFinspaceKxVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for nas1_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("nas1_configuration")]
-    public TerraformList<TerraformBlock<AwsFinspaceKxVolumeNas1ConfigurationBlock>>? Nas1Configuration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsFinspaceKxVolumeNas1ConfigurationBlock>>? Nas1Configuration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsFinspaceKxVolumeTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsFinspaceKxVolumeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The attached_clusters attribute.
     /// </summary>
     [TerraformPropertyName("attached_clusters")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> AttachedClusters => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "attached_clusters");
+    public TerraformList<object> AttachedClusters => new TerraformReference(this, "attached_clusters");
 
     /// <summary>
     /// The created_timestamp attribute.
     /// </summary>
     [TerraformPropertyName("created_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_timestamp");
+    public TerraformValue<string> CreatedTimestamp => new TerraformReference(this, "created_timestamp");
 
     /// <summary>
     /// The last_modified_timestamp attribute.
     /// </summary>
     [TerraformPropertyName("last_modified_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastModifiedTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_timestamp");
+    public TerraformValue<string> LastModifiedTimestamp => new TerraformReference(this, "last_modified_timestamp");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
     [TerraformPropertyName("status_reason")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StatusReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status_reason");
+    public TerraformValue<string> StatusReason => new TerraformReference(this, "status_reason");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for push_option in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSecureSourceManagerHookPushOptionBlock : ITerraformBlock
+public class GoogleSecureSourceManagerHookPushOptionBlock
 {
     /// <summary>
     /// Trigger hook for matching branches only.
@@ -16,7 +16,7 @@ public class GoogleSecureSourceManagerHookPushOptionBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("branch_filter")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? BranchFilter { get; set; }
+    public TerraformValue<string>? BranchFilter { get; set; }
 
 }
 
@@ -24,28 +24,28 @@ public class GoogleSecureSourceManagerHookPushOptionBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSecureSourceManagerHookTimeoutsBlock : ITerraformBlock
+public class GoogleSecureSourceManagerHookTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -65,14 +65,14 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The events that trigger hook on. Possible values: [&amp;quot;PUSH&amp;quot;, &amp;quot;PULL_REQUEST&amp;quot;]
     /// </summary>
     [TerraformPropertyName("events")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> Events { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "events");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> Events { get; set; } = default!;
 
     /// <summary>
     /// The ID for the Hook.
@@ -80,14 +80,14 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HookId is required")]
     [TerraformPropertyName("hook_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HookId { get; set; }
+    public required TerraformValue<string> HookId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location for the Repository.
@@ -95,14 +95,14 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The ID for the Repository.
@@ -110,14 +110,14 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     [TerraformPropertyName("repository_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RepositoryId { get; set; }
+    public required TerraformValue<string> RepositoryId { get; set; }
 
     /// <summary>
     /// The sensitive query string to be appended to the target URI.
     /// </summary>
     [TerraformPropertyName("sensitive_query_string")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SensitiveQueryString { get; set; }
+    public TerraformValue<string>? SensitiveQueryString { get; set; }
 
     /// <summary>
     /// The target URI to which the payloads will be delivered.
@@ -125,7 +125,7 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetUri is required")]
     [TerraformPropertyName("target_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetUri { get; set; }
+    public required TerraformValue<string> TargetUri { get; set; }
 
     /// <summary>
     /// Block for push_option.
@@ -133,21 +133,21 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PushOption block(s) allowed")]
     [TerraformPropertyName("push_option")]
-    public TerraformList<TerraformBlock<GoogleSecureSourceManagerHookPushOptionBlock>>? PushOption { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleSecureSourceManagerHookPushOptionBlock>>? PushOption { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleSecureSourceManagerHookTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleSecureSourceManagerHookTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Create timestamp.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// A unique identifier for a Hook. The name should be of the format:
@@ -155,20 +155,20 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Unique identifier of the hook.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Update timestamp.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

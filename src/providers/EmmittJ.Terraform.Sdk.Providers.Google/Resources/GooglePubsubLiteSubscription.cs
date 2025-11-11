@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for delivery_config in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubLiteSubscriptionDeliveryConfigBlock : ITerraformBlock
+public class GooglePubsubLiteSubscriptionDeliveryConfigBlock
 {
     /// <summary>
     /// When this subscription should send messages to subscribers relative to messages persistence in storage. Possible values: [&amp;quot;DELIVER_IMMEDIATELY&amp;quot;, &amp;quot;DELIVER_AFTER_STORED&amp;quot;, &amp;quot;DELIVERY_REQUIREMENT_UNSPECIFIED&amp;quot;]
@@ -14,7 +14,7 @@ public class GooglePubsubLiteSubscriptionDeliveryConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryRequirement is required")]
     [TerraformPropertyName("delivery_requirement")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DeliveryRequirement { get; set; }
+    public required TerraformValue<string> DeliveryRequirement { get; set; }
 
 }
 
@@ -22,28 +22,28 @@ public class GooglePubsubLiteSubscriptionDeliveryConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GooglePubsubLiteSubscriptionTimeoutsBlock : ITerraformBlock
+public class GooglePubsubLiteSubscriptionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -61,8 +61,8 @@ public class GooglePubsubLiteSubscription : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the subscription.
@@ -70,21 +70,21 @@ public class GooglePubsubLiteSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The region of the pubsub lite topic.
     /// </summary>
     [TerraformPropertyName("region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// A reference to a Topic resource.
@@ -92,14 +92,14 @@ public class GooglePubsubLiteSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     [TerraformPropertyName("topic")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Topic { get; set; }
+    public required TerraformValue<string> Topic { get; set; }
 
     /// <summary>
     /// The zone of the pubsub lite topic.
     /// </summary>
     [TerraformPropertyName("zone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Zone { get; set; }
+    public TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
     /// Block for delivery_config.
@@ -107,13 +107,13 @@ public class GooglePubsubLiteSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryConfig block(s) allowed")]
     [TerraformPropertyName("delivery_config")]
-    public TerraformList<TerraformBlock<GooglePubsubLiteSubscriptionDeliveryConfigBlock>>? DeliveryConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GooglePubsubLiteSubscriptionDeliveryConfigBlock>>? DeliveryConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GooglePubsubLiteSubscriptionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GooglePubsubLiteSubscriptionTimeoutsBlock>? Timeouts { get; set; }
 
 }

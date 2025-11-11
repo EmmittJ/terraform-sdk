@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for test_case_conversation_turns in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock : ITerraformBlock
+public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock : ITerrafo
 /// Block type for test_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxTestCaseTestConfigBlock : ITerraformBlock
+public class GoogleDialogflowCxTestCaseTestConfigBlock
 {
     /// <summary>
     /// Flow name to start the test case with.
@@ -23,7 +23,7 @@ public class GoogleDialogflowCxTestCaseTestConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("flow")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Flow { get; set; }
+    public TerraformValue<string>? Flow { get; set; }
 
     /// <summary>
     /// The page to start the test case with.
@@ -32,14 +32,14 @@ public class GoogleDialogflowCxTestCaseTestConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("page")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Page { get; set; }
+    public TerraformValue<string>? Page { get; set; }
 
     /// <summary>
     /// Session parameters to be compared when calculating differences.
     /// </summary>
     [TerraformPropertyName("tracking_parameters")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? TrackingParameters { get; set; }
+    public TerraformList<string>? TrackingParameters { get; set; }
 
 }
 
@@ -47,28 +47,28 @@ public class GoogleDialogflowCxTestCaseTestConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowCxTestCaseTimeoutsBlock : ITerraformBlock
+public class GoogleDialogflowCxTestCaseTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -88,21 +88,21 @@ public class GoogleDialogflowCxTestCase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Additional freeform notes about the test case. Limit of 400 characters.
     /// </summary>
     [TerraformPropertyName("notes")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Notes { get; set; }
+    public TerraformValue<string>? Notes { get; set; }
 
     /// <summary>
     /// The agent to create the test case for.
@@ -110,7 +110,7 @@ public class GoogleDialogflowCxTestCase : TerraformResource
     /// </summary>
     [TerraformPropertyName("parent")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Parent { get; set; }
+    public TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// Tags are short descriptions that users may apply to test cases for organizational and filtering purposes.
@@ -118,14 +118,14 @@ public class GoogleDialogflowCxTestCase : TerraformResource
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformList<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for test_case_conversation_turns.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("test_case_conversation_turns")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock>>? TestCaseConversationTurns { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock>>? TestCaseConversationTurns { get; set; }
 
     /// <summary>
     /// Block for test_config.
@@ -133,28 +133,28 @@ public class GoogleDialogflowCxTestCase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TestConfig block(s) allowed")]
     [TerraformPropertyName("test_config")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxTestCaseTestConfigBlock>>? TestConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDialogflowCxTestCaseTestConfigBlock>>? TestConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxTestCaseTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDialogflowCxTestCaseTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// When the test was created. A timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
+    public TerraformValue<string> CreationTime => new TerraformReference(this, "creation_time");
 
     /// <summary>
     /// The latest test result.
     /// </summary>
     [TerraformPropertyName("last_test_result")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> LastTestResult => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "last_test_result");
+    public TerraformList<object> LastTestResult => new TerraformReference(this, "last_test_result");
 
     /// <summary>
     /// The unique identifier of the test case.
@@ -162,6 +162,6 @@ public class GoogleDialogflowCxTestCase : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

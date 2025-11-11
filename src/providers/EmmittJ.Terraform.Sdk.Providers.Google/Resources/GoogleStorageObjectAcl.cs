@@ -17,14 +17,14 @@ public class GoogleStorageObjectAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformPropertyName("bucket")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
+    public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The object attribute.
@@ -32,20 +32,20 @@ public class GoogleStorageObjectAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Object is required")]
     [TerraformPropertyName("object")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Object { get; set; }
+    public required TerraformValue<string> Object { get; set; }
 
     /// <summary>
     /// The predefined_acl attribute.
     /// </summary>
     [TerraformPropertyName("predefined_acl")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PredefinedAcl { get; set; }
+    public TerraformValue<string>? PredefinedAcl { get; set; }
 
     /// <summary>
     /// The role_entity attribute.
     /// </summary>
     [TerraformPropertyName("role_entity")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<HashSet<TerraformProperty<string>>> RoleEntity { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "role_entity");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformSet<string> RoleEntity { get; set; } = default!;
 
 }

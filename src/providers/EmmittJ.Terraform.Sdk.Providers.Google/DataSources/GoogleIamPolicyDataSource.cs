@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for audit_config in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleIamPolicyDataSourceAuditConfigBlock : ITerraformBlock
+public class GoogleIamPolicyDataSourceAuditConfigBlock
 {
     /// <summary>
     /// The service attribute.
@@ -14,7 +14,7 @@ public class GoogleIamPolicyDataSourceAuditConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformPropertyName("service")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Service { get; set; }
+    public required TerraformValue<string> Service { get; set; }
 
 }
 
@@ -22,7 +22,7 @@ public class GoogleIamPolicyDataSourceAuditConfigBlock : ITerraformBlock
 /// Block type for binding in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleIamPolicyDataSourceBindingBlock : ITerraformBlock
+public class GoogleIamPolicyDataSourceBindingBlock
 {
     /// <summary>
     /// The members attribute.
@@ -30,7 +30,7 @@ public class GoogleIamPolicyDataSourceBindingBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
     [TerraformPropertyName("members")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Members { get; set; }
+    public required TerraformSet<string> Members { get; set; }
 
     /// <summary>
     /// The role attribute.
@@ -38,7 +38,7 @@ public class GoogleIamPolicyDataSourceBindingBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [TerraformPropertyName("role")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Role { get; set; }
+    public required TerraformValue<string> Role { get; set; }
 
 }
 
@@ -55,28 +55,28 @@ public class GoogleIamPolicyDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Block for audit_config.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("audit_config")]
-    public TerraformSet<TerraformBlock<GoogleIamPolicyDataSourceAuditConfigBlock>>? AuditConfig { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleIamPolicyDataSourceAuditConfigBlock>>? AuditConfig { get; set; }
 
     /// <summary>
     /// Block for binding.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("binding")]
-    public TerraformSet<TerraformBlock<GoogleIamPolicyDataSourceBindingBlock>>? Binding { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleIamPolicyDataSourceBindingBlock>>? Binding { get; set; }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     [TerraformPropertyName("policy_data")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PolicyData => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy_data");
+    public TerraformValue<string> PolicyData => new TerraformReference(this, "policy_data");
 
 }

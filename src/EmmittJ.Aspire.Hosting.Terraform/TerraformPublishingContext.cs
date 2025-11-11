@@ -141,7 +141,7 @@ internal sealed class TerraformPublishingContext
         var relativePath = Path.GetRelativePath(_baseOutputPath, resourceOutputPath);
         return new TerraformModule(resource.Name)
         {
-            Source = $"./{relativePath.Replace("\\", "/")}"
+            Source = $"./{relativePath.Replace("\\", "/")}"  // Implicit conversion from string to TerraformValue<string>
         };
     }
 

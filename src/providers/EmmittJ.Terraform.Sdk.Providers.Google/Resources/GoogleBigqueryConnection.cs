@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for aws in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryConnectionAwsBlock : ITerraformBlock
+public class GoogleBigqueryConnectionAwsBlock
 {
 }
 
@@ -14,21 +14,9 @@ public class GoogleBigqueryConnectionAwsBlock : ITerraformBlock
 /// Block type for azure in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryConnectionAzureBlock : ITerraformBlock
+public class GoogleBigqueryConnectionAzureBlock
 {
-    /// <summary>
-    /// The name of the Azure Active Directory Application.
-    /// </summary>
-    [TerraformPropertyName("application")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Application => new TerraformReferenceProperty<TerraformProperty<string>>("", "application");
 
-    /// <summary>
-    /// The client id of the Azure Active Directory Application.
-    /// </summary>
-    [TerraformPropertyName("client_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ClientId => new TerraformReferenceProperty<TerraformProperty<string>>("", "client_id");
 
     /// <summary>
     /// The id of customer&#39;s directory that host the data.
@@ -36,35 +24,17 @@ public class GoogleBigqueryConnectionAzureBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerTenantId is required")]
     [TerraformPropertyName("customer_tenant_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CustomerTenantId { get; set; }
+    public required TerraformValue<string> CustomerTenantId { get; set; }
 
     /// <summary>
     /// The Azure Application (client) ID where the federated credentials will be hosted.
     /// </summary>
     [TerraformPropertyName("federated_application_client_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FederatedApplicationClientId { get; set; }
+    public TerraformValue<string>? FederatedApplicationClientId { get; set; }
 
-    /// <summary>
-    /// A unique Google-owned and Google-generated identity for the Connection. This identity will be used to access the user&#39;s Azure Active Directory Application.
-    /// </summary>
-    [TerraformPropertyName("identity")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Identity => new TerraformReferenceProperty<TerraformProperty<string>>("", "identity");
 
-    /// <summary>
-    /// The object id of the Azure Active Directory Application.
-    /// </summary>
-    [TerraformPropertyName("object_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ObjectId => new TerraformReferenceProperty<TerraformProperty<string>>("", "object_id");
 
-    /// <summary>
-    /// The URL user will be redirected to after granting consent during connection setup.
-    /// </summary>
-    [TerraformPropertyName("redirect_uri")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RedirectUri => new TerraformReferenceProperty<TerraformProperty<string>>("", "redirect_uri");
 
 }
 
@@ -72,14 +42,8 @@ public class GoogleBigqueryConnectionAzureBlock : ITerraformBlock
 /// Block type for cloud_resource in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryConnectionCloudResourceBlock : ITerraformBlock
+public class GoogleBigqueryConnectionCloudResourceBlock
 {
-    /// <summary>
-    /// The account ID of the service created for the purpose of this connection.
-    /// </summary>
-    [TerraformPropertyName("service_account_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServiceAccountId => new TerraformReferenceProperty<TerraformProperty<string>>("", "service_account_id");
 
 }
 
@@ -87,7 +51,7 @@ public class GoogleBigqueryConnectionCloudResourceBlock : ITerraformBlock
 /// Block type for cloud_spanner in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryConnectionCloudSpannerBlock : ITerraformBlock
+public class GoogleBigqueryConnectionCloudSpannerBlock
 {
     /// <summary>
     /// Cloud Spanner database in the form &#39;project/instance/database&#39;.
@@ -95,35 +59,35 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     [TerraformPropertyName("database")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Database { get; set; }
+    public required TerraformValue<string> Database { get; set; }
 
     /// <summary>
     /// Cloud Spanner database role for fine-grained access control. The Cloud Spanner admin should have provisioned the database role with appropriate permissions, such as &#39;SELECT&#39; and &#39;INSERT&#39;. Other users should only use roles provided by their Cloud Spanner admins. The database role name must start with a letter, and can only contain letters, numbers, and underscores. For more details, see https://cloud.google.com/spanner/docs/fgac-about.
     /// </summary>
     [TerraformPropertyName("database_role")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DatabaseRole { get; set; }
+    public TerraformValue<string>? DatabaseRole { get; set; }
 
     /// <summary>
     /// Allows setting max parallelism per query when executing on Spanner independent compute resources. If unspecified, default values of parallelism are chosen that are dependent on the Cloud Spanner instance configuration. &#39;useParallelism&#39; and &#39;useDataBoost&#39; must be set when setting max parallelism.
     /// </summary>
     [TerraformPropertyName("max_parallelism")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxParallelism { get; set; }
+    public TerraformValue<double>? MaxParallelism { get; set; }
 
     /// <summary>
     /// If set, the request will be executed via Spanner independent compute resources. &#39;use_parallelism&#39; must be set when using data boost.
     /// </summary>
     [TerraformPropertyName("use_data_boost")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? UseDataBoost { get; set; }
+    public TerraformValue<bool>? UseDataBoost { get; set; }
 
     /// <summary>
     /// If parallelism should be used when reading from Cloud Spanner.
     /// </summary>
     [TerraformPropertyName("use_parallelism")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? UseParallelism { get; set; }
+    public TerraformValue<bool>? UseParallelism { get; set; }
 
     /// <summary>
     /// If the serverless analytics service should be used to read data from Cloud Spanner. &#39;useParallelism&#39; must be set when using serverless analytics.
@@ -131,7 +95,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : ITerraformBlock
     [Obsolete("This property is deprecated.")]
     [TerraformPropertyName("use_serverless_analytics")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? UseServerlessAnalytics { get; set; }
+    public TerraformValue<bool>? UseServerlessAnalytics { get; set; }
 
 }
 
@@ -139,7 +103,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : ITerraformBlock
 /// Block type for cloud_sql in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryConnectionCloudSqlBlock : ITerraformBlock
+public class GoogleBigqueryConnectionCloudSqlBlock
 {
     /// <summary>
     /// Database name.
@@ -147,7 +111,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     [TerraformPropertyName("database")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Database { get; set; }
+    public required TerraformValue<string> Database { get; set; }
 
     /// <summary>
     /// Cloud SQL instance ID in the form project:location:instance.
@@ -155,14 +119,8 @@ public class GoogleBigqueryConnectionCloudSqlBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformPropertyName("instance_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
+    public required TerraformValue<string> InstanceId { get; set; }
 
-    /// <summary>
-    /// When the connection is used in the context of an operation in BigQuery, this service account will serve as the identity being used for connecting to the CloudSQL instance specified in this connection.
-    /// </summary>
-    [TerraformPropertyName("service_account_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServiceAccountId => new TerraformReferenceProperty<TerraformProperty<string>>("", "service_account_id");
 
     /// <summary>
     /// Type of the Cloud SQL database. Possible values: [&amp;quot;DATABASE_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;POSTGRES&amp;quot;, &amp;quot;MYSQL&amp;quot;]
@@ -170,7 +128,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -178,14 +136,8 @@ public class GoogleBigqueryConnectionCloudSqlBlock : ITerraformBlock
 /// Block type for spark in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryConnectionSparkBlock : ITerraformBlock
+public class GoogleBigqueryConnectionSparkBlock
 {
-    /// <summary>
-    /// The account ID of the service created for the purpose of this connection.
-    /// </summary>
-    [TerraformPropertyName("service_account_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ServiceAccountId => new TerraformReferenceProperty<TerraformProperty<string>>("", "service_account_id");
 
 }
 
@@ -193,28 +145,28 @@ public class GoogleBigqueryConnectionSparkBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryConnectionTimeoutsBlock : ITerraformBlock
+public class GoogleBigqueryConnectionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -232,29 +184,29 @@ public class GoogleBigqueryConnection : TerraformResource
     /// Optional connection id that should be assigned to the created connection.
     /// </summary>
     [TerraformPropertyName("connection_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ConnectionId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "connection_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ConnectionId { get; set; } = default!;
 
     /// <summary>
     /// A descriptive description for the connection
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A descriptive name for the connection
     /// </summary>
     [TerraformPropertyName("friendly_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FriendlyName { get; set; }
+    public TerraformValue<string>? FriendlyName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Optional. The Cloud KMS key that is used for encryption.
@@ -263,7 +215,7 @@ public class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("kms_key_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyName { get; set; }
+    public TerraformValue<string>? KmsKeyName { get; set; }
 
     /// <summary>
     /// The geographic location where the connection should reside.
@@ -276,14 +228,14 @@ public class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for aws.
@@ -291,7 +243,7 @@ public class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Aws block(s) allowed")]
     [TerraformPropertyName("aws")]
-    public TerraformList<TerraformBlock<GoogleBigqueryConnectionAwsBlock>>? Aws { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryConnectionAwsBlock>>? Aws { get; set; }
 
     /// <summary>
     /// Block for azure.
@@ -299,7 +251,7 @@ public class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Azure block(s) allowed")]
     [TerraformPropertyName("azure")]
-    public TerraformList<TerraformBlock<GoogleBigqueryConnectionAzureBlock>>? Azure { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryConnectionAzureBlock>>? Azure { get; set; }
 
     /// <summary>
     /// Block for cloud_resource.
@@ -307,7 +259,7 @@ public class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudResource block(s) allowed")]
     [TerraformPropertyName("cloud_resource")]
-    public TerraformList<TerraformBlock<GoogleBigqueryConnectionCloudResourceBlock>>? CloudResource { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryConnectionCloudResourceBlock>>? CloudResource { get; set; }
 
     /// <summary>
     /// Block for cloud_spanner.
@@ -315,7 +267,7 @@ public class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudSpanner block(s) allowed")]
     [TerraformPropertyName("cloud_spanner")]
-    public TerraformList<TerraformBlock<GoogleBigqueryConnectionCloudSpannerBlock>>? CloudSpanner { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryConnectionCloudSpannerBlock>>? CloudSpanner { get; set; }
 
     /// <summary>
     /// Block for cloud_sql.
@@ -323,7 +275,7 @@ public class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudSql block(s) allowed")]
     [TerraformPropertyName("cloud_sql")]
-    public TerraformList<TerraformBlock<GoogleBigqueryConnectionCloudSqlBlock>>? CloudSql { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryConnectionCloudSqlBlock>>? CloudSql { get; set; }
 
     /// <summary>
     /// Block for spark.
@@ -331,21 +283,21 @@ public class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spark block(s) allowed")]
     [TerraformPropertyName("spark")]
-    public TerraformList<TerraformBlock<GoogleBigqueryConnectionSparkBlock>>? Spark { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleBigqueryConnectionSparkBlock>>? Spark { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleBigqueryConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleBigqueryConnectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// True if the connection has credential assigned.
     /// </summary>
     [TerraformPropertyName("has_credential")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> HasCredential => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "has_credential");
+    public TerraformValue<bool> HasCredential => new TerraformReference(this, "has_credential");
 
     /// <summary>
     /// The resource name of the connection in the form of:
@@ -353,6 +305,6 @@ public class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for condition in .
 /// Nesting mode: set
 /// </summary>
-public class AwsBackupSelectionConditionBlock : ITerraformBlock
+public class AwsBackupSelectionConditionBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsBackupSelectionConditionBlock : ITerraformBlock
 /// Block type for selection_tag in .
 /// Nesting mode: set
 /// </summary>
-public class AwsBackupSelectionSelectionTagBlock : ITerraformBlock
+public class AwsBackupSelectionSelectionTagBlock
 {
     /// <summary>
     /// The key attribute.
@@ -22,7 +22,7 @@ public class AwsBackupSelectionSelectionTagBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformPropertyName("key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
+    public required TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -30,7 +30,7 @@ public class AwsBackupSelectionSelectionTagBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -38,7 +38,7 @@ public class AwsBackupSelectionSelectionTagBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformPropertyName("value")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
+    public required TerraformValue<string> Value { get; set; }
 
 }
 
@@ -57,14 +57,14 @@ public class AwsBackupSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     [TerraformPropertyName("iam_role_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IamRoleArn { get; set; }
+    public required TerraformValue<string> IamRoleArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -72,14 +72,14 @@ public class AwsBackupSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The not_resources attribute.
     /// </summary>
     [TerraformPropertyName("not_resources")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<HashSet<TerraformProperty<string>>> NotResources { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "not_resources");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformSet<string> NotResources { get; set; } = default!;
 
     /// <summary>
     /// The plan_id attribute.
@@ -87,34 +87,34 @@ public class AwsBackupSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlanId is required")]
     [TerraformPropertyName("plan_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PlanId { get; set; }
+    public required TerraformValue<string> PlanId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     [TerraformPropertyName("resources")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Resources { get; set; }
+    public TerraformSet<string>? Resources { get; set; }
 
     /// <summary>
     /// Block for condition.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("condition")]
-    public TerraformSet<TerraformBlock<AwsBackupSelectionConditionBlock>>? Condition { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsBackupSelectionConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// Block for selection_tag.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("selection_tag")]
-    public TerraformSet<TerraformBlock<AwsBackupSelectionSelectionTagBlock>>? SelectionTag { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsBackupSelectionSelectionTagBlock>>? SelectionTag { get; set; }
 
 }

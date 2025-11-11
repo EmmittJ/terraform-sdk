@@ -16,21 +16,21 @@ public class AwsBedrockagentcoreApiKeyCredentialProvider : TerraformResource
     /// </summary>
     [TerraformPropertyName("api_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ApiKey { get; set; }
+    public TerraformValue<string>? ApiKey { get; set; }
 
     /// <summary>
     /// The api_key_wo attribute.
     /// </summary>
     [TerraformPropertyName("api_key_wo")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ApiKeyWo { get; set; }
+    public TerraformValue<string>? ApiKeyWo { get; set; }
 
     /// <summary>
     /// The api_key_wo_version attribute.
     /// </summary>
     [TerraformPropertyName("api_key_wo_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? ApiKeyWoVersion { get; set; }
+    public TerraformValue<double>? ApiKeyWoVersion { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -38,27 +38,27 @@ public class AwsBedrockagentcoreApiKeyCredentialProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The api_key_secret_arn attribute.
     /// </summary>
     [TerraformPropertyName("api_key_secret_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ApiKeySecretArn => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "api_key_secret_arn");
+    public TerraformList<object> ApiKeySecretArn => new TerraformReference(this, "api_key_secret_arn");
 
     /// <summary>
     /// The credential_provider_arn attribute.
     /// </summary>
     [TerraformPropertyName("credential_provider_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CredentialProviderArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "credential_provider_arn");
+    public TerraformValue<string> CredentialProviderArn => new TerraformReference(this, "credential_provider_arn");
 
 }

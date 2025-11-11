@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSecretManagerRegionalSecretVersionTimeoutsBlock : ITerraformBlock
+public class GoogleSecretManagerRegionalSecretVersionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -50,28 +50,28 @@ public class GoogleSecretManagerRegionalSecretVersion : TerraformResource
     /// </summary>
     [TerraformPropertyName("deletion_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeletionPolicy { get; set; }
+    public TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The current state of the regional secret version.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// If set to &#39;true&#39;, the secret data is expected to be base64-encoded string and would be sent as is.
     /// </summary>
     [TerraformPropertyName("is_secret_data_base64")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IsSecretDataBase64 { get; set; }
+    public TerraformValue<bool>? IsSecretDataBase64 { get; set; }
 
     /// <summary>
     /// Secret Manager regional secret resource.
@@ -79,7 +79,7 @@ public class GoogleSecretManagerRegionalSecretVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     [TerraformPropertyName("secret")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Secret { get; set; }
+    public required TerraformValue<string> Secret { get; set; }
 
     /// <summary>
     /// The secret data. Must be no larger than 64KiB.
@@ -87,42 +87,42 @@ public class GoogleSecretManagerRegionalSecretVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretData is required")]
     [TerraformPropertyName("secret_data")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SecretData { get; set; }
+    public required TerraformValue<string> SecretData { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleSecretManagerRegionalSecretVersionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleSecretManagerRegionalSecretVersionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time at which the regional secret version was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The customer-managed encryption configuration of the regional secret.
     /// </summary>
     [TerraformPropertyName("customer_managed_encryption")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CustomerManagedEncryption => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "customer_managed_encryption");
+    public TerraformList<object> CustomerManagedEncryption => new TerraformReference(this, "customer_managed_encryption");
 
     /// <summary>
     /// The time at which the regional secret version was destroyed. Only present if state is DESTROYED.
     /// </summary>
     [TerraformPropertyName("destroy_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DestroyTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "destroy_time");
+    public TerraformValue<string> DestroyTime => new TerraformReference(this, "destroy_time");
 
     /// <summary>
     /// Location of Secret Manager regional secret resource.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The resource name of the regional secret version. Format:
@@ -130,13 +130,13 @@ public class GoogleSecretManagerRegionalSecretVersion : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The version of the Regional Secret.
     /// </summary>
     [TerraformPropertyName("version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
+    public TerraformValue<string> Version => new TerraformReference(this, "version");
 
 }

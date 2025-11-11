@@ -16,21 +16,21 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("filter")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Filter { get; set; }
+    public TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
     [TerraformPropertyName("most_recent")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? MostRecent { get; set; }
+    public TerraformValue<bool>? MostRecent { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is
@@ -43,14 +43,14 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
+    public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Creates the new snapshot in the snapshot chain labeled with the
@@ -62,35 +62,35 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("chain_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ChainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "chain_name");
+    public TerraformValue<string> ChainName => new TerraformReference(this, "chain_name");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// Size of the snapshot, specified in GB.
     /// </summary>
     [TerraformPropertyName("disk_size_gb")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> DiskSizeGb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "disk_size_gb");
+    public TerraformValue<double> DiskSizeGb => new TerraformReference(this, "disk_size_gb");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource. Used
@@ -98,7 +98,7 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("label_fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LabelFingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "label_fingerprint");
+    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
 
     /// <summary>
     /// Labels to apply to this Snapshot.
@@ -108,7 +108,7 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// A list of public visible licenses that apply to this snapshot. This
@@ -118,14 +118,14 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("licenses")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Licenses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "licenses");
+    public TerraformList<string> Licenses => new TerraformReference(this, "licenses");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// Encrypts the snapshot using a customer-supplied encryption key.
@@ -144,21 +144,21 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("snapshot_encryption_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> SnapshotEncryptionKey => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "snapshot_encryption_key");
+    public TerraformList<object> SnapshotEncryptionKey => new TerraformReference(this, "snapshot_encryption_key");
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     [TerraformPropertyName("snapshot_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> SnapshotId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "snapshot_id");
+    public TerraformValue<double> SnapshotId => new TerraformReference(this, "snapshot_id");
 
     /// <summary>
     /// A reference to the disk used to create this snapshot.
     /// </summary>
     [TerraformPropertyName("source_disk")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SourceDisk => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_disk");
+    public TerraformValue<string> SourceDisk => new TerraformReference(this, "source_disk");
 
     /// <summary>
     /// The customer-supplied encryption key of the source snapshot. Required
@@ -167,7 +167,7 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("source_disk_encryption_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> SourceDiskEncryptionKey => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "source_disk_encryption_key");
+    public TerraformList<object> SourceDiskEncryptionKey => new TerraformReference(this, "source_disk_encryption_key");
 
     /// <summary>
     /// A size of the storage used by the snapshot. As snapshots share
@@ -176,14 +176,14 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("storage_bytes")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> StorageBytes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "storage_bytes");
+    public TerraformValue<double> StorageBytes => new TerraformReference(this, "storage_bytes");
 
     /// <summary>
     /// Cloud Storage bucket storage location of the snapshot (regional or multi-regional).
     /// </summary>
     [TerraformPropertyName("storage_locations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> StorageLocations => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "storage_locations");
+    public TerraformList<string> StorageLocations => new TerraformReference(this, "storage_locations");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -191,13 +191,13 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// A reference to the zone where the disk is hosted.
     /// </summary>
     [TerraformPropertyName("zone")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Zone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
+    public TerraformValue<string> Zone => new TerraformReference(this, "zone");
 
 }

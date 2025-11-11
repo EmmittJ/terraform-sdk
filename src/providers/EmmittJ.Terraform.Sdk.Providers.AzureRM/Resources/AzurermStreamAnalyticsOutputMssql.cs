@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStreamAnalyticsOutputMssqlTimeoutsBlock : ITerraformBlock
+public class AzurermStreamAnalyticsOutputMssqlTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public class AzurermStreamAnalyticsOutputMssql : TerraformResource
     /// </summary>
     [TerraformPropertyName("authentication_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AuthenticationMode { get; set; }
+    public TerraformValue<string>? AuthenticationMode { get; set; }
 
     /// <summary>
     /// The database attribute.
@@ -60,28 +60,28 @@ public class AzurermStreamAnalyticsOutputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     [TerraformPropertyName("database")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Database { get; set; }
+    public required TerraformValue<string> Database { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The max_batch_count attribute.
     /// </summary>
     [TerraformPropertyName("max_batch_count")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxBatchCount { get; set; }
+    public TerraformValue<double>? MaxBatchCount { get; set; }
 
     /// <summary>
     /// The max_writer_count attribute.
     /// </summary>
     [TerraformPropertyName("max_writer_count")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxWriterCount { get; set; }
+    public TerraformValue<double>? MaxWriterCount { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -89,14 +89,14 @@ public class AzurermStreamAnalyticsOutputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     [TerraformPropertyName("password")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Password { get; set; }
+    public TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -104,7 +104,7 @@ public class AzurermStreamAnalyticsOutputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The server attribute.
@@ -112,7 +112,7 @@ public class AzurermStreamAnalyticsOutputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     [TerraformPropertyName("server")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Server { get; set; }
+    public required TerraformValue<string> Server { get; set; }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
@@ -120,7 +120,7 @@ public class AzurermStreamAnalyticsOutputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     [TerraformPropertyName("stream_analytics_job_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StreamAnalyticsJobName { get; set; }
+    public required TerraformValue<string> StreamAnalyticsJobName { get; set; }
 
     /// <summary>
     /// The table attribute.
@@ -128,20 +128,20 @@ public class AzurermStreamAnalyticsOutputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     [TerraformPropertyName("table")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Table { get; set; }
+    public required TerraformValue<string> Table { get; set; }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
     [TerraformPropertyName("user")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? User { get; set; }
+    public TerraformValue<string>? User { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermStreamAnalyticsOutputMssqlTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermStreamAnalyticsOutputMssqlTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -57,91 +57,55 @@ public class AwsProvider : TerraformProvider
     /// from the &#39;Security &amp;amp; Credentials&#39; section of the AWS console.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> AccessKey
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("access_key");
-        set => SetProperty("access_key", value);
-    }
+    public TerraformValue<string>? AccessKey { get; set; }
 
     /// <summary>
     /// The allowed_account_ids configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<HashSet<TerraformProperty<string>>> AllowedAccountIds
-    {
-        get => GetRequiredOutput<TerraformProperty<HashSet<TerraformProperty<string>>>>("allowed_account_ids");
-        set => SetProperty("allowed_account_ids", value);
-    }
+    public TerraformSet<string>? AllowedAccountIds { get; set; }
 
     /// <summary>
     /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> CustomCaBundle
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("custom_ca_bundle");
-        set => SetProperty("custom_ca_bundle", value);
-    }
+    public TerraformValue<string>? CustomCaBundle { get; set; }
 
     /// <summary>
     /// Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> Ec2MetadataServiceEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("ec2_metadata_service_endpoint");
-        set => SetProperty("ec2_metadata_service_endpoint", value);
-    }
+    public TerraformValue<string>? Ec2MetadataServiceEndpoint { get; set; }
 
     /// <summary>
     /// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> Ec2MetadataServiceEndpointMode
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("ec2_metadata_service_endpoint_mode");
-        set => SetProperty("ec2_metadata_service_endpoint_mode", value);
-    }
+    public TerraformValue<string>? Ec2MetadataServiceEndpointMode { get; set; }
 
     /// <summary>
     /// The forbidden_account_ids configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<HashSet<TerraformProperty<string>>> ForbiddenAccountIds
-    {
-        get => GetRequiredOutput<TerraformProperty<HashSet<TerraformProperty<string>>>>("forbidden_account_ids");
-        set => SetProperty("forbidden_account_ids", value);
-    }
+    public TerraformSet<string>? ForbiddenAccountIds { get; set; }
 
     /// <summary>
     /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> HttpProxy
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("http_proxy");
-        set => SetProperty("http_proxy", value);
-    }
+    public TerraformValue<string>? HttpProxy { get; set; }
 
     /// <summary>
     /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> HttpsProxy
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("https_proxy");
-        set => SetProperty("https_proxy", value);
-    }
+    public TerraformValue<string>? HttpsProxy { get; set; }
 
     /// <summary>
     /// Explicitly allow the provider to perform &amp;quot;insecure&amp;quot; SSL requests. If omitted, default value is `false`
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> Insecure
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("insecure");
-        set => SetProperty("insecure", value);
-    }
+    public TerraformValue<bool>? Insecure { get; set; }
 
     /// <summary>
     /// The maximum number of times an AWS API request is
@@ -149,63 +113,39 @@ public class AwsProvider : TerraformProvider
     /// thrown.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<double>> MaxRetries
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<double>>>("max_retries");
-        set => SetProperty("max_retries", value);
-    }
+    public TerraformValue<double>? MaxRetries { get; set; }
 
     /// <summary>
     /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> NoProxy
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("no_proxy");
-        set => SetProperty("no_proxy", value);
-    }
+    public TerraformValue<string>? NoProxy { get; set; }
 
     /// <summary>
     /// The profile for API operations. If not set, the default profile
     /// created with `aws configure` will be used.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> Profile
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("profile");
-        set => SetProperty("profile", value);
-    }
+    public TerraformValue<string>? Profile { get; set; }
 
     /// <summary>
     /// The region where AWS operations will take place. Examples
     /// are us-east-1, us-west-2, etc.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("region");
-        set => SetProperty("region", value);
-    }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> RetryMode
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("retry_mode");
-        set => SetProperty("retry_mode", value);
-    }
+    public TerraformValue<string>? RetryMode { get; set; }
 
     /// <summary>
     /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> S3UsEast1RegionalEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("s3_us_east_1_regional_endpoint");
-        set => SetProperty("s3_us_east_1_regional_endpoint", value);
-    }
+    public TerraformValue<string>? S3UsEast1RegionalEndpoint { get; set; }
 
     /// <summary>
     /// Set this to true to enable the request to use path-style addressing,
@@ -214,132 +154,80 @@ public class AwsProvider : TerraformProvider
     /// (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> S3UsePathStyle
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("s3_use_path_style");
-        set => SetProperty("s3_use_path_style", value);
-    }
+    public TerraformValue<bool>? S3UsePathStyle { get; set; }
 
     /// <summary>
     /// The secret key for API operations. You can retrieve this
     /// from the &#39;Security &amp;amp; Credentials&#39; section of the AWS console.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> SecretKey
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("secret_key");
-        set => SetProperty("secret_key", value);
-    }
+    public TerraformValue<string>? SecretKey { get; set; }
 
     /// <summary>
     /// List of paths to shared config files. If not set, defaults to [~/.aws/config].
     /// (Optional)
     /// </summary>
-    public TerraformProperty<List<TerraformProperty<string>>> SharedConfigFiles
-    {
-        get => GetRequiredOutput<TerraformProperty<List<TerraformProperty<string>>>>("shared_config_files");
-        set => SetProperty("shared_config_files", value);
-    }
+    public TerraformList<string>? SharedConfigFiles { get; set; }
 
     /// <summary>
     /// List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
     /// (Optional)
     /// </summary>
-    public TerraformProperty<List<TerraformProperty<string>>> SharedCredentialsFiles
-    {
-        get => GetRequiredOutput<TerraformProperty<List<TerraformProperty<string>>>>("shared_credentials_files");
-        set => SetProperty("shared_credentials_files", value);
-    }
+    public TerraformList<string>? SharedCredentialsFiles { get; set; }
 
     /// <summary>
     /// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> SkipCredentialsValidation
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("skip_credentials_validation");
-        set => SetProperty("skip_credentials_validation", value);
-    }
+    public TerraformValue<bool>? SkipCredentialsValidation { get; set; }
 
     /// <summary>
     /// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> SkipMetadataApiCheck
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("skip_metadata_api_check");
-        set => SetProperty("skip_metadata_api_check", value);
-    }
+    public TerraformValue<string>? SkipMetadataApiCheck { get; set; }
 
     /// <summary>
     /// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> SkipRegionValidation
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("skip_region_validation");
-        set => SetProperty("skip_region_validation", value);
-    }
+    public TerraformValue<bool>? SkipRegionValidation { get; set; }
 
     /// <summary>
     /// Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> SkipRequestingAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("skip_requesting_account_id");
-        set => SetProperty("skip_requesting_account_id", value);
-    }
+    public TerraformValue<bool>? SkipRequestingAccountId { get; set; }
 
     /// <summary>
     /// The region where AWS STS operations will take place. Examples
     /// are us-east-1 and us-west-2.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> StsRegion
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("sts_region");
-        set => SetProperty("sts_region", value);
-    }
+    public TerraformValue<string>? StsRegion { get; set; }
 
     /// <summary>
     /// session token. A session token is only required if you are
     /// using temporary security credentials.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<string>> Token
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("token");
-        set => SetProperty("token", value);
-    }
+    public TerraformValue<string>? Token { get; set; }
 
     /// <summary>
     /// The capacity of the AWS SDK&#39;s token bucket rate limiter.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<double>> TokenBucketRateLimiterCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<double>>>("token_bucket_rate_limiter_capacity");
-        set => SetProperty("token_bucket_rate_limiter_capacity", value);
-    }
+    public TerraformValue<double>? TokenBucketRateLimiterCapacity { get; set; }
 
     /// <summary>
     /// Resolve an endpoint with DualStack capability
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> UseDualstackEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("use_dualstack_endpoint");
-        set => SetProperty("use_dualstack_endpoint", value);
-    }
+    public TerraformValue<bool>? UseDualstackEndpoint { get; set; }
 
     /// <summary>
     /// Resolve an endpoint with FIPS capability
     /// (Optional)
     /// </summary>
-    public TerraformProperty<TerraformProperty<bool>> UseFipsEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("use_fips_endpoint");
-        set => SetProperty("use_fips_endpoint", value);
-    }
+    public TerraformValue<bool>? UseFipsEndpoint { get; set; }
 }

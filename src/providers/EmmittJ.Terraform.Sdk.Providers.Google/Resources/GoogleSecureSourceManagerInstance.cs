@@ -6,21 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for private_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSecureSourceManagerInstancePrivateConfigBlock : ITerraformBlock
+public class GoogleSecureSourceManagerInstancePrivateConfigBlock
 {
     /// <summary>
     /// CA pool resource, resource must in the format of &#39;projects/{project}/locations/{location}/caPools/{ca_pool}&#39;.
     /// </summary>
     [TerraformPropertyName("ca_pool")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CaPool { get; set; }
+    public TerraformValue<string>? CaPool { get; set; }
 
-    /// <summary>
-    /// Service Attachment for HTTP, resource is in the format of &#39;projects/{project}/regions/{region}/serviceAttachments/{service_attachment}&#39;.
-    /// </summary>
-    [TerraformPropertyName("http_service_attachment")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> HttpServiceAttachment => new TerraformReferenceProperty<TerraformProperty<string>>("", "http_service_attachment");
 
     /// <summary>
     /// &#39;Indicate if it&#39;s private instance.&#39;
@@ -28,14 +22,8 @@ public class GoogleSecureSourceManagerInstancePrivateConfigBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsPrivate is required")]
     [TerraformPropertyName("is_private")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> IsPrivate { get; set; }
+    public required TerraformValue<bool> IsPrivate { get; set; }
 
-    /// <summary>
-    /// Service Attachment for SSH, resource is in the format of &#39;projects/{project}/regions/{region}/serviceAttachments/{service_attachment}&#39;.
-    /// </summary>
-    [TerraformPropertyName("ssh_service_attachment")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SshServiceAttachment => new TerraformReferenceProperty<TerraformProperty<string>>("", "ssh_service_attachment");
 
 }
 
@@ -43,28 +31,28 @@ public class GoogleSecureSourceManagerInstancePrivateConfigBlock : ITerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSecureSourceManagerInstanceTimeoutsBlock : ITerraformBlock
+public class GoogleSecureSourceManagerInstanceTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -72,7 +60,7 @@ public class GoogleSecureSourceManagerInstanceTimeoutsBlock : ITerraformBlock
 /// Block type for workforce_identity_federation_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigBlock : ITerraformBlock
+public class GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigBlock
 {
     /// <summary>
     /// &#39;Whether Workforce Identity Federation is enabled.&#39;
@@ -80,7 +68,7 @@ public class GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformPropertyName("enabled")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
+    public required TerraformValue<bool> Enabled { get; set; }
 
 }
 
@@ -106,14 +94,14 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("deletion_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeletionPolicy { get; set; }
+    public TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name for the Instance.
@@ -121,14 +109,14 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformPropertyName("instance_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
+    public required TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// Customer-managed encryption key name, in the format projects/*/locations/*/keyRings/*/cryptoKeys/*.
     /// </summary>
     [TerraformPropertyName("kms_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKey { get; set; }
+    public TerraformValue<string>? KmsKey { get; set; }
 
     /// <summary>
     /// Labels as key value pairs.
@@ -139,7 +127,7 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location for the Instance.
@@ -147,14 +135,14 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for private_config.
@@ -162,14 +150,14 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateConfig block(s) allowed")]
     [TerraformPropertyName("private_config")]
-    public TerraformList<TerraformBlock<GoogleSecureSourceManagerInstancePrivateConfigBlock>>? PrivateConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleSecureSourceManagerInstancePrivateConfigBlock>>? PrivateConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleSecureSourceManagerInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleSecureSourceManagerInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for workforce_identity_federation_config.
@@ -177,49 +165,49 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkforceIdentityFederationConfig block(s) allowed")]
     [TerraformPropertyName("workforce_identity_federation_config")]
-    public TerraformList<TerraformBlock<GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigBlock>>? WorkforceIdentityFederationConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigBlock>>? WorkforceIdentityFederationConfig { get; set; }
 
     /// <summary>
     /// Time the Instance was created in UTC.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// A list of hostnames for this instance.
     /// </summary>
     [TerraformPropertyName("host_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> HostConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "host_config");
+    public TerraformList<object> HostConfig => new TerraformReference(this, "host_config");
 
     /// <summary>
     /// The resource name for the Instance.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The current state of the Instance.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// Provides information about the current instance state.
     /// </summary>
     [TerraformPropertyName("state_note")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StateNote => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state_note");
+    public TerraformValue<string> StateNote => new TerraformReference(this, "state_note");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -227,13 +215,13 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Time the Instance was updated in UTC.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

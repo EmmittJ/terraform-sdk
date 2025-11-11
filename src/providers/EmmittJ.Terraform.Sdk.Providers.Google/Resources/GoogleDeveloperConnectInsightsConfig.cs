@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for artifact_configs in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock : ITerraformBlock
+public class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock
 {
     /// <summary>
     /// The URI of the artifact that is deployed.
@@ -16,7 +16,7 @@ public class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock : ITerrafo
     /// </summary>
     [TerraformPropertyName("uri")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Uri { get; set; }
+    public TerraformValue<string>? Uri { get; set; }
 
 }
 
@@ -24,28 +24,28 @@ public class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock : ITerrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDeveloperConnectInsightsConfigTimeoutsBlock : ITerraformBlock
+public class GoogleDeveloperConnectInsightsConfigTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -67,7 +67,7 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
+    public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// The name of the App Hub Application.
@@ -77,14 +77,14 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppHubApplication is required")]
     [TerraformPropertyName("app_hub_application")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AppHubApplication { get; set; }
+    public required TerraformValue<string> AppHubApplication { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// ID of the requesting InsightsConfig.
@@ -92,7 +92,7 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsConfigId is required")]
     [TerraformPropertyName("insights_config_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InsightsConfigId { get; set; }
+    public required TerraformValue<string> InsightsConfigId { get; set; }
 
     /// <summary>
     /// Set of labels associated with an InsightsConfig.
@@ -102,7 +102,7 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -110,49 +110,49 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for artifact_configs.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("artifact_configs")]
-    public TerraformList<TerraformBlock<GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock>>? ArtifactConfigs { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock>>? ArtifactConfigs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDeveloperConnectInsightsConfigTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDeveloperConnectInsightsConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// [Output only] Create timestamp
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_annotations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
+    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Any errors that occurred while setting up the InsightsConfig.
@@ -162,7 +162,7 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("errors")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Errors => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "errors");
+    public TerraformList<object> Errors => new TerraformReference(this, "errors");
 
     /// <summary>
     /// Identifier. The name of the InsightsConfig.
@@ -171,7 +171,7 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Reconciling (https://google.aip.dev/128#reconciliation).
@@ -182,14 +182,14 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("reconciling")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
+    public TerraformValue<bool> Reconciling => new TerraformReference(this, "reconciling");
 
     /// <summary>
     /// The runtime configurations where the application is deployed.
     /// </summary>
     [TerraformPropertyName("runtime_configs")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> RuntimeConfigs => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "runtime_configs");
+    public TerraformList<object> RuntimeConfigs => new TerraformReference(this, "runtime_configs");
 
     /// <summary>
     /// The state of the InsightsConfig.
@@ -201,7 +201,7 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -209,13 +209,13 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// [Output only] Update timestamp
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKeyVaultManagedHardwareSecurityModuleDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermKeyVaultManagedHardwareSecurityModuleDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleDataSource : TerraformD
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,69 +47,69 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The admin_object_ids attribute.
     /// </summary>
     [TerraformPropertyName("admin_object_ids")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> AdminObjectIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "admin_object_ids");
+    public TerraformList<string> AdminObjectIds => new TerraformReference(this, "admin_object_ids");
 
     /// <summary>
     /// The hsm_uri attribute.
     /// </summary>
     [TerraformPropertyName("hsm_uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> HsmUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hsm_uri");
+    public TerraformValue<string> HsmUri => new TerraformReference(this, "hsm_uri");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The purge_protection_enabled attribute.
     /// </summary>
     [TerraformPropertyName("purge_protection_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> PurgeProtectionEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "purge_protection_enabled");
+    public TerraformValue<bool> PurgeProtectionEnabled => new TerraformReference(this, "purge_protection_enabled");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [TerraformPropertyName("sku_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SkuName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku_name");
+    public TerraformValue<string> SkuName => new TerraformReference(this, "sku_name");
 
     /// <summary>
     /// The soft_delete_retention_days attribute.
     /// </summary>
     [TerraformPropertyName("soft_delete_retention_days")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> SoftDeleteRetentionDays => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "soft_delete_retention_days");
+    public TerraformValue<double> SoftDeleteRetentionDays => new TerraformReference(this, "soft_delete_retention_days");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [TerraformPropertyName("tenant_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tenant_id");
+    public TerraformValue<string> TenantId => new TerraformReference(this, "tenant_id");
 
 }

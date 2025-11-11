@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for acl in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermStorageShareAclBlock : ITerraformBlock
+public class AzurermStorageShareAclBlock
 {
     /// <summary>
     /// The id attribute.
@@ -14,7 +14,7 @@ public class AzurermStorageShareAclBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformPropertyName("id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
+    public required TerraformValue<string> Id { get; set; }
 
 }
 
@@ -22,35 +22,35 @@ public class AzurermStorageShareAclBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageShareTimeoutsBlock : ITerraformBlock
+public class AzurermStorageShareTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -67,29 +67,29 @@ public class AzurermStorageShare : TerraformResource
     /// The access_tier attribute.
     /// </summary>
     [TerraformPropertyName("access_tier")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AccessTier { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_tier");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AccessTier { get; set; } = default!;
 
     /// <summary>
     /// The enabled_protocol attribute.
     /// </summary>
     [TerraformPropertyName("enabled_protocol")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EnabledProtocol { get; set; }
+    public TerraformValue<string>? EnabledProtocol { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformPropertyName("metadata")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Metadata { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "metadata");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Metadata { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -97,7 +97,7 @@ public class AzurermStorageShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The quota attribute.
@@ -105,14 +105,14 @@ public class AzurermStorageShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Quota is required")]
     [TerraformPropertyName("quota")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Quota { get; set; }
+    public required TerraformValue<double> Quota { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [TerraformPropertyName("storage_account_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StorageAccountId { get; set; }
+    public TerraformValue<string>? StorageAccountId { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
@@ -120,34 +120,34 @@ public class AzurermStorageShare : TerraformResource
     [Obsolete("This property is deprecated.")]
     [TerraformPropertyName("storage_account_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StorageAccountName { get; set; }
+    public TerraformValue<string>? StorageAccountName { get; set; }
 
     /// <summary>
     /// Block for acl.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("acl")]
-    public TerraformSet<TerraformBlock<AzurermStorageShareAclBlock>>? Acl { get; set; } = new();
+    public TerraformSet<TerraformBlock<AzurermStorageShareAclBlock>>? Acl { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermStorageShareTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermStorageShareTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     [TerraformPropertyName("resource_manager_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ResourceManagerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_manager_id");
+    public TerraformValue<string> ResourceManagerId => new TerraformReference(this, "resource_manager_id");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [TerraformPropertyName("url")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "url");
+    public TerraformValue<string> Url => new TerraformReference(this, "url");
 
 }

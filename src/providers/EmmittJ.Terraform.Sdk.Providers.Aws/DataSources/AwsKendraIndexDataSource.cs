@@ -17,132 +17,132 @@ public class AwsKendraIndexDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformPropertyName("id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
+    public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Tags { get; set; } = default!;
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The capacity_units attribute.
     /// </summary>
     [TerraformPropertyName("capacity_units")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CapacityUnits => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "capacity_units");
+    public TerraformList<object> CapacityUnits => new TerraformReference(this, "capacity_units");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformPropertyName("created_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
+    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The document_metadata_configuration_updates attribute.
     /// </summary>
     [TerraformPropertyName("document_metadata_configuration_updates")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> DocumentMetadataConfigurationUpdates => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "document_metadata_configuration_updates");
+    public TerraformSet<object> DocumentMetadataConfigurationUpdates => new TerraformReference(this, "document_metadata_configuration_updates");
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
     [TerraformPropertyName("edition")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Edition => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "edition");
+    public TerraformValue<string> Edition => new TerraformReference(this, "edition");
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
     [TerraformPropertyName("error_message")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ErrorMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "error_message");
+    public TerraformValue<string> ErrorMessage => new TerraformReference(this, "error_message");
 
     /// <summary>
     /// The index_statistics attribute.
     /// </summary>
     [TerraformPropertyName("index_statistics")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> IndexStatistics => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "index_statistics");
+    public TerraformList<object> IndexStatistics => new TerraformReference(this, "index_statistics");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [TerraformPropertyName("role_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_arn");
+    public TerraformValue<string> RoleArn => new TerraformReference(this, "role_arn");
 
     /// <summary>
     /// The server_side_encryption_configuration attribute.
     /// </summary>
     [TerraformPropertyName("server_side_encryption_configuration")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ServerSideEncryptionConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "server_side_encryption_configuration");
+    public TerraformList<object> ServerSideEncryptionConfiguration => new TerraformReference(this, "server_side_encryption_configuration");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     [TerraformPropertyName("updated_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "updated_at");
+    public TerraformValue<string> UpdatedAt => new TerraformReference(this, "updated_at");
 
     /// <summary>
     /// The user_context_policy attribute.
     /// </summary>
     [TerraformPropertyName("user_context_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UserContextPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_context_policy");
+    public TerraformValue<string> UserContextPolicy => new TerraformReference(this, "user_context_policy");
 
     /// <summary>
     /// The user_group_resolution_configuration attribute.
     /// </summary>
     [TerraformPropertyName("user_group_resolution_configuration")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> UserGroupResolutionConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "user_group_resolution_configuration");
+    public TerraformList<object> UserGroupResolutionConfiguration => new TerraformReference(this, "user_group_resolution_configuration");
 
     /// <summary>
     /// The user_token_configurations attribute.
     /// </summary>
     [TerraformPropertyName("user_token_configurations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> UserTokenConfigurations => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "user_token_configurations");
+    public TerraformList<object> UserTokenConfigurations => new TerraformReference(this, "user_token_configurations");
 
 }

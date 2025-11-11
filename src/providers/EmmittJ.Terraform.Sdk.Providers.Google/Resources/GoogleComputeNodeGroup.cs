@@ -6,23 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscaling_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeNodeGroupAutoscalingPolicyBlock : ITerraformBlock
+public class GoogleComputeNodeGroupAutoscalingPolicyBlock
 {
     /// <summary>
     /// Maximum size of the node group. Set to a value less than or equal
     /// to 100 and greater than or equal to min-nodes.
     /// </summary>
     [TerraformPropertyName("max_nodes")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MaxNodes { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "max_nodes");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MaxNodes { get; set; } = default!;
 
     /// <summary>
     /// Minimum size of the node group. Must be less
     /// than or equal to max-nodes. The default value is 0.
     /// </summary>
     [TerraformPropertyName("min_nodes")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MinNodes { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "min_nodes");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MinNodes { get; set; } = default!;
 
     /// <summary>
     /// The autoscaling mode. Set to one of the following:
@@ -33,8 +33,8 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : ITerraformBlock
     ///   restart their hosted VMs on minimal servers. Possible values: [&amp;quot;OFF&amp;quot;, &amp;quot;ON&amp;quot;, &amp;quot;ONLY_SCALE_OUT&amp;quot;]
     /// </summary>
     [TerraformPropertyName("mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Mode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Mode { get; set; } = default!;
 
 }
 
@@ -42,7 +42,7 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : ITerraformBlock
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeNodeGroupMaintenanceWindowBlock : ITerraformBlock
+public class GoogleComputeNodeGroupMaintenanceWindowBlock
 {
     /// <summary>
     /// instances.start time of the window. This must be in UTC format that resolves to one of 00:00, 04:00, 08:00, 12:00, 16:00, or 20:00. For example, both 13:00-5 and 08:00 are valid.
@@ -50,7 +50,7 @@ public class GoogleComputeNodeGroupMaintenanceWindowBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     [TerraformPropertyName("start_time")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StartTime { get; set; }
+    public required TerraformValue<string> StartTime { get; set; }
 
 }
 
@@ -58,7 +58,7 @@ public class GoogleComputeNodeGroupMaintenanceWindowBlock : ITerraformBlock
 /// Block type for share_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeNodeGroupShareSettingsBlock : ITerraformBlock
+public class GoogleComputeNodeGroupShareSettingsBlock
 {
     /// <summary>
     /// Node group sharing type. Possible values: [&amp;quot;ORGANIZATION&amp;quot;, &amp;quot;SPECIFIC_PROJECTS&amp;quot;, &amp;quot;LOCAL&amp;quot;]
@@ -66,7 +66,7 @@ public class GoogleComputeNodeGroupShareSettingsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareType is required")]
     [TerraformPropertyName("share_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ShareType { get; set; }
+    public required TerraformValue<string> ShareType { get; set; }
 
 }
 
@@ -74,28 +74,28 @@ public class GoogleComputeNodeGroupShareSettingsBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeNodeGroupTimeoutsBlock : ITerraformBlock
+public class GoogleComputeNodeGroupTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -114,28 +114,28 @@ public class GoogleComputeNodeGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The initial number of nodes in the node group. One of &#39;initial_size&#39; or &#39;autoscaling_policy&#39; must be configured on resource creation.
     /// </summary>
     [TerraformPropertyName("initial_size")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? InitialSize { get; set; }
+    public TerraformValue<double>? InitialSize { get; set; }
 
     /// <summary>
     /// Specifies how to handle instances when a node in the group undergoes maintenance. Set to one of: DEFAULT, RESTART_IN_PLACE, or MIGRATE_WITHIN_NODE_GROUP. The default value is DEFAULT.
     /// </summary>
     [TerraformPropertyName("maintenance_policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MaintenancePolicy { get; set; }
+    public TerraformValue<string>? MaintenancePolicy { get; set; }
 
     /// <summary>
     /// Name of the resource.
@@ -143,7 +143,7 @@ public class GoogleComputeNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The URL of the node template to which this node group belongs.
@@ -151,21 +151,21 @@ public class GoogleComputeNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTemplate is required")]
     [TerraformPropertyName("node_template")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NodeTemplate { get; set; }
+    public required TerraformValue<string> NodeTemplate { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Zone where this node group is located
     /// </summary>
     [TerraformPropertyName("zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Zone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Zone { get; set; } = default!;
 
     /// <summary>
     /// Block for autoscaling_policy.
@@ -173,7 +173,7 @@ public class GoogleComputeNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscalingPolicy block(s) allowed")]
     [TerraformPropertyName("autoscaling_policy")]
-    public TerraformList<TerraformBlock<GoogleComputeNodeGroupAutoscalingPolicyBlock>>? AutoscalingPolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeNodeGroupAutoscalingPolicyBlock>>? AutoscalingPolicy { get; set; }
 
     /// <summary>
     /// Block for maintenance_window.
@@ -181,7 +181,7 @@ public class GoogleComputeNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     [TerraformPropertyName("maintenance_window")]
-    public TerraformList<TerraformBlock<GoogleComputeNodeGroupMaintenanceWindowBlock>>? MaintenanceWindow { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeNodeGroupMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
 
     /// <summary>
     /// Block for share_settings.
@@ -189,34 +189,34 @@ public class GoogleComputeNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShareSettings block(s) allowed")]
     [TerraformPropertyName("share_settings")]
-    public TerraformList<TerraformBlock<GoogleComputeNodeGroupShareSettingsBlock>>? ShareSettings { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeNodeGroupShareSettingsBlock>>? ShareSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeNodeGroupTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeNodeGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// The total number of nodes in the node group.
     /// </summary>
     [TerraformPropertyName("size")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Size => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "size");
+    public TerraformValue<double> Size => new TerraformReference(this, "size");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock : ITerraformBlock
+public class AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock
 {
     /// <summary>
     /// The name attribute.
@@ -14,7 +14,7 @@ public class AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public class AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformPropertyName("values")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
+    public required TerraformSet<string> Values { get; set; }
 
 }
 
@@ -40,15 +40,15 @@ public class AwsEc2TransitGatewayRouteTableRoutesDataSource : TerraformDataSourc
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The transit_gateway_route_table_id attribute.
@@ -56,7 +56,7 @@ public class AwsEc2TransitGatewayRouteTableRoutesDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayRouteTableId is required")]
     [TerraformPropertyName("transit_gateway_route_table_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TransitGatewayRouteTableId { get; set; }
+    public required TerraformValue<string> TransitGatewayRouteTableId { get; set; }
 
     /// <summary>
     /// Block for filter.
@@ -65,13 +65,13 @@ public class AwsEc2TransitGatewayRouteTableRoutesDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [TerraformPropertyName("filter")]
-    public TerraformSet<TerraformBlock<AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock>>? Filter { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The routes attribute.
     /// </summary>
     [TerraformPropertyName("routes")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Routes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "routes");
+    public TerraformList<object> Routes => new TerraformReference(this, "routes");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automated_backup_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleRedisClusterAutomatedBackupConfigBlock : ITerraformBlock
+public class GoogleRedisClusterAutomatedBackupConfigBlock
 {
     /// <summary>
     /// How long to keep automated backups before the backups are deleted.
@@ -16,7 +16,7 @@ public class GoogleRedisClusterAutomatedBackupConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retention is required")]
     [TerraformPropertyName("retention")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Retention { get; set; }
+    public required TerraformValue<string> Retention { get; set; }
 
 }
 
@@ -24,7 +24,7 @@ public class GoogleRedisClusterAutomatedBackupConfigBlock : ITerraformBlock
 /// Block type for cross_cluster_replication_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleRedisClusterCrossClusterReplicationConfigBlock : ITerraformBlock
+public class GoogleRedisClusterCrossClusterReplicationConfigBlock
 {
     /// <summary>
     /// The role of the cluster in cross cluster replication. Supported values are:
@@ -39,21 +39,9 @@ public class GoogleRedisClusterCrossClusterReplicationConfigBlock : ITerraformBl
     /// </summary>
     [TerraformPropertyName("cluster_role")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ClusterRole { get; set; }
+    public TerraformValue<string>? ClusterRole { get; set; }
 
-    /// <summary>
-    /// An output only view of all the member clusters participating in cross cluster replication. This field is populated for all the member clusters irrespective of their cluster role.
-    /// </summary>
-    [TerraformPropertyName("membership")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Membership => new TerraformReferenceProperty<List<TerraformProperty<object>>>("", "membership");
 
-    /// <summary>
-    /// The last time cross cluster replication config was updated.
-    /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "update_time");
 
 }
 
@@ -61,7 +49,7 @@ public class GoogleRedisClusterCrossClusterReplicationConfigBlock : ITerraformBl
 /// Block type for gcs_source in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleRedisClusterGcsSourceBlock : ITerraformBlock
+public class GoogleRedisClusterGcsSourceBlock
 {
     /// <summary>
     /// URIs of the GCS objects to import. Example: gs://bucket1/object1, gs://bucket2/folder2/object2
@@ -69,7 +57,7 @@ public class GoogleRedisClusterGcsSourceBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     [TerraformPropertyName("uris")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Uris { get; set; }
+    public required TerraformSet<string> Uris { get; set; }
 
 }
 
@@ -77,25 +65,9 @@ public class GoogleRedisClusterGcsSourceBlock : ITerraformBlock
 /// Block type for maintenance_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleRedisClusterMaintenancePolicyBlock : ITerraformBlock
+public class GoogleRedisClusterMaintenancePolicyBlock
 {
-    /// <summary>
-    /// Output only. The time when the policy was created.
-    /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond
-    /// resolution and up to nine fractional digits.
-    /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "create_time");
 
-    /// <summary>
-    /// Output only. The time when the policy was last updated.
-    /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond
-    /// resolution and up to nine fractional digits.
-    /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "update_time");
 
 }
 
@@ -103,7 +75,7 @@ public class GoogleRedisClusterMaintenancePolicyBlock : ITerraformBlock
 /// Block type for managed_backup_source in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleRedisClusterManagedBackupSourceBlock : ITerraformBlock
+public class GoogleRedisClusterManagedBackupSourceBlock
 {
     /// <summary>
     /// Example: &#39;projects/{project}/locations/{location}/backupCollections/{collection}/backups/{backup}&#39;.
@@ -111,7 +83,7 @@ public class GoogleRedisClusterManagedBackupSourceBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backup is required")]
     [TerraformPropertyName("backup")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Backup { get; set; }
+    public required TerraformValue<string> Backup { get; set; }
 
 }
 
@@ -119,7 +91,7 @@ public class GoogleRedisClusterManagedBackupSourceBlock : ITerraformBlock
 /// Block type for persistence_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleRedisClusterPersistenceConfigBlock : ITerraformBlock
+public class GoogleRedisClusterPersistenceConfigBlock
 {
     /// <summary>
     /// Optional. Controls whether Persistence features are enabled. If not provided, the existing value will be used.
@@ -129,8 +101,8 @@ public class GoogleRedisClusterPersistenceConfigBlock : ITerraformBlock
     /// - AOF: AOF based Persistence is enabled. Possible values: [&amp;quot;PERSISTENCE_MODE_UNSPECIFIED&amp;quot;, &amp;quot;DISABLED&amp;quot;, &amp;quot;RDB&amp;quot;, &amp;quot;AOF&amp;quot;]
     /// </summary>
     [TerraformPropertyName("mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Mode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Mode { get; set; } = default!;
 
 }
 
@@ -138,7 +110,7 @@ public class GoogleRedisClusterPersistenceConfigBlock : ITerraformBlock
 /// Block type for psc_configs in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleRedisClusterPscConfigsBlock : ITerraformBlock
+public class GoogleRedisClusterPscConfigsBlock
 {
     /// <summary>
     /// Required. The consumer network where the network address of
@@ -148,7 +120,7 @@ public class GoogleRedisClusterPscConfigsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformPropertyName("network")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
+    public required TerraformValue<string> Network { get; set; }
 
 }
 
@@ -156,28 +128,28 @@ public class GoogleRedisClusterPscConfigsBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleRedisClusterTimeoutsBlock : ITerraformBlock
+public class GoogleRedisClusterTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -185,22 +157,22 @@ public class GoogleRedisClusterTimeoutsBlock : ITerraformBlock
 /// Block type for zone_distribution_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleRedisClusterZoneDistributionConfigBlock : ITerraformBlock
+public class GoogleRedisClusterZoneDistributionConfigBlock
 {
     /// <summary>
     /// Immutable. The mode for zone distribution for Memorystore Redis cluster.
     /// If not provided, MULTI_ZONE will be used as default Possible values: [&amp;quot;MULTI_ZONE&amp;quot;, &amp;quot;SINGLE_ZONE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Mode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Mode { get; set; } = default!;
 
     /// <summary>
     /// Immutable. The zone for single zone Memorystore Redis cluster.
     /// </summary>
     [TerraformPropertyName("zone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Zone { get; set; }
+    public TerraformValue<string>? Zone { get; set; }
 
 }
 
@@ -219,7 +191,7 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformPropertyName("authorization_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AuthorizationMode { get; set; }
+    public TerraformValue<string>? AuthorizationMode { get; set; }
 
     /// <summary>
     /// Optional. Indicates if the cluster is deletion protected or not.
@@ -228,21 +200,21 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformPropertyName("deletion_protection_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DeletionProtectionEnabled { get; set; }
+    public TerraformValue<bool>? DeletionProtectionEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The KMS key used to encrypt the at-rest data of the cluster.
     /// </summary>
     [TerraformPropertyName("kms_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKey { get; set; }
+    public TerraformValue<string>? KmsKey { get; set; }
 
     /// <summary>
     /// This field can be used to trigger self service update to indicate the desired maintenance version. The input to this field can be determined by the available_maintenance_versions field.
@@ -250,30 +222,30 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformPropertyName("maintenance_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MaintenanceVersion { get; set; }
+    public TerraformValue<string>? MaintenanceVersion { get; set; }
 
     /// <summary>
     /// Unique name of the resource in this scope including project and location using the form:
     /// projects/{projectId}/locations/{locationId}/clusters/{clusterId}
     /// </summary>
     [TerraformPropertyName("name")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Name { get; set; } = default!;
 
     /// <summary>
     /// The nodeType for the Redis cluster.
     /// If not provided, REDIS_HIGHMEM_MEDIUM will be used as default Possible values: [&amp;quot;REDIS_SHARED_CORE_NANO&amp;quot;, &amp;quot;REDIS_HIGHMEM_MEDIUM&amp;quot;, &amp;quot;REDIS_HIGHMEM_XLARGE&amp;quot;, &amp;quot;REDIS_STANDARD_SMALL&amp;quot;]
     /// </summary>
     [TerraformPropertyName("node_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> NodeType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> NodeType { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Configure Redis Cluster behavior using a subset of native Redis configuration parameters.
@@ -282,21 +254,21 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformPropertyName("redis_configs")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? RedisConfigs { get; set; }
+    public TerraformMap<string>? RedisConfigs { get; set; }
 
     /// <summary>
     /// The name of the region of the Redis cluster.
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Optional. The number of replica nodes per shard.
     /// </summary>
     [TerraformPropertyName("replica_count")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? ReplicaCount { get; set; }
+    public TerraformValue<double>? ReplicaCount { get; set; }
 
     /// <summary>
     /// Required. Number of shards for the Redis cluster.
@@ -304,7 +276,7 @@ public class GoogleRedisCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCount is required")]
     [TerraformPropertyName("shard_count")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> ShardCount { get; set; }
+    public required TerraformValue<double> ShardCount { get; set; }
 
     /// <summary>
     /// Optional. The in-transit encryption for the Redis cluster.
@@ -312,7 +284,7 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformPropertyName("transit_encryption_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TransitEncryptionMode { get; set; }
+    public TerraformValue<string>? TransitEncryptionMode { get; set; }
 
     /// <summary>
     /// Block for automated_backup_config.
@@ -320,7 +292,7 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedBackupConfig block(s) allowed")]
     [TerraformPropertyName("automated_backup_config")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterAutomatedBackupConfigBlock>>? AutomatedBackupConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleRedisClusterAutomatedBackupConfigBlock>>? AutomatedBackupConfig { get; set; }
 
     /// <summary>
     /// Block for cross_cluster_replication_config.
@@ -328,7 +300,7 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CrossClusterReplicationConfig block(s) allowed")]
     [TerraformPropertyName("cross_cluster_replication_config")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterCrossClusterReplicationConfigBlock>>? CrossClusterReplicationConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleRedisClusterCrossClusterReplicationConfigBlock>>? CrossClusterReplicationConfig { get; set; }
 
     /// <summary>
     /// Block for gcs_source.
@@ -336,7 +308,7 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsSource block(s) allowed")]
     [TerraformPropertyName("gcs_source")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterGcsSourceBlock>>? GcsSource { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleRedisClusterGcsSourceBlock>>? GcsSource { get; set; }
 
     /// <summary>
     /// Block for maintenance_policy.
@@ -344,7 +316,7 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     [TerraformPropertyName("maintenance_policy")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterMaintenancePolicyBlock>>? MaintenancePolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleRedisClusterMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
 
     /// <summary>
     /// Block for managed_backup_source.
@@ -352,7 +324,7 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedBackupSource block(s) allowed")]
     [TerraformPropertyName("managed_backup_source")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterManagedBackupSourceBlock>>? ManagedBackupSource { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleRedisClusterManagedBackupSourceBlock>>? ManagedBackupSource { get; set; }
 
     /// <summary>
     /// Block for persistence_config.
@@ -360,21 +332,21 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistenceConfig block(s) allowed")]
     [TerraformPropertyName("persistence_config")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterPersistenceConfigBlock>>? PersistenceConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleRedisClusterPersistenceConfigBlock>>? PersistenceConfig { get; set; }
 
     /// <summary>
     /// Block for psc_configs.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("psc_configs")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterPscConfigsBlock>>? PscConfigs { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleRedisClusterPscConfigsBlock>>? PscConfigs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleRedisClusterTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleRedisClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for zone_distribution_config.
@@ -382,14 +354,14 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZoneDistributionConfig block(s) allowed")]
     [TerraformPropertyName("zone_distribution_config")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterZoneDistributionConfigBlock>>? ZoneDistributionConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleRedisClusterZoneDistributionConfigBlock>>? ZoneDistributionConfig { get; set; }
 
     /// <summary>
     /// This field is used to determine the available maintenance versions for the self service update.
     /// </summary>
     [TerraformPropertyName("available_maintenance_versions")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> AvailableMaintenanceVersions => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "available_maintenance_versions");
+    public TerraformList<string> AvailableMaintenanceVersions => new TerraformReference(this, "available_maintenance_versions");
 
     /// <summary>
     /// The backup collection full resource name.
@@ -397,7 +369,7 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformPropertyName("backup_collection")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> BackupCollection => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backup_collection");
+    public TerraformValue<string> BackupCollection => new TerraformReference(this, "backup_collection");
 
     /// <summary>
     /// The timestamp associated with the cluster creation request. A timestamp in
@@ -406,7 +378,7 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Output only. Endpoints created on each given network,
@@ -415,76 +387,76 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformPropertyName("discovery_endpoints")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> DiscoveryEndpoints => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "discovery_endpoints");
+    public TerraformList<object> DiscoveryEndpoints => new TerraformReference(this, "discovery_endpoints");
 
     /// <summary>
     /// This field represents the actual maintenance version of the cluster.
     /// </summary>
     [TerraformPropertyName("effective_maintenance_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EffectiveMaintenanceVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "effective_maintenance_version");
+    public TerraformValue<string> EffectiveMaintenanceVersion => new TerraformReference(this, "effective_maintenance_version");
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
     [TerraformPropertyName("maintenance_schedule")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MaintenanceSchedule => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maintenance_schedule");
+    public TerraformList<object> MaintenanceSchedule => new TerraformReference(this, "maintenance_schedule");
 
     /// <summary>
     /// Cluster&#39;s Certificate Authority. This field will only be populated if Redis Cluster&#39;s transit_encryption_mode is TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION
     /// </summary>
     [TerraformPropertyName("managed_server_ca")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ManagedServerCa => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "managed_server_ca");
+    public TerraformList<object> ManagedServerCa => new TerraformReference(this, "managed_server_ca");
 
     /// <summary>
     /// Output only. Redis memory precise size in GB for the entire cluster.
     /// </summary>
     [TerraformPropertyName("precise_size_gb")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> PreciseSizeGb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "precise_size_gb");
+    public TerraformValue<double> PreciseSizeGb => new TerraformReference(this, "precise_size_gb");
 
     /// <summary>
     /// Output only. PSC connections for discovery of the cluster topology and accessing the cluster.
     /// </summary>
     [TerraformPropertyName("psc_connections")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PscConnections => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "psc_connections");
+    public TerraformList<object> PscConnections => new TerraformReference(this, "psc_connections");
 
     /// <summary>
     /// Service attachment details to configure Psc connections.
     /// </summary>
     [TerraformPropertyName("psc_service_attachments")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PscServiceAttachments => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "psc_service_attachments");
+    public TerraformList<object> PscServiceAttachments => new TerraformReference(this, "psc_service_attachments");
 
     /// <summary>
     /// Output only. Redis memory size in GB for the entire cluster.
     /// </summary>
     [TerraformPropertyName("size_gb")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> SizeGb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "size_gb");
+    public TerraformValue<double> SizeGb => new TerraformReference(this, "size_gb");
 
     /// <summary>
     /// The current state of this cluster. Can be CREATING, READY, UPDATING, DELETING and SUSPENDED
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// Output only. Additional information about the current state of the cluster.
     /// </summary>
     [TerraformPropertyName("state_info")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> StateInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "state_info");
+    public TerraformList<object> StateInfo => new TerraformReference(this, "state_info");
 
     /// <summary>
     /// System assigned, unique identifier for the cluster.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
 }

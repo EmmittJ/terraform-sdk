@@ -6,28 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for client_scoped_subscription in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServicebusSubscriptionClientScopedSubscriptionBlock : ITerraformBlock
+public class AzurermServicebusSubscriptionClientScopedSubscriptionBlock
 {
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [TerraformPropertyName("client_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ClientId { get; set; }
+    public TerraformValue<string>? ClientId { get; set; }
 
-    /// <summary>
-    /// The is_client_scoped_subscription_durable attribute.
-    /// </summary>
-    [TerraformPropertyName("is_client_scoped_subscription_durable")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> IsClientScopedSubscriptionDurable => new TerraformReferenceProperty<TerraformProperty<bool>>("", "is_client_scoped_subscription_durable");
 
     /// <summary>
     /// The is_client_scoped_subscription_shareable attribute.
     /// </summary>
     [TerraformPropertyName("is_client_scoped_subscription_shareable")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IsClientScopedSubscriptionShareable { get; set; }
+    public TerraformValue<bool>? IsClientScopedSubscriptionShareable { get; set; }
 
 }
 
@@ -35,35 +29,35 @@ public class AzurermServicebusSubscriptionClientScopedSubscriptionBlock : ITerra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermServicebusSubscriptionTimeoutsBlock : ITerraformBlock
+public class AzurermServicebusSubscriptionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -82,70 +76,70 @@ public class AzurermServicebusSubscription : TerraformResource
     /// </summary>
     [TerraformPropertyName("auto_delete_on_idle")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AutoDeleteOnIdle { get; set; }
+    public TerraformValue<string>? AutoDeleteOnIdle { get; set; }
 
     /// <summary>
     /// The batched_operations_enabled attribute.
     /// </summary>
     [TerraformPropertyName("batched_operations_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? BatchedOperationsEnabled { get; set; }
+    public TerraformValue<bool>? BatchedOperationsEnabled { get; set; }
 
     /// <summary>
     /// The client_scoped_subscription_enabled attribute.
     /// </summary>
     [TerraformPropertyName("client_scoped_subscription_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ClientScopedSubscriptionEnabled { get; set; }
+    public TerraformValue<bool>? ClientScopedSubscriptionEnabled { get; set; }
 
     /// <summary>
     /// The dead_lettering_on_filter_evaluation_error attribute.
     /// </summary>
     [TerraformPropertyName("dead_lettering_on_filter_evaluation_error")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DeadLetteringOnFilterEvaluationError { get; set; }
+    public TerraformValue<bool>? DeadLetteringOnFilterEvaluationError { get; set; }
 
     /// <summary>
     /// The dead_lettering_on_message_expiration attribute.
     /// </summary>
     [TerraformPropertyName("dead_lettering_on_message_expiration")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DeadLetteringOnMessageExpiration { get; set; }
+    public TerraformValue<bool>? DeadLetteringOnMessageExpiration { get; set; }
 
     /// <summary>
     /// The default_message_ttl attribute.
     /// </summary>
     [TerraformPropertyName("default_message_ttl")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DefaultMessageTtl { get; set; }
+    public TerraformValue<string>? DefaultMessageTtl { get; set; }
 
     /// <summary>
     /// The forward_dead_lettered_messages_to attribute.
     /// </summary>
     [TerraformPropertyName("forward_dead_lettered_messages_to")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ForwardDeadLetteredMessagesTo { get; set; }
+    public TerraformValue<string>? ForwardDeadLetteredMessagesTo { get; set; }
 
     /// <summary>
     /// The forward_to attribute.
     /// </summary>
     [TerraformPropertyName("forward_to")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ForwardTo { get; set; }
+    public TerraformValue<string>? ForwardTo { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The lock_duration attribute.
     /// </summary>
     [TerraformPropertyName("lock_duration")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? LockDuration { get; set; }
+    public TerraformValue<string>? LockDuration { get; set; }
 
     /// <summary>
     /// The max_delivery_count attribute.
@@ -153,7 +147,7 @@ public class AzurermServicebusSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxDeliveryCount is required")]
     [TerraformPropertyName("max_delivery_count")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> MaxDeliveryCount { get; set; }
+    public required TerraformValue<double> MaxDeliveryCount { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -161,21 +155,21 @@ public class AzurermServicebusSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The requires_session attribute.
     /// </summary>
     [TerraformPropertyName("requires_session")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RequiresSession { get; set; }
+    public TerraformValue<bool>? RequiresSession { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
+    public TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The topic_id attribute.
@@ -183,7 +177,7 @@ public class AzurermServicebusSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicId is required")]
     [TerraformPropertyName("topic_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TopicId { get; set; }
+    public required TerraformValue<string> TopicId { get; set; }
 
     /// <summary>
     /// Block for client_scoped_subscription.
@@ -191,13 +185,13 @@ public class AzurermServicebusSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientScopedSubscription block(s) allowed")]
     [TerraformPropertyName("client_scoped_subscription")]
-    public TerraformList<TerraformBlock<AzurermServicebusSubscriptionClientScopedSubscriptionBlock>>? ClientScopedSubscription { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermServicebusSubscriptionClientScopedSubscriptionBlock>>? ClientScopedSubscription { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermServicebusSubscriptionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermServicebusSubscriptionTimeoutsBlock>? Timeouts { get; set; }
 
 }

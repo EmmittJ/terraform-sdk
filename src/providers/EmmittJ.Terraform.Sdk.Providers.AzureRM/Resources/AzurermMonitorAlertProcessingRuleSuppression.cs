@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlock : ITerraformBlock
+public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlock
 {
 }
 
@@ -14,28 +14,28 @@ public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlock : ITerra
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock : ITerraformBlock
+public class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock
 {
     /// <summary>
     /// The effective_from attribute.
     /// </summary>
     [TerraformPropertyName("effective_from")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EffectiveFrom { get; set; }
+    public TerraformValue<string>? EffectiveFrom { get; set; }
 
     /// <summary>
     /// The effective_until attribute.
     /// </summary>
     [TerraformPropertyName("effective_until")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EffectiveUntil { get; set; }
+    public TerraformValue<string>? EffectiveUntil { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
     [TerraformPropertyName("time_zone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TimeZone { get; set; }
+    public TerraformValue<string>? TimeZone { get; set; }
 
 }
 
@@ -43,35 +43,35 @@ public class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock : ITerraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock : ITerraformBlock
+public class AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,21 +90,21 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -112,7 +112,7 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -120,7 +120,7 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The scopes attribute.
@@ -128,14 +128,14 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     [TerraformPropertyName("scopes")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? Scopes { get; set; }
+    public TerraformList<string>? Scopes { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for condition.
@@ -143,7 +143,7 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformPropertyName("condition")]
-    public TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionConditionBlock>>? Condition { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// Block for schedule.
@@ -151,13 +151,13 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformPropertyName("schedule")]
-    public TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock>>? Schedule { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock>>? Schedule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock>? Timeouts { get; set; }
 
 }

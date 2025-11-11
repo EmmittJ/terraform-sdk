@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for ingestion_data_source_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubTopicIngestionDataSourceSettingsBlock : ITerraformBlock
+public class GooglePubsubTopicIngestionDataSourceSettingsBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlock : ITerraformBlock
 /// Block type for message_storage_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubTopicMessageStoragePolicyBlock : ITerraformBlock
+public class GooglePubsubTopicMessageStoragePolicyBlock
 {
     /// <summary>
     /// A list of IDs of GCP regions where messages that are published to
@@ -27,7 +27,7 @@ public class GooglePubsubTopicMessageStoragePolicyBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedPersistenceRegions is required")]
     [TerraformPropertyName("allowed_persistence_regions")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedPersistenceRegions { get; set; }
+    public required TerraformSet<string> AllowedPersistenceRegions { get; set; }
 
     /// <summary>
     /// If true, &#39;allowedPersistenceRegions&#39; is also used to enforce in-transit
@@ -37,7 +37,7 @@ public class GooglePubsubTopicMessageStoragePolicyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("enforce_in_transit")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnforceInTransit { get; set; }
+    public TerraformValue<bool>? EnforceInTransit { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public class GooglePubsubTopicMessageStoragePolicyBlock : ITerraformBlock
 /// Block type for message_transforms in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubTopicMessageTransformsBlock : ITerraformBlock
+public class GooglePubsubTopicMessageTransformsBlock
 {
     /// <summary>
     /// Controls whether or not to use this transform. If not set or &#39;false&#39;,
@@ -53,7 +53,7 @@ public class GooglePubsubTopicMessageTransformsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("disabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
+    public TerraformValue<bool>? Disabled { get; set; }
 
 }
 
@@ -61,14 +61,14 @@ public class GooglePubsubTopicMessageTransformsBlock : ITerraformBlock
 /// Block type for schema_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubTopicSchemaSettingsBlock : ITerraformBlock
+public class GooglePubsubTopicSchemaSettingsBlock
 {
     /// <summary>
     /// The encoding of messages validated against schema. Default value: &amp;quot;ENCODING_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;ENCODING_UNSPECIFIED&amp;quot;, &amp;quot;JSON&amp;quot;, &amp;quot;BINARY&amp;quot;]
     /// </summary>
     [TerraformPropertyName("encoding")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Encoding { get; set; }
+    public TerraformValue<string>? Encoding { get; set; }
 
     /// <summary>
     /// The name of the schema that messages published should be
@@ -79,7 +79,7 @@ public class GooglePubsubTopicSchemaSettingsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     [TerraformPropertyName("schema")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Schema { get; set; }
+    public required TerraformValue<string> Schema { get; set; }
 
 }
 
@@ -87,28 +87,28 @@ public class GooglePubsubTopicSchemaSettingsBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GooglePubsubTopicTimeoutsBlock : ITerraformBlock
+public class GooglePubsubTopicTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -126,8 +126,8 @@ public class GooglePubsubTopic : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKey to be used to protect access
@@ -138,7 +138,7 @@ public class GooglePubsubTopic : TerraformResource
     /// </summary>
     [TerraformPropertyName("kms_key_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyName { get; set; }
+    public TerraformValue<string>? KmsKeyName { get; set; }
 
     /// <summary>
     /// A set of key/value label pairs to assign to this Topic.
@@ -149,7 +149,7 @@ public class GooglePubsubTopic : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Indicates the minimum duration to retain a message after it is published
@@ -163,7 +163,7 @@ public class GooglePubsubTopic : TerraformResource
     /// </summary>
     [TerraformPropertyName("message_retention_duration")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MessageRetentionDuration { get; set; }
+    public TerraformValue<string>? MessageRetentionDuration { get; set; }
 
     /// <summary>
     /// Name of the topic.
@@ -171,14 +171,14 @@ public class GooglePubsubTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Input only. Resource manager tags to be bound to the topic. Tag keys and
@@ -192,7 +192,7 @@ public class GooglePubsubTopic : TerraformResource
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for ingestion_data_source_settings.
@@ -200,7 +200,7 @@ public class GooglePubsubTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngestionDataSourceSettings block(s) allowed")]
     [TerraformPropertyName("ingestion_data_source_settings")]
-    public TerraformList<TerraformBlock<GooglePubsubTopicIngestionDataSourceSettingsBlock>>? IngestionDataSourceSettings { get; set; } = new();
+    public TerraformList<TerraformBlock<GooglePubsubTopicIngestionDataSourceSettingsBlock>>? IngestionDataSourceSettings { get; set; }
 
     /// <summary>
     /// Block for message_storage_policy.
@@ -208,14 +208,14 @@ public class GooglePubsubTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MessageStoragePolicy block(s) allowed")]
     [TerraformPropertyName("message_storage_policy")]
-    public TerraformList<TerraformBlock<GooglePubsubTopicMessageStoragePolicyBlock>>? MessageStoragePolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<GooglePubsubTopicMessageStoragePolicyBlock>>? MessageStoragePolicy { get; set; }
 
     /// <summary>
     /// Block for message_transforms.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("message_transforms")]
-    public TerraformList<TerraformBlock<GooglePubsubTopicMessageTransformsBlock>>? MessageTransforms { get; set; } = new();
+    public TerraformList<TerraformBlock<GooglePubsubTopicMessageTransformsBlock>>? MessageTransforms { get; set; }
 
     /// <summary>
     /// Block for schema_settings.
@@ -223,21 +223,21 @@ public class GooglePubsubTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaSettings block(s) allowed")]
     [TerraformPropertyName("schema_settings")]
-    public TerraformList<TerraformBlock<GooglePubsubTopicSchemaSettingsBlock>>? SchemaSettings { get; set; } = new();
+    public TerraformList<TerraformBlock<GooglePubsubTopicSchemaSettingsBlock>>? SchemaSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GooglePubsubTopicTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GooglePubsubTopicTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -245,6 +245,6 @@ public class GooglePubsubTopic : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

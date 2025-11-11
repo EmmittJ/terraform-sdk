@@ -17,7 +17,7 @@ public class AwsIamGroupPoliciesExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     [TerraformPropertyName("group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GroupName { get; set; }
+    public required TerraformValue<string> GroupName { get; set; }
 
     /// <summary>
     /// The policy_names attribute.
@@ -25,6 +25,6 @@ public class AwsIamGroupPoliciesExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyNames is required")]
     [TerraformPropertyName("policy_names")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? PolicyNames { get; set; }
+    public required TerraformSet<string> PolicyNames { get; set; }
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for authorization in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEdgecontainerClusterAuthorizationBlock : ITerraformBlock
+public class GoogleEdgecontainerClusterAuthorizationBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class GoogleEdgecontainerClusterAuthorizationBlock : ITerraformBlock
 /// Block type for control_plane in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEdgecontainerClusterControlPlaneBlock : ITerraformBlock
+public class GoogleEdgecontainerClusterControlPlaneBlock
 {
 }
 
@@ -22,7 +22,7 @@ public class GoogleEdgecontainerClusterControlPlaneBlock : ITerraformBlock
 /// Block type for control_plane_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : ITerraformBlock
+public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock
 {
     /// <summary>
     /// The Cloud KMS CryptoKey e.g.
@@ -31,35 +31,11 @@ public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : ITerraformB
     /// Google-managed key will be used instead.
     /// </summary>
     [TerraformPropertyName("kms_key")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> KmsKey { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> KmsKey { get; set; } = default!;
 
-    /// <summary>
-    /// The Cloud KMS CryptoKeyVersion currently in use for protecting control
-    /// plane disks. Only applicable if kms_key is set.
-    /// </summary>
-    [TerraformPropertyName("kms_key_active_version")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsKeyActiveVersion => new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key_active_version");
 
-    /// <summary>
-    /// Availability of the Cloud KMS CryptoKey. If not &#39;KEY_AVAILABLE&#39;, then
-    /// nodes may go offline as they cannot access their local data. This can be
-    /// caused by a lack of permissions to use the key, or if the key is disabled
-    /// or deleted.
-    /// </summary>
-    [TerraformPropertyName("kms_key_state")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsKeyState => new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key_state");
 
-    /// <summary>
-    /// Error status returned by Cloud KMS when using this key. This field may be
-    /// populated only if &#39;kms_key_state&#39; is not &#39;KMS_KEY_STATE_KEY_AVAILABLE&#39;.
-    /// If populated, this field contains the error status reported by Cloud KMS.
-    /// </summary>
-    [TerraformPropertyName("kms_status")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> KmsStatus => new TerraformReferenceProperty<List<TerraformProperty<object>>>("", "kms_status");
 
 }
 
@@ -67,16 +43,8 @@ public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : ITerraformB
 /// Block type for fleet in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEdgecontainerClusterFleetBlock : ITerraformBlock
+public class GoogleEdgecontainerClusterFleetBlock
 {
-    /// <summary>
-    /// The name of the managed Hub Membership resource associated to this cluster.
-    /// Membership names are formatted as
-    /// &#39;projects/&amp;lt;project-number&amp;gt;/locations/global/membership/&amp;lt;cluster-id&amp;gt;&#39;.
-    /// </summary>
-    [TerraformPropertyName("membership")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Membership => new TerraformReferenceProperty<TerraformProperty<string>>("", "membership");
 
     /// <summary>
     /// The name of the Fleet host project where this cluster will be registered.
@@ -86,7 +54,7 @@ public class GoogleEdgecontainerClusterFleetBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformPropertyName("project")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Project { get; set; }
+    public required TerraformValue<string> Project { get; set; }
 
 }
 
@@ -94,7 +62,7 @@ public class GoogleEdgecontainerClusterFleetBlock : ITerraformBlock
 /// Block type for maintenance_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEdgecontainerClusterMaintenancePolicyBlock : ITerraformBlock
+public class GoogleEdgecontainerClusterMaintenancePolicyBlock
 {
 }
 
@@ -102,7 +70,7 @@ public class GoogleEdgecontainerClusterMaintenancePolicyBlock : ITerraformBlock
 /// Block type for networking in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEdgecontainerClusterNetworkingBlock : ITerraformBlock
+public class GoogleEdgecontainerClusterNetworkingBlock
 {
     /// <summary>
     /// All pods in the cluster are assigned an RFC1918 IPv4 address from these
@@ -112,7 +80,7 @@ public class GoogleEdgecontainerClusterNetworkingBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIpv4CidrBlocks is required")]
     [TerraformPropertyName("cluster_ipv4_cidr_blocks")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? ClusterIpv4CidrBlocks { get; set; }
+    public TerraformList<string>? ClusterIpv4CidrBlocks { get; set; }
 
     /// <summary>
     /// If specified, dual stack mode is enabled and all pods in the cluster are
@@ -122,14 +90,8 @@ public class GoogleEdgecontainerClusterNetworkingBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("cluster_ipv6_cidr_blocks")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ClusterIpv6CidrBlocks { get; set; }
+    public TerraformList<string>? ClusterIpv6CidrBlocks { get; set; }
 
-    /// <summary>
-    /// IP addressing type of this cluster i.e. SINGLESTACK_V4 vs DUALSTACK_V4_V6.
-    /// </summary>
-    [TerraformPropertyName("network_type")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NetworkType => new TerraformReferenceProperty<TerraformProperty<string>>("", "network_type");
 
     /// <summary>
     /// All services in the cluster are assigned an RFC1918 IPv4 address from these
@@ -139,7 +101,7 @@ public class GoogleEdgecontainerClusterNetworkingBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicesIpv4CidrBlocks is required")]
     [TerraformPropertyName("services_ipv4_cidr_blocks")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? ServicesIpv4CidrBlocks { get; set; }
+    public TerraformList<string>? ServicesIpv4CidrBlocks { get; set; }
 
     /// <summary>
     /// If specified, dual stack mode is enabled and all services in the cluster are
@@ -149,7 +111,7 @@ public class GoogleEdgecontainerClusterNetworkingBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("services_ipv6_cidr_blocks")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ServicesIpv6CidrBlocks { get; set; }
+    public TerraformList<string>? ServicesIpv6CidrBlocks { get; set; }
 
 }
 
@@ -157,7 +119,7 @@ public class GoogleEdgecontainerClusterNetworkingBlock : ITerraformBlock
 /// Block type for system_addons_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEdgecontainerClusterSystemAddonsConfigBlock : ITerraformBlock
+public class GoogleEdgecontainerClusterSystemAddonsConfigBlock
 {
 }
 
@@ -165,28 +127,28 @@ public class GoogleEdgecontainerClusterSystemAddonsConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleEdgecontainerClusterTimeoutsBlock : ITerraformBlock
+public class GoogleEdgecontainerClusterTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -206,22 +168,22 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// Kubernetes default value will be used.
     /// </summary>
     [TerraformPropertyName("default_max_pods_per_node")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> DefaultMaxPodsPerNode { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "default_max_pods_per_node");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> DefaultMaxPodsPerNode { get; set; } = default!;
 
     /// <summary>
     /// Address pools for cluster data plane external load balancing.
     /// </summary>
     [TerraformPropertyName("external_load_balancer_ipv4_address_pools")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> ExternalLoadBalancerIpv4AddressPools { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "external_load_balancer_ipv4_address_pools");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> ExternalLoadBalancerIpv4AddressPools { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// User-defined labels for the edgecloud cluster.
@@ -231,7 +193,7 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the resource.
@@ -239,7 +201,7 @@ public class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The GDCE cluster name.
@@ -247,28 +209,28 @@ public class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The release channel a cluster is subscribed to. Possible values: [&amp;quot;RELEASE_CHANNEL_UNSPECIFIED&amp;quot;, &amp;quot;NONE&amp;quot;, &amp;quot;REGULAR&amp;quot;]
     /// </summary>
     [TerraformPropertyName("release_channel")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ReleaseChannel { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "release_channel");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ReleaseChannel { get; set; } = default!;
 
     /// <summary>
     /// The target cluster version. For example: &amp;quot;1.5.0&amp;quot;.
     /// </summary>
     [TerraformPropertyName("target_version")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> TargetVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "target_version");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> TargetVersion { get; set; } = default!;
 
     /// <summary>
     /// Block for authorization.
@@ -278,7 +240,7 @@ public class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     [TerraformPropertyName("authorization")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterAuthorizationBlock>>? Authorization { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterAuthorizationBlock>>? Authorization { get; set; }
 
     /// <summary>
     /// Block for control_plane.
@@ -286,7 +248,7 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
     [TerraformPropertyName("control_plane")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterControlPlaneBlock>>? ControlPlane { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterControlPlaneBlock>>? ControlPlane { get; set; }
 
     /// <summary>
     /// Block for control_plane_encryption.
@@ -294,7 +256,7 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlaneEncryption block(s) allowed")]
     [TerraformPropertyName("control_plane_encryption")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterControlPlaneEncryptionBlock>>? ControlPlaneEncryption { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterControlPlaneEncryptionBlock>>? ControlPlaneEncryption { get; set; }
 
     /// <summary>
     /// Block for fleet.
@@ -304,7 +266,7 @@ public class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
     [TerraformPropertyName("fleet")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterFleetBlock>>? Fleet { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterFleetBlock>>? Fleet { get; set; }
 
     /// <summary>
     /// Block for maintenance_policy.
@@ -312,7 +274,7 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     [TerraformPropertyName("maintenance_policy")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterMaintenancePolicyBlock>>? MaintenancePolicy { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
 
     /// <summary>
     /// Block for networking.
@@ -322,7 +284,7 @@ public class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Networking block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Networking block(s) allowed")]
     [TerraformPropertyName("networking")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterNetworkingBlock>>? Networking { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterNetworkingBlock>>? Networking { get; set; }
 
     /// <summary>
     /// Block for system_addons_config.
@@ -330,49 +292,49 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SystemAddonsConfig block(s) allowed")]
     [TerraformPropertyName("system_addons_config")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterSystemAddonsConfigBlock>>? SystemAddonsConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterSystemAddonsConfigBlock>>? SystemAddonsConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleEdgecontainerClusterTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleEdgecontainerClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The PEM-encoded public certificate of the cluster&#39;s CA.
     /// </summary>
     [TerraformPropertyName("cluster_ca_certificate")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ClusterCaCertificate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_ca_certificate");
+    public TerraformValue<string> ClusterCaCertificate => new TerraformReference(this, "cluster_ca_certificate");
 
     /// <summary>
     /// The control plane release version.
     /// </summary>
     [TerraformPropertyName("control_plane_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ControlPlaneVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "control_plane_version");
+    public TerraformValue<string> ControlPlaneVersion => new TerraformReference(this, "control_plane_version");
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The IP address of the Kubernetes API server.
     /// </summary>
     [TerraformPropertyName("endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
+    public TerraformValue<string> Endpoint => new TerraformReference(this, "endpoint");
 
     /// <summary>
     /// All the maintenance events scheduled for the cluster, including the ones
@@ -380,7 +342,7 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [TerraformPropertyName("maintenance_events")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MaintenanceEvents => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maintenance_events");
+    public TerraformList<object> MaintenanceEvents => new TerraformReference(this, "maintenance_events");
 
     /// <summary>
     /// The lowest release version among all worker nodes. This field can be empty
@@ -388,21 +350,21 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [TerraformPropertyName("node_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NodeVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_version");
+    public TerraformValue<string> NodeVersion => new TerraformReference(this, "node_version");
 
     /// <summary>
     /// The port number of the Kubernetes API server.
     /// </summary>
     [TerraformPropertyName("port")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Port => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "port");
+    public TerraformValue<double> Port => new TerraformReference(this, "port");
 
     /// <summary>
     /// Indicates the status of the cluster.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -410,13 +372,13 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

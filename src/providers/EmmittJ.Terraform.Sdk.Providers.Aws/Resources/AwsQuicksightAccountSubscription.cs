@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsQuicksightAccountSubscriptionTimeoutsBlock : ITerraformBlock
+public class AwsQuicksightAccountSubscriptionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,28 +46,28 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     [TerraformPropertyName("account_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AccountName { get; set; }
+    public required TerraformValue<string> AccountName { get; set; }
 
     /// <summary>
     /// The active_directory_name attribute.
     /// </summary>
     [TerraformPropertyName("active_directory_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ActiveDirectoryName { get; set; }
+    public TerraformValue<string>? ActiveDirectoryName { get; set; }
 
     /// <summary>
     /// The admin_group attribute.
     /// </summary>
     [TerraformPropertyName("admin_group")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? AdminGroup { get; set; }
+    public TerraformList<string>? AdminGroup { get; set; }
 
     /// <summary>
     /// The admin_pro_group attribute.
     /// </summary>
     [TerraformPropertyName("admin_pro_group")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? AdminProGroup { get; set; }
+    public TerraformList<string>? AdminProGroup { get; set; }
 
     /// <summary>
     /// The authentication_method attribute.
@@ -75,42 +75,42 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationMethod is required")]
     [TerraformPropertyName("authentication_method")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AuthenticationMethod { get; set; }
+    public required TerraformValue<string> AuthenticationMethod { get; set; }
 
     /// <summary>
     /// The author_group attribute.
     /// </summary>
     [TerraformPropertyName("author_group")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? AuthorGroup { get; set; }
+    public TerraformList<string>? AuthorGroup { get; set; }
 
     /// <summary>
     /// The author_pro_group attribute.
     /// </summary>
     [TerraformPropertyName("author_pro_group")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? AuthorProGroup { get; set; }
+    public TerraformList<string>? AuthorProGroup { get; set; }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
     [TerraformPropertyName("aws_account_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AwsAccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_account_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AwsAccountId { get; set; } = default!;
 
     /// <summary>
     /// The contact_number attribute.
     /// </summary>
     [TerraformPropertyName("contact_number")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ContactNumber { get; set; }
+    public TerraformValue<string>? ContactNumber { get; set; }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
     [TerraformPropertyName("directory_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DirectoryId { get; set; }
+    public TerraformValue<string>? DirectoryId { get; set; }
 
     /// <summary>
     /// The edition attribute.
@@ -118,42 +118,42 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Edition is required")]
     [TerraformPropertyName("edition")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Edition { get; set; }
+    public required TerraformValue<string> Edition { get; set; }
 
     /// <summary>
     /// The email_address attribute.
     /// </summary>
     [TerraformPropertyName("email_address")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EmailAddress { get; set; }
+    public TerraformValue<string>? EmailAddress { get; set; }
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
     [TerraformPropertyName("first_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FirstName { get; set; }
+    public TerraformValue<string>? FirstName { get; set; }
 
     /// <summary>
     /// The iam_identity_center_instance_arn attribute.
     /// </summary>
     [TerraformPropertyName("iam_identity_center_instance_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IamIdentityCenterInstanceArn { get; set; }
+    public TerraformValue<string>? IamIdentityCenterInstanceArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
     [TerraformPropertyName("last_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? LastName { get; set; }
+    public TerraformValue<string>? LastName { get; set; }
 
     /// <summary>
     /// The notification_email attribute.
@@ -161,48 +161,48 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationEmail is required")]
     [TerraformPropertyName("notification_email")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NotificationEmail { get; set; }
+    public required TerraformValue<string> NotificationEmail { get; set; }
 
     /// <summary>
     /// The reader_group attribute.
     /// </summary>
     [TerraformPropertyName("reader_group")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ReaderGroup { get; set; }
+    public TerraformList<string>? ReaderGroup { get; set; }
 
     /// <summary>
     /// The reader_pro_group attribute.
     /// </summary>
     [TerraformPropertyName("reader_pro_group")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ReaderProGroup { get; set; }
+    public TerraformList<string>? ReaderProGroup { get; set; }
 
     /// <summary>
     /// The realm attribute.
     /// </summary>
     [TerraformPropertyName("realm")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Realm { get; set; }
+    public TerraformValue<string>? Realm { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsQuicksightAccountSubscriptionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsQuicksightAccountSubscriptionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The account_subscription_status attribute.
     /// </summary>
     [TerraformPropertyName("account_subscription_status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AccountSubscriptionStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_subscription_status");
+    public TerraformValue<string> AccountSubscriptionStatus => new TerraformReference(this, "account_subscription_status");
 
 }

@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for allow_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermIotSecurityDeviceGroupAllowRuleBlock : ITerraformBlock
+public class AzurermIotSecurityDeviceGroupAllowRuleBlock
 {
     /// <summary>
     /// The connection_from_ips_not_allowed attribute.
     /// </summary>
     [TerraformPropertyName("connection_from_ips_not_allowed")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? ConnectionFromIpsNotAllowed { get; set; }
+    public TerraformSet<string>? ConnectionFromIpsNotAllowed { get; set; }
 
     /// <summary>
     /// The connection_to_ips_not_allowed attribute.
     /// </summary>
     [TerraformPropertyName("connection_to_ips_not_allowed")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? ConnectionToIpsNotAllowed { get; set; }
+    public TerraformSet<string>? ConnectionToIpsNotAllowed { get; set; }
 
     /// <summary>
     /// The local_users_not_allowed attribute.
     /// </summary>
     [TerraformPropertyName("local_users_not_allowed")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? LocalUsersNotAllowed { get; set; }
+    public TerraformSet<string>? LocalUsersNotAllowed { get; set; }
 
     /// <summary>
     /// The processes_not_allowed attribute.
     /// </summary>
     [TerraformPropertyName("processes_not_allowed")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? ProcessesNotAllowed { get; set; }
+    public TerraformSet<string>? ProcessesNotAllowed { get; set; }
 
 }
 
@@ -42,7 +42,7 @@ public class AzurermIotSecurityDeviceGroupAllowRuleBlock : ITerraformBlock
 /// Block type for range_rule in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermIotSecurityDeviceGroupRangeRuleBlock : ITerraformBlock
+public class AzurermIotSecurityDeviceGroupRangeRuleBlock
 {
     /// <summary>
     /// The duration attribute.
@@ -50,7 +50,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     [TerraformPropertyName("duration")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Duration { get; set; }
+    public required TerraformValue<string> Duration { get; set; }
 
     /// <summary>
     /// The max attribute.
@@ -58,7 +58,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Max is required")]
     [TerraformPropertyName("max")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Max { get; set; }
+    public required TerraformValue<double> Max { get; set; }
 
     /// <summary>
     /// The min attribute.
@@ -66,7 +66,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     [TerraformPropertyName("min")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Min { get; set; }
+    public required TerraformValue<double> Min { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -74,7 +74,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -82,35 +82,35 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermIotSecurityDeviceGroupTimeoutsBlock : ITerraformBlock
+public class AzurermIotSecurityDeviceGroupTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -128,8 +128,8 @@ public class AzurermIotSecurityDeviceGroup : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The iothub_id attribute.
@@ -137,7 +137,7 @@ public class AzurermIotSecurityDeviceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     [TerraformPropertyName("iothub_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IothubId { get; set; }
+    public required TerraformValue<string> IothubId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -145,7 +145,7 @@ public class AzurermIotSecurityDeviceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for allow_rule.
@@ -153,20 +153,20 @@ public class AzurermIotSecurityDeviceGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllowRule block(s) allowed")]
     [TerraformPropertyName("allow_rule")]
-    public TerraformList<TerraformBlock<AzurermIotSecurityDeviceGroupAllowRuleBlock>>? AllowRule { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermIotSecurityDeviceGroupAllowRuleBlock>>? AllowRule { get; set; }
 
     /// <summary>
     /// Block for range_rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("range_rule")]
-    public TerraformSet<TerraformBlock<AzurermIotSecurityDeviceGroupRangeRuleBlock>>? RangeRule { get; set; } = new();
+    public TerraformSet<TerraformBlock<AzurermIotSecurityDeviceGroupRangeRuleBlock>>? RangeRule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermIotSecurityDeviceGroupTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermIotSecurityDeviceGroupTimeoutsBlock>? Timeouts { get; set; }
 
 }

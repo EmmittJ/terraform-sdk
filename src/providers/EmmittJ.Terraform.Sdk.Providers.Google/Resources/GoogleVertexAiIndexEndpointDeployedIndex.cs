@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automatic_resources in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : ITerraformBlock
+public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock
 {
     /// <summary>
     /// The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If maxReplicaCount is not set, the default value is minReplicaCount. The max allowed replica count is 1000.
@@ -14,8 +14,8 @@ public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : I
     /// The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If the requested value is too large, the deployment will error, but if deployment succeeds then the ability to scale the model to that many replicas is guaranteed (barring service outages). If traffic against the DeployedModel increases beyond what its replicas at maximum may handle, a portion of the traffic will be dropped. If this value is not provided, a no upper bound for scaling under heavy traffic will be assume, though Vertex AI may be unable to scale beyond certain replica number.
     /// </summary>
     [TerraformPropertyName("max_replica_count")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MaxReplicaCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "max_replica_count");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MaxReplicaCount { get; set; } = default!;
 
     /// <summary>
     /// The minimum number of replicas this DeployedModel will be always deployed on. If minReplicaCount is not set, the default value is 2 (we don&#39;t provide SLA when minReplicaCount=1).
@@ -23,8 +23,8 @@ public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : I
     /// If traffic against it increases, it may dynamically be deployed onto more replicas up to [maxReplicaCount](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/AutomaticResources#FIELDS.max_replica_count), and as traffic decreases, some of these extra replicas may be freed. If the requested value is too large, the deployment will error.
     /// </summary>
     [TerraformPropertyName("min_replica_count")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MinReplicaCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "min_replica_count");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MinReplicaCount { get; set; } = default!;
 
 }
 
@@ -32,14 +32,14 @@ public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : I
 /// Block type for dedicated_resources in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock : ITerraformBlock
+public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock
 {
     /// <summary>
     /// The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If maxReplicaCount is not set, the default value is minReplicaCount
     /// </summary>
     [TerraformPropertyName("max_replica_count")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MaxReplicaCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "max_replica_count");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MaxReplicaCount { get; set; } = default!;
 
     /// <summary>
     /// The minimum number of machine replicas this DeployedModel will be always deployed on. This value must be greater than or equal to 1.
@@ -47,7 +47,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock : I
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicaCount is required")]
     [TerraformPropertyName("min_replica_count")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> MinReplicaCount { get; set; }
+    public required TerraformValue<double> MinReplicaCount { get; set; }
 
 }
 
@@ -55,7 +55,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock : I
 /// Block type for deployed_index_auth_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBlock : ITerraformBlock
+public class GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBlock
 {
 }
 
@@ -63,28 +63,28 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock : ITerraformBlock
+public class GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -104,7 +104,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeployedIndexId is required")]
     [TerraformPropertyName("deployed_index_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DeployedIndexId { get; set; }
+    public required TerraformValue<string> DeployedIndexId { get; set; }
 
     /// <summary>
     /// The deployment group can be no longer than 64 characters (eg: &#39;test&#39;, &#39;prod&#39;). If not set, we will use the &#39;default&#39; deployment group.
@@ -113,28 +113,28 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// </summary>
     [TerraformPropertyName("deployment_group")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DeploymentGroup { get; set; }
+    public TerraformValue<string>? DeploymentGroup { get; set; }
 
     /// <summary>
     /// The display name of the Index. The name can be up to 128 characters long and can consist of any UTF-8 characters.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// If true, private endpoint&#39;s access logs are sent to Cloud Logging.
     /// </summary>
     [TerraformPropertyName("enable_access_logging")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableAccessLogging { get; set; }
+    public TerraformValue<bool>? EnableAccessLogging { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the Index this is the deployment of.
@@ -142,7 +142,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Index is required")]
     [TerraformPropertyName("index")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Index { get; set; }
+    public required TerraformValue<string> Index { get; set; }
 
     /// <summary>
     /// Identifies the index endpoint. Must be in the format
@@ -151,14 +151,14 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexEndpoint is required")]
     [TerraformPropertyName("index_endpoint")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> IndexEndpoint { get; set; }
+    public required TerraformValue<string> IndexEndpoint { get; set; }
 
     /// <summary>
     /// The region of the index endpoint deployment. eg us-central1
     /// </summary>
     [TerraformPropertyName("region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// A list of reserved ip ranges under the VPC network that can be used for this DeployedIndex.
@@ -170,7 +170,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// </summary>
     [TerraformPropertyName("reserved_ip_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ReservedIpRanges { get; set; }
+    public TerraformList<string>? ReservedIpRanges { get; set; }
 
     /// <summary>
     /// Block for automatic_resources.
@@ -178,7 +178,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticResources block(s) allowed")]
     [TerraformPropertyName("automatic_resources")]
-    public TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock>>? AutomaticResources { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock>>? AutomaticResources { get; set; }
 
     /// <summary>
     /// Block for dedicated_resources.
@@ -186,7 +186,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DedicatedResources block(s) allowed")]
     [TerraformPropertyName("dedicated_resources")]
-    public TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock>>? DedicatedResources { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock>>? DedicatedResources { get; set; }
 
     /// <summary>
     /// Block for deployed_index_auth_config.
@@ -194,21 +194,21 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeployedIndexAuthConfig block(s) allowed")]
     [TerraformPropertyName("deployed_index_auth_config")]
-    public TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBlock>>? DeployedIndexAuthConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBlock>>? DeployedIndexAuthConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The DeployedIndex may depend on various data on its original Index. Additionally when certain changes to the original Index are being done (e.g. when what the Index contains is being changed) the DeployedIndex may be asynchronously updated in the background to reflect these changes. If this timestamp&#39;s value is at least the [Index.update_time](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.indexes#Index.FIELDS.update_time) of the original Index, it means that this DeployedIndex and the original Index are in sync. If this timestamp is older, then to see which updates this DeployedIndex already contains (and which it does not), one must [list](https://cloud.google.com/vertex-ai/docs/reference/rest/v1beta1/projects.locations.operations/list#google.longrunning.Operations.ListOperations) the operations that are running on the original Index. Only the successfully completed Operations with updateTime equal or before this sync time are contained in this DeployedIndex.
@@ -217,20 +217,20 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// </summary>
     [TerraformPropertyName("index_sync_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> IndexSyncTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "index_sync_time");
+    public TerraformValue<string> IndexSyncTime => new TerraformReference(this, "index_sync_time");
 
     /// <summary>
     /// The name of the DeployedIndex resource.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Provides paths for users to send requests directly to the deployed index services running on Cloud via private services access. This field is populated if [network](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.indexEndpoints#IndexEndpoint.FIELDS.network) is configured.
     /// </summary>
     [TerraformPropertyName("private_endpoints")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PrivateEndpoints => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "private_endpoints");
+    public TerraformList<object> PrivateEndpoints => new TerraformReference(this, "private_endpoints");
 
 }

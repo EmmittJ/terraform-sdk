@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPublicIpsDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermPublicIpsDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,28 +31,28 @@ public class AzurermPublicIpsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("allocation_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AllocationType { get; set; }
+    public TerraformValue<string>? AllocationType { get; set; }
 
     /// <summary>
     /// The attachment_status attribute.
     /// </summary>
     [TerraformPropertyName("attachment_status")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AttachmentStatus { get; set; }
+    public TerraformValue<string>? AttachmentStatus { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformPropertyName("name_prefix")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NamePrefix { get; set; }
+    public TerraformValue<string>? NamePrefix { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -60,20 +60,20 @@ public class AzurermPublicIpsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermPublicIpsDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermPublicIpsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The public_ips attribute.
     /// </summary>
     [TerraformPropertyName("public_ips")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PublicIps => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "public_ips");
+    public TerraformList<object> PublicIps => new TerraformReference(this, "public_ips");
 
 }

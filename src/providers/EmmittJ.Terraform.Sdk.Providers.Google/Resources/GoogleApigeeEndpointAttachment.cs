@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeEndpointAttachmentTimeoutsBlock : ITerraformBlock
+public class GoogleApigeeEndpointAttachmentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointAttachmentId is required")]
     [TerraformPropertyName("endpoint_attachment_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EndpointAttachmentId { get; set; }
+    public required TerraformValue<string> EndpointAttachmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Location of the endpoint attachment.
@@ -54,7 +54,7 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee instance,
@@ -63,7 +63,7 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformPropertyName("org_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
+    public required TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Format: projects/*/regions/*/serviceAttachments/*
@@ -71,28 +71,28 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAttachment is required")]
     [TerraformPropertyName("service_attachment")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ServiceAttachment { get; set; }
+    public required TerraformValue<string> ServiceAttachment { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleApigeeEndpointAttachmentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleApigeeEndpointAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// State of the endpoint attachment connection to the service attachment.
     /// </summary>
     [TerraformPropertyName("connection_state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ConnectionState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "connection_state");
+    public TerraformValue<string> ConnectionState => new TerraformReference(this, "connection_state");
 
     /// <summary>
     /// Host that can be used in either HTTP Target Endpoint directly, or as the host in Target Server.
     /// </summary>
     [TerraformPropertyName("host")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Host => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "host");
+    public TerraformValue<string> Host => new TerraformReference(this, "host");
 
     /// <summary>
     /// Name of the Endpoint Attachment in the following format:
@@ -100,6 +100,6 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

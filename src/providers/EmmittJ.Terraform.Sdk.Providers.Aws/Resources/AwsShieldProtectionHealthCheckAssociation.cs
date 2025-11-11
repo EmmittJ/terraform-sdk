@@ -17,14 +17,14 @@ public class AwsShieldProtectionHealthCheckAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthCheckArn is required")]
     [TerraformPropertyName("health_check_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> HealthCheckArn { get; set; }
+    public required TerraformValue<string> HealthCheckArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The shield_protection_id attribute.
@@ -32,6 +32,6 @@ public class AwsShieldProtectionHealthCheckAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShieldProtectionId is required")]
     [TerraformPropertyName("shield_protection_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ShieldProtectionId { get; set; }
+    public required TerraformValue<string> ShieldProtectionId { get; set; }
 
 }

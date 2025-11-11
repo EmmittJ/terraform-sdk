@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for actions in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApihubPluginInstanceActionsBlock : ITerraformBlock
+public class GoogleApihubPluginInstanceActionsBlock
 {
     /// <summary>
     /// This should map to one of the action id specified
@@ -15,44 +15,25 @@ public class GoogleApihubPluginInstanceActionsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionId is required")]
     [TerraformPropertyName("action_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ActionId { get; set; }
+    public required TerraformValue<string> ActionId { get; set; }
 
-    /// <summary>
-    /// The execution status for the plugin instance.
-    /// </summary>
-    [TerraformPropertyName("hub_instance_action")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> HubInstanceAction => new TerraformReferenceProperty<List<TerraformProperty<object>>>("", "hub_instance_action");
 
     /// <summary>
     /// The schedule for this plugin instance action. This can only be set if the
     /// plugin supports API_HUB_SCHEDULE_TRIGGER mode for this action.
     /// </summary>
     [TerraformPropertyName("schedule_cron_expression")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ScheduleCronExpression { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "schedule_cron_expression");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ScheduleCronExpression { get; set; } = default!;
 
     /// <summary>
     /// The time zone for the schedule cron expression. If not provided, UTC will
     /// be used.
     /// </summary>
     [TerraformPropertyName("schedule_time_zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ScheduleTimeZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "schedule_time_zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ScheduleTimeZone { get; set; } = default!;
 
-    /// <summary>
-    /// The current state of the plugin action in the plugin instance.
-    /// Possible values:
-    /// STATE_UNSPECIFIED
-    /// ENABLED
-    /// DISABLED
-    /// ENABLING
-    /// DISABLING
-    /// ERROR
-    /// </summary>
-    [TerraformPropertyName("state")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>("", "state");
 
 }
 
@@ -60,7 +41,7 @@ public class GoogleApihubPluginInstanceActionsBlock : ITerraformBlock
 /// Block type for auth_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApihubPluginInstanceAuthConfigBlock : ITerraformBlock
+public class GoogleApihubPluginInstanceAuthConfigBlock
 {
     /// <summary>
     /// Possible values:
@@ -74,7 +55,7 @@ public class GoogleApihubPluginInstanceAuthConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     [TerraformPropertyName("auth_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AuthType { get; set; }
+    public required TerraformValue<string> AuthType { get; set; }
 
 }
 
@@ -82,28 +63,28 @@ public class GoogleApihubPluginInstanceAuthConfigBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApihubPluginInstanceTimeoutsBlock : ITerraformBlock
+public class GoogleApihubPluginInstanceTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -122,7 +103,7 @@ public class GoogleApihubPluginInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("disable")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Disable { get; set; }
+    public TerraformValue<bool>? Disable { get; set; }
 
     /// <summary>
     /// The display name for this plugin instance. Max length is 255 characters.
@@ -130,14 +111,14 @@ public class GoogleApihubPluginInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -145,7 +126,7 @@ public class GoogleApihubPluginInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -153,7 +134,7 @@ public class GoogleApihubPluginInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plugin is required")]
     [TerraformPropertyName("plugin")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Plugin { get; set; }
+    public required TerraformValue<string> Plugin { get; set; }
 
     /// <summary>
     /// The ID to use for the plugin instance, which will become the final
@@ -170,21 +151,21 @@ public class GoogleApihubPluginInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PluginInstanceId is required")]
     [TerraformPropertyName("plugin_instance_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PluginInstanceId { get; set; }
+    public required TerraformValue<string> PluginInstanceId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for actions.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("actions")]
-    public TerraformList<TerraformBlock<GoogleApihubPluginInstanceActionsBlock>>? Actions { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleApihubPluginInstanceActionsBlock>>? Actions { get; set; }
 
     /// <summary>
     /// Block for auth_config.
@@ -192,21 +173,21 @@ public class GoogleApihubPluginInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthConfig block(s) allowed")]
     [TerraformPropertyName("auth_config")]
-    public TerraformList<TerraformBlock<GoogleApihubPluginInstanceAuthConfigBlock>>? AuthConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleApihubPluginInstanceAuthConfigBlock>>? AuthConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleApihubPluginInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleApihubPluginInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Timestamp indicating when the plugin instance was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Error message describing the failure, if any, during Create, Delete or
@@ -215,7 +196,7 @@ public class GoogleApihubPluginInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("error_message")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ErrorMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "error_message");
+    public TerraformValue<string> ErrorMessage => new TerraformReference(this, "error_message");
 
     /// <summary>
     /// Identifier. The unique name of the plugin instance resource.
@@ -224,7 +205,7 @@ public class GoogleApihubPluginInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The current state of the plugin instance (e.g., enabled, disabled,
@@ -240,13 +221,13 @@ public class GoogleApihubPluginInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// Timestamp indicating when the plugin instance was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

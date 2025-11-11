@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock : ITerraformBlock
+public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The priority attribute.
@@ -21,7 +21,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformPropertyName("priority")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
+    public required TerraformValue<double> Priority { get; set; }
 
 }
 
@@ -39,13 +39,13 @@ public class AwsEcrLifecyclePolicyDocumentDataSource : TerraformDataSource
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("rule")]
-    public TerraformList<TerraformBlock<AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock>>? Rule { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// The json attribute.
     /// </summary>
     [TerraformPropertyName("json")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Json => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "json");
+    public TerraformValue<string> Json => new TerraformReference(this, "json");
 
 }

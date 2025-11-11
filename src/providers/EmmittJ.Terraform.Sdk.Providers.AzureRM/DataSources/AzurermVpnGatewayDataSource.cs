@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVpnGatewayDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermVpnGatewayDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermVpnGatewayDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermVpnGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,55 +47,55 @@ public class AzurermVpnGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermVpnGatewayDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermVpnGatewayDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The bgp_settings attribute.
     /// </summary>
     [TerraformPropertyName("bgp_settings")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> BgpSettings => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "bgp_settings");
+    public TerraformList<object> BgpSettings => new TerraformReference(this, "bgp_settings");
 
     /// <summary>
     /// The ip_configuration attribute.
     /// </summary>
     [TerraformPropertyName("ip_configuration")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> IpConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ip_configuration");
+    public TerraformList<object> IpConfiguration => new TerraformReference(this, "ip_configuration");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The scale_unit attribute.
     /// </summary>
     [TerraformPropertyName("scale_unit")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ScaleUnit => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "scale_unit");
+    public TerraformValue<double> ScaleUnit => new TerraformReference(this, "scale_unit");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
     [TerraformPropertyName("virtual_hub_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VirtualHubId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "virtual_hub_id");
+    public TerraformValue<string> VirtualHubId => new TerraformReference(this, "virtual_hub_id");
 
 }

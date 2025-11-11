@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for gce_setup in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleWorkbenchInstanceGceSetupBlock : ITerraformBlock
+public class GoogleWorkbenchInstanceGceSetupBlock
 {
     /// <summary>
     /// Optional. If true, no external IP will be assigned to this VM instance.
     /// </summary>
     [TerraformPropertyName("disable_public_ip")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> DisablePublicIp { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "disable_public_ip");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> DisablePublicIp { get; set; } = default!;
 
     /// <summary>
     /// Optional. Flag to enable ip forwarding or not, default false/off.
@@ -21,29 +21,29 @@ public class GoogleWorkbenchInstanceGceSetupBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("enable_ip_forwarding")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableIpForwarding { get; set; }
+    public TerraformValue<bool>? EnableIpForwarding { get; set; }
 
     /// <summary>
     /// Optional. The machine type of the VM instance. https://cloud.google.com/compute/docs/machine-resource
     /// </summary>
     [TerraformPropertyName("machine_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> MachineType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "machine_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> MachineType { get; set; } = default!;
 
     /// <summary>
     /// Optional. Custom metadata to apply to this instance.
     /// </summary>
     [TerraformPropertyName("metadata")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Metadata { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "metadata");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Metadata { get; set; } = default!;
 
     /// <summary>
     /// Optional. The Compute Engine tags to add to instance (see [Tagging
     /// instances](https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
     /// </summary>
     [TerraformPropertyName("tags")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "tags");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> Tags { get; set; } = default!;
 
 }
 
@@ -51,28 +51,28 @@ public class GoogleWorkbenchInstanceGceSetupBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleWorkbenchInstanceTimeoutsBlock : ITerraformBlock
+public class GoogleWorkbenchInstanceTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -91,21 +91,21 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("desired_state")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DesiredState { get; set; }
+    public TerraformValue<string>? DesiredState { get; set; }
 
     /// <summary>
     /// Optional. If true, the workbench instance will not register with the proxy.
     /// </summary>
     [TerraformPropertyName("disable_proxy_access")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DisableProxyAccess { get; set; }
+    public TerraformValue<bool>? DisableProxyAccess { get; set; }
 
     /// <summary>
     /// Flag to enable managed end user credentials for the instance.
     /// </summary>
     [TerraformPropertyName("enable_managed_euc")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableManagedEuc { get; set; }
+    public TerraformValue<bool>? EnableManagedEuc { get; set; }
 
     /// <summary>
     /// Flag that specifies that a notebook can be accessed with third party
@@ -113,21 +113,21 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("enable_third_party_identity")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? EnableThirdPartyIdentity { get; set; }
+    public TerraformValue<bool>? EnableThirdPartyIdentity { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Required. User-defined unique ID of this instance.
     /// </summary>
     [TerraformPropertyName("instance_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? InstanceId { get; set; }
+    public TerraformValue<string>? InstanceId { get; set; }
 
     /// <summary>
     /// &#39;Optional. Input only. The owner of this instance after creation. Format:
@@ -138,7 +138,7 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("instance_owners")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? InstanceOwners { get; set; }
+    public TerraformList<string>? InstanceOwners { get; set; }
 
     /// <summary>
     /// Optional. Labels to apply to this instance. These can be later modified
@@ -150,7 +150,7 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Part of &#39;parent&#39;. See documentation of &#39;projectsId&#39;.
@@ -158,7 +158,7 @@ public class GoogleWorkbenchInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of this workbench instance. Format: &#39;projects/{project_id}/locations/{location}/instances/{instance_id}&#39;
@@ -166,14 +166,14 @@ public class GoogleWorkbenchInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for gce_setup.
@@ -181,14 +181,14 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GceSetup block(s) allowed")]
     [TerraformPropertyName("gce_setup")]
-    public TerraformList<TerraformBlock<GoogleWorkbenchInstanceGceSetupBlock>>? GceSetup { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleWorkbenchInstanceGceSetupBlock>>? GceSetup { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleWorkbenchInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleWorkbenchInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// An RFC3339 timestamp in UTC time. This in the format of yyyy-MM-ddTHH:mm:ss.SSSZ.
@@ -196,21 +196,21 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Output only. Email address of entity that sent original CreateInstance request.
     /// </summary>
     [TerraformPropertyName("creator")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Creator => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creator");
+    public TerraformValue<string> Creator => new TerraformReference(this, "creator");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// &#39;Output only. Additional information about instance health. Example:
@@ -219,28 +219,28 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("health_info")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> HealthInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "health_info");
+    public TerraformList<object> HealthInfo => new TerraformReference(this, "health_info");
 
     /// <summary>
     /// Output only. Instance health_state.
     /// </summary>
     [TerraformPropertyName("health_state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> HealthState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "health_state");
+    public TerraformValue<string> HealthState => new TerraformReference(this, "health_state");
 
     /// <summary>
     /// Output only. The proxy endpoint that is used to access the Jupyter notebook.
     /// </summary>
     [TerraformPropertyName("proxy_uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ProxyUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "proxy_uri");
+    public TerraformValue<string> ProxyUri => new TerraformReference(this, "proxy_uri");
 
     /// <summary>
     /// Output only. The state of this instance.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -248,7 +248,7 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// An RFC3339 timestamp in UTC time. This in the format of yyyy-MM-ddTHH:mm:ss.SSSZ.
@@ -256,13 +256,13 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
     /// <summary>
     /// Output only. The upgrade history of this instance.
     /// </summary>
     [TerraformPropertyName("upgrade_history")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> UpgradeHistory => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "upgrade_history");
+    public TerraformList<object> UpgradeHistory => new TerraformReference(this, "upgrade_history");
 
 }

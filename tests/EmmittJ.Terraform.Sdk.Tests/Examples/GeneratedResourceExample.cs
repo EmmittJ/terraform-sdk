@@ -24,18 +24,18 @@ public class AwsInstance : TerraformResource
     /// <summary>
     /// The AMI to use for the instance.
     /// </summary>
-    public TerraformProperty<string>? Ami
+    public TerraformValue<string>? Ami
     {
-        get => GetProperty<TerraformProperty<string>>("ami");
+        get => GetProperty<TerraformValue<string>>("ami");
         set => this.WithProperty("ami", value);
     }
 
     /// <summary>
     /// The instance type to use for the instance (e.g., t2.micro, m5.large).
     /// </summary>
-    public TerraformProperty<string>? InstanceType
+    public TerraformValue<string>? InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
+        get => GetProperty<TerraformValue<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 
@@ -43,9 +43,9 @@ public class AwsInstance : TerraformResource
     /// Map of tags to assign to the resource.
     /// Generated as Dictionary type that accepts TerraformProperty values.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformValue<string>>? Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
+        get => GetProperty<Dictionary<string, TerraformValue<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -83,7 +83,7 @@ public static class UsageExample
             Ami = "ami-0c55b159cbfafe1f0",
             InstanceType = "t2.micro",
             // Now you can assign dictionaries with TerraformProperty values!
-            Tags = new Dictionary<string, TerraformProperty<string>>
+            Tags = new Dictionary<string, TerraformValue<string>>
             {
                 ["Name"] = new TerraformLiteralProperty<string>("WebServer"),
                 ["Environment"] = new TerraformLiteralProperty<string>("Production"),

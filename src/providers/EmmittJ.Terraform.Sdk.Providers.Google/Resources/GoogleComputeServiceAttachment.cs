@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for consumer_accept_lists in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : ITerraformBlock
+public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock
 {
     /// <summary>
     /// The number of consumer forwarding rules the consumer project can
@@ -15,7 +15,7 @@ public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : ITerraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionLimit is required")]
     [TerraformPropertyName("connection_limit")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> ConnectionLimit { get; set; }
+    public required TerraformValue<double> ConnectionLimit { get; set; }
 
     /// <summary>
     /// The network that is allowed to connect to this service attachment.
@@ -23,7 +23,7 @@ public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : ITerraform
     /// </summary>
     [TerraformPropertyName("network_url")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NetworkUrl { get; set; }
+    public TerraformValue<string>? NetworkUrl { get; set; }
 
     /// <summary>
     /// A project that is allowed to connect to this service attachment.
@@ -31,7 +31,7 @@ public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : ITerraform
     /// </summary>
     [TerraformPropertyName("project_id_or_num")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ProjectIdOrNum { get; set; }
+    public TerraformValue<string>? ProjectIdOrNum { get; set; }
 
 }
 
@@ -39,28 +39,28 @@ public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : ITerraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeServiceAttachmentTimeoutsBlock : ITerraformBlock
+public class GoogleComputeServiceAttachmentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -80,7 +80,7 @@ public class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPreference is required")]
     [TerraformPropertyName("connection_preference")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConnectionPreference { get; set; }
+    public required TerraformValue<string> ConnectionPreference { get; set; }
 
     /// <summary>
     /// An array of projects that are not allowed to connect to this service
@@ -88,14 +88,14 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     [TerraformPropertyName("consumer_reject_lists")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ConsumerRejectLists { get; set; }
+    public TerraformList<string>? ConsumerRejectLists { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// If specified, the domain name will be used during the integration between
@@ -105,7 +105,7 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     [TerraformPropertyName("domain_names")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? DomainNames { get; set; }
+    public TerraformList<string>? DomainNames { get; set; }
 
     /// <summary>
     /// If true, enable the proxy protocol which is for supplying client TCP/IP
@@ -115,14 +115,14 @@ public class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableProxyProtocol is required")]
     [TerraformPropertyName("enable_proxy_protocol")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> EnableProxyProtocol { get; set; }
+    public required TerraformValue<bool> EnableProxyProtocol { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long, and
@@ -135,7 +135,7 @@ public class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// An array of subnets that is provided for NAT in this service attachment.
@@ -143,14 +143,14 @@ public class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatSubnets is required")]
     [TerraformPropertyName("nat_subnets")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? NatSubnets { get; set; }
+    public TerraformList<string>? NatSubnets { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The number of consumer spokes that connected Private Service Connect endpoints can be propagated to through Network Connectivity Center.
@@ -162,8 +162,8 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// If unspecified, the default propagated connection limit is 250. To explicitly send a zero value, set &#39;send_propagated_connection_limit_if_zero = true&#39;.
     /// </summary>
     [TerraformPropertyName("propagated_connection_limit")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> PropagatedConnectionLimit { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "propagated_connection_limit");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> PropagatedConnectionLimit { get; set; } = default!;
 
     /// <summary>
     /// This flag determines whether a consumer accept/reject list change can reconcile the statuses of existing ACCEPTED or REJECTED PSC endpoints.
@@ -172,15 +172,15 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// If true, update will affect both PENDING and ACCEPTED/REJECTED PSC endpoints. For example, an ACCEPTED PSC endpoint will be moved to REJECTED if its project is added to the reject list.
     /// </summary>
     [TerraformPropertyName("reconcile_connections")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> ReconcileConnections { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconcile_connections");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> ReconcileConnections { get; set; } = default!;
 
     /// <summary>
     /// URL of the region where the resource resides.
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Controls the behavior of propagated_connection_limit.
@@ -190,7 +190,7 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     [TerraformPropertyName("send_propagated_connection_limit_if_zero")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SendPropagatedConnectionLimitIfZero { get; set; }
+    public TerraformValue<bool>? SendPropagatedConnectionLimitIfZero { get; set; }
 
     /// <summary>
     /// The URL of a service serving the endpoint identified by this service attachment.
@@ -198,21 +198,21 @@ public class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetService is required")]
     [TerraformPropertyName("target_service")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetService { get; set; }
+    public required TerraformValue<string> TargetService { get; set; }
 
     /// <summary>
     /// Block for consumer_accept_lists.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("consumer_accept_lists")]
-    public TerraformSet<TerraformBlock<GoogleComputeServiceAttachmentConsumerAcceptListsBlock>>? ConsumerAcceptLists { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleComputeServiceAttachmentConsumerAcceptListsBlock>>? ConsumerAcceptLists { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeServiceAttachmentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeServiceAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// An array of the consumer forwarding rules connected to this service
@@ -220,7 +220,7 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     [TerraformPropertyName("connected_endpoints")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ConnectedEndpoints => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "connected_endpoints");
+    public TerraformList<object> ConnectedEndpoints => new TerraformReference(this, "connected_endpoints");
 
     /// <summary>
     /// Fingerprint of this resource. This field is used internally during
@@ -228,20 +228,20 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     [TerraformPropertyName("fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Fingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fingerprint");
+    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
 
     /// <summary>
     /// An 128-bit global unique ID of the PSC service attachment.
     /// </summary>
     [TerraformPropertyName("psc_service_attachment_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PscServiceAttachmentId => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "psc_service_attachment_id");
+    public TerraformList<object> PscServiceAttachmentId => new TerraformReference(this, "psc_service_attachment_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
 }

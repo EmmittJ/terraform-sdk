@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcrRepositoryEncryptionConfigurationBlock : ITerraformBlock
+public class AwsEcrRepositoryEncryptionConfigurationBlock
 {
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
     [TerraformPropertyName("encryption_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EncryptionType { get; set; }
+    public TerraformValue<string>? EncryptionType { get; set; }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
     [TerraformPropertyName("kms_key")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> KmsKey { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> KmsKey { get; set; } = default!;
 
 }
 
@@ -28,7 +28,7 @@ public class AwsEcrRepositoryEncryptionConfigurationBlock : ITerraformBlock
 /// Block type for image_scanning_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcrRepositoryImageScanningConfigurationBlock : ITerraformBlock
+public class AwsEcrRepositoryImageScanningConfigurationBlock
 {
     /// <summary>
     /// The scan_on_push attribute.
@@ -36,7 +36,7 @@ public class AwsEcrRepositoryImageScanningConfigurationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanOnPush is required")]
     [TerraformPropertyName("scan_on_push")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> ScanOnPush { get; set; }
+    public required TerraformValue<bool> ScanOnPush { get; set; }
 
 }
 
@@ -44,7 +44,7 @@ public class AwsEcrRepositoryImageScanningConfigurationBlock : ITerraformBlock
 /// Block type for image_tag_mutability_exclusion_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : ITerraformBlock
+public class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock
 {
     /// <summary>
     /// The filter attribute.
@@ -52,7 +52,7 @@ public class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : ITerraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformPropertyName("filter")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Filter { get; set; }
+    public required TerraformValue<string> Filter { get; set; }
 
     /// <summary>
     /// The filter_type attribute.
@@ -60,7 +60,7 @@ public class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : ITerraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     [TerraformPropertyName("filter_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FilterType { get; set; }
+    public required TerraformValue<string> FilterType { get; set; }
 
 }
 
@@ -68,14 +68,14 @@ public class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : ITerraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEcrRepositoryTimeoutsBlock : ITerraformBlock
+public class AwsEcrRepositoryTimeoutsBlock
 {
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -94,21 +94,21 @@ public class AwsEcrRepository : TerraformResource
     /// </summary>
     [TerraformPropertyName("force_delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ForceDelete { get; set; }
+    public TerraformValue<bool>? ForceDelete { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The image_tag_mutability attribute.
     /// </summary>
     [TerraformPropertyName("image_tag_mutability")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ImageTagMutability { get; set; }
+    public TerraformValue<string>? ImageTagMutability { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -116,35 +116,35 @@ public class AwsEcrRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for encryption_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("encryption_configuration")]
-    public TerraformList<TerraformBlock<AwsEcrRepositoryEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsEcrRepositoryEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
 
     /// <summary>
     /// Block for image_scanning_configuration.
@@ -152,7 +152,7 @@ public class AwsEcrRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageScanningConfiguration block(s) allowed")]
     [TerraformPropertyName("image_scanning_configuration")]
-    public TerraformList<TerraformBlock<AwsEcrRepositoryImageScanningConfigurationBlock>>? ImageScanningConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsEcrRepositoryImageScanningConfigurationBlock>>? ImageScanningConfiguration { get; set; }
 
     /// <summary>
     /// Block for image_tag_mutability_exclusion_filter.
@@ -160,34 +160,34 @@ public class AwsEcrRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 ImageTagMutabilityExclusionFilter block(s) allowed")]
     [TerraformPropertyName("image_tag_mutability_exclusion_filter")]
-    public TerraformList<TerraformBlock<AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock>>? ImageTagMutabilityExclusionFilter { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock>>? ImageTagMutabilityExclusionFilter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsEcrRepositoryTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsEcrRepositoryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
     [TerraformPropertyName("registry_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RegistryId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registry_id");
+    public TerraformValue<string> RegistryId => new TerraformReference(this, "registry_id");
 
     /// <summary>
     /// The repository_url attribute.
     /// </summary>
     [TerraformPropertyName("repository_url")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RepositoryUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "repository_url");
+    public TerraformValue<string> RepositoryUrl => new TerraformReference(this, "repository_url");
 
 }

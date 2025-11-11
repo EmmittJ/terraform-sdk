@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : ITerraformBlock
+public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock
 {
     /// <summary>
     /// The alert attribute.
     /// </summary>
     [TerraformPropertyName("alert")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Alert { get; set; }
+    public TerraformValue<string>? Alert { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
+    public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformPropertyName("enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
+    public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The expression attribute.
@@ -35,35 +35,35 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     [TerraformPropertyName("expression")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Expression { get; set; }
+    public required TerraformValue<string> Expression { get; set; }
 
     /// <summary>
     /// The for attribute.
     /// </summary>
     [TerraformPropertyName("for")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? For { get; set; }
+    public TerraformValue<string>? For { get; set; }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The record attribute.
     /// </summary>
     [TerraformPropertyName("record")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Record { get; set; }
+    public TerraformValue<string>? Record { get; set; }
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
     [TerraformPropertyName("severity")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Severity { get; set; }
+    public TerraformValue<double>? Severity { get; set; }
 
 }
 
@@ -71,35 +71,35 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : ITerraformBlock
+public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -118,28 +118,28 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     /// </summary>
     [TerraformPropertyName("cluster_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ClusterName { get; set; }
+    public TerraformValue<string>? ClusterName { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
     [TerraformPropertyName("interval")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Interval { get; set; }
+    public TerraformValue<string>? Interval { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -147,7 +147,7 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -155,7 +155,7 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -163,14 +163,14 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The rule_group_enabled attribute.
     /// </summary>
     [TerraformPropertyName("rule_group_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RuleGroupEnabled { get; set; }
+    public TerraformValue<bool>? RuleGroupEnabled { get; set; }
 
     /// <summary>
     /// The scopes attribute.
@@ -178,14 +178,14 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     [TerraformPropertyName("scopes")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? Scopes { get; set; }
+    public TerraformList<string>? Scopes { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for rule.
@@ -194,13 +194,13 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [TerraformPropertyName("rule")]
-    public TerraformList<TerraformBlock<AzurermMonitorAlertPrometheusRuleGroupRuleBlock>>? Rule { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermMonitorAlertPrometheusRuleGroupRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for instruction in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxPlaybookInstructionBlock : ITerraformBlock
+public class GoogleDialogflowCxPlaybookInstructionBlock
 {
     /// <summary>
     /// General guidelines for the playbook. These are unstructured instructions that are not directly part of the goal, e.g. &amp;quot;Always be polite&amp;quot;. It&#39;s valid for this text to be long and used instead of steps altogether.
     /// </summary>
     [TerraformPropertyName("guidelines")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Guidelines { get; set; }
+    public TerraformValue<string>? Guidelines { get; set; }
 
 }
 
@@ -21,21 +21,21 @@ public class GoogleDialogflowCxPlaybookInstructionBlock : ITerraformBlock
 /// Block type for llm_model_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxPlaybookLlmModelSettingsBlock : ITerraformBlock
+public class GoogleDialogflowCxPlaybookLlmModelSettingsBlock
 {
     /// <summary>
     /// The selected LLM model.
     /// </summary>
     [TerraformPropertyName("model")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Model { get; set; }
+    public TerraformValue<string>? Model { get; set; }
 
     /// <summary>
     /// The custom prompt to use.
     /// </summary>
     [TerraformPropertyName("prompt_text")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PromptText { get; set; }
+    public TerraformValue<string>? PromptText { get; set; }
 
 }
 
@@ -43,28 +43,28 @@ public class GoogleDialogflowCxPlaybookLlmModelSettingsBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowCxPlaybookTimeoutsBlock : ITerraformBlock
+public class GoogleDialogflowCxPlaybookTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,7 +84,7 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// High level description of the goal the playbook intend to accomplish. A goal should be concise since it&#39;s visible to other playbooks that may reference this playbook.
@@ -92,14 +92,14 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Goal is required")]
     [TerraformPropertyName("goal")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Goal { get; set; }
+    public required TerraformValue<string> Goal { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The agent to create a Playbook for.
@@ -107,21 +107,21 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     /// </summary>
     [TerraformPropertyName("parent")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Parent { get; set; }
+    public TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// Type of the playbook. Possible values: [&amp;quot;PLAYBOOK_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;TASK&amp;quot;, &amp;quot;ROUTINE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("playbook_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PlaybookType { get; set; }
+    public TerraformValue<string>? PlaybookType { get; set; }
 
     /// <summary>
     /// The resource name of tools referenced by the current playbook in the instructions. If not provided explicitly, they are will be implied using the tool being referenced in goal and steps.
     /// </summary>
     [TerraformPropertyName("referenced_tools")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ReferencedTools { get; set; }
+    public TerraformList<string>? ReferencedTools { get; set; }
 
     /// <summary>
     /// Block for instruction.
@@ -129,7 +129,7 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Instruction block(s) allowed")]
     [TerraformPropertyName("instruction")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxPlaybookInstructionBlock>>? Instruction { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDialogflowCxPlaybookInstructionBlock>>? Instruction { get; set; }
 
     /// <summary>
     /// Block for llm_model_settings.
@@ -137,14 +137,14 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LlmModelSettings block(s) allowed")]
     [TerraformPropertyName("llm_model_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxPlaybookLlmModelSettingsBlock>>? LlmModelSettings { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDialogflowCxPlaybookLlmModelSettingsBlock>>? LlmModelSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxPlaybookTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDialogflowCxPlaybookTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp of initial playbook creation.
@@ -153,7 +153,7 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The unique identifier of the Playbook.
@@ -161,28 +161,28 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The resource name of flows referenced by the current playbook in the instructions.
     /// </summary>
     [TerraformPropertyName("referenced_flows")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> ReferencedFlows => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "referenced_flows");
+    public TerraformList<string> ReferencedFlows => new TerraformReference(this, "referenced_flows");
 
     /// <summary>
     /// The resource name of other playbooks referenced by the current playbook in the instructions.
     /// </summary>
     [TerraformPropertyName("referenced_playbooks")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> ReferencedPlaybooks => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "referenced_playbooks");
+    public TerraformList<string> ReferencedPlaybooks => new TerraformReference(this, "referenced_playbooks");
 
     /// <summary>
     /// Estimated number of tokes current playbook takes when sent to the LLM.
     /// </summary>
     [TerraformPropertyName("token_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TokenCount => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "token_count");
+    public TerraformValue<string> TokenCount => new TerraformReference(this, "token_count");
 
     /// <summary>
     /// Last time the playbook version was updated.
@@ -191,6 +191,6 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

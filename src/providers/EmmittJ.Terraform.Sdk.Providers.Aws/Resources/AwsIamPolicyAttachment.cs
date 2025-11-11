@@ -16,14 +16,14 @@ public class AwsIamPolicyAttachment : TerraformResource
     /// </summary>
     [TerraformPropertyName("groups")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Groups { get; set; }
+    public TerraformSet<string>? Groups { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -31,7 +31,7 @@ public class AwsIamPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The policy_arn attribute.
@@ -39,20 +39,20 @@ public class AwsIamPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     [TerraformPropertyName("policy_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PolicyArn { get; set; }
+    public required TerraformValue<string> PolicyArn { get; set; }
 
     /// <summary>
     /// The roles attribute.
     /// </summary>
     [TerraformPropertyName("roles")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Roles { get; set; }
+    public TerraformSet<string>? Roles { get; set; }
 
     /// <summary>
     /// The users attribute.
     /// </summary>
     [TerraformPropertyName("users")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Users { get; set; }
+    public TerraformSet<string>? Users { get; set; }
 
 }

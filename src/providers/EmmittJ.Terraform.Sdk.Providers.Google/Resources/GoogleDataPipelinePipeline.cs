@@ -6,29 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for schedule_info in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataPipelinePipelineScheduleInfoBlock : ITerraformBlock
+public class GoogleDataPipelinePipelineScheduleInfoBlock
 {
-    /// <summary>
-    /// When the next Scheduler job is going to run.
-    /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
-    /// </summary>
-    [TerraformPropertyName("next_job_time")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NextJobTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "next_job_time");
 
     /// <summary>
     /// Unix-cron format of the schedule. This information is retrieved from the linked Cloud Scheduler.
     /// </summary>
     [TerraformPropertyName("schedule")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Schedule { get; set; }
+    public TerraformValue<string>? Schedule { get; set; }
 
     /// <summary>
     /// Timezone ID. This matches the timezone IDs used by the Cloud Scheduler API. If empty, UTC time is assumed.
     /// </summary>
     [TerraformPropertyName("time_zone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TimeZone { get; set; }
+    public TerraformValue<string>? TimeZone { get; set; }
 
 }
 
@@ -36,28 +29,28 @@ public class GoogleDataPipelinePipelineScheduleInfoBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataPipelinePipelineTimeoutsBlock : ITerraformBlock
+public class GoogleDataPipelinePipelineTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -65,7 +58,7 @@ public class GoogleDataPipelinePipelineTimeoutsBlock : ITerraformBlock
 /// Block type for workload in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataPipelinePipelineWorkloadBlock : ITerraformBlock
+public class GoogleDataPipelinePipelineWorkloadBlock
 {
 }
 
@@ -84,14 +77,14 @@ public class GoogleDataPipelinePipeline : TerraformResource
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// &amp;quot;The pipeline name. For example&#39;: &#39;projects/PROJECT_ID/locations/LOCATION_ID/pipelines/PIPELINE_ID.&amp;quot;
@@ -102,7 +95,7 @@ public class GoogleDataPipelinePipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The sources of the pipeline (for example, Dataplex). The keys and values are set by the corresponding sources during pipeline creation.
@@ -110,28 +103,28 @@ public class GoogleDataPipelinePipeline : TerraformResource
     /// </summary>
     [TerraformPropertyName("pipeline_sources")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? PipelineSources { get; set; }
+    public TerraformMap<string>? PipelineSources { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// A reference to the region
     /// </summary>
     [TerraformPropertyName("region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// Optional. A service account email to be used with the Cloud Scheduler job. If not specified, the default compute engine service account will be used.
     /// </summary>
     [TerraformPropertyName("scheduler_service_account_email")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> SchedulerServiceAccountEmail { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "scheduler_service_account_email");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> SchedulerServiceAccountEmail { get; set; } = default!;
 
     /// <summary>
     /// The state of the pipeline. When the pipeline is created, the state is set to &#39;PIPELINE_STATE_ACTIVE&#39; by default. State changes can be requested by setting the state to stopping, paused, or resuming. State cannot be changed through pipelines.patch requests.
@@ -140,7 +133,7 @@ public class GoogleDataPipelinePipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     [TerraformPropertyName("state")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> State { get; set; }
+    public required TerraformValue<string> State { get; set; }
 
     /// <summary>
     /// The type of the pipeline. This field affects the scheduling of the pipeline and the type of metrics to show for the pipeline.
@@ -149,7 +142,7 @@ public class GoogleDataPipelinePipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for schedule_info.
@@ -157,14 +150,14 @@ public class GoogleDataPipelinePipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleInfo block(s) allowed")]
     [TerraformPropertyName("schedule_info")]
-    public TerraformList<TerraformBlock<GoogleDataPipelinePipelineScheduleInfoBlock>>? ScheduleInfo { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDataPipelinePipelineScheduleInfoBlock>>? ScheduleInfo { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDataPipelinePipelineTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDataPipelinePipelineTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for workload.
@@ -172,7 +165,7 @@ public class GoogleDataPipelinePipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Workload block(s) allowed")]
     [TerraformPropertyName("workload")]
-    public TerraformList<TerraformBlock<GoogleDataPipelinePipelineWorkloadBlock>>? Workload { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDataPipelinePipelineWorkloadBlock>>? Workload { get; set; }
 
     /// <summary>
     /// The timestamp when the pipeline was initially created. Set by the Data Pipelines service.
@@ -180,14 +173,14 @@ public class GoogleDataPipelinePipeline : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Number of jobs.
     /// </summary>
     [TerraformPropertyName("job_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> JobCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "job_count");
+    public TerraformValue<double> JobCount => new TerraformReference(this, "job_count");
 
     /// <summary>
     /// The timestamp when the pipeline was last modified. Set by the Data Pipelines service.
@@ -195,6 +188,6 @@ public class GoogleDataPipelinePipeline : TerraformResource
     /// </summary>
     [TerraformPropertyName("last_update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastUpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_update_time");
+    public TerraformValue<string> LastUpdateTime => new TerraformReference(this, "last_update_time");
 
 }

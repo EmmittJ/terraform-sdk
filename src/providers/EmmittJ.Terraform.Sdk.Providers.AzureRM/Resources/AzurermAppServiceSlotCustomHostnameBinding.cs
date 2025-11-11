@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAppServiceSlotCustomHostnameBindingTimeoutsBlock : ITerraformBlock
+public class AzurermAppServiceSlotCustomHostnameBindingTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class AzurermAppServiceSlotCustomHostnameBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceSlotId is required")]
     [TerraformPropertyName("app_service_slot_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AppServiceSlotId { get; set; }
+    public required TerraformValue<string> AppServiceSlotId { get; set; }
 
     /// <summary>
     /// The hostname attribute.
@@ -54,41 +54,41 @@ public class AzurermAppServiceSlotCustomHostnameBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     [TerraformPropertyName("hostname")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Hostname { get; set; }
+    public required TerraformValue<string> Hostname { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ssl_state attribute.
     /// </summary>
     [TerraformPropertyName("ssl_state")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> SslState { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ssl_state");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> SslState { get; set; } = default!;
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     [TerraformPropertyName("thumbprint")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Thumbprint { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "thumbprint");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Thumbprint { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermAppServiceSlotCustomHostnameBindingTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermAppServiceSlotCustomHostnameBindingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The virtual_ip attribute.
     /// </summary>
     [TerraformPropertyName("virtual_ip")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VirtualIp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "virtual_ip");
+    public TerraformValue<string> VirtualIp => new TerraformReference(this, "virtual_ip");
 
 }

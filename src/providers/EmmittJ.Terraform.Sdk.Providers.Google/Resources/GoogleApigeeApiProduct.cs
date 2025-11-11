@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attributes in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleApigeeApiProductAttributesBlock : ITerraformBlock
+public class GoogleApigeeApiProductAttributesBlock
 {
     /// <summary>
     /// Key of the attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
+    public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Value of the attribute.
     /// </summary>
     [TerraformPropertyName("value")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
+    public TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -28,14 +28,14 @@ public class GoogleApigeeApiProductAttributesBlock : ITerraformBlock
 /// Block type for graphql_operation_group in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeApiProductGraphqlOperationGroupBlock : ITerraformBlock
+public class GoogleApigeeApiProductGraphqlOperationGroupBlock
 {
     /// <summary>
     /// Flag that specifes whether the configuration is for Apigee API proxy or a remote service. Valid values include proxy or remoteservice. Defaults to proxy. Set to proxy when Apigee API proxies are associated with the API product. Set to remoteservice when non-Apigee proxies like Istio-Envoy are associated with the API product. Possible values: [&amp;quot;proxy&amp;quot;, &amp;quot;remoteservice&amp;quot;]
     /// </summary>
     [TerraformPropertyName("operation_config_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? OperationConfigType { get; set; }
+    public TerraformValue<string>? OperationConfigType { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public class GoogleApigeeApiProductGraphqlOperationGroupBlock : ITerraformBlock
 /// Block type for grpc_operation_group in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeApiProductGrpcOperationGroupBlock : ITerraformBlock
+public class GoogleApigeeApiProductGrpcOperationGroupBlock
 {
 }
 
@@ -51,14 +51,14 @@ public class GoogleApigeeApiProductGrpcOperationGroupBlock : ITerraformBlock
 /// Block type for operation_group in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeApiProductOperationGroupBlock : ITerraformBlock
+public class GoogleApigeeApiProductOperationGroupBlock
 {
     /// <summary>
     /// Flag that specifes whether the configuration is for Apigee API proxy or a remote service. Valid values include proxy or remoteservice. Defaults to proxy. Set to proxy when Apigee API proxies are associated with the API product. Set to remoteservice when non-Apigee proxies like Istio-Envoy are associated with the API product. Possible values: [&amp;quot;proxy&amp;quot;, &amp;quot;remoteservice&amp;quot;]
     /// </summary>
     [TerraformPropertyName("operation_config_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? OperationConfigType { get; set; }
+    public TerraformValue<string>? OperationConfigType { get; set; }
 
 }
 
@@ -66,28 +66,28 @@ public class GoogleApigeeApiProductOperationGroupBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeApiProductTimeoutsBlock : ITerraformBlock
+public class GoogleApigeeApiProductTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -107,7 +107,7 @@ public class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [TerraformPropertyName("api_resources")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? ApiResources { get; set; }
+    public TerraformSet<string>? ApiResources { get; set; }
 
     /// <summary>
     /// Flag that specifies how API keys are approved to access the APIs defined by the API product.
@@ -115,14 +115,14 @@ public class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [TerraformPropertyName("approval_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ApprovalType { get; set; }
+    public TerraformValue<string>? ApprovalType { get; set; }
 
     /// <summary>
     /// Description of the API product. Include key information about the API product that is not captured by other fields.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Name displayed in the UI or developer portal to developers registering for API access.
@@ -130,7 +130,7 @@ public class GoogleApigeeApiProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Comma-separated list of environment names to which the API product is bound. Requests to environments that are not listed are rejected.
@@ -138,14 +138,14 @@ public class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [TerraformPropertyName("environments")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Environments { get; set; }
+    public TerraformSet<string>? Environments { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Internal name of the API product.
@@ -153,7 +153,7 @@ public class GoogleApigeeApiProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee API product,
@@ -162,7 +162,7 @@ public class GoogleApigeeApiProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformPropertyName("org_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
+    public required TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Comma-separated list of API proxy names to which this API product is bound. By specifying API proxies, you can associate resources in the API product with specific API proxies, preventing developers from accessing those resources through other API proxies.
@@ -170,7 +170,7 @@ public class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [TerraformPropertyName("proxies")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Proxies { get; set; }
+    public TerraformSet<string>? Proxies { get; set; }
 
     /// <summary>
     /// Number of request messages permitted per app by this API product for the specified quotaInterval and quotaTimeUnit.
@@ -178,49 +178,49 @@ public class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [TerraformPropertyName("quota")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Quota { get; set; }
+    public TerraformValue<string>? Quota { get; set; }
 
     /// <summary>
     /// Scope of the quota decides how the quota counter gets applied and evaluate for quota violation. If the Scope is set as PROXY, then all the operations defined for the APIproduct that are associated with the same proxy will share the same quota counter set at the APIproduct level, making it a global counter at a proxy level. If the Scope is set as OPERATION, then each operations get the counter set at the API product dedicated, making it a local counter. Note that, the QuotaCounterScope applies only when an operation does not have dedicated quota set for itself. Possible values: [&amp;quot;QUOTA_COUNTER_SCOPE_UNSPECIFIED&amp;quot;, &amp;quot;PROXY&amp;quot;, &amp;quot;OPERATION&amp;quot;]
     /// </summary>
     [TerraformPropertyName("quota_counter_scope")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? QuotaCounterScope { get; set; }
+    public TerraformValue<string>? QuotaCounterScope { get; set; }
 
     /// <summary>
     /// Time interval over which the number of request messages is calculated.
     /// </summary>
     [TerraformPropertyName("quota_interval")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? QuotaInterval { get; set; }
+    public TerraformValue<string>? QuotaInterval { get; set; }
 
     /// <summary>
     /// Time unit defined for the quotaInterval. Valid values include second, minute, hour, day, month or year.
     /// </summary>
     [TerraformPropertyName("quota_time_unit")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? QuotaTimeUnit { get; set; }
+    public TerraformValue<string>? QuotaTimeUnit { get; set; }
 
     /// <summary>
     /// Comma-separated list of OAuth scopes that are validated at runtime. Apigee validates that the scopes in any access token presented match the scopes defined in the OAuth policy associated with the API product.
     /// </summary>
     [TerraformPropertyName("scopes")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Scopes { get; set; }
+    public TerraformList<string>? Scopes { get; set; }
 
     /// <summary>
     /// Optional. The resource ID of the parent Space. If not set, the parent resource will be the Organization.
     /// </summary>
     [TerraformPropertyName("space")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Space { get; set; }
+    public TerraformValue<string>? Space { get; set; }
 
     /// <summary>
     /// Block for attributes.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("attributes")]
-    public TerraformSet<TerraformBlock<GoogleApigeeApiProductAttributesBlock>>? Attributes { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleApigeeApiProductAttributesBlock>>? Attributes { get; set; }
 
     /// <summary>
     /// Block for graphql_operation_group.
@@ -228,7 +228,7 @@ public class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GraphqlOperationGroup block(s) allowed")]
     [TerraformPropertyName("graphql_operation_group")]
-    public TerraformList<TerraformBlock<GoogleApigeeApiProductGraphqlOperationGroupBlock>>? GraphqlOperationGroup { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleApigeeApiProductGraphqlOperationGroupBlock>>? GraphqlOperationGroup { get; set; }
 
     /// <summary>
     /// Block for grpc_operation_group.
@@ -236,7 +236,7 @@ public class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrpcOperationGroup block(s) allowed")]
     [TerraformPropertyName("grpc_operation_group")]
-    public TerraformList<TerraformBlock<GoogleApigeeApiProductGrpcOperationGroupBlock>>? GrpcOperationGroup { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleApigeeApiProductGrpcOperationGroupBlock>>? GrpcOperationGroup { get; set; }
 
     /// <summary>
     /// Block for operation_group.
@@ -244,27 +244,27 @@ public class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OperationGroup block(s) allowed")]
     [TerraformPropertyName("operation_group")]
-    public TerraformList<TerraformBlock<GoogleApigeeApiProductOperationGroupBlock>>? OperationGroup { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleApigeeApiProductOperationGroupBlock>>? OperationGroup { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleApigeeApiProductTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleApigeeApiProductTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Response only. Creation time of this environment as milliseconds since epoch.
     /// </summary>
     [TerraformPropertyName("created_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
+    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
 
     /// <summary>
     /// Response only. Modified time of this environment as milliseconds since epoch.
     /// </summary>
     [TerraformPropertyName("last_modified_at")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastModifiedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_at");
+    public TerraformValue<string> LastModifiedAt => new TerraformReference(this, "last_modified_at");
 
 }

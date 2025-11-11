@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for logging_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock : ITerraformBlock
+public class AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock
 {
 }
 
@@ -24,8 +24,8 @@ public class AwsNetworkfirewallLoggingConfiguration : TerraformResource
     /// The enable_monitoring_dashboard attribute.
     /// </summary>
     [TerraformPropertyName("enable_monitoring_dashboard")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> EnableMonitoringDashboard { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_monitoring_dashboard");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> EnableMonitoringDashboard { get; set; } = default!;
 
     /// <summary>
     /// The firewall_arn attribute.
@@ -33,21 +33,21 @@ public class AwsNetworkfirewallLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallArn is required")]
     [TerraformPropertyName("firewall_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FirewallArn { get; set; }
+    public required TerraformValue<string> FirewallArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for logging_configuration.
@@ -57,6 +57,6 @@ public class AwsNetworkfirewallLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LoggingConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     [TerraformPropertyName("logging_configuration")]
-    public TerraformList<TerraformBlock<AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock>>? LoggingConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
 
 }

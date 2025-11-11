@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for notification in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermContainerConnectedRegistryNotificationBlock : ITerraformBlock
+public class AzurermContainerConnectedRegistryNotificationBlock
 {
     /// <summary>
     /// The action attribute.
@@ -14,14 +14,14 @@ public class AzurermContainerConnectedRegistryNotificationBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformPropertyName("action")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
+    public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The digest attribute.
     /// </summary>
     [TerraformPropertyName("digest")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Digest { get; set; }
+    public TerraformValue<string>? Digest { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -29,14 +29,14 @@ public class AzurermContainerConnectedRegistryNotificationBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tag attribute.
     /// </summary>
     [TerraformPropertyName("tag")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Tag { get; set; }
+    public TerraformValue<string>? Tag { get; set; }
 
 }
 
@@ -44,35 +44,35 @@ public class AzurermContainerConnectedRegistryNotificationBlock : ITerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerConnectedRegistryTimeoutsBlock : ITerraformBlock
+public class AzurermContainerConnectedRegistryTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,14 +90,14 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// </summary>
     [TerraformPropertyName("audit_log_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AuditLogEnabled { get; set; }
+    public TerraformValue<bool>? AuditLogEnabled { get; set; }
 
     /// <summary>
     /// The client_token_ids attribute.
     /// </summary>
     [TerraformPropertyName("client_token_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ClientTokenIds { get; set; }
+    public TerraformList<string>? ClientTokenIds { get; set; }
 
     /// <summary>
     /// The container_registry_id attribute.
@@ -105,28 +105,28 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     [TerraformPropertyName("container_registry_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContainerRegistryId { get; set; }
+    public required TerraformValue<string> ContainerRegistryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The log_level attribute.
     /// </summary>
     [TerraformPropertyName("log_level")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? LogLevel { get; set; }
+    public TerraformValue<string>? LogLevel { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformPropertyName("mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
+    public TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -134,28 +134,28 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parent_registry_id attribute.
     /// </summary>
     [TerraformPropertyName("parent_registry_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ParentRegistryId { get; set; }
+    public TerraformValue<string>? ParentRegistryId { get; set; }
 
     /// <summary>
     /// The sync_message_ttl attribute.
     /// </summary>
     [TerraformPropertyName("sync_message_ttl")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SyncMessageTtl { get; set; }
+    public TerraformValue<string>? SyncMessageTtl { get; set; }
 
     /// <summary>
     /// The sync_schedule attribute.
     /// </summary>
     [TerraformPropertyName("sync_schedule")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SyncSchedule { get; set; }
+    public TerraformValue<string>? SyncSchedule { get; set; }
 
     /// <summary>
     /// The sync_token_id attribute.
@@ -163,27 +163,27 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SyncTokenId is required")]
     [TerraformPropertyName("sync_token_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SyncTokenId { get; set; }
+    public required TerraformValue<string> SyncTokenId { get; set; }
 
     /// <summary>
     /// The sync_window attribute.
     /// </summary>
     [TerraformPropertyName("sync_window")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SyncWindow { get; set; }
+    public TerraformValue<string>? SyncWindow { get; set; }
 
     /// <summary>
     /// Block for notification.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("notification")]
-    public TerraformList<TerraformBlock<AzurermContainerConnectedRegistryNotificationBlock>>? Notification { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermContainerConnectedRegistryNotificationBlock>>? Notification { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermContainerConnectedRegistryTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermContainerConnectedRegistryTimeoutsBlock>? Timeouts { get; set; }
 
 }

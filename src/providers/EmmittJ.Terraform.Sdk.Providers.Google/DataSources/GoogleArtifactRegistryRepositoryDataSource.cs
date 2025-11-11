@@ -15,8 +15,8 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the repository&#39;s location. In addition to specific regions,
@@ -29,14 +29,14 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The last part of the repository name, for example:
@@ -45,7 +45,7 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     [TerraformPropertyName("repository_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RepositoryId { get; set; }
+    public required TerraformValue<string> RepositoryId { get; set; }
 
     /// <summary>
     /// Cleanup policies for this repository. Cleanup policies indicate when
@@ -55,7 +55,7 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("cleanup_policies")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> CleanupPolicies => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "cleanup_policies");
+    public TerraformSet<object> CleanupPolicies => new TerraformReference(this, "cleanup_policies");
 
     /// <summary>
     /// If true, the cleanup pipeline is prevented from deleting versions in this
@@ -63,35 +63,35 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("cleanup_policy_dry_run")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> CleanupPolicyDryRun => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "cleanup_policy_dry_run");
+    public TerraformValue<bool> CleanupPolicyDryRun => new TerraformReference(this, "cleanup_policy_dry_run");
 
     /// <summary>
     /// The time when the repository was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The user-provided description of the repository.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// Docker repository config contains repository level configuration for the repositories of docker type.
     /// </summary>
     [TerraformPropertyName("docker_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> DockerConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "docker_config");
+    public TerraformList<object> DockerConfig => new TerraformReference(this, "docker_config");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The format of packages that are stored in the repository. Supported formats
@@ -101,7 +101,7 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("format")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Format => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "format");
+    public TerraformValue<string> Format => new TerraformReference(this, "format");
 
     /// <summary>
     /// The Cloud KMS resource name of the customer managed encryption key that’s
@@ -111,7 +111,7 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("kms_key_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsKeyName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_name");
+    public TerraformValue<string> KmsKeyName => new TerraformReference(this, "kms_key_name");
 
     /// <summary>
     /// Labels with user-defined metadata.
@@ -126,7 +126,7 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// MavenRepositoryConfig is maven related repository details.
@@ -135,14 +135,14 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("maven_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MavenConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maven_config");
+    public TerraformList<object> MavenConfig => new TerraformReference(this, "maven_config");
 
     /// <summary>
     /// The mode configures the repository to serve artifacts from different sources. Default value: &amp;quot;STANDARD_REPOSITORY&amp;quot; Possible values: [&amp;quot;STANDARD_REPOSITORY&amp;quot;, &amp;quot;VIRTUAL_REPOSITORY&amp;quot;, &amp;quot;REMOTE_REPOSITORY&amp;quot;]
     /// </summary>
     [TerraformPropertyName("mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Mode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mode");
+    public TerraformValue<string> Mode => new TerraformReference(this, "mode");
 
     /// <summary>
     /// The name of the repository, for example:
@@ -150,21 +150,21 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The repository endpoint, for example: us-docker.pkg.dev/my-proj/my-repo.
     /// </summary>
     [TerraformPropertyName("registry_uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> RegistryUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registry_uri");
+    public TerraformValue<string> RegistryUri => new TerraformReference(this, "registry_uri");
 
     /// <summary>
     /// Configuration specific for a Remote Repository.
     /// </summary>
     [TerraformPropertyName("remote_repository_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> RemoteRepositoryConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "remote_repository_config");
+    public TerraformList<object> RemoteRepositoryConfig => new TerraformReference(this, "remote_repository_config");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -172,27 +172,27 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The time when the repository was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
     /// <summary>
     /// Configuration specific for a Virtual Repository.
     /// </summary>
     [TerraformPropertyName("virtual_repository_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> VirtualRepositoryConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "virtual_repository_config");
+    public TerraformList<object> VirtualRepositoryConfig => new TerraformReference(this, "virtual_repository_config");
 
     /// <summary>
     /// Configuration for vulnerability scanning of artifacts stored in this repository.
     /// </summary>
     [TerraformPropertyName("vulnerability_scanning_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> VulnerabilityScanningConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "vulnerability_scanning_config");
+    public TerraformList<object> VulnerabilityScanningConfig => new TerraformReference(this, "vulnerability_scanning_config");
 
 }

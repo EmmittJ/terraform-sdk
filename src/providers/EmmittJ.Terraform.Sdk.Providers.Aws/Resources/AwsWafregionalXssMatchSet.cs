@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for xss_match_tuple in .
 /// Nesting mode: set
 /// </summary>
-public class AwsWafregionalXssMatchSetXssMatchTupleBlock : ITerraformBlock
+public class AwsWafregionalXssMatchSetXssMatchTupleBlock
 {
     /// <summary>
     /// The text_transformation attribute.
@@ -14,7 +14,7 @@ public class AwsWafregionalXssMatchSetXssMatchTupleBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     [TerraformPropertyName("text_transformation")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TextTransformation { get; set; }
+    public required TerraformValue<string> TextTransformation { get; set; }
 
 }
 
@@ -31,8 +31,8 @@ public class AwsWafregionalXssMatchSet : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -40,20 +40,20 @@ public class AwsWafregionalXssMatchSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for xss_match_tuple.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("xss_match_tuple")]
-    public TerraformSet<TerraformBlock<AwsWafregionalXssMatchSetXssMatchTupleBlock>>? XssMatchTuple { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsWafregionalXssMatchSetXssMatchTupleBlock>>? XssMatchTuple { get; set; }
 
 }

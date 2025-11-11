@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for constraints in .
 /// Nesting mode: set
 /// </summary>
-public class AwsKmsGrantConstraintsBlock : ITerraformBlock
+public class AwsKmsGrantConstraintsBlock
 {
     /// <summary>
     /// The encryption_context_equals attribute.
     /// </summary>
     [TerraformPropertyName("encryption_context_equals")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? EncryptionContextEquals { get; set; }
+    public TerraformMap<string>? EncryptionContextEquals { get; set; }
 
     /// <summary>
     /// The encryption_context_subset attribute.
     /// </summary>
     [TerraformPropertyName("encryption_context_subset")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? EncryptionContextSubset { get; set; }
+    public TerraformMap<string>? EncryptionContextSubset { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public class AwsKmsGrant : TerraformResource
     /// </summary>
     [TerraformPropertyName("grant_creation_tokens")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? GrantCreationTokens { get; set; }
+    public TerraformSet<string>? GrantCreationTokens { get; set; }
 
     /// <summary>
     /// The grantee_principal attribute.
@@ -46,14 +46,14 @@ public class AwsKmsGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteePrincipal is required")]
     [TerraformPropertyName("grantee_principal")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GranteePrincipal { get; set; }
+    public required TerraformValue<string> GranteePrincipal { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The key_id attribute.
@@ -61,14 +61,14 @@ public class AwsKmsGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     [TerraformPropertyName("key_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyId { get; set; }
+    public required TerraformValue<string> KeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
+    public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The operations attribute.
@@ -76,48 +76,48 @@ public class AwsKmsGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operations is required")]
     [TerraformPropertyName("operations")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Operations { get; set; }
+    public required TerraformSet<string> Operations { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The retire_on_delete attribute.
     /// </summary>
     [TerraformPropertyName("retire_on_delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? RetireOnDelete { get; set; }
+    public TerraformValue<bool>? RetireOnDelete { get; set; }
 
     /// <summary>
     /// The retiring_principal attribute.
     /// </summary>
     [TerraformPropertyName("retiring_principal")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RetiringPrincipal { get; set; }
+    public TerraformValue<string>? RetiringPrincipal { get; set; }
 
     /// <summary>
     /// Block for constraints.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("constraints")]
-    public TerraformSet<TerraformBlock<AwsKmsGrantConstraintsBlock>>? Constraints { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsKmsGrantConstraintsBlock>>? Constraints { get; set; }
 
     /// <summary>
     /// The grant_id attribute.
     /// </summary>
     [TerraformPropertyName("grant_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GrantId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "grant_id");
+    public TerraformValue<string> GrantId => new TerraformReference(this, "grant_id");
 
     /// <summary>
     /// The grant_token attribute.
     /// </summary>
     [TerraformPropertyName("grant_token")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GrantToken => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "grant_token");
+    public TerraformValue<string> GrantToken => new TerraformReference(this, "grant_token");
 
 }

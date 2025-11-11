@@ -15,8 +15,8 @@ public class AwsCeCostAllocationTag : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The status attribute.
@@ -24,7 +24,7 @@ public class AwsCeCostAllocationTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     [TerraformPropertyName("status")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Status { get; set; }
+    public required TerraformValue<string> Status { get; set; }
 
     /// <summary>
     /// The tag_key attribute.
@@ -32,13 +32,13 @@ public class AwsCeCostAllocationTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
     [TerraformPropertyName("tag_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TagKey { get; set; }
+    public required TerraformValue<string> TagKey { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
+    public TerraformValue<string> Type => new TerraformReference(this, "type");
 
 }

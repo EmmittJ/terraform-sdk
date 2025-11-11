@@ -17,14 +17,14 @@ public class GoogleContainerAttachedInstallManifestDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformPropertyName("cluster_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
+    public required TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location attribute.
@@ -32,7 +32,7 @@ public class GoogleContainerAttachedInstallManifestDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The platform_version attribute.
@@ -40,7 +40,7 @@ public class GoogleContainerAttachedInstallManifestDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformVersion is required")]
     [TerraformPropertyName("platform_version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PlatformVersion { get; set; }
+    public required TerraformValue<string> PlatformVersion { get; set; }
 
     /// <summary>
     /// The project attribute.
@@ -48,13 +48,13 @@ public class GoogleContainerAttachedInstallManifestDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformPropertyName("project")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Project { get; set; }
+    public required TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The manifest attribute.
     /// </summary>
     [TerraformPropertyName("manifest")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Manifest => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "manifest");
+    public TerraformValue<string> Manifest => new TerraformReference(this, "manifest");
 
 }

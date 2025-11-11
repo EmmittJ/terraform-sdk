@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for sso in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudDevToolPortalSsoBlock : ITerraformBlock
+public class AzurermSpringCloudDevToolPortalSsoBlock
 {
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [TerraformPropertyName("client_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ClientId { get; set; }
+    public TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
     [TerraformPropertyName("client_secret")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ClientSecret { get; set; }
+    public TerraformValue<string>? ClientSecret { get; set; }
 
     /// <summary>
     /// The metadata_url attribute.
     /// </summary>
     [TerraformPropertyName("metadata_url")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MetadataUrl { get; set; }
+    public TerraformValue<string>? MetadataUrl { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [TerraformPropertyName("scope")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Scope { get; set; }
+    public TerraformSet<string>? Scope { get; set; }
 
 }
 
@@ -42,35 +42,35 @@ public class AzurermSpringCloudDevToolPortalSsoBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudDevToolPortalTimeoutsBlock : ITerraformBlock
+public class AzurermSpringCloudDevToolPortalTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -88,22 +88,22 @@ public class AzurermSpringCloudDevToolPortal : TerraformResource
     /// The application_accelerator_enabled attribute.
     /// </summary>
     [TerraformPropertyName("application_accelerator_enabled")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> ApplicationAcceleratorEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "application_accelerator_enabled");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> ApplicationAcceleratorEnabled { get; set; } = default!;
 
     /// <summary>
     /// The application_live_view_enabled attribute.
     /// </summary>
     [TerraformPropertyName("application_live_view_enabled")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> ApplicationLiveViewEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "application_live_view_enabled");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> ApplicationLiveViewEnabled { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -111,14 +111,14 @@ public class AzurermSpringCloudDevToolPortal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformPropertyName("public_network_access_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
+    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
@@ -126,7 +126,7 @@ public class AzurermSpringCloudDevToolPortal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     [TerraformPropertyName("spring_cloud_service_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SpringCloudServiceId { get; set; }
+    public required TerraformValue<string> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// Block for sso.
@@ -134,13 +134,13 @@ public class AzurermSpringCloudDevToolPortal : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sso block(s) allowed")]
     [TerraformPropertyName("sso")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudDevToolPortalSsoBlock>>? Sso { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermSpringCloudDevToolPortalSsoBlock>>? Sso { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermSpringCloudDevToolPortalTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermSpringCloudDevToolPortalTimeoutsBlock>? Timeouts { get; set; }
 
 }

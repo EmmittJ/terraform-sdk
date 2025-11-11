@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkManagementOrganizationVpcFlowLogsConfigTimeoutsBlock : ITerraformBlock
+public class GoogleNetworkManagementOrganizationVpcFlowLogsConfigTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,8 +45,8 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// INTERVAL_5_SEC.   Possible values: INTERVAL_5_SEC INTERVAL_30_SEC INTERVAL_1_MIN INTERVAL_5_MIN INTERVAL_10_MIN INTERVAL_15_MIN
     /// </summary>
     [TerraformPropertyName("aggregation_interval")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AggregationInterval { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aggregation_interval");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AggregationInterval { get; set; } = default!;
 
     /// <summary>
     /// Determines whether to include cross project annotations in the logs.
@@ -57,8 +57,8 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// CROSS_PROJECT_METADATA_DISABLED Possible values: [&amp;quot;CROSS_PROJECT_METADATA_ENABLED&amp;quot;, &amp;quot;CROSS_PROJECT_METADATA_DISABLED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("cross_project_metadata")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> CrossProjectMetadata { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cross_project_metadata");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> CrossProjectMetadata { get; set; } = default!;
 
     /// <summary>
     /// Optional. The user-supplied description of the VPC Flow Logs configuration. Maximum
@@ -66,14 +66,14 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Optional. Export filter used to define which VPC Flow Logs should be logged.
     /// </summary>
     [TerraformPropertyName("filter_expr")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FilterExpr { get; set; }
+    public TerraformValue<string>? FilterExpr { get; set; }
 
     /// <summary>
     /// Optional. The value of the field must be in (0, 1]. The sampling rate
@@ -82,15 +82,15 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// the state field instead. Default value is 1.0
     /// </summary>
     [TerraformPropertyName("flow_sampling")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> FlowSampling { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "flow_sampling");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> FlowSampling { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Optional. Resource labels to represent the user-provided metadata.
@@ -101,7 +101,7 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource
@@ -111,7 +111,7 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Optional. Configures whether all, none or a subset of metadata fields
@@ -119,8 +119,8 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     ///   Possible values:  METADATA_UNSPECIFIED INCLUDE_ALL_METADATA EXCLUDE_ALL_METADATA CUSTOM_METADATA
     /// </summary>
     [TerraformPropertyName("metadata")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Metadata { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "metadata");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Metadata { get; set; } = default!;
 
     /// <summary>
     /// Optional. Custom metadata fields to include in the reported VPC flow
@@ -128,7 +128,7 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// </summary>
     [TerraformPropertyName("metadata_fields")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? MetadataFields { get; set; }
+    public TerraformList<string>? MetadataFields { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -136,7 +136,7 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     [TerraformPropertyName("organization")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Organization { get; set; }
+    public required TerraformValue<string> Organization { get; set; }
 
     /// <summary>
     /// Optional. The state of the VPC Flow Log configuration. Default value
@@ -144,8 +144,8 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// Possible values: ENABLED DISABLED
     /// </summary>
     [TerraformPropertyName("state")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> State { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> State { get; set; } = default!;
 
     /// <summary>
     /// Required. ID of the &#39;VpcFlowLogsConfig&#39;.
@@ -153,35 +153,35 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcFlowLogsConfigId is required")]
     [TerraformPropertyName("vpc_flow_logs_config_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VpcFlowLogsConfigId { get; set; }
+    public required TerraformValue<string> VpcFlowLogsConfigId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleNetworkManagementOrganizationVpcFlowLogsConfigTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleNetworkManagementOrganizationVpcFlowLogsConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time the config was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Identifier. Unique name of the configuration using the form:     &#39;organizations/{org_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}&#39;
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -189,13 +189,13 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Output only. The time the config was updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

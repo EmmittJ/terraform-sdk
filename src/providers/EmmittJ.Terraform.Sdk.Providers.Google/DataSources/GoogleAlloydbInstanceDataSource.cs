@@ -17,14 +17,14 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformPropertyName("cluster_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
+    public required TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ID of the alloydb instance.
@@ -32,21 +32,21 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformPropertyName("instance_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
+    public required TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// The canonical ID for the location. For example: &amp;quot;us-east1&amp;quot;.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Project ID of the project.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// &#39;Specifies whether an instance needs to spin up. Once the instance is
@@ -60,7 +60,7 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("activation_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ActivationPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "activation_policy");
+    public TerraformValue<string> ActivationPolicy => new TerraformReference(this, "activation_policy");
 
     /// <summary>
     /// Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels.
@@ -70,7 +70,7 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Annotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "annotations");
+    public TerraformMap<string> Annotations => new TerraformReference(this, "annotations");
 
     /// <summary>
     /// &#39;Availability type of an Instance. Defaults to REGIONAL for both primary and read instances.
@@ -82,14 +82,14 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("availability_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AvailabilityType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_type");
+    public TerraformValue<string> AvailabilityType => new TerraformReference(this, "availability_type");
 
     /// <summary>
     /// Client connection specific configurations.
     /// </summary>
     [TerraformPropertyName("client_connection_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ClientConnectionConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "client_connection_config");
+    public TerraformList<object> ClientConnectionConfig => new TerraformReference(this, "client_connection_config");
 
     /// <summary>
     /// Identifies the alloydb cluster. Must be in the format
@@ -97,49 +97,49 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("cluster")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Cluster => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster");
+    public TerraformValue<string> Cluster => new TerraformReference(this, "cluster");
 
     /// <summary>
     /// Time the Instance was created in UTC.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
     /// </summary>
     [TerraformPropertyName("database_flags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> DatabaseFlags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "database_flags");
+    public TerraformMap<string> DatabaseFlags => new TerraformReference(this, "database_flags");
 
     /// <summary>
     /// User-settable and human-readable display name for the Instance.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
+    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_annotations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
+    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The Compute Engine zone that the instance should serve from, per https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a ZONAL instance, instance is created in a random zone with available capacity.
     /// </summary>
     [TerraformPropertyName("gce_zone")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GceZone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gce_zone");
+    public TerraformValue<string> GceZone => new TerraformReference(this, "gce_zone");
 
     /// <summary>
     /// The type of the instance.
@@ -152,14 +152,14 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("instance_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> InstanceType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "instance_type");
+    public TerraformValue<string> InstanceType => new TerraformReference(this, "instance_type");
 
     /// <summary>
     /// The IP address for the Instance. This is the connection endpoint for an end-user application.
     /// </summary>
     [TerraformPropertyName("ip_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> IpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address");
+    public TerraformValue<string> IpAddress => new TerraformReference(this, "ip_address");
 
     /// <summary>
     /// User-defined labels for the alloydb instance.
@@ -169,28 +169,28 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// Configurations for the machines that host the underlying database engine.
     /// </summary>
     [TerraformPropertyName("machine_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MachineConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "machine_config");
+    public TerraformList<object> MachineConfig => new TerraformReference(this, "machine_config");
 
     /// <summary>
     /// The name of the instance resource.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Instance level network configuration.
     /// </summary>
     [TerraformPropertyName("network_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> NetworkConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "network_config");
+    public TerraformList<object> NetworkConfig => new TerraformReference(this, "network_config");
 
     /// <summary>
     /// The outbound public IP addresses for the instance. This is available ONLY when
@@ -199,14 +199,14 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("outbound_public_ip_addresses")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> OutboundPublicIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "outbound_public_ip_addresses");
+    public TerraformList<string> OutboundPublicIpAddresses => new TerraformReference(this, "outbound_public_ip_addresses");
 
     /// <summary>
     /// Configuration for Private Service Connect (PSC) for the instance.
     /// </summary>
     [TerraformPropertyName("psc_instance_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PscInstanceConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "psc_instance_config");
+    public TerraformList<object> PscInstanceConfig => new TerraformReference(this, "psc_instance_config");
 
     /// <summary>
     /// The public IP addresses for the Instance. This is available ONLY when
@@ -215,35 +215,35 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("public_ip_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PublicIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_ip_address");
+    public TerraformValue<string> PublicIpAddress => new TerraformReference(this, "public_ip_address");
 
     /// <summary>
     /// Configuration for query insights.
     /// </summary>
     [TerraformPropertyName("query_insights_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> QueryInsightsConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "query_insights_config");
+    public TerraformList<object> QueryInsightsConfig => new TerraformReference(this, "query_insights_config");
 
     /// <summary>
     /// Read pool specific config. If the instance type is READ_POOL, this configuration must be provided.
     /// </summary>
     [TerraformPropertyName("read_pool_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ReadPoolConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "read_pool_config");
+    public TerraformList<object> ReadPoolConfig => new TerraformReference(this, "read_pool_config");
 
     /// <summary>
     /// Set to true if the current state of Instance does not match the user&#39;s intended state, and the service is actively updating the resource to reconcile them. This can happen due to user-triggered updates or system actions like failover or maintenance.
     /// </summary>
     [TerraformPropertyName("reconciling")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
+    public TerraformValue<bool> Reconciling => new TerraformReference(this, "reconciling");
 
     /// <summary>
     /// The current state of the alloydb instance.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -251,20 +251,20 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The system-generated UID of the resource.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// Time the Instance was updated in UTC.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDynatraceMonitorDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermDynatraceMonitorDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermDynatraceMonitorDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermDynatraceMonitorDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,69 +47,69 @@ public class AzurermDynatraceMonitorDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDynatraceMonitorDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDynatraceMonitorDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The environment_properties attribute.
     /// </summary>
     [TerraformPropertyName("environment_properties")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> EnvironmentProperties => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "environment_properties");
+    public TerraformList<object> EnvironmentProperties => new TerraformReference(this, "environment_properties");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformPropertyName("identity")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
+    public TerraformList<object> Identity => new TerraformReference(this, "identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The marketplace_subscription attribute.
     /// </summary>
     [TerraformPropertyName("marketplace_subscription")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MarketplaceSubscription => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "marketplace_subscription");
+    public TerraformValue<string> MarketplaceSubscription => new TerraformReference(this, "marketplace_subscription");
 
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
     [TerraformPropertyName("monitoring_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> MonitoringEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "monitoring_enabled");
+    public TerraformValue<bool> MonitoringEnabled => new TerraformReference(this, "monitoring_enabled");
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
     [TerraformPropertyName("plan")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Plan => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "plan");
+    public TerraformList<object> Plan => new TerraformReference(this, "plan");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The user attribute.
     /// </summary>
     [TerraformPropertyName("user")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> User => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "user");
+    public TerraformList<object> User => new TerraformReference(this, "user");
 
 }

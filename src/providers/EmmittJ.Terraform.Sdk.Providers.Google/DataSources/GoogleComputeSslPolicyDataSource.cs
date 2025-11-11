@@ -15,8 +15,8 @@ public class GoogleComputeSslPolicyDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -30,21 +30,21 @@ public class GoogleComputeSslPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// Profile specifies the set of SSL features that can be used by the
@@ -60,21 +60,21 @@ public class GoogleComputeSslPolicyDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("custom_features")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> CustomFeatures => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "custom_features");
+    public TerraformSet<string> CustomFeatures => new TerraformReference(this, "custom_features");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// The list of features enabled in the SSL policy.
     /// </summary>
     [TerraformPropertyName("enabled_features")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> EnabledFeatures => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "enabled_features");
+    public TerraformSet<string> EnabledFeatures => new TerraformReference(this, "enabled_features");
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this
@@ -82,7 +82,7 @@ public class GoogleComputeSslPolicyDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Fingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fingerprint");
+    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
 
     /// <summary>
     /// The minimum version of SSL protocol that can be used by the clients
@@ -90,7 +90,7 @@ public class GoogleComputeSslPolicyDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("min_tls_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MinTlsVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "min_tls_version");
+    public TerraformValue<string> MinTlsVersion => new TerraformReference(this, "min_tls_version");
 
     /// <summary>
     /// Profile specifies the set of SSL features that can be used by the
@@ -104,13 +104,13 @@ public class GoogleComputeSslPolicyDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("profile")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Profile => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "profile");
+    public TerraformValue<string> Profile => new TerraformReference(this, "profile");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
 }

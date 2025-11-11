@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for registration_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIotCaCertificateRegistrationConfigBlock : ITerraformBlock
+public class AwsIotCaCertificateRegistrationConfigBlock
 {
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [TerraformPropertyName("role_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RoleArn { get; set; }
+    public TerraformValue<string>? RoleArn { get; set; }
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
     [TerraformPropertyName("template_body")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TemplateBody { get; set; }
+    public TerraformValue<string>? TemplateBody { get; set; }
 
     /// <summary>
     /// The template_name attribute.
     /// </summary>
     [TerraformPropertyName("template_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TemplateName { get; set; }
+    public TerraformValue<string>? TemplateName { get; set; }
 
 }
 
@@ -47,7 +47,7 @@ public class AwsIotCaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     [TerraformPropertyName("active")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Active { get; set; }
+    public required TerraformValue<bool> Active { get; set; }
 
     /// <summary>
     /// The allow_auto_registration attribute.
@@ -55,7 +55,7 @@ public class AwsIotCaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowAutoRegistration is required")]
     [TerraformPropertyName("allow_auto_registration")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> AllowAutoRegistration { get; set; }
+    public required TerraformValue<bool> AllowAutoRegistration { get; set; }
 
     /// <summary>
     /// The ca_certificate_pem attribute.
@@ -63,49 +63,49 @@ public class AwsIotCaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaCertificatePem is required")]
     [TerraformPropertyName("ca_certificate_pem")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CaCertificatePem { get; set; }
+    public required TerraformValue<string> CaCertificatePem { get; set; }
 
     /// <summary>
     /// The certificate_mode attribute.
     /// </summary>
     [TerraformPropertyName("certificate_mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CertificateMode { get; set; }
+    public TerraformValue<string>? CertificateMode { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The verification_certificate_pem attribute.
     /// </summary>
     [TerraformPropertyName("verification_certificate_pem")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VerificationCertificatePem { get; set; }
+    public TerraformValue<string>? VerificationCertificatePem { get; set; }
 
     /// <summary>
     /// Block for registration_config.
@@ -113,34 +113,34 @@ public class AwsIotCaCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RegistrationConfig block(s) allowed")]
     [TerraformPropertyName("registration_config")]
-    public TerraformList<TerraformBlock<AwsIotCaCertificateRegistrationConfigBlock>>? RegistrationConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsIotCaCertificateRegistrationConfigBlock>>? RegistrationConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The customer_version attribute.
     /// </summary>
     [TerraformPropertyName("customer_version")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> CustomerVersion => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "customer_version");
+    public TerraformValue<double> CustomerVersion => new TerraformReference(this, "customer_version");
 
     /// <summary>
     /// The generation_id attribute.
     /// </summary>
     [TerraformPropertyName("generation_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GenerationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "generation_id");
+    public TerraformValue<string> GenerationId => new TerraformReference(this, "generation_id");
 
     /// <summary>
     /// The validity attribute.
     /// </summary>
     [TerraformPropertyName("validity")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Validity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "validity");
+    public TerraformList<object> Validity => new TerraformReference(this, "validity");
 
 }

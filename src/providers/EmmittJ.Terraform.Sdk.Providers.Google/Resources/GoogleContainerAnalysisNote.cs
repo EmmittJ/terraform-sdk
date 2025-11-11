@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attestation_authority in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAnalysisNoteAttestationAuthorityBlock : ITerraformBlock
+public class GoogleContainerAnalysisNoteAttestationAuthorityBlock
 {
 }
 
@@ -14,14 +14,14 @@ public class GoogleContainerAnalysisNoteAttestationAuthorityBlock : ITerraformBl
 /// Block type for related_url in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleContainerAnalysisNoteRelatedUrlBlock : ITerraformBlock
+public class GoogleContainerAnalysisNoteRelatedUrlBlock
 {
     /// <summary>
     /// Label to describe usage of the URL
     /// </summary>
     [TerraformPropertyName("label")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Label { get; set; }
+    public TerraformValue<string>? Label { get; set; }
 
     /// <summary>
     /// Specific URL associated with the resource.
@@ -29,7 +29,7 @@ public class GoogleContainerAnalysisNoteRelatedUrlBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     [TerraformPropertyName("url")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Url { get; set; }
+    public required TerraformValue<string> Url { get; set; }
 
 }
 
@@ -37,28 +37,28 @@ public class GoogleContainerAnalysisNoteRelatedUrlBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleContainerAnalysisNoteTimeoutsBlock : ITerraformBlock
+public class GoogleContainerAnalysisNoteTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -77,21 +77,21 @@ public class GoogleContainerAnalysisNote : TerraformResource
     /// </summary>
     [TerraformPropertyName("expiration_time")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ExpirationTime { get; set; }
+    public TerraformValue<string>? ExpirationTime { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// A detailed description of the note
     /// </summary>
     [TerraformPropertyName("long_description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? LongDescription { get; set; }
+    public TerraformValue<string>? LongDescription { get; set; }
 
     /// <summary>
     /// The name of the note.
@@ -99,28 +99,28 @@ public class GoogleContainerAnalysisNote : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Names of other notes related to this note.
     /// </summary>
     [TerraformPropertyName("related_note_names")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? RelatedNoteNames { get; set; }
+    public TerraformSet<string>? RelatedNoteNames { get; set; }
 
     /// <summary>
     /// A one sentence description of the note.
     /// </summary>
     [TerraformPropertyName("short_description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ShortDescription { get; set; }
+    public TerraformValue<string>? ShortDescription { get; set; }
 
     /// <summary>
     /// Block for attestation_authority.
@@ -130,41 +130,41 @@ public class GoogleContainerAnalysisNote : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AttestationAuthority block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AttestationAuthority block(s) allowed")]
     [TerraformPropertyName("attestation_authority")]
-    public TerraformList<TerraformBlock<GoogleContainerAnalysisNoteAttestationAuthorityBlock>>? AttestationAuthority { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleContainerAnalysisNoteAttestationAuthorityBlock>>? AttestationAuthority { get; set; }
 
     /// <summary>
     /// Block for related_url.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("related_url")]
-    public TerraformSet<TerraformBlock<GoogleContainerAnalysisNoteRelatedUrlBlock>>? RelatedUrl { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleContainerAnalysisNoteRelatedUrlBlock>>? RelatedUrl { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleContainerAnalysisNoteTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleContainerAnalysisNoteTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time this note was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// The type of analysis this note describes
     /// </summary>
     [TerraformPropertyName("kind")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Kind => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kind");
+    public TerraformValue<string> Kind => new TerraformReference(this, "kind");
 
     /// <summary>
     /// The time this note was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

@@ -6,21 +6,9 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for management_cluster in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVmwarePrivateCloudManagementClusterBlock : ITerraformBlock
+public class AzurermVmwarePrivateCloudManagementClusterBlock
 {
-    /// <summary>
-    /// The hosts attribute.
-    /// </summary>
-    [TerraformPropertyName("hosts")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Hosts => new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "hosts");
 
-    /// <summary>
-    /// The id attribute.
-    /// </summary>
-    [TerraformPropertyName("id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Id => new TerraformReferenceProperty<TerraformProperty<double>>("", "id");
 
     /// <summary>
     /// The size attribute.
@@ -28,7 +16,7 @@ public class AzurermVmwarePrivateCloudManagementClusterBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     [TerraformPropertyName("size")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Size { get; set; }
+    public required TerraformValue<double> Size { get; set; }
 
 }
 
@@ -36,35 +24,35 @@ public class AzurermVmwarePrivateCloudManagementClusterBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVmwarePrivateCloudTimeoutsBlock : ITerraformBlock
+public class AzurermVmwarePrivateCloudTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -82,15 +70,15 @@ public class AzurermVmwarePrivateCloud : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The internet_connection_enabled attribute.
     /// </summary>
     [TerraformPropertyName("internet_connection_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? InternetConnectionEnabled { get; set; }
+    public TerraformValue<bool>? InternetConnectionEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -98,7 +86,7 @@ public class AzurermVmwarePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -106,7 +94,7 @@ public class AzurermVmwarePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_subnet_cidr attribute.
@@ -114,14 +102,14 @@ public class AzurermVmwarePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSubnetCidr is required")]
     [TerraformPropertyName("network_subnet_cidr")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> NetworkSubnetCidr { get; set; }
+    public required TerraformValue<string> NetworkSubnetCidr { get; set; }
 
     /// <summary>
     /// The nsxt_password attribute.
     /// </summary>
     [TerraformPropertyName("nsxt_password")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NsxtPassword { get; set; }
+    public TerraformValue<string>? NsxtPassword { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -129,7 +117,7 @@ public class AzurermVmwarePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -137,21 +125,21 @@ public class AzurermVmwarePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformPropertyName("sku_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SkuName { get; set; }
+    public required TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The vcenter_password attribute.
     /// </summary>
     [TerraformPropertyName("vcenter_password")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VcenterPassword { get; set; }
+    public TerraformValue<string>? VcenterPassword { get; set; }
 
     /// <summary>
     /// Block for management_cluster.
@@ -161,76 +149,76 @@ public class AzurermVmwarePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagementCluster block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementCluster block(s) allowed")]
     [TerraformPropertyName("management_cluster")]
-    public TerraformList<TerraformBlock<AzurermVmwarePrivateCloudManagementClusterBlock>>? ManagementCluster { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermVmwarePrivateCloudManagementClusterBlock>>? ManagementCluster { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermVmwarePrivateCloudTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermVmwarePrivateCloudTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The circuit attribute.
     /// </summary>
     [TerraformPropertyName("circuit")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Circuit => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "circuit");
+    public TerraformList<object> Circuit => new TerraformReference(this, "circuit");
 
     /// <summary>
     /// The hcx_cloud_manager_endpoint attribute.
     /// </summary>
     [TerraformPropertyName("hcx_cloud_manager_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> HcxCloudManagerEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hcx_cloud_manager_endpoint");
+    public TerraformValue<string> HcxCloudManagerEndpoint => new TerraformReference(this, "hcx_cloud_manager_endpoint");
 
     /// <summary>
     /// The management_subnet_cidr attribute.
     /// </summary>
     [TerraformPropertyName("management_subnet_cidr")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ManagementSubnetCidr => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "management_subnet_cidr");
+    public TerraformValue<string> ManagementSubnetCidr => new TerraformReference(this, "management_subnet_cidr");
 
     /// <summary>
     /// The nsxt_certificate_thumbprint attribute.
     /// </summary>
     [TerraformPropertyName("nsxt_certificate_thumbprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NsxtCertificateThumbprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "nsxt_certificate_thumbprint");
+    public TerraformValue<string> NsxtCertificateThumbprint => new TerraformReference(this, "nsxt_certificate_thumbprint");
 
     /// <summary>
     /// The nsxt_manager_endpoint attribute.
     /// </summary>
     [TerraformPropertyName("nsxt_manager_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NsxtManagerEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "nsxt_manager_endpoint");
+    public TerraformValue<string> NsxtManagerEndpoint => new TerraformReference(this, "nsxt_manager_endpoint");
 
     /// <summary>
     /// The provisioning_subnet_cidr attribute.
     /// </summary>
     [TerraformPropertyName("provisioning_subnet_cidr")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ProvisioningSubnetCidr => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "provisioning_subnet_cidr");
+    public TerraformValue<string> ProvisioningSubnetCidr => new TerraformReference(this, "provisioning_subnet_cidr");
 
     /// <summary>
     /// The vcenter_certificate_thumbprint attribute.
     /// </summary>
     [TerraformPropertyName("vcenter_certificate_thumbprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VcenterCertificateThumbprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vcenter_certificate_thumbprint");
+    public TerraformValue<string> VcenterCertificateThumbprint => new TerraformReference(this, "vcenter_certificate_thumbprint");
 
     /// <summary>
     /// The vcsa_endpoint attribute.
     /// </summary>
     [TerraformPropertyName("vcsa_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VcsaEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vcsa_endpoint");
+    public TerraformValue<string> VcsaEndpoint => new TerraformReference(this, "vcsa_endpoint");
 
     /// <summary>
     /// The vmotion_subnet_cidr attribute.
     /// </summary>
     [TerraformPropertyName("vmotion_subnet_cidr")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VmotionSubnetCidr => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vmotion_subnet_cidr");
+    public TerraformValue<string> VmotionSubnetCidr => new TerraformReference(this, "vmotion_subnet_cidr");
 
 }

@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsGuarddutyOrganizationConfigurationDatasourcesBlock : ITerraformBlock
+public class AwsGuarddutyOrganizationConfigurationDatasourcesBlock
 {
 }
 
@@ -27,7 +27,7 @@ public class AwsGuarddutyOrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnableOrganizationMembers is required")]
     [TerraformPropertyName("auto_enable_organization_members")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AutoEnableOrganizationMembers { get; set; }
+    public required TerraformValue<string> AutoEnableOrganizationMembers { get; set; }
 
     /// <summary>
     /// The detector_id attribute.
@@ -35,21 +35,21 @@ public class AwsGuarddutyOrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     [TerraformPropertyName("detector_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DetectorId { get; set; }
+    public required TerraformValue<string> DetectorId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for datasources.
@@ -58,6 +58,6 @@ public class AwsGuarddutyOrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Datasources block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformPropertyName("datasources")]
-    public TerraformList<TerraformBlock<AwsGuarddutyOrganizationConfigurationDatasourcesBlock>>? Datasources { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGuarddutyOrganizationConfigurationDatasourcesBlock>>? Datasources { get; set; }
 
 }

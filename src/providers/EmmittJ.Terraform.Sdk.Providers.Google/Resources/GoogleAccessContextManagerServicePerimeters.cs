@@ -6,14 +6,8 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for service_perimeters in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock : ITerraformBlock
+public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock
 {
-    /// <summary>
-    /// Time the AccessPolicy was created in UTC.
-    /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "create_time");
 
     /// <summary>
     /// Description of the ServicePerimeter and its use. Does not affect
@@ -21,7 +15,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Resource name for the ServicePerimeter. The short_name component must
@@ -31,7 +25,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Specifies the type of the Perimeter. There are two types: regular and
@@ -53,7 +47,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// </summary>
     [TerraformPropertyName("perimeter_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PerimeterType { get; set; }
+    public TerraformValue<string>? PerimeterType { get; set; }
 
     /// <summary>
     /// Human readable title. Must be unique within the Policy.
@@ -61,14 +55,8 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     [TerraformPropertyName("title")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Title { get; set; }
+    public required TerraformValue<string> Title { get; set; }
 
-    /// <summary>
-    /// Time the AccessPolicy was updated in UTC.
-    /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "update_time");
 
     /// <summary>
     /// Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly exists
@@ -83,7 +71,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// </summary>
     [TerraformPropertyName("use_explicit_dry_run_spec")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? UseExplicitDryRunSpec { get; set; }
+    public TerraformValue<bool>? UseExplicitDryRunSpec { get; set; }
 
 }
 
@@ -91,28 +79,28 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAccessContextManagerServicePerimetersTimeoutsBlock : ITerraformBlock
+public class GoogleAccessContextManagerServicePerimetersTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -129,8 +117,8 @@ public class GoogleAccessContextManagerServicePerimeters : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The AccessPolicy this ServicePerimeter lives in.
@@ -139,20 +127,20 @@ public class GoogleAccessContextManagerServicePerimeters : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformPropertyName("parent")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
+    public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Block for service_perimeters.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("service_perimeters")]
-    public TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimetersServicePerimetersBlock>>? ServicePerimeters { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimetersServicePerimetersBlock>>? ServicePerimeters { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleAccessContextManagerServicePerimetersTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleAccessContextManagerServicePerimetersTimeoutsBlock>? Timeouts { get; set; }
 
 }

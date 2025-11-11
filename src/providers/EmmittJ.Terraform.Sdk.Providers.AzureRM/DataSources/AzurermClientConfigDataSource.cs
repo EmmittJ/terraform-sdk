@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermClientConfigDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermClientConfigDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,42 +30,42 @@ public class AzurermClientConfigDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermClientConfigDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermClientConfigDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [TerraformPropertyName("client_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ClientId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "client_id");
+    public TerraformValue<string> ClientId => new TerraformReference(this, "client_id");
 
     /// <summary>
     /// The object_id attribute.
     /// </summary>
     [TerraformPropertyName("object_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ObjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_id");
+    public TerraformValue<string> ObjectId => new TerraformReference(this, "object_id");
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
     [TerraformPropertyName("subscription_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SubscriptionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subscription_id");
+    public TerraformValue<string> SubscriptionId => new TerraformReference(this, "subscription_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [TerraformPropertyName("tenant_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tenant_id");
+    public TerraformValue<string> TenantId => new TerraformReference(this, "tenant_id");
 
 }

@@ -16,14 +16,14 @@ public class AwsKmsPublicKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("grant_tokens")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? GrantTokens { get; set; }
+    public TerraformList<string>? GrantTokens { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The key_id attribute.
@@ -31,62 +31,62 @@ public class AwsKmsPublicKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     [TerraformPropertyName("key_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyId { get; set; }
+    public required TerraformValue<string> KeyId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The customer_master_key_spec attribute.
     /// </summary>
     [TerraformPropertyName("customer_master_key_spec")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CustomerMasterKeySpec => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "customer_master_key_spec");
+    public TerraformValue<string> CustomerMasterKeySpec => new TerraformReference(this, "customer_master_key_spec");
 
     /// <summary>
     /// The encryption_algorithms attribute.
     /// </summary>
     [TerraformPropertyName("encryption_algorithms")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> EncryptionAlgorithms => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "encryption_algorithms");
+    public TerraformList<string> EncryptionAlgorithms => new TerraformReference(this, "encryption_algorithms");
 
     /// <summary>
     /// The key_usage attribute.
     /// </summary>
     [TerraformPropertyName("key_usage")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KeyUsage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_usage");
+    public TerraformValue<string> KeyUsage => new TerraformReference(this, "key_usage");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     [TerraformPropertyName("public_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PublicKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_key");
+    public TerraformValue<string> PublicKey => new TerraformReference(this, "public_key");
 
     /// <summary>
     /// The public_key_pem attribute.
     /// </summary>
     [TerraformPropertyName("public_key_pem")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PublicKeyPem => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_key_pem");
+    public TerraformValue<string> PublicKeyPem => new TerraformReference(this, "public_key_pem");
 
     /// <summary>
     /// The signing_algorithms attribute.
     /// </summary>
     [TerraformPropertyName("signing_algorithms")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> SigningAlgorithms => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "signing_algorithms");
+    public TerraformList<string> SigningAlgorithms => new TerraformReference(this, "signing_algorithms");
 
 }

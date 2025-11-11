@@ -6,35 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for control_mapping_sources in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAuditmanagerControlControlMappingSourcesBlock : ITerraformBlock
+public class AwsAuditmanagerControlControlMappingSourcesBlock
 {
     /// <summary>
     /// The source_description attribute.
     /// </summary>
     [TerraformPropertyName("source_description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SourceDescription { get; set; }
+    public TerraformValue<string>? SourceDescription { get; set; }
 
     /// <summary>
     /// The source_frequency attribute.
     /// </summary>
     [TerraformPropertyName("source_frequency")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SourceFrequency { get; set; }
+    public TerraformValue<string>? SourceFrequency { get; set; }
 
-    /// <summary>
-    /// The source_id attribute.
-    /// </summary>
-    [TerraformPropertyName("source_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SourceId => new TerraformReferenceProperty<TerraformProperty<string>>("", "source_id");
 
     /// <summary>
     /// The source_keyword attribute.
     /// </summary>
     [TerraformPropertyName("source_keyword")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<object>>> SourceKeyword { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<object>>>("", "source_keyword");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<object> SourceKeyword { get; set; } = default!;
 
     /// <summary>
     /// The source_name attribute.
@@ -42,7 +36,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     [TerraformPropertyName("source_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SourceName { get; set; }
+    public required TerraformValue<string> SourceName { get; set; }
 
     /// <summary>
     /// The source_set_up_option attribute.
@@ -50,7 +44,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSetUpOption is required")]
     [TerraformPropertyName("source_set_up_option")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SourceSetUpOption { get; set; }
+    public required TerraformValue<string> SourceSetUpOption { get; set; }
 
     /// <summary>
     /// The source_type attribute.
@@ -58,14 +52,14 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     [TerraformPropertyName("source_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SourceType { get; set; }
+    public required TerraformValue<string> SourceType { get; set; }
 
     /// <summary>
     /// The troubleshooting_text attribute.
     /// </summary>
     [TerraformPropertyName("troubleshooting_text")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TroubleshootingText { get; set; }
+    public TerraformValue<string>? TroubleshootingText { get; set; }
 
 }
 
@@ -83,21 +77,21 @@ public class AwsAuditmanagerControl : TerraformResource
     /// </summary>
     [TerraformPropertyName("action_plan_instructions")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ActionPlanInstructions { get; set; }
+    public TerraformValue<string>? ActionPlanInstructions { get; set; }
 
     /// <summary>
     /// The action_plan_title attribute.
     /// </summary>
     [TerraformPropertyName("action_plan_title")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ActionPlanTitle { get; set; }
+    public TerraformValue<string>? ActionPlanTitle { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -105,62 +99,62 @@ public class AwsAuditmanagerControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The testing_information attribute.
     /// </summary>
     [TerraformPropertyName("testing_information")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TestingInformation { get; set; }
+    public TerraformValue<string>? TestingInformation { get; set; }
 
     /// <summary>
     /// Block for control_mapping_sources.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("control_mapping_sources")]
-    public TerraformSet<TerraformBlock<AwsAuditmanagerControlControlMappingSourcesBlock>>? ControlMappingSources { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsAuditmanagerControlControlMappingSourcesBlock>>? ControlMappingSources { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
+    public TerraformValue<string> Type => new TerraformReference(this, "type");
 
 }

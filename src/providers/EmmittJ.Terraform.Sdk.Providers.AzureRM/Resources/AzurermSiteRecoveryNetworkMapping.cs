@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSiteRecoveryNetworkMappingTimeoutsBlock : ITerraformBlock
+public class AzurermSiteRecoveryNetworkMappingTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -44,8 +44,8 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recovery_vault_name attribute.
@@ -61,7 +61,7 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     [TerraformPropertyName("recovery_vault_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RecoveryVaultName { get; set; }
+    public required TerraformValue<string> RecoveryVaultName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -69,7 +69,7 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The source_network_id attribute.
@@ -77,7 +77,7 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceNetworkId is required")]
     [TerraformPropertyName("source_network_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SourceNetworkId { get; set; }
+    public required TerraformValue<string> SourceNetworkId { get; set; }
 
     /// <summary>
     /// The source_recovery_fabric_name attribute.
@@ -85,7 +85,7 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRecoveryFabricName is required")]
     [TerraformPropertyName("source_recovery_fabric_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SourceRecoveryFabricName { get; set; }
+    public required TerraformValue<string> SourceRecoveryFabricName { get; set; }
 
     /// <summary>
     /// The target_network_id attribute.
@@ -93,7 +93,7 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkId is required")]
     [TerraformPropertyName("target_network_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetNetworkId { get; set; }
+    public required TerraformValue<string> TargetNetworkId { get; set; }
 
     /// <summary>
     /// The target_recovery_fabric_name attribute.
@@ -101,13 +101,13 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRecoveryFabricName is required")]
     [TerraformPropertyName("target_recovery_fabric_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetRecoveryFabricName { get; set; }
+    public required TerraformValue<string> TargetRecoveryFabricName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermSiteRecoveryNetworkMappingTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermSiteRecoveryNetworkMappingTimeoutsBlock>? Timeouts { get; set; }
 
 }

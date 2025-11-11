@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for data_store_spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxToolDataStoreSpecBlock : ITerraformBlock
+public class GoogleDialogflowCxToolDataStoreSpecBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class GoogleDialogflowCxToolDataStoreSpecBlock : ITerraformBlock
 /// Block type for function_spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxToolFunctionSpecBlock : ITerraformBlock
+public class GoogleDialogflowCxToolFunctionSpecBlock
 {
     /// <summary>
     /// Optional. The JSON schema is encapsulated in a [google.protobuf.Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct) to describe the input of the function.
@@ -22,7 +22,7 @@ public class GoogleDialogflowCxToolFunctionSpecBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("input_schema")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? InputSchema { get; set; }
+    public TerraformValue<string>? InputSchema { get; set; }
 
     /// <summary>
     /// Optional. The JSON schema is encapsulated in a [google.protobuf.Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct) to describe the output of the function.
@@ -30,7 +30,7 @@ public class GoogleDialogflowCxToolFunctionSpecBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("output_schema")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? OutputSchema { get; set; }
+    public TerraformValue<string>? OutputSchema { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public class GoogleDialogflowCxToolFunctionSpecBlock : ITerraformBlock
 /// Block type for open_api_spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxToolOpenApiSpecBlock : ITerraformBlock
+public class GoogleDialogflowCxToolOpenApiSpecBlock
 {
     /// <summary>
     /// The OpenAPI schema specified as a text.
@@ -47,7 +47,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextSchema is required")]
     [TerraformPropertyName("text_schema")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TextSchema { get; set; }
+    public required TerraformValue<string> TextSchema { get; set; }
 
 }
 
@@ -55,28 +55,28 @@ public class GoogleDialogflowCxToolOpenApiSpecBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowCxToolTimeoutsBlock : ITerraformBlock
+public class GoogleDialogflowCxToolTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -96,7 +96,7 @@ public class GoogleDialogflowCxTool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     [TerraformPropertyName("description")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Description { get; set; }
+    public required TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The human-readable name of the tool, unique within the agent.
@@ -104,14 +104,14 @@ public class GoogleDialogflowCxTool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The agent to create a Tool for.
@@ -119,7 +119,7 @@ public class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     [TerraformPropertyName("parent")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Parent { get; set; }
+    public TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// Block for data_store_spec.
@@ -127,7 +127,7 @@ public class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataStoreSpec block(s) allowed")]
     [TerraformPropertyName("data_store_spec")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxToolDataStoreSpecBlock>>? DataStoreSpec { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDialogflowCxToolDataStoreSpecBlock>>? DataStoreSpec { get; set; }
 
     /// <summary>
     /// Block for function_spec.
@@ -135,7 +135,7 @@ public class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FunctionSpec block(s) allowed")]
     [TerraformPropertyName("function_spec")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxToolFunctionSpecBlock>>? FunctionSpec { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDialogflowCxToolFunctionSpecBlock>>? FunctionSpec { get; set; }
 
     /// <summary>
     /// Block for open_api_spec.
@@ -143,14 +143,14 @@ public class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenApiSpec block(s) allowed")]
     [TerraformPropertyName("open_api_spec")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxToolOpenApiSpecBlock>>? OpenApiSpec { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDialogflowCxToolOpenApiSpecBlock>>? OpenApiSpec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxToolTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDialogflowCxToolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier of the Tool.
@@ -158,13 +158,13 @@ public class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The tool type.
     /// </summary>
     [TerraformPropertyName("tool_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ToolType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tool_type");
+    public TerraformValue<string> ToolType => new TerraformReference(this, "tool_type");
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKeyVaultCertificateIssuerDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermKeyVaultCertificateIssuerDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermKeyVaultCertificateIssuerDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The key_vault_id attribute.
@@ -39,7 +39,7 @@ public class AzurermKeyVaultCertificateIssuerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformPropertyName("key_vault_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyVaultId { get; set; }
+    public required TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,41 +47,41 @@ public class AzurermKeyVaultCertificateIssuerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermKeyVaultCertificateIssuerDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermKeyVaultCertificateIssuerDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [TerraformPropertyName("account_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_id");
+    public TerraformValue<string> AccountId => new TerraformReference(this, "account_id");
 
     /// <summary>
     /// The admin attribute.
     /// </summary>
     [TerraformPropertyName("admin")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Admin => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "admin");
+    public TerraformList<object> Admin => new TerraformReference(this, "admin");
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
     [TerraformPropertyName("org_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OrgId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "org_id");
+    public TerraformValue<string> OrgId => new TerraformReference(this, "org_id");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
     [TerraformPropertyName("provider_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ProviderName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "provider_name");
+    public TerraformValue<string> ProviderName => new TerraformReference(this, "provider_name");
 
 }

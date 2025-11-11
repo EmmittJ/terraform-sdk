@@ -15,8 +15,8 @@ public class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The instance to create the database on.
@@ -24,7 +24,7 @@ public class GoogleSpannerDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformPropertyName("instance")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
+    public required TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// A unique identifier for the database, which cannot be changed after the
@@ -33,14 +33,14 @@ public class GoogleSpannerDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The dialect of the Cloud Spanner Database.
@@ -48,7 +48,7 @@ public class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("database_dialect")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DatabaseDialect => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "database_dialect");
+    public TerraformValue<string> DatabaseDialect => new TerraformReference(this, "database_dialect");
 
     /// <summary>
     /// An optional list of DDL statements to run inside the database. Statements can create
@@ -64,7 +64,7 @@ public class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("ddl")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Ddl => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "ddl");
+    public TerraformList<string> Ddl => new TerraformReference(this, "ddl");
 
     /// <summary>
     /// The default time zone for the database. The default time zone must be a valid name
@@ -72,7 +72,7 @@ public class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("default_time_zone")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DefaultTimeZone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_time_zone");
+    public TerraformValue<string> DefaultTimeZone => new TerraformReference(this, "default_time_zone");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the database. Defaults to true.
@@ -84,7 +84,7 @@ public class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("deletion_protection")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> DeletionProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection");
+    public TerraformValue<bool> DeletionProtection => new TerraformReference(this, "deletion_protection");
 
     /// <summary>
     /// Whether drop protection is enabled for this database. Defaults to false.
@@ -97,21 +97,21 @@ public class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("enable_drop_protection")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> EnableDropProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_drop_protection");
+    public TerraformValue<bool> EnableDropProtection => new TerraformReference(this, "enable_drop_protection");
 
     /// <summary>
     /// Encryption configuration for the database
     /// </summary>
     [TerraformPropertyName("encryption_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> EncryptionConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "encryption_config");
+    public TerraformList<object> EncryptionConfig => new TerraformReference(this, "encryption_config");
 
     /// <summary>
     /// An explanation of the status of the database.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The retention period for the database. The retention period must be between 1 hour
@@ -122,6 +122,6 @@ public class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("version_retention_period")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VersionRetentionPeriod => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version_retention_period");
+    public TerraformValue<string> VersionRetentionPeriod => new TerraformReference(this, "version_retention_period");
 
 }

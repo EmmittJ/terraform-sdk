@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for public_key in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock : ITerraformBlock
+public class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock
 {
     /// <summary>
     /// The ID of the public key. The ID must be 1-63 characters long, and comply with RFC1035.
@@ -16,14 +16,14 @@ public class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock : ITerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformPropertyName("id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
+    public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set to true to have the CDN automatically manage this public key value.
     /// </summary>
     [TerraformPropertyName("managed")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Managed { get; set; }
+    public TerraformValue<bool>? Managed { get; set; }
 
     /// <summary>
     /// The base64-encoded value of the Ed25519 public key. The base64 encoding can be padded (44 bytes) or unpadded (43 bytes).
@@ -31,7 +31,7 @@ public class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock : ITerraformBloc
     /// </summary>
     [TerraformPropertyName("value")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
+    public TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -39,28 +39,28 @@ public class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock : ITerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock : ITerraformBlock
+public class GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -68,7 +68,7 @@ public class GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock : ITerraformBlock
 /// Block type for validation_shared_keys in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock : ITerraformBlock
+public class GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock
 {
     /// <summary>
     /// The name of the secret version in Secret Manager.
@@ -82,7 +82,7 @@ public class GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock : ITe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     [TerraformPropertyName("secret_version")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SecretVersion { get; set; }
+    public required TerraformValue<string> SecretVersion { get; set; }
 
 }
 
@@ -101,14 +101,14 @@ public class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Set of label tags associated with the EdgeCache resource.
@@ -118,7 +118,7 @@ public class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is created.
@@ -128,14 +128,14 @@ public class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for public_key.
@@ -143,14 +143,14 @@ public class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 PublicKey block(s) allowed")]
     [TerraformPropertyName("public_key")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock>>? PublicKey { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock>>? PublicKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for validation_shared_keys.
@@ -158,14 +158,14 @@ public class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 ValidationSharedKeys block(s) allowed")]
     [TerraformPropertyName("validation_shared_keys")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock>>? ValidationSharedKeys { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock>>? ValidationSharedKeys { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -173,6 +173,6 @@ public class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

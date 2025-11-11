@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSccManagementOrganizationEventThreatDetectionCustomModuleTimeoutsBlock : ITerraformBlock
+public class GoogleSccManagementOrganizationEventThreatDetectionCustomModuleTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,35 +46,35 @@ public class GoogleSccManagementOrganizationEventThreatDetectionCustomModule : T
     /// </summary>
     [TerraformPropertyName("config")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Config { get; set; }
+    public TerraformValue<string>? Config { get; set; }
 
     /// <summary>
     /// The human readable name to be displayed for the module.
     /// </summary>
     [TerraformPropertyName("display_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
+    public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The state of enablement for the module at the given level of the hierarchy. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("enablement_state")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EnablementState { get; set; }
+    public TerraformValue<string>? EnablementState { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Location ID of the parent organization. Only global is supported at the moment.
     /// </summary>
     [TerraformPropertyName("location")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
+    public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Numerical ID of the parent organization.
@@ -82,28 +82,28 @@ public class GoogleSccManagementOrganizationEventThreatDetectionCustomModule : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     [TerraformPropertyName("organization")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Organization { get; set; }
+    public required TerraformValue<string> Organization { get; set; }
 
     /// <summary>
     /// Immutable. Type for the module. e.g. CONFIGURABLE_BAD_IP.
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleSccManagementOrganizationEventThreatDetectionCustomModuleTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleSccManagementOrganizationEventThreatDetectionCustomModuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The editor that last updated the custom module
     /// </summary>
     [TerraformPropertyName("last_editor")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastEditor => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_editor");
+    public TerraformValue<string> LastEditor => new TerraformReference(this, "last_editor");
 
     /// <summary>
     /// The resource name of the Event Threat Detection custom module.
@@ -111,7 +111,7 @@ public class GoogleSccManagementOrganizationEventThreatDetectionCustomModule : T
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The time at which the custom module was last updated.
@@ -121,6 +121,6 @@ public class GoogleSccManagementOrganizationEventThreatDetectionCustomModule : T
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for pipeline in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermDataFactoryTriggerCustomEventPipelineBlock : ITerraformBlock
+public class AzurermDataFactoryTriggerCustomEventPipelineBlock
 {
     /// <summary>
     /// The name attribute.
@@ -14,14 +14,14 @@ public class AzurermDataFactoryTriggerCustomEventPipelineBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformPropertyName("parameters")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
+    public TerraformMap<string>? Parameters { get; set; }
 
 }
 
@@ -29,35 +29,35 @@ public class AzurermDataFactoryTriggerCustomEventPipelineBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryTriggerCustomEventTimeoutsBlock : ITerraformBlock
+public class AzurermDataFactoryTriggerCustomEventTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -76,21 +76,21 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// </summary>
     [TerraformPropertyName("activated")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Activated { get; set; }
+    public TerraformValue<bool>? Activated { get; set; }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
     [TerraformPropertyName("additional_properties")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? AdditionalProperties { get; set; }
+    public TerraformMap<string>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? Annotations { get; set; }
+    public TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -98,14 +98,14 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformPropertyName("data_factory_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DataFactoryId { get; set; }
+    public required TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The eventgrid_topic_id attribute.
@@ -113,7 +113,7 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicId is required")]
     [TerraformPropertyName("eventgrid_topic_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EventgridTopicId { get; set; }
+    public required TerraformValue<string> EventgridTopicId { get; set; }
 
     /// <summary>
     /// The events attribute.
@@ -121,14 +121,14 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     [TerraformPropertyName("events")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Events { get; set; }
+    public required TerraformSet<string> Events { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -136,21 +136,21 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The subject_begins_with attribute.
     /// </summary>
     [TerraformPropertyName("subject_begins_with")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SubjectBeginsWith { get; set; }
+    public TerraformValue<string>? SubjectBeginsWith { get; set; }
 
     /// <summary>
     /// The subject_ends_with attribute.
     /// </summary>
     [TerraformPropertyName("subject_ends_with")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SubjectEndsWith { get; set; }
+    public TerraformValue<string>? SubjectEndsWith { get; set; }
 
     /// <summary>
     /// Block for pipeline.
@@ -159,13 +159,13 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pipeline is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Pipeline block(s) required")]
     [TerraformPropertyName("pipeline")]
-    public TerraformSet<TerraformBlock<AzurermDataFactoryTriggerCustomEventPipelineBlock>>? Pipeline { get; set; } = new();
+    public TerraformSet<TerraformBlock<AzurermDataFactoryTriggerCustomEventPipelineBlock>>? Pipeline { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDataFactoryTriggerCustomEventTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDataFactoryTriggerCustomEventTimeoutsBlock>? Timeouts { get; set; }
 
 }

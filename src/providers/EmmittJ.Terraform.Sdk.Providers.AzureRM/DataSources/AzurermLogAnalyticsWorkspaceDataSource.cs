@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermLogAnalyticsWorkspaceDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermLogAnalyticsWorkspaceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,69 +47,69 @@ public class AzurermLogAnalyticsWorkspaceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The daily_quota_gb attribute.
     /// </summary>
     [TerraformPropertyName("daily_quota_gb")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> DailyQuotaGb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "daily_quota_gb");
+    public TerraformValue<double> DailyQuotaGb => new TerraformReference(this, "daily_quota_gb");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The primary_shared_key attribute.
     /// </summary>
     [TerraformPropertyName("primary_shared_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrimarySharedKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_shared_key");
+    public TerraformValue<string> PrimarySharedKey => new TerraformReference(this, "primary_shared_key");
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
     [TerraformPropertyName("retention_in_days")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> RetentionInDays => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "retention_in_days");
+    public TerraformValue<double> RetentionInDays => new TerraformReference(this, "retention_in_days");
 
     /// <summary>
     /// The secondary_shared_key attribute.
     /// </summary>
     [TerraformPropertyName("secondary_shared_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SecondarySharedKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_shared_key");
+    public TerraformValue<string> SecondarySharedKey => new TerraformReference(this, "secondary_shared_key");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [TerraformPropertyName("sku")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Sku => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku");
+    public TerraformValue<string> Sku => new TerraformReference(this, "sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [TerraformPropertyName("workspace_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> WorkspaceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workspace_id");
+    public TerraformValue<string> WorkspaceId => new TerraformReference(this, "workspace_id");
 
 }

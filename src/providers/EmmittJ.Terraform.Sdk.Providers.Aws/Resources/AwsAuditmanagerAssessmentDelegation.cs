@@ -17,14 +17,14 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssessmentId is required")]
     [TerraformPropertyName("assessment_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AssessmentId { get; set; }
+    public required TerraformValue<string> AssessmentId { get; set; }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     [TerraformPropertyName("comment")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Comment { get; set; }
+    public TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The control_set_id attribute.
@@ -32,14 +32,14 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlSetId is required")]
     [TerraformPropertyName("control_set_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ControlSetId { get; set; }
+    public required TerraformValue<string> ControlSetId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The role_arn attribute.
@@ -47,7 +47,7 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformPropertyName("role_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
+    public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The role_type attribute.
@@ -55,27 +55,27 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleType is required")]
     [TerraformPropertyName("role_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleType { get; set; }
+    public required TerraformValue<string> RoleType { get; set; }
 
     /// <summary>
     /// The delegation_id attribute.
     /// </summary>
     [TerraformPropertyName("delegation_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DelegationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delegation_id");
+    public TerraformValue<string> DelegationId => new TerraformReference(this, "delegation_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
 }

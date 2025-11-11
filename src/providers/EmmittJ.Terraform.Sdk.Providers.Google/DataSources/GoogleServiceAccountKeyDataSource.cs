@@ -15,8 +15,8 @@ public class GoogleServiceAccountKeyDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -24,27 +24,27 @@ public class GoogleServiceAccountKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_key_type attribute.
     /// </summary>
     [TerraformPropertyName("public_key_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PublicKeyType { get; set; }
+    public TerraformValue<string>? PublicKeyType { get; set; }
 
     /// <summary>
     /// The key_algorithm attribute.
     /// </summary>
     [TerraformPropertyName("key_algorithm")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KeyAlgorithm => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_algorithm");
+    public TerraformValue<string> KeyAlgorithm => new TerraformReference(this, "key_algorithm");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     [TerraformPropertyName("public_key")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PublicKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_key");
+    public TerraformValue<string> PublicKey => new TerraformReference(this, "public_key");
 
 }

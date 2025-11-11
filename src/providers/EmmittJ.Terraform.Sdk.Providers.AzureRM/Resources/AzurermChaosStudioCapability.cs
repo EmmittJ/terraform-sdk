@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermChaosStudioCapabilityTimeoutsBlock : ITerraformBlock
+public class AzurermChaosStudioCapabilityTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public class AzurermChaosStudioCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapabilityType is required")]
     [TerraformPropertyName("capability_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CapabilityType { get; set; }
+    public required TerraformValue<string> CapabilityType { get; set; }
 
     /// <summary>
     /// The chaos_studio_target_id attribute.
@@ -54,27 +54,27 @@ public class AzurermChaosStudioCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChaosStudioTargetId is required")]
     [TerraformPropertyName("chaos_studio_target_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ChaosStudioTargetId { get; set; }
+    public required TerraformValue<string> ChaosStudioTargetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermChaosStudioCapabilityTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermChaosStudioCapabilityTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The urn attribute.
     /// </summary>
     [TerraformPropertyName("urn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Urn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "urn");
+    public TerraformValue<string> Urn => new TerraformReference(this, "urn");
 
 }

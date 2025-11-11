@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchEventPermissionConditionBlock : ITerraformBlock
+public class AwsCloudwatchEventPermissionConditionBlock
 {
     /// <summary>
     /// The key attribute.
@@ -14,7 +14,7 @@ public class AwsCloudwatchEventPermissionConditionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformPropertyName("key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
+    public required TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public class AwsCloudwatchEventPermissionConditionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -30,7 +30,7 @@ public class AwsCloudwatchEventPermissionConditionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformPropertyName("value")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
+    public required TerraformValue<string> Value { get; set; }
 
 }
 
@@ -49,21 +49,21 @@ public class AwsCloudwatchEventPermission : TerraformResource
     /// </summary>
     [TerraformPropertyName("action")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Action { get; set; }
+    public TerraformValue<string>? Action { get; set; }
 
     /// <summary>
     /// The event_bus_name attribute.
     /// </summary>
     [TerraformPropertyName("event_bus_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EventBusName { get; set; }
+    public TerraformValue<string>? EventBusName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The principal attribute.
@@ -71,14 +71,14 @@ public class AwsCloudwatchEventPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     [TerraformPropertyName("principal")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
+    public required TerraformValue<string> Principal { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The statement_id attribute.
@@ -86,7 +86,7 @@ public class AwsCloudwatchEventPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatementId is required")]
     [TerraformPropertyName("statement_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> StatementId { get; set; }
+    public required TerraformValue<string> StatementId { get; set; }
 
     /// <summary>
     /// Block for condition.
@@ -94,6 +94,6 @@ public class AwsCloudwatchEventPermission : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformPropertyName("condition")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventPermissionConditionBlock>>? Condition { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsCloudwatchEventPermissionConditionBlock>>? Condition { get; set; }
 
 }

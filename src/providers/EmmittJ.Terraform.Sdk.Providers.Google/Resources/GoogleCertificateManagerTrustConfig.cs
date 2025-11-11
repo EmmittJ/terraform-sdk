@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for allowlisted_certificates in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock : ITerraformBlock
+public class GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock
 {
     /// <summary>
     /// PEM certificate that is allowlisted. The certificate can be up to 5k bytes, and must be a parseable X.509 certificate.
@@ -14,7 +14,7 @@ public class GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock : I
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PemCertificate is required")]
     [TerraformPropertyName("pem_certificate")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PemCertificate { get; set; }
+    public required TerraformValue<string> PemCertificate { get; set; }
 
 }
 
@@ -22,28 +22,28 @@ public class GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock : I
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCertificateManagerTrustConfigTimeoutsBlock : ITerraformBlock
+public class GoogleCertificateManagerTrustConfigTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -51,7 +51,7 @@ public class GoogleCertificateManagerTrustConfigTimeoutsBlock : ITerraformBlock
 /// Block type for trust_stores in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCertificateManagerTrustConfigTrustStoresBlock : ITerraformBlock
+public class GoogleCertificateManagerTrustConfigTrustStoresBlock
 {
 }
 
@@ -69,14 +69,14 @@ public class GoogleCertificateManagerTrustConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Set of label tags associated with the trust config.
@@ -86,7 +86,7 @@ public class GoogleCertificateManagerTrustConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The trust config location.
@@ -94,7 +94,7 @@ public class GoogleCertificateManagerTrustConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// A user-defined name of the trust config. Trust config names must be unique globally.
@@ -102,35 +102,35 @@ public class GoogleCertificateManagerTrustConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for allowlisted_certificates.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("allowlisted_certificates")]
-    public TerraformList<TerraformBlock<GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock>>? AllowlistedCertificates { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock>>? AllowlistedCertificates { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleCertificateManagerTrustConfigTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleCertificateManagerTrustConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for trust_stores.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("trust_stores")]
-    public TerraformList<TerraformBlock<GoogleCertificateManagerTrustConfigTrustStoresBlock>>? TrustStores { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleCertificateManagerTrustConfigTrustStoresBlock>>? TrustStores { get; set; }
 
     /// <summary>
     /// The creation timestamp of a TrustConfig.
@@ -140,14 +140,14 @@ public class GoogleCertificateManagerTrustConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -155,7 +155,7 @@ public class GoogleCertificateManagerTrustConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// The last update timestamp of a TrustConfig.
@@ -165,6 +165,6 @@ public class GoogleCertificateManagerTrustConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

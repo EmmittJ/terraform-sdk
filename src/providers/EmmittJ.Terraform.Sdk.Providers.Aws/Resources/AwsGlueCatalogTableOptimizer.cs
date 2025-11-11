@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCatalogTableOptimizerConfigurationBlock : ITerraformBlock
+public class AwsGlueCatalogTableOptimizerConfigurationBlock
 {
     /// <summary>
     /// The enabled attribute.
@@ -14,7 +14,7 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformPropertyName("enabled")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
+    public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -22,7 +22,7 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformPropertyName("role_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
+    public required TerraformValue<string> RoleArn { get; set; }
 
 }
 
@@ -41,7 +41,7 @@ public class AwsGlueCatalogTableOptimizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     [TerraformPropertyName("catalog_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CatalogId { get; set; }
+    public required TerraformValue<string> CatalogId { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -49,14 +49,14 @@ public class AwsGlueCatalogTableOptimizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformPropertyName("database_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
+    public required TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The table_name attribute.
@@ -64,7 +64,7 @@ public class AwsGlueCatalogTableOptimizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     [TerraformPropertyName("table_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TableName { get; set; }
+    public required TerraformValue<string> TableName { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -72,13 +72,13 @@ public class AwsGlueCatalogTableOptimizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("configuration")]
-    public TerraformList<TerraformBlock<AwsGlueCatalogTableOptimizerConfigurationBlock>>? Configuration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsGlueCatalogTableOptimizerConfigurationBlock>>? Configuration { get; set; }
 
 }

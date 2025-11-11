@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for schedule_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppintegrationsDataIntegrationScheduleConfigBlock : ITerraformBlock
+public class AwsAppintegrationsDataIntegrationScheduleConfigBlock
 {
     /// <summary>
     /// The first_execution_from attribute.
@@ -14,7 +14,7 @@ public class AwsAppintegrationsDataIntegrationScheduleConfigBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstExecutionFrom is required")]
     [TerraformPropertyName("first_execution_from")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FirstExecutionFrom { get; set; }
+    public required TerraformValue<string> FirstExecutionFrom { get; set; }
 
     /// <summary>
     /// The object attribute.
@@ -22,7 +22,7 @@ public class AwsAppintegrationsDataIntegrationScheduleConfigBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Object is required")]
     [TerraformPropertyName("object")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Object { get; set; }
+    public required TerraformValue<string> Object { get; set; }
 
     /// <summary>
     /// The schedule_expression attribute.
@@ -30,7 +30,7 @@ public class AwsAppintegrationsDataIntegrationScheduleConfigBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     [TerraformPropertyName("schedule_expression")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ScheduleExpression { get; set; }
+    public required TerraformValue<string> ScheduleExpression { get; set; }
 
 }
 
@@ -49,14 +49,14 @@ public class AwsAppintegrationsDataIntegration : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The kms_key attribute.
@@ -64,7 +64,7 @@ public class AwsAppintegrationsDataIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     [TerraformPropertyName("kms_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KmsKey { get; set; }
+    public required TerraformValue<string> KmsKey { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -72,14 +72,14 @@ public class AwsAppintegrationsDataIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The source_uri attribute.
@@ -87,21 +87,21 @@ public class AwsAppintegrationsDataIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUri is required")]
     [TerraformPropertyName("source_uri")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SourceUri { get; set; }
+    public required TerraformValue<string> SourceUri { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for schedule_config.
@@ -111,13 +111,13 @@ public class AwsAppintegrationsDataIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScheduleConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleConfig block(s) allowed")]
     [TerraformPropertyName("schedule_config")]
-    public TerraformList<TerraformBlock<AwsAppintegrationsDataIntegrationScheduleConfigBlock>>? ScheduleConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsAppintegrationsDataIntegrationScheduleConfigBlock>>? ScheduleConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

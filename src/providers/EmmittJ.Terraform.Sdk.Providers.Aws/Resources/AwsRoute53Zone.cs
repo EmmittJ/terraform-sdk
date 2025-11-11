@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRoute53ZoneTimeoutsBlock : ITerraformBlock
+public class AwsRoute53ZoneTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -35,7 +35,7 @@ public class AwsRoute53ZoneTimeoutsBlock : ITerraformBlock
 /// Block type for vpc in .
 /// Nesting mode: set
 /// </summary>
-public class AwsRoute53ZoneVpcBlock : ITerraformBlock
+public class AwsRoute53ZoneVpcBlock
 {
     /// <summary>
     /// The vpc_id attribute.
@@ -43,14 +43,14 @@ public class AwsRoute53ZoneVpcBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     [TerraformPropertyName("vpc_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VpcId { get; set; }
+    public required TerraformValue<string> VpcId { get; set; }
 
     /// <summary>
     /// The vpc_region attribute.
     /// </summary>
     [TerraformPropertyName("vpc_region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> VpcRegion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "vpc_region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> VpcRegion { get; set; } = default!;
 
 }
 
@@ -68,28 +68,28 @@ public class AwsRoute53Zone : TerraformResource
     /// </summary>
     [TerraformPropertyName("comment")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Comment { get; set; }
+    public TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The delegation_set_id attribute.
     /// </summary>
     [TerraformPropertyName("delegation_set_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DelegationSetId { get; set; }
+    public TerraformValue<string>? DelegationSetId { get; set; }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
     [TerraformPropertyName("force_destroy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? ForceDestroy { get; set; }
+    public TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -97,62 +97,62 @@ public class AwsRoute53Zone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsRoute53ZoneTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsRoute53ZoneTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpc.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("vpc")]
-    public TerraformSet<TerraformBlock<AwsRoute53ZoneVpcBlock>>? Vpc { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsRoute53ZoneVpcBlock>>? Vpc { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     [TerraformPropertyName("name_servers")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> NameServers => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "name_servers");
+    public TerraformList<string> NameServers => new TerraformReference(this, "name_servers");
 
     /// <summary>
     /// The primary_name_server attribute.
     /// </summary>
     [TerraformPropertyName("primary_name_server")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrimaryNameServer => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_name_server");
+    public TerraformValue<string> PrimaryNameServer => new TerraformReference(this, "primary_name_server");
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
     [TerraformPropertyName("zone_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone_id");
+    public TerraformValue<string> ZoneId => new TerraformReference(this, "zone_id");
 
 }

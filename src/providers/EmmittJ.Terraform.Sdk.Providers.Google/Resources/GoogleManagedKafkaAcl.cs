@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for acl_entries in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleManagedKafkaAclAclEntriesBlock : ITerraformBlock
+public class GoogleManagedKafkaAclAclEntriesBlock
 {
     /// <summary>
     /// The host. Must be set to &amp;quot;*&amp;quot; for Managed Service for Apache Kafka.
     /// </summary>
     [TerraformPropertyName("host")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Host { get; set; }
+    public TerraformValue<string>? Host { get; set; }
 
     /// <summary>
     /// The operation type. Allowed values are (case insensitive): ALL, READ,
@@ -24,14 +24,14 @@ public class GoogleManagedKafkaAclAclEntriesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operation is required")]
     [TerraformPropertyName("operation")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Operation { get; set; }
+    public required TerraformValue<string> Operation { get; set; }
 
     /// <summary>
     /// The permission type. Accepted values are (case insensitive): ALLOW, DENY.
     /// </summary>
     [TerraformPropertyName("permission_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PermissionType { get; set; }
+    public TerraformValue<string>? PermissionType { get; set; }
 
     /// <summary>
     /// The principal. Specified as Google Cloud account, with the Kafka StandardAuthorizer prefix User:&amp;quot;. For example: &amp;quot;User:test-kafka-client@test-project.iam.gserviceaccount.com&amp;quot;. Can be the wildcard &amp;quot;User:*&amp;quot; to refer to all users.
@@ -39,7 +39,7 @@ public class GoogleManagedKafkaAclAclEntriesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     [TerraformPropertyName("principal")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
+    public required TerraformValue<string> Principal { get; set; }
 
 }
 
@@ -47,28 +47,28 @@ public class GoogleManagedKafkaAclAclEntriesBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleManagedKafkaAclTimeoutsBlock : ITerraformBlock
+public class GoogleManagedKafkaAclTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -92,7 +92,7 @@ public class GoogleManagedKafkaAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclId is required")]
     [TerraformPropertyName("acl_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AclId { get; set; }
+    public required TerraformValue<string> AclId { get; set; }
 
     /// <summary>
     /// The cluster name.
@@ -100,14 +100,14 @@ public class GoogleManagedKafkaAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     [TerraformPropertyName("cluster")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Cluster { get; set; }
+    public required TerraformValue<string> Cluster { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// ID of the location of the Kafka resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
@@ -115,14 +115,14 @@ public class GoogleManagedKafkaAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for acl_entries.
@@ -131,14 +131,14 @@ public class GoogleManagedKafkaAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclEntries is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AclEntries block(s) required")]
     [TerraformPropertyName("acl_entries")]
-    public TerraformSet<TerraformBlock<GoogleManagedKafkaAclAclEntriesBlock>>? AclEntries { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleManagedKafkaAclAclEntriesBlock>>? AclEntries { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleManagedKafkaAclTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleManagedKafkaAclTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// &#39;etag&#39; is used for concurrency control. An &#39;etag&#39; is returned in the
@@ -151,34 +151,34 @@ public class GoogleManagedKafkaAcl : TerraformResource
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// The name of the acl. The &#39;ACL_ID&#39; segment is used when connecting directly to the cluster. Must be in the format &#39;projects/PROJECT_ID/locations/LOCATION/clusters/CLUSTER_ID/acls/ACL_ID&#39;.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The acl pattern type derived from the name. One of: LITERAL, PREFIXED.
     /// </summary>
     [TerraformPropertyName("pattern_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PatternType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "pattern_type");
+    public TerraformValue<string> PatternType => new TerraformReference(this, "pattern_type");
 
     /// <summary>
     /// The acl resource name derived from the name. For cluster resource_type, this is always &amp;quot;kafka-cluster&amp;quot;. Can be the wildcard literal &amp;quot;*&amp;quot;.
     /// </summary>
     [TerraformPropertyName("resource_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ResourceName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_name");
+    public TerraformValue<string> ResourceName => new TerraformReference(this, "resource_name");
 
     /// <summary>
     /// The acl resource type derived from the name. One of: CLUSTER, TOPIC, GROUP, TRANSACTIONAL_ID.
     /// </summary>
     [TerraformPropertyName("resource_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ResourceType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_type");
+    public TerraformValue<string> ResourceType => new TerraformReference(this, "resource_type");
 
 }

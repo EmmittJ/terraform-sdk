@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for s3_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDatasyncLocationS3S3ConfigBlock : ITerraformBlock
+public class AwsDatasyncLocationS3S3ConfigBlock
 {
     /// <summary>
     /// The bucket_access_role_arn attribute.
@@ -14,7 +14,7 @@ public class AwsDatasyncLocationS3S3ConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketAccessRoleArn is required")]
     [TerraformPropertyName("bucket_access_role_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BucketAccessRoleArn { get; set; }
+    public required TerraformValue<string> BucketAccessRoleArn { get; set; }
 
 }
 
@@ -33,21 +33,21 @@ public class AwsDatasyncLocationS3 : TerraformResource
     /// </summary>
     [TerraformPropertyName("agent_arns")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? AgentArns { get; set; }
+    public TerraformSet<string>? AgentArns { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The s3_bucket_arn attribute.
@@ -55,14 +55,14 @@ public class AwsDatasyncLocationS3 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketArn is required")]
     [TerraformPropertyName("s3_bucket_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> S3BucketArn { get; set; }
+    public required TerraformValue<string> S3BucketArn { get; set; }
 
     /// <summary>
     /// The s3_storage_class attribute.
     /// </summary>
     [TerraformPropertyName("s3_storage_class")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> S3StorageClass { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "s3_storage_class");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> S3StorageClass { get; set; } = default!;
 
     /// <summary>
     /// The subdirectory attribute.
@@ -70,21 +70,21 @@ public class AwsDatasyncLocationS3 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subdirectory is required")]
     [TerraformPropertyName("subdirectory")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Subdirectory { get; set; }
+    public required TerraformValue<string> Subdirectory { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// Block for s3_config.
@@ -94,20 +94,20 @@ public class AwsDatasyncLocationS3 : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Config block(s) allowed")]
     [TerraformPropertyName("s3_config")]
-    public TerraformList<TerraformBlock<AwsDatasyncLocationS3S3ConfigBlock>>? S3Config { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsDatasyncLocationS3S3ConfigBlock>>? S3Config { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [TerraformPropertyName("uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uri");
+    public TerraformValue<string> Uri => new TerraformReference(this, "uri");
 
 }

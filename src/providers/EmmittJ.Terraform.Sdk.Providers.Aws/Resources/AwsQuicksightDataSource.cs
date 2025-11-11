@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for credentials in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDataSourceCredentialsBlock : ITerraformBlock
+public class AwsQuicksightDataSourceCredentialsBlock
 {
     /// <summary>
     /// The copy_source_arn attribute.
     /// </summary>
     [TerraformPropertyName("copy_source_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CopySourceArn { get; set; }
+    public TerraformValue<string>? CopySourceArn { get; set; }
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
     [TerraformPropertyName("secret_arn")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SecretArn { get; set; }
+    public TerraformValue<string>? SecretArn { get; set; }
 
 }
 
@@ -28,7 +28,7 @@ public class AwsQuicksightDataSourceCredentialsBlock : ITerraformBlock
 /// Block type for parameters in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDataSourceParametersBlock : ITerraformBlock
+public class AwsQuicksightDataSourceParametersBlock
 {
 }
 
@@ -36,7 +36,7 @@ public class AwsQuicksightDataSourceParametersBlock : ITerraformBlock
 /// Block type for permission in .
 /// Nesting mode: set
 /// </summary>
-public class AwsQuicksightDataSourcePermissionBlock : ITerraformBlock
+public class AwsQuicksightDataSourcePermissionBlock
 {
     /// <summary>
     /// The actions attribute.
@@ -44,7 +44,7 @@ public class AwsQuicksightDataSourcePermissionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     [TerraformPropertyName("actions")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Actions { get; set; }
+    public required TerraformSet<string> Actions { get; set; }
 
     /// <summary>
     /// The principal attribute.
@@ -52,7 +52,7 @@ public class AwsQuicksightDataSourcePermissionBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     [TerraformPropertyName("principal")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
+    public required TerraformValue<string> Principal { get; set; }
 
 }
 
@@ -60,7 +60,7 @@ public class AwsQuicksightDataSourcePermissionBlock : ITerraformBlock
 /// Block type for ssl_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDataSourceSslPropertiesBlock : ITerraformBlock
+public class AwsQuicksightDataSourceSslPropertiesBlock
 {
     /// <summary>
     /// The disable_ssl attribute.
@@ -68,7 +68,7 @@ public class AwsQuicksightDataSourceSslPropertiesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisableSsl is required")]
     [TerraformPropertyName("disable_ssl")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<bool>> DisableSsl { get; set; }
+    public required TerraformValue<bool> DisableSsl { get; set; }
 
 }
 
@@ -76,7 +76,7 @@ public class AwsQuicksightDataSourceSslPropertiesBlock : ITerraformBlock
 /// Block type for vpc_connection_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDataSourceVpcConnectionPropertiesBlock : ITerraformBlock
+public class AwsQuicksightDataSourceVpcConnectionPropertiesBlock
 {
     /// <summary>
     /// The vpc_connection_arn attribute.
@@ -84,7 +84,7 @@ public class AwsQuicksightDataSourceVpcConnectionPropertiesBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConnectionArn is required")]
     [TerraformPropertyName("vpc_connection_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VpcConnectionArn { get; set; }
+    public required TerraformValue<string> VpcConnectionArn { get; set; }
 
 }
 
@@ -102,8 +102,8 @@ public class AwsQuicksightDataSource : TerraformResource
     /// The aws_account_id attribute.
     /// </summary>
     [TerraformPropertyName("aws_account_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AwsAccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_account_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AwsAccountId { get; set; } = default!;
 
     /// <summary>
     /// The data_source_id attribute.
@@ -111,14 +111,14 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     [TerraformPropertyName("data_source_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DataSourceId { get; set; }
+    public required TerraformValue<string> DataSourceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -126,28 +126,28 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The type attribute.
@@ -155,7 +155,7 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for credentials.
@@ -163,7 +163,7 @@ public class AwsQuicksightDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Credentials block(s) allowed")]
     [TerraformPropertyName("credentials")]
-    public TerraformList<TerraformBlock<AwsQuicksightDataSourceCredentialsBlock>>? Credentials { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsQuicksightDataSourceCredentialsBlock>>? Credentials { get; set; }
 
     /// <summary>
     /// Block for parameters.
@@ -173,7 +173,7 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Parameters block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Parameters block(s) allowed")]
     [TerraformPropertyName("parameters")]
-    public TerraformList<TerraformBlock<AwsQuicksightDataSourceParametersBlock>>? Parameters { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsQuicksightDataSourceParametersBlock>>? Parameters { get; set; }
 
     /// <summary>
     /// Block for permission.
@@ -181,7 +181,7 @@ public class AwsQuicksightDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permission block(s) allowed")]
     [TerraformPropertyName("permission")]
-    public TerraformSet<TerraformBlock<AwsQuicksightDataSourcePermissionBlock>>? Permission { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsQuicksightDataSourcePermissionBlock>>? Permission { get; set; }
 
     /// <summary>
     /// Block for ssl_properties.
@@ -189,7 +189,7 @@ public class AwsQuicksightDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslProperties block(s) allowed")]
     [TerraformPropertyName("ssl_properties")]
-    public TerraformList<TerraformBlock<AwsQuicksightDataSourceSslPropertiesBlock>>? SslProperties { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsQuicksightDataSourceSslPropertiesBlock>>? SslProperties { get; set; }
 
     /// <summary>
     /// Block for vpc_connection_properties.
@@ -197,13 +197,13 @@ public class AwsQuicksightDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConnectionProperties block(s) allowed")]
     [TerraformPropertyName("vpc_connection_properties")]
-    public TerraformList<TerraformBlock<AwsQuicksightDataSourceVpcConnectionPropertiesBlock>>? VpcConnectionProperties { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsQuicksightDataSourceVpcConnectionPropertiesBlock>>? VpcConnectionProperties { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
 }

@@ -16,21 +16,21 @@ public class GoogleServiceAccountIdTokenDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("delegates")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Delegates { get; set; }
+    public TerraformSet<string>? Delegates { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The include_email attribute.
     /// </summary>
     [TerraformPropertyName("include_email")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IncludeEmail { get; set; }
+    public TerraformValue<bool>? IncludeEmail { get; set; }
 
     /// <summary>
     /// The target_audience attribute.
@@ -38,20 +38,20 @@ public class GoogleServiceAccountIdTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetAudience is required")]
     [TerraformPropertyName("target_audience")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetAudience { get; set; }
+    public required TerraformValue<string> TargetAudience { get; set; }
 
     /// <summary>
     /// The target_service_account attribute.
     /// </summary>
     [TerraformPropertyName("target_service_account")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TargetServiceAccount { get; set; }
+    public TerraformValue<string>? TargetServiceAccount { get; set; }
 
     /// <summary>
     /// The id_token attribute.
     /// </summary>
     [TerraformPropertyName("id_token")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> IdToken => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id_token");
+    public TerraformValue<string> IdToken => new TerraformReference(this, "id_token");
 
 }

@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for binary_authorization in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunV2JobBinaryAuthorizationBlock : ITerraformBlock
+public class GoogleCloudRunV2JobBinaryAuthorizationBlock
 {
     /// <summary>
     /// If present, indicates to use Breakglass using this justification. If useDefault is False, then it must be empty. For more information on breakglass, see https://cloud.google.com/binary-authorization/docs/using-breakglass
     /// </summary>
     [TerraformPropertyName("breakglass_justification")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? BreakglassJustification { get; set; }
+    public TerraformValue<string>? BreakglassJustification { get; set; }
 
     /// <summary>
     /// The path to a binary authorization policy. Format: projects/{project}/platforms/cloudRun/{policy-name}
     /// </summary>
     [TerraformPropertyName("policy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Policy { get; set; }
+    public TerraformValue<string>? Policy { get; set; }
 
     /// <summary>
     /// If True, indicates to use the default project&#39;s binary authorization policy. If False, binary authorization will be disabled.
     /// </summary>
     [TerraformPropertyName("use_default")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? UseDefault { get; set; }
+    public TerraformValue<bool>? UseDefault { get; set; }
 
 }
 
@@ -35,7 +35,7 @@ public class GoogleCloudRunV2JobBinaryAuthorizationBlock : ITerraformBlock
 /// Block type for template in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunV2JobTemplateBlock : ITerraformBlock
+public class GoogleCloudRunV2JobTemplateBlock
 {
     /// <summary>
     /// Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects.
@@ -47,7 +47,7 @@ public class GoogleCloudRunV2JobTemplateBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
+    public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google&#39;s billing system, so they can be used to filter,
@@ -59,21 +59,21 @@ public class GoogleCloudRunV2JobTemplateBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Specifies the maximum desired number of tasks the execution should run at given time. Must be &amp;lt;= taskCount. When the job is run, if this field is 0 or unset, the maximum possible value will be used for that execution. The actual number of tasks running in steady state will be less than this number when there are fewer tasks waiting to be completed remaining, i.e. when the work left to do is less than max parallelism.
     /// </summary>
     [TerraformPropertyName("parallelism")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Parallelism { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "parallelism");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Parallelism { get; set; } = default!;
 
     /// <summary>
     /// Specifies the desired number of tasks the execution should run. Setting to 1 means that parallelism is limited to 1 and the success of that task signals the success of the execution. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
     /// </summary>
     [TerraformPropertyName("task_count")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> TaskCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "task_count");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> TaskCount { get; set; } = default!;
 
 }
 
@@ -81,28 +81,28 @@ public class GoogleCloudRunV2JobTemplateBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCloudRunV2JobTimeoutsBlock : ITerraformBlock
+public class GoogleCloudRunV2JobTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -129,21 +129,21 @@ public class GoogleCloudRunV2Job : TerraformResource
     /// </summary>
     [TerraformPropertyName("annotations")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
+    public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// Arbitrary identifier for the API client.
     /// </summary>
     [TerraformPropertyName("client")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Client { get; set; }
+    public TerraformValue<string>? Client { get; set; }
 
     /// <summary>
     /// Arbitrary version identifier for the API client.
     /// </summary>
     [TerraformPropertyName("client_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ClientVersion { get; set; }
+    public TerraformValue<string>? ClientVersion { get; set; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the job. Defaults to true.
@@ -155,14 +155,14 @@ public class GoogleCloudRunV2Job : TerraformResource
     /// </summary>
     [TerraformPropertyName("deletion_protection")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DeletionProtection { get; set; }
+    public TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google&#39;s billing system, so they can be used to filter, or break down billing charges by team, component,
@@ -176,7 +176,7 @@ public class GoogleCloudRunV2Job : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The launch stage as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/products#product-launch-stages). Cloud Run supports ALPHA, BETA, and GA.
@@ -185,8 +185,8 @@ public class GoogleCloudRunV2Job : TerraformResource
     /// For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values: [&amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("launch_stage")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> LaunchStage { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "launch_stage");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> LaunchStage { get; set; } = default!;
 
     /// <summary>
     /// The location of the cloud run job
@@ -194,7 +194,7 @@ public class GoogleCloudRunV2Job : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Name of the Job.
@@ -202,14 +202,14 @@ public class GoogleCloudRunV2Job : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Block for binary_authorization.
@@ -217,7 +217,7 @@ public class GoogleCloudRunV2Job : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
     [TerraformPropertyName("binary_authorization")]
-    public TerraformList<TerraformBlock<GoogleCloudRunV2JobBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleCloudRunV2JobBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; }
 
     /// <summary>
     /// Block for template.
@@ -227,105 +227,105 @@ public class GoogleCloudRunV2Job : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     [TerraformPropertyName("template")]
-    public TerraformList<TerraformBlock<GoogleCloudRunV2JobTemplateBlock>>? Template { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleCloudRunV2JobTemplateBlock>>? Template { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleCloudRunV2JobTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleCloudRunV2JobTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Job does not reach its desired state. See comments in reconciling for additional information on &#39;reconciliation&#39; process in Cloud Run.
     /// </summary>
     [TerraformPropertyName("conditions")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Conditions => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "conditions");
+    public TerraformList<object> Conditions => new TerraformReference(this, "conditions");
 
     /// <summary>
     /// The creation time.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Email address of the authenticated creator.
     /// </summary>
     [TerraformPropertyName("creator")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Creator => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creator");
+    public TerraformValue<string> Creator => new TerraformReference(this, "creator");
 
     /// <summary>
     /// The deletion time.
     /// </summary>
     [TerraformPropertyName("delete_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DeleteTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delete_time");
+    public TerraformValue<string> DeleteTime => new TerraformReference(this, "delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_annotations")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
+    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates.
     /// </summary>
     [TerraformPropertyName("etag")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
+    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
 
     /// <summary>
     /// Number of executions created for this job.
     /// </summary>
     [TerraformPropertyName("execution_count")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ExecutionCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "execution_count");
+    public TerraformValue<double> ExecutionCount => new TerraformReference(this, "execution_count");
 
     /// <summary>
     /// For a deleted resource, the time after which it will be permanently deleted.
     /// </summary>
     [TerraformPropertyName("expire_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ExpireTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expire_time");
+    public TerraformValue<string> ExpireTime => new TerraformReference(this, "expire_time");
 
     /// <summary>
     /// A number that monotonically increases every time the user modifies the desired state.
     /// </summary>
     [TerraformPropertyName("generation")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Generation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "generation");
+    public TerraformValue<string> Generation => new TerraformReference(this, "generation");
 
     /// <summary>
     /// Email address of the last authenticated modifier.
     /// </summary>
     [TerraformPropertyName("last_modifier")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastModifier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modifier");
+    public TerraformValue<string> LastModifier => new TerraformReference(this, "last_modifier");
 
     /// <summary>
     /// Name of the last created execution.
     /// </summary>
     [TerraformPropertyName("latest_created_execution")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> LatestCreatedExecution => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "latest_created_execution");
+    public TerraformList<object> LatestCreatedExecution => new TerraformReference(this, "latest_created_execution");
 
     /// <summary>
     /// The generation of this Job. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     [TerraformPropertyName("observed_generation")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ObservedGeneration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "observed_generation");
+    public TerraformValue<string> ObservedGeneration => new TerraformReference(this, "observed_generation");
 
     /// <summary>
     /// Returns true if the Job is currently being acted upon by the system to bring it into the desired state.
@@ -338,14 +338,14 @@ public class GoogleCloudRunV2Job : TerraformResource
     /// </summary>
     [TerraformPropertyName("reconciling")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
+    public TerraformValue<bool> Reconciling => new TerraformReference(this, "reconciling");
 
     /// <summary>
     /// The Condition of this Job, containing its readiness status, and detailed error information in case it did not reach the desired state
     /// </summary>
     [TerraformPropertyName("terminal_condition")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> TerminalCondition => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "terminal_condition");
+    public TerraformList<object> TerminalCondition => new TerraformReference(this, "terminal_condition");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -353,20 +353,20 @@ public class GoogleCloudRunV2Job : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Server assigned unique identifier for the Execution. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
     /// </summary>
     [TerraformPropertyName("uid")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
+    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
 
     /// <summary>
     /// The last-modified time.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

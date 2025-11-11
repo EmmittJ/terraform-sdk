@@ -1,0 +1,110 @@
+namespace EmmittJ.Terraform.Sdk;
+
+/// <summary>
+/// Represents a Terraform value that can be a literal or a resolvable token.
+/// This is the primary type used for all Terraform resource properties.
+///
+/// The generic T provides compile-time type safety for what type of value
+/// this represents in Terraform (string, double, bool, etc.), but all values
+/// ultimately resolve to TerraformExpression for HCL serialization.
+///
+/// Think of it as: TerraformValue&lt;string&gt; means "a value that represents
+/// a string in Terraform", not "a value that IS a string at runtime".
+///
+/// Changed from struct to class to enable inheritance for collection types (TerraformList, TerraformSet, etc.).
+/// This matches Pulumi's Input&lt;T&gt; pattern and enables polymorphic behavior.
+/// </summary>
+/// <typeparam name="T">The .NET type this value represents (string, double, bool, etc.) - used for compile-time safety</typeparam>
+public class TerraformValue<T>
+{
+    protected readonly ITerraformResolvable? _resolvable;
+
+    protected TerraformValue()
+    {
+        _resolvable = null;
+    }
+
+    internal TerraformValue(ITerraformResolvable resolvable)
+    {
+        _resolvable = resolvable ?? throw new ArgumentNullException(nameof(resolvable));
+    }
+
+    /// <summary>
+    /// Gets whether this TerraformValue has a value.
+    /// </summary>
+    public bool HasValue => _resolvable != null;
+
+    /// <summary>
+    /// Resolve this value to a TerraformExpression.
+    /// Note: Always returns TerraformExpression regardless of T.
+    /// </summary>
+    /// <param name="context">The resolution context.</param>
+    /// <returns>The resolved TerraformExpression.</returns>
+    public virtual TerraformExpression Resolve(ITerraformResolveContext context)
+    {
+        if (_resolvable == null)
+        {
+            throw new InvalidOperationException(
+                $"Cannot resolve {GetType().Name} - no resolvable value was provided. " +
+                "This may indicate a bug in the Terraform SDK.");
+        }
+        return _resolvable.Resolve(context);
+    }
+
+    /// <summary>
+    /// Implicit conversion from literal value - wrap in a resolvable.
+    /// Note: For TerraformExpression specifically, this creates a literal value wrapper.
+    /// Use the explicit TerraformExpression->TerraformValue conversion below for expression references.
+    /// </summary>
+    public static implicit operator TerraformValue<T>(T value)
+        => new TerraformValue<T>(new TerraformLiteralValue<T>(value));
+
+    /// <summary>
+    /// Direct conversion from TerraformExpression (which implements ITerraformResolvable).
+    /// This is explicitly for when T != TerraformExpression to avoid ambiguity.
+    /// </summary>
+    public static implicit operator TerraformValue<T>(TerraformExpression expression)
+        => new TerraformValue<T>(expression);
+
+    /// <summary>
+    /// Conversion from TerraformReference.
+    /// </summary>
+    public static implicit operator TerraformValue<T>(TerraformReference reference)
+        => new TerraformValue<T>(reference);
+
+    /// <summary>
+    /// Conversion from TerraformLazyValue.
+    /// </summary>
+    public static implicit operator TerraformValue<T>(TerraformLazyValue lazy)
+        => new TerraformValue<T>(lazy);
+}
+
+/// <summary>
+/// Static helper class for creating TerraformValue instances.
+/// </summary>
+public static class TerraformValue
+{
+    /// <summary>
+    /// Create a TerraformValue from a literal value.
+    /// </summary>
+    public static TerraformValue<T> FromLiteral<T>(T? value)
+        => new TerraformValue<T>(new TerraformLiteralValue<T>(value));
+
+    /// <summary>
+    /// Create a TerraformValue from an expression.
+    /// </summary>
+    public static TerraformValue<T> FromExpression<T>(TerraformExpression expression)
+        => new TerraformValue<T>(expression);
+
+    /// <summary>
+    /// Create a TerraformValue from a reference.
+    /// </summary>
+    public static TerraformValue<T> FromReference<T>(TerraformReference reference)
+        => reference;
+
+    /// <summary>
+    /// Create a TerraformValue from a lazy value.
+    /// </summary>
+    public static TerraformValue<T> FromLazy<T>(TerraformLazyValue lazy)
+        => lazy;
+}

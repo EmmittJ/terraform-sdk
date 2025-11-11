@@ -17,90 +17,90 @@ public class AwsDmsCertificateDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
     [TerraformPropertyName("certificate_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> CertificateId { get; set; }
+    public required TerraformValue<string> CertificateId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Tags { get; set; } = default!;
 
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
     [TerraformPropertyName("certificate_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CertificateArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_arn");
+    public TerraformValue<string> CertificateArn => new TerraformReference(this, "certificate_arn");
 
     /// <summary>
     /// The certificate_creation_date attribute.
     /// </summary>
     [TerraformPropertyName("certificate_creation_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CertificateCreationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_creation_date");
+    public TerraformValue<string> CertificateCreationDate => new TerraformReference(this, "certificate_creation_date");
 
     /// <summary>
     /// The certificate_owner attribute.
     /// </summary>
     [TerraformPropertyName("certificate_owner")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CertificateOwner => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_owner");
+    public TerraformValue<string> CertificateOwner => new TerraformReference(this, "certificate_owner");
 
     /// <summary>
     /// The certificate_pem attribute.
     /// </summary>
     [TerraformPropertyName("certificate_pem")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CertificatePem => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_pem");
+    public TerraformValue<string> CertificatePem => new TerraformReference(this, "certificate_pem");
 
     /// <summary>
     /// The certificate_wallet attribute.
     /// </summary>
     [TerraformPropertyName("certificate_wallet")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CertificateWallet => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_wallet");
+    public TerraformValue<string> CertificateWallet => new TerraformReference(this, "certificate_wallet");
 
     /// <summary>
     /// The key_length attribute.
     /// </summary>
     [TerraformPropertyName("key_length")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> KeyLength => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "key_length");
+    public TerraformValue<double> KeyLength => new TerraformReference(this, "key_length");
 
     /// <summary>
     /// The signing_algorithm attribute.
     /// </summary>
     [TerraformPropertyName("signing_algorithm")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SigningAlgorithm => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signing_algorithm");
+    public TerraformValue<string> SigningAlgorithm => new TerraformReference(this, "signing_algorithm");
 
     /// <summary>
     /// The valid_from_date attribute.
     /// </summary>
     [TerraformPropertyName("valid_from_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ValidFromDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "valid_from_date");
+    public TerraformValue<string> ValidFromDate => new TerraformReference(this, "valid_from_date");
 
     /// <summary>
     /// The valid_to_date attribute.
     /// </summary>
     [TerraformPropertyName("valid_to_date")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ValidToDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "valid_to_date");
+    public TerraformValue<string> ValidToDate => new TerraformReference(this, "valid_to_date");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for async_primary_disk in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeDiskAsyncPrimaryDiskBlock : ITerraformBlock
+public class GoogleComputeDiskAsyncPrimaryDiskBlock
 {
     /// <summary>
     /// Primary disk for asynchronous disk replication.
@@ -14,7 +14,7 @@ public class GoogleComputeDiskAsyncPrimaryDiskBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     [TerraformPropertyName("disk")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Disk { get; set; }
+    public required TerraformValue<string> Disk { get; set; }
 
 }
 
@@ -22,7 +22,7 @@ public class GoogleComputeDiskAsyncPrimaryDiskBlock : ITerraformBlock
 /// Block type for disk_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeDiskDiskEncryptionKeyBlock : ITerraformBlock
+public class GoogleComputeDiskDiskEncryptionKeyBlock
 {
     /// <summary>
     /// The self link of the encryption key used to encrypt the disk. Also called KmsKeyName
@@ -33,7 +33,7 @@ public class GoogleComputeDiskDiskEncryptionKeyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("kms_key_self_link")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeySelfLink { get; set; }
+    public TerraformValue<string>? KmsKeySelfLink { get; set; }
 
     /// <summary>
     /// The service account used for the encryption request for the given KMS key.
@@ -41,7 +41,7 @@ public class GoogleComputeDiskDiskEncryptionKeyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("kms_key_service_account")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyServiceAccount { get; set; }
+    public TerraformValue<string>? KmsKeyServiceAccount { get; set; }
 
     /// <summary>
     /// Specifies a 256-bit customer-supplied encryption key, encoded in
@@ -49,7 +49,7 @@ public class GoogleComputeDiskDiskEncryptionKeyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("raw_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RawKey { get; set; }
+    public TerraformValue<string>? RawKey { get; set; }
 
     /// <summary>
     /// Specifies an RFC 4648 base64 encoded, RSA-wrapped 2048-bit
@@ -58,15 +58,8 @@ public class GoogleComputeDiskDiskEncryptionKeyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("rsa_encrypted_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RsaEncryptedKey { get; set; }
+    public TerraformValue<string>? RsaEncryptedKey { get; set; }
 
-    /// <summary>
-    /// The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied
-    /// encryption key that protects this resource.
-    /// </summary>
-    [TerraformPropertyName("sha256")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Sha256 => new TerraformReferenceProperty<TerraformProperty<string>>("", "sha256");
 
 }
 
@@ -74,7 +67,7 @@ public class GoogleComputeDiskDiskEncryptionKeyBlock : ITerraformBlock
 /// Block type for guest_os_features in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleComputeDiskGuestOsFeaturesBlock : ITerraformBlock
+public class GoogleComputeDiskGuestOsFeaturesBlock
 {
     /// <summary>
     /// The type of supported feature. Read [Enabling guest operating system features](https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#guest-os-features) to see a list of available options.
@@ -82,7 +75,7 @@ public class GoogleComputeDiskGuestOsFeaturesBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -90,7 +83,7 @@ public class GoogleComputeDiskGuestOsFeaturesBlock : ITerraformBlock
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeDiskParamsBlock : ITerraformBlock
+public class GoogleComputeDiskParamsBlock
 {
     /// <summary>
     /// Resource manager tags to be bound to the disk. Tag keys and values have the
@@ -99,7 +92,7 @@ public class GoogleComputeDiskParamsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("resource_manager_tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ResourceManagerTags { get; set; }
+    public TerraformMap<string>? ResourceManagerTags { get; set; }
 
 }
 
@@ -107,7 +100,7 @@ public class GoogleComputeDiskParamsBlock : ITerraformBlock
 /// Block type for source_image_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeDiskSourceImageEncryptionKeyBlock : ITerraformBlock
+public class GoogleComputeDiskSourceImageEncryptionKeyBlock
 {
     /// <summary>
     /// The self link of the encryption key used to encrypt the disk. Also called KmsKeyName
@@ -118,7 +111,7 @@ public class GoogleComputeDiskSourceImageEncryptionKeyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("kms_key_self_link")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeySelfLink { get; set; }
+    public TerraformValue<string>? KmsKeySelfLink { get; set; }
 
     /// <summary>
     /// The service account used for the encryption request for the given KMS key.
@@ -126,7 +119,7 @@ public class GoogleComputeDiskSourceImageEncryptionKeyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("kms_key_service_account")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyServiceAccount { get; set; }
+    public TerraformValue<string>? KmsKeyServiceAccount { get; set; }
 
     /// <summary>
     /// Specifies a 256-bit customer-supplied encryption key, encoded in
@@ -134,15 +127,8 @@ public class GoogleComputeDiskSourceImageEncryptionKeyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("raw_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RawKey { get; set; }
+    public TerraformValue<string>? RawKey { get; set; }
 
-    /// <summary>
-    /// The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied
-    /// encryption key that protects this resource.
-    /// </summary>
-    [TerraformPropertyName("sha256")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Sha256 => new TerraformReferenceProperty<TerraformProperty<string>>("", "sha256");
 
 }
 
@@ -150,7 +136,7 @@ public class GoogleComputeDiskSourceImageEncryptionKeyBlock : ITerraformBlock
 /// Block type for source_snapshot_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeDiskSourceSnapshotEncryptionKeyBlock : ITerraformBlock
+public class GoogleComputeDiskSourceSnapshotEncryptionKeyBlock
 {
     /// <summary>
     /// The self link of the encryption key used to encrypt the disk. Also called KmsKeyName
@@ -161,7 +147,7 @@ public class GoogleComputeDiskSourceSnapshotEncryptionKeyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("kms_key_self_link")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeySelfLink { get; set; }
+    public TerraformValue<string>? KmsKeySelfLink { get; set; }
 
     /// <summary>
     /// The service account used for the encryption request for the given KMS key.
@@ -169,7 +155,7 @@ public class GoogleComputeDiskSourceSnapshotEncryptionKeyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("kms_key_service_account")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KmsKeyServiceAccount { get; set; }
+    public TerraformValue<string>? KmsKeyServiceAccount { get; set; }
 
     /// <summary>
     /// Specifies a 256-bit customer-supplied encryption key, encoded in
@@ -177,15 +163,8 @@ public class GoogleComputeDiskSourceSnapshotEncryptionKeyBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("raw_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RawKey { get; set; }
+    public TerraformValue<string>? RawKey { get; set; }
 
-    /// <summary>
-    /// The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied
-    /// encryption key that protects this resource.
-    /// </summary>
-    [TerraformPropertyName("sha256")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Sha256 => new TerraformReferenceProperty<TerraformProperty<string>>("", "sha256");
 
 }
 
@@ -193,28 +172,28 @@ public class GoogleComputeDiskSourceSnapshotEncryptionKeyBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeDiskTimeoutsBlock : ITerraformBlock
+public class GoogleComputeDiskTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -237,15 +216,15 @@ public class GoogleComputeDisk : TerraformResource
     /// The AccessMode is only valid for Hyperdisk disk types.
     /// </summary>
     [TerraformPropertyName("access_mode")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AccessMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_mode");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AccessMode { get; set; } = default!;
 
     /// <summary>
     /// The architecture of the disk. Values include &#39;X86_64&#39;, &#39;ARM64&#39;.
     /// </summary>
     [TerraformPropertyName("architecture")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Architecture { get; set; }
+    public TerraformValue<string>? Architecture { get; set; }
 
     /// <summary>
     /// If set to true, a snapshot of the disk will be created before it is destroyed.
@@ -254,14 +233,14 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_snapshot_before_destroy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? CreateSnapshotBeforeDestroy { get; set; }
+    public TerraformValue<bool>? CreateSnapshotBeforeDestroy { get; set; }
 
     /// <summary>
     /// This will set a custom name prefix for the snapshot that&#39;s created when the disk is deleted.
     /// </summary>
     [TerraformPropertyName("create_snapshot_before_destroy_prefix")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CreateSnapshotBeforeDestroyPrefix { get; set; }
+    public TerraformValue<string>? CreateSnapshotBeforeDestroyPrefix { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
@@ -269,22 +248,22 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Whether this disk is using confidential compute mode.
     /// Note: Only supported on hyperdisk skus, disk_encryption_key is required when setting to true
     /// </summary>
     [TerraformPropertyName("enable_confidential_compute")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> EnableConfidentialCompute { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_confidential_compute");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> EnableConfidentialCompute { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The image from which to initialize this disk. This can be
@@ -299,7 +278,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("image")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Image { get; set; }
+    public TerraformValue<string>? Image { get; set; }
 
     /// <summary>
     /// Labels to apply to this disk.  A list of key-&amp;gt;value pairs.
@@ -310,14 +289,14 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
     [TerraformPropertyName("licenses")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<List<TerraformProperty<string>>> Licenses { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "licenses");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformList<string> Licenses { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -331,7 +310,7 @@ public class GoogleComputeDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Physical block size of the persistent disk, in bytes. If not present
@@ -341,15 +320,15 @@ public class GoogleComputeDisk : TerraformResource
     /// the supported values for the caller&#39;s project.
     /// </summary>
     [TerraformPropertyName("physical_block_size_bytes")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> PhysicalBlockSizeBytes { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "physical_block_size_bytes");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> PhysicalBlockSizeBytes { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Indicates how many IOPS must be provisioned for the disk.
@@ -357,8 +336,8 @@ public class GoogleComputeDisk : TerraformResource
     /// allows for an update of IOPS every 4 hours. To update your hyperdisk more frequently, you&#39;ll need to manually delete and recreate it
     /// </summary>
     [TerraformPropertyName("provisioned_iops")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> ProvisionedIops { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "provisioned_iops");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> ProvisionedIops { get; set; } = default!;
 
     /// <summary>
     /// Indicates how much Throughput must be provisioned for the disk.
@@ -366,8 +345,8 @@ public class GoogleComputeDisk : TerraformResource
     /// allows for an update of Throughput every 4 hours. To update your hyperdisk more frequently, you&#39;ll need to manually delete and recreate it
     /// </summary>
     [TerraformPropertyName("provisioned_throughput")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> ProvisionedThroughput { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "provisioned_throughput");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> ProvisionedThroughput { get; set; } = default!;
 
     /// <summary>
     /// Size of the persistent disk, specified in GB. You can specify this
@@ -385,8 +364,8 @@ public class GoogleComputeDisk : TerraformResource
     /// and recreating.
     /// </summary>
     [TerraformPropertyName("size")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Size { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "size");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Size { get; set; } = default!;
 
     /// <summary>
     /// The source snapshot used to create this disk. You can provide this as
@@ -401,7 +380,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("snapshot")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Snapshot { get; set; }
+    public TerraformValue<string>? Snapshot { get; set; }
 
     /// <summary>
     /// The source disk used to create this disk. You can provide this as a partial or full URL to the resource.
@@ -416,7 +395,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("source_disk")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SourceDisk { get; set; }
+    public TerraformValue<string>? SourceDisk { get; set; }
 
     /// <summary>
     /// The source instant snapshot used to create this disk. You can provide this as a partial or full URL to the resource.
@@ -428,7 +407,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("source_instant_snapshot")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SourceInstantSnapshot { get; set; }
+    public TerraformValue<string>? SourceInstantSnapshot { get; set; }
 
     /// <summary>
     /// The full Google Cloud Storage URI where the disk image is stored.
@@ -439,7 +418,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("source_storage_object")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SourceStorageObject { get; set; }
+    public TerraformValue<string>? SourceStorageObject { get; set; }
 
     /// <summary>
     /// The URL or the name of the storage pool in which the new disk is created.
@@ -451,7 +430,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("storage_pool")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StoragePool { get; set; }
+    public TerraformValue<string>? StoragePool { get; set; }
 
     /// <summary>
     /// URL of the disk type resource describing which disk type to use to
@@ -459,14 +438,14 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// A reference to the zone where the disk resides.
     /// </summary>
     [TerraformPropertyName("zone")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Zone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Zone { get; set; } = default!;
 
     /// <summary>
     /// Block for async_primary_disk.
@@ -474,7 +453,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AsyncPrimaryDisk block(s) allowed")]
     [TerraformPropertyName("async_primary_disk")]
-    public TerraformList<TerraformBlock<GoogleComputeDiskAsyncPrimaryDiskBlock>>? AsyncPrimaryDisk { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeDiskAsyncPrimaryDiskBlock>>? AsyncPrimaryDisk { get; set; }
 
     /// <summary>
     /// Block for disk_encryption_key.
@@ -482,14 +461,14 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskEncryptionKey block(s) allowed")]
     [TerraformPropertyName("disk_encryption_key")]
-    public TerraformList<TerraformBlock<GoogleComputeDiskDiskEncryptionKeyBlock>>? DiskEncryptionKey { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeDiskDiskEncryptionKeyBlock>>? DiskEncryptionKey { get; set; }
 
     /// <summary>
     /// Block for guest_os_features.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("guest_os_features")]
-    public TerraformSet<TerraformBlock<GoogleComputeDiskGuestOsFeaturesBlock>>? GuestOsFeatures { get; set; } = new();
+    public TerraformSet<TerraformBlock<GoogleComputeDiskGuestOsFeaturesBlock>>? GuestOsFeatures { get; set; }
 
     /// <summary>
     /// Block for params.
@@ -497,7 +476,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformPropertyName("params")]
-    public TerraformList<TerraformBlock<GoogleComputeDiskParamsBlock>>? Params { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeDiskParamsBlock>>? Params { get; set; }
 
     /// <summary>
     /// Block for source_image_encryption_key.
@@ -505,7 +484,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageEncryptionKey block(s) allowed")]
     [TerraformPropertyName("source_image_encryption_key")]
-    public TerraformList<TerraformBlock<GoogleComputeDiskSourceImageEncryptionKeyBlock>>? SourceImageEncryptionKey { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeDiskSourceImageEncryptionKeyBlock>>? SourceImageEncryptionKey { get; set; }
 
     /// <summary>
     /// Block for source_snapshot_encryption_key.
@@ -513,35 +492,35 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceSnapshotEncryptionKey block(s) allowed")]
     [TerraformPropertyName("source_snapshot_encryption_key")]
-    public TerraformList<TerraformBlock<GoogleComputeDiskSourceSnapshotEncryptionKeyBlock>>? SourceSnapshotEncryptionKey { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeDiskSourceSnapshotEncryptionKeyBlock>>? SourceSnapshotEncryptionKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeDiskTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeDiskTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformPropertyName("disk_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DiskId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "disk_id");
+    public TerraformValue<string> DiskId => new TerraformReference(this, "disk_id");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
@@ -549,28 +528,28 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("label_fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LabelFingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "label_fingerprint");
+    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
 
     /// <summary>
     /// Last attach timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("last_attach_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastAttachTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_attach_timestamp");
+    public TerraformValue<string> LastAttachTimestamp => new TerraformReference(this, "last_attach_timestamp");
 
     /// <summary>
     /// Last detach timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("last_detach_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastDetachTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_detach_timestamp");
+    public TerraformValue<string> LastDetachTimestamp => new TerraformReference(this, "last_detach_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// The ID value of the disk used to create this image. This value may
@@ -579,7 +558,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("source_disk_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SourceDiskId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_disk_id");
+    public TerraformValue<string> SourceDiskId => new TerraformReference(this, "source_disk_id");
 
     /// <summary>
     /// The ID value of the image used to create this disk. This value
@@ -590,7 +569,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("source_image_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SourceImageId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_image_id");
+    public TerraformValue<string> SourceImageId => new TerraformReference(this, "source_image_id");
 
     /// <summary>
     /// The unique ID of the instant snapshot used to create this disk. This value identifies
@@ -601,7 +580,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("source_instant_snapshot_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SourceInstantSnapshotId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_instant_snapshot_id");
+    public TerraformValue<string> SourceInstantSnapshotId => new TerraformReference(this, "source_instant_snapshot_id");
 
     /// <summary>
     /// The unique ID of the snapshot used to create this disk. This value
@@ -613,7 +592,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("source_snapshot_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SourceSnapshotId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_snapshot_id");
+    public TerraformValue<string> SourceSnapshotId => new TerraformReference(this, "source_snapshot_id");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -621,7 +600,7 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Links to the users of the disk (attached instances) in form:
@@ -629,6 +608,6 @@ public class GoogleComputeDisk : TerraformResource
     /// </summary>
     [TerraformPropertyName("users")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Users => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "users");
+    public TerraformList<string> Users => new TerraformReference(this, "users");
 
 }

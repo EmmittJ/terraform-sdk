@@ -15,8 +15,8 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the Managed Lustre instance.
@@ -29,21 +29,21 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformPropertyName("instance_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
+    public required TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Zone of Lustre instance
     /// </summary>
     [TerraformPropertyName("zone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Zone { get; set; }
+    public TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
     /// The storage capacity of the instance in gibibytes (GiB). Allowed values
@@ -51,28 +51,28 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("capacity_gib")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CapacityGib => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "capacity_gib");
+    public TerraformValue<string> CapacityGib => new TerraformReference(this, "capacity_gib");
 
     /// <summary>
     /// Timestamp when the instance was created.
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// A user-readable description of the instance.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The filesystem name for this instance. This name is used by client-side
@@ -81,7 +81,7 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("filesystem")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Filesystem => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "filesystem");
+    public TerraformValue<string> Filesystem => new TerraformReference(this, "filesystem");
 
     /// <summary>
     /// Indicates whether you want to enable support for GKE clients. By default,
@@ -89,7 +89,7 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("gke_support_enabled")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> GkeSupportEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "gke_support_enabled");
+    public TerraformValue<bool> GkeSupportEnabled => new TerraformReference(this, "gke_support_enabled");
 
     /// <summary>
     /// Labels as key value pairs.
@@ -99,28 +99,28 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// Mount point of the instance in the format &#39;IP_ADDRESS@tcp:/FILESYSTEM&#39;.
     /// </summary>
     [TerraformPropertyName("mount_point")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MountPoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mount_point");
+    public TerraformValue<string> MountPoint => new TerraformReference(this, "mount_point");
 
     /// <summary>
     /// Identifier. The name of the instance.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The full name of the VPC network to which the instance is connected.
@@ -129,7 +129,7 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("network")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Network => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network");
+    public TerraformValue<string> Network => new TerraformReference(this, "network");
 
     /// <summary>
     /// The throughput of the instance in MB/s/TiB.
@@ -137,7 +137,7 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("per_unit_storage_throughput")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PerUnitStorageThroughput => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "per_unit_storage_throughput");
+    public TerraformValue<string> PerUnitStorageThroughput => new TerraformReference(this, "per_unit_storage_throughput");
 
     /// <summary>
     /// The state of the instance.
@@ -152,7 +152,7 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -160,13 +160,13 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
     /// <summary>
     /// Timestamp when the instance was last updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
 }

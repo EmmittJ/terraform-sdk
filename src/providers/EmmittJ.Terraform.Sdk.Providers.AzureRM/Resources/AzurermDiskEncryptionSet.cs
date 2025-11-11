@@ -6,28 +6,16 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDiskEncryptionSetIdentityBlock : ITerraformBlock
+public class AzurermDiskEncryptionSetIdentityBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [TerraformPropertyName("identity_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
+    public TerraformSet<string>? IdentityIds { get; set; }
 
-    /// <summary>
-    /// The principal_id attribute.
-    /// </summary>
-    [TerraformPropertyName("principal_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
-    /// <summary>
-    /// The tenant_id attribute.
-    /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -35,7 +23,7 @@ public class AzurermDiskEncryptionSetIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -43,35 +31,35 @@ public class AzurermDiskEncryptionSetIdentityBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDiskEncryptionSetTimeoutsBlock : ITerraformBlock
+public class AzurermDiskEncryptionSetTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,35 +78,35 @@ public class AzurermDiskEncryptionSet : TerraformResource
     /// </summary>
     [TerraformPropertyName("auto_key_rotation_enabled")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? AutoKeyRotationEnabled { get; set; }
+    public TerraformValue<bool>? AutoKeyRotationEnabled { get; set; }
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
     [TerraformPropertyName("encryption_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EncryptionType { get; set; }
+    public TerraformValue<string>? EncryptionType { get; set; }
 
     /// <summary>
     /// The federated_client_id attribute.
     /// </summary>
     [TerraformPropertyName("federated_client_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FederatedClientId { get; set; }
+    public TerraformValue<string>? FederatedClientId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
     [TerraformPropertyName("key_vault_key_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? KeyVaultKeyId { get; set; }
+    public TerraformValue<string>? KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -126,14 +114,14 @@ public class AzurermDiskEncryptionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
     [TerraformPropertyName("managed_hsm_key_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ManagedHsmKeyId { get; set; }
+    public TerraformValue<string>? ManagedHsmKeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -141,7 +129,7 @@ public class AzurermDiskEncryptionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -149,14 +137,14 @@ public class AzurermDiskEncryptionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -166,20 +154,20 @@ public class AzurermDiskEncryptionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformPropertyName("identity")]
-    public TerraformList<TerraformBlock<AzurermDiskEncryptionSetIdentityBlock>>? Identity { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDiskEncryptionSetIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDiskEncryptionSetTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDiskEncryptionSetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The key_vault_key_url attribute.
     /// </summary>
     [TerraformPropertyName("key_vault_key_url")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KeyVaultKeyUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_vault_key_url");
+    public TerraformValue<string> KeyVaultKeyUrl => new TerraformReference(this, "key_vault_key_url");
 
 }

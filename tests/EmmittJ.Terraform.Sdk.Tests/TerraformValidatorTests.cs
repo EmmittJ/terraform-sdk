@@ -45,7 +45,7 @@ public class TerraformValidatorTests
         var resource = new TestResourceWithCollectionConstraints
         {
             RequiredName = "test",
-            Items = new List<TerraformProperty<string>>() // Empty list, but min is 1
+            Items = new List<TerraformValue<string>>() // Empty list, but min is 1
         };
 
         // Act
@@ -65,7 +65,7 @@ public class TerraformValidatorTests
         var resource = new TestResourceWithCollectionConstraints
         {
             RequiredName = "test",
-            Items = new List<TerraformProperty<string>>
+            Items = new List<TerraformValue<string>>
             {
                 "item1", "item2", "item3", "item4", "item5", "item6" // 6 items, max is 5
             }
@@ -121,15 +121,15 @@ public class TestResourceWithRequiredProperty : TerraformResource
     }
 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequiredName is required")]
-    public required TerraformProperty<string> RequiredName
+    public required TerraformValue<string> RequiredName
     {
-        get => GetProperty<TerraformProperty<string>>("required_name")!;
+        get => GetProperty<TerraformValue<string>>("required_name")!;
         set => this.WithProperty("required_name", value);
     }
 
-    public TerraformProperty<string>? OptionalDescription
+    public TerraformValue<string>? OptionalDescription
     {
-        get => GetProperty<TerraformProperty<string>>("optional_description");
+        get => GetProperty<TerraformValue<string>>("optional_description");
         set => this.WithProperty("optional_description", value);
     }
 }
@@ -142,17 +142,17 @@ public class TestResourceWithCollectionConstraints : TerraformResource
     }
 
     [System.ComponentModel.DataAnnotations.Required]
-    public required TerraformProperty<string> RequiredName
+    public required TerraformValue<string> RequiredName
     {
-        get => GetProperty<TerraformProperty<string>>("required_name")!;
+        get => GetProperty<TerraformValue<string>>("required_name")!;
         set => this.WithProperty("required_name", value);
     }
 
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "Items must have at least 1 element")]
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Items must have at most 5 elements")]
-    public List<TerraformProperty<string>>? Items
+    public List<TerraformValue<string>>? Items
     {
-        get => GetProperty<List<TerraformProperty<string>>>("items");
+        get => GetProperty<List<TerraformValue<string>>>("items");
         set => this.WithProperty("items", value);
     }
 }

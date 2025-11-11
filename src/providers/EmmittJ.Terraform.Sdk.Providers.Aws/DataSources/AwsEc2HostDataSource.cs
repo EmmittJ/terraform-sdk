@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEc2HostDataSourceFilterBlock : ITerraformBlock
+public class AwsEc2HostDataSourceFilterBlock
 {
     /// <summary>
     /// The name attribute.
@@ -14,7 +14,7 @@ public class AwsEc2HostDataSourceFilterBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public class AwsEc2HostDataSourceFilterBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformPropertyName("values")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
+    public required TerraformSet<string> Values { get; set; }
 
 }
 
@@ -30,14 +30,14 @@ public class AwsEc2HostDataSourceFilterBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2HostDataSourceTimeoutsBlock : ITerraformBlock
+public class AwsEc2HostDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -54,126 +54,126 @@ public class AwsEc2HostDataSource : TerraformDataSource
     /// The host_id attribute.
     /// </summary>
     [TerraformPropertyName("host_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> HostId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "host_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> HostId { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Tags { get; set; } = default!;
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("filter")]
-    public TerraformSet<TerraformBlock<AwsEc2HostDataSourceFilterBlock>>? Filter { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsEc2HostDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsEc2HostDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsEc2HostDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The asset_id attribute.
     /// </summary>
     [TerraformPropertyName("asset_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AssetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "asset_id");
+    public TerraformValue<string> AssetId => new TerraformReference(this, "asset_id");
 
     /// <summary>
     /// The auto_placement attribute.
     /// </summary>
     [TerraformPropertyName("auto_placement")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AutoPlacement => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "auto_placement");
+    public TerraformValue<string> AutoPlacement => new TerraformReference(this, "auto_placement");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     [TerraformPropertyName("availability_zone")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> AvailabilityZone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone");
+    public TerraformValue<string> AvailabilityZone => new TerraformReference(this, "availability_zone");
 
     /// <summary>
     /// The cores attribute.
     /// </summary>
     [TerraformPropertyName("cores")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Cores => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "cores");
+    public TerraformValue<double> Cores => new TerraformReference(this, "cores");
 
     /// <summary>
     /// The host_recovery attribute.
     /// </summary>
     [TerraformPropertyName("host_recovery")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> HostRecovery => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "host_recovery");
+    public TerraformValue<string> HostRecovery => new TerraformReference(this, "host_recovery");
 
     /// <summary>
     /// The instance_family attribute.
     /// </summary>
     [TerraformPropertyName("instance_family")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> InstanceFamily => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "instance_family");
+    public TerraformValue<string> InstanceFamily => new TerraformReference(this, "instance_family");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [TerraformPropertyName("instance_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> InstanceType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "instance_type");
+    public TerraformValue<string> InstanceType => new TerraformReference(this, "instance_type");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     [TerraformPropertyName("outpost_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OutpostArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "outpost_arn");
+    public TerraformValue<string> OutpostArn => new TerraformReference(this, "outpost_arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     [TerraformPropertyName("owner_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
+    public TerraformValue<string> OwnerId => new TerraformReference(this, "owner_id");
 
     /// <summary>
     /// The sockets attribute.
     /// </summary>
     [TerraformPropertyName("sockets")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> Sockets => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "sockets");
+    public TerraformValue<double> Sockets => new TerraformReference(this, "sockets");
 
     /// <summary>
     /// The total_vcpus attribute.
     /// </summary>
     [TerraformPropertyName("total_vcpus")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> TotalVcpus => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_vcpus");
+    public TerraformValue<double> TotalVcpus => new TerraformReference(this, "total_vcpus");
 
 }

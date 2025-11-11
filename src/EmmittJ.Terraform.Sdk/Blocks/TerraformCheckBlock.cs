@@ -137,13 +137,13 @@ public class TerraformAssertBlock : TerraformConstruct
     /// Gets or sets the condition expression that must evaluate to true.
     /// </summary>
     [TerraformPropertyName("condition")]
-    public TerraformProperty<TerraformExpression>? Condition { get; set; }
+    public TerraformValue<TerraformExpression>? Condition { get; set; }
 
     /// <summary>
     /// Gets or sets the error message to display when the condition is false.
     /// </summary>
     [TerraformPropertyName("error_message")]
-    public TerraformProperty<string>? ErrorMessage { get; set; }
+    public TerraformValue<string>? ErrorMessage { get; set; }
 
     /// <inheritdoc/>
     public override string BlockType => "assert";
@@ -165,8 +165,8 @@ public class TerraformAssertBlock : TerraformConstruct
         if (string.IsNullOrWhiteSpace(errorMessage))
             throw new ArgumentException("Assert error message cannot be null or empty.", nameof(errorMessage));
 
-        Condition = new TerraformExpressionProperty<TerraformExpression>("condition", "", TerraformExpression.Raw(condition));
-        ErrorMessage = new TerraformLiteralProperty<string>("error_message", errorMessage);
+        Condition = TerraformValue.FromExpression<TerraformExpression>(TerraformExpression.Raw(condition));
+        ErrorMessage = errorMessage;
     }
 
     /// <inheritdoc/>

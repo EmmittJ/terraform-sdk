@@ -15,8 +15,8 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -30,14 +30,14 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The Region in which the created backend service should reside.
@@ -45,7 +45,7 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// Lifetime of cookies in seconds if session_affinity is
@@ -57,21 +57,21 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("affinity_cookie_ttl_sec")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> AffinityCookieTtlSec => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "affinity_cookie_ttl_sec");
+    public TerraformValue<double> AffinityCookieTtlSec => new TerraformReference(this, "affinity_cookie_ttl_sec");
 
     /// <summary>
     /// The set of backends that serve this RegionBackendService.
     /// </summary>
     [TerraformPropertyName("backend")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> Backend => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "backend");
+    public TerraformSet<object> Backend => new TerraformReference(this, "backend");
 
     /// <summary>
     /// Cloud CDN configuration for this BackendService.
     /// </summary>
     [TerraformPropertyName("cdn_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CdnPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cdn_policy");
+    public TerraformList<object> CdnPolicy => new TerraformReference(this, "cdn_policy");
 
     /// <summary>
     /// Settings controlling the volume of connections to a backend service. This field
@@ -80,7 +80,7 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("circuit_breakers")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CircuitBreakers => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "circuit_breakers");
+    public TerraformList<object> CircuitBreakers => new TerraformReference(this, "circuit_breakers");
 
     /// <summary>
     /// Time for which instance will be drained (not accept new
@@ -88,7 +88,7 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("connection_draining_timeout_sec")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> ConnectionDrainingTimeoutSec => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "connection_draining_timeout_sec");
+    public TerraformValue<double> ConnectionDrainingTimeoutSec => new TerraformReference(this, "connection_draining_timeout_sec");
 
     /// <summary>
     /// Consistent Hash-based load balancing can be used to provide soft session
@@ -104,42 +104,42 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("consistent_hash")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ConsistentHash => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "consistent_hash");
+    public TerraformList<object> ConsistentHash => new TerraformReference(this, "consistent_hash");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// List of custom metrics that are used for the WEIGHTED_ROUND_ROBIN locality_lb_policy.
     /// </summary>
     [TerraformPropertyName("custom_metrics")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CustomMetrics => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "custom_metrics");
+    public TerraformList<object> CustomMetrics => new TerraformReference(this, "custom_metrics");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// If true, enable Cloud CDN for this RegionBackendService.
     /// </summary>
     [TerraformPropertyName("enable_cdn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> EnableCdn => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_cdn");
+    public TerraformValue<bool> EnableCdn => new TerraformReference(this, "enable_cdn");
 
     /// <summary>
     /// Policy for failovers.
     /// </summary>
     [TerraformPropertyName("failover_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> FailoverPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "failover_policy");
+    public TerraformList<object> FailoverPolicy => new TerraformReference(this, "failover_policy");
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this
@@ -147,14 +147,14 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Fingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fingerprint");
+    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformPropertyName("generated_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> GeneratedId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "generated_id");
+    public TerraformValue<double> GeneratedId => new TerraformReference(this, "generated_id");
 
     /// <summary>
     /// Configures self-managed High Availability (HA) for External and Internal Protocol Forwarding.
@@ -168,7 +168,7 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("ha_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> HaPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ha_policy");
+    public TerraformList<object> HaPolicy => new TerraformReference(this, "ha_policy");
 
     /// <summary>
     /// The set of URLs to HealthCheck resources for health checking
@@ -180,7 +180,7 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("health_checks")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<string>>> HealthChecks => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "health_checks");
+    public TerraformSet<string> HealthChecks => new TerraformReference(this, "health_checks");
 
     /// <summary>
     /// Settings for enabling Cloud Identity Aware Proxy.
@@ -188,14 +188,14 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("iap")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Iap => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "iap");
+    public TerraformList<object> Iap => new TerraformReference(this, "iap");
 
     /// <summary>
     /// Specifies preference of traffic to the backend (from the proxy and from the client for proxyless gRPC). Possible values: [&amp;quot;IPV4_ONLY&amp;quot;, &amp;quot;PREFER_IPV6&amp;quot;, &amp;quot;IPV6_ONLY&amp;quot;]
     /// </summary>
     [TerraformPropertyName("ip_address_selection_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> IpAddressSelectionPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address_selection_policy");
+    public TerraformValue<string> IpAddressSelectionPolicy => new TerraformReference(this, "ip_address_selection_policy");
 
     /// <summary>
     /// Indicates what kind of load balancing this regional backend service
@@ -205,7 +205,7 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("load_balancing_scheme")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LoadBalancingScheme => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "load_balancing_scheme");
+    public TerraformValue<string> LoadBalancingScheme => new TerraformReference(this, "load_balancing_scheme");
 
     /// <summary>
     /// The load balancing algorithm used within the scope of the locality.
@@ -274,7 +274,7 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("locality_lb_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LocalityLbPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "locality_lb_policy");
+    public TerraformValue<string> LocalityLbPolicy => new TerraformReference(this, "locality_lb_policy");
 
     /// <summary>
     /// This field denotes the logging options for the load balancer traffic served by this backend service.
@@ -282,7 +282,7 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("log_config")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> LogConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "log_config");
+    public TerraformList<object> LogConfig => new TerraformReference(this, "log_config");
 
     /// <summary>
     /// The URL of the network to which this backend service belongs.
@@ -292,7 +292,7 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("network")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Network => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network");
+    public TerraformValue<string> Network => new TerraformReference(this, "network");
 
     /// <summary>
     /// Settings controlling eviction of unhealthy hosts from the load balancing pool.
@@ -301,14 +301,14 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("outlier_detection")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> OutlierDetection => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "outlier_detection");
+    public TerraformList<object> OutlierDetection => new TerraformReference(this, "outlier_detection");
 
     /// <summary>
     /// Additional params passed with the request, but not persisted as part of resource payload
     /// </summary>
     [TerraformPropertyName("params")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Params => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "params");
+    public TerraformList<object> Params => new TerraformReference(this, "params");
 
     /// <summary>
     /// A named port on a backend instance group representing the port for
@@ -321,7 +321,7 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("port_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PortName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "port_name");
+    public TerraformValue<string> PortName => new TerraformReference(this, "port_name");
 
     /// <summary>
     /// The protocol this BackendService uses to communicate with backends.
@@ -331,21 +331,21 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("protocol")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Protocol => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protocol");
+    public TerraformValue<string> Protocol => new TerraformReference(this, "protocol");
 
     /// <summary>
     /// The security policy associated with this backend service.
     /// </summary>
     [TerraformPropertyName("security_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SecurityPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "security_policy");
+    public TerraformValue<string> SecurityPolicy => new TerraformReference(this, "security_policy");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// Type of session affinity to use. The default is NONE. Session affinity is
@@ -353,14 +353,14 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("session_affinity")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SessionAffinity => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "session_affinity");
+    public TerraformValue<string> SessionAffinity => new TerraformReference(this, "session_affinity");
 
     /// <summary>
     /// Describes the HTTP cookie used for stateful session affinity. This field is applicable and required if the sessionAffinity is set to STRONG_COOKIE_AFFINITY.
     /// </summary>
     [TerraformPropertyName("strong_session_affinity_cookie")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> StrongSessionAffinityCookie => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "strong_session_affinity_cookie");
+    public TerraformList<object> StrongSessionAffinityCookie => new TerraformReference(this, "strong_session_affinity_cookie");
 
     /// <summary>
     /// The backend service timeout has a different meaning depending on the type of load balancer.
@@ -370,6 +370,6 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("timeout_sec")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> TimeoutSec => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "timeout_sec");
+    public TerraformValue<double> TimeoutSec => new TerraformReference(this, "timeout_sec");
 
 }

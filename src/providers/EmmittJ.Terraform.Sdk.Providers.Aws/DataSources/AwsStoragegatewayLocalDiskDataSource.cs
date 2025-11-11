@@ -15,15 +15,15 @@ public class AwsStoragegatewayLocalDiskDataSource : TerraformDataSource
     /// The disk_node attribute.
     /// </summary>
     [TerraformPropertyName("disk_node")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DiskNode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "disk_node");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DiskNode { get; set; } = default!;
 
     /// <summary>
     /// The disk_path attribute.
     /// </summary>
     [TerraformPropertyName("disk_path")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DiskPath { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "disk_path");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DiskPath { get; set; } = default!;
 
     /// <summary>
     /// The gateway_arn attribute.
@@ -31,27 +31,27 @@ public class AwsStoragegatewayLocalDiskDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     [TerraformPropertyName("gateway_arn")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> GatewayArn { get; set; }
+    public required TerraformValue<string> GatewayArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The disk_id attribute.
     /// </summary>
     [TerraformPropertyName("disk_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DiskId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "disk_id");
+    public TerraformValue<string> DiskId => new TerraformReference(this, "disk_id");
 
 }

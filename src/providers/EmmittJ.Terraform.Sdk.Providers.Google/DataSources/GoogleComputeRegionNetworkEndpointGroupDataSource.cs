@@ -15,8 +15,8 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is
@@ -29,28 +29,28 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
     /// </summary>
     [TerraformPropertyName("name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
+    public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// A reference to the region where the regional NEGs reside.
     /// </summary>
     [TerraformPropertyName("region")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
+    public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SelfLink { get; set; }
+    public TerraformValue<string>? SelfLink { get; set; }
 
     /// <summary>
     /// This field is only used for SERVERLESS NEGs.
@@ -59,7 +59,7 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
     /// </summary>
     [TerraformPropertyName("app_engine")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> AppEngine => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "app_engine");
+    public TerraformList<object> AppEngine => new TerraformReference(this, "app_engine");
 
     /// <summary>
     /// This field is only used for SERVERLESS NEGs.
@@ -68,7 +68,7 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
     /// </summary>
     [TerraformPropertyName("cloud_function")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CloudFunction => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cloud_function");
+    public TerraformList<object> CloudFunction => new TerraformReference(this, "cloud_function");
 
     /// <summary>
     /// This field is only used for SERVERLESS NEGs.
@@ -77,7 +77,7 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
     /// </summary>
     [TerraformPropertyName("cloud_run")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> CloudRun => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cloud_run");
+    public TerraformList<object> CloudRun => new TerraformReference(this, "cloud_run");
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
@@ -85,7 +85,7 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
     /// </summary>
     [TerraformPropertyName("description")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
+    public TerraformValue<string> Description => new TerraformReference(this, "description");
 
     /// <summary>
     /// This field is only used for PSC and INTERNET NEGs.
@@ -95,21 +95,21 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
     /// </summary>
     [TerraformPropertyName("network")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Network => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network");
+    public TerraformValue<string> Network => new TerraformReference(this, "network");
 
     /// <summary>
     /// Type of network endpoints in this network endpoint group. Defaults to SERVERLESS. Default value: &amp;quot;SERVERLESS&amp;quot; Possible values: [&amp;quot;SERVERLESS&amp;quot;, &amp;quot;PRIVATE_SERVICE_CONNECT&amp;quot;, &amp;quot;INTERNET_IP_PORT&amp;quot;, &amp;quot;INTERNET_FQDN_PORT&amp;quot;, &amp;quot;GCE_VM_IP_PORTMAP&amp;quot;]
     /// </summary>
     [TerraformPropertyName("network_endpoint_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> NetworkEndpointType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_endpoint_type");
+    public TerraformValue<string> NetworkEndpointType => new TerraformReference(this, "network_endpoint_type");
 
     /// <summary>
     /// This field is only used for PSC NEGs.
     /// </summary>
     [TerraformPropertyName("psc_data")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> PscData => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "psc_data");
+    public TerraformList<object> PscData => new TerraformReference(this, "psc_data");
 
     /// <summary>
     /// This field is only used for PSC and INTERNET NEGs.
@@ -119,7 +119,7 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
     /// </summary>
     [TerraformPropertyName("psc_target_service")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PscTargetService => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "psc_target_service");
+    public TerraformValue<string> PscTargetService => new TerraformReference(this, "psc_target_service");
 
     /// <summary>
     /// This field is only used for PSC NEGs.
@@ -128,6 +128,6 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
     /// </summary>
     [TerraformPropertyName("subnetwork")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Subnetwork => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subnetwork");
+    public TerraformValue<string> Subnetwork => new TerraformReference(this, "subnetwork");
 
 }

@@ -15,8 +15,8 @@ public class GooglePubsubTopicDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Name of the topic.
@@ -24,28 +24,28 @@ public class GooglePubsubTopicDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// Settings for ingestion from a data source into this topic.
     /// </summary>
     [TerraformPropertyName("ingestion_data_source_settings")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> IngestionDataSourceSettings => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ingestion_data_source_settings");
+    public TerraformList<object> IngestionDataSourceSettings => new TerraformReference(this, "ingestion_data_source_settings");
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKey to be used to protect access
@@ -56,7 +56,7 @@ public class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("kms_key_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> KmsKeyName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_name");
+    public TerraformValue<string> KmsKeyName => new TerraformReference(this, "kms_key_name");
 
     /// <summary>
     /// A set of key/value label pairs to assign to this Topic.
@@ -67,7 +67,7 @@ public class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
+    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
 
     /// <summary>
     /// Indicates the minimum duration to retain a message after it is published
@@ -81,7 +81,7 @@ public class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("message_retention_duration")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MessageRetentionDuration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "message_retention_duration");
+    public TerraformValue<string> MessageRetentionDuration => new TerraformReference(this, "message_retention_duration");
 
     /// <summary>
     /// Policy constraining the set of Google Cloud Platform regions where
@@ -90,7 +90,7 @@ public class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("message_storage_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MessageStoragePolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "message_storage_policy");
+    public TerraformList<object> MessageStoragePolicy => new TerraformReference(this, "message_storage_policy");
 
     /// <summary>
     /// Transforms to be applied to messages published to the topic. Transforms are applied in the
@@ -98,14 +98,14 @@ public class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("message_transforms")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> MessageTransforms => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "message_transforms");
+    public TerraformList<object> MessageTransforms => new TerraformReference(this, "message_transforms");
 
     /// <summary>
     /// Settings for validating messages published against a schema.
     /// </summary>
     [TerraformPropertyName("schema_settings")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> SchemaSettings => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "schema_settings");
+    public TerraformList<object> SchemaSettings => new TerraformReference(this, "schema_settings");
 
     /// <summary>
     /// Input only. Resource manager tags to be bound to the topic. Tag keys and
@@ -119,7 +119,7 @@ public class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -127,6 +127,6 @@ public class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

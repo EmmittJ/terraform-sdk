@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock : ITerraformBlock
+public class AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock
 {
     /// <summary>
     /// The name attribute.
@@ -14,7 +14,7 @@ public class AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock : ITerra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public class AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock : ITerra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformPropertyName("values")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
+    public required TerraformSet<string> Values { get; set; }
 
 }
 
@@ -30,14 +30,14 @@ public class AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock : ITerra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2TransitGatewayPeeringAttachmentDataSourceTimeoutsBlock : ITerraformBlock
+public class AwsEc2TransitGatewayPeeringAttachmentDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -54,77 +54,77 @@ public class AwsEc2TransitGatewayPeeringAttachmentDataSource : TerraformDataSour
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> Tags { get; set; } = default!;
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformPropertyName("filter")]
-    public TerraformSet<TerraformBlock<AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock>>? Filter { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsEc2TransitGatewayPeeringAttachmentDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsEc2TransitGatewayPeeringAttachmentDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The peer_account_id attribute.
     /// </summary>
     [TerraformPropertyName("peer_account_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PeerAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_account_id");
+    public TerraformValue<string> PeerAccountId => new TerraformReference(this, "peer_account_id");
 
     /// <summary>
     /// The peer_region attribute.
     /// </summary>
     [TerraformPropertyName("peer_region")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PeerRegion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_region");
+    public TerraformValue<string> PeerRegion => new TerraformReference(this, "peer_region");
 
     /// <summary>
     /// The peer_transit_gateway_id attribute.
     /// </summary>
     [TerraformPropertyName("peer_transit_gateway_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PeerTransitGatewayId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_transit_gateway_id");
+    public TerraformValue<string> PeerTransitGatewayId => new TerraformReference(this, "peer_transit_gateway_id");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
     [TerraformPropertyName("transit_gateway_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TransitGatewayId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "transit_gateway_id");
+    public TerraformValue<string> TransitGatewayId => new TerraformReference(this, "transit_gateway_id");
 
 }

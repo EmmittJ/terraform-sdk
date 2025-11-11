@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for disk_iops_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFsxOntapFileSystemDiskIopsConfigurationBlock : ITerraformBlock
+public class AwsFsxOntapFileSystemDiskIopsConfigurationBlock
 {
     /// <summary>
     /// The iops attribute.
     /// </summary>
     [TerraformPropertyName("iops")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> Iops { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "iops");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> Iops { get; set; } = default!;
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformPropertyName("mode")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
+    public TerraformValue<string>? Mode { get; set; }
 
 }
 
@@ -28,28 +28,28 @@ public class AwsFsxOntapFileSystemDiskIopsConfigurationBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsFsxOntapFileSystemTimeoutsBlock : ITerraformBlock
+public class AwsFsxOntapFileSystemTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -68,14 +68,14 @@ public class AwsFsxOntapFileSystem : TerraformResource
     /// </summary>
     [TerraformPropertyName("automatic_backup_retention_days")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? AutomaticBackupRetentionDays { get; set; }
+    public TerraformValue<double>? AutomaticBackupRetentionDays { get; set; }
 
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
     [TerraformPropertyName("daily_automatic_backup_start_time")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> DailyAutomaticBackupStartTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "daily_automatic_backup_start_time");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> DailyAutomaticBackupStartTime { get; set; } = default!;
 
     /// <summary>
     /// The deployment_type attribute.
@@ -83,42 +83,42 @@ public class AwsFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
     [TerraformPropertyName("deployment_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DeploymentType { get; set; }
+    public required TerraformValue<string> DeploymentType { get; set; }
 
     /// <summary>
     /// The endpoint_ip_address_range attribute.
     /// </summary>
     [TerraformPropertyName("endpoint_ip_address_range")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> EndpointIpAddressRange { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_ip_address_range");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> EndpointIpAddressRange { get; set; } = default!;
 
     /// <summary>
     /// The fsx_admin_password attribute.
     /// </summary>
     [TerraformPropertyName("fsx_admin_password")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FsxAdminPassword { get; set; }
+    public TerraformValue<string>? FsxAdminPassword { get; set; }
 
     /// <summary>
     /// The ha_pairs attribute.
     /// </summary>
     [TerraformPropertyName("ha_pairs")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> HaPairs { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ha_pairs");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> HaPairs { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformPropertyName("kms_key_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> KmsKeyId { get; set; } = default!;
 
     /// <summary>
     /// The preferred_subnet_id attribute.
@@ -126,28 +126,28 @@ public class AwsFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredSubnetId is required")]
     [TerraformPropertyName("preferred_subnet_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PreferredSubnetId { get; set; }
+    public required TerraformValue<string> PreferredSubnetId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
     [TerraformPropertyName("route_table_ids")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<HashSet<TerraformProperty<string>>> RouteTableIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "route_table_ids");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformSet<string> RouteTableIds { get; set; } = default!;
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     [TerraformPropertyName("security_group_ids")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
+    public TerraformSet<string>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The storage_capacity attribute.
@@ -155,14 +155,14 @@ public class AwsFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacity is required")]
     [TerraformPropertyName("storage_capacity")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> StorageCapacity { get; set; }
+    public required TerraformValue<double> StorageCapacity { get; set; }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
     [TerraformPropertyName("storage_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? StorageType { get; set; }
+    public TerraformValue<string>? StorageType { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
@@ -170,42 +170,42 @@ public class AwsFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     [TerraformPropertyName("subnet_ids")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<List<TerraformProperty<string>>>? SubnetIds { get; set; }
+    public TerraformList<string>? SubnetIds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The throughput_capacity attribute.
     /// </summary>
     [TerraformPropertyName("throughput_capacity")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> ThroughputCapacity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "throughput_capacity");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> ThroughputCapacity { get; set; } = default!;
 
     /// <summary>
     /// The throughput_capacity_per_ha_pair attribute.
     /// </summary>
     [TerraformPropertyName("throughput_capacity_per_ha_pair")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> ThroughputCapacityPerHaPair { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "throughput_capacity_per_ha_pair");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> ThroughputCapacityPerHaPair { get; set; } = default!;
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
     [TerraformPropertyName("weekly_maintenance_start_time")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> WeeklyMaintenanceStartTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "weekly_maintenance_start_time");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> WeeklyMaintenanceStartTime { get; set; } = default!;
 
     /// <summary>
     /// Block for disk_iops_configuration.
@@ -213,55 +213,55 @@ public class AwsFsxOntapFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskIopsConfiguration block(s) allowed")]
     [TerraformPropertyName("disk_iops_configuration")]
-    public TerraformList<TerraformBlock<AwsFsxOntapFileSystemDiskIopsConfigurationBlock>>? DiskIopsConfiguration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsFsxOntapFileSystemDiskIopsConfigurationBlock>>? DiskIopsConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsFsxOntapFileSystemTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsFsxOntapFileSystemTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     [TerraformPropertyName("dns_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
+    public TerraformValue<string> DnsName => new TerraformReference(this, "dns_name");
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
     [TerraformPropertyName("endpoints")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Endpoints => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "endpoints");
+    public TerraformList<object> Endpoints => new TerraformReference(this, "endpoints");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
     [TerraformPropertyName("network_interface_ids")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> NetworkInterfaceIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "network_interface_ids");
+    public TerraformList<string> NetworkInterfaceIds => new TerraformReference(this, "network_interface_ids");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     [TerraformPropertyName("owner_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
+    public TerraformValue<string> OwnerId => new TerraformReference(this, "owner_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [TerraformPropertyName("vpc_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
+    public TerraformValue<string> VpcId => new TerraformReference(this, "vpc_id");
 
 }

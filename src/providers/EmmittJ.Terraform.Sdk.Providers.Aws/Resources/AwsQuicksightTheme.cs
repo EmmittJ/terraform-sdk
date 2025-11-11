@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightThemeConfigurationBlock : ITerraformBlock
+public class AwsQuicksightThemeConfigurationBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsQuicksightThemeConfigurationBlock : ITerraformBlock
 /// Block type for permissions in .
 /// Nesting mode: set
 /// </summary>
-public class AwsQuicksightThemePermissionsBlock : ITerraformBlock
+public class AwsQuicksightThemePermissionsBlock
 {
     /// <summary>
     /// The actions attribute.
@@ -22,7 +22,7 @@ public class AwsQuicksightThemePermissionsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     [TerraformPropertyName("actions")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Actions { get; set; }
+    public required TerraformSet<string> Actions { get; set; }
 
     /// <summary>
     /// The principal attribute.
@@ -30,7 +30,7 @@ public class AwsQuicksightThemePermissionsBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     [TerraformPropertyName("principal")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
+    public required TerraformValue<string> Principal { get; set; }
 
 }
 
@@ -38,28 +38,28 @@ public class AwsQuicksightThemePermissionsBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsQuicksightThemeTimeoutsBlock : ITerraformBlock
+public class AwsQuicksightThemeTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -77,8 +77,8 @@ public class AwsQuicksightTheme : TerraformResource
     /// The aws_account_id attribute.
     /// </summary>
     [TerraformPropertyName("aws_account_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AwsAccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_account_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AwsAccountId { get; set; } = default!;
 
     /// <summary>
     /// The base_theme_id attribute.
@@ -86,14 +86,14 @@ public class AwsQuicksightTheme : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseThemeId is required")]
     [TerraformPropertyName("base_theme_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> BaseThemeId { get; set; }
+    public required TerraformValue<string> BaseThemeId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -101,28 +101,28 @@ public class AwsQuicksightTheme : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
+    public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformPropertyName("tags_all")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformMap<string> TagsAll { get; set; } = default!;
 
     /// <summary>
     /// The theme_id attribute.
@@ -130,14 +130,14 @@ public class AwsQuicksightTheme : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThemeId is required")]
     [TerraformPropertyName("theme_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ThemeId { get; set; }
+    public required TerraformValue<string> ThemeId { get; set; }
 
     /// <summary>
     /// The version_description attribute.
     /// </summary>
     [TerraformPropertyName("version_description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VersionDescription { get; set; }
+    public TerraformValue<string>? VersionDescription { get; set; }
 
     /// <summary>
     /// Block for configuration.
@@ -145,7 +145,7 @@ public class AwsQuicksightTheme : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformPropertyName("configuration")]
-    public TerraformList<TerraformBlock<AwsQuicksightThemeConfigurationBlock>>? Configuration { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsQuicksightThemeConfigurationBlock>>? Configuration { get; set; }
 
     /// <summary>
     /// Block for permissions.
@@ -153,48 +153,48 @@ public class AwsQuicksightTheme : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
     [TerraformPropertyName("permissions")]
-    public TerraformSet<TerraformBlock<AwsQuicksightThemePermissionsBlock>>? Permissions { get; set; } = new();
+    public TerraformSet<TerraformBlock<AwsQuicksightThemePermissionsBlock>>? Permissions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AwsQuicksightThemeTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AwsQuicksightThemeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     [TerraformPropertyName("created_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_time");
+    public TerraformValue<string> CreatedTime => new TerraformReference(this, "created_time");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     [TerraformPropertyName("last_updated_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastUpdatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_updated_time");
+    public TerraformValue<string> LastUpdatedTime => new TerraformReference(this, "last_updated_time");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformPropertyName("status")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
+    public TerraformValue<string> Status => new TerraformReference(this, "status");
 
     /// <summary>
     /// The version_number attribute.
     /// </summary>
     [TerraformPropertyName("version_number")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> VersionNumber => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "version_number");
+    public TerraformValue<double> VersionNumber => new TerraformReference(this, "version_number");
 
 }

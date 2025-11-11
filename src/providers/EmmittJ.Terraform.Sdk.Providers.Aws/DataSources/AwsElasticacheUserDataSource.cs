@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for authentication_mode in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElasticacheUserDataSourceAuthenticationModeBlock : ITerraformBlock
+public class AwsElasticacheUserDataSourceAuthenticationModeBlock
 {
     /// <summary>
     /// The password_count attribute.
     /// </summary>
     [TerraformPropertyName("password_count")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? PasswordCount { get; set; }
+    public TerraformValue<double>? PasswordCount { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformPropertyName("type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
+    public TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -38,42 +38,42 @@ public class AwsElasticacheUserDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("access_string")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AccessString { get; set; }
+    public TerraformValue<string>? AccessString { get; set; }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
     [TerraformPropertyName("engine")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Engine { get; set; }
+    public TerraformValue<string>? Engine { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The no_password_required attribute.
     /// </summary>
     [TerraformPropertyName("no_password_required")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? NoPasswordRequired { get; set; }
+    public TerraformValue<bool>? NoPasswordRequired { get; set; }
 
     /// <summary>
     /// The passwords attribute.
     /// </summary>
     [TerraformPropertyName("passwords")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? Passwords { get; set; }
+    public TerraformSet<string>? Passwords { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The user_id attribute.
@@ -81,20 +81,20 @@ public class AwsElasticacheUserDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     [TerraformPropertyName("user_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> UserId { get; set; }
+    public required TerraformValue<string> UserId { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     [TerraformPropertyName("user_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserName { get; set; }
+    public TerraformValue<string>? UserName { get; set; }
 
     /// <summary>
     /// Block for authentication_mode.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("authentication_mode")]
-    public TerraformList<TerraformBlock<AwsElasticacheUserDataSourceAuthenticationModeBlock>>? AuthenticationMode { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsElasticacheUserDataSourceAuthenticationModeBlock>>? AuthenticationMode { get; set; }
 
 }

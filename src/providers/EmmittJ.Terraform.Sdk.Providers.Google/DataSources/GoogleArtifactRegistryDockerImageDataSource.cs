@@ -15,8 +15,8 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The image name to fetch.
@@ -24,7 +24,7 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     [TerraformPropertyName("image_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ImageName { get; set; }
+    public required TerraformValue<string> ImageName { get; set; }
 
     /// <summary>
     /// The region of the artifact registry repository. For example, &amp;quot;us-west1&amp;quot;.
@@ -32,14 +32,14 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Project ID of the project.
     /// </summary>
     [TerraformPropertyName("project")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
+    public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The last part of the repository name to fetch from.
@@ -47,62 +47,62 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     [TerraformPropertyName("repository_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RepositoryId { get; set; }
+    public required TerraformValue<string> RepositoryId { get; set; }
 
     /// <summary>
     /// The time, as a RFC 3339 string, this image was built.
     /// </summary>
     [TerraformPropertyName("build_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> BuildTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "build_time");
+    public TerraformValue<string> BuildTime => new TerraformReference(this, "build_time");
 
     /// <summary>
     /// Calculated size of the image in bytes.
     /// </summary>
     [TerraformPropertyName("image_size_bytes")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ImageSizeBytes => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_size_bytes");
+    public TerraformValue<string> ImageSizeBytes => new TerraformReference(this, "image_size_bytes");
 
     /// <summary>
     /// Media type of this image.
     /// </summary>
     [TerraformPropertyName("media_type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> MediaType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "media_type");
+    public TerraformValue<string> MediaType => new TerraformReference(this, "media_type");
 
     /// <summary>
     /// The fully qualified name of the fetched image.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The URI to access the image.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// All tags associated with the image.
     /// </summary>
     [TerraformPropertyName("tags")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<string>>> Tags => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "tags");
+    public TerraformList<string> Tags => new TerraformReference(this, "tags");
 
     /// <summary>
     /// The time, as a RFC 3339 string, this image was updated.
     /// </summary>
     [TerraformPropertyName("update_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
+    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
 
     /// <summary>
     /// The time, as a RFC 3339 string, the image was uploaded.
     /// </summary>
     [TerraformPropertyName("upload_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> UploadTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "upload_time");
+    public TerraformValue<string> UploadTime => new TerraformReference(this, "upload_time");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for retention_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock : ITerraformBlock
+public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock
 {
     /// <summary>
     /// The name attribute.
@@ -14,7 +14,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock : IT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
@@ -22,7 +22,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock : IT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformPropertyName("priority")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
+    public required TerraformValue<double> Priority { get; set; }
 
 }
 
@@ -30,28 +30,28 @@ public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock : IT
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock : ITerraformBlock
+public class AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -69,14 +69,14 @@ public class AzurermDataProtectionBackupPolicyBlobStorage : TerraformResource
     /// </summary>
     [TerraformPropertyName("backup_repeating_time_intervals")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? BackupRepeatingTimeIntervals { get; set; }
+    public TerraformList<string>? BackupRepeatingTimeIntervals { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -84,28 +84,28 @@ public class AzurermDataProtectionBackupPolicyBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The operational_default_retention_duration attribute.
     /// </summary>
     [TerraformPropertyName("operational_default_retention_duration")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? OperationalDefaultRetentionDuration { get; set; }
+    public TerraformValue<string>? OperationalDefaultRetentionDuration { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
     [TerraformPropertyName("time_zone")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? TimeZone { get; set; }
+    public TerraformValue<string>? TimeZone { get; set; }
 
     /// <summary>
     /// The vault_default_retention_duration attribute.
     /// </summary>
     [TerraformPropertyName("vault_default_retention_duration")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VaultDefaultRetentionDuration { get; set; }
+    public TerraformValue<string>? VaultDefaultRetentionDuration { get; set; }
 
     /// <summary>
     /// The vault_id attribute.
@@ -113,20 +113,20 @@ public class AzurermDataProtectionBackupPolicyBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     [TerraformPropertyName("vault_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> VaultId { get; set; }
+    public required TerraformValue<string> VaultId { get; set; }
 
     /// <summary>
     /// Block for retention_rule.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("retention_rule")]
-    public TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock>>? RetentionRule { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock>>? RetentionRule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock>? Timeouts { get; set; }
 
 }

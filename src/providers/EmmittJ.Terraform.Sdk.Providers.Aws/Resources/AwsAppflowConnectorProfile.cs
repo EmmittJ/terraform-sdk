@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for connector_profile_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppflowConnectorProfileConnectorProfileConfigBlock : ITerraformBlock
+public class AwsAppflowConnectorProfileConnectorProfileConfigBlock
 {
 }
 
@@ -26,14 +26,14 @@ public class AwsAppflowConnectorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionMode is required")]
     [TerraformPropertyName("connection_mode")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConnectionMode { get; set; }
+    public required TerraformValue<string> ConnectionMode { get; set; }
 
     /// <summary>
     /// The connector_label attribute.
     /// </summary>
     [TerraformPropertyName("connector_label")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConnectorLabel { get; set; }
+    public TerraformValue<string>? ConnectorLabel { get; set; }
 
     /// <summary>
     /// The connector_type attribute.
@@ -41,21 +41,21 @@ public class AwsAppflowConnectorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
     [TerraformPropertyName("connector_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ConnectorType { get; set; }
+    public required TerraformValue<string> ConnectorType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The kms_arn attribute.
     /// </summary>
     [TerraformPropertyName("kms_arn")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> KmsArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_arn");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> KmsArn { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -63,14 +63,14 @@ public class AwsAppflowConnectorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// Block for connector_profile_config.
@@ -80,20 +80,20 @@ public class AwsAppflowConnectorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectorProfileConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectorProfileConfig block(s) allowed")]
     [TerraformPropertyName("connector_profile_config")]
-    public TerraformList<TerraformBlock<AwsAppflowConnectorProfileConnectorProfileConfigBlock>>? ConnectorProfileConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<AwsAppflowConnectorProfileConnectorProfileConfigBlock>>? ConnectorProfileConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformPropertyName("arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
+    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
 
     /// <summary>
     /// The credentials_arn attribute.
     /// </summary>
     [TerraformPropertyName("credentials_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CredentialsArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "credentials_arn");
+    public TerraformValue<string> CredentialsArn => new TerraformReference(this, "credentials_arn");
 
 }

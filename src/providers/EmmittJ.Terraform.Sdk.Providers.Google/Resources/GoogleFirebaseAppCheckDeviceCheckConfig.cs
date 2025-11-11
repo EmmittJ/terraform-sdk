@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock : ITerraformBlock
+public class GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -47,14 +47,14 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     [TerraformPropertyName("app_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> AppId { get; set; }
+    public required TerraformValue<string> AppId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The key identifier of a private key enabled with DeviceCheck, created in your Apple Developer account.
@@ -62,7 +62,7 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     [TerraformPropertyName("key_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyId { get; set; }
+    public required TerraformValue<string> KeyId { get; set; }
 
     /// <summary>
     /// The contents of the private key (.p8) file associated with the key specified by keyId.
@@ -70,14 +70,14 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     [TerraformPropertyName("private_key")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PrivateKey { get; set; }
+    public required TerraformValue<string> PrivateKey { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Specifies the duration for which App Check tokens exchanged from DeviceCheck artifacts will be valid.
@@ -86,22 +86,22 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
     [TerraformPropertyName("token_ttl")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> TokenTtl { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "token_ttl");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> TokenTtl { get; set; } = default!;
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The relative resource name of the DeviceCheck configuration object
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Whether the privateKey field was previously set. Since App Check will never return the
@@ -109,6 +109,6 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     /// </summary>
     [TerraformPropertyName("private_key_set")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<bool>> PrivateKeySet => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "private_key_set");
+    public TerraformValue<bool> PrivateKeySet => new TerraformReference(this, "private_key_set");
 
 }

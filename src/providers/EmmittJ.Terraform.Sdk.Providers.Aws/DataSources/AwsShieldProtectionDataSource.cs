@@ -15,35 +15,35 @@ public class AwsShieldProtectionDataSource : TerraformDataSource
     /// The protection_id attribute.
     /// </summary>
     [TerraformPropertyName("protection_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ProtectionId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protection_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ProtectionId { get; set; } = default!;
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     [TerraformPropertyName("resource_arn")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ResourceArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_arn");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ResourceArn { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    public TerraformValue<string> Id => new TerraformReference(this, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The protection_arn attribute.
     /// </summary>
     [TerraformPropertyName("protection_arn")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> ProtectionArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protection_arn");
+    public TerraformValue<string> ProtectionArn => new TerraformReference(this, "protection_arn");
 
 }

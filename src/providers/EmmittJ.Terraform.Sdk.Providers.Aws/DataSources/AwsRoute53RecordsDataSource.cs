@@ -16,7 +16,7 @@ public class AwsRoute53RecordsDataSource : TerraformDataSource
     /// </summary>
     [TerraformPropertyName("name_regex")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NameRegex { get; set; }
+    public TerraformValue<string>? NameRegex { get; set; }
 
     /// <summary>
     /// The zone_id attribute.
@@ -24,13 +24,13 @@ public class AwsRoute53RecordsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     [TerraformPropertyName("zone_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ZoneId { get; set; }
+    public required TerraformValue<string> ZoneId { get; set; }
 
     /// <summary>
     /// The resource_record_sets attribute.
     /// </summary>
     [TerraformPropertyName("resource_record_sets")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ResourceRecordSets => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "resource_record_sets");
+    public TerraformList<object> ResourceRecordSets => new TerraformReference(this, "resource_record_sets");
 
 }

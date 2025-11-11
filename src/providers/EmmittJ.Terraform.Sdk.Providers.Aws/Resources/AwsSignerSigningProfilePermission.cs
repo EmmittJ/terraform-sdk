@@ -17,14 +17,14 @@ public class AwsSignerSigningProfilePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformPropertyName("action")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
+    public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The principal attribute.
@@ -32,7 +32,7 @@ public class AwsSignerSigningProfilePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     [TerraformPropertyName("principal")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
+    public required TerraformValue<string> Principal { get; set; }
 
     /// <summary>
     /// The profile_name attribute.
@@ -40,34 +40,34 @@ public class AwsSignerSigningProfilePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
     [TerraformPropertyName("profile_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ProfileName { get; set; }
+    public required TerraformValue<string> ProfileName { get; set; }
 
     /// <summary>
     /// The profile_version attribute.
     /// </summary>
     [TerraformPropertyName("profile_version")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ProfileVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "profile_version");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ProfileVersion { get; set; } = default!;
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The statement_id attribute.
     /// </summary>
     [TerraformPropertyName("statement_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> StatementId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "statement_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> StatementId { get; set; } = default!;
 
     /// <summary>
     /// The statement_id_prefix attribute.
     /// </summary>
     [TerraformPropertyName("statement_id_prefix")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> StatementIdPrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "statement_id_prefix");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> StatementIdPrefix { get; set; } = default!;
 
 }

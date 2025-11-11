@@ -6,21 +6,9 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNewRelicMonitorIdentityBlock : ITerraformBlock
+public class AzurermNewRelicMonitorIdentityBlock
 {
-    /// <summary>
-    /// The principal_id attribute.
-    /// </summary>
-    [TerraformPropertyName("principal_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
-    /// <summary>
-    /// The tenant_id attribute.
-    /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -28,7 +16,7 @@ public class AzurermNewRelicMonitorIdentityBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformPropertyName("type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
+    public required TerraformValue<string> Type { get; set; }
 
 }
 
@@ -36,14 +24,14 @@ public class AzurermNewRelicMonitorIdentityBlock : ITerraformBlock
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNewRelicMonitorPlanBlock : ITerraformBlock
+public class AzurermNewRelicMonitorPlanBlock
 {
     /// <summary>
     /// The billing_cycle attribute.
     /// </summary>
     [TerraformPropertyName("billing_cycle")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? BillingCycle { get; set; }
+    public TerraformValue<string>? BillingCycle { get; set; }
 
     /// <summary>
     /// The effective_date attribute.
@@ -51,21 +39,21 @@ public class AzurermNewRelicMonitorPlanBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EffectiveDate is required")]
     [TerraformPropertyName("effective_date")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EffectiveDate { get; set; }
+    public required TerraformValue<string> EffectiveDate { get; set; }
 
     /// <summary>
     /// The plan_id attribute.
     /// </summary>
     [TerraformPropertyName("plan_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PlanId { get; set; }
+    public TerraformValue<string>? PlanId { get; set; }
 
     /// <summary>
     /// The usage_type attribute.
     /// </summary>
     [TerraformPropertyName("usage_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UsageType { get; set; }
+    public TerraformValue<string>? UsageType { get; set; }
 
 }
 
@@ -73,28 +61,28 @@ public class AzurermNewRelicMonitorPlanBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNewRelicMonitorTimeoutsBlock : ITerraformBlock
+public class AzurermNewRelicMonitorTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -102,7 +90,7 @@ public class AzurermNewRelicMonitorTimeoutsBlock : ITerraformBlock
 /// Block type for user in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNewRelicMonitorUserBlock : ITerraformBlock
+public class AzurermNewRelicMonitorUserBlock
 {
     /// <summary>
     /// The email attribute.
@@ -110,7 +98,7 @@ public class AzurermNewRelicMonitorUserBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     [TerraformPropertyName("email")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Email { get; set; }
+    public required TerraformValue<string> Email { get; set; }
 
     /// <summary>
     /// The first_name attribute.
@@ -118,7 +106,7 @@ public class AzurermNewRelicMonitorUserBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
     [TerraformPropertyName("first_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> FirstName { get; set; }
+    public required TerraformValue<string> FirstName { get; set; }
 
     /// <summary>
     /// The last_name attribute.
@@ -126,7 +114,7 @@ public class AzurermNewRelicMonitorUserBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
     [TerraformPropertyName("last_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LastName { get; set; }
+    public required TerraformValue<string> LastName { get; set; }
 
     /// <summary>
     /// The phone_number attribute.
@@ -134,7 +122,7 @@ public class AzurermNewRelicMonitorUserBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     [TerraformPropertyName("phone_number")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> PhoneNumber { get; set; }
+    public required TerraformValue<string> PhoneNumber { get; set; }
 
 }
 
@@ -153,28 +141,28 @@ public class AzurermNewRelicMonitor : TerraformResource
     /// </summary>
     [TerraformPropertyName("account_creation_source")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AccountCreationSource { get; set; }
+    public TerraformValue<string>? AccountCreationSource { get; set; }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [TerraformPropertyName("account_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> AccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> AccountId { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The ingestion_key attribute.
     /// </summary>
     [TerraformPropertyName("ingestion_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IngestionKey { get; set; }
+    public TerraformValue<string>? IngestionKey { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -182,7 +170,7 @@ public class AzurermNewRelicMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -190,21 +178,21 @@ public class AzurermNewRelicMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The org_creation_source attribute.
     /// </summary>
     [TerraformPropertyName("org_creation_source")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? OrgCreationSource { get; set; }
+    public TerraformValue<string>? OrgCreationSource { get; set; }
 
     /// <summary>
     /// The organization_id attribute.
     /// </summary>
     [TerraformPropertyName("organization_id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> OrganizationId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "organization_id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> OrganizationId { get; set; } = default!;
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -212,14 +200,14 @@ public class AzurermNewRelicMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
     [TerraformPropertyName("user_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UserId { get; set; }
+    public TerraformValue<string>? UserId { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -227,7 +215,7 @@ public class AzurermNewRelicMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformPropertyName("identity")]
-    public TerraformList<TerraformBlock<AzurermNewRelicMonitorIdentityBlock>>? Identity { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermNewRelicMonitorIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for plan.
@@ -237,14 +225,14 @@ public class AzurermNewRelicMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plan block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformPropertyName("plan")]
-    public TerraformList<TerraformBlock<AzurermNewRelicMonitorPlanBlock>>? Plan { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermNewRelicMonitorPlanBlock>>? Plan { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermNewRelicMonitorTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermNewRelicMonitorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for user.
@@ -254,6 +242,6 @@ public class AzurermNewRelicMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 User block(s) allowed")]
     [TerraformPropertyName("user")]
-    public TerraformList<TerraformBlock<AzurermNewRelicMonitorUserBlock>>? User { get; set; } = new();
+    public TerraformList<TerraformBlock<AzurermNewRelicMonitorUserBlock>>? User { get; set; }
 
 }

@@ -15,8 +15,8 @@ public class GoogleBackupDrManagementServerDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The location for the management server (management console)
@@ -24,48 +24,48 @@ public class GoogleBackupDrManagementServerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformPropertyName("location")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
+    public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The management console URI
     /// </summary>
     [TerraformPropertyName("management_uri")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> ManagementUri => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "management_uri");
+    public TerraformList<object> ManagementUri => new TerraformReference(this, "management_uri");
 
     /// <summary>
     /// The name of management server (management console)
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// Network details to create management server (management console).
     /// </summary>
     [TerraformPropertyName("networks")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Networks => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "networks");
+    public TerraformList<object> Networks => new TerraformReference(this, "networks");
 
     /// <summary>
     /// The oauth2ClientId of management console.
     /// </summary>
     [TerraformPropertyName("oauth2_client_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Oauth2ClientId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "oauth2_client_id");
+    public TerraformValue<string> Oauth2ClientId => new TerraformReference(this, "oauth2_client_id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Project => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    public TerraformValue<string> Project => new TerraformReference(this, "project");
 
     /// <summary>
     /// The type of management server (management console). Default value: &amp;quot;BACKUP_RESTORE&amp;quot; Possible values: [&amp;quot;BACKUP_RESTORE&amp;quot;]
     /// </summary>
     [TerraformPropertyName("type")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
+    public TerraformValue<string> Type => new TerraformReference(this, "type");
 
 }

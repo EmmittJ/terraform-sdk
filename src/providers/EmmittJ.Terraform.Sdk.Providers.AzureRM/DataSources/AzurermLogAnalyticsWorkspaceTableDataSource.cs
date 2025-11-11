@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermLogAnalyticsWorkspaceTableDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermLogAnalyticsWorkspaceTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -47,34 +47,34 @@ public class AzurermLogAnalyticsWorkspaceTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformPropertyName("workspace_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
+    public required TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
     [TerraformPropertyName("plan")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Plan => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "plan");
+    public TerraformValue<string> Plan => new TerraformReference(this, "plan");
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
     [TerraformPropertyName("retention_in_days")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> RetentionInDays => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "retention_in_days");
+    public TerraformValue<double> RetentionInDays => new TerraformReference(this, "retention_in_days");
 
     /// <summary>
     /// The total_retention_in_days attribute.
     /// </summary>
     [TerraformPropertyName("total_retention_in_days")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> TotalRetentionInDays => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_retention_in_days");
+    public TerraformValue<double> TotalRetentionInDays => new TerraformReference(this, "total_retention_in_days");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeSubnetworkLogConfigBlock : ITerraformBlock
+public class GoogleComputeSubnetworkLogConfigBlock
 {
     /// <summary>
     /// Can only be specified if VPC flow logging for this subnetwork is enabled.
@@ -16,7 +16,7 @@ public class GoogleComputeSubnetworkLogConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("aggregation_interval")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AggregationInterval { get; set; }
+    public TerraformValue<string>? AggregationInterval { get; set; }
 
     /// <summary>
     /// Export filter used to define which VPC flow logs should be logged, as as CEL expression. See
@@ -25,7 +25,7 @@ public class GoogleComputeSubnetworkLogConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("filter_expr")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? FilterExpr { get; set; }
+    public TerraformValue<string>? FilterExpr { get; set; }
 
     /// <summary>
     /// Can only be specified if VPC flow logging for this subnetwork is enabled.
@@ -36,7 +36,7 @@ public class GoogleComputeSubnetworkLogConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("flow_sampling")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? FlowSampling { get; set; }
+    public TerraformValue<double>? FlowSampling { get; set; }
 
     /// <summary>
     /// Can only be specified if VPC flow logging for this subnetwork is enabled.
@@ -45,7 +45,7 @@ public class GoogleComputeSubnetworkLogConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("metadata")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Metadata { get; set; }
+    public TerraformValue<string>? Metadata { get; set; }
 
     /// <summary>
     /// List of metadata fields that should be added to reported logs.
@@ -53,7 +53,7 @@ public class GoogleComputeSubnetworkLogConfigBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("metadata_fields")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? MetadataFields { get; set; }
+    public TerraformSet<string>? MetadataFields { get; set; }
 
 }
 
@@ -61,7 +61,7 @@ public class GoogleComputeSubnetworkLogConfigBlock : ITerraformBlock
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeSubnetworkParamsBlock : ITerraformBlock
+public class GoogleComputeSubnetworkParamsBlock
 {
     /// <summary>
     /// Resource manager tags to be bound to the subnetwork. Tag keys and values have the
@@ -73,7 +73,7 @@ public class GoogleComputeSubnetworkParamsBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("resource_manager_tags")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ResourceManagerTags { get; set; }
+    public TerraformMap<string>? ResourceManagerTags { get; set; }
 
 }
 
@@ -81,7 +81,7 @@ public class GoogleComputeSubnetworkParamsBlock : ITerraformBlock
 /// Block type for secondary_ip_range in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeSubnetworkSecondaryIpRangeBlock : ITerraformBlock
+public class GoogleComputeSubnetworkSecondaryIpRangeBlock
 {
     /// <summary>
     /// The range of IP addresses belonging to this subnetwork secondary
@@ -91,8 +91,8 @@ public class GoogleComputeSubnetworkSecondaryIpRangeBlock : ITerraformBlock
     /// Field is optional when &#39;reserved_internal_range&#39; is defined, otherwise required.
     /// </summary>
     [TerraformPropertyName("ip_cidr_range")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> IpCidrRange { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "ip_cidr_range");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> IpCidrRange { get; set; } = default!;
 
     /// <summary>
     /// The name associated with this subnetwork secondary range, used
@@ -103,7 +103,7 @@ public class GoogleComputeSubnetworkSecondaryIpRangeBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeName is required")]
     [TerraformPropertyName("range_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RangeName { get; set; }
+    public required TerraformValue<string> RangeName { get; set; }
 
     /// <summary>
     /// The ID of the reserved internal range. Must be prefixed with &#39;networkconnectivity.googleapis.com&#39;
@@ -111,7 +111,7 @@ public class GoogleComputeSubnetworkSecondaryIpRangeBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("reserved_internal_range")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ReservedInternalRange { get; set; }
+    public TerraformValue<string>? ReservedInternalRange { get; set; }
 
 }
 
@@ -119,28 +119,28 @@ public class GoogleComputeSubnetworkSecondaryIpRangeBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeSubnetworkTimeoutsBlock : ITerraformBlock
+public class GoogleComputeSubnetworkTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -161,21 +161,21 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The range of external IPv6 addresses that are owned by this subnetwork.
     /// </summary>
     [TerraformPropertyName("external_ipv6_prefix")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ExternalIpv6Prefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "external_ipv6_prefix");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ExternalIpv6Prefix { get; set; } = default!;
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The range of internal addresses that are owned by this subnetwork.
@@ -185,8 +185,8 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// Field is optional when &#39;reserved_internal_range&#39; is defined, otherwise required.
     /// </summary>
     [TerraformPropertyName("ip_cidr_range")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> IpCidrRange { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_cidr_range");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> IpCidrRange { get; set; } = default!;
 
     /// <summary>
     /// Resource reference of a PublicDelegatedPrefix. The PDP must be a sub-PDP
@@ -201,7 +201,7 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("ip_collection")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? IpCollection { get; set; }
+    public TerraformValue<string>? IpCollection { get; set; }
 
     /// <summary>
     /// The access type of IPv6 address this subnet holds. It&#39;s immutable and can only be specified during creation
@@ -210,7 +210,7 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("ipv6_access_type")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Ipv6AccessType { get; set; }
+    public TerraformValue<string>? Ipv6AccessType { get; set; }
 
     /// <summary>
     /// The name of the resource, provided by the client when initially
@@ -224,7 +224,7 @@ public class GoogleComputeSubnetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network this subnet belongs to.
@@ -233,29 +233,29 @@ public class GoogleComputeSubnetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformPropertyName("network")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
+    public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// When enabled, VMs in this subnetwork without external IP addresses can
     /// access Google APIs and services by using Private Google Access.
     /// </summary>
     [TerraformPropertyName("private_ip_google_access")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<bool>> PrivateIpGoogleAccess { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "private_ip_google_access");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<bool> PrivateIpGoogleAccess { get; set; } = default!;
 
     /// <summary>
     /// The private IPv6 google access type for the VMs in this subnet.
     /// </summary>
     [TerraformPropertyName("private_ipv6_google_access")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> PrivateIpv6GoogleAccess { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_ipv6_google_access");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> PrivateIpv6GoogleAccess { get; set; } = default!;
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The purpose of the resource. This field can be either &#39;PRIVATE&#39;, &#39;REGIONAL_MANAGED_PROXY&#39;, &#39;GLOBAL_MANAGED_PROXY&#39;, &#39;PRIVATE_SERVICE_CONNECT&#39;, &#39;PEER_MIGRATION&#39; or &#39;PRIVATE_NAT&#39;([Beta](https://terraform.io/docs/providers/google/guides/provider_versions.html)).
@@ -268,15 +268,15 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// If unspecified, the purpose defaults to &#39;PRIVATE&#39;.
     /// </summary>
     [TerraformPropertyName("purpose")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Purpose { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "purpose");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Purpose { get; set; } = default!;
 
     /// <summary>
     /// The GCP region for this subnetwork.
     /// </summary>
     [TerraformPropertyName("region")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Region { get; set; } = default!;
 
     /// <summary>
     /// The ID of the reserved internal range. Must be prefixed with &#39;networkconnectivity.googleapis.com&#39;
@@ -284,7 +284,7 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("reserved_internal_range")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ReservedInternalRange { get; set; }
+    public TerraformValue<string>? ReservedInternalRange { get; set; }
 
     /// <summary>
     /// The role of subnetwork.
@@ -295,7 +295,7 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("role")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Role { get; set; }
+    public TerraformValue<string>? Role { get; set; }
 
     /// <summary>
     /// Controls the removal behavior of secondary_ip_range.
@@ -307,15 +307,15 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("send_secondary_ip_range_if_empty")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SendSecondaryIpRangeIfEmpty { get; set; }
+    public TerraformValue<bool>? SendSecondaryIpRangeIfEmpty { get; set; }
 
     /// <summary>
     /// The stack type for this subnet to identify whether the IPv6 feature is enabled or not.
     /// If not specified IPV4_ONLY will be used. Possible values: [&amp;quot;IPV4_ONLY&amp;quot;, &amp;quot;IPV4_IPV6&amp;quot;, &amp;quot;IPV6_ONLY&amp;quot;]
     /// </summary>
     [TerraformPropertyName("stack_type")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> StackType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "stack_type");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> StackType { get; set; } = default!;
 
     /// <summary>
     /// Block for log_config.
@@ -323,7 +323,7 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformPropertyName("log_config")]
-    public TerraformList<TerraformBlock<GoogleComputeSubnetworkLogConfigBlock>>? LogConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeSubnetworkLogConfigBlock>>? LogConfig { get; set; }
 
     /// <summary>
     /// Block for params.
@@ -331,35 +331,35 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformPropertyName("params")]
-    public TerraformList<TerraformBlock<GoogleComputeSubnetworkParamsBlock>>? Params { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeSubnetworkParamsBlock>>? Params { get; set; }
 
     /// <summary>
     /// Block for secondary_ip_range.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("secondary_ip_range")]
-    public TerraformList<TerraformBlock<GoogleComputeSubnetworkSecondaryIpRangeBlock>>? SecondaryIpRange { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeSubnetworkSecondaryIpRangeBlock>>? SecondaryIpRange { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeSubnetworkTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeSubnetworkTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformPropertyName("creation_timestamp")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
+    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
 
     /// <summary>
     /// Fingerprint of this resource. This field is used internally during updates of this resource.
     /// </summary>
     [TerraformPropertyName("fingerprint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Fingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fingerprint");
+    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
 
     /// <summary>
     /// The gateway address for default routes to reach destination addresses
@@ -367,21 +367,21 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("gateway_address")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> GatewayAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gateway_address");
+    public TerraformValue<string> GatewayAddress => new TerraformReference(this, "gateway_address");
 
     /// <summary>
     /// The internal IPv6 address range that is assigned to this subnetwork.
     /// </summary>
     [TerraformPropertyName("internal_ipv6_prefix")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> InternalIpv6Prefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "internal_ipv6_prefix");
+    public TerraformValue<string> InternalIpv6Prefix => new TerraformReference(this, "internal_ipv6_prefix");
 
     /// <summary>
     /// The range of internal IPv6 addresses that are owned by this subnetwork.
     /// </summary>
     [TerraformPropertyName("ipv6_cidr_range")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Ipv6CidrRange => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ipv6_cidr_range");
+    public TerraformValue<string> Ipv6CidrRange => new TerraformReference(this, "ipv6_cidr_range");
 
     /// <summary>
     /// Possible endpoints of this subnetwork. It can be one of the following:
@@ -392,14 +392,14 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("ipv6_gce_endpoint")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Ipv6GceEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ipv6_gce_endpoint");
+    public TerraformValue<string> Ipv6GceEndpoint => new TerraformReference(this, "ipv6_gce_endpoint");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformPropertyName("self_link")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
+    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
 
     /// <summary>
     /// &#39;The state of the subnetwork, which can be one of the following values:
@@ -409,13 +409,13 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// </summary>
     [TerraformPropertyName("state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
+    public TerraformValue<string> State => new TerraformReference(this, "state");
 
     /// <summary>
     /// The unique identifier number for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformPropertyName("subnetwork_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> SubnetworkId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "subnetwork_id");
+    public TerraformValue<double> SubnetworkId => new TerraformReference(this, "subnetwork_id");
 
 }

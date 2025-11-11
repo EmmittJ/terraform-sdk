@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,21 +32,21 @@ public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     [TerraformPropertyName("algorithm")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Algorithm { get; set; }
+    public required TerraformValue<string> Algorithm { get; set; }
 
     /// <summary>
     /// The encrypted_data attribute.
     /// </summary>
     [TerraformPropertyName("encrypted_data")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EncryptedData { get; set; }
+    public TerraformValue<string>? EncryptedData { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The key_vault_key_id attribute.
@@ -54,27 +54,27 @@ public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     [TerraformPropertyName("key_vault_key_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> KeyVaultKeyId { get; set; }
+    public required TerraformValue<string> KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The plain_text_value attribute.
     /// </summary>
     [TerraformPropertyName("plain_text_value")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? PlainTextValue { get; set; }
+    public TerraformValue<string>? PlainTextValue { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The decoded_plain_text_value attribute.
     /// </summary>
     [TerraformPropertyName("decoded_plain_text_value")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DecodedPlainTextValue => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "decoded_plain_text_value");
+    public TerraformValue<string> DecodedPlainTextValue => new TerraformReference(this, "decoded_plain_text_value");
 
 }

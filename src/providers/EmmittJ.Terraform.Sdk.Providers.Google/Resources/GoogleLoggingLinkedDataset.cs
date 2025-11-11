@@ -6,17 +6,8 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bigquery_dataset in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleLoggingLinkedDatasetBigqueryDatasetBlock : ITerraformBlock
+public class GoogleLoggingLinkedDatasetBigqueryDatasetBlock
 {
-    /// <summary>
-    /// Output only. The full resource name of the BigQuery dataset. The DATASET_ID will match the ID
-    /// of the link, so the link must match the naming restrictions of BigQuery datasets
-    /// (alphanumeric characters and underscores only). The dataset will have a resource path of
-    /// &amp;quot;bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET_ID]&amp;quot;
-    /// </summary>
-    [TerraformPropertyName("dataset_id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DatasetId => new TerraformReferenceProperty<TerraformProperty<string>>("", "dataset_id");
 
 }
 
@@ -24,21 +15,21 @@ public class GoogleLoggingLinkedDatasetBigqueryDatasetBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleLoggingLinkedDatasetTimeoutsBlock : ITerraformBlock
+public class GoogleLoggingLinkedDatasetTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -57,21 +48,21 @@ public class GoogleLoggingLinkedDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformPropertyName("bucket")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
+    public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// Describes this link. The maximum length of the description is 8000 characters.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The id of the linked dataset.
@@ -79,35 +70,35 @@ public class GoogleLoggingLinkedDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkId is required")]
     [TerraformPropertyName("link_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> LinkId { get; set; }
+    public required TerraformValue<string> LinkId { get; set; }
 
     /// <summary>
     /// The location of the linked dataset.
     /// </summary>
     [TerraformPropertyName("location")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Location { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Location { get; set; } = default!;
 
     /// <summary>
     /// The parent of the linked dataset.
     /// </summary>
     [TerraformPropertyName("parent")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Parent { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parent");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Parent { get; set; } = default!;
 
     /// <summary>
     /// Block for bigquery_dataset.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("bigquery_dataset")]
-    public TerraformList<TerraformBlock<GoogleLoggingLinkedDatasetBigqueryDatasetBlock>>? BigqueryDataset { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleLoggingLinkedDatasetBigqueryDatasetBlock>>? BigqueryDataset { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleLoggingLinkedDatasetTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleLoggingLinkedDatasetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The creation timestamp of the link. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -116,14 +107,14 @@ public class GoogleLoggingLinkedDataset : TerraformResource
     /// </summary>
     [TerraformPropertyName("create_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
+    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
 
     /// <summary>
     /// Output only. The linked dataset lifecycle state.
     /// </summary>
     [TerraformPropertyName("lifecycle_state")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LifecycleState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "lifecycle_state");
+    public TerraformValue<string> LifecycleState => new TerraformReference(this, "lifecycle_state");
 
     /// <summary>
     /// The resource name of the linked dataset. The name can have up to 100 characters. A valid link id
@@ -131,6 +122,6 @@ public class GoogleLoggingLinkedDataset : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStreamAnalyticsJobDataSourceTimeoutsBlock : ITerraformBlock
+public class AzurermStreamAnalyticsJobDataSourceTimeoutsBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -30,8 +30,8 @@ public class AzurermStreamAnalyticsJobDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public class AzurermStreamAnalyticsJobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,118 +47,118 @@ public class AzurermStreamAnalyticsJobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformPropertyName("resource_group_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
+    public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermStreamAnalyticsJobDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermStreamAnalyticsJobDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The compatibility_level attribute.
     /// </summary>
     [TerraformPropertyName("compatibility_level")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> CompatibilityLevel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "compatibility_level");
+    public TerraformValue<string> CompatibilityLevel => new TerraformReference(this, "compatibility_level");
 
     /// <summary>
     /// The data_locale attribute.
     /// </summary>
     [TerraformPropertyName("data_locale")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> DataLocale => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "data_locale");
+    public TerraformValue<string> DataLocale => new TerraformReference(this, "data_locale");
 
     /// <summary>
     /// The events_late_arrival_max_delay_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("events_late_arrival_max_delay_in_seconds")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> EventsLateArrivalMaxDelayInSeconds => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "events_late_arrival_max_delay_in_seconds");
+    public TerraformValue<double> EventsLateArrivalMaxDelayInSeconds => new TerraformReference(this, "events_late_arrival_max_delay_in_seconds");
 
     /// <summary>
     /// The events_out_of_order_max_delay_in_seconds attribute.
     /// </summary>
     [TerraformPropertyName("events_out_of_order_max_delay_in_seconds")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> EventsOutOfOrderMaxDelayInSeconds => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "events_out_of_order_max_delay_in_seconds");
+    public TerraformValue<double> EventsOutOfOrderMaxDelayInSeconds => new TerraformReference(this, "events_out_of_order_max_delay_in_seconds");
 
     /// <summary>
     /// The events_out_of_order_policy attribute.
     /// </summary>
     [TerraformPropertyName("events_out_of_order_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> EventsOutOfOrderPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "events_out_of_order_policy");
+    public TerraformValue<string> EventsOutOfOrderPolicy => new TerraformReference(this, "events_out_of_order_policy");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformPropertyName("identity")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
+    public TerraformList<object> Identity => new TerraformReference(this, "identity");
 
     /// <summary>
     /// The job_id attribute.
     /// </summary>
     [TerraformPropertyName("job_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> JobId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "job_id");
+    public TerraformValue<string> JobId => new TerraformReference(this, "job_id");
 
     /// <summary>
     /// The last_output_time attribute.
     /// </summary>
     [TerraformPropertyName("last_output_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> LastOutputTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_output_time");
+    public TerraformValue<string> LastOutputTime => new TerraformReference(this, "last_output_time");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformPropertyName("location")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
+    public TerraformValue<string> Location => new TerraformReference(this, "location");
 
     /// <summary>
     /// The output_error_policy attribute.
     /// </summary>
     [TerraformPropertyName("output_error_policy")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> OutputErrorPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "output_error_policy");
+    public TerraformValue<string> OutputErrorPolicy => new TerraformReference(this, "output_error_policy");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [TerraformPropertyName("sku_name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SkuName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku_name");
+    public TerraformValue<string> SkuName => new TerraformReference(this, "sku_name");
 
     /// <summary>
     /// The start_mode attribute.
     /// </summary>
     [TerraformPropertyName("start_mode")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StartMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_mode");
+    public TerraformValue<string> StartMode => new TerraformReference(this, "start_mode");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     [TerraformPropertyName("start_time")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> StartTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_time");
+    public TerraformValue<string> StartTime => new TerraformReference(this, "start_time");
 
     /// <summary>
     /// The streaming_units attribute.
     /// </summary>
     [TerraformPropertyName("streaming_units")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<double>> StreamingUnits => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "streaming_units");
+    public TerraformValue<double> StreamingUnits => new TerraformReference(this, "streaming_units");
 
     /// <summary>
     /// The transformation_query attribute.
     /// </summary>
     [TerraformPropertyName("transformation_query")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> TransformationQuery => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "transformation_query");
+    public TerraformValue<string> TransformationQuery => new TerraformReference(this, "transformation_query");
 
 }

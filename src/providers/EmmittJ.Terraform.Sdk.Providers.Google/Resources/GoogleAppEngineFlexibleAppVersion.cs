@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for api_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionApiConfigBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionApiConfigBlock
 {
     /// <summary>
     /// Action to take when users access resources that require authentication. Default value: &amp;quot;AUTH_FAIL_ACTION_REDIRECT&amp;quot; Possible values: [&amp;quot;AUTH_FAIL_ACTION_REDIRECT&amp;quot;, &amp;quot;AUTH_FAIL_ACTION_UNAUTHORIZED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("auth_fail_action")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AuthFailAction { get; set; }
+    public TerraformValue<string>? AuthFailAction { get; set; }
 
     /// <summary>
     /// Level of login required to access this resource. Default value: &amp;quot;LOGIN_OPTIONAL&amp;quot; Possible values: [&amp;quot;LOGIN_OPTIONAL&amp;quot;, &amp;quot;LOGIN_ADMIN&amp;quot;, &amp;quot;LOGIN_REQUIRED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("login")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Login { get; set; }
+    public TerraformValue<string>? Login { get; set; }
 
     /// <summary>
     /// Path to the script from the application root directory.
@@ -28,21 +28,21 @@ public class GoogleAppEngineFlexibleAppVersionApiConfigBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Script is required")]
     [TerraformPropertyName("script")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Script { get; set; }
+    public required TerraformValue<string> Script { get; set; }
 
     /// <summary>
     /// Security (HTTPS) enforcement for this URL. Possible values: [&amp;quot;SECURE_DEFAULT&amp;quot;, &amp;quot;SECURE_NEVER&amp;quot;, &amp;quot;SECURE_OPTIONAL&amp;quot;, &amp;quot;SECURE_ALWAYS&amp;quot;]
     /// </summary>
     [TerraformPropertyName("security_level")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SecurityLevel { get; set; }
+    public TerraformValue<string>? SecurityLevel { get; set; }
 
     /// <summary>
     /// URL to serve the endpoint at.
     /// </summary>
     [TerraformPropertyName("url")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Url { get; set; }
+    public TerraformValue<string>? Url { get; set; }
 
 }
 
@@ -50,7 +50,7 @@ public class GoogleAppEngineFlexibleAppVersionApiConfigBlock : ITerraformBlock
 /// Block type for automatic_scaling in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock
 {
     /// <summary>
     /// The time period that the Autoscaler should wait before it starts collecting information from a new instance.
@@ -59,7 +59,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : ITerraform
     /// </summary>
     [TerraformPropertyName("cool_down_period")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CoolDownPeriod { get; set; }
+    public TerraformValue<string>? CoolDownPeriod { get; set; }
 
     /// <summary>
     /// Number of concurrent requests an automatic scaling instance can accept before the scheduler spawns a new instance.
@@ -67,50 +67,50 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : ITerraform
     /// Defaults to a runtime-specific value.
     /// </summary>
     [TerraformPropertyName("max_concurrent_requests")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<double>> MaxConcurrentRequests { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "max_concurrent_requests");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<double> MaxConcurrentRequests { get; set; } = default!;
 
     /// <summary>
     /// Maximum number of idle instances that should be maintained for this version.
     /// </summary>
     [TerraformPropertyName("max_idle_instances")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxIdleInstances { get; set; }
+    public TerraformValue<double>? MaxIdleInstances { get; set; }
 
     /// <summary>
     /// Maximum amount of time that a request should wait in the pending queue before starting a new instance to handle it.
     /// </summary>
     [TerraformPropertyName("max_pending_latency")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MaxPendingLatency { get; set; }
+    public TerraformValue<string>? MaxPendingLatency { get; set; }
 
     /// <summary>
     /// Maximum number of instances that should be started to handle requests for this version. Default: 20
     /// </summary>
     [TerraformPropertyName("max_total_instances")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MaxTotalInstances { get; set; }
+    public TerraformValue<double>? MaxTotalInstances { get; set; }
 
     /// <summary>
     /// Minimum number of idle instances that should be maintained for this version. Only applicable for the default version of a service.
     /// </summary>
     [TerraformPropertyName("min_idle_instances")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MinIdleInstances { get; set; }
+    public TerraformValue<double>? MinIdleInstances { get; set; }
 
     /// <summary>
     /// Minimum amount of time a request should wait in the pending queue before starting a new instance to handle it.
     /// </summary>
     [TerraformPropertyName("min_pending_latency")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? MinPendingLatency { get; set; }
+    public TerraformValue<string>? MinPendingLatency { get; set; }
 
     /// <summary>
     /// Minimum number of running instances that should be maintained for this version. Default: 2
     /// </summary>
     [TerraformPropertyName("min_total_instances")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MinTotalInstances { get; set; }
+    public TerraformValue<double>? MinTotalInstances { get; set; }
 
 }
 
@@ -118,7 +118,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : ITerraform
 /// Block type for deployment in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionDeploymentBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionDeploymentBlock
 {
 }
 
@@ -126,7 +126,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlock : ITerraformBlock
 /// Block type for endpoints_api_service in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock
 {
     /// <summary>
     /// Endpoints service configuration ID as specified by the Service Management API. For example &amp;quot;2016-09-19r1&amp;quot;.
@@ -140,14 +140,14 @@ public class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock : ITerraf
     /// </summary>
     [TerraformPropertyName("config_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConfigId { get; set; }
+    public TerraformValue<string>? ConfigId { get; set; }
 
     /// <summary>
     /// Enable or disable trace sampling. By default, this is set to false for enabled.
     /// </summary>
     [TerraformPropertyName("disable_trace_sampling")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DisableTraceSampling { get; set; }
+    public TerraformValue<bool>? DisableTraceSampling { get; set; }
 
     /// <summary>
     /// Endpoints service name which is the name of the &amp;quot;service&amp;quot; resource in the Service Management API.
@@ -156,14 +156,14 @@ public class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock : ITerraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Endpoints rollout strategy. If FIXED, configId must be specified. If MANAGED, configId must be omitted. Default value: &amp;quot;FIXED&amp;quot; Possible values: [&amp;quot;FIXED&amp;quot;, &amp;quot;MANAGED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("rollout_strategy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RolloutStrategy { get; set; }
+    public TerraformValue<string>? RolloutStrategy { get; set; }
 
 }
 
@@ -171,7 +171,7 @@ public class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock : ITerraf
 /// Block type for entrypoint in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionEntrypointBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionEntrypointBlock
 {
     /// <summary>
     /// The format should be a shell command that can be fed to bash -c.
@@ -179,7 +179,7 @@ public class GoogleAppEngineFlexibleAppVersionEntrypointBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shell is required")]
     [TerraformPropertyName("shell")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Shell { get; set; }
+    public required TerraformValue<string> Shell { get; set; }
 
 }
 
@@ -187,21 +187,21 @@ public class GoogleAppEngineFlexibleAppVersionEntrypointBlock : ITerraformBlock
 /// Block type for flexible_runtime_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlock
 {
     /// <summary>
     /// Operating System of the application runtime.
     /// </summary>
     [TerraformPropertyName("operating_system")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? OperatingSystem { get; set; }
+    public TerraformValue<string>? OperatingSystem { get; set; }
 
     /// <summary>
     /// The runtime version of an App Engine flexible application.
     /// </summary>
     [TerraformPropertyName("runtime_version")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RuntimeVersion { get; set; }
+    public TerraformValue<string>? RuntimeVersion { get; set; }
 
 }
 
@@ -209,35 +209,35 @@ public class GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlock : ITe
 /// Block type for handlers in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionHandlersBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionHandlersBlock
 {
     /// <summary>
     /// Actions to take when the user is not logged in. Possible values: [&amp;quot;AUTH_FAIL_ACTION_REDIRECT&amp;quot;, &amp;quot;AUTH_FAIL_ACTION_UNAUTHORIZED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("auth_fail_action")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AuthFailAction { get; set; }
+    public TerraformValue<string>? AuthFailAction { get; set; }
 
     /// <summary>
     /// Methods to restrict access to a URL based on login status. Possible values: [&amp;quot;LOGIN_OPTIONAL&amp;quot;, &amp;quot;LOGIN_ADMIN&amp;quot;, &amp;quot;LOGIN_REQUIRED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("login")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Login { get; set; }
+    public TerraformValue<string>? Login { get; set; }
 
     /// <summary>
     /// 30x code to use when performing redirects for the secure field. Possible values: [&amp;quot;REDIRECT_HTTP_RESPONSE_CODE_301&amp;quot;, &amp;quot;REDIRECT_HTTP_RESPONSE_CODE_302&amp;quot;, &amp;quot;REDIRECT_HTTP_RESPONSE_CODE_303&amp;quot;, &amp;quot;REDIRECT_HTTP_RESPONSE_CODE_307&amp;quot;]
     /// </summary>
     [TerraformPropertyName("redirect_http_response_code")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RedirectHttpResponseCode { get; set; }
+    public TerraformValue<string>? RedirectHttpResponseCode { get; set; }
 
     /// <summary>
     /// Security (HTTPS) enforcement for this URL. Possible values: [&amp;quot;SECURE_DEFAULT&amp;quot;, &amp;quot;SECURE_NEVER&amp;quot;, &amp;quot;SECURE_OPTIONAL&amp;quot;, &amp;quot;SECURE_ALWAYS&amp;quot;]
     /// </summary>
     [TerraformPropertyName("security_level")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? SecurityLevel { get; set; }
+    public TerraformValue<string>? SecurityLevel { get; set; }
 
     /// <summary>
     /// URL prefix. Uses regular expression syntax, which means regexp special characters must be escaped, but should not contain groupings.
@@ -245,7 +245,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("url_regex")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? UrlRegex { get; set; }
+    public TerraformValue<string>? UrlRegex { get; set; }
 
 }
 
@@ -253,35 +253,35 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlock : ITerraformBlock
 /// Block type for liveness_check in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock
 {
     /// <summary>
     /// Interval between health checks.
     /// </summary>
     [TerraformPropertyName("check_interval")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CheckInterval { get; set; }
+    public TerraformValue<string>? CheckInterval { get; set; }
 
     /// <summary>
     /// Number of consecutive failed checks required before considering the VM unhealthy. Default: 4.
     /// </summary>
     [TerraformPropertyName("failure_threshold")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? FailureThreshold { get; set; }
+    public TerraformValue<double>? FailureThreshold { get; set; }
 
     /// <summary>
     /// Host header to send when performing a HTTP Readiness check. Example: &amp;quot;myapp.appspot.com&amp;quot;
     /// </summary>
     [TerraformPropertyName("host")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Host { get; set; }
+    public TerraformValue<string>? Host { get; set; }
 
     /// <summary>
     /// The initial delay before starting to execute the checks. Default: &amp;quot;300s&amp;quot;
     /// </summary>
     [TerraformPropertyName("initial_delay")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? InitialDelay { get; set; }
+    public TerraformValue<string>? InitialDelay { get; set; }
 
     /// <summary>
     /// The request path.
@@ -289,21 +289,21 @@ public class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     [TerraformPropertyName("path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Path { get; set; }
+    public required TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// Number of consecutive successful checks required before considering the VM healthy. Default: 2.
     /// </summary>
     [TerraformPropertyName("success_threshold")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? SuccessThreshold { get; set; }
+    public TerraformValue<double>? SuccessThreshold { get; set; }
 
     /// <summary>
     /// Time before the check is considered failed. Default: &amp;quot;4s&amp;quot;
     /// </summary>
     [TerraformPropertyName("timeout")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Timeout { get; set; }
+    public TerraformValue<string>? Timeout { get; set; }
 
 }
 
@@ -311,7 +311,7 @@ public class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : ITerraformBlo
 /// Block type for manual_scaling in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionManualScalingBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionManualScalingBlock
 {
     /// <summary>
     /// Number of instances to assign to the service at the start.
@@ -322,7 +322,7 @@ public class GoogleAppEngineFlexibleAppVersionManualScalingBlock : ITerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instances is required")]
     [TerraformPropertyName("instances")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Instances { get; set; }
+    public required TerraformValue<double> Instances { get; set; }
 
 }
 
@@ -330,21 +330,21 @@ public class GoogleAppEngineFlexibleAppVersionManualScalingBlock : ITerraformBlo
 /// Block type for network in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionNetworkBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionNetworkBlock
 {
     /// <summary>
     /// List of ports, or port pairs, to forward from the virtual machine to the application container.
     /// </summary>
     [TerraformPropertyName("forwarded_ports")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? ForwardedPorts { get; set; }
+    public TerraformList<string>? ForwardedPorts { get; set; }
 
     /// <summary>
     /// Tag to apply to the instance during creation.
     /// </summary>
     [TerraformPropertyName("instance_tag")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? InstanceTag { get; set; }
+    public TerraformValue<string>? InstanceTag { get; set; }
 
     /// <summary>
     /// Google Compute Engine network where the virtual machines are created. Specify the short name, not the resource path.
@@ -352,14 +352,14 @@ public class GoogleAppEngineFlexibleAppVersionNetworkBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Enable session affinity.
     /// </summary>
     [TerraformPropertyName("session_affinity")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? SessionAffinity { get; set; }
+    public TerraformValue<bool>? SessionAffinity { get; set; }
 
     /// <summary>
     /// Google Cloud Platform sub-network where the virtual machines are created. Specify the short name, not the resource path.
@@ -371,7 +371,7 @@ public class GoogleAppEngineFlexibleAppVersionNetworkBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("subnetwork")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Subnetwork { get; set; }
+    public TerraformValue<string>? Subnetwork { get; set; }
 
 }
 
@@ -379,7 +379,7 @@ public class GoogleAppEngineFlexibleAppVersionNetworkBlock : ITerraformBlock
 /// Block type for readiness_check in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock
 {
     /// <summary>
     /// A maximum time limit on application initialization, measured from moment the application successfully
@@ -387,28 +387,28 @@ public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : ITerraformBl
     /// </summary>
     [TerraformPropertyName("app_start_timeout")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? AppStartTimeout { get; set; }
+    public TerraformValue<string>? AppStartTimeout { get; set; }
 
     /// <summary>
     /// Interval between health checks.  Default: &amp;quot;5s&amp;quot;.
     /// </summary>
     [TerraformPropertyName("check_interval")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CheckInterval { get; set; }
+    public TerraformValue<string>? CheckInterval { get; set; }
 
     /// <summary>
     /// Number of consecutive failed checks required before removing traffic. Default: 2.
     /// </summary>
     [TerraformPropertyName("failure_threshold")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? FailureThreshold { get; set; }
+    public TerraformValue<double>? FailureThreshold { get; set; }
 
     /// <summary>
     /// Host header to send when performing a HTTP Readiness check. Example: &amp;quot;myapp.appspot.com&amp;quot;
     /// </summary>
     [TerraformPropertyName("host")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Host { get; set; }
+    public TerraformValue<string>? Host { get; set; }
 
     /// <summary>
     /// The request path.
@@ -416,21 +416,21 @@ public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : ITerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     [TerraformPropertyName("path")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Path { get; set; }
+    public required TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// Number of consecutive successful checks required before receiving traffic. Default: 2.
     /// </summary>
     [TerraformPropertyName("success_threshold")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? SuccessThreshold { get; set; }
+    public TerraformValue<double>? SuccessThreshold { get; set; }
 
     /// <summary>
     /// Time before the check is considered failed. Default: &amp;quot;4s&amp;quot;
     /// </summary>
     [TerraformPropertyName("timeout")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Timeout { get; set; }
+    public TerraformValue<string>? Timeout { get; set; }
 
 }
 
@@ -438,28 +438,28 @@ public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : ITerraformBl
 /// Block type for resources in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionResourcesBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionResourcesBlock
 {
     /// <summary>
     /// Number of CPU cores needed.
     /// </summary>
     [TerraformPropertyName("cpu")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Cpu { get; set; }
+    public TerraformValue<double>? Cpu { get; set; }
 
     /// <summary>
     /// Disk size (GB) needed.
     /// </summary>
     [TerraformPropertyName("disk_gb")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? DiskGb { get; set; }
+    public TerraformValue<double>? DiskGb { get; set; }
 
     /// <summary>
     /// Memory (GB) needed.
     /// </summary>
     [TerraformPropertyName("memory_gb")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? MemoryGb { get; set; }
+    public TerraformValue<double>? MemoryGb { get; set; }
 
 }
 
@@ -467,28 +467,28 @@ public class GoogleAppEngineFlexibleAppVersionResourcesBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionTimeoutsBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -496,7 +496,7 @@ public class GoogleAppEngineFlexibleAppVersionTimeoutsBlock : ITerraformBlock
 /// Block type for vpc_access_connector in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock : ITerraformBlock
+public class GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock
 {
     /// <summary>
     /// Full Serverless VPC Access Connector name e.g. /projects/my-project/locations/us-central1/connectors/c1.
@@ -504,7 +504,7 @@ public class GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock : ITerrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
 }
 
@@ -523,7 +523,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [TerraformPropertyName("beta_settings")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? BetaSettings { get; set; }
+    public TerraformMap<string>? BetaSettings { get; set; }
 
     /// <summary>
     /// Duration that static files should be cached by web proxies and browsers.
@@ -531,35 +531,35 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [TerraformPropertyName("default_expiration")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? DefaultExpiration { get; set; }
+    public TerraformValue<string>? DefaultExpiration { get; set; }
 
     /// <summary>
     /// If set to &#39;true&#39;, the service will be deleted if it is the last version.
     /// </summary>
     [TerraformPropertyName("delete_service_on_destroy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? DeleteServiceOnDestroy { get; set; }
+    public TerraformValue<bool>? DeleteServiceOnDestroy { get; set; }
 
     /// <summary>
     /// Environment variables available to the application.  As these are not returned in the API request, Terraform will not detect any changes made outside of the Terraform config.
     /// </summary>
     [TerraformPropertyName("env_variables")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? EnvVariables { get; set; }
+    public TerraformMap<string>? EnvVariables { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// A list of the types of messages that this application is able to receive. Possible values: [&amp;quot;INBOUND_SERVICE_MAIL&amp;quot;, &amp;quot;INBOUND_SERVICE_MAIL_BOUNCE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_ERROR&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_MESSAGE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_SUBSCRIBE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_PRESENCE&amp;quot;, &amp;quot;INBOUND_SERVICE_CHANNEL_PRESENCE&amp;quot;, &amp;quot;INBOUND_SERVICE_WARMUP&amp;quot;]
     /// </summary>
     [TerraformPropertyName("inbound_services")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<HashSet<TerraformProperty<string>>>? InboundServices { get; set; }
+    public TerraformSet<string>? InboundServices { get; set; }
 
     /// <summary>
     /// Instance class that is used to run this version. Valid values are
@@ -569,28 +569,28 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [TerraformPropertyName("instance_class")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? InstanceClass { get; set; }
+    public TerraformValue<string>? InstanceClass { get; set; }
 
     /// <summary>
     /// Files that match this pattern will not be built into this version. Only applicable for Go runtimes.
     /// </summary>
     [TerraformPropertyName("nobuild_files_regex")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? NobuildFilesRegex { get; set; }
+    public TerraformValue<string>? NobuildFilesRegex { get; set; }
 
     /// <summary>
     /// If set to &#39;true&#39;, the application version will not be deleted.
     /// </summary>
     [TerraformPropertyName("noop_on_destroy")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? NoopOnDestroy { get; set; }
+    public TerraformValue<bool>? NoopOnDestroy { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// Desired runtime. Example python27.
@@ -598,7 +598,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     [TerraformPropertyName("runtime")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Runtime { get; set; }
+    public required TerraformValue<string> Runtime { get; set; }
 
     /// <summary>
     /// The version of the API in the given runtime environment.
@@ -606,22 +606,22 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// Substitute &#39;&amp;lt;language&amp;gt;&#39; with &#39;python&#39;, &#39;java&#39;, &#39;php&#39;, &#39;ruby&#39;, &#39;go&#39; or &#39;nodejs&#39;.
     /// </summary>
     [TerraformPropertyName("runtime_api_version")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> RuntimeApiVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "runtime_api_version");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> RuntimeApiVersion { get; set; } = default!;
 
     /// <summary>
     /// The channel of the runtime to use. Only available for some runtimes.
     /// </summary>
     [TerraformPropertyName("runtime_channel")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RuntimeChannel { get; set; }
+    public TerraformValue<string>? RuntimeChannel { get; set; }
 
     /// <summary>
     /// The path or name of the app&#39;s main executable.
     /// </summary>
     [TerraformPropertyName("runtime_main_executable_path")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? RuntimeMainExecutablePath { get; set; }
+    public TerraformValue<string>? RuntimeMainExecutablePath { get; set; }
 
     /// <summary>
     /// AppEngine service resource. Can contain numbers, letters, and hyphens.
@@ -629,22 +629,22 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformPropertyName("service")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Service { get; set; }
+    public required TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as
     /// default if this field is neither provided in app.yaml file nor through CLI flag.
     /// </summary>
     [TerraformPropertyName("service_account")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> ServiceAccount { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_account");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> ServiceAccount { get; set; } = default!;
 
     /// <summary>
     /// Current serving status of this version. Only the versions with a SERVING status create instances and can be billed. Default value: &amp;quot;SERVING&amp;quot; Possible values: [&amp;quot;SERVING&amp;quot;, &amp;quot;STOPPED&amp;quot;]
     /// </summary>
     [TerraformPropertyName("serving_status")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ServingStatus { get; set; }
+    public TerraformValue<string>? ServingStatus { get; set; }
 
     /// <summary>
     /// Relative name of the version within the service. For example, &#39;v1&#39;. Version names can contain only lowercase letters, numbers, or hyphens.
@@ -652,7 +652,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [TerraformPropertyName("version_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VersionId { get; set; }
+    public TerraformValue<string>? VersionId { get; set; }
 
     /// <summary>
     /// Block for api_config.
@@ -660,7 +660,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiConfig block(s) allowed")]
     [TerraformPropertyName("api_config")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionApiConfigBlock>>? ApiConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionApiConfigBlock>>? ApiConfig { get; set; }
 
     /// <summary>
     /// Block for automatic_scaling.
@@ -668,7 +668,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticScaling block(s) allowed")]
     [TerraformPropertyName("automatic_scaling")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock>>? AutomaticScaling { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock>>? AutomaticScaling { get; set; }
 
     /// <summary>
     /// Block for deployment.
@@ -676,7 +676,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Deployment block(s) allowed")]
     [TerraformPropertyName("deployment")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionDeploymentBlock>>? Deployment { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionDeploymentBlock>>? Deployment { get; set; }
 
     /// <summary>
     /// Block for endpoints_api_service.
@@ -684,7 +684,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointsApiService block(s) allowed")]
     [TerraformPropertyName("endpoints_api_service")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock>>? EndpointsApiService { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock>>? EndpointsApiService { get; set; }
 
     /// <summary>
     /// Block for entrypoint.
@@ -692,7 +692,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Entrypoint block(s) allowed")]
     [TerraformPropertyName("entrypoint")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionEntrypointBlock>>? Entrypoint { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionEntrypointBlock>>? Entrypoint { get; set; }
 
     /// <summary>
     /// Block for flexible_runtime_settings.
@@ -700,14 +700,14 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FlexibleRuntimeSettings block(s) allowed")]
     [TerraformPropertyName("flexible_runtime_settings")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlock>>? FlexibleRuntimeSettings { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlock>>? FlexibleRuntimeSettings { get; set; }
 
     /// <summary>
     /// Block for handlers.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("handlers")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionHandlersBlock>>? Handlers { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionHandlersBlock>>? Handlers { get; set; }
 
     /// <summary>
     /// Block for liveness_check.
@@ -717,7 +717,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LivenessCheck block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LivenessCheck block(s) allowed")]
     [TerraformPropertyName("liveness_check")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionLivenessCheckBlock>>? LivenessCheck { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionLivenessCheckBlock>>? LivenessCheck { get; set; }
 
     /// <summary>
     /// Block for manual_scaling.
@@ -725,7 +725,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManualScaling block(s) allowed")]
     [TerraformPropertyName("manual_scaling")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionManualScalingBlock>>? ManualScaling { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionManualScalingBlock>>? ManualScaling { get; set; }
 
     /// <summary>
     /// Block for network.
@@ -733,7 +733,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
     [TerraformPropertyName("network")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionNetworkBlock>>? Network { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionNetworkBlock>>? Network { get; set; }
 
     /// <summary>
     /// Block for readiness_check.
@@ -743,7 +743,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReadinessCheck block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadinessCheck block(s) allowed")]
     [TerraformPropertyName("readiness_check")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionReadinessCheckBlock>>? ReadinessCheck { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionReadinessCheckBlock>>? ReadinessCheck { get; set; }
 
     /// <summary>
     /// Block for resources.
@@ -751,14 +751,14 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Resources block(s) allowed")]
     [TerraformPropertyName("resources")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionResourcesBlock>>? Resources { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionResourcesBlock>>? Resources { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleAppEngineFlexibleAppVersionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleAppEngineFlexibleAppVersionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpc_access_connector.
@@ -766,13 +766,13 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcAccessConnector block(s) allowed")]
     [TerraformPropertyName("vpc_access_connector")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock>>? VpcAccessConnector { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock>>? VpcAccessConnector { get; set; }
 
     /// <summary>
     /// Full path to the Version resource in the API. Example, &amp;quot;v1&amp;quot;.
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
 }

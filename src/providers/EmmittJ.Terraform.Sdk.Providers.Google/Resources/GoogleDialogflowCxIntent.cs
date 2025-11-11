@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for parameters in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxIntentParametersBlock : ITerraformBlock
+public class GoogleDialogflowCxIntentParametersBlock
 {
     /// <summary>
     /// The entity type of the parameter.
@@ -15,7 +15,7 @@ public class GoogleDialogflowCxIntentParametersBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
     [TerraformPropertyName("entity_type")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> EntityType { get; set; }
+    public required TerraformValue<string> EntityType { get; set; }
 
     /// <summary>
     /// The unique identifier of the parameter. This field is used by training phrases to annotate their parts.
@@ -23,14 +23,14 @@ public class GoogleDialogflowCxIntentParametersBlock : ITerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformPropertyName("id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
+    public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Indicates whether the parameter represents a list of values.
     /// </summary>
     [TerraformPropertyName("is_list")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IsList { get; set; }
+    public TerraformValue<bool>? IsList { get; set; }
 
     /// <summary>
     /// Indicates whether the parameter content should be redacted in log. If redaction is enabled, the parameter content will be replaced by parameter name during logging.
@@ -38,7 +38,7 @@ public class GoogleDialogflowCxIntentParametersBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("redact")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Redact { get; set; }
+    public TerraformValue<bool>? Redact { get; set; }
 
 }
 
@@ -46,28 +46,28 @@ public class GoogleDialogflowCxIntentParametersBlock : ITerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowCxIntentTimeoutsBlock : ITerraformBlock
+public class GoogleDialogflowCxIntentTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -75,21 +75,15 @@ public class GoogleDialogflowCxIntentTimeoutsBlock : ITerraformBlock
 /// Block type for training_phrases in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxIntentTrainingPhrasesBlock : ITerraformBlock
+public class GoogleDialogflowCxIntentTrainingPhrasesBlock
 {
-    /// <summary>
-    /// The unique identifier of the training phrase.
-    /// </summary>
-    [TerraformPropertyName("id")]
-    // Computed attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// Indicates how many times this example was added to the intent.
     /// </summary>
     [TerraformPropertyName("repeat_count")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? RepeatCount { get; set; }
+    public TerraformValue<double>? RepeatCount { get; set; }
 
 }
 
@@ -107,7 +101,7 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The human-readable name of the intent, unique within the agent.
@@ -115,14 +109,14 @@ public class GoogleDialogflowCxIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformPropertyName("display_name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
+    public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// Marks this as the [Default Negative Intent](https://cloud.google.com/dialogflow/cx/docs/concept/intent#negative) for an agent. When you create an agent, a Default Negative Intent is created automatically.
@@ -132,7 +126,7 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformPropertyName("is_default_negative_intent")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IsDefaultNegativeIntent { get; set; }
+    public TerraformValue<bool>? IsDefaultNegativeIntent { get; set; }
 
     /// <summary>
     /// Marks this as the [Default Welcome Intent](https://cloud.google.com/dialogflow/cx/docs/concept/intent#welcome) for an agent. When you create an agent, a Default Welcome Intent is created automatically.
@@ -142,7 +136,7 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformPropertyName("is_default_welcome_intent")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IsDefaultWelcomeIntent { get; set; }
+    public TerraformValue<bool>? IsDefaultWelcomeIntent { get; set; }
 
     /// <summary>
     /// Indicates whether this is a fallback intent. Currently only default fallback intent is allowed in the agent, which is added upon agent creation.
@@ -151,7 +145,7 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformPropertyName("is_fallback")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? IsFallback { get; set; }
+    public TerraformValue<bool>? IsFallback { get; set; }
 
     /// <summary>
     /// The key/value metadata to label an intent. Labels can contain lowercase letters, digits and the symbols &#39;-&#39; and &#39;_&#39;. International characters are allowed, including letters from unicase alphabets. Keys must start with a letter. Keys and values can be no longer than 63 characters and no more than 128 bytes.
@@ -164,7 +158,7 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformPropertyName("labels")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
+    public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The language of the following fields in intent:
@@ -173,7 +167,7 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformPropertyName("language_code")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? LanguageCode { get; set; }
+    public TerraformValue<string>? LanguageCode { get; set; }
 
     /// <summary>
     /// The agent to create an intent for.
@@ -181,7 +175,7 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformPropertyName("parent")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Parent { get; set; }
+    public TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// The priority of this intent. Higher numbers represent higher priorities.
@@ -190,35 +184,35 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformPropertyName("priority")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? Priority { get; set; }
+    public TerraformValue<double>? Priority { get; set; }
 
     /// <summary>
     /// Block for parameters.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("parameters")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxIntentParametersBlock>>? Parameters { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDialogflowCxIntentParametersBlock>>? Parameters { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxIntentTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleDialogflowCxIntentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for training_phrases.
     /// Nesting mode: list
     /// </summary>
     [TerraformPropertyName("training_phrases")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxIntentTrainingPhrasesBlock>>? TrainingPhrases { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleDialogflowCxIntentTrainingPhrasesBlock>>? TrainingPhrases { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformPropertyName("effective_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
+    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
 
     /// <summary>
     /// The unique identifier of the intent.
@@ -226,7 +220,7 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformPropertyName("name")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
+    public TerraformValue<string> Name => new TerraformReference(this, "name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -234,6 +228,6 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformPropertyName("terraform_labels")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
+    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
 
 }

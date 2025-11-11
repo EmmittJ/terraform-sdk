@@ -15,21 +15,21 @@ public class AwsOrganizationsDelegatedAdministratorsDataSource : TerraformDataSo
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The service_principal attribute.
     /// </summary>
     [TerraformPropertyName("service_principal")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ServicePrincipal { get; set; }
+    public TerraformValue<string>? ServicePrincipal { get; set; }
 
     /// <summary>
     /// The delegated_administrators attribute.
     /// </summary>
     [TerraformPropertyName("delegated_administrators")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<HashSet<TerraformProperty<object>>> DelegatedAdministrators => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "delegated_administrators");
+    public TerraformSet<object> DelegatedAdministrators => new TerraformReference(this, "delegated_administrators");
 
 }

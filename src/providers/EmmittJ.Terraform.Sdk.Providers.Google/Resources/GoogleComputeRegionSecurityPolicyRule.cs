@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for match in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionSecurityPolicyRuleMatchBlock : ITerraformBlock
+public class GoogleComputeRegionSecurityPolicyRuleMatchBlock
 {
     /// <summary>
     /// Preconfigured versioned expression. If this field is specified, config must also be specified.
@@ -14,7 +14,7 @@ public class GoogleComputeRegionSecurityPolicyRuleMatchBlock : ITerraformBlock
     /// </summary>
     [TerraformPropertyName("versioned_expr")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? VersionedExpr { get; set; }
+    public TerraformValue<string>? VersionedExpr { get; set; }
 
 }
 
@@ -22,56 +22,56 @@ public class GoogleComputeRegionSecurityPolicyRuleMatchBlock : ITerraformBlock
 /// Block type for network_match in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock : ITerraformBlock
+public class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock
 {
     /// <summary>
     /// Destination IPv4/IPv6 addresses or CIDR prefixes, in standard text format.
     /// </summary>
     [TerraformPropertyName("dest_ip_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? DestIpRanges { get; set; }
+    public TerraformList<string>? DestIpRanges { get; set; }
 
     /// <summary>
     /// Destination port numbers for TCP/UDP/SCTP. Each element can be a 16-bit unsigned decimal number (e.g. &amp;quot;80&amp;quot;) or range (e.g. &amp;quot;0-1023&amp;quot;).
     /// </summary>
     [TerraformPropertyName("dest_ports")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? DestPorts { get; set; }
+    public TerraformList<string>? DestPorts { get; set; }
 
     /// <summary>
     /// IPv4 protocol / IPv6 next header (after extension headers). Each element can be an 8-bit unsigned decimal number (e.g. &amp;quot;6&amp;quot;), range (e.g. &amp;quot;253-254&amp;quot;), or one of the following protocol names: &amp;quot;tcp&amp;quot;, &amp;quot;udp&amp;quot;, &amp;quot;icmp&amp;quot;, &amp;quot;esp&amp;quot;, &amp;quot;ah&amp;quot;, &amp;quot;ipip&amp;quot;, or &amp;quot;sctp&amp;quot;.
     /// </summary>
     [TerraformPropertyName("ip_protocols")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? IpProtocols { get; set; }
+    public TerraformList<string>? IpProtocols { get; set; }
 
     /// <summary>
     /// BGP Autonomous System Number associated with the source IP address.
     /// </summary>
     [TerraformPropertyName("src_asns")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<double>>>? SrcAsns { get; set; }
+    public TerraformList<double>? SrcAsns { get; set; }
 
     /// <summary>
     /// Source IPv4/IPv6 addresses or CIDR prefixes, in standard text format.
     /// </summary>
     [TerraformPropertyName("src_ip_ranges")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? SrcIpRanges { get; set; }
+    public TerraformList<string>? SrcIpRanges { get; set; }
 
     /// <summary>
     /// Source port numbers for TCP/UDP/SCTP. Each element can be a 16-bit unsigned decimal number (e.g. &amp;quot;80&amp;quot;) or range (e.g. &amp;quot;0-1023&amp;quot;).
     /// </summary>
     [TerraformPropertyName("src_ports")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? SrcPorts { get; set; }
+    public TerraformList<string>? SrcPorts { get; set; }
 
     /// <summary>
     /// Two-letter ISO 3166-1 alpha-2 country code associated with the source IP address.
     /// </summary>
     [TerraformPropertyName("src_region_codes")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<List<TerraformProperty<string>>>? SrcRegionCodes { get; set; }
+    public TerraformList<string>? SrcRegionCodes { get; set; }
 
 }
 
@@ -79,7 +79,7 @@ public class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock : ITerraform
 /// Block type for preconfigured_waf_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock : ITerraformBlock
+public class GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock
 {
 }
 
@@ -87,7 +87,7 @@ public class GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock : 
 /// Block type for rate_limit_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : ITerraformBlock
+public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock
 {
     /// <summary>
     /// Can only be specified if the action for the rule is &amp;quot;rate_based_ban&amp;quot;.
@@ -95,7 +95,7 @@ public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : ITerra
     /// </summary>
     [TerraformPropertyName("ban_duration_sec")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<double>>? BanDurationSec { get; set; }
+    public TerraformValue<double>? BanDurationSec { get; set; }
 
     /// <summary>
     /// Action to take for requests that are under the configured rate limit threshold.
@@ -103,7 +103,7 @@ public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : ITerra
     /// </summary>
     [TerraformPropertyName("conform_action")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ConformAction { get; set; }
+    public TerraformValue<string>? ConformAction { get; set; }
 
     /// <summary>
     /// Determines the key to enforce the rateLimitThreshold on. Possible values are:
@@ -121,7 +121,7 @@ public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : ITerra
     /// </summary>
     [TerraformPropertyName("enforce_on_key")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EnforceOnKey { get; set; }
+    public TerraformValue<string>? EnforceOnKey { get; set; }
 
     /// <summary>
     /// Rate limit key name applicable only for the following key types:
@@ -130,7 +130,7 @@ public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : ITerra
     /// </summary>
     [TerraformPropertyName("enforce_on_key_name")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? EnforceOnKeyName { get; set; }
+    public TerraformValue<string>? EnforceOnKeyName { get; set; }
 
     /// <summary>
     /// Action to take for requests that are above the configured rate limit threshold, to deny with a specified HTTP response code.
@@ -138,7 +138,7 @@ public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : ITerra
     /// </summary>
     [TerraformPropertyName("exceed_action")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? ExceedAction { get; set; }
+    public TerraformValue<string>? ExceedAction { get; set; }
 
 }
 
@@ -146,28 +146,28 @@ public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : ITerra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock : ITerraformBlock
+public class GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -197,28 +197,28 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformPropertyName("action")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
+    public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
     [TerraformPropertyName("description")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
+    public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// If set to true, the specified action is not enforced.
     /// </summary>
     [TerraformPropertyName("preview")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<bool>>? Preview { get; set; }
+    public TerraformValue<bool>? Preview { get; set; }
 
     /// <summary>
     /// An integer indicating the priority of a rule in the list.
@@ -228,14 +228,14 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformPropertyName("priority")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
+    public required TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformPropertyName("project")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Project { get; set; } = default!;
 
     /// <summary>
     /// The Region in which the created Region Security Policy rule should reside.
@@ -243,7 +243,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     [TerraformPropertyName("region")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Region { get; set; }
+    public required TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The name of the security policy this rule belongs to.
@@ -251,7 +251,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityPolicy is required")]
     [TerraformPropertyName("security_policy")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SecurityPolicy { get; set; }
+    public required TerraformValue<string> SecurityPolicy { get; set; }
 
     /// <summary>
     /// Block for match.
@@ -259,7 +259,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
     [TerraformPropertyName("match")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleMatchBlock>>? Match { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleMatchBlock>>? Match { get; set; }
 
     /// <summary>
     /// Block for network_match.
@@ -267,7 +267,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkMatch block(s) allowed")]
     [TerraformPropertyName("network_match")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock>>? NetworkMatch { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock>>? NetworkMatch { get; set; }
 
     /// <summary>
     /// Block for preconfigured_waf_config.
@@ -275,7 +275,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreconfiguredWafConfig block(s) allowed")]
     [TerraformPropertyName("preconfigured_waf_config")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock>>? PreconfiguredWafConfig { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock>>? PreconfiguredWafConfig { get; set; }
 
     /// <summary>
     /// Block for rate_limit_options.
@@ -283,13 +283,13 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RateLimitOptions block(s) allowed")]
     [TerraformPropertyName("rate_limit_options")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock>>? RateLimitOptions { get; set; } = new();
+    public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock>>? RateLimitOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

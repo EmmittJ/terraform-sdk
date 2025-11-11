@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAdvisorSuppressionTimeoutsBlock : ITerraformBlock
+public class AzurermAdvisorSuppressionTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -44,8 +44,8 @@ public class AzurermAdvisorSuppression : TerraformResource
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public class AzurermAdvisorSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recommendation_id attribute.
@@ -61,7 +61,7 @@ public class AzurermAdvisorSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecommendationId is required")]
     [TerraformPropertyName("recommendation_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> RecommendationId { get; set; }
+    public required TerraformValue<string> RecommendationId { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
@@ -69,27 +69,27 @@ public class AzurermAdvisorSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     [TerraformPropertyName("resource_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ResourceId { get; set; }
+    public required TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     [TerraformPropertyName("ttl")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Ttl { get; set; }
+    public TerraformValue<string>? Ttl { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermAdvisorSuppressionTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermAdvisorSuppressionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The suppression_id attribute.
     /// </summary>
     [TerraformPropertyName("suppression_id")]
     // Output-only attribute - read-only reference
-    public TerraformProperty<TerraformProperty<string>> SuppressionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "suppression_id");
+    public TerraformValue<string> SuppressionId => new TerraformReference(this, "suppression_id");
 
 }

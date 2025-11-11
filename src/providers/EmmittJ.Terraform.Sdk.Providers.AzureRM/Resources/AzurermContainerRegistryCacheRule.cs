@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerRegistryCacheRuleTimeoutsBlock : ITerraformBlock
+public class AzurermContainerRegistryCacheRuleTimeoutsBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
     [TerraformPropertyName("create")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
+    public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformPropertyName("delete")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
+    public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformPropertyName("read")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
+    public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformPropertyName("update")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
+    public TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,21 +53,21 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     [TerraformPropertyName("container_registry_id")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> ContainerRegistryId { get; set; }
+    public required TerraformValue<string> ContainerRegistryId { get; set; }
 
     /// <summary>
     /// The ARM resource ID of the credential store which is associated with the cache rule.
     /// </summary>
     [TerraformPropertyName("credential_set_id")]
     // Optional argument - user may or may not set a value
-    public TerraformProperty<TerraformProperty<string>>? CredentialSetId { get; set; }
+    public TerraformValue<string>? CredentialSetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformPropertyName("id")]
-    // Optional+Computed - defaults to reference (Terraform will compute if not set)
-    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
+    // Optional+Computed - use setter for literal value, or leave as computed reference
+    public TerraformValue<string> Id { get; set; } = default!;
 
     /// <summary>
     /// The name of the cache rule.
@@ -75,7 +75,7 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformPropertyName("name")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
+    public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The full source repository path such as &#39;docker.io/library/ubuntu&#39;.
@@ -83,7 +83,7 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRepo is required")]
     [TerraformPropertyName("source_repo")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> SourceRepo { get; set; }
+    public required TerraformValue<string> SourceRepo { get; set; }
 
     /// <summary>
     /// The target repository namespace such as &#39;ubuntu&#39;.
@@ -91,13 +91,13 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRepo is required")]
     [TerraformPropertyName("target_repo")]
     // Required argument - user must set a value (no initializer for compile-time enforcement)
-    public required TerraformProperty<TerraformProperty<string>> TargetRepo { get; set; }
+    public required TerraformValue<string> TargetRepo { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformPropertyName("timeouts")]
-    public TerraformBlock<AzurermContainerRegistryCacheRuleTimeoutsBlock>? Timeouts { get; set; } = new();
+    public TerraformBlock<AzurermContainerRegistryCacheRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }
